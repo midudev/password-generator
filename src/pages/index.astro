@@ -40,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
 			color: rgb(229, 225, 230);
 			font-size: 12px;
 			pointer-events: none;
-			position: fixed;
+			position: absolute;
 			text-align: center;
 			width: 100%;
 			opacity: 0.3;
@@ -56,6 +56,10 @@ import Layout from '../layouts/Layout.astro';
 		<div class="prose prose-invert h-full">
 			<img class="w-72 h-auto" src='/logo.png' alt='Hacktoberfest logo' />
 			
+			<h2 class="text-white font-bold font-special uppercase text-3xl mt-8 mb-2">OBJETIVO</h2>
+
+			<p class="text-2xl">Crea una app que genera passwords al usuario de forma aleatoria.</p>
+
 			<h2 class="text-spark font-bold font-special uppercase text-3xl mt-8 mb-2">Cómo participar</h2>
 			<ol class="list-decimal">
 				<li>Regístrate en la <a target='_blank' rel='noopener noreferrer' href='https://hacktoberfest.com'>Hacktoberfest</a></li>
@@ -66,11 +70,7 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 
 		<section class="prose prose-invert">
-			<p class="text-xl">
-				Crea una app que <strong>genera passwords al usuario de forma aleatoria.</strong>
-			</p>
-	
-			<h2 class="text-psybeam font-special uppercase text-3xl mt-8 mb-2">Requerimientos</h2>
+			<h2 class="text-psybeam font-special uppercase text-3xl mb-2">Requerimientos</h2>
 	
 			<ul class="list-disc">
 				<li>Muestra un botón que al hacer click, se le genera un password aleatorio al usuario.</li>
@@ -96,10 +96,10 @@ import Layout from '../layouts/Layout.astro';
 		<aside>
 			<h2 class="text-giga font-bold font-special uppercase text-3xl mb-2">Participaciones</h2>
 			<ul>
-				<li>
-					<a href='/entry/midudev'>
+				<li class="inline-flex">
+					<a class="text-white text-center flex flex-col gap-y-2" href='/entry/midudev'>
 						<img class="rounded-full w-20 h-20" src='https://unavatar.io/github/midudev' alt="midudev" />
-						midudev
+						<span class="block">midudev</span>
 					</a>
 				</li>
 			</ul>
