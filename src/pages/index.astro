@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Frontend Challenges">
+	<main>
+
+		<h1 class="font-bold text-6xl mt-8 mb-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black text-transparent bg-clip-text">El reto de Hacktoberfest</h1>
+		Crear una aplicación que <strong>genera passwords al usuario de forma aleatoria.</strong>
+
+		<h2 class="text-gray-700 font-bold text-2xl mt-8 mb-2">Cómo participar</h2>
+		<ol class="list-decimal list-inside">
+			<li>Regístrate en la <a href='https://hacktoberfest.com'>Hacktoberfest</a></li>
+			<li>Crear un fork de este repositorio</li>
+			<li>Crea una página en <code>/pages/entry/&lt;tu-nombre-de-usuario-en-github&gt;/index.astro</code></li>
+			<li>Implementa la solución del reto siguiendo todos los requerimientos</li>
+		</ol>
+
+		
+		<h2 class="text-gray-700 font-bold text-2xl mt-8 mb-2">Requerimientos</h2>
+
+		<ul class="list-disc list-inside">
+			<li>Muestra un botón que al hacer click, se le genera un password aleatorio al usuario.</li>
+			<li>Muestra un slider para que el usuario pueda determinar la longitud del password que se genera.</li>
+			<li>Añade un icono al lado del password generado, para que pueda copiar el password</li>
+			<li>
+				<span class="italic">El próximo requerimiento se desbloquea el 4 de octubre</span>
+			</li>
+		</ul>
+
+		<h2 class="text-gray-700 font-bold text-2xl mt-8 mb-2">Reglas</h2>
+		<ul class="list-disc list-inside">
+			<li>Se pueden usar cualquier framework dentro de esta lista: React, Vue, Svelte, Solid y Lit. También puedes usar Vanilla Javascript.</li>
+			<li>NO se pueden usar dependencias de terceros. Nada de <code>npm install</code>, ni <code>yarn add</code> ni similares.</li>
+			<li>Se puede utilizar CSS y Tailwind pero NO se puede utilizar otro framework CSS como Bootstrap, Bulma, NextUI, Material UI, etc... ni tampoco SASS, Styles o similares.</li>
+			<li>No copies soluciones de otros participantes o soluciones de fuera.</li>
+			<li>Crea tus PRs del 1 al 31 de octubre.</li>
+			<li>No uses ni modifiques código o componentes de otros participantes.</li>
+			<li>Si necesitas crear componentes auxiliares para tu solución, crea una carpeta en <code>components/&lt;nombre-de-usuario-en-github&gt;/*</code></li>
+		</ul>
+	
+		<h2 class="text-gray-700 font-bold text-2xl mt-8 mb-2">Participaciones</h2>
+		<ul>
+			<li>
+				<a href='/entry/midudev'>
+					<img class="rounded-lg w-10 h-10" src='https://unavatar.io/github/midudev' alt="midudev" />
+					midudev
+				</a>
+			</li>
+		</ul>
+
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+	}
+
+	h1 {
+		margin: 2rem 0;
+	}
+
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: 60ch;
+	}
+
+	.text-gradient {
+		font-weight: 900;
+		background-image: var(--astro-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		animation: pulse 4s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			background-position-y: 0%;
+		}
+		50% {
+			background-position-y: 80%;
+		}
+	}
+
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		background: #4f39fa;
+		padding: 1rem;
+		border-radius: 0.4rem;
+		color: var(--color-bg);
+	}
+
+	.instructions code {
+		font-size: 0.875em;
+		border: 0.1em solid var(--color-border);
+		border-radius: 4px;
+		padding: 0.15em 0.25em;
+	}
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
