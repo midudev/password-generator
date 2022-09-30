@@ -11,7 +11,6 @@ import Layout from '../layouts/Layout.astro'
 			font-display: swap;
 			src: url('/Orbitron-ExtraBold.woff2') format('woff2');
 		}
-
 		@font-face {
 			font-family: 'Jet Brains Mono';
 			font-style: normal;
@@ -19,7 +18,6 @@ import Layout from '../layouts/Layout.astro'
 			font-display: swap;
 			src: url('/JetBrainsMono-Regular.woff2') format('woff2');
 		}
-
 		@font-face {
 			font-family: 'Jet Brains Mono';
 			font-style: normal;
@@ -27,7 +25,6 @@ import Layout from '../layouts/Layout.astro'
 			font-display: swap;
 			src: url('/JetBrainsMono-Bold.woff2') format('woff2');
 		}
-
 		@keyframes binary {
 			25% {
 				content: '01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001';
@@ -42,7 +39,6 @@ import Layout from '../layouts/Layout.astro'
 		100% {
 			content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
 		}
-
 		main::before {
 			animation: 1s linear 1s infinite normal none running binary;
 			content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
@@ -68,9 +64,9 @@ import Layout from '../layouts/Layout.astro'
 		}
 	</style>
 
-	<main class='grid xl:grid-cols-3 items-start pt-20 gap-10 p-10 bg-[url('/grain-dark.png')]'>
+	<main class='grid xl:grid-cols-3 items-start pt-20 gap-10 p-10 bg-[url("/grain-dark.png")]'>
 		<div class='prose prose-invert h-full'>
-			<img class='w-72 h-auto' src='/logo.png' alt='Hacktoberfest logo' />
+			<img class='w-72 h-auto' src='/logo.svg' alt='Hacktoberfest logo' />
 
 			<a
 				href='https://twitch.tv/midudev'
@@ -100,17 +96,20 @@ import Layout from '../layouts/Layout.astro'
 					Regístrate en la <a
 						target='_blank'
 						rel='noopener noreferrer'
-						href='https://hacktoberfest.com'>Hacktoberfest</a>
+						href='https://hacktoberfest.com'>Hacktoberfest</a
+					>
 				</li>
 				<li>
 					Crear un fork de <a
 						href='https://github.com/midudev/hacktoberfest-2022'
 						target='_blank'
-						rel='noopener noreferrer'>este repositorio</a>
+						rel='noopener noreferrer'>este repositorio</a
+					>
 				</li>
 				<li>
 					Crea una página en <code
-						>/pages/entry/&lt;tu-nombre-de-usuario-en-github&gt;/index.astro</code>
+						>/pages/entry/&lt;tu-nombre-de-usuario-en-github&gt;/index.astro</code
+					>
 				</li>
 				<li>Implementa la solución del reto siguiendo todos los requerimientos</li>
 			</ol>
@@ -151,7 +150,8 @@ import Layout from '../layouts/Layout.astro'
 				<li>No uses ni modifiques código o componentes de otros participantes.</li>
 				<li>
 					Si necesitas crear componentes auxiliares para tu solución, crea una carpeta en <code
-						>components/&lt;nombre-de-usuario-en-github&gt;/*</code>
+						>components/&lt;nombre-de-usuario-en-github&gt;/*</code
+					>
 				</li>
 			</ul>
 		</section>
@@ -167,16 +167,6 @@ import Layout from '../layouts/Layout.astro'
 							alt='midudev'
 						/>
 						<span class='block'>midudev</span>
-					</a>
-				</li>
-				<li class='inline-flex'>
-					<a class='text-white text-center flex flex-col gap-y-2' href='/entry/wayaba'>
-						<img
-							class='rounded-full w-20 h-20'
-							src='https://unavatar.io/github/wayaba'
-							alt='wayaba'
-						/>
-						<span class='block'>wayaba</span>
 					</a>
 				</li>
 			</ul>
