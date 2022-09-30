@@ -1,0 +1,13 @@
+ KADANE's ALGO (Finding contiguous array with max sum) 
+
+int maxSubarraySum(int arr[], int n){
+        int curmax=arr[0];
+        int maxx=arr[0];
+        for(int i=1;i<n;++i){
+            curmax=max(arr[i],arr[i]+curmax);
+            maxx=max(maxx,curmax);
+        }
+        return maxx;
+        // Your code here
+        
+    }
