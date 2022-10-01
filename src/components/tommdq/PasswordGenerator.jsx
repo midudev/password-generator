@@ -30,7 +30,8 @@ const PasswordGenerator = () => {
 					type='text'
 					value={password}
 					readOnly
-					className='p-2 w-full bg-grayViolet rounded font-sans outline-none font-semibold'
+					className='p-2 w-full rounded font-sans outline-none font-semibold'
+					style={{ background: '#7a7aa3' }}
 				/>
 				<button onClick={copyPassword}>
 					<svg
@@ -51,7 +52,11 @@ const PasswordGenerator = () => {
 					</svg>
 				</button>
 			</div>
-			<button onClick={generatePassword} className='p-4 bg-grayViolet font-medium'>
+			<button
+				onClick={generatePassword}
+				className='p-4 font-medium'
+				style={{ background: '#7a7aa3' }}
+			>
 				Generate Password
 			</button>
 			<input
@@ -62,7 +67,10 @@ const PasswordGenerator = () => {
 				max='40'
 				onChange={(e) => changeLength(e)}
 			/>
-			<label className='text-aqua self-center font-semibold text-xl'>{`Password Length: ${length}`}</label>
+			<label
+				className='self-center font-semibold text-xl'
+				style={{ color: '#a7a7cc' }}
+			>{`Password Length: ${length}`}</label>
 		</section>
 	)
 }
