@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Participants from '@components/Participants.astro'
+import Layout from '@layout'
 ---
 
 <Layout title='midudev <> Hacktoberfest 2022 - Participa en el código abierto'>
@@ -35,9 +36,9 @@ import Layout from '../layouts/Layout.astro'
 			75% {
 				content: '01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001';
 			}
-		} /*!sc*/
-		100% {
-			content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
+			100% {
+				content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
+			}
 		}
 		main::before {
 			animation: 1s linear 1s infinite normal none running binary;
@@ -62,9 +63,12 @@ import Layout from '../layouts/Layout.astro'
 			overflow: hidden;
 			z-index: 200;
 		}
+		main {
+			background: url('/grain-dark.png');
+		}
 	</style>
 
-	<main class='grid xl:grid-cols-3 items-start pt-20 gap-10 p-10 bg-[url("/grain-dark.png")]'>
+	<main class='grid xl:grid-cols-3 items-start pt-20 gap-10 p-10'>
 		<div class='prose prose-invert h-full'>
 			<img class='w-72 h-auto' src='/logo.svg' alt='Hacktoberfest logo' />
 
@@ -157,19 +161,7 @@ import Layout from '../layouts/Layout.astro'
 		</section>
 
 		<aside class='text-center'>
-			<h2 class='text-giga font-bold font-special uppercase text-3xl mb-2'>Participaciones</h2>
-			<ul>
-				<li class='inline-flex'>
-					<a class='text-white text-center flex flex-col gap-y-2' href='/entry/midudev'>
-						<img
-							class='rounded-full w-20 h-20'
-							src='https://unavatar.io/github/midudev'
-							alt='midudev'
-						/>
-						<span class='block'>midudev</span>
-					</a>
-				</li>
-			</ul>
+			<Participants />
 		</aside>
 	</main>
 </Layout>

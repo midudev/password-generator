@@ -1,0 +1,20 @@
+---
+import Layout from '@layout'
+import PasswordGenerator from '@components/jhormanrus/PasswordGenerator'
+---
+
+<Layout title="jhormanrus">
+	<main>
+		<h1 class="font-bold text-white text-xl mb-3">
+			Generador de contraseña
+		</h1>
+		<PasswordGenerator client:visible />
+	</main>
+</Layout>
+
+<style>
+	main {
+		@apply bg-gradient-to-r from-[#536976] to-[#292E49];
+		@apply bg-[url('/grain-dark.png')] min-h-screen flex flex-col items-center justify-center p-10;
+	}
+</style>
