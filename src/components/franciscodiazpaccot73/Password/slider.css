@@ -1,0 +1,25 @@
+.slider {
+	height: 30px;
+	padding: 24px 0;
+	width: 94%;
+}
+.slider input[type="range"] {
+	-webkit-appearance:none !important;
+	background: #d97706;
+	border-radius: 20px;
+	height: 8px;
+	outline: none;
+	width: 420px;
+}
+.slider input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none !important;
+	background: #d97706;
+	border-radius: 50%;
+	border: 1px solid white;
+	cursor: grab;
+	height: 24px;
+	width: 24px;
+}
+.slider input[type="range"]::-webkit-slider-thumb:hover {
+	background: #d97706;
+}
