@@ -12,5 +12,4 @@
 	"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
-	"cSpell.enabled": false
 }
