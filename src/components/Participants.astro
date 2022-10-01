@@ -1,7 +1,7 @@
 ---
 const { showAll = false } = Astro.props
 
-const MAX_ITEMS = 12
+const MAX_ITEMS = 50
 
 async function getParticipants () {
 	const items = await Astro.glob('../pages/entry/*/index.astro')
