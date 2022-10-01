@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { generatePw } from './generatePassword'
 
 import './styles.css'
@@ -13,9 +13,23 @@ const Button = ({ children, type = 'button', onClick = () => {}, className = '' 
 	)
 }
 
+const Toast = ({ visible = false, msg = '' }) => (
+	<div className={`toast ${visible ? 'visible' : 'hidden'}`}>
+		<div>{msg}</div>
+	</div>
+)
+
 const PasswordGenerator = () => {
 	const [passwordLength, setPasswordLength] = useState(DEFAULT_LENGTH)
 	const [passwords, setPassword] = useState([])
+	const [toastVisible, setToastVisible] = useState(false)
+	useEffect(() => {
+		if (toastVisible) {
+			setTimeout(() => {
+				setToastVisible(false)
+			}, 2000)
+		}
+	}, [toastVisible])
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
@@ -27,6 +41,7 @@ const PasswordGenerator = () => {
 
 	const handleCopy = (text) => {
 		navigator.clipboard.writeText(text)
+		setToastVisible(true)
 	}
 
 	return (
@@ -53,7 +68,7 @@ const PasswordGenerator = () => {
 				</div>
 			</form>
 			<div className='rounded-md border p-4'>
-				<h4 className='text-2xl mb-4 text-center'>Last generated passwords</h4>
+				<h4 className='text-2xl mb-4 text-center'>Last {passwords.length} generated passwords</h4>
 				<ul className='text-center  flex flex-col gap-2'>
 					{passwords.map((password) => (
 						<li className='prose w-full max-w-full'>
@@ -69,6 +84,7 @@ const PasswordGenerator = () => {
 					))}
 				</ul>
 			</div>
+			<Toast visible={toastVisible} msg='Password copied to clipboard!' />
 		</>
 	)
 }
