@@ -3,7 +3,7 @@
 </a>
 
 <div align="center">
-	<h2>¡Contribuye a un proyecto de código abierto!</h2>
+	<h1>¡Contribuye a un proyecto de código abierto!</h1>
 	<p>🚀 Soluciona el reto y participa en la Hacktoberfest</p>
 
 ![GitHub stars](https://img.shields.io/github/stars/midudev/hacktoberfest-2022)
