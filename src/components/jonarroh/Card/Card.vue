@@ -29,32 +29,47 @@
 	</main>
 </template>
 
-<script lang="ts" setup>
-import { defineProps, ref } from 'vue'
-import { usePasswordGenerator } from '../composables/usePasswordGenerator'
+<script lang="ts">
+import { ref } from 'vue'
 import { useCopyText } from '../composables/useCopyText'
+import { usePasswordGenerator } from '../composables/usePasswordGenerator'
 import Icono from '../icono/Icono.vue'
 
-defineProps({
-	title: {
-		type: String,
-		required: true
-	}
-})
+export default {
+	name: 'Card',
+	components: {
+		Icono
+	},
+	props: {
+		title: {
+			type: String,
+			default: 'Generador de contraseñas'
+		}
+	},
+	setup() {
+		const input = ref('')
+		const rango = ref(4)
+		const copied = ref(false)
+		const { copyText } = useCopyText()
+		const copy = () => {
+			copyText(input.value)
+			copied.value = true
+			setTimeout(() => {
+				copied.value = false
+			}, 1000)
+		}
 
-const input = ref()
-const rango = ref(4)
-const copied = ref(false)
-const { generatePassword, generatePasswordWithSymbols } = usePasswordGenerator()
-const { copyText } = useCopyText()
-const generate = () => {
-	input.value = generatePasswordWithSymbols(rango.value)
-}
-const copy = () => {
-	copyText(input.value)
-	copied.value = true
-	setTimeout(() => {
-		copied.value = false
-	}, 1000)
+		const { generatePasswordWithSymbols } = usePasswordGenerator()
+		const generate = () => {
+			input.value = generatePasswordWithSymbols(rango.value)
+		}
+		return {
+			input,
+			rango,
+			copy,
+			copied,
+			generate
+		}
+	}
 }
 </script>
