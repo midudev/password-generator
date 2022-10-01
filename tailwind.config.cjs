@@ -13,8 +13,7 @@ module.exports = {
 		},
 		fontFamily: {
 			sans: ['Jet Brains Mono', 'monospace'],
-			special: ['Orbitron', 'sans-serif'],
-			code: ['Source Code Pro','monospace']
+			special: ['Orbitron', 'sans-serif']
 		}
 	},
 	plugins: [require('@tailwindcss/typography')]
