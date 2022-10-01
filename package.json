@@ -9,7 +9,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+		"format": "prettier --write src/**"
   },
   "dependencies": {
     "@analogjs/astro-angular": "0.1.0-beta.2",
@@ -47,7 +48,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "0.5.7",
-    "@typescript-eslint/eslint-plugin": "5.38.1",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "5.38.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.24.0",
