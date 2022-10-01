@@ -1,0 +1,18 @@
+---
+import Layout from '@layout'
+import Goku from './../../../components/kikindb/Goku'
+---
+
+<link rel='preconnect' href='https://fonts.cdnfonts.com' />
+<link href='https://fonts.cdnfonts.com/css/amiga-forever' rel='stylesheet' />
+
+<style>
+	body {
+		font-family: 'Amiga Forever', monospace;
+	}
+</style>
+<Layout title='kikindb'>
+	<div class='flex items-center justify-center mt-4 px-2'>
+		<Goku level={0} client:visible />
+	</div>
+</Layout>
