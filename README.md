@@ -11,7 +11,7 @@ La Hacktoberfest es un evento anual organizado por DigitalOcean y DEV, que consi
 
 1. Regístrate en [Hacktoberfest](https://hacktoberfest.com/).
 2. Crea un fork de este repositorio.
-3. Soluciona el reto que se indica la página principal.
+3. Soluciona el reto que se indica en [la página principal](https://hacktoberfest-2022.vercel.app/).
 
 ## Premios
 
