@@ -12,3 +12,11 @@ La Hacktoberfest es un evento anual organizado por DigitalOcean y DEV, que consi
 1. Regístrate en [Hacktoberfest](https://hacktoberfest.com/).
 2. Crea un fork de este repositorio.
 3. Soluciona el reto que se indica la página principal.
+
+## Premios
+
+Además de poder conseguir la camiseta de la Hacktoberfest, haremos una votación para elegir las mejores soluciones. Los premios son:
+
+- 🥇 Teclado mecánico [Keychron K3 v2 RGB Backlight.](https://www.keychron.com/products/keychron-k3-wireless-mechanical-keyboard?variant=32220198633561)
+- 🥈 [Cheque regalo para Red Bubble](https://www.redbubble.com/es/) por valor de 30€.
+- 🥉 [Libro de Aprendiendo Git](https://leanpub.com/aprendiendo-git) + [Descubre Svelte](https://leanpub.com/descubre-svelte)
