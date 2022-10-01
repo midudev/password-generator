@@ -3,7 +3,7 @@ import Layout from '@layout'
 ---
 
 <Layout title='CharlsDEV'>
-	<wc-toast></wc-toast>
+	<wc-toast />
 	<div class='h-screen flex justify-center items-center'>
 		<div class='w-1/3 border-2 border-gray-100 rounded-lg p-6'>
 			<div class='input'>
@@ -24,7 +24,7 @@ import Layout from '@layout'
 
 					<div class='icon w-8 ml-2 flex'>
 						<svg
-							id="copyPassword"
+							id='copyPassword'
 							enable-background='new 0 0 128 128'
 							version='1.1'
 							viewBox='0 0 128 128'
@@ -60,7 +60,7 @@ import Layout from '@layout'
 				</label>
 				<input
 					type='range'
-					id="iptLongitud"
+					id='iptLongitud'
 					class='w-full appearance-none h-0.5 bg-emerald-500 hover:bg-red-400'
 					value='8'
 					max='25'
@@ -87,7 +87,7 @@ import Layout from '@layout'
 	const symbols = ['@', '/', '*', '-', '_', '$', '#', '&']
 	const $iptPass = document.getElementById('iptPassword')
 	const generatePass = () => {
-		var $lgtCharacters = document.getElementById('iptLongitud').value;
+		var $lgtCharacters = document.getElementById('iptLongitud').value
 		const optCharacter = [
 			...symbols,
 			...lettersLower,
@@ -99,7 +99,7 @@ import Layout from '@layout'
 		]
 		let pass = ''
 		if ($lgtCharacters === 0) $iptPass.value = ''
-		for(let a = 0; a < $lgtCharacters; a++) {
+		for (let a = 0; a < $lgtCharacters; a++) {
 			const idx = Math.floor(Math.random() * optCharacter.length)
 			pass += optCharacter[idx]
 		}
@@ -108,20 +108,16 @@ import Layout from '@layout'
 	generatePass()
 </script>
 
-<script type="module">
+<script type='module'>
 	import { toast } from 'https://cdn.skypack.dev/wc-toast'
 	const copyPass = document.querySelector('#copyPassword')
 	copyPass.addEventListener('click', () => {
-		navigator.clipboard.writeText(document.querySelector('#iptPassword').value)
-			.then(() => {
-				toast(
-					'¡Contraseña copiada con éxito!',
-					{
-						icon: {
-							type: 'success'
-						}
-					}
-				)
+		navigator.clipboard.writeText(document.querySelector('#iptPassword').value).then(() => {
+			toast('¡Contraseña copiada con éxito!', {
+				icon: {
+					type: 'success'
+				}
 			})
+		})
 	})
 </script>
