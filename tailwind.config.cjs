@@ -8,7 +8,9 @@ module.exports = {
 				surf: '#64e2ff',
 				psybeam: '#9092ff',
 				giga: '#b4ff39',
-				manga: '#e5e1e6'
+				manga: '#e5e1e6',
+				grayViolet: '#7a7aa3',
+				aqua: '#a7a7cc'
 			}
 		},
 		fontFamily: {
