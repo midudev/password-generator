@@ -1,0 +1,12 @@
+---
+import Layout from '@layout'
+import PasswordGenerator from '@components/danicc/PasswordGenerator'
+import Title from '@components/danicc/Title'
+---
+
+<Layout title="danicc">
+	<main class="container mx-auto max-w-[80%] sm:max-w-lg pt-12 text-slate-300">
+		<Title />
+		<PasswordGenerator client:only="react" />
+	</main>
+</Layout>

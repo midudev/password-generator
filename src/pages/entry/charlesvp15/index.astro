@@ -1,0 +1,123 @@
+---
+import Layout from '@layout'
+---
+
+<Layout title='CharlsDEV'>
+	<wc-toast />
+	<div class='h-screen flex justify-center items-center'>
+		<div class='w-1/3 border-2 border-gray-100 rounded-lg p-6'>
+			<div class='input'>
+				<label
+					for='large-input'
+					class='block mb-3 text-2xl font-bold text-gray-900 dark:text-gray-300'
+				>
+					Password
+				</label>
+
+				<div class='flex justify-center align-middle'>
+					<input
+						type='text'
+						id='iptPassword'
+						placeholder='Password Generate'
+						class='block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+					/>
+
+					<div class='icon w-8 ml-2 flex'>
+						<svg
+							id='copyPassword'
+							enable-background='new 0 0 128 128'
+							version='1.1'
+							viewBox='0 0 128 128'
+							xml:space='preserve'
+							xmlns='http://www.w3.org/2000/svg'
+							xmlns:xlink='http://www.w3.org/1999/xlink'
+							><path
+								d='M40,18.3V14c0-5.5,4.5-10,10-10h45.9c2.7,0,5.2,1.1,7.1,2.9l14.1,14.1c1.9,1.9,2.9,4.4,2.9,7.1V99  c0,5.5-4.5,10-10,10H85.3'
+								fill='#42ACB7'></path><path
+								d='M94,109V43.1c0-5.3-2.1-10.4-5.9-14.1L74,14.9C70.2,11.1,65.2,9,59.9,9H41.3c-0.9,1.5-1.3,3.2-1.3,5v4.3  L85.3,109H94z'
+								opacity='0.1'></path><path
+								d='M74,124H14c-5.5,0-10-4.5-10-10V29c0-5.5,4.5-10,10-10h45.9c2.7,0,5.2,1.1,7.1,2.9l14.1,14.1  c1.9,1.9,2.9,4.4,2.9,7.1V114C84,119.5,79.5,124,74,124z'
+								fill='#F0EF98'></path><path
+								d='M14,114V29c0-5.5,4.5-10,10-10H14C8.5,19,4,23.5,4,29v85c0,5.5,4.5,10,10,10h10C18.5,124,14,119.5,14,114z'
+								fill='#FFFFFF'></path><path
+								d='M14,125.5h60c6.3,0,11.5-5.2,11.5-11.5v-3.5H110c6.3,0,11.5-5.2,11.5-11.5V28.1c0-3.1-1.2-6-3.4-8.1L104,5.9  c-2.2-2.2-5.1-3.4-8.1-3.4H50c-6.3,0-11.5,5.2-11.5,11.5v3.5H14C7.7,17.5,2.5,22.7,2.5,29v85C2.5,120.3,7.7,125.5,14,125.5z   M41.5,14c0-4.7,3.8-8.5,8.5-8.5h45.9c2.3,0,4.4,0.9,6,2.5L116,22.1c1.6,1.6,2.5,3.7,2.5,6V99c0,4.7-3.8,8.5-8.5,8.5H85.5v-17H109  c0.8,0,1.5-0.7,1.5-1.5s-0.7-1.5-1.5-1.5H85.5v-17H109c0.8,0,1.5-0.7,1.5-1.5s-0.7-1.5-1.5-1.5H85.5V43.1c0-3.1-1.2-6-3.4-8.1  L68,20.9c-2.2-2.2-5.1-3.4-8.1-3.4H41.5V14z M5.5,29c0-4.7,3.8-8.5,8.5-8.5h45.9c2.3,0,4.4,0.9,6,2.5L80,37.1c1.6,1.6,2.5,3.7,2.5,6  V114c0,4.7-3.8,8.5-8.5,8.5H14c-4.7,0-8.5-3.8-8.5-8.5V29z'
+								fill='#62355C'></path><path
+								d='M19,105.5h50c0.8,0,1.5-0.7,1.5-1.5s-0.7-1.5-1.5-1.5H19c-0.8,0-1.5,0.7-1.5,1.5S18.2,105.5,19,105.5z'
+								fill='#62355C'></path><path
+								d='M19,85.5h50c0.8,0,1.5-0.7,1.5-1.5s-0.7-1.5-1.5-1.5H19c-0.8,0-1.5,0.7-1.5,1.5S18.2,85.5,19,85.5z'
+								fill='#62355C'></path>
+						</svg>
+					</div>
+				</div>
+			</div>
+
+			<div class='mt-2 pt-1'>
+				<label
+					for='large-input'
+					class='block mb-1 text-2xl font-bold text-gray-900 dark:text-gray-300'
+				>
+					Longitud
+				</label>
+				<input
+					type='range'
+					id='iptLongitud'
+					class='w-full appearance-none h-0.5 bg-emerald-500 hover:bg-red-400'
+					value='8'
+					max='25'
+					step='1'
+				/>
+			</div>
+
+			<div class='mt-5 text-center'>
+				<button
+					type='button'
+					class='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base w-full py-2.5 text-center'
+					onclick='generatePass();'>Generate Password</button
+				>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<script type='text/javascript'>
+	const characterCode = Array.from(Array(26)).map((_, i) => i + 97)
+	const lettersLower = characterCode.map((num) => String.fromCharCode(num))
+	const lettersUpper = characterCode.map((num) => String.fromCharCode(num).toUpperCase())
+	const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+	const symbols = ['@', '/', '*', '-', '_', '$', '#', '&']
+	const $iptPass = document.getElementById('iptPassword')
+	const generatePass = () => {
+		var $lgtCharacters = document.getElementById('iptLongitud').value
+		const optCharacter = [
+			...symbols,
+			...lettersLower,
+			...numbers,
+			...symbols,
+			...lettersUpper,
+			...numbers,
+			...symbols
+		]
+		let pass = ''
+		if ($lgtCharacters === 0) $iptPass.value = ''
+		for (let a = 0; a < $lgtCharacters; a++) {
+			const idx = Math.floor(Math.random() * optCharacter.length)
+			pass += optCharacter[idx]
+		}
+		$iptPass.value = pass
+	}
+	generatePass()
+</script>
+
+<script type='module'>
+	import { toast } from 'https://cdn.skypack.dev/wc-toast'
+	const copyPass = document.querySelector('#copyPassword')
+	copyPass.addEventListener('click', () => {
+		navigator.clipboard.writeText(document.querySelector('#iptPassword').value).then(() => {
+			toast('¡Contraseña copiada con éxito!', {
+				icon: {
+					type: 'success'
+				}
+			})
+		})
+	})
+</script>
