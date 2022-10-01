@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from "react"
-import { CopyIcon } from "@components/cacosted/CopyIcon.jsx"
-import { Header } from "@components/cacosted/Header.jsx"
+import { Header } from "@components/cacosted/Header"
+import { CopyButton } from "@components/cacosted/CopyButton"
+import { Button } from "@components/cacosted/Button"
 const CHARSET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-='
 
 const usePassword = (initialLength = 5) => {
@@ -22,47 +23,57 @@ const usePassword = (initialLength = 5) => {
 
 	const setNewLength = (number) => setPassLength(number)
 	
-	const setNewPassword = (string) => setPassword(string)
+	const setNewPassword = () => {
+		const newPassword = generatePassword()
+		setPassword(newPassword)
+	}
 	
 
 	useEffect(() => {
-		const newPassword = generatePassword()
-		setNewPassword(newPassword)
+		setNewPassword()
 	},[passLength])
 
 	return {
 		password,
-		setNewLength
+		setNewLength,
+		setNewPassword
 	}
 }
 
 export const Card = () => {
 	
-	const {password, setNewLength} = usePassword()
+	const {password, setNewLength, setNewPassword} = usePassword()
 	const handleChange = ({target}) => {
 		setNewLength(target.value)
 	}
+
+	const handleClick = () => {
+		setNewPassword()
+	}
 	
 	return (
-		<main className="text-white flex justify-center items-center">
-			<article className="w-3/5 bg-gray-900 rounded-xl flex flex-col gap-4 p-5">
+		<main className="min-h-screen text-white flex justify-center items-center bg-slate-900">
+			<article className="w-3/5 bg-gray-900 rounded-xl flex flex-col gap-8 p-6 shadow-bg-gray-900 shadow-2xl">
 				<Header />
-				<label htmlFor="password" className="relative block bg-green-400">
-					<input name="password" id="password" className="text-slate-400 w-full px-4 py-2" type="text" readOnly value={password}/>
-					<CopyIcon fill="red" className="absolute top-0 right-0"/>
+				<label htmlFor="password" className="relative block">
+					<input name="password" id="password" className="text-slate-400 w-full px-5 py-3 bg-gray-800 rounded-lg" type="text" readOnly value={password}/>
+					<CopyButton fill="red" />
 				</label>
-				<label htmlFor="password-length">
-					<span className="block bg-slate-400 px-4 py-2">{password.length}</span>
+				<label htmlFor="password-length" className="flex gap-5">
 					<input 
 						onChange={handleChange} 
-						type="range" 
+						type="range"
+						className="w-full bg-transparent" 
 						name="password-length" 
 						id="password-length" 
 						min="1" 
 						max="100" 
-						value={password.length}/>
+						value={password.length}
+					/>
+					<span className="rounded-xl bg-slate-800 px-4 py-2">{password.length}</span>
+
 				</label>
-				<button>Generate</button>
+				<Button className="bg-slate-800 px-4 py-2 rounded-lg hover:bg-slate-600" action={handleClick}>Generate</Button>
 			</article>
 		</main>
 	)
