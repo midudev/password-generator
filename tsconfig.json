@@ -7,12 +7,12 @@
     "types": ["astro/client", "preact"],
     "outDir": "./dist",
     "moduleResolution": "node",
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "jsxImportSource": "preact",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@layout": ["src/layouts/Layout.astro"],
+      "@layout": ["src/layouts/Layout.astro"]
     }
   }
 }
