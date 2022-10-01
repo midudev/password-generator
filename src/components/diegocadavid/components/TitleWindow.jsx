@@ -6,9 +6,9 @@ const TitleWindow = ({ name }) => {
 			<h2 className='capitalize text-white'>{name}</h2>
 			{/* Buttons title */}
 			<div className='flex gap-2'>
-				<div className='rounded-full w-3 h-3 bg-red-400'> </div>
-				<div className='rounded-full w-3 h-3 bg-yellow-200'> </div>
-				<div className='rounded-full w-3 h-3 bg-green-300'> </div>
+				<div className='rounded-full w-3 h-3 cursor-pointer transition-colors ease-linear hover:bg-red-700 bg-red-400'> </div>
+				<div className='rounded-full w-3 h-3 cursor-pointer transition-colors ease-linear hover:bg-yellow-600 bg-yellow-200'> </div>
+				<div className='rounded-full w-3 h-3 cursor-pointer transition-colors ease-linear hover:bg-green-600 bg-green-300'> </div>
 			</div>
 		</div>
 	)

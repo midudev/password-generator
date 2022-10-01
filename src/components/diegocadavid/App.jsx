@@ -3,7 +3,7 @@ import WindowTerminal from './components/Terminal/WindowTerminal'
 
 const App = () => {
 	return (
-		<div id='app' className='h-screen'>
+		<div className='h-screen font-sans'>
 			<WindowTerminal />
 		</div>
 	)
