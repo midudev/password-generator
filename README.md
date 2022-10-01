@@ -40,12 +40,14 @@ La **[Hacktoberfest](https://hacktoberfest.com/)** es un evento anual organizado
 
 ## 📝 Reglas
 
-- ✅ Puedes usar cualquier framework dentro de esta lista: React, Vue, Svelte y Solid. También puedes usar Vanilla Javascript.
-- ✅ NO puedes usar dependencias de terceros. Nada de npm install, ni yarn add ni similares.
-- ✅ Se puede utilizar CSS y Tailwind pero NO se puede utilizar otro framework CSS como Bootstrap, Bulma, NextUI, Material UI, etc... ni tampoco SASS, Styles o similares.
-- ✅ No copies soluciones de otros participantes o soluciones de fuera.
+- ✅ Puedes usar cualquier framework dentro de esta lista: React, Vue, Svelte, Angular y Solid. También puedes usar Vanilla Javascript.
+- ❌ NO puedes usar dependencias de terceros. Nada de npm install, ni yarn add ni similares.
+- ✅ Se puede utilizar CSS y Tailwind pero...
+- ❌ NO se puede utilizar otro framework CSS como Bootstrap, Bulma, NextUI, Material UI, etc... ni tampoco SASS, Stylus o similares.
+- ❌ No copies soluciones de otros participantes o soluciones de fuera. ¡La idea es que practiques y te esfuerces!
 - ✅ Crea tus PRs del **1 al 31 de octubre**.
-- ✅ No uses ni modifiques código o componentes de otros participantes.
+- ❌ No uses ni modifiques código o componentes de otros participantes.
+- ❌ No modifiques código de fuera de tus carpetas (a no ser que sea exactamente para arreglar un problema de la página).
 - ✅ Si necesitas crear componentes auxiliares para tu solución, crea una carpeta en:
 
 ```bash
