@@ -2,7 +2,7 @@ import React from 'react'
 
 const TitleWindow = ({ name }) => {
 	return (
-		<div className='p-4 bg-zinc-900 flex justify-between items-center'>
+		<div className='p-4 flex justify-between items-center bg-[#060505]'>
 			<h2 className='capitalize text-white'>{name}</h2>
 			{/* Buttons title */}
 			<div className='flex gap-2'>

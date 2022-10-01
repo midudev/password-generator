@@ -3,7 +3,7 @@ import TitleWindow from '../TitleWindow'
 
 const WindowTerminal = () => {
   return (
-	<div className='bg-zinc-800 h-full rounded-lg'>
+	<div className='bg-[#111111] h-full rounded-lg overflow-hidden'>
 		<TitleWindow name="Terminal"/>
 	</div>
   )
