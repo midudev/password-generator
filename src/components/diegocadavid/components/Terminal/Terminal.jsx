@@ -5,7 +5,7 @@ const Terminal = () => {
 	return (
 		<div className='text-slate-100 p-4'>
 			<div>
-				<p>Terminal Passoword [Version 9.22.2006]</p>
+				<p>Terminal Password [Version 9.22.2006]</p>
 				<p>Creado por DiegoCadavid</p>
 				<p>Usa el comando 'help' para ver todos los comandos.</p>
 			</div>
