@@ -97,17 +97,14 @@ const App = () => {
 				)
 			])
 			console.log('Comando invalido')
-			return false
+			return
 		}
 
+		// Obtenemos la informacion de ese comando
+		const DocCommand = listDocCommads[listDocCommads.map((c) => c.name).indexOf(command.name)]
+
 		// Vemos si el comando esta registrado
-		if (
-			!listDocCommads
-				.map((c) => {
-					return c.name
-				})
-				.includes(command.name)
-		) {
+		if (!DocCommand) {
 			setCommands([
 				...commands,
 				addComponentCommand(
@@ -116,84 +113,87 @@ const App = () => {
 				)
 			])
 			console.log('El comando no existe')
-			return false
+			return
 		}
 
-		// Validamos los comandos
-		if (command.options.length > 0) {
-			const indexDoc = listDocCommads.map((c) => c.name).indexOf(command.name)
+		// Si el comando no tiene opciones lo enviamos
+		if (!command.options.length > 0) {
+			const ComponentCommand = DocCommand.Component
+			setCommands([
+				...commands,
+				addComponentCommand(
+					{ raw: commandName, ...command },
+					<ComponentCommand
+						key={command.id}
+						handleReset={() => {
+							setCommands([])
+						}}
+						docs={listDocCommads}
+					/>
+				)
+			])
 
-			const commandsNameInvalid = []
-
-			command.options.forEach((e) => {
-				// Verificamos si existe esa opcion
-				if (!listDocCommads[indexDoc].options.map((c) => c.name).includes(e.name)) {
-					commandsNameInvalid.push(e.name)
-					return false
-				}
-
-				// Se validan los tipos ded opcion
-				const DocOption =
-					listDocCommads[indexDoc].options[
-						listDocCommads[indexDoc].options.map((c) => c.name).indexOf(e.name)
-					]
-				switch (DocOption.type) {
-					case 'string':
-						break
-
-					case 'bool':
-						// Verificamos si es un boleano
-						if (!(e.value == 'true' || e.value == 'false')) {
-							commandsNameInvalid.push(e.name)
-							return false
-						}
-
-						;(e.value == e.value) == 'true' ? true : false
-						break
-
-					case 'number':
-						// Verificamos si es un numero
-						if (!Number(e.value)) {
-							commandsNameInvalid.push(e.name)
-							return false
-						}
-
-						e.value = Number(e.value)
-						break
-				}
-			})
-
-			commandsNameInvalid.forEach(() => {
-				setCommands([
-					...commands,
-					addComponentCommand(
-						{ raw: commandName, ...command },
-						<CommandError option={commandsNameInvalid} />
-					)
-				])
-			})
+			return
 		}
 
-		// ENVIAMOS EL COMANDO
-		const DocCommands =
-			listDocCommads[
-				listDocCommads
-					.map((c) => {
-						return c.name
-					})
-					.indexOf(command.name)
-			]
+		// Leemos las opciones del comando
+		const optionsValidate = []
 
-		const ComponentCommand = DocCommands.Component
+		// Validamos la existencia de todos los comandos
+		command.options.forEach((option) => {
+			const optionExist = DocCommand.options.map((o) => o.name).includes(option.name)
+			if (!optionExist) {
+				optionsValidate.push(option.name)
+			}
+		})
 
-		// Otros componentes
+		// Validamos el tipo de comando
+		command.options.forEach((option) => {
+			const DocOption =
+				DocCommand.options[DocCommand.options.map((o) => o.name).indexOf(option.name)]
+
+			// En caso de que no exista el comando introducido
+			if (!DocOption) {
+				return;
+			}
+
+			// En caso de que sea un numero
+			if (DocOption.type == 'number') {
+				if (!Number(option.value)) {
+					optionsValidate.push(option.name)
+				}
+			}
+
+			// En caso de que sea un bool
+			if (DocOption.type == 'bool') {
+				if (!(option.value == 'true' || option.value == 'false')) {
+					optionsValidate.push(option.name)
+				}
+			}
+		})
+
+		// Si existen errores le notificamos al usuario
+		if (optionsValidate.length > 0) {
+			setCommands([
+				...commands,
+				addComponentCommand(
+					{ raw: commandName, ...command },
+					<CommandError option={optionsValidate} />
+				)
+			])
+			console.log('Parametros invalidos')
+
+			return
+		}
+
+		// Enviamos el comando en caso de que no haya ningun error
+		const ComponentCommand = DocCommand.Component
 		setCommands([
 			...commands,
 			addComponentCommand(
 				{ raw: commandName, ...command },
 				<ComponentCommand
 					key={command.id}
-					config={command.options}
 					handleReset={() => {
 						setCommands([])
 					}}

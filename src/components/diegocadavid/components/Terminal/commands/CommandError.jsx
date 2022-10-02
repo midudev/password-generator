@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const CommandError = ({ command, option = [] }) => {
 	return (
 		<div>
-			{(!command && !option.length > 0) && (
+			{(command && option.length > 0) && (
 				<>
 					<p className='text-red-500'>Comando invalido ¬ _¬</p>
 					<p> utilize el comando 'help' para ver todos los comandos disponibles </p>
