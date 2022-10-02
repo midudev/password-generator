@@ -1,10 +1,10 @@
 import React  from 'react'
 import App from './App'
 
-const CardDiegoCadvid = () => {
+const CardDiegoCadavid = () => {
   return (
 	<App />
   )
 }
 
-export default CardDiegoCadvid
+export default CardDiegoCadavid
