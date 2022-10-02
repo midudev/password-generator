@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import CopyButton from './CopyButton'
 import Range from './Range'
 import useGeneratePassword from './hooks/useGeneratePassword'
@@ -10,8 +11,8 @@ const MAX_LENGTH = 16
 const ALERT_TIMEOUT = 3000
 
 function PasswordContainer () {
-	const [passwordLength, setPasswordLength] = React.useState(MIN_LENGTH)
-	const [copied, setCopied] = React.useState(false)
+	const [passwordLength, setPasswordLength] = useState(MIN_LENGTH)
+	const [copied, setCopied] = useState(false)
 	const [password, generatePassword] = useGeneratePassword()
 
 	const handleGenerate = () => {

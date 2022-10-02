@@ -1,4 +1,3 @@
-
 export const GenerateButton = ({ onSubmitGeneratePassword }) => {
 	return (
 		<button

@@ -1,11 +1,12 @@
+import { useState } from 'react'
 import Card from '@components/danicc/Card'
 
 import generatePassword from './generate-password'
 import Output from './Output'
 
 function PasswordGenerator() {
-	const [password, setPassword] = React.useState('')
-	const [rangeValue, setRangeValue] = React.useState(6)
+	const [password, setPassword] = useState('')
+	const [rangeValue, setRangeValue] = useState(6)
 
 	// TODO: add symbol options and use object values
 	// to support default checked
