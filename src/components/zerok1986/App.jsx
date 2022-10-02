@@ -26,9 +26,10 @@ export default function App() {
 	return (
 	<div id='box'>
 		<div id='password-generator'>
+			<h1>zerok1986's Password Generator</h1>
 			<div id='password-box'>
 				<p id='password-text'>{password}</p>
-				<button id='copyButton' onClick={copyToClipboard}>
+				<button onClick={copyToClipboard}>
 					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff">
 						<path d="M0 0h24v24H0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
 					</svg>
@@ -38,7 +39,7 @@ export default function App() {
 				<label htmlFor='length'>Length</label>
 				<input 
 					type='range'
-					id='length' 
+					id='length-slider' 
 					value={passLength} 
 					onChange={(e) => {
 						setPassLength(e.target.value)
@@ -48,7 +49,7 @@ export default function App() {
 					step='1' 
 					/>
 				<span id='value'>{passLength}</span>
-				<button id='generate' onClick={() => generatePassword(passLength)}>Generate Password</button>
+				<button id='generate-button' onClick={() => generatePassword(passLength)}>Generate Password</button>
 			</div>
 		</div>
 	</div>
