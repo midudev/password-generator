@@ -1,7 +1,7 @@
 import React from 'react'
-import button from '../../../../public/DPG-Code/button.png'
-import home from '../../../../public/DPG-Code/home.png'
-import start from '../../../../public/DPG-Code/start.png'
+import button from '../../../../public/DPG-Code/img/button.png'
+import home from '../../../../public/DPG-Code/img/home.png'
+import start from '../../../../public/DPG-Code/img/start.png'
 
 export default function Instructions () {
   return (
