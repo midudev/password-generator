@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS */
+@font-face {
+  font-family: 'Retro';
+  src: url('./Retro-Gaming.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.buttons{
+  transition: all 0.2s;
+}
+.buttons:hover{
+  transform: scale(0.93);
+}
+
+.start{
+  animation: start 0.5s infinite ease-in-out alternate;
+}
+@keyframes start {
+  0%{ transform: translateX(0px); }
+  100%{ transform: translateX(3px); }
+}
+
+.mario-bros{
+  height: 16px;
+  width: 21px;
+  background: url('./img/mario-sprite.png');
+  animation: mario 0.8s steps(3) infinite;
+  transform: scale(1.8);
+}
+@keyframes mario {
+  from { background-position: 0px; }
+  to { background-position: -63px; }
+}
+
+.barril{
+  height: 10px;
+  width: 15.75px;
+  background: url('./img/barril-sprite.png');
+  animation: barril-sprite 0.8s steps(4) infinite;
+  transform: scale(1.8);
+}
+@keyframes barril-sprite {
+  from { background-position: 0px; }
+  to { background-position: -63px; }
+}
