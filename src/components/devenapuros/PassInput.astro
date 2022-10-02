@@ -1,0 +1,44 @@
+---
+import CopyIcon from './icons/CopyIcon.astro'
+---
+
+<style>
+	.input-container {
+		padding: 10px 15px;
+		display: flex;
+		align-items: center;
+		font-size: 17px;
+		font-weight: 600;
+		border-radius: 12px;
+		border: 1px solid #00000020;
+		transition: background-color 300ms ease;
+		gap: 10px;
+	}
+
+	/* .input-container:focus-within {
+		outline: 2px solid #0085ee;
+	} */
+
+	.input-container > input {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+
+	.input-container > input:focus {
+		border: 0;
+		outline: none;
+	}
+
+	.separator {
+		height: 26px;
+		border-left: 1px solid #00000020;
+	}
+</style>
+<div class='input-container'>
+	<input type='text' placeholder='Your password goes here' value='a199fO*Z%3CJUpDT' readonly />
+	<span class='separator'></span>
+	<button class='copy-btn'>
+		<CopyIcon />
+	</button>
+</div>

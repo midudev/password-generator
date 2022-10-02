@@ -1,0 +1,43 @@
+---
+import LeftRightIcon from './icons/LeftRightIcon.astro'
+---
+
+<style>
+	.slider-container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 5px;
+		width: 100%;
+		background-color: #ccc;
+		border-radius: 8px;
+	}
+
+	.slider-bar {
+		position: absolute;
+		height: 5px;
+		width: 40%;
+		background-color: #0085ee;
+		border-radius: 8px;
+	}
+
+	.slider-button {
+		position: absolute;
+		left: calc(40% - 10px);
+		background-color: white;
+		border-radius: 100%;
+		border: 1px solid #00000035;
+		transition: border 300ms ease;
+	}
+
+	.slider-button:hover {
+		cursor: pointer;
+		border: 1px solid #0085ee;
+	}
+</style>
+<div class='slider-container'>
+	<div class='slider-bar'></div>
+	<div class='slider-button'>
+		<LeftRightIcon />
+	</div>
+</div>
