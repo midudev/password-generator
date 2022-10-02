@@ -2,7 +2,7 @@
   export let settings
 </script>
   
-<fieldset class="flex items-center justify-between w-full mt-5">
+<fieldset class="mt-5 flex flex-col sm:flex-row items-start justify-start sm:items-center sm:justify-evenly gap-x-4">
   <label for="uppercase" id="uppercase-label">
     <input id="uppercase" name="uppercase" type="checkbox" class="mr-1" bind:checked={settings.uppercase} />
     <span class="text-white">Mayúsculas</span>

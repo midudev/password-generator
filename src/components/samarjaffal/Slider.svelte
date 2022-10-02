@@ -4,7 +4,7 @@
 	
 <fielset>
 	<input type="range" class="w-full mt-6 slider" min="8" max="20" bind:value={settings.length} />
-	<p class="text-white font-bold text-4xl text-center">{settings.length}</p>
+	<p class="text-white font-bold text-3xl md:text-4xl text-center">{settings.length}</p>
 </fielset>
 
 <style>

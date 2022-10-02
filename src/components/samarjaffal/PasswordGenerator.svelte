@@ -41,8 +41,8 @@
 	
 	</script>
 
-	<div class="bg-[#0e0318] rounded-3xl px-20 py-10 w-2/5">
-		<h1 class="text-3xl font-special text-white uppercase sam-shadow">Generador de claves</h1>
+	<div class="bg-[#0e0318] w-full lg:w-2/5 px-8 lg:px-20 py-10 rounded-3xl ">
+		<h1 class="text-2xl md:text-3xl font-special text-white uppercase">Generador de claves</h1>
 		<form>
 			<Password password={password} />
 			<Slider settings={settings} />
