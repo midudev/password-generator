@@ -1,0 +1,29 @@
+---
+import Layout from '@layout'
+import PasswordGenerator from '@components/pangeasi/PasswordGenerator'
+import GrinningFace from '@components/pangeasi/GrinningFace'
+import Toast from '@components/pangeasi/Toast'
+---
+
+<Layout title='pangeasi'>
+	<main class='container m-auto w-full relative top-20 sm:top-64 p-10'>
+		<header class='flex justify-center'>
+			<h1 class='text-white text-2xl uppercase text-center font-bold'>
+				Strong passwords that you might remember <span class='inline-flex'
+					><GrinningFace className='text-2xl animate-bounce' />
+				</span>
+			</h1>
+		</header>
+		<section class='flex flex-col justify-center'>
+			<PasswordGenerator client:load />
+		</section>
+	</main>
+	<Toast client:load />
+</Layout>
+
+<style>
+	body {
+		@apply bg-gradient-to-br from-blue-900 to-blue-700;
+		@apply min-h-screen;
+	}
+</style>
