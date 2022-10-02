@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import { NUMS, LETTERS, SYMBOLS } from './data.js'
-import gameboy from '../img/gameboy.png'
-import button from '../img/button.png'
-import startButton from '../img/button-start.png'
+import gameboy from '../../../../public/DPG-Code/gameboy.png'
+import button from '../../../../public/DPG-Code/button.png'
+import startButton from '../../../../public/DPG-Code/button-start.png'
 
 export default function Form () {
   const [password, setPassword] = useState('P$zkl5#0')
