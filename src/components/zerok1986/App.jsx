@@ -3,6 +3,7 @@ import './App.css'
 
 export default function App() {
 	const [passLength, setPassLength] = useState(8)
+	const [password, setPassword] = useState('')
 
 	const generatePassword = (length) => {
 		const charList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\”#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
@@ -10,15 +11,28 @@ export default function App() {
 		for (let i = 0; i < length; i++) {
 			password += charList.charAt(Math.floor(Math.random() * charList.length))
 		}
-		return password
+		setPassword(password)
 	}	
+
+	const copyToClipboard = () => {
+		if (password.length === 0) {
+			alert('Select your desired password length and click "Generate Password"')
+		}
+
+		navigator.clipboard.writeText(password)
+		alert('Copied to clipboard')
+	}
 
 	return (
 	<div className='box'>
 		<div className='text-white'>
 			<div id='password-generator'>
-				<input type='text' id='password' />
-				<button id='copy'><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff"><path d="M0 0h24v24H0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
+				<p id='password' className='text-white'>{password}</p>
+				<button id='copy' onClick={copyToClipboard}>
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff">
+						<path d="M0 0h24v24H0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+					</svg>
+				</button>
 				<div id='settings'>
 					<label htmlFor='length'>Length</label>
 					<input 
@@ -34,7 +48,7 @@ export default function App() {
 						/>
 					<span id='value'>{passLength}</span>
 				</div>
-				<button id='generate'>Generate Password</button>
+				<button id='generate' onClick={() => generatePassword(passLength)}>Generate Password</button>
 			</div>
 		</div>
 	</div>
