@@ -1,4 +1,5 @@
-.box {
+#box {
+	color: white;
 	position: fixed;
 	height: 60vh;
 	width: 60vw;
@@ -10,25 +11,32 @@
 	transform: translate(-50%, -50%);
 }
 
+#password-generator {
+	height: 55vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
 #password-box {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-evenly;
-	align-items: baseline;
+	align-items: center;
 	align-content: center;
-}
-
-
-#password-text {
-	margin: 50px;
+	margin: 25px;
 	padding: 5px;
 	border: solid rgb(100, 26, 165) 1px;
 	border-radius: 10px;
-	min-width: 200px;
-	display: inline-block;
-	align-items: center;
-	justify-content: center;
+	width: 300px;
+}
+
+#password-text {
+	color: text;
+	width: 80%;
 	text-align: center;
 }
 
