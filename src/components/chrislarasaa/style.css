@@ -1,0 +1,147 @@
+.container {
+	justify-content: center;
+	align-items: center;
+	background-color: #343a40;
+	width: 1200px;
+	padding-top: 20px;
+	border-radius: 25px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 10px 0 10px;
+}
+
+.container-title {
+	padding-bottom: 10px;
+	font-weight: bold;
+	color: #e1e8eb;
+	text-align: center;
+	font-size: 50px;
+	margin: 0 10px 0 10px;
+}
+
+.slider-range {
+	color: #e1e8eb;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.slider-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+}
+
+.char-lenght {
+	color: #e1e8eb;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* Slider */
+.slider {
+	width: 100%;
+}
+
+/* Button */
+.button {
+	margin-top: 10px;
+	background-color: #28824f;
+	height: 40px;
+	color: white;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* Password Input */
+.password-input:disabled {
+	margin: 10px 0 10px 10px;
+	width: 400px;
+	padding: 10px;
+	font-size: 30px;
+	border-radius: 10px 0 0 10px;
+	color: #170f1e;
+	background-color: white;
+}
+
+.password-input-container {
+	display: flex;
+	align-items: center;
+	margin: 0 10px 0 10px;
+}
+
+.password-input-container button {
+	height: 67px;
+	width: 67px;
+	background-color: #170f1e;
+	border-radius: 0 10px 10px 0px;
+}
+
+.icon {
+	background-color: white;
+	-webkit-mask: url(./copy-icon.svg) no-repeat 50% 50%;
+	mask: url(./copy-icon.svg) no-repeat 50% 50%;
+	padding: 20px;
+}
+
+.tooltip .tooltiptext {
+	width: 140px;
+	background-color: #170f1e;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.3s;
+	margin: -60px;
+}
+
+.tooltip .tooltiptext::after {
+	content: '';
+	position: absolute;
+	left: 56%;
+	top: 100%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: rgb(255, 248, 248) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
+
+@media (max-width: 700px) {
+	.container {
+		width: 90%;
+	}
+
+	.container-title {
+		font-size: 30px;
+	}
+
+	.password-input:disabled {
+		width: 100%;
+		font-size: 20px;
+	}
+
+	.password-input-container button {
+		height: 53px;
+		width: 53px;
+	}
+
+	.icon {
+		padding: 15px;
+	}
+}

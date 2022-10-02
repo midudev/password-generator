@@ -62,15 +62,16 @@ export const LEVEL_NAMES = [
 export const generatePassword = (level = 0) => {
 	const size = level * 2 + 4
 	let password = new Array(size).fill('0')
-	//LEVEL 0 -> Size: 4, only numbers
-	if (level <= 0)
+	// LEVEL 0 -> Size: 4, only numbers
+	if (level <= 0) {
 		password = shuffle([
 			randomPick(ALPHABET),
 			randomPick(ALPHABET).toLowerCase(),
 			randomPick(SPEC_CHARS),
 			randomPick(NUMBERS)
 		])
-	//LEVEL 1 -> Size: 6, 3 alphas + 1 ALPHA + 2 numbers
+	}
+	// LEVEL 1 -> Size: 6, 3 alphas + 1 ALPHA + 2 numbers
 	if (level === 1) {
 		password = shuffle(
 			password.map((el, idx) => {
@@ -80,7 +81,7 @@ export const generatePassword = (level = 0) => {
 			})
 		)
 	}
-	//LEVEL 2 -> Size: 8, 3 alphas + 1 ALPHA + 2 numbers + 2 spec
+	// LEVEL 2 -> Size: 8, 3 alphas + 1 ALPHA + 2 numbers + 2 spec
 	if (level === 2) {
 		password = shuffle(
 			password.map((el, idx) => {
@@ -91,7 +92,7 @@ export const generatePassword = (level = 0) => {
 			})
 		)
 	}
-	//LEVEL 3 -> Size: 10, 4 alphas + 2 numbers + 2 spec + 2 ALPHAS
+	// LEVEL 3 -> Size: 10, 4 alphas + 2 numbers + 2 spec + 2 ALPHAS
 	if (level === 3) {
 		password = shuffle(
 			password.map((el, idx) => {
@@ -102,7 +103,7 @@ export const generatePassword = (level = 0) => {
 			})
 		)
 	}
-	//LEVEL 4 -> Size: 12, 4 alphas + 4 numbers + 2 spec + 2 ALPHAS
+	// LEVEL 4 -> Size: 12, 4 alphas + 4 numbers + 2 spec + 2 ALPHAS
 	if (level === 4) {
 		password = shuffle(
 			password.map((el, idx) => {
@@ -113,7 +114,7 @@ export const generatePassword = (level = 0) => {
 			})
 		)
 	}
-	//LEVEL 5 -> Size: 14, 4 alphas + 4 numbers + 4 spec + 2 ALPHAS
+	// LEVEL 5 -> Size: 14, 4 alphas + 4 numbers + 4 spec + 2 ALPHAS
 	if (level >= 5) {
 		password = shuffle(
 			password.map((el, idx) => {
@@ -134,10 +135,10 @@ const randomPick = (array) => {
 
 const shuffle = (array) => {
 	const auxArr = [...array]
-	let currentIndex = auxArr.length,
-		randomIndex
+	let currentIndex = auxArr.length
+	let randomIndex
 
-	while (currentIndex != 0) {
+	while (currentIndex !== 0) {
 		randomIndex = Math.floor(Math.random() * currentIndex)
 		currentIndex--
 		;[auxArr[currentIndex], auxArr[randomIndex]] = [auxArr[randomIndex], auxArr[currentIndex]]

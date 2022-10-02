@@ -1,12 +1,12 @@
-input[type=range]{
-  -webkit-appearance: none;
-  outline: 0;
-  background: #e6e5ea;
-	border-radius:2em;
-  height: 0.5rem;
+input[type='range'] {
+	-webkit-appearance: none;
+	outline: 0;
+	background: #e6e5ea;
+	border-radius: 2em;
+	height: 0.5rem;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	width: 1.75rem;
 	height: 1.75rem;
@@ -16,32 +16,32 @@ input[type=range]::-webkit-slider-thumb {
 	box-shadow: none;
 }
 
-input[type=range]:active::-webkit-slider-thumb {
+input[type='range']:active::-webkit-slider-thumb {
 	background-color: #18171f;
 	border: 2px solid #a4ffaf;
 }
 
-input[type=range]:hover::-webkit-slider-thumb {
+input[type='range']:hover::-webkit-slider-thumb {
 	background-color: #18171f;
 	border: 2px solid #a4ffaf;
 }
 
-input[type=range]::-moz-range-thumb{
+input[type='range']::-moz-range-thumb {
 	-moz-appearance: none;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 50%;
-    background-color: #e6e5ea;
-    box-shadow: none;
-    border: none;
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 50%;
+	background-color: #e6e5ea;
+	box-shadow: none;
+	border: none;
 }
 
-input[type=range]:active::-moz-range-thumb{
+input[type='range']:active::-moz-range-thumb {
 	background-color: #18171f;
-  border: 2px solid #a4ffaf;
+	border: 2px solid #a4ffaf;
 }
 
-input[type=range]:hover::-moz-range-thumb{
+input[type='range']:hover::-moz-range-thumb {
 	background-color: #18171f;
-  border: 2px solid #a4ffaf;
+	border: 2px solid #a4ffaf;
 }
