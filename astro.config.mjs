@@ -7,8 +7,5 @@ import image from '@astrojs/image'
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [svelte(), react(), vue(), tailwind(), image()],
-	vite: {
-
-	}
+	integrations: [svelte(), react(), vue(), tailwind(), image()]
 })
