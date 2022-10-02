@@ -3,6 +3,16 @@ import './App.css'
 
 export default function App() {
 	const [passLength, setPassLength] = useState(8)
+
+	const generatePassword = (length) => {
+		const charList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\”#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+		let password = ""
+		for (let i = 0; i < length; i++) {
+			password += charList.charAt(Math.floor(Math.random() * charList.length))
+		}
+		return password
+	}	
+
 	return (
 	<div className='box'>
 		<div className='text-white'>
