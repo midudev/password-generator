@@ -3,7 +3,28 @@
 	height: 60vh;
 	width: 60vw;
 	border: solid purple 2px;
+	border-radius: 5px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+#generate {
+	background-color: rgb(126 34 206);
+	border-radius: 28px;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	padding: 12px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #9b14b3;
+}
+
+#generate:hover {
+	background-color: rgb(100, 26, 165);
+}
+
+#generate:active {
+	position: relative;
+	top: 1px;
 }
