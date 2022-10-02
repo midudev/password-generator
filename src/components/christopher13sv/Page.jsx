@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BotonAumentar, BotonDisminuir, BotonCheck, BotonGenerar } from './miniComponents/Buttons'
+import { BotonAumentar, BotonDisminuir, BotonCheck, BotonGenerar } from './miniComponents/buttons'
 import GeneratePassword from './functions/GeneratePassword'
 
 const Page = () => {
