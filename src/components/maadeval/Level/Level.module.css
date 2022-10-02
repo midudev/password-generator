@@ -1,0 +1,167 @@
+.wrapper {
+	display: flex;
+	gap: 0.625rem;
+	width: 100%;
+	margin-top: 1rem;
+}
+
+.text {
+	color: #fff;
+	text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+	width: 100%;
+	margin-top: 1rem;
+}
+
+.difficultText {
+	text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+	color: #ffff84;
+}
+
+.button {
+	width: 2.75rem;
+	height: 2.75rem;
+	background-color: #e5e1e6;
+	transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
+	outline: none;
+}
+
+.button:hover:not(.active),
+.button:focus:not(.active) {
+	box-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+	background-color: #ffff84;
+	transform: scale(1.1);
+}
+
+.active {
+	transform: translate(0, 0);
+	background-color: #ffff84;
+	background: url('/maadeval/star.png') no-repeat center, #ffff84;
+}
+
+.active:hover,
+.active:focus {
+	box-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+}
+
+.buttonSubmit {
+	width: 100%;
+	font-size: 1.5rem;
+	color: #170f1e;
+	background-color: #e5e1e6;
+	margin-top: 3rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.buttonSubmit:hover,
+.buttonSubmit:focus {
+	box-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+	background-color: #ffff84;
+	transform: scale(1.1);
+}
+
+.buttonSubmit:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.divider {
+	margin-top: 1.5rem;
+	height: 1rem;
+	width: 100%;
+	display: block;
+	background: repeating-linear-gradient(
+		90deg,
+		#e5e1e6,
+		#e5e1e6 1rem,
+		transparent 1rem,
+		transparent 2rem
+	);
+}
+
+.resultContainer {
+	width: 100%;
+	display: flex;
+	margin-top: 2.5rem;
+	height: 5rem;
+}
+
+.resultText {
+	padding: 1.5rem;
+	background-color: #000;
+	color: #fff;
+	height: 100%;
+	font-size: 1.5rem;
+	flex: 1;
+}
+
+.resultCopy {
+	font-size: 1.5rem;
+	background-color: #ffff84;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	transition: box-shadow 0.25s ease-in-out;
+}
+
+.resultCopy:hover:not(:disabled),
+.resultCopy:focus {
+	box-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+}
+
+.resultCopy:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.resultCopy:active:not(:disabled) {
+	filter: brightness(0.9);
+}
+
+.resultCopySubtext {
+	display: block;
+	line-height: 1.5rem;
+}
+
+.alert {
+	position: absolute;
+	bottom: 0;
+	left: 20%;
+	transform: translateX(-50%) translateY(100%);
+	transition: transform 0.4s ease-in-out;
+}
+
+.copied {
+	transform: translateX(-50%) translateY(0);
+}
+
+.alertText {
+	margin-bottom: 2rem;
+	position: relative;
+	left: 0;
+	background-color: #e5e1e6;
+	padding: 0.5rem 1rem;
+	box-shadow: 0.25rem 0.25rem 0 0 #40ddff;
+}
+
+.alertText::before,
+.alertText::after {
+	content: '';
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	clip-path: polygon(0 0, 50% 100%, 100% 0);
+	transform: translateY(100%);
+}
+
+.alertText::after {
+	bottom: 0;
+	left: 10%;
+	background-color: #e5e1e6;
+}
+
+.alertText::before {
+	bottom: -0.25rem;
+	left: calc(10% + 0.25rem);
+	background-color: #40ddff;
+}
