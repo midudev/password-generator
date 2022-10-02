@@ -1,0 +1,22 @@
+.slider {
+	background: linear-gradient(to right, #a3ffae 0%, #a3ffae 50%, #17161f 50%, #17161f 100%);
+}
+input[type='checkbox'] {
+	display: block;
+	visibility: hidden;
+}
+input[type='checkbox']:before {
+	display: block;
+}
+input[type='checkbox']:checked {
+	visibility: visible;
+}
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background-color: #ffffff;
+	overflow: visible;
+	cursor: pointer;
+}
