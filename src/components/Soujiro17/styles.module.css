@@ -38,11 +38,17 @@
 .password {
 	width: 100%;
 	text-align: center;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding: .5rem;
 }
 
 .clipboard {
 	height: 100%;
 	width: 5rem;
+	min-width: 5rem;
+	max-width: 5rem;
 	border-left: 1px solid #000;
 	display: flex;
 	align-items: center;
