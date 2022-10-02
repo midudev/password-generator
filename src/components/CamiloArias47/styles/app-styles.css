@@ -1,9 +1,14 @@
 .app{
+	background: rgb(63,0,117);
+	background: radial-gradient(circle, rgba(63,0,117,1) 0%, rgba(21,0,40,1) 75%);
+	color: #fff;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
     justify-content: center;
 	height: 100vh;
+	width: 100%;
 }
 
 section{
@@ -12,16 +17,198 @@ section{
 
 h1{
 	font-size:4rem;
+	overflow: hidden;
+	letter-spacing: 6px;
 }
 
-button{
-	background-color: #fd006f;
-	background-image: linear-gradient(90deg, #fd006f 0%, #9c009e 100%);
+.password-result{
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding-top: 68px;
+}
+
+.password-result__offset{
+	width: 20%;
+}
+
+.password-result__password{
+	font-size: 3rem;
+	width: 60%;
+}
+.password-result__copy{
+	text-align: left;
+	width: 20%;
+}
+
+.password-result__btn--copied{
+	position: relative;
+}
+
+.password-result__btn--copied::after{
+	content: 'Copied!';
+    position: absolute;
+    border-radius: 6px;
+    background-color: #fc006f;
+    padding: 4px;
+    bottom: -41px;
+    left: -7px;
+    font-weight: 100;
+}
+
+.password-result__btn > svg{
+	transition: box-shadow 0.4s cubic-bezier(0.8, -1, 0.2, 1.5) 0s;
+}
+
+.password-result__btn:hover > svg{
+	cursor: pointer;
+    shape-rendering: crispEdges;
+    fill: url(#MyGradient);
+	filter: drop-shadow(0 0 5px #d800ff);
+}
+
+.input-lenght{
+	display: block;
+	width: 100%;
+	margin: 44px 0;
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+	height: 7px;
+	background: rgba(255, 255, 255, 0.6);
+	border-radius: 5px;
+	background-image: linear-gradient(90deg, #9c009e, #fd006f);
+	background-repeat: no-repeat;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 20px;
+	width: 20px;
+	margin-left: 16px;
+	border-radius: 50%;
+	background: #fd006f;
+	cursor: ew-resize;
+	box-shadow: 0px 0px 8px 0px #d800ff;
+	transition: box-shadow 0.4s cubic-bezier(0.8, -1, 0.2, 1.5) 0s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+	box-shadow: 0px 0px 25px 0px #d800ff;
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+	-webkit-appearance: none;
+	box-shadow: none;
+	border: none;
+	background: transparent;
+}
+
+.generate-btn{
+	background-color: #9c009e;
+	background-image: linear-gradient(90deg, #9c009e 0%, #fd006f 100%);
 	font-size: 2rem;
 	padding: 8px 20px;
 	border-radius: 6px;
+	transition: box-shadow 0.4s cubic-bezier(0.8, -1, 0.2, 1.5) 0s;
+	box-shadow: 0px 0px 8px 0px #d800ff;
 }
 
-button:hover{
-	box-shadow: 0px 0px 8px 0px #d800ff;
+.generate-btn:hover{
+	box-shadow: 0px 0px 25px 0px #d800ff, 0px 0px 8px 2px #d800ff;
+}
+
+.char{
+	width: 85px;
+}
+
+.char.char--animatedA::after{
+	content: 'a';
+	animation: changewordA 5s 3s linear infinite alternate;
+}
+
+.char.char--animatedE::after{
+	content: 'e';
+	animation: changewordE 4s 3s linear infinite alternate;
+}
+
+.char.char--animatedE--delayed::after{
+	content: 'e';
+	animation: changewordE 5s 4s linear infinite alternate;
+}
+
+.char.char--animated0::after{
+	content: 'o';
+	animation: changeword0 4s 3s linear infinite alternate;
+}
+
+.char.char--animatedT::after{
+	content: 't';
+	animation: changewordT 4s 3s linear infinite alternate;
+}
+
+.char.char--animated::after{
+	display: inline-block;
+	width: 46px;
+}
+
+@keyframes changewordA {
+	0%{
+		content: '4';
+		font-size: 4rem;
+	}
+	33%{
+		content: 'a';
+		font-size: 4rem;
+	}
+	66%{
+		content: 'A';
+		font-size: 4rem;
+	}
+	99.9%{
+		content: '@';
+		font-size: 4rem;
+	}
+	100%{
+		content: '@';
+		font-size: 3rem;
+	}
+}
+
+@keyframes changewordE {
+	0%{
+		content: '3';
+	}
+	50%{
+		content: 'e';
+	}
+	100%{
+		content: 'E';
+	}
+}
+
+@keyframes changeword0 {
+	0%{
+		content: '0';
+	}
+	50%{
+		content: 'o';
+	}
+	100%{
+		content: 'O';
+	}
+}
+
+@keyframes changewordT {
+	0%{
+		content: 'T';
+	}
+	50%{
+		content: '7';
+	}
+	100%{
+		content: 't';
+	}
 }
