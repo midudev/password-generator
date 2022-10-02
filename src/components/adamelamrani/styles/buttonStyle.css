@@ -1,4 +1,5 @@
 button {
+	margin: 40px;
 	font-size: 20px;
 	font-weight: bold;
 	width: 400px;
@@ -10,4 +11,11 @@ button {
 	color: #fff;
 	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa,
 		0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+	box-shadow: 0 0 50px 7px rgba(0, 250, 170, 0.5);
+}
+
+@media (max-width: 400px) {
+	button {
+		width: 200px;
+	}
 }
