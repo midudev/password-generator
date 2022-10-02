@@ -118,8 +118,8 @@ const CardKevin = () => {
 							Object.entries(Options).filter((d) => d[1] === true).length <= 1
 								? 'LOW'
 								: Object.entries(Options).filter((d) => d[1] === true).length === 4
-								? 'HIGH'
-								: 'MEDIUM'
+									? 'HIGH'
+									: 'MEDIUM'
 						}
 						quantity={Object.entries(Options).filter((d) => d[1] === true).length}
 					></Level>
