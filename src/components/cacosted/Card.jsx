@@ -59,11 +59,11 @@ export const Card = () => {
 	}
 	
 	return (
-		<main className="min-h-screen text-white flex justify-center items-center bg-slate-900">
+		<main className="min-h-screen text-white flex justify-center items-center bg-slate-800">
 			<div className={`absolute top-5 mx-auto text-center border-amber-500 border-2 rounded-lg transition-opacity duration-500 ${copiedClass}`}>
 				<span className="text-white p-5 relative block">Copied to clipboard</span>
 			</div>
-			<article className="w-3/5 bg-gray-900 rounded-xl flex flex-col gap-8 p-6 shadow-bg-gray-900 shadow-2xl">
+			<article className="w-11/12 sm:w-1/2 bg-gray-900 rounded-xl flex flex-col gap-8 px-8 py-6 shadow-bg-gray-900 shadow-2xl">
 				<Header />
 				<label htmlFor="password" className="relative block">
 					<input name="password" id="password" className="text-slate-400 w-full px-5 py-3 bg-gray-800 rounded-lg" type="text" readOnly value={password}/>
