@@ -104,7 +104,7 @@ import Layout from "../../../layouts/Layout.astro";
 	const generatePassword = () => {
 		const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()()–_=+[][]{}{}\|;:‘“,./<><>?";
 		let newPassword = "";
-		for (let i=0; i<passwordLength; i++){
+		for (let i = 0; i < passwordLength; i++){
 			const charIndex = Math.floor(Math.random() * characters.length);
 			newPassword += characters[charIndex];
 		}
