@@ -9,26 +9,7 @@ const whitelistCharlower = 'abcdefghijklmnopqrstuvwxyz'
 const whitelistNumbers = '0123456789'
 const whitelistSymbols = '~!@-#$'
 
-const defaultConfig = [
-	{
-		name: 'size',
-		value: 10
-	},
-	{
-		name: 'symbols',
-		value: true
-	},
-	{
-		name: 'numbers',
-		value: true
-	},
-	{
-		name: 'case',
-		value: 'mixed'
-	}
-]
-
-const CommandGenerate = ({ config = [] }) => {
+const CommandGenerate = ({ config = [], docs = [] }) => {
 	const [loading, setLoading] = useState(true)
 	const [password, setPassword] = useState('contraseña')
 	const [showPassword, setShowPassword] = useState(false)
@@ -62,23 +43,31 @@ const CommandGenerate = ({ config = [] }) => {
 
 	// Generamos contraseña segura
 	useEffect(() => {
-		// Convertimos la configuracion array en un objecto
-		const configObj = {}
+		// Opciones predeterminanas
+		const configParams = { case: 'mixed', numbers: true, size: 10, symbols: true }
 
-		// Le definimos el valor inicial
-		defaultConfig.forEach((c) => {
-			configObj[c.name] = c.value
-		})
-
-		// Re-escribimos los valores por los valores de los props
 		config.forEach((c) => {
-			configObj[c.name] = c.value
+			// Parsear valores
+			const docCommand = docs[docs.map((o) => o.name).indexOf('generate')]
+			const docOption = docCommand.options[docCommand.options.map((o) => o.name).indexOf(c.name)]
+
+			if (docOption.type == 'number') {
+				configParams[c.name] = Number(c.value)
+				return
+			}
+
+			if (docOption.type == 'bool') {
+				configParams[c.name] = c.value == 'true' ? true : false
+				return
+			}
+
+			configParams[c.name] = c.value
 		})
 
 		let arrayChars = []
 
 		// Definimos el case
-		switch (configObj.case) {
+		switch (configParams.case) {
 			case 'mixed':
 				arrayChars = [...arrayChars, ...whitelistCharUpper, ...whitelistCharlower]
 				break
@@ -96,16 +85,17 @@ const CommandGenerate = ({ config = [] }) => {
 		}
 
 		// Definimos los simbolos
-		if (configObj.symbols) {
+		if (configParams.symbols) {
 			arrayChars = [...arrayChars, ...whitelistSymbols]
 		}
 
 		// Definimos los numeros
-		if (configObj.numbers) {
+		if (configParams.numbers) {
 			arrayChars = [...arrayChars, ...whitelistNumbers]
 		}
-		// const randPassword =new Array(config.size).fill(whitelistCharlower).map((x) =>  { return x[Math.floor(Math.random() * x.length)] }).join('');
-		const randPassword = new Array(configObj.size)
+
+		// Generamos lac contraseña 
+		const randPassword = new Array(configParams.size)
 			.fill(arrayChars)
 			.map((x) => {
 				return x[Math.floor(Math.random() * x.length)]
@@ -129,7 +119,12 @@ const CommandGenerate = ({ config = [] }) => {
 							<IconCopy />
 						</button>
 					</div>
-					{clipboardPassword && <p> { !showPassword ? '*'.repeat(password.length) : password } Copiado en el portapapeles </p>}
+					{clipboardPassword && (
+						<p>
+							{' '}
+							{!showPassword ? '*'.repeat(password.length) : password} Copiado en el portapapeles{' '}
+						</p>
+					)}
 					<br />
 				</>
 			)}

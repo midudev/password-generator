@@ -198,6 +198,7 @@ const App = () => {
 						setCommands([])
 					}}
 					docs={listDocCommads}
+					config={ command.options }
 				/>
 			)
 		])
