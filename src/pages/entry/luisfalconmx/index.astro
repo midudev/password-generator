@@ -1,0 +1,67 @@
+---
+import Layout from '@layout'
+
+const username = 'luisfalconmx'
+const response = await fetch(`https://api.github.com/users/${username}`)
+const data = await response.json()
+const profile = data.avatar_url
+---
+
+<Layout title='luisfalconmx'>
+	<div class='background multicolor'></div>
+	<header class='text-white flex justify-between py-4 px-8 items-center'>
+		<a href='https://hacktoberfest.com/' alt='Hacktoberfest 2022'>
+			<div class='flex items-center'>
+				<img
+					width='48px'
+					src='https://user-images.githubusercontent.com/57654255/193474041-238402ed-d897-4079-834f-96075a5315d0.svg'
+					alt='Hacktoberfest 2022 logo'
+					class='mr-4'
+				/>
+				<strong class='font-special font-light uppercase text-shadow'>Hacktoberfest</strong>
+			</div>
+		</a>
+		<a href='https://github.com/luisfalconmx'>
+			<div class='flex items-center justify-center'>
+				<img
+					src={profile}
+					alt={`${username} profile picture`}
+					class='rounded-full w-12 object-fill mr-4'
+				/>
+				<b class='font-special font-light text-shadow'>{username}</b>
+			</div>
+		</a>
+	</header>
+	<main>
+		<h1
+			class='hackfont text-shadow uppercase font-special text-white font-bold text-5xl text-center'
+		>
+			Password Generator
+		</h1>
+	</main>
+</Layout>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+	.hackfont {
+		font-family: 'Silkscreen', cursive;
+	}
+
+	.text-shadow {
+		text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+	}
+
+	.background {
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		opacity: 0.4;
+		filter: brightness(0.4) sepia(1) hue-rotate(140deg) saturate(8);
+		mask-image: radial-gradient(70% 80% at center, black 40%, transparent 70%);
+		background-image: url('https://hacktoberfest.com/_next/static/media/grid-square.7c0cbc15.svg');
+	}
+</style>
