@@ -1,0 +1,248 @@
+---
+import Layout from '@layout'
+import Levels from '../../../components/maadeval/Level/Level.jsx'
+---
+
+<style>
+	@font-face {
+		font-family: 'Jet Brains Mono';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url('/JetBrainsMono-Regular.woff2') format('woff2');
+	}
+
+	.wrapper {
+		position: relative;
+		width: 100vw;
+		height: 100vh;
+		background: url('/grain-dark.png');
+		overflow: hidden;
+		display: grid;
+		place-items: center;
+	}
+
+	.wrapper::before,
+	.wrapper::after {
+		content: 'Midupassword Midupassword Midupassword';
+		color: #e5e1e6;
+		opacity: 0.5;
+		text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		position: absolute;
+		font-size: 4rem;
+		white-space: nowrap;
+	}
+
+	.wrapper::before {
+		top: 0;
+		left: 0;
+		transform: rotate(-0.25turn) translateX(calc(-100% - 1rem)) translateY(1rem);
+		transform-origin: top left;
+		animation: lateral-text-left 10s linear alternate infinite, ligth 10s linear forwards;
+	}
+
+	.wrapper::after {
+		top: 0;
+		right: 0;
+		transform-origin: top right;
+		transform: rotate(-0.25turn) translateY(calc(-100% - 1rem)) translateX(0);
+		animation: lateral-text-right 10s linear alternate-reverse infinite, ligth 10s linear forwards;
+	}
+
+	.container {
+		max-width: 33rem;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-left: 1rem;
+		margin-right: 1rem;
+	}
+
+	.divider {
+		margin-top: 8.5rem;
+		height: 1rem;
+		width: 100%;
+		display: block;
+		background: repeating-linear-gradient(
+			90deg,
+			#e5e1e6,
+			#e5e1e6 1rem,
+			transparent 1rem,
+			transparent 2rem
+		);
+	}
+
+	.text,
+	.text-slate {
+		color: #fff;
+		text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		width: 100%;
+	}
+
+	.text {
+		margin-top: 1rem;
+	}
+
+	.text-slate {
+		margin-top: 0.5rem;
+		opacity: 0.5;
+	}
+
+	@keyframes lateral-text-right {
+		0% {
+			transform: rotate(-0.25turn) translateY(calc(-100% - 1rem)) translateX(0);
+		}
+		100% {
+			transform: rotate(-0.25turn) translateY(calc(-100% - 1rem)) translateX(20%);
+		}
+	}
+
+	@keyframes lateral-text-left {
+		0% {
+			transform: rotate(-0.25turn) translateX(calc(-100% - 0)) translateY(1rem);
+		}
+		100% {
+			transform: rotate(-0.25turn) translateX(calc(-100% + 20%)) translateY(1rem);
+		}
+	}
+
+	@keyframes ligth {
+		0% {
+			opacity: 0.3;
+		}
+		10% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		10.1% {
+			opacity: 0.5;
+			text-shadow: none;
+		}
+		10.2% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		20% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		20.1% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		20.6% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		30% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		30.1% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		30.5% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		30.6% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		45% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		45.1% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		50% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		55% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		55.1% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		57% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		57.1% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		60% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		60.1% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		65% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		65.1% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		75% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		75.1% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		77% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		77.1% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		85% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		85.1% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		86% {
+			opacity: 0.3;
+			text-shadow: none;
+		}
+		86.1% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+		100% {
+			opacity: 0.5;
+			text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+		}
+	}
+</style>
+
+<Layout title='maadeval'>
+	<main class='wrapper'>
+		<section class='container'>
+			<img src='/maadeval/midu-logo-pixel.png' alt='Logo de Midu en pixel' />
+			<span class='divider'></span>
+			<p class='text'>[ Nivel de dificultad ] [===]</p>
+			<p class='text-slate'>{'>>'} El nivel de tu midupassword representa su longitud.</p>
+			<Levels client:load />
+		</section>
+	</main>
+</Layout>
