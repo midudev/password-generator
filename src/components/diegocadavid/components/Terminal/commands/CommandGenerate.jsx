@@ -75,7 +75,7 @@ const CommandGenerate = ({ config = [], docs = [] }) => {
 				arrayChars = [...arrayChars, ...whitelistCharUpper]
 				break
 
-			case 'upper':
+			case 'lower':
 				arrayChars = [...arrayChars, ...whitelistCharlower]
 				break
 
