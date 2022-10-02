@@ -1,6 +1,7 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
-const CHARSET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-='
+const CHARSET =
+	'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-='
 
 export const usePassword = (initialLength = 5) => {
 	const [passLength, setPassLength] = useState(initialLength)
@@ -14,21 +15,20 @@ export const usePassword = (initialLength = 5) => {
 	}
 
 	const generatePassword = () => {
-		const password = Array.from({length: passLength}).map(() => getRandomChar())
+		const password = Array.from({ length: passLength }).map(() => getRandomChar())
 		return password.join('')
 	}
 
 	const setNewLength = (number) => setPassLength(number)
-	
+
 	const setNewPassword = () => {
 		const newPassword = generatePassword()
 		setPassword(newPassword)
 	}
-	
 
 	useEffect(() => {
 		setNewPassword()
-	},[passLength])
+	}, [passLength])
 
 	return {
 		password,

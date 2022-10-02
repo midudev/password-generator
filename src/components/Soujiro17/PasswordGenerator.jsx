@@ -13,7 +13,6 @@ const PasswordGenerator = () => {
 	const randomNumWithMinAndMax = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
 	const generatePassword = () => {
-
 		run('Contraseña generada!')
 
 		let generatedPassword = ''
@@ -26,10 +25,10 @@ const PasswordGenerator = () => {
 	}
 
 	const onClickCopy = () => {
-		try{
+		try {
 			navigator.clipboard.writeText(password)
 			run('Contraseña copiada con éxito!', true)
-		}catch(err){
+		} catch (err) {
 			run('Error al copiar la contraseña!', false)
 		}
 	}
@@ -45,10 +44,19 @@ const PasswordGenerator = () => {
 					</div>
 				</div>
 				<div className={styles.input_wrapper}>
-					<input className={styles.input} type='range' value={passwordLength} min={1} step={1} onChange={handlePasswordLength} />
+					<input
+						className={styles.input}
+						type='range'
+						value={passwordLength}
+						min={1}
+						step={1}
+						onChange={handlePasswordLength}
+					/>
 					<output className={styles.output}>{passwordLength}</output>
 				</div>
-				<button className={styles.btn} onClick={generatePassword}>Generar contraseña</button>
+				<button className={styles.btn} onClick={generatePassword}>
+					Generar contraseña
+				</button>
 			</div>
 		</>
 	)

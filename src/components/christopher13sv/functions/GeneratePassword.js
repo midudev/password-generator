@@ -1,4 +1,4 @@
-const GeneratePassword = (configuration) =>{
+const GeneratePassword = (configuration) => {
 	const characters = {
 		numbers: '123456789',
 		simbols: '! @ # $ % ^ & * ( ) _ - + = { [ } ] ; : < , > . ? /',
@@ -8,21 +8,21 @@ const GeneratePassword = (configuration) =>{
 	let finalCharacters = ''
 	let password = ''
 
-	for (let propierty in configuration){
-		if (configuration[propierty] === true){
-			finalCharacters += characters[propierty] + ''; 
+	for (let propierty in configuration) {
+		if (configuration[propierty] === true) {
+			finalCharacters += characters[propierty] + ''
 		}
 	}
 
-	finalCharacters += characters.lowercase;
+	finalCharacters += characters.lowercase
 	finalCharacters = finalCharacters.trim()
 
-	finalCharacters = finalCharacters.split(' ');
+	finalCharacters = finalCharacters.split(' ')
 
-	for (let i= 0; i< configuration.numerosDeCaracteres; i++){
-		password += finalCharacters[Math.floor(Math.random()* finalCharacters.length)];
+	for (let i = 0; i < configuration.numerosDeCaracteres; i++) {
+		password += finalCharacters[Math.floor(Math.random() * finalCharacters.length)]
 	}
 	return password
 }
 
-export default GeneratePassword;
+export default GeneratePassword

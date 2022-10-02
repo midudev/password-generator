@@ -1,7 +1,7 @@
-input[type=range]::-webkit-slider-thumb {
-    width: 16px;
-    height: 20px;
-    background-color: #7e22ce;
-    border-radius: 3px;
-    -webkit-appearance: none;
+input[type='range']::-webkit-slider-thumb {
+	width: 16px;
+	height: 20px;
+	background-color: #7e22ce;
+	border-radius: 3px;
+	-webkit-appearance: none;
 }

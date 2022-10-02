@@ -9,7 +9,7 @@ export const Slider = ({ min, max, setPasswordLength }) => {
 		const value = target.value
 
 		setValue(value)
-		setPasswordLength(curr => ({
+		setPasswordLength((curr) => ({
 			...curr,
 			passwordlength: value
 		}))
@@ -27,7 +27,7 @@ export const Slider = ({ min, max, setPasswordLength }) => {
 			/>
 			<div className='flex justify-between'>
 				<h6 className='text-lg font-bold'>{min}</h6>
-				{ !isEqualToMinOrMax && <h6 className='text-lg font-bold'>{value}</h6> }
+				{!isEqualToMinOrMax && <h6 className='text-lg font-bold'>{value}</h6>}
 				<h6 className='text-lg font-bold'>{max}</h6>
 			</div>
 		</div>

@@ -7,20 +7,17 @@ const ShowPassword = () => {
 	const [password, setPassword] = useState()
 
 	useEffect(() => {
-		passwordStore.subscribe(value => setPassword(value))
+		passwordStore.subscribe((value) => setPassword(value))
 	}, [])
 
 	return (
 		<Card>
 			<span>{password}</span>
-			<span
-				className="text-[8px] cursor-pointer"
-				onClick={() => copyToClipboard(password)}
-			>
+			<span className='text-[8px] cursor-pointer' onClick={() => copyToClipboard(password)}>
 				COPY
 			</span>
 		</Card>
 	)
 }
 
-export default ShowPassword;
+export default ShowPassword

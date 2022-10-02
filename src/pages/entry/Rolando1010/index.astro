@@ -1,5 +1,5 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
+import Layout from '../../../layouts/Layout.astro'
 ---
 
 <style>
@@ -7,7 +7,7 @@ import Layout from "../../../layouts/Layout.astro";
 		display: flex;
 		justify-content: center;
 	}
-	
+
 	main {
 		padding: 20px;
 		color: #ffffff;
@@ -26,7 +26,7 @@ import Layout from "../../../layouts/Layout.astro";
 		text-align: left;
 		padding: 0 10px;
 	}
-	
+
 	.container {
 		margin: 25px 0;
 		background-color: #4c3363;
@@ -40,7 +40,7 @@ import Layout from "../../../layouts/Layout.astro";
 		font-weight: bold;
 		word-break: break-word;
 	}
-	
+
 	.password-generator {
 		background-color: #0075ff;
 		width: 100%;
@@ -49,7 +49,8 @@ import Layout from "../../../layouts/Layout.astro";
 		font-size: 20px;
 	}
 
-	.password-generator:hover, .password-generator:focus {
+	.password-generator:hover,
+	.password-generator:focus {
 		background-color: #114685;
 	}
 
@@ -67,57 +68,52 @@ import Layout from "../../../layouts/Layout.astro";
 	}
 </style>
 
-<Layout title="Rolando">
+<Layout title='Rolando'>
 	<main>
-		<h1 class="title">Contraseña aleatoria</h1>
-		<section class="container">
-			<p class="label-container">Contraseña:</p>
-			<article id="password-container">-</article>
+		<h1 class='title'>Contraseña aleatoria</h1>
+		<section class='container'>
+			<p class='label-container'>Contraseña:</p>
+			<article id='password-container'>-</article>
 		</section>
-		<section class="container">
-			<article class="label-container">
-				Largo: <span id="password-length">4</span>
+		<section class='container'>
+			<article class='label-container'>
+				Largo: <span id='password-length'>4</span>
 			</article>
 			<label>
 				<span>4</span>
-				<input
-					id="password-length-input"
-					value="4"
-					type="range"
-					min="4"
-					max="32"
-				/>
+				<input id='password-length-input' value='4' type='range' min='4' max='32' />
 				<span>32</span>
 			</label>
 		</section>
-		<button class="password-generator">Generar contraseña</button>
+		<button class='password-generator'>Generar contraseña</button>
 	</main>
 </Layout>
 
-<script type="module">
-	const passwordGeneratorButton = document.querySelector(".password-generator");
-	const passwordContainer = document.querySelector("#password-container");
-	const passwordLengthContainer = document.querySelector("#password-length");
-	const passwordLengthInput = document.querySelector("#password-length-input");
+<script type='module'>
+	const passwordGeneratorButton = document.querySelector('.password-generator')
+	const passwordContainer = document.querySelector('#password-container')
+	const passwordLengthContainer = document.querySelector('#password-length')
+	const passwordLengthInput = document.querySelector('#password-length-input')
 
-	let passwordLength = 4;
+	let passwordLength = 4
 
 	const generatePassword = () => {
-		const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()()–_=+[][]{}{}\|;:‘“,./<><>?";
-		let newPassword = "";
-		for (let i = 0; i < passwordLength; i++){
-			const charIndex = Math.floor(Math.random() * characters.length);
-			newPassword += characters[charIndex];
+		const characters =
+			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()()–_=+[][]{}{}|;:‘“,./<><>?'
+		let newPassword = ''
+		for (let i = 0; i < passwordLength; i++) {
+			const charIndex = Math.floor(Math.random() * characters.length)
+			newPassword += characters[charIndex]
 		}
-		return newPassword;
+		return newPassword
 	}
 
-	passwordLengthInput.addEventListener("change", () => {
-		passwordLength = passwordLengthInput.value;
-		passwordLengthContainer.innerHTML = passwordLength;
-	});
+	passwordLengthInput.addEventListener('change', () => {
+		passwordLength = passwordLengthInput.value
+		passwordLengthContainer.innerHTML = passwordLength
+	})
 
-	passwordGeneratorButton.addEventListener("click", () => {
-		passwordContainer.innerHTML = generatePassword();
-	});
+	passwordGeneratorButton.addEventListener('click', () => {
+		passwordContainer.innerHTML = generatePassword()
+	})
 </script>

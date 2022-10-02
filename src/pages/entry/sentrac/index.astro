@@ -59,19 +59,19 @@
 		</style>
 		<script is:inline>
 			function generar() {
-				var longitud = document.getElementById('val').textContent;
-				var caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-				var pass = '';
+				var longitud = document.getElementById('val').textContent
+				var caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+				var pass = ''
 				for (var i = 0; i < longitud; i++) {
-					pass += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+					pass += caracteres.charAt(Math.floor(Math.random() * caracteres.length))
 				}
-				console.log(pass);
-				document.getElementById('pass').value = pass;
+				console.log(pass)
+				document.getElementById('pass').value = pass
 			}
 			function copiar_contrasena() {
-				var pass = document.getElementById('pass');
-				pass.select();
-				document.execCommand('copy');
+				var pass = document.getElementById('pass')
+				pass.select()
+				document.execCommand('copy')
 			}
 		</script>
 	</head>

@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react'
 import './style.css'
 
 const PasswordInput = ({ password, placeholder }) => {
-
 	const handleCopyPassword = () => {
 		if (password) {
-			navigator.clipboard.writeText(password);
+			navigator.clipboard.writeText(password)
 			setToolTipText('Copied')
 		}
 	}
@@ -19,18 +18,15 @@ const PasswordInput = ({ password, placeholder }) => {
 	return (
 		<div className='password-input-container'>
 			<input
-				type="text"
+				type='text'
 				placeholder={placeholder}
-				className="password-input"
+				className='password-input'
 				value={password}
 				disabled
 			/>
 			<div className='tooltip'>
-				<button
-					type="button"
-					onClick={handleCopyPassword}
-				>
-					<span className="tooltiptext">{toolTipText}</span>
+				<button type='button' onClick={handleCopyPassword}>
+					<span className='tooltiptext'>{toolTipText}</span>
 					<span className='icon'></span>
 				</button>
 			</div>

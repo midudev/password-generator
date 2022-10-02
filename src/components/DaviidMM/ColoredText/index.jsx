@@ -5,9 +5,18 @@ const colorClasses = {
 }
 
 const ColoredText = ({ children, className, color = 'violet' }) => {
-	return <span className={(className ? className + ' ' : '') + 'bg-clip-text text-transparent' + ' ' + colorClasses[color]}>
-		{children}
-	</span>
+	return (
+		<span
+			className={
+				(className ? className + ' ' : '') +
+				'bg-clip-text text-transparent' +
+				' ' +
+				colorClasses[color]
+			}
+		>
+			{children}
+		</span>
+	)
 }
 
 export default ColoredText

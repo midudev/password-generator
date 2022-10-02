@@ -1,20 +1,20 @@
 export const run = (message, success = true) => {
-	const toast = document.getElementById("toast")
+	const toast = document.getElementById('toast')
 
 	toast.style.display = 'flex'
-	toast.style.backgroundColor = success? 'rgba(96, 206, 68, 0.822)' : 'rgb(206, 46, 46)'
+	toast.style.backgroundColor = success ? 'rgba(96, 206, 68, 0.822)' : 'rgb(206, 46, 46)'
 	toast.innerHTML = message
-	
-	if(!toast.classList.contains('animation--enter')){
-		toast.className+= ' animation--enter'
+
+	if (!toast.classList.contains('animation--enter')) {
+		toast.className += ' animation--enter'
 	}
-	
+
 	setTimeout(() => {
 		toast.classList.remove('animation--enter')
 	}, 4000)
-	
+
 	setTimeout(() => {
-		toast.className+= ' animation--close'
+		toast.className += ' animation--close'
 	}, 5000)
 
 	setTimeout(() => {
@@ -25,11 +25,10 @@ export const run = (message, success = true) => {
 
 	toast.onclick = () => {
 		toast.classList.remove('animation--enter')
-		toast.className+= ' animation--close'
+		toast.className += ' animation--close'
 
 		setTimeout(() => {
 			toast.style.display = 'none'
 		}, 200)
 	}
-	
 }

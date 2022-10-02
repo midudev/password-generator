@@ -16,7 +16,9 @@ const participants = await getParticipants()
 const shownParticipants = showAll ? participants : participants.slice(0, MAX_ITEMS)
 ---
 
-<h2 class='text-giga font-bold font-special uppercase text-3xl mb-4'>{participants.length} Participaciones</h2>
+<h2 class='text-giga font-bold font-special uppercase text-3xl mb-4'>
+	{participants.length} Participaciones
+</h2>
 <ul class='flex flex-wrap gap-7 justify-center'>
 	{
 		shownParticipants.map((name) => (
@@ -30,7 +32,9 @@ const shownParticipants = showAll ? participants : participants.slice(0, MAX_ITE
 						src={'https://unavatar.io/github/' + name}
 						alt={name}
 					/>
-					<span class='block w-20 whitespace-nowrap overflow-hidden text-ellipsis text-xs'>{name}</span>
+					<span class='block w-20 whitespace-nowrap overflow-hidden text-ellipsis text-xs'>
+						{name}
+					</span>
 				</a>
 			</li>
 		))

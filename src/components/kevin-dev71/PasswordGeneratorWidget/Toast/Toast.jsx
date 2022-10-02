@@ -13,12 +13,8 @@ const Toast = ({ onFinish }) => {
 
 	return (
 		<div id='toast' className='show'>
-			<div id='img'>
-				✔️
-			</div>
-			<div id='desc'>
-				Copied to clipboard!
-			</div>
+			<div id='img'>✔️</div>
+			<div id='desc'>Copied to clipboard!</div>
 		</div>
 	)
 }

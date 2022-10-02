@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Clipboard ({ ...props }) {
+function Clipboard({ ...props }) {
 	return (
 		<button role='button' {...props}>
 			<svg

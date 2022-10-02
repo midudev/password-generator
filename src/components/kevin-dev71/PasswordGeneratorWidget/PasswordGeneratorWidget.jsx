@@ -23,7 +23,7 @@ const PasswordGeneratorWidget = () => {
 	useEffect(() => {
 		const calculateLeftMarginOfSliderValue = () => {
 			setSliderThumbLeftMarginValue(
-				(passwordLength - SLIDER_MIN_VALUE) * 100 / (SLIDER_MAX_VALUE - SLIDER_MIN_VALUE)
+				((passwordLength - SLIDER_MIN_VALUE) * 100) / (SLIDER_MAX_VALUE - SLIDER_MIN_VALUE)
 			)
 		}
 
@@ -69,13 +69,10 @@ const PasswordGeneratorWidget = () => {
 				{generatedPassword}
 				<CopyIcon onClick={handleCopy(generatedPassword)} />
 			</div>
-			<button
-				className='card__btn'
-				onClick={handlePasswordGeneration(passwordLength)}
-			>
+			<button className='card__btn' onClick={handlePasswordGeneration(passwordLength)}>
 				Generate
 			</button>
-			{ showToast && <Toast onFinish={handleShowToast(false)} />}
+			{showToast && <Toast onFinish={handleShowToast(false)} />}
 		</section>
 	)
 }

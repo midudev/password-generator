@@ -3,7 +3,7 @@ import Checkbox from './Checkbox'
 import Clipboard from './Clipboard'
 import { initialValues, generatePassword } from './utils'
 
-function Generator () {
+function Generator() {
 	const [password, setPassword] = useState('G8xBZ2HmHf4ff1GG8xBZ')
 	const [options, setOptions] = useState(initialValues)
 

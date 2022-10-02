@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
 export const useClipboard = () => {
 	const [isCopy, setIsCopy] = useState(false)
@@ -7,5 +7,5 @@ export const useClipboard = () => {
 		setIsCopy(true)
 		setTimeout(() => setIsCopy(false), 2000)
 	}
-	return {isCopy, copyText}
+	return { isCopy, copyText }
 }
