@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const InputTerminal = () => {
+const InputTerminal = ({addCommand}) => {
 
 	const [inputValue, setInputValue] = useState('');
 
@@ -11,8 +11,14 @@ const InputTerminal = () => {
 	}
 	
 	const handleSubmit = (e) => {
-		console.log(inputValue.trim().toLowerCase());
 		e.preventDefault();
+
+		if(inputValue.trim().toLowerCase() == ""){
+			return false;
+		}
+		
+		addCommand(inputValue.trim().toLowerCase());
+		setInputValue('');
 	}
 
 	return (
