@@ -1,33 +1,46 @@
-const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-const lowerCase = 'abcdefghijklmnopqrstuvwxyz'
-const numbers = '0123456789'
-const symbols = '!@#$%&*()_+{}[]:;<>?,./'
-
-const chars = [upperCase, lowerCase, numbers, symbols]
+const minimumPasswordLength = 4
+const dictionary = {
+	upperCases: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+	lowerCases: 'abcdefghijklmnopqrstuvwxyz',
+	numbers: '0123456789',
+	symbols: '!@#$%&*()_+{}[]:;<>?,./',
+}
 
 const getRandomNumber = (max) => Math.floor(Math.random() * max)
 
-const getRandomChar = (charsIndex) => {
+const getRandomChar = (chars, charsIndex) => {
 	const charIndex = getRandomNumber(chars[charsIndex].length)
 	return chars[charsIndex][charIndex]
 }
 
-const generatePassword = ({ length }) => {
-	const atLeastOneUppercase = getRandomChar(0)
-	const atLeastOneLowercase = getRandomChar(1)
-	const atLeastOneNumber = getRandomChar(2)
-	const atLeastOneSymbol = getRandomChar(3)
+const generatePassword = ({
+	length,
+	uppercases,
+	lowercases,
+	numbers,
+	symbols,
+}) => {
+	const lengthPassword = Math.max(length, minimumPasswordLength)
+	const chars = [
+		uppercases ? dictionary.upperCases : [],
+		lowercases ? dictionary.lowerCases : [],
+		numbers ? dictionary.numbers : [],
+		symbols ? dictionary.symbols : []
+	].flat()
 
-	const pass = [atLeastOneUppercase, atLeastOneLowercase, atLeastOneNumber, atLeastOneSymbol]
+	const password = []
+	for (let i = 0; i < minimumPasswordLength; i++) {
+		password.push(getRandomChar(chars, i % chars.length))
+	}
 
-	if (length > 4) {
-		for (let i = 4; i < length; i++) {
-			const randomChar = getRandomChar(getRandomNumber(chars.length))
-			pass.push(randomChar)
+	if (lengthPassword > minimumPasswordLength) {
+		for (let i = minimumPasswordLength; i < lengthPassword; i++) {
+			const randomChar = getRandomChar(chars, getRandomNumber(chars.length))
+			password.push(randomChar)
 		}
 	}
 
-	return pass.join('')
+	return password.join('')
 }
 
 export { generatePassword }
