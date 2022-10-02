@@ -15,7 +15,7 @@ const participants = await getParticipants()
 const shownParticipants = showAll ? participants : participants.slice(0, MAX_ITEMS)
 ---
 
-<h2 class='text-giga font-bold font-special uppercase text-3xl mb-4'>Participaciones</h2>
+<h2 class='text-giga font-bold font-special uppercase text-3xl mb-4'>{participants.length} Participaciones</h2>
 <ul class='flex flex-wrap gap-7 justify-center'>
 	{
 		shownParticipants.map((name) => (
