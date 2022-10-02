@@ -3,14 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-		"lint": "eslint src/**",
+    "lint": "eslint src/** --fix",
+		"lint:modified": "eslint $(git diff --name-only --diff-filter=ACMRTUXB main | grep  -E \"(.js$|.ts$|.tsx$)\") --fix",
     "commit": "cz",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-		"format": "prettier --write src/**"
+    "format": "prettier --write src/**",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@analogjs/astro-angular": "0.1.0-beta.2",
@@ -46,7 +48,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "0.5.7",
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/eslint-plugin": "5.38.1",
     "@typescript-eslint/parser": "5.38.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.24.0",
@@ -57,7 +59,8 @@
     "eslint-plugin-n": "15.3.0",
     "eslint-plugin-promise": "6.0.1",
     "prettier": "2.7.1",
-    "prettier-plugin-astro": "0.5.4"
+    "prettier-plugin-astro": "0.5.4",
+    "husky": "8.0.0"
   },
   "config": {
     "commitizen": {

@@ -1,13 +1,13 @@
 export default function getPassword(upperCase, numbers, symbols, max) {
 	const num = '0123456789'
 	const abc = 'abcdefghijklmnopqrstuvwxyz'
-	const sym = '!@#$%&*()_+-=[]{}|;:,<.>?∼'
+	const sym = '!@#$%&*()_+-=[]{}|;:,<.>?~'
 
 	const password = []
 	let i = 0
 
 	function addChar(list) {
-		let index = Math.floor(Math.random() * list.length)
+		const index = Math.floor(Math.random() * list.length)
 		password.push(list[index])
 	}
 
@@ -31,7 +31,7 @@ export default function getPassword(upperCase, numbers, symbols, max) {
 
 	let currentIndex = password.length
 	let randomIndex
-	while (currentIndex != 0) {
+	while (currentIndex !== 0) {
 		randomIndex = Math.floor(Math.random() * currentIndex)
 		currentIndex--
 		;[password[currentIndex], password[randomIndex]] = [

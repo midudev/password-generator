@@ -3,7 +3,7 @@ const numbers = '0123456789'
 const symbols = '!@#$%^&*()_+~`|}{[]:;?><,./-='
 
 const passwordGenerator = (passwordLength, options) => {
-	let charactersList = [
+	const charactersList = [
 		defaultLetters,
 		...(options.uppercase ? defaultLetters.toUpperCase() : []),
 		...(options.numbers ? numbers : []),

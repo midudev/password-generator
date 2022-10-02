@@ -8,7 +8,7 @@ const GeneratePassword = (configuration) => {
 	let finalCharacters = ''
 	let password = ''
 
-	for (let propierty in configuration) {
+	for (const propierty in configuration) {
 		if (configuration[propierty] === true) {
 			finalCharacters += characters[propierty] + ''
 		}

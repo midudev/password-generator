@@ -6,7 +6,7 @@ const defaultCharactersOpts = {
 
 const defaultLength = 6
 
-function getCharacters({
+function getCharacters ({
 	includeUppercaseLetters,
 	includeLowercaseLetters,
 	includeNumbers
@@ -27,7 +27,7 @@ function getCharacters({
 	return randomCharacters
 }
 
-function getRandomCharacterFrom(characters) {
+function getRandomCharacterFrom (characters) {
 	if (characters.length === 0) {
 		return ''
 	}
@@ -37,7 +37,7 @@ function getRandomCharacterFrom(characters) {
 	return characters[randomCharacterIdx]
 }
 
-function getRandomCharactersFrom(characters = [], length = defaultLength) {
+function getRandomCharactersFrom (characters = [], length = defaultLength) {
 	let randomPassword = ''
 	for (let i = 0; i < length; i++) {
 		const newchar = getRandomCharacterFrom(characters)
@@ -46,7 +46,7 @@ function getRandomCharactersFrom(characters = [], length = defaultLength) {
 	return randomPassword
 }
 
-function generatePassword(charactersOpts = defaultCharactersOpts, length = defaultLength) {
+function generatePassword (charactersOpts = defaultCharactersOpts, length = defaultLength) {
 	const characters = getCharacters(charactersOpts)
 	return getRandomCharactersFrom(characters, length)
 }

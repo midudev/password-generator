@@ -54,13 +54,13 @@ const dictLetterToSpecial = {
 }
 
 const changeaLetterStrategy = {
-	'0': (char) => {
+	0: (char) => {
 		return char.toUpperCase()
 	},
-	'1': (char) => {
+	1: (char) => {
 		return dictLetterToNumber[char] || char
 	},
-	'2': (char) => {
+	2: (char) => {
 		return dictLetterToSpecial[char] || char
 	}
 }
