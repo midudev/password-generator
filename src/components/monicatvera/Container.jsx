@@ -16,7 +16,7 @@ const Container = () => {
 		setPassword(generatePassword)
 		setIsCopied(false)
 	}
-	
+
 	return (
 		<div
 			className='md:w-[33.75rem]  w-[21.43rem] px-[1rem] py-[1rem] md:py-[1.18rem] md:px-[2rem] '
@@ -37,7 +37,7 @@ const Container = () => {
 				className='mb-[2.62rem] md:w-[29.75rem] w-[19.43rem]'
 			/>
 			<Button onClick={createPassword}> GENERAR PASSWORD </Button>
-			<Password password={password}/>
+			<Password password={password} />
 		</div>
 	)
 }
