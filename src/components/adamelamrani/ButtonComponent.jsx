@@ -1,7 +1,8 @@
+import React from 'react'
 import './styles/buttonStyle.css'
 
-const ButtonComponent = ({ text, onClick }) => {
-	return <button onClick={onClick}>{text}</button>
+const ButtonComponent = ({ children, onClick }) => {
+	return <button onClick={onClick}>{children}</button>
 }
 
 export default ButtonComponent
