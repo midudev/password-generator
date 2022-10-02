@@ -127,27 +127,27 @@
 
 #camilo-arias-47-app .char.char--animatedA::after{
 	content: 'a';
-	animation: changewordA 5s 3s linear infinite alternate;
+	animation: changewordA 5s 1s linear infinite alternate;
 }
 
 #camilo-arias-47-app .char.char--animatedE::after{
 	content: 'e';
-	animation: changewordE 4s 3s linear infinite alternate;
+	animation: changewordE 4s 1s linear infinite alternate;
 }
 
 #camilo-arias-47-app .char.char--animatedE--delayed::after{
 	content: 'e';
-	animation: changewordE 5s 4s linear infinite alternate;
+	animation: changewordE 5s 2s linear infinite alternate;
 }
 
 #camilo-arias-47-app .char.char--animated0::after{
 	content: 'o';
-	animation: changeword0 4s 3s linear infinite alternate;
+	animation: changeword0 4s 1s linear infinite alternate;
 }
 
 #camilo-arias-47-app .char.char--animatedT::after{
 	content: 't';
-	animation: changewordT 4s 3s linear infinite alternate;
+	animation: changewordT 4s 1s linear infinite alternate;
 }
 
 #camilo-arias-47-app .char.char--animated::after{
