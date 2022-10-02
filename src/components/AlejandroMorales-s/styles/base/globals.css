@@ -1,16 +1,3 @@
-html{
-    font-size: 62.5%;
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
-*, *:before, *:after{
-	margin: 0;
-	padding: 0;
-    box-sizing: inherit;
-}
-body{
-	background-color: var(--white);
-}
 h1{
 	font-size: 3rem;
 	font-weight: 600;
