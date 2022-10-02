@@ -1,0 +1,23 @@
+.button {
+	@apply font-bold py-2 px-4 rounded-xl;
+	@apply text-white;
+	@apply bg-[#354654] hover:after:bg-[#495B6B];
+	@apply translate-x-0 translate-y-0;
+	@apply border-solid border-transparent;
+	@apply border-0 border-b-[2px];
+}
+
+.button::after {
+	content: '';
+	@apply bg-[#4E6271] bg-clip-padding;
+	@apply absolute;
+	@apply border-solid border-transparent border-0 border-b-[2px];
+	@apply rounded-[0.65rem];
+	@apply -bottom-[2px] left-0 right-0 top-0;
+	z-index: -1;
+}
+
+.button:active {
+	@apply border-0 border-t-[2px];
+	@apply bg-transparent;
+}
