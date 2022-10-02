@@ -33,7 +33,7 @@
 .mario-bros{
   height: 16px;
   width: 21px;
-  background: url('../../../public/DPG-Code/img/mario-sprite.png');
+  background: url('/DPG-Code/img/mario-sprite.png');
   animation: mario 0.8s steps(3) infinite;
   transform: scale(1.8);
 }
@@ -45,7 +45,7 @@
 .barril{
   height: 10px;
   width: 15.75px;
-  background: url('../../../public/DPG-Code/img/barril-sprite.png');
+  background: url('/DPG-Code/img/barril-sprite.png');
   animation: barril-sprite 0.8s steps(4) infinite;
   transform: scale(1.8);
 }
