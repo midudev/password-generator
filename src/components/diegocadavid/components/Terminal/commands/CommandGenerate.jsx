@@ -94,7 +94,7 @@ const CommandGenerate = ({ config = [], docs = [] }) => {
 			arrayChars = [...arrayChars, ...whitelistNumbers]
 		}
 
-		// Generamos lac contraseña 
+		// Generamos lac contraseña
 		const randPassword = new Array(configParams.size)
 			.fill(arrayChars)
 			.map((x) => {
@@ -119,12 +119,7 @@ const CommandGenerate = ({ config = [], docs = [] }) => {
 							<IconCopy />
 						</button>
 					</div>
-					{clipboardPassword && (
-						<p>
-							{' '}
-							{!showPassword ? '*'.repeat(password.length) : password} Copiado en el portapapeles{' '}
-						</p>
-					)}
+					{clipboardPassword && <p>contraseña capiada en el portapapeles</p>}
 					<br />
 				</>
 			)}

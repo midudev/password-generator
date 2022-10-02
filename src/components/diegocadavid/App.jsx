@@ -7,6 +7,9 @@ import CommandClear from './components/Terminal/commands/CommandClear'
 import CommandError from './components/Terminal/commands/CommandError'
 import CommandGenerate from './components/terminal/commands/CommandGenerate'
 import CommandHelp from './components/terminal/commands/CommandHelp'
+import CommandMusic from './components/terminal/commands/CommandMusic'
+import CommandMidu from './components/terminal/commands/CommandMidu'
+import CommandDiego from './components/terminal/commands/CommandDiego'
 
 const parseCommand = (commandName = '') => {
 	//Obtenemos el comando
@@ -43,6 +46,30 @@ const listDocCommads = [
 		options: [],
 		info: 'Muestra todos los comandos',
 		Component: CommandHelp
+	},
+	{
+		name: 'midu',
+		options: [
+			{
+				name: 'social',
+				info: 'Especifica la red social (youtube, twitch, instagram, patreon, twitter, facebook)',
+				type: 'string'
+			}
+		],
+		info: 'Nos muestra informacion sobre midu',
+		Component: CommandMidu
+	},
+	{
+		name: 'diego',
+		options: [],
+		info: 'Mensaje del desarrollador ;)',
+		Component: CommandDiego
+	},
+	{
+		name: 'music',
+		options: [],
+		info: 'Genera un link de una cancion sorprendente',
+		Component: CommandMusic
 	},
 	{
 		name: 'clear',
@@ -154,7 +181,7 @@ const App = () => {
 
 			// En caso de que no exista el comando introducido
 			if (!DocOption) {
-				return;
+				return
 			}
 
 			// En caso de que sea un numero
@@ -198,7 +225,7 @@ const App = () => {
 						setCommands([])
 					}}
 					docs={listDocCommads}
-					config={ command.options }
+					config={command.options}
 				/>
 			)
 		])

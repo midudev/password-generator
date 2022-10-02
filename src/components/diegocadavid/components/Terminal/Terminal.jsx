@@ -23,7 +23,6 @@ const Terminal = ({ addCommand, commands }) => {
 			{commands.map((e) => {
 				return e
 			})}
-
 			<InputTerminal addCommand={addCommand} />
 		</div>
 	)
