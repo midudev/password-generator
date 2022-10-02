@@ -7,7 +7,7 @@
 	<span class="text-slate-200 text-sm">
 		<slot name="label">{label}</slot>
 	</span>
-	<input class="hidden" type="checkbox" name="includeNumbers" bind:checked={value} />
+	<input class="hidden" type="checkbox" name="includeNumbers" bind:checked={value} on:input />
 	<div
 		class="toggle w-10 h-6 bg-purple-300/20 rounded-full flex items-center px-1"
 		class:checked={value}

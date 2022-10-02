@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let min: number = 4
+	export let min: number = 8
 	export let max: number = 32
 	export let value: number = 16
 	let rangeProgress = (value / max) * 100
@@ -12,6 +12,7 @@
 		class="range-input"
 		type="range"
 		style="--range-progress: {rangeProgress}%"
+		on:input
 		bind:value
 		{max}
 		{min}
