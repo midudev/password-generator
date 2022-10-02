@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const OutlineIcon = ({className}) => (
+export const CopyIcon = ({className}) => (
 	<svg
 				width="30px"
 				height="100%"
