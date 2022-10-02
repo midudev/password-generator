@@ -1,0 +1,12 @@
+input[type='range'] {
+	margin-right: 15px;
+	width: inherit;
+	height: 7px;
+	border-radius: 5px;
+}
+
+#copybtn:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+	cursor: pointer;
+}

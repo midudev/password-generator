@@ -7,25 +7,25 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Participa en el Hacktoberfest con la comunidad de midudev" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@midudev" />
-		<meta name="twitter:creator" content="@midudev" />
-		<meta name="twitter:title" content="Hacktoberfest 2022" />
-		<meta name="twitter:description" content="Participa en el Hacktoberfest con la comunidad de midudev" />
-		<meta name="twitter:image" content="/image.png" />
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='generator' content={Astro.generator} />
+		<meta name='description' content='Participa en el Hacktoberfest con la comunidad de midudev' />
+		<meta name='twitter:card' content='summary_large_image' />
+		<meta name='twitter:site' content='@midudev' />
+		<meta name='twitter:creator' content='@midudev' />
+		<meta name='twitter:title' content='Hacktoberfest 2022' />
+		<meta name='twitter:description' content='Participa en el Hacktoberfest con la comunidad de midudev' />
+		<meta name='twitter:image' content='https://hacktoberfest-2022.vercel.app/image.jpg' />
 
-		<meta name="og:image" content="/image.png" />
-		<meta name="og:title" content="Hacktoberfest 2022" />
-		<meta name="og:description" content="Participa en el Hacktoberfest con la comunidad de midudev" />
-		<meta name="og:site_name" content="Midudev Hacktoberfest 2022" />
-		<meta name="og:type" content="website" />
+		<meta name='og:image' content='https://hacktoberfest-2022.vercel.app/image.jpg' />
+		<meta name='og:title' content='Hacktoberfest 2022' />
+		<meta name='og:description' content='Participa en el Hacktoberfest con la comunidad de midudev' />
+		<meta name='og:site_name' content='Midudev Hacktoberfest 2022' />
+		<meta name='og:type' content='website' />
 
 		<title>{title}</title>
 	</head>
@@ -53,6 +53,9 @@ const { title } = Astro.props;
 		margin: 0;
 	}
 
+	html, body {
+		height: 100%;
+    }
 
 </style>
 
