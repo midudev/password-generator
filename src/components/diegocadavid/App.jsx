@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import WindowTerminal from './components/Terminal/WindowTerminal'
+import WindowTerminal from './components/terminal/WindowTerminal'
 
 
 const App = () => {

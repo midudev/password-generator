@@ -7,7 +7,7 @@ const Terminal = () => {
 			<div>
 				<p>Terminal Passoword [Version 9.22.2006]</p>
 				<p>Creado por DiegoCadavid</p>
-				<p>Usa el comando ‘help’ para ver todos los comandos.</p>
+				<p>Usa el comando 'help' para ver todos los comandos.</p>
 			</div>
 			<br />
 			<InputTerminal />
