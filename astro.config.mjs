@@ -4,8 +4,9 @@ import react from '@astrojs/react'
 import vue from '@astrojs/vue'
 import tailwind from '@astrojs/tailwind'
 import image from '@astrojs/image'
+import solidJs from '@astrojs/solid-js'
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [svelte(), react(), vue(), tailwind(), image()]
+	integrations: [svelte(), react(), vue(), tailwind(), image(), solidJs()]
 })
