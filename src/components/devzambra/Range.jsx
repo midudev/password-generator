@@ -1,4 +1,3 @@
-import React from 'react'
 import neumorphism from './styles/neumorphism.module.css'
 import styles from './styles/range.module.css'
 

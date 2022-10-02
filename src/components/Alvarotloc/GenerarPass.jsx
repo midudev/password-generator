@@ -1,4 +1,3 @@
-import React from 'react'
 import useGenerarPass from './hooks/useGenerarPass'
 
 const GenerarPass = () => {

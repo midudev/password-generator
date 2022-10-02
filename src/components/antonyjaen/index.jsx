@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import style from './passwordGenerator.module.css'
 import { randomString } from './randomPassword'
 import SvgCopy from './svg/svgcopy'
@@ -10,7 +10,7 @@ const PasswordGenerator = () => {
 	const [copied, setCopied] = useState(null)
 
 	const handleGenerate = () => {
-		let randomstring = randomString(passwordLen, '')
+		const randomstring = randomString(passwordLen, '')
 		setPassword(randomstring)
 	}
 

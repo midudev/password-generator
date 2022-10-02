@@ -1,4 +1,3 @@
-import React from 'react'
 import useEffectOnce from './hooks/useEffectOnce'
 import { useNumberCharacters } from './hooks/useNumberCharacters'
 import { useRawPassword } from './hooks/useRawPassword'

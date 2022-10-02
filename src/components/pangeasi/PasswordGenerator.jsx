@@ -1,4 +1,3 @@
-import React from 'react'
 import ButtonRenew from './ButtonRenew'
 import Hint from './Hint'
 import PasswordInput from './PasswordInput'

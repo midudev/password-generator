@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 function Level({ nivel = 'MEDIUM', quantity = 3 }) {
 	const array = [1, 2, 3, 4]

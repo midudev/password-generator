@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 const GrinningFace = (props) => (
 	<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60' width='1em' height='1em' {...props}>
 		<circle cx={36} cy={36} r={23} fill='#fcea2b' />

@@ -4,8 +4,6 @@ const CheckboxCustom = ({ id, activate, onClick = () => null, title }) => {
 	const [Active, setActive] = useState(activate)
 	useEffect(() => {
 		setActive(activate)
-
-		return () => {}
 	}, [activate])
 
 	return (

@@ -1,5 +1,6 @@
-import React from 'react'
-export default function IconCopy({ color }) {
+import * as React from 'react'
+
+export default function IconCopy() {
 	return (
 		<svg
 			height='100%'

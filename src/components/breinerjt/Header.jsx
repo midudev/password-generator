@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Header = () => {
 	return (
 		<div className='grid gap-2 text-center pb-4'>

@@ -1,4 +1,3 @@
-import React from 'react'
 
 function Checkbox({ id, children, ...props }) {
 	return (

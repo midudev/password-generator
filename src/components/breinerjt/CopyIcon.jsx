@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const CopyIcon = (props) => {
 	return (
 		<svg {...props}>

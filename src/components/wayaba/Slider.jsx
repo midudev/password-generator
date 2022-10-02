@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Slider = ({ value, min, max, onChange }) => {
 	const handleOnChange = (event) => {

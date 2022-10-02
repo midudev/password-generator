@@ -7,18 +7,7 @@ import tailwind from '@astrojs/tailwind'
 import image from '@astrojs/image'
 import analogjsangular from '@analogjs/astro-angular'
 
-import preact from '@astrojs/preact'
-
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		svelte(),
-		react(),
-		vue(),
-		solidJs(),
-		tailwind(),
-		image(),
-		analogjsangular(),
-		preact()
-	]
+	integrations: [svelte(), react(), vue(), solidJs(), tailwind(), image(), analogjsangular()]
 })

@@ -1,4 +1,3 @@
-import React from 'react'
 
 function useGeneratePassword () {
 	const [password, setPassword] = React.useState('')

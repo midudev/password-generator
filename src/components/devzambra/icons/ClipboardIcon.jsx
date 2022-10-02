@@ -1,4 +1,3 @@
-import React from 'react'
 
 function ClipboardIcon ({ width, height, fill = '#fff' }) {
 	return (

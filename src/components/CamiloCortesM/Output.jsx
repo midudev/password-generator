@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const Output = ({ password, copy = false, setCopy }) => {
 	const [showNotification, setShowNotification] = React.useState(false)

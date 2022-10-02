@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const useGenerarPass = () => {
 	const [longitud, setLongitud] = useState(8)
@@ -33,7 +33,7 @@ const useGenerarPass = () => {
 			return
 		}
 
-		let opcionesAUsar = []
+		const opcionesAUsar = []
 
 		let generatedPassword = ''
 
@@ -47,7 +47,7 @@ const useGenerarPass = () => {
 			}
 		})
 		for (let i = 0; i < longitud; i++) {
-			let finalOption = opcionesAUsar[Math.floor(Math.random() * opcionesAUsar.length)]
+			const finalOption = opcionesAUsar[Math.floor(Math.random() * opcionesAUsar.length)]
 			generatedPassword += finalOption[Math.floor(Math.random() * finalOption.length)]
 		}
 		setPassword(generatedPassword)

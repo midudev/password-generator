@@ -1,10 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 
 export const BotonDisminuir = ({ click }) => {
 	return (
 		<button onClick={click}>
 			<svg
-				xmlns='http://www.w3.org/2000/svg'
 				width='16'
 				height='16'
 				fill='currentColor'
@@ -17,11 +16,10 @@ export const BotonDisminuir = ({ click }) => {
 	)
 }
 
-export const BotonAumentar = ({ click }) => {
+export const BotonAumentar = () => {
 	return (
 		<button>
 			<svg
-				xmlns='http://www.w3.org/2000/svg'
 				width='16'
 				height='16'
 				fill='currentColor'
@@ -34,12 +32,11 @@ export const BotonAumentar = ({ click }) => {
 	)
 }
 
-export const BotonCheck = ({ seleccionado, click }) => {
+export const BotonCheck = ({ seleccionado }) => {
 	if (seleccionado) {
 		return (
 			<button>
 				<svg
-					xmlns='http://www.w3.org/2000/svg'
 					width='16'
 					height='16'
 					fill='currentColor'
@@ -54,7 +51,6 @@ export const BotonCheck = ({ seleccionado, click }) => {
 		return (
 			<button>
 				<svg
-					xmlns='http://www.w3.org/2000/svg'
 					width='16'
 					height='16'
 					fill='currentColor'
@@ -68,12 +64,11 @@ export const BotonCheck = ({ seleccionado, click }) => {
 	}
 }
 
-export const BotonGenerar = ({ click }) => {
+export const BotonGenerar = () => {
 	return (
 		<button>
 			Generar
 			<svg
-				xmlns='http://www.w3.org/2000/svg'
 				width='16'
 				height='16'
 				fill='currentColor'

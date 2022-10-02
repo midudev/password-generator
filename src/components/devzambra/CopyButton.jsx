@@ -1,4 +1,3 @@
-import React from 'react'
 import ClipboardIcon from './icons/ClipboardIcon'
 import styles from './styles/neumorphism.module.css'
 

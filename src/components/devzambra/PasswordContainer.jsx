@@ -1,4 +1,3 @@
-import React from 'react'
 import CopyButton from './CopyButton'
 import Range from './Range'
 import useGeneratePassword from './hooks/useGeneratePassword'

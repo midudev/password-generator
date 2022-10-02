@@ -1,4 +1,3 @@
-import React from 'react'
 import Card from '@components/danicc/Card'
 
 import generatePassword from './generate-password'

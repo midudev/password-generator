@@ -1,4 +1,3 @@
-import React from 'react'
 import { Tittle, randomPassword, Output, GenerateButton, Range } from './'
 
 export const Card = () => {
