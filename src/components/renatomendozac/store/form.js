@@ -5,7 +5,7 @@ const formInitialState = {
 	uppercase: true,
 	lowercase: true,
 	numbers: true,
-	symbols: true,
+	symbols: true
 }
 
 const { subscribe, update: updateState } = writable(formInitialState)
