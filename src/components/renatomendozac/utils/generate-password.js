@@ -12,7 +12,7 @@ const getRandomChar = (charsIndex) => {
 	return chars[charsIndex][charIndex]
 }
 
-const generatePassword = (length = 12) => {
+const generatePassword = ({ length }) => {
 	const atLeastOneUppercase = getRandomChar(0)
 	const atLeastOneLowercase = getRandomChar(1)
 	const atLeastOneNumber = getRandomChar(2)
