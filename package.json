@@ -6,7 +6,7 @@
     "lint": "eslint src/** --fix",
 		"lint:modified": "eslint $(git diff --name-only --diff-filter=ACMRTUXB main | grep  -E \"(.js$|.ts$|.tsx$)\") --fix",
     "commit": "cz",
-    "dev": "NODE_OPTIONS=--max_old_space_size=8192 astro dev",
+    "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
