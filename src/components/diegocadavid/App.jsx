@@ -8,9 +8,6 @@ import CommandError from './components/Terminal/commands/CommandError'
 import CommandGenerate from './components/terminal/commands/CommandGenerate'
 import CommandHelp from './components/terminal/commands/CommandHelp'
 
-
-
-
 const parseCommand = (commandName = '') => {
 	//Obtenemos el comando
 	const commandRegex = /^\w+/gi
@@ -40,38 +37,47 @@ const parseCommand = (commandName = '') => {
 	}
 }
 
-
 const listDocCommads = [
 	{
 		name: 'help',
 		options: [],
+		info: 'Muestra todos los comandos',
 		Component: CommandHelp
 	},
 	{
 		name: 'clear',
 		options: [],
+		info: 'Limpia la consola',
 		Component: CommandClear
 	},
 	{
 		name: 'generate',
 		options: [
-			{ name: 'length', type: 'number' },
-			{ name: 'symbols', type: 'bool' },
-			{ name: 'numbers', type: 'bool' },
-			{ name: 'case', type: 'string' }
+			{ name: 'size', info: 'Especifica la longitud de la contraseña', type: 'number' },
+			{
+				name: 'symbols',
+				info: 'Especifica si la contraseña puede contener simbolos',
+				type: 'bool'
+			},
+			{ name: 'numbers', info: 'Especifica si la contraseña puede contener numeros', type: 'bool' },
+			{
+				name: 'case',
+				info: 'Especifica el tipo de caracteres (mixed, upper, lower)',
+				type: 'string'
+			}
 		],
+		info: 'Genera una contraseña',
 		Component: CommandGenerate
 	}
 ]
 
 const App = () => {
-
 	const [commands, setCommands] = useState([])
 
 	const addComponentCommand = (command, Component) => {
 		return (
 			<div key={command.id}>
-				<p> {`C:\\Users\\admin> ${command.name}`} </p>
+				<p> {`C:\\Users\\admin> ${command.raw}`} </p>
 				{Component}
 			</div>
 		)
@@ -85,7 +91,10 @@ const App = () => {
 		if (command?.error) {
 			setCommands([
 				...commands,
-				addComponentCommand({ name: commandName, id: command.id }, <CommandError />)
+				addComponentCommand(
+					{ name: commandName, raw: commandName, id: command.id },
+					<CommandError />
+				)
 			])
 			console.log('Comando invalido')
 			return false
@@ -101,7 +110,10 @@ const App = () => {
 		) {
 			setCommands([
 				...commands,
-				addComponentCommand(command, <CommandError command={command.name} />)
+				addComponentCommand(
+					{ raw: commandName, ...command },
+					<CommandError command={command.name} />
+				)
 			])
 			console.log('El comando no existe')
 			return false
@@ -154,7 +166,10 @@ const App = () => {
 			commandsNameInvalid.forEach(() => {
 				setCommands([
 					...commands,
-					addComponentCommand(command, <CommandError option={commandsNameInvalid} />)
+					addComponentCommand(
+						{ raw: commandName, ...command },
+						<CommandError option={commandsNameInvalid} />
+					)
 				])
 			})
 		}
@@ -171,36 +186,27 @@ const App = () => {
 
 		const ComponentCommand = DocCommands.Component
 
-		// Si es el componente clear
-		if (DocCommands.name == 'clear') {
-			setCommands([
-				...commands,
-				addComponentCommand(
-					command,
-					<ComponentCommand
-						key={command.id}
-						options={command.options}
-						handleReset={() => {
-							setCommands([])
-						}}
-					/>
-				)
-			])
-			return true
-		}
-
 		// Otros componentes
 		setCommands([
 			...commands,
-			addComponentCommand(command, <ComponentCommand key={command.id} options={command.options} />)
+			addComponentCommand(
+				{ raw: commandName, ...command },
+				<ComponentCommand
+					key={command.id}
+					config={command.options}
+					handleReset={() => {
+						setCommands([])
+					}}
+					docs={listDocCommads}
+				/>
+			)
 		])
 	}
 
-
 	return (
-		<div className='p-12 bg-[#3F3F46] h-screen font-sans relative'>
+		<div className='p-2  md:p-5 lg:p-12 bg-[#3F3F46] h-screen font-sans relative'>
 			<WindowTerminal addCommand={addCommand} commands={commands} />
-			<CliTerminal />
+			<CliTerminal addCommand={addCommand} />
 		</div>
 	)
 }

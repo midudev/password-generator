@@ -2,11 +2,11 @@ import React from 'react'
 import TitleWindow from '../TitleWindow'
 import CliForm from './CliForm'
 
-const CliTerminal = () => {
+const CliTerminal = ({addCommand}) => {
   return (
-	<div className='top-32 right-32 w-64 absolute rounded-lg overflow-hidden ring-2 ring-slate-400'>
+	<div className='block sm:top-5 sm:right-5 md:top-32 md:right-32 sm:w-52 md:w-64 sm:absolute rounded-lg overflow-hidden ring-2 ring-slate-400'>
 		<TitleWindow name='Password CLI' dark={false}/>
-		<CliForm />
+		<CliForm addCommand={addCommand}/>
 	</div>
   )
 }

@@ -22,19 +22,22 @@ const ProgressBar = ({ handleFinish = () => {} }) => {
 
 	useEffect(() => {
 		setStringBar((prev) => {
-			const strBar = '#'.repeat(progressBar);
-			const strBarEmpty = '-'.repeat(15 - progressBar);
-			return `${strBar}${strBarEmpty}`;
+			const strBar = '#'.repeat(progressBar)
+			const strBarEmpty = '-'.repeat(15 - progressBar)
+			return `${strBar}${strBarEmpty}`
 		})
 
-		if(progressBar == 15) {
-			handleFinish();
+		if (progressBar == 15) {
+			handleFinish()
 		}
 	}, [progressBar])
 
 	return (
 		<div>
-			<p>Generando...</p>
+			<p>
+				Generando...{' '}
+				{progressBar < 15 && <span className='text-zinc-700'>¿Lento? Click aqui</span>}
+			</p>
 			<p> [{stringBar}] % </p>
 		</div>
 	)
