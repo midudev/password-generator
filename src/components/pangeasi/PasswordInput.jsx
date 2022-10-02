@@ -7,12 +7,12 @@ import { useCopyToClipboard } from './hooks/useCopyToClipboard'
 const PasswordInput = () => {
 	const [rawPass] = useRawPassword()
 	const [, setCopyToClipboard] = useCopyToClipboard()
-	const securePass = useMemo(() => securePassword(rawPass), [rawPass]) 
+	const securePass = useMemo(() => securePassword(rawPass), [rawPass])
 	return (
 		<div className='flex'>
 			<input
-				type="text"
-				placeholder="..."
+				type='text'
+				placeholder='...'
 				className='py-2 pl-4 text-lg rounded-l-xl font-[monospace] text-center'
 				value={securePass}
 				readOnly
@@ -22,10 +22,10 @@ const PasswordInput = () => {
 				'
 				onClick={() => setCopyToClipboard(securePass)}
 			>
-				<CopyIcon className="text-xl" />
+				<CopyIcon className='text-xl' />
 			</button>
 		</div>
-	);
+	)
 }
 
 export default PasswordInput
