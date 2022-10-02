@@ -1,0 +1,4 @@
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+	@apply w-5 h-5 rounded-full bg-purple-600 cursor-pointer hover:bg-purple-800 transition-colors duration-300;
+}

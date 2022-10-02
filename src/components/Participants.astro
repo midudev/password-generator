@@ -3,8 +3,9 @@ const { showAll = false } = Astro.props
 
 const MAX_ITEMS = 50
 
-async function getParticipants () {
+async function getParticipants() {
 	const items = await Astro.glob('../pages/entry/*/index.astro')
+
 	return items
 		.map((item) => item.url.slice(item.url.lastIndexOf('/') + 1))
 		.sort(new Intl.Collator('es').compare)
@@ -15,7 +16,7 @@ const participants = await getParticipants()
 const shownParticipants = showAll ? participants : participants.slice(0, MAX_ITEMS)
 ---
 
-<h2 class='text-giga font-bold font-special uppercase text-3xl mb-4'>Participaciones</h2>
+<h2 class='text-giga font-bold font-special uppercase text-3xl mb-4'>{participants.length} Participaciones</h2>
 <ul class='flex flex-wrap gap-7 justify-center'>
 	{
 		shownParticipants.map((name) => (
@@ -29,20 +30,18 @@ const shownParticipants = showAll ? participants : participants.slice(0, MAX_ITE
 						src={'https://unavatar.io/github/' + name}
 						alt={name}
 					/>
-					<span class='block w-20 whitespace-nowrap overflow-hidden text-ellipsis'>{name}</span>
+					<span class='block w-20 whitespace-nowrap overflow-hidden text-ellipsis text-xs'>{name}</span>
 				</a>
 			</li>
 		))
 	}
 </ul>
 {
-	participants.length > shownParticipants.length
-		? (
-			<div class='mt-2'>
-				<a href='/entry' class='text-violet-500 hover:underline'>
+	participants.length > shownParticipants.length ? (
+		<div class='mt-2'>
+			<a href='/entry' class='text-violet-500 hover:underline'>
 				Ver más...
-				</a>
-			</div>
-		)
-		: null
+			</a>
+		</div>
+	) : null
 }
