@@ -204,7 +204,7 @@ const App = () => {
 	}
 
 	return (
-		<div className='p-2  md:p-5 lg:p-12 bg-[#3F3F46] h-screen font-sans relative'>
+		<div className='p-2  md:p-8 lg:p-12 bg-[#3F3F46] h-screen font-sans relative'>
 			<WindowTerminal addCommand={addCommand} commands={commands} />
 			<CliTerminal addCommand={addCommand} />
 		</div>

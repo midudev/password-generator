@@ -58,7 +58,6 @@ const CommandGenerate = ({ config = [] }) => {
 			})
 
 		setClipboardPassword(true)
-		console.log(`${password} Copiada`)
 	}
 
 	// Generamos contraseña segura
@@ -112,8 +111,6 @@ const CommandGenerate = ({ config = [] }) => {
 				return x[Math.floor(Math.random() * x.length)]
 			})
 			.join('')
-		console.log(randPassword)
-
 		setPassword(randPassword)
 	}, [])
 
@@ -132,7 +129,7 @@ const CommandGenerate = ({ config = [] }) => {
 							<IconCopy />
 						</button>
 					</div>
-					{clipboardPassword && <p> Contraseña Copiada en el portapapeles </p>}
+					{clipboardPassword && <p> { !showPassword ? '*'.repeat(password.length) : password } Copiado en el portapapeles </p>}
 					<br />
 				</>
 			)}

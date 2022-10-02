@@ -4,7 +4,7 @@ import CliForm from './CliForm'
 
 const CliTerminal = ({addCommand}) => {
   return (
-	<div className='block sm:top-5 sm:right-5 md:top-32 md:right-32 sm:w-52 md:w-64 sm:absolute rounded-lg overflow-hidden ring-2 ring-slate-400'>
+	<div className='block sm:w-40  md:top-2 md:right-2 lg:top-32 lg:right-24 md:w-52 lg:w-64 md:absolute rounded-lg overflow-hidden ring-2 ring-slate-400'>
 		<TitleWindow name='Password CLI' dark={false}/>
 		<CliForm addCommand={addCommand}/>
 	</div>
