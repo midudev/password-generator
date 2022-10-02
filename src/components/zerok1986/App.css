@@ -2,11 +2,38 @@
 	position: fixed;
 	height: 60vh;
 	width: 60vw;
-	border: solid purple 2px;
+	min-width: 400px;
+	border: solid rgb(100, 26, 165) 2px;
 	border-radius: 5px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+#password-box {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: baseline;
+	align-content: center;
+}
+
+
+#password-text {
+	margin: 50px;
+	padding: 5px;
+	border: solid rgb(100, 26, 165) 1px;
+	border-radius: 10px;
+	min-width: 200px;
+	display: inline-block;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+#length {
+	accent-color: rgb(100, 26, 165)
 }
 
 #generate {
@@ -27,4 +54,14 @@
 #generate:active {
 	position: relative;
 	top: 1px;
+}
+
+#settings {
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
 }
