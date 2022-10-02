@@ -2,11 +2,13 @@ import React from 'react'
 
 const Password = ({ password }) => {
 	const Clipboard = () => {
-		if(password.length > 0){
-		navigator.clipboard.writeText(password)
-		alert('Copiado al portapapeles')
-		}else{
-			alert('Selecciona la cantidad de caracteres y pulsa generar password para tener una contraseña')
+		if (password.length > 0) {
+			navigator.clipboard.writeText(password)
+			alert('Copiado al portapapeles')
+		} else {
+			alert(
+				'Selecciona la cantidad de caracteres y pulsa generar password para tener una contraseña'
+			)
 		}
 	}
 
