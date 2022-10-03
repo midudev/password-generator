@@ -24,7 +24,7 @@ La **[Hacktoberfest](https://hacktoberfest.com/)** es un evento anual organizado
 1. **Regístrate en [Hacktoberfest](https://hacktoberfest.com/)**:
 
 - Click en **Start Hacking**.
-- Inicia sesión con Github o Gitlab.
+- Inicia sesión con GitHub o GitLab.
 
 2. **Crea un fork de este repositorio**:
 
@@ -40,7 +40,7 @@ La **[Hacktoberfest](https://hacktoberfest.com/)** es un evento anual organizado
 
 ## 📝 Reglas
 
-- ✅ Puedes usar cualquier framework dentro de esta lista: React, Vue y Svelte. También puedes usar Vanilla JavaScript.
+- ✅ Puedes usar cualquier framework dentro de esta lista: React, Vue, Svelte, Preact y Solid. También puedes usar Vanilla JavaScript.
 - ❌ NO puedes usar dependencias de terceros. Nada de npm install, ni yarn add ni similares.
 - ✅ Se puede utilizar CSS y Tailwind pero...
 - ❌ NO se puede utilizar otro framework CSS como Bootstrap, Bulma, NextUI, Material UI, etc... ni tampoco SASS, Stylus o similares.
@@ -61,6 +61,20 @@ Además de poder conseguir la camiseta de la Hacktoberfest, haremos una votació
 - 🥇 Teclado mecánico [Keychron K3 v2 RGB Backlight](https://www.keychron.com/products/keychron-k3-wireless-mechanical-keyboard?variant=32220198633561).
 - 🥈 [Cheque regalo para Red Bubble](https://www.redbubble.com/es/) por valor de 30€.
 - 🥉 [Libro de Aprendiendo Git](https://leanpub.com/aprendiendo-git) + [Descubre Svelte](https://leanpub.com/descubre-svelte).
+
+### 📝 Notas
+
+Si usas Solid o Preact, debes indicar el [`jsxImportSource`](https://www.typescriptlang.org/tsconfig#jsxImportSource) en un comentario pragma. Haz esto en la primera línea de cada archivo JSX/TSX.
+
+```jsx
+// Para Preact
+/** @jsxImportSource preact */
+
+// Para Solid
+/** @jsxImportSource solid-js */
+```
+
+Más información al respecto [aquí](https://docs.astro.build/es/guides/typescript/#soluci%C3%B3n-de-problemas).
 
 ## 🤗 Contribuidores
 

@@ -81,6 +81,7 @@
 
 .border-gradient {
 	--angle: 0deg;
+
 	border: 1px solid;
 	border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
 	animation: 10s rotate linear infinite;
