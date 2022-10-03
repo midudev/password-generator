@@ -3,6 +3,7 @@ import './Slider.css'
 
 export const Slider = ({ min, max, setPasswordLength }) => {
 	const [value, setValue] = useState(min)
+	// eslint-disable-next-line eqeqeq
 	const isEqualToMinOrMax = value == min || value == max
 
 	const onSlideValueChange = ({ target }) => {
