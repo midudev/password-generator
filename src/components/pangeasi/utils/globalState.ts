@@ -15,6 +15,7 @@ export function globalState<S> (initialState?: S) {
 	const store: {
 		state: S
 		setState: (state: IHookStateSetAction<S>) => void
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		setters: any[]
 	} = {
 		state: initialState instanceof Function ? initialState() : initialState,

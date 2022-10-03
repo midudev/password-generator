@@ -13,6 +13,16 @@ module.exports = {
 			}
 		},
 		fontFamily: {
+			mono: [
+				'ui-monospace',
+				'SFMono-Regular',
+				'Menlo',
+				'Monaco',
+				'Consolas',
+				'Liberation Mono',
+				'Courier New',
+				'monospace'
+			],
 			sans: ['Jet Brains Mono', 'monospace'],
 			special: ['Orbitron', 'sans-serif']
 		}
