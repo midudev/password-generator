@@ -1,41 +1,87 @@
 .generator-container{
 	display: grid;
-	gap: 2rem;
+	gap: 0.5em;
 	background: #ff8fab;
 	padding: 10px;
 	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+.title{
+	color: #f72585;
 }
 input[type='text']{
 	background: white;
+	width: 600px;
+	height: 50px;
 	border: none;
-	border-color: 2px solid #f72585;
+	border-style: 2px solid #f72585;
 	width: 100%;
 	border-radius: 10px;
+	text-align: center;
+	font-size: 25px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+	flex-grow: 2;
+}
+input[type='text']:hover{
+	cursor: not-allowed
 }
 input[type='text']::placeholder{
-	font-size: 30px;
+	font-size: 20px;
 	text-align: center;
 	border-radius: 10px;
+	color: #f72585;
 }
 input[type='range']{
 	-webkit-appearance: none;
 	background: #f72585;
-	outline: 0;
 	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	width: .25rem;
 	height: .25rem;
 	border-radius: 5px;
-	background-color: #e9ecef;
+	background-color: #FFFFFF;
 	border: none;
 	box-shadow: none;
 }
-.button{
+.slider{
+	display: flex;
+	flex-direction: column;
+}
+.range{
+	color: #f72585
+}
+.generate-button{
 	background-color: #e9ecef;
 	border-radius: 10px;
+	color: #f72585;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
-.button:hover{
+.generate-button:hover{
 	cursor: default;
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+}
+.disabled-copy-button, .copy-button{
+	width: 50px;
+	height: 50px;
+	background-color: inherit;
+	color:#002;
+	border-radius: 10px;
+}
+
+.disabled-copy-button{
+	cursor: not-allowed;
+}
+.message{
+	color: #f72585;
+	font-size: 20px;
+	align-self: center;
+}
+.password-container{
+	 display:flex;
+	 flex-direction:row;
+	 gap: .5em;
+	 padding:2px;
 }
