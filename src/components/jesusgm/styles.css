@@ -1,4 +1,4 @@
-.btn {
+#jesusgm .btn {
 	background: rgb(229 225 230);
 	border: medium none;
 	border-radius: 2px;
@@ -15,7 +15,7 @@
 	transition: all 0.2s ease 0s;
 }
 
-.special {
+#jesusgm  .special {
 	filter:
 		drop-shadow(rgba(255 215 77 60%) -1px -1px 2px)
 		drop-shadow(rgba(124 127 255 60%) 1px 1px 2px);
@@ -30,11 +30,11 @@
 	color: rgb(23 15 30);
 }
 
-.special:hover {
+#jesusgm  .special:hover {
 	transform: rotate(2deg);
 }
 
-.toast {
+#jesusgm .toast {
 	position: absolute;
 	top: 1rem;
 	left: 50%;
@@ -66,6 +66,6 @@
 	color: rgb(23 15 30);
 }
 
-.toast.hidden {
+#jesusgm .toast.hidden {
 	top: -10rem;
 }

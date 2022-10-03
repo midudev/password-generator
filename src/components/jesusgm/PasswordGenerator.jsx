@@ -46,7 +46,7 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<>
+		<section id='jesusgm'>
 			<form className='relative mb-4' onSubmit={handleSubmit}>
 				<div className='flex mt-4 mb-8 justify-between items-center gap-4'>
 					<label
@@ -86,7 +86,7 @@ const PasswordGenerator = () => {
 				</ul>
 			</div>
 			<Toast visible={toastVisible} msg='Password copied to clipboard!' />
-		</>
+		</section>
 	)
 }
 
