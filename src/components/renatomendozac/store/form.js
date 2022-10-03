@@ -1,14 +1,14 @@
 import { writable } from 'svelte/store'
 
-const formInitialState = {
+const initialState = {
 	length: 4,
-	uppercase: true,
-	lowercase: true,
+	uppercases: true,
+	lowercases: true,
 	numbers: true,
-	symbols: true
+	symbols: false
 }
 
-const { subscribe, update: updateState } = writable(formInitialState)
+const { subscribe, update: updateState } = writable(initialState)
 const update = (props) => updateState(state => ({ ...state, ...props }))
 
-export { subscribe, update }
+export { initialState, subscribe, update }
