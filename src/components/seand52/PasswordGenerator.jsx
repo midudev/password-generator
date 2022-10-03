@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Copy } from './Copy'
 import './styles.css'
 
+const DEFAULT_PASSWORD_LENGTH = 6
 export const PasswordGenerator = () => {
-	const [passwordLength, setPasswordLength] = useState(6)
+	const [passwordLength, setPasswordLength] = useState(DEFAULT_PASSWORD_LENGTH)
 	const [generatedPassword, setGeneratedPassword] = useState('')
 	const [copySuccess, setCopySuccess] = useState(false)
 
+	useEffect(() => {
+		handleGeneratePassword()
+	}, [])
 	const handlePasswordLengthChange = (e) => {
 		setPasswordLength(e.target.value)
 	}
@@ -54,6 +58,7 @@ export const PasswordGenerator = () => {
 				max='20'
 				defaultValue={passwordLength}
 				onChange={handlePasswordLengthChange}
+				onPointerUp={handleGeneratePassword}
 			></input>
 			<button className='generate-btn' onClick={handleGeneratePassword}>
 				Generate Password

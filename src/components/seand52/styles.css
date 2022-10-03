@@ -4,7 +4,10 @@
 	flex-direction: column;
 	width: 300px;
 	gap: 10px;
-	margin: auto;
+	margin: 200px auto;
+	border: 1px solid white;
+	border-radius: 10px;
+	padding: 50px;
 }
 
 .password-display {
