@@ -1,17 +1,30 @@
 import { useEffect, useState } from 'react'
+import useGeneratePassword from './hooks/useGeneratePassword'
 
 const App = () => {
 	const [passwordLength, setPasswordLength] = useState('25')
-	const password = ""
+	const { password, loading, generateNewPassword } = useGeneratePassword({})
+
+	const handlerNewPassword = () => {
+		generateNewPassword(passwordLength)
+	}
+
+	useEffect(() => {
+		const delayDebounceFn = setTimeout(() => {
+			generateNewPassword(passwordLength)
+		}, 300)
+
+		return () => clearTimeout(delayDebounceFn)
+	}, [passwordLength])
 
 	return (
 		<div className='h-screen flex flex-col items-center justify-center text-center w-10/12 m-auto'>
 			<h1 className='mb-6 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white'>
-				Random Password Generator
+				Password Generator
 			</h1>
 
 			<p className='text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400'>
-				Create strong and secure passwords to keep your account safe online.
+				Create strong and secure passwords
 			</p>
 
 			<div className='flex flex-col w-full max-w-xl'>
@@ -45,12 +58,13 @@ const App = () => {
 					</button>
 				</div>
 
-				<div className='my-4 flex items-center w-full gap-4 flex-col sm:flex-row'>
+				<div className='my-2 flex items-center w-full gap-4 flex-col sm:flex-row'>
 					<div className='flex items-center'>
 						<p className='whitespace-nowrap text-lg text-gray-500 lg:text-xl dark:text-gray-400 font-bold'>
 							Password length: <span className='px-5 font-normal'>{passwordLength}</span>
 						</p>
 					</div>
+
 					<input
 						id='default-range'
 						className='w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700'
