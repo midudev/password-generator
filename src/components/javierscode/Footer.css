@@ -1,0 +1,9 @@
+.footer {
+	font-size: 0.75rem;
+	text-align: center;
+}
+
+.footer a {
+	color: var(--color-distant-blue);
+	font-weight: 600;
+}
