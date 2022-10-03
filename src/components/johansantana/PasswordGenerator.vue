@@ -11,7 +11,11 @@ const MAX_LENGTH = 24
 const PASSWORD_CHARACTERS =
 	'0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-const passwordLength = ref(MAX_LENGTH / 2 + 3)
+/*
+	MAX_LENGTH / 2 + MIN_LENGTH / 2 --> sets the initial value
+	to the middle of the input range
+*/
+const passwordLength = ref(MAX_LENGTH / 2 + MIN_LENGTH / 2)
 const password = ref('')
 
 const passwordLengthNumber = computed(() => {
