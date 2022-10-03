@@ -30,13 +30,39 @@ La **[Hacktoberfest](https://hacktoberfest.com/)** es un evento anual organizado
 
 - Click en *Fork* en la esquina superior derecha o haz click [aquí](https://github.com/midudev/hacktoberfest-2022/fork).
 
-3. **Crea una página en**:
+3. **Clona el repositorio:**
+
+```bash
+git clone git@github.com:TU_USUARIO/hacktoberfest-2022.git
+```
+
+4. **Instala las dependencias:**
+
+```bash
+npm install
+# o
+pnpm install
+# o
+yarn install
+```
+
+5. **Crea una página en**:
 
 ```txt
 /pages/entry/<tu-nombre-de-usuario-en-github>/index.astro
 ```
 
-4. **Soluciona el reto que se indica en [la página principal](https://hacktoberfest-2022.vercel.app/)** y happy hacking 🥳.
+6. **Ejecuta el proyecto:**
+
+```bash
+npm run dev
+# o
+pnpm run dev
+# o
+yarn dev
+```
+
+7. **Soluciona el reto que se indica en [la página principal](https://hacktoberfest-2022.vercel.app/)** y happy hacking 🥳.
 
 ## 📝 Reglas
 
@@ -48,6 +74,7 @@ La **[Hacktoberfest](https://hacktoberfest.com/)** es un evento anual organizado
 - ✅ Crea tus PRs del **1 al 31 de octubre**.
 - ❌ No uses ni modifiques código o componentes de otros participantes.
 - ❌ No modifiques código de fuera de tus carpetas (a no ser que sea exactamente para arreglar un problema de la página).
+- ❌ NO USES ESTILOS GLOBALES. NO ESTILES etiquetas. Usa siempre un selector muy específico (por ejemplo, una id con tu nombre) y a partir de ahí estila lo que quieras de tu solución. Así evitamos conflictos entre estilos.
 - ✅ Si necesitas crear componentes auxiliares para tu solución, crea una carpeta en:
 
 ```bash
@@ -62,7 +89,7 @@ Además de poder conseguir la camiseta de la Hacktoberfest, haremos una votació
 - 🥈 [Cheque regalo para Red Bubble](https://www.redbubble.com/es/) por valor de 30€.
 - 🥉 [Libro de Aprendiendo Git](https://leanpub.com/aprendiendo-git) + [Descubre Svelte](https://leanpub.com/descubre-svelte).
 
-### 📝 Notas
+## 📝 Notas
 
 Si usas Solid o Preact, debes indicar el [`jsxImportSource`](https://www.typescriptlang.org/tsconfig#jsxImportSource) en un comentario pragma. Haz esto en la primera línea de cada archivo JSX/TSX.
 
