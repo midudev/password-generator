@@ -30,7 +30,7 @@ const GeneratorContainer = () => {
 	return (
 		<main className='flex justify-center items-center text-white w-full h-full text-lg gap-10'>
 			<form
-				className='flex flex-col gap-4 w-1/2 p-6 rounded-md bg-slate-600'
+				className='flex flex-col gap-4 w-3/4 p-6 rounded-md bg-slate-600 lg:w-1/2'
 				onSubmit={passwordGenerator}
 			>
 				<h1 className='text-2xl font-bold'>Generador de contraseñas</h1>
@@ -43,8 +43,8 @@ const GeneratorContainer = () => {
 						agustinrobledo
 					</a>
 				</p>
-				<div className='rounded border-slate-800  bg-slate-700 border-4 flex justify-between py-2 items-center'>
-					<span className='w-1/2 text-slate-400 px-4'>{password}</span>
+				<div className='rounded border-slate-800  bg-slate-700 border-4 flex justify-between py-2 items-center '>
+					<span className='lg:w-1/2 text-slate-400 px-4'>{password}</span>
 					<button
 						onClick={copyText}
 						className={`w-30 rounded bg-slate-600 p-5 mr-2 ${!password.length && 'opacity-20'}`}
