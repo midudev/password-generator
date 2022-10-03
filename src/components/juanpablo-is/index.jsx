@@ -13,6 +13,9 @@ import useTimerAlert from './hooks/useTimerAlert'
 // Contexts
 import PasswordContext from './context/PasswordContext'
 
+// Styles
+import './index.css'
+
 const App = () => {
 	const { generateAlert, Alerts } = useTimerAlert()
 	const [passwordLength, setPasswordLength] = useLocalStorage('length', '25')
@@ -82,7 +85,10 @@ const App = () => {
 				generateAlert
 			}}
 		>
-			<div className='h-screen flex flex-col items-center justify-center text-center w-10/12 m-auto'>
+			<div
+				id='juanpablo-is'
+				className='h-screen flex flex-col items-center justify-center text-center w-10/12 m-auto'
+			>
 				<h1 className='mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white'>
 					Password Generator
 				</h1>

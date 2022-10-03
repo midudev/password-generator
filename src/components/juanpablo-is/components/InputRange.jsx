@@ -14,7 +14,7 @@ const InputRange = () => {
 
 			<input
 				id='default-range'
-				className='w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700'
+				className='w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 overflow-hidden py-2'
 				type='range'
 				value={passwordLength}
 				step={1}
