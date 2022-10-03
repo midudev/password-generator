@@ -18,7 +18,7 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<main>
+		<main id='adamelamrani'>
 			<h1>Random password generator</h1>
 			<span onClick={handleCopyPass} className='password-length'>
 				Password length: {inputRange}
