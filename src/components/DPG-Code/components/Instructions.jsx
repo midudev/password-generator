@@ -1,28 +1,15 @@
-import React from 'react'
-import button from '../../../../public/DPG-Code/img/button.png'
-import home from '../../../../public/DPG-Code/img/home.png'
-import start from '../../../../public/DPG-Code/img/start.png'
-
 export default function Instructions () {
   return (
     <div className='flex flex-col items-start justify-start'>
       <h2 className='mb-4 text-2xl text-white   lg:mb-8 lg:text-3xl   2xl:text-6xl'>Instructions:</h2>
       <ul className='text-xs text-white   lg:text-base   2xl:text-3xl'>
         <li className='mb-2 flex items-center justify-start   2xl:mb-6'>
-          <img
-            src={home}
-            alt='home'
-            className='mr-2 w-5 h-5   lg:w-8 lg:h-8   2xl:w-12 2xl:h-12'
-          />
+          <div className='button-home mr-2 w-5 h-5   lg:w-8 lg:h-8   2xl:w-12 2xl:h-12'></div>
           <p>Home</p>
         </li>
 
         <li className='mb-2 flex items-center justify-start   2xl:mb-6'>
-          <img
-            src={start}
-            alt='start'
-            className='mr-2 w-5 h-5   lg:w-8 lg:h-8   2xl:w-12 2xl:h-12'
-          />
+        <div className='button-start mr-2 w-5 h-5   lg:w-8 lg:h-8   2xl:w-12 2xl:h-12'></div>
           <p>Start</p>
         </li>
 
@@ -31,11 +18,7 @@ export default function Instructions () {
             className='mr-2 w-5 h-5 flex items-center justify-center relative   lg:w-8 lg:h-8   2xl:w-12 2xl:h-12'
           >
             <span className='z-10 text-white'>B</span>
-            <img
-              src={button}
-              alt='button'
-              className='w-full h-full absolute'
-            />
+            <div className='button-red w-full h-full absolute'></div>
           </a>
           <p>generate password</p>
         </li>
@@ -45,11 +28,7 @@ export default function Instructions () {
             className='mr-2 w-5 h-5 flex items-center justify-center relative   lg:w-8 lg:h-8   2xl:w-12 2xl:h-12'
           >
             <span className='z-10 text-white'>A</span>
-            <img
-              src={button}
-              alt='button'
-              className='w-full h-full absolute'
-            />
+            <div className='button-red w-full h-full absolute'></div>
           </a>
           <p>copy password</p>
         </li>

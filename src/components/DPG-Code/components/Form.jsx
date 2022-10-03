@@ -1,9 +1,5 @@
-import React from 'react'
 import { useState } from 'react'
 import { NUMS, LETTERS, SYMBOLS } from './data.js'
-import gameboy from '../../../../public/DPG-Code/img/gameboy.png'
-import button from '../../../../public/DPG-Code/img/button.png'
-import startButton from '../../../../public/DPG-Code/img/button-start.png'
 
 export default function Form () {
   const [password, setPassword] = useState('P$zkl5#0')
@@ -59,7 +55,7 @@ export default function Form () {
   }
 
   return (
-    <div className='h-[480px] flex items-center justify-center relative   sm:h-[600px]'>
+    <div className='gameboy h-[480px] w-[288px] flex items-center justify-center relative   sm:h-[600px] sm:w-[361px]'>
       <form
         onSubmit={generatePassword}
         className='w-[280px] h-[400px] z-10 flex flex-col items-center justify-start absolute top-[64px]   sm:w-[360px] sm:h-[450px] sm:top-[80px]'
@@ -112,11 +108,7 @@ export default function Form () {
           className='buttons w-9 h-9 flex items-center justify-center absolute bottom-[134px] right-[18px] cursor-pointer   sm:w-10 sm:h-10 sm:bottom-[120px] sm:right-[28px]'
         >
           <span className='z-10 text-white'>A</span>
-          <img
-            src={button}
-            alt='button'
-            className='w-full h-full absolute'
-          />
+          <div className='button-red w-full h-full absolute'></div>
         </a>
         <button
           id='button-generate'
@@ -124,35 +116,22 @@ export default function Form () {
           className='buttons w-9 h-9 flex items-center justify-center absolute bottom-[110px] right-[62px]   sm:w-10 sm:h-10 sm:bottom-[90px] sm:right-[85px]'
         >
           <span className='z-10 text-white'>B</span>
-          <img
-            src={button}
-            alt='button'
-            className='w-full h-full absolute'
-          />
+          <div className='button-red w-full h-full absolute'></div>
         </button>
 
         <a
           onClick={() => setStart(true)}
           className='buttons w-[44px] h-[28px] absolute bottom-[48px] right-[156px] cursor-pointer   sm:w-[56px] sm:h-[36px] sm:bottom-[12px] sm:right-[200px]'
         >
-          <img
-            src={startButton}
-            alt='start'
-            className='w-full h-full absolute'
-          />
+          <div className='button-play w-full h-full absolute'></div>
         </a>
         <a
           onClick={() => setStart(false)}
           className='buttons w-[44px] h-[28px] absolute bottom-[48px] right-[102px] cursor-pointer   sm:w-[56px] sm:h-[36px] sm:bottom-[12px] sm:right-[136px]'
         >
-          <img
-            src={startButton}
-            alt='start'
-            className='w-full h-full absolute'
-          />
+          <div className='button-play w-full h-full absolute'></div>
         </a>
       </form>
-      <img src={gameboy} alt='game-boy' className='h-full'/>
     </div>
   )
 }

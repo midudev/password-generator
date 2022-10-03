@@ -53,3 +53,20 @@
   from { background-position: 0px; }
   to { background-position: -63px; }
 }
+
+/* imgs */
+.gameboy{
+  background: url('../../../public/DPG-Code/img/gameboy.png') center/100% no-repeat;
+}
+.button-red{
+  background: url('../../../public/DPG-Code/img/button.png') center/100% no-repeat;
+}
+.button-play{
+  background: url('../../../public/DPG-Code/img/button-start.png') center/100% no-repeat;
+}
+.button-home{
+  background: url('../../../public/DPG-Code/img/home.png') center/100% no-repeat;
+}
+.button-start{
+  background: url('../../../public/DPG-Code/img/start.png') center/100% no-repeat;
+}
