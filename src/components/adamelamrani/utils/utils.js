@@ -1,4 +1,4 @@
-const letters = [
+export const letters = [
 	'a',
 	'b',
 	'c',
@@ -27,5 +27,6 @@ const letters = [
 	'y',
 	'z'
 ]
-const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-const symbols = ['.', ',', '-', '_', '/', '?', '!', '¡', '¿', '+', '@', '|', '$', '%']
+export const capitalLetters = letters.map((letter) => letter.toUpperCase())
+export const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+export const symbols = ['.', ',', '-', '_', '/', '?', '!', '¡', '¿', '+', '@', '|', '$', '%']
