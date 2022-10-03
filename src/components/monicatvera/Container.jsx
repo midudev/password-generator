@@ -14,7 +14,7 @@ const Container = () => {
 			generatePassword += characters.charAt(Math.floor(Math.random() * characters.length))
 		}
 		setPassword(generatePassword)
-		setIsCopied(false)
+		// setIsCopied(false) <- setIsCopied is not defined
 	}
 
 	return (
