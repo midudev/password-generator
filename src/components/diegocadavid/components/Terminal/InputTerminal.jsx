@@ -28,7 +28,7 @@ const InputTerminal = ({addCommand}) => {
 				<input
 					type='text'
 					className='bg-transparent focus-visible:outline-none w-full'
-					maxLength={50}
+					maxLength={100}
 					placeholder='help'
 					spellCheck='false'
 					onChange={ handleChange }
