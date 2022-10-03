@@ -1,19 +1,33 @@
 import { useState } from "react";
 import Card from "./Card";
+import { INITIAL_CHECKBOXES } from '../utils';
 
 const Password = () => {
 	const [length, setPasswordLength] = useState(12)
-	const numeric = "0123456789";
-	const alpha = "abcdefghijklmnopqrstuvwxyz"
-	const alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	const special = "!@#$%^&"
+	const [shouldGenerate, setShouldGenerate] = useState(false)
+	const [chars, setChars] = useState(INITIAL_CHECKBOXES)
 
-	const allChars = numeric + alpha + special + alphaUpper;
+	const forceGenerate = () => {
+		setShouldGenerate(true)
+		setTimeout(() => {
+			setShouldGenerate(false)
+		}, 75)
+	}
+
+	const handlePasswordLength = (value) => {
+		setPasswordLength(value)
+		forceGenerate()
+	}
+
+	const handleChars = values => {
+		setChars(values);
+		forceGenerate()
+	}
 
 	return (
-		<section className="relative p-8 flex flex-col items-center">
-			<Card height="h-16" type='password' chars={allChars} length={length} />
-			<Card setPasswordLength={setPasswordLength} sliderValue={length} />
+		<section className="relative p-8 flex flex-col items-center mt-12">
+			<Card first generate={shouldGenerate} height="h-20" type='password' chars={chars} length={length} />
+			<Card onCheckbox={handleChars} setPasswordLength={handlePasswordLength} />
 		</section>
 	)
 }
