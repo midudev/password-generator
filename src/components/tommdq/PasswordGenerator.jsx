@@ -1,14 +1,18 @@
 import { useState } from 'react'
+import Alert from '@components/tommdq/Alert'
+import CopyButton from '@components/tommdq/CopyButton'
+import GeneratePassword from '@components/tommdq/GeneratePassword'
 
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
 	const [length, setLength] = useState(15)
+	const [isCopied, setIsCopied] = useState(false)
 
 	const generatePassword = () => {
 		const chars = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()+-ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 		setPassword('')
 		const array = new Uint32Array(length)
-		if (typeof window !== 'undefined') window.crypto.getRandomValues(array)
+		window.crypto.getRandomValues(array)
 		for (let i = 0; i < length; i++) {
 			setPassword((prev) => prev + chars[array[i] % chars.length])
 		}
@@ -16,61 +20,34 @@ const PasswordGenerator = () => {
 
 	const copyPassword = () => {
 		navigator.clipboard.writeText(password)
-		alert('Password copied')
-	}
-
-	const changeLength = (e) => {
-		setLength(e.target.value)
+		setIsCopied(true)
+		setTimeout(() => {
+			setIsCopied(false)
+		}, 1500)
 	}
 
 	return (
-		<section className='container h-screen w-1/3 mx-auto flex flex-col gap-4 justify-center'>
+		<section className='container h-screen lg:w-1/3 md:w-1/2 w-3/4 mx-auto flex flex-col gap-4 justify-center'>
+			<Alert isCopied={isCopied} />
 			<div className='flex gap-1'>
 				<input
 					type='text'
 					value={password}
 					readOnly
-					className='p-2 w-full rounded font-sans outline-none font-semibold'
-					style={{ background: '#7a7aa3' }}
+					className='bg-[#29335C] text-[#E4842E] p-2 w-full rounded font-sans outline-none font-semibold text-xl h-12 cursor-default'
 				/>
-				<button onClick={copyPassword}>
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						class='icon icon-tabler icon-tabler-copy'
-						width='44'
-						height='44'
-						viewBox='0 0 24 24'
-						stroke-width='1.5'
-						stroke='#7a7aa3'
-						fill='none'
-						stroke-linecap='round'
-						stroke-linejoin='round'
-					>
-						<path stroke='none' d='M0 0h24v24H0z' fill='none' />
-						<rect x='8' y='8' width='12' height='12' rx='2' />
-						<path d='M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2' />
-					</svg>
-				</button>
+				<CopyButton copyPassword={copyPassword} />
 			</div>
-			<button
-				onClick={generatePassword}
-				className='p-4 font-medium'
-				style={{ background: '#7a7aa3' }}
-			>
-				Generate Password
-			</button>
+			<GeneratePassword generatePassword={generatePassword} />
 			<input
-				className='w-full h-2 rounded-lg appearance-none cursor-pointer accent-slate-300  bg-gradient-to-r from-gray-400 via-blue-500 to-gray-600'
+				className='w-full h-2 rounded-lg outline-none border-none border-transparent cursor-pointer accent-[#a7a7cc]'
 				type='range'
 				value={length}
 				min='4'
 				max='40'
-				onChange={(e) => changeLength(e)}
+				onChange={(e) => setLength(e.target.value)}
 			/>
-			<label
-				className='self-center font-semibold text-xl'
-				style={{ color: '#a7a7cc' }}
-			>{`Password Length: ${length}`}</label>
+			<label className='self-center font-semibold text-xl text-[#a7a7cc]'>{`Password Length: ${length}`}</label>
 		</section>
 	)
 }

@@ -48,7 +48,10 @@
     "eslint-plugin-promise": "6.0.1",
     "husky": "8.0.1",
     "prettier": "2.7.1",
-    "prettier-plugin-astro": "0.5.5"
+    "prettier-plugin-astro": "0.5.5",
+    "stylelint": "^14.13.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^28.0.0"
   },
   "config": {
     "commitizen": {
