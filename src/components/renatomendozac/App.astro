@@ -1,0 +1,21 @@
+---
+import Button from '@components/renatomendozac/components/Button.svelte'
+import Card from '@components/renatomendozac/components/Card'
+import ShowPassword from '@components/renatomendozac/containers/ShowPassword'
+import ShowCheckbox from '@components/renatomendozac/containers/ShowCheckbox.svelte'
+import ShowSlider from '@components/renatomendozac/containers/ShowSlider.vue'
+---
+
+<main class='bg-slate-900 w-full h-full space-y-4 flex justify-center items-center'>
+	<div class='flex flex-col gap-3 w-full max-w-xs'>
+		<h1 class='text-slate-300 font-bold p-1 text-center'>
+			Password Generator
+		</h1>
+		<ShowPassword client:load />
+		<Card>
+			<ShowSlider client:load />
+			<ShowCheckbox client:load />
+		</Card>
+		<Button client:load>Generate -{'>'}</Button>
+	</div>
+</main>

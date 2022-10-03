@@ -1,0 +1,34 @@
+.message__container {
+	display: block;
+	background-color: #e9f4ef;
+	color: #101010;
+	position: absolute;
+	top: 64px;
+	padding: 16px 64px;
+	border-radius: 10px;
+}
+.--visible {
+	animation: easy-input 0.5s;
+}
+.--hide {
+	display: none;
+	animation: easy-out 0.5s;
+}
+@keyframes easy-input {
+	0% {
+		transform: translateY(-100px);
+	}
+	100% {
+		transform: translatey(0);
+	}
+}
+@keyframes easy-out {
+	0% {
+		display: block;
+		transform: translateY(0);
+	}
+	100% {
+		transform: translatey(-100px);
+		display: block;
+	}
+}
