@@ -34,7 +34,7 @@ const CheckboxOptions = () => {
 							defaultChecked={!!optionsCharacter.mayus}
 							onChange={handlerChangeCharacter}
 							disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.mayus}
-							className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
+							className='h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'
 						/>
 						<label
 							htmlFor='mayus'
