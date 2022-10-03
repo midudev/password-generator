@@ -53,23 +53,25 @@
 			on:input={handleRange}
 			class="mb-6 w-full h-2 rounded-lg"
 		/>
-		<span>Number: {passwordLength} {passwordLevel}</span>
+		<p class="pb-3 pl-5">Number: {passwordLength} {passwordLevel}</p>
 		<div class="relative">
 			<textarea
 				readonly
-				class="bg-purple-100 block resize-none text-black w-full pl-5 rounded-full text-lg h-12"
+				class="bg-red-50 block resize-none text-black w-full pl-5 rounded-full text-lg h-10"
 				value={password}
 			/>
-			<button
-				class="p-2 bg-red-500 font-bold uppercase scale-90 absolute top-1 right-2 rounded-full"
-				on:click={(e) => {
-					e.preventDefault()
-					createPassword(passwordLength)
-				}}>Generate</button
-			>
 		</div>
 		<button
-			class="p-2 bg-red-500 font-bold uppercase my-2 w-full rounded-full hover:opacity-95"
+			class="mt-2 mb-2 p-2 bg-red-500 font-bold uppercase w-full rounded-full hover:opacity-95"
+			on:click={(e) => {
+				e.preventDefault()
+				createPassword(passwordLength)
+			}}
+		>
+			Generate
+		</button>
+		<button
+			class=" p-2 bg-red-50 border-red-900 border-spa text-red-500 font-bold uppercase w-full rounded-full hover:opacity-95"
 			on:click={handleClipboard}
 		>
 			Copy to clipboard
