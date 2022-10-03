@@ -44,7 +44,7 @@ const useTimerAlert = () => {
 			constructor(children, delay, type) {
 				this.timerId = null
 				let start
-				const remaining = delay
+				let remaining = delay
 
 				this.pause = function () {
 					window.clearTimeout(this.timerId)
@@ -86,6 +86,7 @@ const useTimerAlert = () => {
 			}
 		}
 
+		/* eslint-disable no-new */
 		new Timer(children, delay, type)
 	}
 
