@@ -1,3 +1,6 @@
+.noHighlight {
+	-webkit-tap-highlight-color: transparent;
+}
 .neuShadow {
 	transition: .2s ease-in-out;
 	@apply neuNormal
