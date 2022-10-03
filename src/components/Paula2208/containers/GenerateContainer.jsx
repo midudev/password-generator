@@ -8,7 +8,6 @@ const GenerateContainer = () => {
 		<div className="paula2208-GenerateContainer">
 			<div className="paula2208-GridContainer">
 				<div className="paula2208-titleContainer">
-					<div>:3</div>
 					<h1>Password Generator</h1>
 				</div>
 
