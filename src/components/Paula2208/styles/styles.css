@@ -1,0 +1,51 @@
+
+/*GenerateContainer*/
+.paula2208-GenerateContainer{
+	display: flex;
+    justify-content: center;
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 10%;
+
+	color: #9cf3ff;
+}
+
+.paula2208-GridContainer{
+	display: grid;
+	grid-template-columns: 10px repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+}
+
+.paula2208-left-line{
+	background-color: #9cf3ff;
+    width: 20px;
+    height: 500px;
+    grid-area: 1 / 1 / 4 / 2;
+    border-radius: 10px;
+}
+
+.paula2208-titleContainer{
+	color: #9cf3ff;
+	grid-area: 1 / 2 / 2 / 4;
+}
+
+/*PasswordValues*/
+
+.paula2208-PasswordValuesContainer{
+	grid-area: 2 / 2 / 4 / 3;
+}
+
+/*OutputOptions*/
+
+.paula2208-OutputOptionsContainer{
+	grid-area: 2 / 2 / 4 / 3;
+}
+
+/*GenerateOptions*/
+
+.paula2208-GenerateOptionsContainer{
+	grid-area: 2 / 3 / 3 / 4;
+}
