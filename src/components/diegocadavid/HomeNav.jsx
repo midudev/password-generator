@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HomeNavIcons from './HomeNavIcons'
 
-const HomeNav = () => {
+const HomeNav = ({ openWindows = [] }) => {
+	const [miduEasterEgg, setMiduEasterEgg] = useState(false)
+
+	const handleEasterEgg = () => {
+		setMiduEasterEgg(true)
+		setTimeout(() => {
+			setMiduEasterEgg(false)
+		}, 2000)
+	}
+
 	return (
-		<div className='absolute bottom-0 bg-slate-800/70 backdrop-blur-sm inset-x-0 h-12 flex justify-center items-center gap-3'>
-			<HomeNavIcons />
-			<HomeNavIcons />
-			<HomeNavIcons />
+		<div className='absolute bottom-0 bg-zinc-800/70 backdrop-blur-sm inset-x-0 h-12 flex justify-center items-center gap-3'>
+			<HomeNavIcons openIcon={false} path='/diegocadavid/homeIcon.png' />
+			{
+				openWindows.map( w => {
+					return <HomeNavIcons key={w} path={`/diegocadavid/${w}Icon.png`} />
+				} )
+			}
 			<div className='absolute right-3'>
 				<div className='flex justify-center items-center gap-3'>
 					{/* Icons */}
@@ -63,8 +75,18 @@ const HomeNav = () => {
 						<p> 3:19 p.m </p>
 						<p> 3/10/2022 </p>
 					</div>
-					<div className='bg-zinc-400 h-4 w-4 rounded-full flex items-center justify-center cursor-pointer'>
-						<p className='text-sm'>1</p>
+					{miduEasterEgg && (
+						<img
+							className='absolute w-32 h-32 right-1 -top-36 animate-up'
+							src='/diegocadavid/midu.png'
+							alt=''
+						/>
+					)}
+					<div
+						className='bg-zinc-400 hover:bg-zinc-300 transition-colors ease-in h-4 w-4 rounded-full flex items-center justify-center cursor-pointer relative'
+						onClick={handleEasterEgg}
+					>
+						<p className='text-sm'> {miduEasterEgg ? '0' : '1'} </p>
 					</div>
 				</div>
 			</div>

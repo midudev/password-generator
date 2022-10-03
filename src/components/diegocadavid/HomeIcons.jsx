@@ -1,16 +1,14 @@
 import React from 'react'
+import HomeIconsItem from './HomeIconsItem'
 
-const HomeIcons = () => {
-  return (
-	<div className='p-8 flex flex-col gap-8'>
-		<div className='w-10 h-10 bg-slate-400'></div>
-		<div className='w-10 h-10 bg-slate-400'></div>
-		<div className='w-10 h-10 bg-slate-400'></div>
-		<div className='w-10 h-10 bg-slate-400'></div>
-		<div className='w-10 h-10 bg-slate-400'></div>
-		<div className='w-10 h-10 bg-slate-400'></div>
-	</div>
-  )
+const HomeIcons = ({ handleOpenWindow }) => {
+	return (
+		<div className='p-8 flex flex-col gap-2 items-start'>
+			<HomeIconsItem  path='/diegocadavid/papeleraIcon.png' name='Papelera'/>
+			<HomeIconsItem  handleOpenWindow={handleOpenWindow('terminal')} path='/diegocadavid/terminalIcon.png' name='Terminal' />
+			<HomeIconsItem  handleOpenWindow={handleOpenWindow('cli')} path='/diegocadavid/cliIcon.png' name='Generator'/>
+		</div>
+	)
 }
 
 export default HomeIcons

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './app.css'
 
 import CliTerminal from './CliTerminal'
@@ -106,6 +106,11 @@ const listDocCommads = [
 const App = () => {
 	const [commands, setCommands] = useState([])
 	const [showLogin, setShowLogin] = useState(false)
+
+	const [showTerminal, setShowTerminal] = useState(false)
+	const [showCli, setShowCli] = useState(false)
+
+	const [openWindows, setOpenWindows] = useState([])
 
 	const addComponentCommand = (command, Component) => {
 		return (
@@ -241,17 +246,96 @@ const App = () => {
 		setShowLogin(false)
 	}
 
+	const handleOpenWindow = (window = 'terminal') => {
+		return () => {
+			if (window == 'terminal') {
+				setShowTerminal(true)
+			}
+
+			if (window == 'cli') {
+				setShowCli(true)
+			}
+		}
+	}
+
+	const handleCloseWindow = (window = 'terminal') => {
+		return () => {
+			if (window == 'terminal') {
+				setShowTerminal(false)
+			}
+
+			if (window == 'cli') {
+				setShowCli(false)
+			}
+		}
+	}
+
+	useEffect(() => {
+	
+		const openNavWindow = (name = '') => {
+			setOpenWindows((prev) => {
+				if(prev.includes(name)) {
+					return prev
+				}
+
+				return [ ...prev, name ]
+			})
+		}
+
+		const closeNavWindow = (name = '') => {
+			setOpenWindows((prev) => {
+				if (prev.includes(name)) {
+					return prev.filter((w) => {
+						if (w == name) {
+							return false
+						}
+
+						return true
+					})
+				}
+
+				return prev
+			})
+		}
+		// En caso de que se abra una ventana
+		if (showTerminal) {
+			openNavWindow('terminal')
+		}
+
+		if (showCli) {
+			openNavWindow('cli')
+		}
+
+
+		// En caso de que se cierre una ventana
+		if (!showTerminal) {
+			closeNavWindow('terminal')
+		}
+
+		if (!showCli) {
+			closeNavWindow('cli')
+		}
+	}, [showTerminal, showCli])
+
 	return (
 		<div className='bg-[url("/image.png")] bg-cover bg-no-repeat bg-center h-screen font-sans relative'>
 			{showLogin && <Login hiddenLogin={hiddenLogin} />}
 			{!showLogin && (
 				<>
-					<WindowTerminal addCommand={addCommand} commands={commands} />
-					<CliTerminal addCommand={addCommand} />
+					{showTerminal && (
+						<WindowTerminal
+							handleCloseWindow={handleCloseWindow('terminal')}
+							addCommand={addCommand}
+							commands={commands}
+						/>
+					)}
+					{showCli && (
+						<CliTerminal handleCloseWindow={handleCloseWindow('cli')} addCommand={addCommand} />
+					)}
 				</>
 			)}
-			<HomeIcons />
-			<HomeNav />
+			<HomeIcons handleOpenWindow={handleOpenWindow} />
+			<HomeNav openWindows={openWindows} />
 		</div>
 	)
 }
