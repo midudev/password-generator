@@ -2,8 +2,7 @@
 	export let min: number = 8
 	export let max: number = 32
 	export let value: number = 16
-	let rangeProgress = (value / max) * 100
-	$: rangeProgress = (value / max) * 100
+	$: rangeProgress = ((value - min) / (max - min)) * 100
 </script>
 
 <label class="w-full bg-purple-900/50 flex items-center gap-2 p-3">
