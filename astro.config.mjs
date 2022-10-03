@@ -5,7 +5,7 @@ import vue from '@astrojs/vue'
 import solidJs from '@astrojs/solid-js'
 import tailwind from '@astrojs/tailwind'
 import image from '@astrojs/image'
-// import analogjsangular from '@analogjs/astro-angular'
+import analogjsangular from '@analogjs/astro-angular'
 
 import preact from '@astrojs/preact'
 
@@ -18,7 +18,7 @@ export default defineConfig({
 		solidJs(),
 		tailwind(),
 		image(),
-		// analogjsangular(),
+		analogjsangular(),
 		preact()
 	]
 })
