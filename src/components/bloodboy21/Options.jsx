@@ -21,7 +21,7 @@ const createPassword = ({ length, symbols, numbers }) => {
 	return generatePassword(length, chars)
 }
 
-export default function Options() {
+export default function Options () {
 	const [options, setOptions] = useState({
 		length: 8,
 		numbers: true,

@@ -14,7 +14,7 @@ const PasswordGenerator = () => {
 		const lowerCase = 'abcdefghijklmnopqrstuvwxyz'
 		const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 		const specialChar = ''
-		var pwdLen = sliderValue
+		const pwdLen = sliderValue
 
 		const randomPassword = Array(pwdLen)
 			.fill(numbers + lowerCase + upperCase + specialChar)

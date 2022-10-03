@@ -1,0 +1,18 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+.header-title {
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+.header-avatar {
+	max-width: 80px;
+	height: auto;
+	border-radius: 100%;
+	border: 0.25rem solid var(--color-light-blue);
+}
