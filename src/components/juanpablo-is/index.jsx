@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // Components
 import InputPassword from './components/InputPassword'
-import InputRange from './components/inputRange'
+import InputRange from './components/InputRange'
 import CheckboxOptions from './components/CheckboxOptions'
 import ActionsButtons from './components/ActionsButtons'
 
