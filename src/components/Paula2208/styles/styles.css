@@ -30,22 +30,33 @@
 .paula2208-titleContainer{
 	color: #9cf3ff;
 	grid-area: 1 / 2 / 2 / 4;
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	font-size: 50px;
+	font-weight: bold;
 }
 
 /*PasswordValues*/
 
 .paula2208-PasswordValuesContainer{
 	grid-area: 2 / 2 / 4 / 3;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
 }
 
 /*OutputOptions*/
 
 .paula2208-OutputOptionsContainer{
-	grid-area: 2 / 2 / 4 / 3;
+	grid-area: 3 / 3 / 4 / 4;
+	padding: 20px;
 }
 
 /*GenerateOptions*/
 
 .paula2208-GenerateOptionsContainer{
 	grid-area: 2 / 3 / 3 / 4;
+	padding: 20px;
 }

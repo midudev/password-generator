@@ -4,11 +4,11 @@ import PasswordValues from '../components/PasswordValues';
 import '../styles/styles.css'
 
 const GenerateContainer = () => {
-	return(
+	return (
 		<div className="paula2208-GenerateContainer">
 			<div className="paula2208-GridContainer">
 				<div className="paula2208-titleContainer">
-					
+					<div>:3</div>
 					<h1>Password Generator</h1>
 				</div>
 
@@ -17,7 +17,7 @@ const GenerateContainer = () => {
 				<OutputOptions />
 				<GenerateOptions />
 			</div>
-			
+
 		</div>
 	)
 }
