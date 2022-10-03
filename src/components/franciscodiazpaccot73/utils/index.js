@@ -37,7 +37,6 @@ const isValidPassword = (password, settings) => {
 	valid = valid && letters ? !!lettersAmount.length : valid;
 	valid = valid && uppers ? !!uppersAmount.length : valid;
 	valid = valid && specials ? !!specialAmount.length : valid;
-	console.log(valid)
 	return valid
 }
 

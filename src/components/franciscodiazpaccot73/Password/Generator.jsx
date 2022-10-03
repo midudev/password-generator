@@ -14,7 +14,6 @@ const Generator = ({ chars, length, generate }) => {
 		setIsCopied(false)
 		new Promise((resolve) => {
 			const value = generatePaswordValue(length, chars)
-			console.log(value)
 			resolve(value)
 		}).then((newPassword) => {
 			setValue(newPassword)
