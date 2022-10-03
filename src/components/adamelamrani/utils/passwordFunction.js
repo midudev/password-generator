@@ -10,6 +10,7 @@ const passwordFunction = (length) => {
 			shuffleArray[randomIndex][Math.floor(Math.random() * shuffleArray[randomIndex].length)]
 		auxiliarArray.push(randomValue)
 	}
+	console.log(auxiliarArray.join(''))
 	return auxiliarArray
 }
 
