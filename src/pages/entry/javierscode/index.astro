@@ -1,0 +1,50 @@
+---
+import Footer from '@components/javierscode/Footer'
+import Header from '@components/javierscode/Header'
+import PasswordGenerator from '@components/javierscode/PasswordGenerator'
+import Layout from '@layout'
+---
+
+<Layout title='Javierscode | hacktoberfest 2022'>
+	<div class='container'>
+		<article>
+			<Header />
+			<PasswordGenerator client:idle />
+			<Footer />
+		</article>
+	</div>
+</Layout>
+
+<style is:global>
+	:root {
+		--color-white: #fff;
+		--color-purple-blue: #4755ef;
+		--color-light-blue: #167af6;
+		--color-distant-blue: #56618a;
+		--color-steel-blue: #091741;
+		--color-dark-blue: #050f2e;
+	}
+
+	body {
+		background-color: var(--color-dark-blue) !important;
+	}
+
+	.container {
+		width: 100%;
+		max-width: 768px;
+		margin: auto;
+		min-height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		color: white;
+	}
+
+	.container article {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding: 1rem;
+	}
+</style>
