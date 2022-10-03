@@ -11,6 +11,9 @@ import CommandMusic from './CommandMusic'
 import CommandMidu from './CommandMidu'
 import CommandDiego from './CommandDiego'
 
+import HomeNav from './HomeNav'
+import HomeIcons from './HomeIcons'
+
 const parseCommand = (commandName = '') => {
 	//Obtenemos el comando
 	const commandRegex = /^\w+/gi
@@ -232,9 +235,12 @@ const App = () => {
 	}
 
 	return (
-		<div className='p-2  md:p-8 lg:p-12 bg-[#3F3F46] h-screen font-sans relative'>
+		<div className='bg-[url("/image.png")] bg-cover bg-no-repeat bg-center h-screen font-sans relative'>
 			<WindowTerminal addCommand={addCommand} commands={commands} />
 			<CliTerminal addCommand={addCommand} />
+
+			<HomeIcons />
+			<HomeNav />
 		</div>
 	)
 }
