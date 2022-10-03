@@ -62,7 +62,7 @@ const CommandMidu = ({ config = [] }) => {
 		<div>
 			<p>
 				{`${socialLink.name} de Midu ^^: `}{' '}
-				<a href={socialLink.url} className='underline capitalize'>
+				<a href={socialLink.url} className='underline capitalize' target='_blank'>
 					Click aqui
 				</a>
 			</p>
