@@ -1,16 +1,16 @@
-.header{
+.header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
 }
 
-.header-title{
+.header-title {
 	font-size: 2rem;
 	font-weight: 600;
 }
 
-.header-avatar{
+.header-avatar {
 	max-width: 80px;
 	height: auto;
 	border-radius: 100%;

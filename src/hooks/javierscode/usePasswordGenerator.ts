@@ -14,9 +14,9 @@ const characterOptionsMapper: OptionsMapper = {
 }
 
 type PasswordGeneratorState = {
-    password: string;
-    length: number;
-    settings: SettingsState
+	password: string
+	length: number
+	settings: SettingsState
 }
 
 const initialState: PasswordGeneratorState = {
@@ -33,13 +33,19 @@ const initialState: PasswordGeneratorState = {
 export default function usePasswordGenerator() {
 	const [{ password, settings, length }, setState] = useState<PasswordGeneratorState>(initialState)
 
-	const setPassword = (newPassword: string) => setState((prevState) => ({ ...prevState, password: newPassword }))
-	const setLength = (newLength: number) => setState((prevState) => ({ ...prevState, length: newLength }))
-	const setSettings = (newSettings: SettingsState) => setState((prevState) => ({ ...prevState, settings: newSettings }))
+	const setPassword = (newPassword: string) =>
+		setState((prevState) => ({ ...prevState, password: newPassword }))
+	const setLength = (newLength: number) =>
+		setState((prevState) => ({ ...prevState, length: newLength }))
+	const setSettings = (newSettings: SettingsState) =>
+		setState((prevState) => ({ ...prevState, settings: newSettings }))
 
 	const validCharacters = useMemo(() => {
 		const options = Object.keys(settings) as Options[]
-		return options.reduce((acc, option) => settings[option] ? acc + characterOptionsMapper[option] : acc, '')
+		return options.reduce(
+			(acc, option) => (settings[option] ? acc + characterOptionsMapper[option] : acc),
+			''
+		)
 	}, [settings])
 
 	const generatePassword = () => {
@@ -57,7 +63,7 @@ export default function usePasswordGenerator() {
 		const currentLength = Number(value)
 		console.log(e.target.style.backgroundSize)
 
-		e.target.style.backgroundSize = (currentLength - 4) * 100 / (32 - 4) + '% 100%'
+		e.target.style.backgroundSize = ((currentLength - 4) * 100) / (32 - 4) + '% 100%'
 		setLength(currentLength)
 	}
 
@@ -66,7 +72,6 @@ export default function usePasswordGenerator() {
 		const option = name as Options
 		setSettings({ ...settings, [option]: !settings[option] })
 	}
-
 
 	return { password, generatePassword, length, handleLengthChange, settings, handleSettingsChange }
 }

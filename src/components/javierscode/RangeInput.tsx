@@ -1,7 +1,7 @@
 import type React from 'react'
 import './RangeInput.css'
 
-type RangeInputProps={
+type RangeInputProps = {
 	value: number
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }

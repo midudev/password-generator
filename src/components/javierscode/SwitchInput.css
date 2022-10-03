@@ -24,35 +24,33 @@
 	right: 0;
 	bottom: 0;
 	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
 	border-radius: 1rem;
-
 }
 
 .switch-slider:before {
 	position: absolute;
-	content: "";
+	content: '';
 	height: var(--switch-slider-size);
 	width: var(--switch-slider-size);
 	left: var(--spacing);
 	bottom: var(--spacing);
 	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
 	border-radius: 50%;
 }
 
-
-input:checked+.switch-slider {
+input:checked + .switch-slider {
 	background-color: var(--color-light-blue);
 }
 
-input:focus+.switch-slider {
+input:focus + .switch-slider {
 	box-shadow: 0 0 1px var(--color-light-blue);
 }
 
-input:checked+.switch-slider:before {
+input:checked + .switch-slider:before {
 	--distance: calc(var(--switch-width) - (var(--spacing) * 2) - var(--switch-slider-size));
 
 	-webkit-transform: translateX(var(--distance));

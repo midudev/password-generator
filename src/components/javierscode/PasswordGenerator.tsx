@@ -12,38 +12,37 @@ const sentenceOptionsMapper: OptionsMapper = {
 }
 
 export default function PasswordGenerator() {
-	const {
-		password,
-		generatePassword,
-		length,
-		handleLengthChange,
-		settings,
-		handleSettingsChange
-	} = usePasswordGenerator()
+	const { password, generatePassword, length, handleLengthChange, settings, handleSettingsChange } =
+		usePasswordGenerator()
 
 	const options = Object.keys(settings) as Options[]
 
 	return (
 		<section className='generator'>
-			<label htmlFor='password' className='generator-title' >
-                Generated password
+			<label htmlFor='password' className='generator-title'>
+				Generated password
 			</label>
-			<input type='text' id='password' value={password} readOnly className='generator-password'/>
-			<p className='generator-title'>
-                Lenght: {length}
-			</p>
+			<input type='text' id='password' value={password} readOnly className='generator-password' />
+			<p className='generator-title'>Lenght: {length}</p>
 			<div className='generator-card'>
-				{4}<InputRange value={length} handleChange={handleLengthChange} />{32}
+				{4}
+				<InputRange value={length} handleChange={handleLengthChange} />
+				{32}
 			</div>
-			<p className='generator-title'>
-                Settings
-			</p>
-			{options.map(option =>
+			<p className='generator-title'>Settings</p>
+			{options.map((option) => (
 				<div key={option} className='generator-card'>
 					{sentenceOptionsMapper[option]}
-					<SwitchInput name={option} checked={settings[option]} handleChange={handleSettingsChange} />
-				</div>)}
-			<button className='generator-button' onClick={generatePassword}>Generate password</button>
+					<SwitchInput
+						name={option}
+						checked={settings[option]}
+						handleChange={handleSettingsChange}
+					/>
+				</div>
+			))}
+			<button className='generator-button' onClick={generatePassword}>
+				Generate password
+			</button>
 		</section>
 	)
 }

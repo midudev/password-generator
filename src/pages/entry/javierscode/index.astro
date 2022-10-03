@@ -9,29 +9,27 @@ import Layout from '@layout'
 	<div class='container'>
 		<article>
 			<Header />
-			<PasswordGenerator client:idle/>
-			<Footer/>
+			<PasswordGenerator client:idle />
+			<Footer />
 		</article>
 	</div>
 </Layout>
 
 <style is:global>
-
-	:root{
+	:root {
 		--color-white: #fff;
 		--color-purple-blue: #4755ef;
-		--color-light-blue:#167af6;
+		--color-light-blue: #167af6;
 		--color-distant-blue: #56618a;
 		--color-steel-blue: #091741;
 		--color-dark-blue: #050f2e;
-
 	}
 
-	body{
-		background-color: var(--color-dark-blue)!important;
+	body {
+		background-color: var(--color-dark-blue) !important;
 	}
 
-	.container{
+	.container {
 		width: 100%;
 		max-width: 768px;
 		margin: auto;
@@ -43,11 +41,10 @@ import Layout from '@layout'
 		color: white;
 	}
 
-	.container article{
+	.container article {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
 		padding: 1rem;
 	}
-
 </style>
