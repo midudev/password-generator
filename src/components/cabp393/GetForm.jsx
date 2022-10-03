@@ -14,19 +14,28 @@ export default function GetForm() {
 		setPassword(getPassword(upperCase, numbers, symbols, length))
 	}, [length, numbers, upperCase, symbols])
 
-	return (
-		<div id='cabp393' className='container border-gradient'>
-			<div className={notification ? 'notification noti-on' : 'notification'}>password copied</div>
+	function handleCopy() {
+		navigator.clipboard.writeText(password.password)
+		setNotification(true)
+		setTimeout(() => {
+			setNotification(false)
+		}, 1000)
+	}
+
+	function ButtonConfig({ title, state, setState }) {
+		return (
 			<div
-				className='display-password'
-				onClick={() => {
-					navigator.clipboard.writeText(password.password)
-					setNotification(true)
-					setTimeout(() => {
-						setNotification(false)
-					}, 1000)
-				}}
+				onClick={() => setState((prev) => !prev)}
+				className={state ? 'cabp393-btn cabp393-enable' : 'cabp393-btn'}
 			>
+				{title}
+			</div>
+		)
+	}
+
+	return (
+		<div className='cabp393-container cabp393-border-gradient'>
+			<div className='cabp393-display-password' onClick={handleCopy}>
 				{password.password}
 			</div>
 
@@ -38,26 +47,21 @@ export default function GetForm() {
 				onChange={(e) => setLength(e.target.value)}
 			/>
 
-			<div className='btn-container'>
-				<div onClick={() => setNumbers((prev) => !prev)} className={numbers ? 'btn enable' : 'btn'}>
-					numbers
-				</div>
-
-				<div
-					onClick={() => setUpperCase((prev) => !prev)}
-					className={upperCase ? 'btn enable' : 'btn'}
-				>
-					uppercase
-				</div>
-
-				<div onClick={() => setSymbols((prev) => !prev)} className={symbols ? 'btn enable' : 'btn'}>
-					symbols
-				</div>
+			<div className='cabp393-btn-container'>
+				<ButtonConfig title='numbers' state={numbers} setState={setNumbers} />
+				<ButtonConfig title='uppercase' state={upperCase} setState={setUpperCase} />
+				<ButtonConfig title='symbols' state={symbols} setState={setSymbols} />
 			</div>
 
-			<div className='combinations'>
+			<div className='cabp393-combinations'>
 				<div>{password.security}</div>
 				<span>possible combinations</span>
+			</div>
+
+			<div
+				className={notification ? 'cabp393-notification cabp393-noti-on' : 'cabp393-notification'}
+			>
+				password copied
 			</div>
 		</div>
 	)
