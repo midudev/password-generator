@@ -1,0 +1,63 @@
+.Goku {
+	background-image: url('/kikindb/img/sprites.png');
+	background-position-y: 0;
+	background-position-x: 0;
+	background-repeat: repeat-x;
+	width: 240px;
+	height: 676px;
+	animation: idle 1s infinite;
+	position: relative;
+	margin: 0 auto;
+}
+
+.change::after {
+	content: '';
+	width: 720px;
+	height: 900px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -63%);
+	opacity: 0.5;
+	background-image: url('/kikindb/img/aura.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.saiyan {
+	background-position-x: -244px;
+}
+
+.saiyan2 {
+	background-position-x: -488px;
+}
+.saiyan3 {
+	background-position-x: -952px;
+}
+.saiyan4 {
+	background-position-x: -1194px;
+}
+.god {
+	background-position-x: -1516px;
+}
+.blue {
+	background-position-x: -1760px;
+}
+
+.ultra {
+	background-position-x: 240px;
+}
+
+@keyframes idle {
+	0% {
+		background-position-y: 0;
+	}
+	50% {
+		background-position-y: -12px;
+	}
+
+	100% {
+		background-position-y: 0;
+	}
+}

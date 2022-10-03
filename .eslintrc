@@ -27,6 +27,7 @@
 				"caughtErrorsIgnorePattern": "^_"
 			}
 		],
+		"space-before-function-paren": "off",
 		"no-multiple-empty-lines": "off",
 		"no-tabs": "off",
 		"indent": ["warn", "tab"],
