@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './main.css'
+
 function passwordGenerator() {
 	const [rangeValue, setRangeValue] = useState(8)
 	const [passwordGenerated, setPasswordGenerated] = useState('')
