@@ -6,6 +6,7 @@ import CheckboxLabeled from './CheckboxLabeled'
 import Button from './Button'
 import { PatternSymbols, PatternNumbers, PatternUppercase, PatternLowerCase } from './Patterns'
 import Title from './Title'
+import PasswordStrength from './PasswordStrength'
 
 export default function PasswordGenerator() {
 	const [password, setPassword] = useState('')
@@ -84,6 +85,7 @@ export default function PasswordGenerator() {
 					checked={includeSymbols}
 					onChange={(e) => setIncludeSymbols(e.target.checked)}
 				/>
+				<PasswordStrength password={password} />
 				<Button onClick={generatePassword} text={'GENERATE 🠺'} />
 			</article>
 		</section>
