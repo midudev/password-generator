@@ -13,44 +13,45 @@ export const PassWordGenerator = () => {
 		filters
 	})
 	return (
-		<div className='bg-[#1F232B] rounded-md p-4'>
-			<div className='w-full flex bg-[#353940] justify-between items-center gap-4 mb-4 rounded-md'>
+		<div className='bg-[#EBF5FC] rounded-xl p-8 custom-shadow'>
+			<h1 className='text-center font-bold text-xl mb-6'>Password Generator</h1>
+			<div className='w-full flex bg-[#EBF5FC] justify-between items-center gap-4 mb-4 rounded-md'>
 				<input
 					type='text'
 					disabled
 					value={password}
-					className='w-full h-9 px-2 bg-[#353940] py-1 font-semibold text-[#DDDDDD] border-none outline-none rounded-md'
+					className='w-full h-9 px-2 border-b border-[#32A3B1] bg-[#EBF5FC] text-lg tracking-wide py-1 font-medium text-[#32A3B1] outline-none'
 				/>
 				<button
 					onClick={copyPassword}
-					className='relative bg-[#353940] w-9 h-9 p-2 rounded-tr-md rounded-br-md cursor-pointer hover:bg-[#4b4c52]'
+					className='relative bg-[#EBF5FC] w-9 h-9 p-2 rounded-lg cursor-pointer custom-shadow-button'
 				>
 					<span ref={tooltipRef} className='tooltip'>
 						Copied!
 					</span>
 					<img
 						className='w-5 h-5'
-						src='https://icongr.am/fontawesome/clone.svg?size=128&color=DDDDDD'
+						src='https://icongr.am/fontawesome/copy.svg?size=128&color=32A3B1'
 						alt='copy-icon'
 					/>
 				</button>
 			</div>
 			<button
 				onClick={generatePassword}
-				className='w-full h-9 bg-[#353940] rounded-md mb-4 cursor-pointer hover:bg-[#4b4c52]'
+				className='w-full h-9 bg-[#EBF5FC] rounded-lg mb-4 cursor-pointer custom-shadow-button'
 			>
 				Generate password
 			</button>
 			<div className='w-80 flex flex-col items-center'>
-				<div className='w-full flex flex-col justify-start gap-2 mt-2'>
-					<p>Settings:</p>
+				<div className='w-full flex flex-col justify-start gap-2 mt-2 custom-shadow p-4 rounded-lg'>
+					<p className='font-semibold'>Settings:</p>
 					<SettingsSwitchItem type={lowercase} filters={filters} onFilterChane={onFilterChane} />
 					<SettingsSwitchItem type={uppercase} filters={filters} onFilterChane={onFilterChane} />
 					<SettingsSwitchItem type={numbers} filters={filters} onFilterChane={onFilterChane} />
 					<SettingsSwitchItem type={symbols} filters={filters} onFilterChane={onFilterChane} />
 					<div className='flex gap-2'>
 						<p>Length:</p>
-						<span className='font-bold text-[#8671ff]'>{passwordLength}</span>
+						<span className='font-bold text-[#32a3b1]'>{passwordLength}</span>
 					</div>
 					<div className='w-auto flex items-center justify-between'>
 						<p>{SLIDER_VALUES.minLength}</p>

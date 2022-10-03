@@ -1,5 +1,3 @@
-// import { useFilters } from '../hooks/useFilters'
-
 export const SettingsSwitchItem = ({ type, filters, onFilterChane }) => {
 	const checked = filters.includes(type)
 	return (
