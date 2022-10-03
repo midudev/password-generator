@@ -7,9 +7,9 @@
 <div class="checkbox-container">
 	<input
 		id={`checkbox-${id}`}
-		checked={checked}
+		{checked}
 		value={id}
-		disabled={disabled}
+		{disabled}
 		type="checkbox"
 		on:change
 	/>
