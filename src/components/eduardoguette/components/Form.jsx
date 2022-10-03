@@ -30,6 +30,8 @@ export const Form = ({ setPass, pass }) => {
 		setPass(getPass(value))
 	}
 
+	const handleColor = () => lengthPass < 8 ? 'bg-red-400' : lengthPass >= 8 && lengthPass < 10 ? 'bg-orange-400' : 'bg-green-400'
+
 	return (
 		<section className='text-white'>
 			<div>
@@ -42,10 +44,12 @@ export const Form = ({ setPass, pass }) => {
 						onChange={handleInputChanges}
 						className='px-4 w-full font-mono py-4 rounded focus:outline-none  bg-[#3e3745] text-white focus:outline-violet-500'
 					/>
+					<div className={`${handleColor()} h-1 w-full absolute -bottom-0 z-10 rounded-bl rounded-br`}></div>
 					<button
 						onClick={handleCopy}
 						role='button'
-						className='absolute right-14 block top-0 bottom-0 my-auto focus:outline-violet-500 p-2'
+						title='Copy'
+						className='absolute right-12 block top-2 my-auto focus:outline-none focus:bg-indigo-200 focus:text-black h-max w-max p-2 rounded-md'
 					>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -64,7 +68,7 @@ export const Form = ({ setPass, pass }) => {
 					<button
 						onClick={handleClickNewPass}
 						role='button'
-						className='absolute right-4 block top-0 bottom-0 my-auto active:rotate-[1turn] duration-200 transition-all focus:outline-violet-500 p-2'
+						className='absolute right-2 block top-2 my-auto focus:outline-none focus:bg-indigo-200 focus:text-black h-max w-max p-2 rounded-md'
 					>
 						<svg
 							viewBox='0 0 16 16'
