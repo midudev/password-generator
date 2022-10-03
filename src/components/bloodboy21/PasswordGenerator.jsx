@@ -1,4 +1,3 @@
-import React from 'react'
 import storage from '../bloodboy21/Options'
 
 const optionsList = {

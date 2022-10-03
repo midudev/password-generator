@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const TextField = ({ readOnly, value }) => {
 	return (

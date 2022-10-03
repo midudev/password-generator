@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import { Header } from '@components/cacosted/Header'
 import { Button } from '@components/cacosted/Button'
 import { CopyIcon } from '@components/cacosted/CopyIcon'
@@ -8,6 +7,7 @@ import { Notification } from '@components/cacosted/Notification'
 import { Container } from '@components/cacosted/Container'
 import { usePassword } from '../../hooks/cacosted/usePassword'
 import { useClipboard } from '../../hooks/cacosted/useClipboard'
+
 export const Card = () => {
 	const { password, setNewLength, setNewPassword } = usePassword()
 	const { isCopy, copyText } = useClipboard()

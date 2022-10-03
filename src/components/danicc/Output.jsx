@@ -1,4 +1,3 @@
-import React from 'react'
 import CopyIcon from '@components/danicc/CopyIcon'
 import colors from 'tailwindcss/colors'
 

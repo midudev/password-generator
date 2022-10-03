@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './Slider.css'
 
 export const Slider = ({ min, max, setPasswordLength }) => {

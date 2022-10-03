@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRawPassword } from './hooks/useRawPassword'
 import ThinkingFace from './ThinkinfFace'
 

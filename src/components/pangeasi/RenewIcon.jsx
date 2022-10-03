@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 const RenewIcon = (props) => (
 	<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72' width='1em' height='1em' {...props}>
 		<g strokeLinecap='round' strokeLinejoin='round' strokeMiterlimit={10} strokeWidth={2}>

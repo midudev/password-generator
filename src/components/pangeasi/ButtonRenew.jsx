@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNumberCharacters } from './hooks/useNumberCharacters'
 import { useRawPassword } from './hooks/useRawPassword'
 import RenewIcon from './RenewIcon'

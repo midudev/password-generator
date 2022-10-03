@@ -1,4 +1,3 @@
-import React from 'react'
 import { useToast } from './hooks/useToast'
 import './styles.css'
 

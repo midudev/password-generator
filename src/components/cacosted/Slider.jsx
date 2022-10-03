@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const Slider = ({ action, value, min = 5, max = 100 }) => {
 	return (

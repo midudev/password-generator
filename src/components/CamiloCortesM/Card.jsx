@@ -1,10 +1,10 @@
-import React from 'react'
+import { useState } from 'react'
 import { Tittle, randomPassword, Output, GenerateButton, Range } from './'
 
 export const Card = () => {
-	const [rangeCharacters, setRangeCharacters] = React.useState(6)
-	const [password, setPassword] = React.useState('')
-	const [copy, setCopy] = React.useState(false)
+	const [rangeCharacters, setRangeCharacters] = useState(6)
+	const [password, setPassword] = useState('')
+	const [copy, setCopy] = useState(false)
 
 	const onSubmitGeneratePassword = () => {
 		setCopy(false)

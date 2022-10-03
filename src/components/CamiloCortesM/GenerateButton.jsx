@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const GenerateButton = ({ onSubmitGeneratePassword }) => {
 	return (
 		<button

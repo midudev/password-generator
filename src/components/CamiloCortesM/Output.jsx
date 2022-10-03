@@ -1,7 +1,7 @@
-import React from 'react'
+import { useState } from 'react'
 
 export const Output = ({ password, copy = false, setCopy }) => {
-	const [showNotification, setShowNotification] = React.useState(false)
+	const [showNotification, setShowNotification] = useState(false)
 	const getIconCopy = () => {
 		if (!copy) {
 			return (

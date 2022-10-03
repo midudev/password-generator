@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { BotonAumentar, BotonDisminuir, BotonCheck, BotonGenerar } from './miniComponents/buttons'
 import GeneratePassword from './functions/GeneratePassword'
 
@@ -26,7 +26,7 @@ const Page = () => {
 
 	const disminuirNumeroCaracteres = () => {
 		if (configuracion.numeroDeCaracteres > 1) {
-			cambiarConfiguracion((configuracionAnterior) => {
+			setConfiguracion((configuracionAnterior) => {
 				const nuevaConfiguracion = { ...configuracionAnterior }
 				nuevaConfiguracion.numeroDeCaracteres -= 1
 				return nuevaConfiguracion
@@ -35,7 +35,7 @@ const Page = () => {
 	}
 
 	const toggleSimbolos = () => {
-		cambiarConfiguracion((configuracionAnterior) => {
+		setConfiguracion((configuracionAnterior) => {
 			const nuevaConfiguracion = { ...configuracionAnterior }
 			nuevaConfiguracion.simbolos = !nuevaConfiguracion.simbolos
 			return nuevaConfiguracion
@@ -43,7 +43,7 @@ const Page = () => {
 	}
 
 	const toggleNumeros = () => {
-		cambiarConfiguracion((configuracionAnterior) => {
+		setConfiguracion((configuracionAnterior) => {
 			const nuevaConfiguracion = { ...configuracionAnterior }
 			nuevaConfiguracion.numeros = !nuevaConfiguracion.numeros
 			return nuevaConfiguracion
@@ -51,7 +51,7 @@ const Page = () => {
 	}
 
 	const toggleMayusculas = () => {
-		cambiarConfiguracion((configuracionAnterior) => {
+		setConfiguracion((configuracionAnterior) => {
 			const nuevaConfiguracion = { ...configuracionAnterior }
 			nuevaConfiguracion.mayusculas = !nuevaConfiguracion.mayusculas
 			return nuevaConfiguracion
@@ -64,7 +64,7 @@ const Page = () => {
 	}
 
 	return (
-		<div className='container'>
+		<div className='container prose prose-invert m-auto'>
 			<h1 className='title'>Generador de contraseñas</h1>
 
 			<form onSubmit={onSubmit}>
