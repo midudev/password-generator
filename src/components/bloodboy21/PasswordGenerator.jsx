@@ -75,7 +75,7 @@ const Alert = ({ alert, setAlert }) => {
 	)
 }
 
-function PasswordGenerator() {
+function PasswordGenerator () {
 	const { options, setOptions, createPassword, password, setPassword, alert, setAlert } = storage()
 	const optionHandler = (e) => {
 		const { name, checked } = e.target
@@ -97,9 +97,14 @@ function PasswordGenerator() {
 		<main className='flex flex-col text-white justify-center items-center w-full gap-2'>
 			<Alert alert={alert} setAlert={setAlert} />
 			<h2 className='text-xl font-bold mt-3'>Password generator</h2>
-			<div className='flex  m-4  justify-center items-center  rounded-lg box-content '>
-				<p className='text-2xl font-sans '>{password}</p>
-			</div>
+			<section className='flex flex-wrap m-4  justify-center  box-border w-full lg:w-1/3 h-auto'>
+				<input
+					type='text'
+					value={password}
+					className='rounded-lg px-2 py-1 bg-transparent w-auto lg:w-full h-auto text-xl font-bold text-white border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-sans'
+					readOnly
+				/>
+			</section>
 			<section className='flex gap-2 w-full justify-center'>
 				<button
 					onClick={passwordHandler}
@@ -115,7 +120,7 @@ function PasswordGenerator() {
 				</button>
 			</section>
 			<section className='flex justify-center w-full overflow-hidden mt-3 font-special'>
-				<div className='flex flex-col w-1/3 rounded-lg justify-center  bg-slate-800 gap-3 p-3'>
+				<div className='flex flex-col w-[85%] lg:w-1/3 rounded-lg justify-center  bg-slate-800 gap-3 p-3'>
 					<SizeSlider options={options} setLength={setLength} />
 					<div className='w-full flex align-baseline justify-start '>
 						<ul className='flex  gap-3 align-baseline items-baseline'>
