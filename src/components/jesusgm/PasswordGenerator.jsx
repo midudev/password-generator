@@ -5,6 +5,7 @@ import './styles.css'
 
 const DEFAULT_LENGTH = 10
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 const Button = ({ children, type = 'button', onClick = () => {}, className = '' }) => {
 	return (
 		<button className={`btn special ${className}`} type={type} onClick={onClick}>
