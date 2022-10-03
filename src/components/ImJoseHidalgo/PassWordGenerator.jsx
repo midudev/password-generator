@@ -13,7 +13,7 @@ export const PassWordGenerator = () => {
 		filters
 	})
 	return (
-		<div className='bg-[#EBF5FC] rounded-xl p-8 custom-shadow'>
+		<div className='bg-[#EBF5FC] rounded-xl p-8 jh-custom-shadow'>
 			<h1 className='text-center font-bold text-xl mb-6'>Password Generator</h1>
 			<div className='w-full flex bg-[#EBF5FC] justify-between items-center gap-4 mb-4 rounded-md'>
 				<input
@@ -24,9 +24,9 @@ export const PassWordGenerator = () => {
 				/>
 				<button
 					onClick={copyPassword}
-					className='relative bg-[#EBF5FC] w-9 h-9 p-2 rounded-lg cursor-pointer custom-shadow-button'
+					className='relative bg-[#EBF5FC] w-9 h-9 p-2 rounded-lg cursor-pointer jh-custom-shadow-button'
 				>
-					<span ref={tooltipRef} className='tooltip'>
+					<span ref={tooltipRef} className='jh-tooltip'>
 						Copied!
 					</span>
 					<img
@@ -38,12 +38,12 @@ export const PassWordGenerator = () => {
 			</div>
 			<button
 				onClick={generatePassword}
-				className='w-full h-9 bg-[#EBF5FC] rounded-lg mb-4 cursor-pointer custom-shadow-button'
+				className='w-full h-9 bg-[#EBF5FC] rounded-lg mb-4 cursor-pointer jh-custom-shadow-button'
 			>
 				Generate password
 			</button>
 			<div className='w-80 flex flex-col items-center'>
-				<div className='w-full flex flex-col justify-start gap-2 mt-2 custom-shadow p-4 rounded-lg'>
+				<div className='w-full flex flex-col justify-start gap-2 mt-2 jh-custom-shadow p-4 rounded-lg'>
 					<p className='font-semibold'>Settings:</p>
 					<SettingsSwitchItem type={lowercase} filters={filters} onFilterChane={onFilterChane} />
 					<SettingsSwitchItem type={uppercase} filters={filters} onFilterChane={onFilterChane} />
@@ -56,7 +56,7 @@ export const PassWordGenerator = () => {
 					<div className='w-auto flex items-center justify-between'>
 						<p>{SLIDER_VALUES.minLength}</p>
 						<input
-							className='input-range w-full mx-4'
+							className='jh-input-range w-full mx-4'
 							type='range'
 							min={SLIDER_VALUES.minLength}
 							max={SLIDER_VALUES.maxLength}

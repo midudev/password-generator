@@ -10,9 +10,10 @@ export const SettingsSwitchItem = ({ type, filters, onFilterChane }) => {
 					value={type}
 					onChange={onFilterChane}
 					checked={checked}
+					className='jh-input-checkbox'
 				/>
 				<label
-					className={`checkbox-label ${checked ? 'active' : ''}`}
+					className={`jh-checkbox-label ${checked ? 'active' : ''}`}
 					htmlFor={type}
 				/>
 			</div>
