@@ -58,11 +58,13 @@ export const PasswordGenerator = () => {
 					disabled={isPasswordEmpty}
 					onClick={copyPassword}
 				>
-					{isCopied ? (
-						<CheckIcon fill='none' height='24px' width='30px' />
-					) : (
-						<CopyIcon fill='white' height='24px' width='30px' />
-					)}
+					{isCopied
+						? (
+							<CheckIcon fill='none' height='24px' width='30px' />
+						)
+						: (
+							<CopyIcon fill='white' height='24px' width='30px' />
+						)}
 				</button>
 				<div className='pl-4'>
 					<div className='bg-transparent font-semibold text-slate-200'>{passwordValue}</div>
