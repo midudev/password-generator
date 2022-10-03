@@ -15,8 +15,6 @@ const generatePassword = (config: PasswordConfig) => {
 		if (config[configProp] === true) finalCharacters += CHARACTERS[configProp]
 	}
 
-	console.log(finalCharacters)
-
 	for (let i = 0; i < config.length; i++) {
 		password += finalCharacters[Math.floor(Math.random() * finalCharacters.length)]
 	}
