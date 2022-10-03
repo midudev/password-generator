@@ -1,11 +1,7 @@
 ---
 import Layout from '@layout'
 import PasswordGenerator from '@components/luisfalconmx/PasswordGenerator'
-
-const username = 'luisfalconmx'
-const response = await fetch(`https://api.github.com/users/${username}`)
-const data = await response.json()
-const profile = data.avatar_url
+import Navbar from '@components/luisfalconmx/Navbar'
 ---
 
 <Layout title='luisfalconmx'>
@@ -13,29 +9,7 @@ const profile = data.avatar_url
 		class='min-w-full min-h-full py-6 bg-[url("https://hacktoberfest.com/_next/static/media/grain-dark.9d5983e6.png")]'
 	>
 		<div class='background multicolor'></div>
-		<header class='text-white flex justify-between pb-4 px-8 mb-6 items-center'>
-			<a href='https://hacktoberfest.com/'>
-				<div class='flex items-center'>
-					<img
-						width='48px'
-						src='https://user-images.githubusercontent.com/57654255/193474041-238402ed-d897-4079-834f-96075a5315d0.svg'
-						alt='Hacktoberfest 2022 logo'
-						class='mr-4'
-					/>
-					<strong class='font-special font-light uppercase text-shadow'>Hacktoberfest</strong>
-				</div>
-			</a>
-			<a href='https://github.com/luisfalconmx'>
-				<div class='flex items-center justify-center'>
-					<img
-						src={profile}
-						alt={`${username} profile picture`}
-						class='rounded-full w-12 object-fill mr-4'
-					/>
-					<b class='font-special font-light text-shadow'>{username}</b>
-				</div>
-			</a>
-		</header>
+		<Navbar client:visible />
 		<h1
 			class='hackfont text-shadow uppercase font-special text-white font-bold text-5xl text-center mb-8'
 		>
