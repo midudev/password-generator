@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
 import './Clipboard.css'
 
-const Clipboard = () => {
-	const [password, setPassword] = useState('')
-
-	const handleChange = (e) => {
-		const value = e.target.value
-		setPassword(value)
+export default function Clipboard({ password, handleGenerate, setShowNotification }) {
+	const handleCopyToClipboard = () => {
+		navigator.clipboard.writeText(password)
+		setShowNotification(true)
+		setTimeout(() => {
+			setShowNotification(false)
+		}, 1500)
 	}
 
 	return (
@@ -14,9 +14,9 @@ const Clipboard = () => {
 			<input
 				className='appearance-none bg-transparent outline-none caret-transparent text-xl'
 				value={password}
-				onChange={handleChange}
+				onChange={() => console.log('change')}
 			/>
-			<button>
+			<button onClick={handleCopyToClipboard}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					fill='none'
@@ -32,7 +32,7 @@ const Clipboard = () => {
 					/>
 				</svg>
 			</button>
-			<button>
+			<button onClick={handleGenerate}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					fill='none'
@@ -51,5 +51,3 @@ const Clipboard = () => {
 		</div>
 	)
 }
-
-export default Clipboard
