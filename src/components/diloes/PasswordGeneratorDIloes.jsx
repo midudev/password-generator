@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import CopyIcon from './components/CopyIcon'
 import style from './styles.module.css'
 
