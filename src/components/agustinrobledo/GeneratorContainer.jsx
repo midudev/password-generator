@@ -69,7 +69,7 @@ const GeneratorContainer = () => {
 						onChange={(e) => setCharacterLength(e.target.value)}
 					/>
 					<p>
-						Numero de characteres: <span>{characterLength}</span>
+						Numero de caracteres: <span>{characterLength}</span>
 					</p>
 				</div>
 				<button className='bg-blue-400 rounded p-3' onClick={passwordGenerator} type='submit'>
