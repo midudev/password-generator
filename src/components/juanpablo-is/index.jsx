@@ -1,12 +1,24 @@
 import { useEffect, useState } from 'react'
 import useGeneratePassword from './hooks/useGeneratePassword'
 
+const useStateWithLocalstorage = (prop, defaultValue) => {
+	const [state, setState] = useState(() => {
+		const localState = JSON.parse(localStorage.getItem('preferencies-password-generator') || '{}')
+		return localState[prop] == null ? defaultValue : localState[prop]
+	})
+
+	return [state, setState]
+}
+
 const App = () => {
 	const { password, generateNewPassword } = useGeneratePassword({})
-	const [passwordLength, setPasswordLength] = useState('25')
+	const [passwordLength, setPasswordLength] = useStateWithLocalstorage('length', '25')
 	const [alert, setAlert] = useState('')
-	const [automaticGenerator, setAutomaticGenerator] = useState(true)
-	const [optionsCharacter, setOptionsCharacter] = useState({
+	const [automaticGenerator, setAutomaticGenerator] = useStateWithLocalstorage(
+		'automaticGenerator',
+		true
+	)
+	const [optionsCharacter, setOptionsCharacter] = useStateWithLocalstorage('optionsCharacter', {
 		mayus: true,
 		minus: true,
 		numbers: true,
@@ -40,6 +52,21 @@ const App = () => {
 		navigator.clipboard.writeText(password)
 	}
 
+	const handlerSaveConfiguration = () => {
+		localStorage.setItem(
+			'preferencies-password-generator',
+			JSON.stringify({
+				length: passwordLength,
+				automaticGenerator,
+				optionsCharacter
+			})
+		)
+	}
+
+	useEffect(() => {
+		handlerNewPassword()
+	}, [])
+
 	useEffect(() => {
 		if (automaticGenerator) {
 			return handlerNewPassword()
@@ -67,6 +94,7 @@ const App = () => {
 			</p>
 
 			<div className='flex flex-col w-full max-w-xl my-4'>
+				{/* Password input */}
 				<div className='my-4 relative w-full'>
 					<input
 						type='text'
@@ -100,6 +128,7 @@ const App = () => {
 
 				<hr className='my-4' />
 
+				{/* Password length input range */}
 				<div className='my-2 flex items-center w-full gap-4 flex-col sm:flex-row'>
 					<div className='flex items-center'>
 						<p className='whitespace-nowrap text-lg text-gray-500 lg:text-xl dark:text-gray-400 font-bold'>
@@ -119,6 +148,7 @@ const App = () => {
 					/>
 				</div>
 
+				{/* Options characters used */}
 				<div className='my-2 flex items-center w-full gap-4 flex-col sm:flex-row'>
 					<div className='flex items-center'>
 						<p className='whitespace-nowrap text-lg text-gray-500 lg:text-xl dark:text-gray-400 font-bold'>
@@ -133,7 +163,7 @@ const App = () => {
 									id='mayus'
 									type='checkbox'
 									value='mayus'
-									defaultChecked='true'
+									defaultChecked={optionsCharacter.mayus}
 									onChange={handlerChangeCharacter}
 									disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.mayus}
 									className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
@@ -152,7 +182,7 @@ const App = () => {
 									id='minus'
 									type='checkbox'
 									value='minus'
-									defaultChecked='true'
+									defaultChecked={optionsCharacter.minus}
 									onChange={handlerChangeCharacter}
 									disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.minus}
 									className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
@@ -171,7 +201,7 @@ const App = () => {
 									id='symbols'
 									type='checkbox'
 									value='symbols'
-									defaultChecked='true'
+									defaultChecked={optionsCharacter.symbols}
 									onChange={handlerChangeCharacter}
 									disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.symbols}
 									className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
@@ -190,7 +220,7 @@ const App = () => {
 									id='numbers'
 									type='checkbox'
 									value='numbers'
-									defaultChecked='true'
+									defaultChecked={optionsCharacter.numbers}
 									onChange={handlerChangeCharacter}
 									disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.numbers}
 									className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
@@ -227,6 +257,7 @@ const App = () => {
 				<div className='w-full flex gap-4 my-3 content-center items-center'>
 					<button
 						type='button'
+						onClick={handlerSaveConfiguration}
 						className='flex-1 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-gray-900 focus:outline-none bg-white rounded-lg border hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 border-blue-700  border-3'
 					>
 						Save configuration
@@ -245,7 +276,6 @@ const App = () => {
 						<input
 							id='default-checkbox'
 							type='checkbox'
-							defaultChecked={automaticGenerator}
 							checked={automaticGenerator}
 							onChange={() => setAutomaticGenerator(!automaticGenerator)}
 							className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
