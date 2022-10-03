@@ -78,9 +78,9 @@
 	})
 	copyButton.addEventListener('click', () => {
 		navigator.clipboard.writeText(resultPanel.innerHTML)
-		snackbar.className="hide";
+		snackbar.className = 'hide'
 		setTimeout(() => {
-			snackbar.className="";
+			snackbar.className = ''
 		}, 3000)
 	})
 	generateButton.addEventListener('click', () => {
@@ -116,7 +116,7 @@
 			retVal += random(charset)
 		}
 		resultPanel.innerHTML = retVal
-		resultContainer.className = resultContainer.className.replaceAll('hide', '');
+		resultContainer.className = resultContainer.className.replaceAll('hide', '')
 		return retVal
 	})
 </script>
@@ -128,6 +128,6 @@
 	position:absolute;
 }
 #snackbar.hide {
-	display:none; 
+	display:none;
 }
 </style>
