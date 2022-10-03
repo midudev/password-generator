@@ -1,0 +1,222 @@
+* {
+    font-family:'Ubuntu Mono', monospace;
+}
+
+.App {
+	height: 100vh;
+    min-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B2B2B;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.password-container{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+}
+
+.password{
+    width: 622px;
+    height: 90px;
+    background-color: #2B2B2B;
+    border-radius: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 57.4879px 22.8261px 16.9082px rgba(0, 0, 0, 0.01), 36.3527px 14.372px 16.0628px rgba(0, 0, 0, 0.06), 20.2899px 8.45411px 13.5266px rgba(0, 0, 0, 0.2), 9.29952px 3.38164px 10.1449px rgba(0, 0, 0, 0.34), 2.53623px 0.845411px 5.07246px rgba(0, 0, 0, 0.39), 0px 0px 0px rgba(0, 0, 0, 0.4);
+}
+
+input[type="text"] {
+    height: 3rem;
+    width: 87%;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #2B2B2B;
+    border: none;
+    font-size: xx-large;
+    padding: 1rem;
+    color: white;
+}
+
+input[type="text"]:focus{
+    outline: none;
+    background-color:#3E3E3E
+}
+
+.copy{
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background-color: transparent;
+    height: 3rem;
+    width: 3.5rem;
+    padding-right: 3rem;
+    cursor: pointer;
+}
+
+.copy::before{
+    font-family: fontAwesome;
+    color: #3CA1FE;
+    font-size: 2em;
+    content: '\f0c5';
+    height: 2.5rem;
+    width: 2rem;
+    margin-left: .8rem;
+}
+
+.settings{
+    width: 622px;
+    height: auto;
+    background-color: #2B2B2B;
+    border-radius: 13px;
+    padding: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: 57.4879px 22.8261px 16.9082px rgba(0, 0, 0, 0.01), 36.3527px 14.372px 16.0628px rgba(0, 0, 0, 0.06), 20.2899px 8.45411px 13.5266px rgba(0, 0, 0, 0.2), 9.29952px 3.38164px 10.1449px rgba(0, 0, 0, 0.34), 2.53623px 0.845411px 5.07246px rgba(0, 0, 0, 0.39), 0px 0px 0px rgba(0, 0, 0, 0.4);
+}
+
+.radio-counter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14rem;
+}
+
+.radio-counter > span {
+    color: #3CA1FE;
+    font-size: xx-large;
+}
+
+.range{
+    padding:15px 0px;
+}
+
+.rs-slider-handle {
+    position: absolute;
+    top: -96%;
+    outline: none;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    position: relative;
+}
+  
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 23px;
+    width: 23px;
+    border-radius: 15px;
+    background: #3CA1FE;
+    cursor: pointer;
+    margin-top: -7px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; 
+    transition: 
+        height ease-out 150ms,
+        width ease-out 150ms;
+}
+
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #FFFFFF;
+    border-radius: 15px;
+}
+
+.option{
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+input[type='checkbox']{
+    -webkit-appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 6px;
+    border: none;
+    background: gray;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+input[type='checkbox']:checked::before{
+    font-family: fontAwesome;
+    font-size: 1.5rem;
+    content: '\f00c';
+    color: white;
+    text-align: center;
+    display: block;
+    height: 2rem;
+    width: 2rem;
+    background: #3CA1FE;
+    border-radius: 6px;
+}
+
+input[type='checkbox']:hover{
+    -webkit-appearance: none;
+    border-radius: 6px;
+    border: none;
+    background: #3CA1FE;
+}
+
+.default-label{
+    font-size: x-large;
+}
+
+.indicator{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.indicator-red{
+    color: rgb(241, 70, 70);
+}
+
+.indicator-green{
+    color: rgb(29, 255, 29);
+}
+
+.button{
+    background-color: #3CA1FE;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: center;
+    padding: 1em;
+    color: #2B2B2B;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.panel{
+    height: auto;
+}
