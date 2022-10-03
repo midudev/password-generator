@@ -7,7 +7,6 @@ export default function PasswordStrength({ password }) {
 
 	const entropyElements = 10
 	const entropy = (PasswordEntropyCalculator(password) * entropyElements) / 426
-	console.log('entropy', entropy)
 
 	const getBgEntropyElement = (index) => {
 		if (entropy >= index) {
