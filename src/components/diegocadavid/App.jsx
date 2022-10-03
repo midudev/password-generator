@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import CliTerminal from './components/cli/CliTerminal'
-import WindowTerminal from './components/terminal/WindowTerminal'
+import WindowTerminal from '@components/diegocadavid/components/terminal/WindowTerminal'
 
 import CommandClear from './components/terminal/commands/CommandClear'
 import CommandError from './components/terminal/commands/CommandError'
