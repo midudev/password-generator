@@ -10,15 +10,15 @@
 	color: #fff;
 	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa,
 		0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
-	box-shadow: 0 0 50px 7px rgba(0, 250, 170, 0.5);
+	box-shadow: 0 0 50px 7px rgb(0 250 170 / 50%);
 	transition: text-shadow 1s, box-shadow 1s;
 }
 
 #adamelamrani button:hover {
-	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(255, 166, 0),
-		0 0 82px rgb(255, 166, 0), 0 0 92px rgb(255, 166, 0), 0 0 102px rgb(255, 166, 0),
-		0 0 151px rgb(255, 166, 0);
-	box-shadow: 0 0 50px 7px rgba(255, 166, 0, 0.753);
+	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(255 166 0),
+		0 0 82px rgb(255 166 0), 0 0 92px rgb(255 166 0), 0 0 102px rgb(255 166 0),
+		0 0 151px rgb(255 166 0);
+	box-shadow: 0 0 50px 7px rgb(255 166 0 / 75.3%);
 }
 
 #adamelamrani button:active {
