@@ -5,10 +5,10 @@ import firefox from './icons/firefox.svg'
 
 const Sidebar = () => {
   return (
-	<aside className={styles.sidebar}>
+	<section className={styles.sidebar}>
 		<img className={styles.sidebar_item} src={firefox} alt='firefox'/>
 		<img className={`${styles.sidebar_item} ${styles.grid_icon}`} src={grid} alt='grid'/>
-	</aside>
+	</section>
   )
 }
 
