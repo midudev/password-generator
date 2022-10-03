@@ -1,5 +1,5 @@
 import React, { StrictMode, useState } from "react";
-import "./main.css";
+//import "./main.css";
 import chooseCharacter from "./password";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 			document.getElementById("pass-span").focus();
 			document.execCommand("selectAlll");
 			document.execCommand("copy");
-			
+
 		});
 	}
 
