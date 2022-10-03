@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import useGeneratePassword from './hooks/useGeneratePassword'
 import useLocalStorage from './hooks/useLocalStorage'
 import PasswordContext from './context/PasswordContext'
+import InputRange from './components/inputRange'
+import CheckboxOptions from './components/CheckboxOptions'
+import InputPassword from './components/InputPassword'
 
 const App = () => {
 	const { password, generateNewPassword } = useGeneratePassword()
@@ -24,18 +27,6 @@ const App = () => {
 		}, 300)
 
 		return () => clearTimeout(delayDebounceFn)
-	}
-
-	const handlerChangeCharacter = (e) => {
-		setOptionsCharacter((prev) => {
-			if (e.target.checked) {
-				return { ...prev, [e.target.id]: e.target.checked }
-			}
-
-			const newState = { ...prev }
-			delete newState[e.target.id]
-			return newState
-		})
 	}
 
 	const handlerCopyPassword = () => {
@@ -96,40 +87,13 @@ const App = () => {
 				</p>
 
 				<div className='flex flex-col w-full max-w-xl my-4'>
-					{/* Password input */}
-					<div className='my-4 relative w-full'>
-						<input
-							type='text'
-							value={password}
-							disabled
-							className='block p-4 pr-20 w-full text-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-							placeholder='Buscando...'
-						/>
-						<button
-							type='button'
-							onClick={handlerCopyPassword}
-							className='flex items-center absolute h-full top-0 right-0 p-1.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-						>
-							<svg
-								className='w-4 h-4 mr-2'
-								fill='none'
-								stroke='currentColor'
-								viewBox='0 0 24 24'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									strokeWidth='2'
-									d='M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z'
-								></path>
-							</svg>
-							<span>Copy</span>
-						</button>
-					</div>
-
+					<InputPassword />
 					<hr className='my-4' />
 
+					<InputRange />
+					<hr className='my-4' />
+
+					<CheckboxOptions />
 					<hr className='my-4' />
 
 					<button
@@ -155,7 +119,7 @@ const App = () => {
 							onClick={handlerSaveConfiguration}
 							className='flex-1 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-gray-900 focus:outline-none bg-white rounded-lg border hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 border-blue-700  border-3'
 						>
-							Save configuration
+							Save options
 							<svg
 								fill='#fff'
 								className='ml-2 -mr-1 w-5 h-5'
@@ -179,7 +143,7 @@ const App = () => {
 								htmlFor='default-checkbox'
 								className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
 							>
-								Automatic generator?
+								Auto generator?
 							</label>
 						</div>
 					</div>
