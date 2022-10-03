@@ -1,29 +1,34 @@
 import React, { StrictMode, useState } from "react";
-import "./main.css";
+//import "./main.css";
 import chooseCharacter from "./password";
 
 function App() {
 	const [password, setPassword] = useState("");
 
-	const click = ()=>{
+	const generate = ()=>{
 		setPassword();	
 	}
 
 	const copy = ()=>{
+		document.getElementById("copy-btn").addEventListener("click", ()=>{
+			document.getElementById("pass-span").focus();
+			document.execCommand("selectAlll");
+			document.execCommand("copy");
 
+		});
 	}
 
   return (
     <StrictMode>
       <div className="container">
-        <form className="box">
+        <form className="box" onSubmit={e => e.preventDefault()}>
           <div className="display">
-            <span className="pass-span">{password}</span>
-            <button onClick={copy}>
+            <input className="pass-span" id="pass-span" value={password} readOnly/>
+            <button onClick={copy} id="copy-btn">
               <img src="./icon/copy.png" />
             </button>
           </div>
-          <button onClick={click}>Generar Password</button>
+          <button onClick={generate}>Generar Password</button>
         </form>
       </div>
     </StrictMode>

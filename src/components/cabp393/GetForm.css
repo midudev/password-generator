@@ -1,4 +1,4 @@
-#cabp393 .display-password {
+.cabp393-display-password {
 	color: #000;
 	display: flex;
 	min-height: 2rem;
@@ -13,17 +13,17 @@
 	justify-content: center;
 }
 
-#cabp393 .display-password:hover {
+.cabp393-display-password:hover {
 	cursor: pointer;
 	background-color: #f5f5f5;
 }
 
-#cabp393 .btn-container {
+.cabp393-btn-container {
 	display: flex;
 	justify-content: space-around;
 }
 
-#cabp393 .btn {
+.cabp393-btn {
 	color: #333;
 	padding-top: 0.5rem;
 	padding-left: 1.5rem;
@@ -33,15 +33,15 @@
 	border: 1px solid #333;
 }
 
-#cabp393 .btn:hover {
+.cabp393-btn:hover {
 	cursor: pointer;
 }
 
-#cabp393 .enable {
+.cabp393-enable {
 	color: #fff;
 }
 
-#cabp393 .notification {
+.cabp393-notification {
 	top: 5%;
 	opacity: 0;
 	width: 200px;
@@ -54,19 +54,19 @@
 	transition: all 0.5s ease-out;
 }
 
-#cabp393 .noti-on {
+.cabp393-noti-on {
 	opacity: 1;
 }
 
-#cabp393 .combinations span {
+.cabp393-combinations span {
 	color: #333;
 }
 
-#cabp393 .combinations {
+.cabp393-combinations {
 	text-align: center;
 }
 
-#cabp393 .container {
+.cabp393-container {
 	gap: 2rem;
 	width: 50%;
 	color: #fff;
@@ -79,9 +79,8 @@
 	background-color: #000;
 }
 
-#cabp393 .border-gradient {
+.cabp393-border-gradient {
 	--angle: 0deg;
-
 	border: 1px solid;
 	border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
 	animation: 10s rotate linear infinite;
@@ -97,4 +96,18 @@
 	syntax: '<angle>';
 	initial-value: 0deg;
 	inherits: false;
+}
+
+@media (max-width: 750px) {
+	.cabp393-container {
+		width: 90%;
+		margin: 3rem auto;
+		padding: 5rem 1rem;
+	}
+
+	.cabp393-btn-container {
+		gap: 1rem;
+		text-align: center;
+		flex-direction: column;
+	}
 }
