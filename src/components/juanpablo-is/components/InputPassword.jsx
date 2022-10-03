@@ -2,10 +2,11 @@ import { useContext } from 'react'
 import passwordContext from '../context/PasswordContext'
 
 const InputPassword = () => {
-	const { password } = useContext(passwordContext)
+	const { password, generateAlert } = useContext(passwordContext)
 
 	const handlerCopyPassword = () => {
 		navigator.clipboard.writeText(password)
+		generateAlert('Copied password', 3000, 'copy')
 	}
 
 	return (
@@ -14,6 +15,7 @@ const InputPassword = () => {
 				type='text'
 				value={password}
 				disabled
+				id="password-generated"
 				className='block p-4 pr-20 w-full text-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 				placeholder='Click "Generate password"'
 			/>

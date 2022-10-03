@@ -31,7 +31,8 @@ const useGeneratePassword = ({ length, optionsCharacter }) => {
 			const randomOption = Math.floor(Math.random() * mapped.length + 1)
 			const option = mapped[randomOption - 1]
 
-			const item = option[1][Math.floor(Math.random() * option[1].length)]
+			const randomItem = option[1].length == 1 ? 0 : Math.floor(Math.random() * option[1].length)
+			const item = option[1][randomItem]
 
 			const character = Math.floor(Math.random() * (item.end - item.start + 1) + item.start)
 
