@@ -1,5 +1,6 @@
 import React, { StrictMode, useState } from "react";
-//import "./main.css";
+import "./main.css";
+import copy from "./icon/copy.png";
 import chooseCharacter from "./password";
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <div className="display">
             <input className="pass-span" id="pass-span" value={password} readOnly/>
             <button onClick={copy} id="copy-btn">
-              <img src="./icon/copy.png" />
+				<img src={copy} alt="" />
             </button>
           </div>
           <button onClick={generate}>Generar Password</button>
