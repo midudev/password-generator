@@ -1,0 +1,86 @@
+---
+import Layout from '@layout'
+---
+
+<Layout title='CristianVasquez13'>
+	<style>
+        input[type="range"]::-webkit-slider-thumb {
+            width: 15px;
+            -webkit-appearance: none;
+  			appearance: none;
+            height: 15px;
+            cursor: ew-resize;
+            background: #FFF;
+            box-shadow: -405px 0 0 400px rgb(20 184 166);
+            border-radius: 50%;
+        }
+    </style>
+	<main class="bg-slate-900 grid h-screen place-items-center p-2">
+        <div class="bg-slate-800 px-5 py-5 rounded-md text-white">
+            <h1 class="mb-6 text-5xl text-center font-bold text-teal-500">Passwords Generator</h1>
+            <div class="mb-4">
+                <p class="mb-2">Seleccione la cantidad de caracteres</p>
+                <input id="selectRange" type="range" min="6" step="1" max="30" value="8" class="w-full rounded-lg h-4 overflow-hidden appearance-none outline-none bg-teal-700" />
+                <p id="rangeValue" class="text-center text-3xl font-bold">8</p>
+            </div>
+            <button id="btnGenerar" type="button" class="w-full mb-4 border border-none bg-teal-500 text-white uppercase font-bold tracking-widest rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-teal-800 focus:outline-none focus:shadow-outline">
+                Generar Contraseña
+            </button>
+            <p class="text-green-500 mb-4 hidden" id="msgSuccessful">Copiado correctamente</p>
+            <p class="text-red-500 mb-4 hidden" id="msgError">Vaya algo salio mal, no se puede copiar</p>
+            <div class="flex justify-between border border-teal-500 rounded-md p-2">
+                <input type="text" id="passGenerated" placeholder="Contraseña Generada" class="w-full bg-transparent outline-none" disabled>
+                <svg id="iconCopy" class="w-6 ml-1 fill-teal-500 hover:fill-teal-800 cursor-pointer invisible" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" />
+                </svg>
+            </div>
+    </main>
+    <script>
+        let selectRange = document.getElementById('selectRange');
+        let rangeValue = document.getElementById('rangeValue');
+
+        var passGenerated = document.getElementById('passGenerated');
+        var btnCopy = document.getElementById('iconCopy');
+
+        let btnGenerar = document.getElementById('btnGenerar');
+        let msgSuccessful = document.getElementById('msgSuccessful');
+        let msgError = document.getElementById('msgError');
+
+        var uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+        var charactersSpecials = '!@#$%^&*(){}[]';
+        var numbers = '1234567890';
+
+        selectRange.addEventListener('change', () => {
+            rangeValue.innerHTML = selectRange.value;
+        });
+
+
+        btnGenerar.addEventListener('click', ()=>{
+            passGenerated.disabled = false;
+            btnCopy.classList.add('visible');
+            btnCopy.classList.remove('invisible');
+            const Password = uppercaseLetters + lowercaseLetters + charactersSpecials + numbers
+
+            let pass = ''
+            for (let i = 0; i < selectRange.value; i++) {
+                const passGen = Math.floor(Math.random() * Password.length)
+                pass += Password[passGen]
+            }
+            passGenerated.value = pass;
+        })
+
+        btnCopy.addEventListener("click", function (event) {
+            event.preventDefault();
+            passGenerated.select();
+            try{
+                document.execCommand("copy");
+                msgSuccessful.classList.add('block');
+                msgSuccessful.classList.remove('hidden');
+            } catch (err) {
+                msgError.classList.add('block');
+                msgError.classList.remove('hidden');
+            }
+        });
+    </script>
+</Layout>
