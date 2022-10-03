@@ -102,7 +102,7 @@
 
 		<Button on:click={handleGeneratePassword}>Change password</Button>
 		<footer class="text-sm text-slate-400">
-			<span> Designed inspired by </span>
+			<span> Design inspired by </span>
 			<a
 				href="https://dribbble.com/shots/5900275-Password-Manager-App-Generate-Password-Settings"
 				target="_blank"
