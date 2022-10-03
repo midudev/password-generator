@@ -28,9 +28,10 @@ const PasswordGenerator = () => {
 	return (
 		<div className='flex h-full'>
 			<div className='m-auto w-5/6 md:w-1/2 lg:w-1/3'>
+				<h1 className='w-3/4 mb-10 text-gray-100 text-center text-3xl'>Generador de contraseñas</h1>
 				{copied &&
 				<p className='w-3/4 mb-10 p-2 text-purple-800 font-bold text-center bg-purple-300 border-l-4 border-l-purple-700 rounded-r'>
-					¡Password copiado!
+					¡Contraseña copiada!
 				</p>
 				}
 				<div className='w-full h-10 mb-5'>
