@@ -1,5 +1,5 @@
 import React from 'react'
-import TitleWindow from '../TitleWindow'
+import TitleWindow from './TitleWindow'
 import CliForm from './CliForm'
 
 const CliTerminal = ({addCommand}) => {

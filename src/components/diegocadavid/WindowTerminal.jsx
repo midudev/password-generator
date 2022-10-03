@@ -1,5 +1,5 @@
 import React from 'react'
-import TitleWindow from '../TitleWindow'
+import TitleWindow from './TitleWindow'
 import Terminal from './Terminal'
 
 const WindowTerminal = ({ addCommand, commands }) => {

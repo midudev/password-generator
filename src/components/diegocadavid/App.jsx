@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 
-import CliTerminal from './components/cli/CliTerminal'
-import WindowTerminal from '@components/diegocadavid/components/terminal/WindowTerminal'
+import CliTerminal from './CliTerminal'
+import WindowTerminal from './WindowTerminal'
 
-import CommandClear from './components/terminal/commands/CommandClear'
-import CommandError from './components/terminal/commands/CommandError'
-import CommandGenerate from './components/terminal/commands/CommandGenerate'
-import CommandHelp from './components/terminal/commands/CommandHelp'
-import CommandMusic from './components/terminal/commands/CommandMusic'
-import CommandMidu from './components/terminal/commands/CommandMidu'
-import CommandDiego from './components/terminal/commands/CommandDiego'
+import CommandClear from './CommandClear'
+import CommandError from './CommandError'
+import CommandGenerate from './CommandGenerate'
+import CommandHelp from './CommandHelp'
+import CommandMusic from './CommandMusic'
+import CommandMidu from './CommandMidu'
+import CommandDiego from './CommandDiego'
 
 const parseCommand = (commandName = '') => {
 	//Obtenemos el comando

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import IconClosedEye from '../../icons/IconClosedEye'
-import IconCopy from '../../icons/IconCopy'
-import IconEye from '../../icons/IconEye'
+import IconClosedEye from './IconClosedEye'
+import IconCopy from './IconCopy'
+import IconEye from './IconEye'
 import ProgressBar from './ProgressBar'
 
 const whitelistCharUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
