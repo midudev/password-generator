@@ -1,6 +1,6 @@
 import React, { StrictMode, useState } from "react";
 import "./main.css";
-import copyImg from "./icon/copy.png";
+import copyImg from "./icon/copyImg.png";
 import chooseCharacter from "./password";
 
 function App() {
