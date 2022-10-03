@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 	import { passwordStore, formStore } from '@components/renatomendozac/store'
+  import { GeneratePasswordParams } from '@components/renatomendozac/utils/generate-password'
 
-	const onClick = () => {
-		let paramsForm
+	const onClick = (): void => {
+		let paramsForm: GeneratePasswordParams
 		formStore.subscribe(newParams => paramsForm = newParams)
 		passwordStore.generate(paramsForm)
 	}

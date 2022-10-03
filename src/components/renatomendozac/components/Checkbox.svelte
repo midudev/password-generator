@@ -1,7 +1,7 @@
-<script>
-	export let id
-	export let checked
-	export let disabled
+<script lang="ts">
+	export let id: string
+	export let checked: boolean
+	export let disabled: boolean
 </script>
 
 <div class="checkbox-container">
