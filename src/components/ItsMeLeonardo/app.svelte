@@ -66,7 +66,7 @@
 			status={copyStatus}
 		/>
 	{/if}
-	<section class="mx-auto w-full h-full max-w-[500px] flex items-center flex-col gap-4">
+	<section class="mx-auto w-full h-full max-w-[450px] flex items-center flex-col gap-4">
 		<Title>Password Generator</Title>
 		<Section>
 			<h6 slot="title">

@@ -3,7 +3,7 @@
 	export let value: boolean = false
 </script>
 
-<label class="w-full bg-purple-900/50 flex items-center justify-between gap-2 p-3">
+<label class="cursor-pointer w-full bg-purple-900/50 flex items-center justify-between gap-2 p-3">
 	<span class="text-slate-200 text-sm">
 		<slot name="label">{label}</slot>
 	</span>
