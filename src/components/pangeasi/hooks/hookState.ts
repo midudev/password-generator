@@ -21,6 +21,7 @@ export function resolveHookState<S, C extends S> (
 	currentState?: C
 ): S {
 	if (typeof nextState === 'function') {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		return nextState.length ? (nextState as any)(currentState) : (nextState as any)()
 	}
 

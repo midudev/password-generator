@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 
 const NUMBERS = '0123456789'
 const LOWER_CASE = 'abcdefghijklmnopqrstuvwxyz'
