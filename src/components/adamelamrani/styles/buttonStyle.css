@@ -1,0 +1,32 @@
+button {
+	margin: 40px;
+	font-size: 20px;
+	width: 400px;
+	height: 50px;
+	border-radius: 9px;
+	background-color: #170f1e;
+	border-width: 2px;
+	border-color: #fff;
+	color: #fff;
+	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa,
+		0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+	box-shadow: 0 0 50px 7px rgba(0, 250, 170, 0.5);
+	transition: text-shadow 1s, box-shadow 1s;
+}
+
+button:hover {
+	text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(255, 166, 0),
+		0 0 82px rgb(255, 166, 0), 0 0 92px rgb(255, 166, 0), 0 0 102px rgb(255, 166, 0),
+		0 0 151px rgb(255, 166, 0);
+	box-shadow: 0 0 50px 7px rgba(255, 166, 0, 0.753);
+}
+
+button:active {
+	font-weight: bolder;
+}
+
+@media (max-width: 400px) {
+	button {
+		width: 200px;
+	}
+}
