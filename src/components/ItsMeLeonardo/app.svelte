@@ -59,17 +59,18 @@
 	})
 </script>
 
-<main class="container p-2">
+<main class="container p-2 mx-auto">
 	{#if copyStatus}
 		<Toast
 			message={copyStatus === 'success' ? 'Copied to clipboard' : 'Error copying to clipboard'}
 			status={copyStatus}
 		/>
 	{/if}
-	<section class="mx-auto w-full h-full max-w-[450px] flex items-center flex-col gap-4">
+	<section class="mx-auto mt-4 w-full h-full max-w-[450px] flex items-center flex-col gap-4">
 		<Title>Password Generator</Title>
+
 		<Section>
-			<h6 slot="title">
+			<h6 slot="title" class="mt-4">
 				Generated password <span class="text-xs text-white/50 capitalize ml-6">Click to copy</span>
 			</h6>
 			<button class="w-full bg-purple-900/50" on:click={copyPassword}>
@@ -100,5 +101,15 @@
 		</Section>
 
 		<Button on:click={handleGeneratePassword}>Change password</Button>
+		<footer class="text-sm text-slate-400">
+			<span> Designed inspired by </span>
+			<a
+				href="https://dribbble.com/shots/5900275-Password-Manager-App-Generate-Password-Settings"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-violet-500"
+				>Eryk Piecuch
+			</a>
+		</footer>
 	</section>
 </main>
