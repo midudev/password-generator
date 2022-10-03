@@ -7,7 +7,7 @@ export default function Footer() {
 			<a target='_blank' href='https://github.com/javierscode'>
 				@javierscode
 			</a>{' '}
-			| Inspirated in{' '}
+			| Inspired in{' '}
 			<a
 				target='_blank'
 				href='https://dribbble.com/shots/5900275-Password-Manager-App-Generate-Password-Settings'
