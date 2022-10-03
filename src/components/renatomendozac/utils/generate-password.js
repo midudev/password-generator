@@ -3,7 +3,7 @@ const dictionary = {
 	upperCases: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
 	lowerCases: 'abcdefghijklmnopqrstuvwxyz',
 	numbers: '0123456789',
-	symbols: '!@#$%&*()_+{}[]:;<>?,./',
+	symbols: '!@#$%&*()_+{}[]:;<>?,./'
 }
 
 const getRandomNumber = (max) => Math.floor(Math.random() * max)
@@ -18,7 +18,7 @@ const generatePassword = ({
 	uppercases,
 	lowercases,
 	numbers,
-	symbols,
+	symbols
 }) => {
 	const lengthPassword = Math.max(length, minimumPasswordLength)
 	const chars = [
