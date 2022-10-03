@@ -118,7 +118,7 @@ const PasswordGeneratorDiloes = () => {
 					</button>
 				</div>
 			</div>
-			<p className={style.dev}>Desarrollado por Diloes moviendo las manitas ♡</p>
+			<p className={style.dev}>Desarrollado por Diloes moviendo las manitas ♡ .</p>
 		</div>
 	)
 }
