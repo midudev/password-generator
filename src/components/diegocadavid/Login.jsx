@@ -31,8 +31,13 @@ const Login = ({ hiddenLogin }) => {
 					</svg>
 				</div>
 				{/* Boton para iniciar sesion */}
+				<div className='flex lg:hidden'>
+					<p className='text-slate-200 text-center'>
+						Solo disponible en pc 😥
+					</p>
+				</div>
 
-				<div className=' flex flex-col items-center gap-6'>
+				<div className='hidden  lg:flex flex-col items-center gap-6'>
 					{loading ? (
 						<>
 							<div className='rounded-full border-4 border-slate-700 border-t-slate-200 w-6 h-6 animate-spin'></div>

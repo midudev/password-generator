@@ -7,6 +7,7 @@ const HomeIcons = ({ handleOpenWindow }) => {
 			<HomeIconsItem  path='/diegocadavid/papeleraIcon.png' name='Papelera'/>
 			<HomeIconsItem  handleOpenWindow={handleOpenWindow('terminal')} path='/diegocadavid/terminalIcon.png' name='Terminal' />
 			<HomeIconsItem  handleOpenWindow={handleOpenWindow('cli')} path='/diegocadavid/cliIcon.png' name='Generator'/>
+			<HomeIconsItem  handleOpenWindow={handleOpenWindow('notes')} path='/diegocadavid/notesIcon.png' name='Notas'/>
 		</div>
 	)
 }

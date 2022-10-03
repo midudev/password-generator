@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CliForm = ({ addCommand }) => {
+const CliForm = ({ addCommand, handleOpenTerminal }) => {
 	const [rangePassword, setRangePassword] = useState(10)
 	const handleChange = (e) => {
 		setRangePassword(e.target.value)
@@ -9,6 +9,7 @@ const CliForm = ({ addCommand }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
+		handleOpenTerminal();
 		addCommand(`generate --size=${rangePassword}`);
 	}
 

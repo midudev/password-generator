@@ -15,6 +15,7 @@ import CommandDiego from './CommandDiego'
 import HomeNav from './HomeNav'
 import HomeIcons from './HomeIcons'
 import Login from './Login'
+import WindowNotes from './WindowNotes'
 
 const parseCommand = (commandName = '') => {
 	//Obtenemos el comando
@@ -105,10 +106,11 @@ const listDocCommads = [
 
 const App = () => {
 	const [commands, setCommands] = useState([])
-	const [showLogin, setShowLogin] = useState(false)
+	const [showLogin, setShowLogin] = useState(true)
 
 	const [showTerminal, setShowTerminal] = useState(false)
 	const [showCli, setShowCli] = useState(false)
+	const [showNotes, setShowNotes] = useState(true)
 
 	const [openWindows, setOpenWindows] = useState([])
 
@@ -255,6 +257,10 @@ const App = () => {
 			if (window == 'cli') {
 				setShowCli(true)
 			}
+
+			if (window == 'notes') {
+				setShowNotes(true)
+			}
 		}
 	}
 
@@ -267,18 +273,21 @@ const App = () => {
 			if (window == 'cli') {
 				setShowCli(false)
 			}
+
+			if (window == 'notes') {
+				setShowNotes(false)
+			}
 		}
 	}
 
 	useEffect(() => {
-	
 		const openNavWindow = (name = '') => {
 			setOpenWindows((prev) => {
-				if(prev.includes(name)) {
+				if (prev.includes(name)) {
 					return prev
 				}
 
-				return [ ...prev, name ]
+				return [...prev, name]
 			})
 		}
 
@@ -306,6 +315,9 @@ const App = () => {
 			openNavWindow('cli')
 		}
 
+		if (showNotes) {
+			openNavWindow('notes')
+		}
 
 		// En caso de que se cierre una ventana
 		if (!showTerminal) {
@@ -315,7 +327,11 @@ const App = () => {
 		if (!showCli) {
 			closeNavWindow('cli')
 		}
-	}, [showTerminal, showCli])
+
+		if (!showNotes) {
+			closeNavWindow('notes')
+		}
+	}, [showTerminal, showCli, showNotes])
 
 	return (
 		<div className='bg-[url("/image.png")] bg-cover bg-no-repeat bg-center h-screen font-sans relative'>
@@ -330,7 +346,11 @@ const App = () => {
 						/>
 					)}
 					{showCli && (
-						<CliTerminal handleCloseWindow={handleCloseWindow('cli')} addCommand={addCommand} />
+						<CliTerminal handleOpenTerminal={handleOpenWindow('terminal')} handleCloseWindow={handleCloseWindow('cli')} addCommand={addCommand} />
+					)}
+
+					{showNotes && (
+						<WindowNotes handleCloseWindow={handleCloseWindow('notes')} addCommand={addCommand} />
 					)}
 				</>
 			)}
