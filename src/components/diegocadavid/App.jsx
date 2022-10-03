@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './app.css'
 
 import CliTerminal from './CliTerminal'
 import WindowTerminal from './WindowTerminal'
@@ -13,6 +14,7 @@ import CommandDiego from './CommandDiego'
 
 import HomeNav from './HomeNav'
 import HomeIcons from './HomeIcons'
+import Login from './Login'
 
 const parseCommand = (commandName = '') => {
 	//Obtenemos el comando
@@ -103,6 +105,7 @@ const listDocCommads = [
 
 const App = () => {
 	const [commands, setCommands] = useState([])
+	const [showLogin, setShowLogin] = useState(true)
 
 	const addComponentCommand = (command, Component) => {
 		return (
@@ -234,11 +237,19 @@ const App = () => {
 		])
 	}
 
+	const hiddenLogin = () => {
+		setShowLogin(false)
+	}
+
 	return (
 		<div className='bg-[url("/image.png")] bg-cover bg-no-repeat bg-center h-screen font-sans relative'>
-			<WindowTerminal addCommand={addCommand} commands={commands} />
-			<CliTerminal addCommand={addCommand} />
-
+			{showLogin && <Login hiddenLogin={hiddenLogin} />}
+			{!showLogin && (
+				<>
+					<WindowTerminal addCommand={addCommand} commands={commands} />
+					<CliTerminal addCommand={addCommand} />
+				</>
+			)}
 			<HomeIcons />
 			<HomeNav />
 		</div>
