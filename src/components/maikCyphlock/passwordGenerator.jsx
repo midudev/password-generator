@@ -28,7 +28,7 @@ function passwordGenerator() {
 	}
 
 	return (
-		<div id='root'>
+		<div id='maikcyphlock'>
 			<h1 id='landing-heading'>Password generator</h1>
 			<div id='btn-container'>
 				<input type='text' id='generate-output' readOnly defaultValue={passwordGenerated}/>
