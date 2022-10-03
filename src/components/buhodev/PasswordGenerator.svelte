@@ -1,12 +1,23 @@
-<script>
+<script lang="ts">
+  	import { onMount } from "svelte"
+	import { generate_password, type DefaultOptions } from "./generate_password"
+	
 	let password = ""
-
 	let isCopied = false;
-
+	
+	const DEFAULT_OPTIONS: DefaultOptions = {
+		uppercase: true,
+		lowercase: true,
+		numbers: true,
+		symbols: false
+	}
+	
 	function copy() {
 		isCopied = true
 		setTimeout(() => isCopied = false, 1000)
 	}
+	
+	onMount(() => password = generate_password(8, DEFAULT_OPTIONS))
 </script>
 
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg">
@@ -31,7 +42,7 @@
 			{/if}
 		</button>
 
-		<button title="Refresh password" class="rounded-md border-2 border-slate-700 hover:border-slate-600 group flex items-center justify-center py-1 px-2">
+		<button on:click={() => password = generate_password(6, DEFAULT_OPTIONS)} title="Refresh password" class="rounded-md border-2 border-slate-700 hover:border-slate-600 group flex items-center justify-center py-1 px-2">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:-rotate-3 duration-75 transition-transform spin">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
 			</svg>
@@ -39,7 +50,7 @@
 	</div>
 
 	<!-- Generate Password Button -->
-	<button on:click={() => password = "Jfksj9j20"} class="relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]">Generate Password</button>
+	<button on:click={() => password = generate_password(6, DEFAULT_OPTIONS)} class="relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]">Generate Password</button>
 </div>
 
 <style>
