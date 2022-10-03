@@ -20,7 +20,7 @@ export default function Instructions () {
             <span className='z-10 text-white'>B</span>
             <div className='button-red w-full h-full absolute'></div>
           </a>
-          <p>generate password</p>
+          <p>Generate a password</p>
         </li>
 
         <li className='mb-2 flex items-center justify-start   2xl:mb-6'>
@@ -30,17 +30,17 @@ export default function Instructions () {
             <span className='z-10 text-white'>A</span>
             <div className='button-red w-full h-full absolute'></div>
           </a>
-          <p>copy password</p>
+          <p>Copy password</p>
         </li>
 
         <li className='mb-0 flex items-center justify-start   lg:mb-2   2xl:mb-6'>
         <span className='mr-2 text-lg text-white'>&#60;</span>
-          <p>Decrement password length</p>
+          <p>Decrease length</p>
         </li>
 
         <li className='mb-0 flex items-center justify-start   lg:mb-2   2xl:mb-6'>
           <span className='mr-2 text-lg text-white'>&#62;</span>
-          <p>Increment password length</p>
+          <p>Increase length</p>
         </li>
       </ul>
     </div>
