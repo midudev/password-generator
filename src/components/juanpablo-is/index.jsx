@@ -2,20 +2,38 @@ import { useEffect, useState } from 'react'
 import useGeneratePassword from './hooks/useGeneratePassword'
 
 const App = () => {
+	const { password, generateNewPassword } = useGeneratePassword({})
 	const [passwordLength, setPasswordLength] = useState('25')
-	const { password, loading, generateNewPassword } = useGeneratePassword({})
+	const [optionsCharacter, setOptionsCharacter] = useState({
+		mayus: true,
+		minus: true,
+		numbers: true,
+		symbols: true
+	})
 
 	const handlerNewPassword = () => {
-		generateNewPassword(passwordLength)
+		generateNewPassword(passwordLength, Object.keys(optionsCharacter))
+	}
+
+	const handlerChangeCharacter = (e) => {
+		setOptionsCharacter((prev) => {
+			if (e.target.checked) {
+				return { ...prev, [e.target.id]: e.target.checked }
+			}
+
+			const newState = { ...prev }
+			delete newState[e.target.id]
+			return newState
+		})
 	}
 
 	useEffect(() => {
 		const delayDebounceFn = setTimeout(() => {
-			generateNewPassword(passwordLength)
+			generateNewPassword(passwordLength, Object.keys(optionsCharacter))
 		}, 300)
 
 		return () => clearTimeout(delayDebounceFn)
-	}, [passwordLength])
+	}, [passwordLength, optionsCharacter])
 
 	return (
 		<div className='h-screen flex flex-col items-center justify-center text-center w-10/12 m-auto'>
@@ -27,7 +45,7 @@ const App = () => {
 				Create strong and secure passwords
 			</p>
 
-			<div className='flex flex-col w-full max-w-xl'>
+			<div className='flex flex-col w-full max-w-xl my-4'>
 				<div className='my-4 relative w-full'>
 					<input
 						type='text'
@@ -75,6 +93,93 @@ const App = () => {
 						max={50}
 						onChange={(e) => setPasswordLength(e.target.value)}
 					/>
+				</div>
+
+				<div className='my-2 flex items-center w-full gap-4 flex-col sm:flex-row'>
+					<div className='flex items-center'>
+						<p className='whitespace-nowrap text-lg text-gray-500 lg:text-xl dark:text-gray-400 font-bold'>
+							Character used:
+						</p>
+					</div>
+
+					<ul className='items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white'>
+						<li className='w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600'>
+							<div className='flex items-center pl-3'>
+								<input
+									id='mayus'
+									type='checkbox'
+									value='mayus'
+									defaultChecked='true'
+									onChange={handlerChangeCharacter}
+									disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.mayus}
+									className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
+								/>
+								<label
+									htmlFor='mayus'
+									className='py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300'
+								>
+									ABC
+								</label>
+							</div>
+						</li>
+						<li className='w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600'>
+							<div className='flex items-center pl-3'>
+								<input
+									id='minus'
+									type='checkbox'
+									value='minus'
+									defaultChecked='true'
+									onChange={handlerChangeCharacter}
+									disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.minus}
+									className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
+								/>
+								<label
+									htmlFor='minus'
+									className='py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300'
+								>
+									abc
+								</label>
+							</div>
+						</li>
+						<li className='w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600'>
+							<div className='flex items-center pl-3'>
+								<input
+									id='symbols'
+									type='checkbox'
+									value='symbols'
+									defaultChecked='true'
+									onChange={handlerChangeCharacter}
+									disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.symbols}
+									className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
+								/>
+								<label
+									htmlFor='symbols'
+									className='py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300'
+								>
+									#!%$&
+								</label>
+							</div>
+						</li>
+						<li className='w-full dark:border-gray-600'>
+							<div className='flex items-center pl-3'>
+								<input
+									id='numbers'
+									type='checkbox'
+									value='numbers'
+									defaultChecked='true'
+									onChange={handlerChangeCharacter}
+									disabled={Object.keys(optionsCharacter).length === 1 && optionsCharacter.numbers}
+									className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
+								/>
+								<label
+									htmlFor='numbers'
+									className='py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300'
+								>
+									12345
+								</label>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 

@@ -12,14 +12,14 @@ const options = {
 	minus: [{ start: 97, end: 122 }]
 }
 
-const useGeneratePassword = ({ optionsAllowed = ['mayus', 'minus', 'symbols', 'number'] }) => {
+const useGeneratePassword = () => {
 	const [password, setPassword] = useState('')
 	const [loading, setLoading] = useState(false)
 
-	const mainProcess = (length) => {
+	const mainProcess = (length, optionsCharacter) => {
 		let text = ''
 
-		const mapped = optionsAllowed.reduce((acc, allowed) => {
+		const mapped = optionsCharacter.reduce((acc, allowed) => {
 			if (allowed && options[allowed]) {
 				acc.push([[allowed], options[allowed]])
 			}
@@ -46,9 +46,9 @@ const useGeneratePassword = ({ optionsAllowed = ['mayus', 'minus', 'symbols', 'n
 		setPassword(text)
 	}
 
-	const generateNewPassword = (length) => {
+	const generateNewPassword = (length, optionsCharacter) => {
 		setLoading(true)
-		mainProcess(length)
+		mainProcess(length, optionsCharacter)
 		setLoading(false)
 	}
 
