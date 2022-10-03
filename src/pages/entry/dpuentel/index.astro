@@ -1,0 +1,10 @@
+---
+import Layout from '@layout'
+import PasswordGenerator from '@components/dpuentel/PasswordGenerator.jsx'
+---
+
+<Layout title='dpuentel'>
+	<main class='text-gray-300 grid h-screen place-items-center'>
+		<PasswordGenerator client:only='react' />
+	</main>
+</Layout>
