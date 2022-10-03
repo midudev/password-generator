@@ -11,10 +11,7 @@ const GeneratorContainer = () => {
 			'ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnopqrstuvxyz1234567890!"·$%&/()=?¿-.,;:_'
 		let generatedPassword = ''
 		for (let i = 0; i < characterLength; i++) {
-			const randomNumber = Math.floor(Math.random() * (letters.length - 0 + 0))
-			const character = letters[randomNumber]
-			console.log(randomNumber, 'randomNumber')
-			console.log(character, 'character')
+			const character = letters[Math.floor(Math.random() * (letters.length - 0 + 0))]
 			generatedPassword = generatedPassword + character
 		}
 		setPassword(generatedPassword)
