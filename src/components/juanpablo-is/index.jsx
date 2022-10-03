@@ -7,7 +7,6 @@ import CheckboxOptions from './components/CheckboxOptions'
 import InputPassword from './components/InputPassword'
 
 const App = () => {
-	const { password, generateNewPassword } = useGeneratePassword()
 	const [alert, setAlert] = useState('')
 	const [passwordLength, setPasswordLength] = useLocalStorage('length', '25')
 	const [automaticGenerator, setAutomaticGenerator] = useLocalStorage('automaticGenerator', true)
@@ -17,16 +16,25 @@ const App = () => {
 		numbers: true,
 		symbols: true
 	})
+	const { password, generateNewPassword } = useGeneratePassword({
+		length: passwordLength,
+		optionsCharacter
+	})
 
-	const handlerNewPassword = () => {
+	const handlerNewPassword = (delay = false) => {
 		setAlert('')
 
-		const delayDebounceFn = setTimeout(() => {
-			generateNewPassword(passwordLength, Object.keys(optionsCharacter))
-			setAlert('New password generated.')
-		}, 300)
+		if (delay) {
+			const delayDebounceFn = setTimeout(() => {
+				generateNewPassword()
+				setAlert('New password generated.')
+			}, 300)
 
-		return () => clearTimeout(delayDebounceFn)
+			return () => clearTimeout(delayDebounceFn)
+		}
+
+		generateNewPassword()
+		setAlert('New password generated.')
 	}
 
 	const handlerCopyPassword = () => {
@@ -45,12 +53,8 @@ const App = () => {
 	}
 
 	useEffect(() => {
-		handlerNewPassword()
-	}, [])
-
-	useEffect(() => {
 		if (automaticGenerator) {
-			return handlerNewPassword()
+			return handlerNewPassword(true)
 		}
 	}, [passwordLength, optionsCharacter])
 
