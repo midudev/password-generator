@@ -109,7 +109,7 @@ const PasswordGeneratorDiloes = () => {
 					value={rangeSize}
 				/>
 				<p className={style.p}>
-					Tamaño de contraseña: <span>{rangeSize}</span>
+					Tamaño de Contraseña: <span>{rangeSize}</span>
 				</p>
 
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
