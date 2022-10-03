@@ -1,0 +1,223 @@
+@import "./_vars.css";
+
+.david-fb__main {
+	background: var(--david-fb_bg-color);
+	width: 100%;
+	min-height: 100vh;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.david-fb__main__back{
+	display: flex;
+	gap: 4px;
+	padding-top: 8px;
+	border-bottom: 2px solid transparent;
+}
+
+.david-fb__main__back:hover{
+	border-bottom: 2px solid #fff;
+}
+
+.david-fb__title {
+	font-size: 40px;
+	font-weight: bold;
+	background: linear-gradient(to right, var(--david-fb_gradient-color1), var(--david-fb_gradient-color2));
+  background-clip: text;
+	-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.david-fb__container {
+	width: 695px;
+	/* height: 732px; */
+	background-color: var(--david-fb_bg-surface);
+	padding: 55px 89px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.david-fb__password {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	border-radius: 25px;
+}
+
+.david-fb__password hgroup {
+	display: flex;
+	justify-content: space-between;
+}
+
+.david-fb__password hgroup div{
+	width: 446px;
+	height: 77px;
+	border: 2px solid var(--david-fb_primary-color);
+	border-radius: 25px;
+	display: flex;
+	gap: 5px;
+	padding-left: 10px;
+}
+
+.david-fb__password hgroup div input {
+	color: var(--david-fb_primary-color);
+	font-size: 32px;
+	width: 20ch;
+	background: none;
+	outline: none;
+}
+
+.david-fb__password button:hover {
+	transform: scale(1.1);
+}
+
+.david-fb__password p {
+	color: var(--david-fb_primary-color);
+	min-height: 37px;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.david-fb__range {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 25px;
+}
+
+.david-fb__range div {
+	display: flex;
+	justify-content: space-between;
+	font-size: 24px;
+}
+
+.david-fb__checkboxes {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	margin-top: 35px;
+	font-size: 24px;
+}
+
+/* Generate button && Password List button */
+.david-fb__control {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 25px;
+}
+
+/* Generate button */
+.david-fb__control .david-fb__generate {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	width: 446px;
+	height: 73px;
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+	background: linear-gradient(to right, var(--david-fb_gradient-color1), var(--david-fb_gradient-color2));
+}
+
+.david-fb__control .david-fb__generate::after {
+	background: #fff;
+	content: "";
+	height: 155px;
+	left: -100px;
+	opacity: .2;
+	position: absolute;
+	top: -50px;
+	transform: rotate(35deg);
+	transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+	width: 70px;
+}
+
+.david-fb__control .david-fb__generate:hover::after{
+	left: 120%;
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+/* END Generate button */
+
+/* Password list */
+.david-fb__password-list:hover {
+	transform: scale(1.1);
+}
+
+/* Checkbox */
+
+/* container */
+.david-fb__customCheckbox {
+  display: flex;
+	align-items: center;
+  position: relative;
+  padding-left: 45px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+/* Hide the browser's default checkbox */
+.david-fb__customCheckbox input {
+  display: none;
+}
+
+/* Create a custom checkbox */
+.david-fb__checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  border: 2px solid var(--david-fb_primary-color);
+	translate: 0 -50%;
+}
+
+/* On mouse-over, add background color */
+.david-fb__customCheckbox:hover input ~ .david-fb__checkmark {
+  background-color: rgba(0, 128, 0, 0.377);
+}
+
+/* When the checkbox is checked, add background */
+.david-fb__customCheckbox input:checked ~ .david-fb__checkmark {
+  background-color: var(--david-fb_primary-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.david-fb__checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* On mouse hover show checkmark placeholder */
+.david-fb__customCheckbox:hover input ~ .david-fb__checkmark:after {
+  display: block;
+  border-color: rgba(255, 255, 255, 0.377);
+}
+
+/* Show the checkmark when checked */
+.david-fb__customCheckbox input:checked ~ .david-fb__checkmark:after {
+  display: block;
+  border-color: #fff;
+}
+
+
+/* Style the checkmark/indicator */
+.david-fb__customCheckbox .david-fb__checkmark:after {
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 20px;
+  border: solid;
+  border-width: 0 5px 5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+	translate: -50% -60%;
+}
+
