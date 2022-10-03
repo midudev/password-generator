@@ -1,0 +1,78 @@
+---
+import Layout from '@layout'
+import '@components/marsidev/styles/slider.scss'
+import '@components/marsidev/styles/checkbox.css'
+import Button from '@components/marsidev/components/Button.astro'
+// import { SolidCounter } from '@components/marsidev/SolidCounter''
+---
+
+<Layout title='marsidev'>
+	<div
+		class='flex flex-col items-center justify-center min-h-[100vh] text-white w-full gap-4 bg-white'
+	>
+		<h1 class='text-2xl font-bold text-black'>
+			Generate random and secure passwords to stay safe online.
+		</h1>
+		<!-- bg-[#0a2d4d] -->
+		<div
+			class='flex flex-col items-center justify-center border-4 border-white w-full max-w-2xl rounded-3xl text-center min-h-[400px] gap-4'
+		>
+			<div
+				class='w-full max-w-[800px] bg-white h-[60px] rounded-xl text-black flex items-center justify-center text-4xl shadow-[0 2px 8px rgb(0 0 0 / 15%)]'
+			>
+				abc1236qw76gasjb38gjkasnjkn
+			</div>
+
+			<div class='flex flex-row gap-2'>
+				<Button caption='Generate' />
+				<Button caption='Copy' />
+			</div>
+
+			<div
+				class='flex flex-row gap-2 justify-center max-w-xl w-full bg-[#0a253c] border-2 border-[#082035] rounded-md p-6'
+			>
+				<div
+					class='flex flex-row items-center justify-center gap-2 text-white font-semibold text-lg'
+				>
+					<label for='slider' class=''>Length</label>
+					<input type='range' min='8' max='100' value='50' class='' id='slider' />
+					<p class=''>20</p>
+				</div>
+
+				<div
+					class='flex flex-row items-center justify-center gap-2 text-white font-semibold text-lg'
+				>
+					<div class='checkbox'>
+						<input type='checkbox' id='checkbox_1' />
+						<label for='checkbox_1'>Numbers</label>
+					</div>
+
+					<div class='checkbox'>
+						<input type='checkbox' id='checkbox_2' />
+						<label for='checkbox_2'>Symbols</label>
+					</div>
+
+					<!-- <label class='checkbox'>
+						<input type='checkbox' id='checkbox_1'>
+						<span></span>
+						Numbers
+					</label>
+
+					<label class='checkbox'>
+						<input type='checkbox' id='checkbox_2'>
+						<span></span>
+						Symbols
+					</label> -->
+				</div>
+			</div>
+		</div>
+
+		<footer class='text-black'>
+			Hecho por <a
+				class='underline text-[#0572ec]'
+				href='https://github.com/marsidev'
+				target='_blank'>Luis Marsiglia</a
+			>
+		</footer>
+	</div>
+</Layout>

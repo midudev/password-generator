@@ -1,0 +1,59 @@
+/* @link https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3 */
+
+.checkbox input[type='checkbox'] {
+	opacity: 0;
+}
+
+.checkbox label {
+	position: relative;
+	display: inline-block;
+	padding-left: 36px;
+	user-select: none;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+	position: absolute;
+	content: '';
+	display: inline-block;
+	border-radius: 4px;
+	background-color: white;
+}
+
+/* Outer box of the fake checkbox */
+.checkbox label::before {
+	height: 28px;
+	width: 28px;
+	border: 1px solid;
+	left: 0px;
+	top: 0px;
+}
+
+/* Check mark of the fake checkbox */
+.checkbox label::after {
+	height: 7px;
+	width: 14px;
+	border-left: 3px solid;
+	border-bottom: 3px solid;
+	transform: rotate(-45deg);
+	border-radius: 0;
+
+	left: 7px;
+	top: 9px;
+	border-color: #0572ec;
+}
+
+/* Hide the check mark by default */
+.checkbox input[type='checkbox'] + label::after {
+	content: none;
+}
+
+/* Un-hide on the checked state */
+.checkbox input[type='checkbox']:checked + label::after {
+	content: '';
+}
+
+.checkbox input[type='checkbox']:focus + label::before {
+	outline: #0572ec auto 6px;
+}
+
