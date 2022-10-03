@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const Login = ({ hiddenLogin }) => {
 	const [loading, setLoading] = useState(false)
@@ -10,6 +10,7 @@ const Login = ({ hiddenLogin }) => {
 			hiddenLogin()
 		}, 2000)
 	}
+
 
 	return (
 		<div className='bg-zinc-900/90 backdrop-blur-md absolute inset-0 z-50 flex justify-center items-center'>
@@ -31,7 +32,7 @@ const Login = ({ hiddenLogin }) => {
 				</div>
 				{/* Boton para iniciar sesion */}
 
-				<div className=' flex flex-col items-center gap-4'>
+				<div className=' flex flex-col items-center gap-6'>
 					{loading ? (
 						<>
 							<div className='rounded-full border-4 border-slate-700 border-t-slate-200 w-6 h-6 animate-spin'></div>
@@ -39,7 +40,10 @@ const Login = ({ hiddenLogin }) => {
 						</>
 					) : (
 						<>
+						<div className='text-center'>
 							<h2 className='text-slate-200 text-2xl'> ADMIN </h2>
+							<p className='text-slate-200/50 text-sm'>Para una mejor experiencia <br /> active la pantalla completa [F11] ^^</p>
+						</div>
 							<button
 								onClick={handleLogin}
 								className='ring-1 ring-slate-100 p-2 text-slate-200 rounded-md hover:bg-slate-100/20 transition-colors ease-in '

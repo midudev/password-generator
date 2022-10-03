@@ -105,7 +105,7 @@ const listDocCommads = [
 
 const App = () => {
 	const [commands, setCommands] = useState([])
-	const [showLogin, setShowLogin] = useState(true)
+	const [showLogin, setShowLogin] = useState(false)
 
 	const addComponentCommand = (command, Component) => {
 		return (
