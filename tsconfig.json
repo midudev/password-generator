@@ -4,11 +4,11 @@
     "module": "ESNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["astro/client", "preact"],
+    "types": ["astro/client", "react"],
     "outDir": "./dist",
     "moduleResolution": "node",
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
+    "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
