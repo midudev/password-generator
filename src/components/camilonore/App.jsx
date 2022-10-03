@@ -29,7 +29,7 @@ function App() {
 	}
 
 	const copyToClipboard = () => {
-		setCopyTest('Copied!')
+		setCopyTest('Copied! 🎉')
 		navigator.clipboard.writeText(password)
 	}
 
@@ -37,12 +37,14 @@ function App() {
 		<div className='grid h-screen place-items-center'>
 			<div className='text-white flex flex-col justify-center items-center'>
 				<h1 className='text-2xl my-8'>Generate a Password</h1>
-				<section className='flex flex-row'>
-					<input type={'range'} min={minLength} max={30} onInput={onChangeLength} defaultValue={minLength}/>
+				<section className='flex flex-row place-items-center'>
+					<input className='appearance-none w-44 h-1 p-0 bg-gray-500 rounded' type={'range'} min={minLength} max={30} onInput={onChangeLength} defaultValue={minLength}/>
 					<p className='text-md ml-5'>{length}  characters</p>
 				</section>
 				<section className='flex flex-row items-center my-8'>
-					<p>{password}</p>
+					<div className='flex items-center bg-gray-900 p-2 rounded'>
+						<p onClick={copyToClipboard} className='cursor-pointer'>{password}</p>
+					</div>
 					<button onClick={copyToClipboard} className='items-center text-sm flex flex-row space-x-10 border p-2 ml-5 rounded-md hover:bg-blue-500 font-special hover:border-blue-500'>
 						{copyText}
 						<img src='/src/pages/entry/camilonore/assets/copy.png' alt='copy icon' className='pl-2 h-4 flex'/>
