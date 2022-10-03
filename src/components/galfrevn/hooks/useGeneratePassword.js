@@ -28,8 +28,7 @@ const useGeneratePassword = () => {
 	const changeGenerationParam = (key, value) => {
 		// If we enter a value smaller than the current amount of characters
 		// Set all the other params to zero.
-		if (key === 'characters' && value < generationParams.characters)
-			return setGenerationParams({ characters: value, digits: 0, capitals: 0, symbols: 0 })
+		if (key === 'characters' && value < generationParams.characters) { return setGenerationParams({ characters: value, digits: 0, capitals: 0, symbols: 0 }) }
 		setGenerationParams({ ...generationParams, [key]: Number(value) })
 	}
 
