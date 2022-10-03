@@ -40,7 +40,7 @@ La **[Hacktoberfest](https://hacktoberfest.com/)** es un evento anual organizado
 
 ## 📝 Reglas
 
-- ✅ Puedes usar cualquier framework dentro de esta lista: React, Vue, Svelte, Angular y Solid. También puedes usar Vanilla Javascript.
+- ✅ Puedes usar cualquier framework dentro de esta lista: React, Vue y Svelte. También puedes usar Vanilla JavaScript.
 - ❌ NO puedes usar dependencias de terceros. Nada de npm install, ni yarn add ni similares.
 - ✅ Se puede utilizar CSS y Tailwind pero...
 - ❌ NO se puede utilizar otro framework CSS como Bootstrap, Bulma, NextUI, Material UI, etc... ni tampoco SASS, Stylus o similares.

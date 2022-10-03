@@ -6,7 +6,7 @@ function Output({ value, placeholder }) {
 
 	function handleOnCopy() {
 		navigator.clipboard.writeText(value).then(() => {
-			//TODO: shsow success copy to clipboard message
+			// TODO: shsow success copy to clipboard message
 		})
 	}
 
