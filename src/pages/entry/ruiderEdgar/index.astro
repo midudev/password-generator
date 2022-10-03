@@ -1,0 +1,16 @@
+---
+import Layout from '@layout'
+import ContainerPassword from '@components/ruiderEdgar/ContainerPassword'
+---
+
+<Layout title='ruideEdgar'>
+	<main class='flex flex-col h-full w-full'>
+		<h1 class='text-neutral-50 text-center text-4xl mt-8'>Password Generate</h1>
+		<img
+			class='w-40 mx-auto mt-8'
+			src='https://cdn-icons-png.flaticon.com/512/7633/7633165.png'
+			alt='icon candado'
+		/>
+		<ContainerPassword client:only='react' />
+	</main>
+</Layout>

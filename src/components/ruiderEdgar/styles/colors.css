@@ -1,0 +1,19 @@
+:root {
+	--Backgound: #002e48;
+	--primary: #e101e9;
+	--darkPrimary: rgba(160, 57, 240, 1);
+	--lightPrimary: #d1c4e9;
+	--accent: #e040fb;
+	--black: #1b1b1b;
+	--white: #e4e4e4;
+	--textAccent: #20a8fe;
+	--gradient: linear-gradient(90deg, rgba(226, 0, 233, 1) 0%, rgba(30, 171, 254, 1) 100%);
+	--gradientRadial: linear-gradient(
+		90deg,
+		rgba(30, 171, 254, 1) 0%,
+		rgba(160, 57, 240, 1) 50%,
+		rgba(226, 0, 233, 1) 100%
+	);
+
+	--box-shadow: 0px 2px 10px rgba(8, 9, 10, 0.3), 0px 2px 20px rgba(0, 0, 0, 0.4);
+}
