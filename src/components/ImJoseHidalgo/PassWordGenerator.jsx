@@ -13,7 +13,8 @@ export const PassWordGenerator = () => {
 		filters
 	})
 	return (
-		<div className='bg-[#EBF5FC] rounded-xl p-8 jh-custom-shadow'>
+		<div className='relative bg-[#EBF5FC] h-[700px] flex justify-center flex-col rounded-[55px] p-8 jh-custom-shadow border-8 border-white'>
+			<div className='absolute top-0 left-[27%] bg-white w-40 h-7 rounded-b-[15px]' />
 			<h1 className='text-center font-bold text-xl mb-6'>Password Generator</h1>
 			<div className='w-full flex bg-[#EBF5FC] justify-between items-center gap-4 mb-4 rounded-md'>
 				<input
@@ -42,7 +43,7 @@ export const PassWordGenerator = () => {
 			>
 				Generate password
 			</button>
-			<div className='w-80 flex flex-col items-center'>
+			<div className='w-72 flex flex-col items-center'>
 				<div className='w-full flex flex-col justify-start gap-2 mt-2 jh-custom-shadow p-4 rounded-lg'>
 					<p className='font-semibold'>Settings:</p>
 					<SettingsSwitchItem type={lowercase} filters={filters} onFilterChane={onFilterChane} />
