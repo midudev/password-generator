@@ -63,7 +63,7 @@ const Form = () => {
 			</div>
 			<input
 				type='range'
-				className={styles['jg-range']}
+				className={styles['joaquin-giordano-range']}
 				defaultValue={16}
 				min={4}
 				max={28}
