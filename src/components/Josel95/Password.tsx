@@ -13,5 +13,5 @@ export const Password: FC<PasswordProps> = ({
 		'josel95-password-generator-password',
 		blurred ? 'josel95-blurred' : ''
 	]
-	return <input className={classes.join(' ')} type='text' value={value} />
+	return <input className={classes.join(' ')} type='text' value={value} placeholder='Generate a new password' />
 }
