@@ -1,0 +1,45 @@
+.password-box {
+	display: flex;
+	border-radius: 5px;
+	background-color: #374151;
+}
+
+.password-box span:first-of-type {
+	width: 200px;
+}
+
+.password-box span, .password-box button {
+	padding: .3rem;
+}
+
+.svg-container{
+	cursor: pointer;
+	background-color: #1d2633;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+	visibility:hidden;
+	width: 120px;
+	background-color: #1d2633;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	top: 45px;
+	right: -50px;
+	z-index: 1;
+}
+
+.tooltip:focus .tooltiptext {
+	visibility: visible;
+}
