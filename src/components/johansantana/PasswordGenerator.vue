@@ -64,10 +64,8 @@ const handleCopy = () => {
 			>
 				Password Generator
 			</h1>
-			<p class="text-gray-200/50 mb-2 mx-auto">
-				- Select your
-				<span class="text-gray-200/80">password length</span>
-				-
+			<p class="text-gray-200/50 mb-2 mx-auto before:content-['-'] after:content-['-'] after:ml-2">
+				Select your <span class="text-gray-200/80">password length</span>
 			</p>
 			<div class="mb-6 flex gap-6 items-center">
 				<input
