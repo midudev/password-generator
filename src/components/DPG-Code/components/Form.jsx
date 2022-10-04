@@ -64,22 +64,22 @@ export default function Form () {
           start
           ? <div className='z-10 w-[208px] h-[144px] flex items-center justify-center absolute top-0   sm:w-[260px] sm:h-[180px]'>
               <span className='start text-sm text-[#294409]   sm:text-lg'>&#62;</span>
-            <h2 className='ml-2 text-sm text-[#294409]   sm:text-lg'>start game</h2>
+            <h2 className='ml-2 text-sm text-[#294409]   sm:text-lg'>Start Game</h2>
           </div>
           : <>
             <h1 className='mt-3 mb-5 text-xs text-[#294409] text-center   sm:text-base'>Password Generator</h1>
             {
               label
-                ? <div className='z-10 text-lime-800 text-[10px] absolute top-[30px] right-[68.8px]   sm:top-[38px] sm:right-[86px] sm:text-xs'>Copied!</div>
+                ? <div className='z-10 text-lime-900 text-[10px] absolute top-[30px] right-[68.8px] opacity-75   sm:top-[38px] sm:right-[86px] sm:text-xs'>Copied!</div>
                 : ''
             }
             <input
               type='text'
               value={password}
               readOnly
-              className='w-[160px] py-0.5 px-2 bg-transparent text-[10px] text-lime-800 rounded border-2 border-solid border-lime-800 outline-none   sm:w-[200px] sm:text-sm sm:py-1 sm:px-4'
+              className='w-[160px] py-0.5 px-2 bg-transparent text-[10px] text-lime-700 rounded border-2 border-solid border-lime-700 outline-none   sm:w-[200px] sm:text-sm sm:py-1 sm:px-4'
             />
-            <h3 className='mt-2 mb-3 w-[160px] text-[10px] text-lime-800 text-center   sm:w-[200px] sm:text-sm sm:mb-5'>
+            <h3 className='mt-2 mb-3 w-[160px] text-[10px] text-lime-700 text-center   sm:w-[200px] sm:text-sm sm:mb-5'>
               Passsword length:
               <span className='ml-2 text-lime-900'>{range}</span>
             </h3>
