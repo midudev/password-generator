@@ -1,6 +1,6 @@
 export const CopyIcon = (props) => (
 	<svg
-		xmlns='http://www.w3.org/2000/svg' width='2em'
+		width='2em'
 		height='2em'
 		viewBox='0 0 1024 1024'
 		{...props}
@@ -12,4 +12,3 @@ export const CopyIcon = (props) => (
 	</svg>
 )
 
-export default CopyIcon
