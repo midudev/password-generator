@@ -1,27 +1,27 @@
 #camilo-arias-47-app {
-	background: rgb(63,0,117);
-	background: radial-gradient(circle, rgba(63,0,117,1) 0%, rgba(21,0,40,1) 75%);
+	background: rgb(63, 0, 117);
+	background: radial-gradient(circle, rgba(63, 0, 117, 1) 0%, rgba(21, 0, 40, 1) 75%);
 	color: #fff;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-    justify-content: center;
+	justify-content: center;
 	height: 100vh;
 	width: 100%;
 }
 
-#camilo-arias-47-app section{
- text-align: center;
+#camilo-arias-47-app section {
+	text-align: center;
 }
 
 #camilo-arias-47-app h1 {
-	font-size:4rem;
+	font-size: 4rem;
 	overflow: hidden;
 	letter-spacing: 6px;
 }
 
-#camilo-arias-47-app .password-result{
+#camilo-arias-47-app .password-result {
 	display: flex;
 	width: 100%;
 	justify-content: center;
@@ -29,53 +29,53 @@
 	padding-top: 68px;
 }
 
-#camilo-arias-47-app .password-result__offset{
+#camilo-arias-47-app .password-result__offset {
 	width: 20%;
 }
 
-#camilo-arias-47-app .password-result__password{
+#camilo-arias-47-app .password-result__password {
 	font-size: 3rem;
 	width: 60%;
 }
 
-#camilo-arias-47-app .password-result__copy{
+#camilo-arias-47-app .password-result__copy {
 	text-align: left;
 	width: 20%;
 }
 
-#camilo-arias-47-app .password-result__btn--copied{
+#camilo-arias-47-app .password-result__btn--copied {
 	position: relative;
 }
 
-#camilo-arias-47-app .password-result__btn--copied::after{
+#camilo-arias-47-app .password-result__btn--copied::after {
 	content: 'Copied!';
-    position: absolute;
-    border-radius: 6px;
-    background-color: #fc006f;
-    padding: 4px;
-    bottom: -41px;
-    left: -7px;
-    font-weight: 100;
+	position: absolute;
+	border-radius: 6px;
+	background-color: #fc006f;
+	padding: 4px;
+	bottom: -41px;
+	left: -7px;
+	font-weight: 100;
 }
 
-#camilo-arias-47-app .password-result__btn > svg{
+#camilo-arias-47-app .password-result__btn > svg {
 	transition: box-shadow 0.4s cubic-bezier(0.8, -1, 0.2, 1.5) 0s;
 }
 
-#camilo-arias-47-app .password-result__btn:hover > svg{
+#camilo-arias-47-app .password-result__btn:hover > svg {
 	cursor: pointer;
-    shape-rendering: crispEdges;
-    fill: url(#MyGradient);
+	shape-rendering: crispEdges;
+	fill: url(#MyGradient);
 	filter: drop-shadow(0 0 5px #d800ff);
 }
 
-#camilo-arias-47-app .input-lenght{
+#camilo-arias-47-app .input-lenght {
 	display: block;
 	width: 100%;
 	margin: 44px 0;
 }
 
-#camilo-arias-47-app input[type="range"] {
+#camilo-arias-47-app input[type='range'] {
 	-webkit-appearance: none;
 	height: 7px;
 	background: rgba(255, 255, 255, 0.6);
@@ -84,7 +84,7 @@
 	background-repeat: no-repeat;
 }
 
-#camilo-arias-47-app input[type="range"]::-webkit-slider-thumb {
+#camilo-arias-47-app input[type='range']::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	height: 20px;
 	width: 20px;
@@ -96,18 +96,18 @@
 	transition: box-shadow 0.4s cubic-bezier(0.8, -1, 0.2, 1.5) 0s;
 }
 
-#camilo-arias-47-app input[type="range"]::-webkit-slider-thumb:hover {
+#camilo-arias-47-app input[type='range']::-webkit-slider-thumb:hover {
 	box-shadow: 0px 0px 25px 0px #d800ff;
 }
 
-#camilo-arias-47-app input[type=range]::-webkit-slider-runnable-track  {
+#camilo-arias-47-app input[type='range']::-webkit-slider-runnable-track {
 	-webkit-appearance: none;
 	box-shadow: none;
 	border: none;
 	background: transparent;
 }
 
-#camilo-arias-47-app .generate-btn{
+#camilo-arias-47-app .generate-btn {
 	background-color: #9c009e;
 	background-image: linear-gradient(90deg, #9c009e 0%, #fd006f 100%);
 	font-size: 2rem;
@@ -117,99 +117,99 @@
 	box-shadow: 0px 0px 8px 0px #d800ff;
 }
 
-#camilo-arias-47-app .generate-btn:hover{
+#camilo-arias-47-app .generate-btn:hover {
 	box-shadow: 0px 0px 25px 0px #d800ff, 0px 0px 8px 2px #d800ff;
 }
 
-#camilo-arias-47-app .char{
+#camilo-arias-47-app .char {
 	width: 85px;
 }
 
-#camilo-arias-47-app .char.char--animatedA::after{
+#camilo-arias-47-app .char.char--animatedA::after {
 	content: 'a';
 	animation: changewordA 5s 1s linear infinite alternate;
 }
 
-#camilo-arias-47-app .char.char--animatedE::after{
+#camilo-arias-47-app .char.char--animatedE::after {
 	content: 'e';
 	animation: changewordE 4s 1s linear infinite alternate;
 }
 
-#camilo-arias-47-app .char.char--animatedE--delayed::after{
+#camilo-arias-47-app .char.char--animatedE--delayed::after {
 	content: 'e';
 	animation: changewordE 5s 2s linear infinite alternate;
 }
 
-#camilo-arias-47-app .char.char--animated0::after{
+#camilo-arias-47-app .char.char--animated0::after {
 	content: 'o';
 	animation: changeword0 4s 1s linear infinite alternate;
 }
 
-#camilo-arias-47-app .char.char--animatedT::after{
+#camilo-arias-47-app .char.char--animatedT::after {
 	content: 't';
 	animation: changewordT 4s 1s linear infinite alternate;
 }
 
-#camilo-arias-47-app .char.char--animated::after{
+#camilo-arias-47-app .char.char--animated::after {
 	display: inline-block;
 	width: 46px;
 }
 
 @keyframes changewordA {
-	0%{
+	0% {
 		content: '4';
 		font-size: 4rem;
 	}
-	33%{
+	33% {
 		content: 'a';
 		font-size: 4rem;
 	}
-	66%{
+	66% {
 		content: 'A';
 		font-size: 4rem;
 	}
-	99.9%{
+	99.9% {
 		content: '@';
 		font-size: 4rem;
 	}
-	100%{
+	100% {
 		content: '@';
 		font-size: 3rem;
 	}
 }
 
 @keyframes changewordE {
-	0%{
+	0% {
 		content: '3';
 	}
-	50%{
+	50% {
 		content: 'e';
 	}
-	100%{
+	100% {
 		content: 'E';
 	}
 }
 
 @keyframes changeword0 {
-	0%{
+	0% {
 		content: '0';
 	}
-	50%{
+	50% {
 		content: 'o';
 	}
-	100%{
+	100% {
 		content: 'O';
 	}
 }
 
 @keyframes changewordT {
-	0%{
+	0% {
 		content: 'T';
 	}
-	50%{
+	50% {
 		content: '7';
 	}
-	100%{
+	100% {
 		content: 't';
 	}
 }

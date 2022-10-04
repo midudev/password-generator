@@ -7,7 +7,9 @@ export const PasswordProvider = ({ children }) => {
 	const [generatedPassword, setGenerate] = useState('')
 	const [copied, setCopy] = useState(false)
 	return (
-		<PasswordContext.Provider value={{ length, generatedPassword, setLength, setGenerate, copied, setCopy }}>
+		<PasswordContext.Provider
+			value={{ length, generatedPassword, setLength, setGenerate, copied, setCopy }}
+		>
 			{children}
 		</PasswordContext.Provider>
 	)

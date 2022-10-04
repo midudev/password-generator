@@ -1,4 +1,4 @@
-.generator-container{
+.generator-container {
 	display: grid;
 	gap: 0.5em;
 	background: #ff8fab;
@@ -6,10 +6,10 @@
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
-.title{
+.title {
 	color: #f72585;
 }
-input[type='text']{
+input[type='text'] {
 	background: white;
 	width: 600px;
 	height: 50px;
@@ -22,66 +22,67 @@ input[type='text']{
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 	flex-grow: 2;
 }
-input[type='text']:hover{
-	cursor: not-allowed
+input[type='text']:hover {
+	cursor: not-allowed;
 }
-input[type='text']::placeholder{
+input[type='text']::placeholder {
 	font-size: 20px;
 	text-align: center;
 	border-radius: 10px;
 	color: #f72585;
 }
-input[type='range']{
+input[type='range'] {
 	-webkit-appearance: none;
 	background: #f72585;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
-input[type=range]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
 	-webkit-appearance: none;
-	width: .25rem;
-	height: .25rem;
+	width: 0.25rem;
+	height: 0.25rem;
 	border-radius: 5px;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	border: none;
 	box-shadow: none;
 }
-.slider{
+.slider {
 	display: flex;
 	flex-direction: column;
 }
-.range{
-	color: #f72585
+.range {
+	color: #f72585;
 }
-.generate-button{
+.generate-button {
 	background-color: #e9ecef;
 	border-radius: 10px;
 	color: #f72585;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
-.generate-button:hover{
+.generate-button:hover {
 	cursor: default;
 	box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
 }
-.disabled-copy-button, .copy-button{
+.disabled-copy-button,
+.copy-button {
 	width: 50px;
 	height: 50px;
 	background-color: inherit;
-	color:#002;
+	color: #002;
 	border-radius: 10px;
 }
 
-.disabled-copy-button{
+.disabled-copy-button {
 	cursor: not-allowed;
 }
-.message{
+.message {
 	color: #f72585;
 	font-size: 20px;
 	align-self: center;
 }
-.password-container{
-	 display:flex;
-	 flex-direction:row;
-	 gap: .5em;
-	 padding:2px;
+.password-container {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5em;
+	padding: 2px;
 }

@@ -32,21 +32,21 @@ const PasswordGenerator = () => {
 
 	const handleChangeOptions = useCallback(({ target }: React.ChangeEvent<HTMLInputElement>) => {
 		switch (target.id) {
-		case 'charsLower':
-			setCharsLower(target.checked)
-			break
+			case 'charsLower':
+				setCharsLower(target.checked)
+				break
 
-		case 'charsUpper':
-			setCharsUpper(target.checked)
-			break
+			case 'charsUpper':
+				setCharsUpper(target.checked)
+				break
 
-		case 'charsNumeric':
-			setCharsNumeric(target.checked)
-			break
+			case 'charsNumeric':
+				setCharsNumeric(target.checked)
+				break
 
-		default:
-			setCharsSymbols(target.checked)
-			break
+			default:
+				setCharsSymbols(target.checked)
+				break
 		}
 	}, [])
 
@@ -67,18 +67,10 @@ const PasswordGenerator = () => {
 
 	const generatePassword = useCallback(() => {
 		const password = shuffleArray(
-			(charsLower
-				? chars.lower
-				: '') +
-			(charsUpper
-				? chars.upper
-				: '') +
-			(charsNumeric
-				? chars.numeric
-				: '') +
-			(charsSymbols
-				? chars.symbols
-				: '')
+			(charsLower ? chars.lower : '') +
+				(charsUpper ? chars.upper : '') +
+				(charsNumeric ? chars.numeric : '') +
+				(charsSymbols ? chars.symbols : '')
 		)
 
 		setGeneratedPassword(password.substring(0, passwordLength))
@@ -100,7 +92,10 @@ const PasswordGenerator = () => {
 						value={generatedPassword}
 					/>
 
-					<button className='block w-7 h-7 text-center absolute top-2 right-2' onClick={handleCopyButton}>
+					<button
+						className='block w-7 h-7 text-center absolute top-2 right-2'
+						onClick={handleCopyButton}
+					>
 						<CopyIcon />
 					</button>
 				</div>
@@ -169,7 +164,8 @@ const PasswordGenerator = () => {
 								id='charsNumeric'
 								defaultChecked={true}
 								value={charsNumeric}
-								onChange={handleChangeOptions} />
+								onChange={handleChangeOptions}
+							/>
 
 							<span className='ml-2 text-sm font-medium'>NUMBERS</span>
 						</label>
@@ -183,13 +179,13 @@ const PasswordGenerator = () => {
 								id='charsSymbols'
 								defaultChecked={true}
 								value={charsSymbols}
-								onChange={handleChangeOptions} />
+								onChange={handleChangeOptions}
+							/>
 							<span className='ml-2 text-sm font-medium'>SYMBOLS</span>
 						</label>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	)
 }

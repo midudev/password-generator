@@ -1,4 +1,7 @@
-export const generatePassword = ({ length = 8, options = ['letters', 'letters-uppercase', 'numbers', 'symbols'] }) => {
+export const generatePassword = ({
+	length = 8,
+	options = ['letters', 'letters-uppercase', 'numbers', 'symbols']
+}) => {
 	const characters = {
 		letters: 'abcdefghijklmnopqrstuvwxyz',
 		'letters-uppercase': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -8,7 +11,7 @@ export const generatePassword = ({ length = 8, options = ['letters', 'letters-up
 
 	let optionsString = ''
 
-	options.forEach(option => {
+	options.forEach((option) => {
 		optionsString += characters[option] ?? ''
 	})
 

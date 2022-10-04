@@ -2,27 +2,27 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-  }
-  
-  .container {
+}
+
+.container {
 	background: #0000ff;
 	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
-  }
-  
-  .display {
+}
+
+.display {
 	display: flex;
 	width: 100%;
-  }
-  
-  .display > button {
+}
+
+.display > button {
 	height: 40px;
 	width: 40px;
-  }
-  
-  .box {
+}
+
+.box {
 	width: 300px;
 	height: 50%;
 	background: chocolate;
@@ -32,18 +32,17 @@
 	align-items: center;
 	border-radius: 32px;
 	padding: 30px;
-  }
-  
-  .box > button {
+}
+
+.box > button {
 	width: 70%;
 	height: 50px;
-  }
-  
-  .pass-span {
+}
+
+.pass-span {
 	width: 90%;
 	height: 40px;
 	background: #fff;
 	display: block;
 	margin-bottom: 50px;
-  }
-  
+}

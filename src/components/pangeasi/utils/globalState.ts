@@ -11,7 +11,7 @@ export function globalState<S = any>(
 export function globalState<S = undefined>(): () => [S, (state: IHookStateSetAction<S>) => void]
 */
 
-export function globalState<S> (initialState?: S) {
+export function globalState<S>(initialState?: S) {
 	const store: {
 		state: S
 		setState: (state: IHookStateSetAction<S>) => void
@@ -19,7 +19,7 @@ export function globalState<S> (initialState?: S) {
 		setters: any[]
 	} = {
 		state: initialState instanceof Function ? initialState() : initialState,
-		setState (nextState: IHookStateSetAction<S>) {
+		setState(nextState: IHookStateSetAction<S>) {
 			store.state = resolveHookState(nextState, store.state)
 			store.setters.forEach((setter) => setter(store.state))
 		},

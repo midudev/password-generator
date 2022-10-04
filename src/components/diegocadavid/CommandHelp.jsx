@@ -13,7 +13,10 @@ const CommandHelp = ({ docs }) => {
 						<div>
 							{e.options.map((o) => {
 								return (
-									<div key={o.name} className='pl-5 lg:pl-10 block lg:grid lg:grid-cols-[200px_1fr] mb-2 lg:mb-0'>
+									<div
+										key={o.name}
+										className='pl-5 lg:pl-10 block lg:grid lg:grid-cols-[200px_1fr] mb-2 lg:mb-0'
+									>
 										<p> {`--${o.name}=<${o.type}>`} </p>
 										<p> {o.info} </p>
 									</div>

@@ -1,4 +1,3 @@
-
 const colorClasses = {
 	violet: 'bg-gradient-to-b from-violet-500 via-purple-600 to-purple-800'
 }

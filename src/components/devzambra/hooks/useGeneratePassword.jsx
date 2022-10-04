@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function useGeneratePassword () {
+function useGeneratePassword() {
 	const [password, setPassword] = useState('')
 
 	const handleGeneratePassword = (passwordLength) => {

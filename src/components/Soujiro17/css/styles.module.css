@@ -13,7 +13,7 @@
 	width: 50%;
 	height: fit-content;
 	background-color: #fff;
-	border-radius: .3rem;
+	border-radius: 0.3rem;
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.466);
 	z-index: 100;
 }
@@ -29,7 +29,6 @@
 	height: 500px;
 	max-height: 500px;
 	overflow-y: auto;
-
 }
 
 .generate_password_content::-webkit-scrollbar {
@@ -52,21 +51,21 @@
 	height: 2rem;
 	max-height: 2rem;
 	overflow: hidden;
-	border-top-left-radius: .3rem;
-	border-top-right-radius: .3rem;
+	border-top-left-radius: 0.3rem;
+	border-top-right-radius: 0.3rem;
 	display: flex;
 	padding-left: 1rem;
 	padding-right: 1rem;
 	align-items: center;
-	gap: .2rem;
+	gap: 0.2rem;
 	background: rgb(85, 83, 64);
 	background: linear-gradient(90deg, rgba(85, 83, 64, 1) 0%, rgba(80, 78, 64, 1) 100%);
 }
 
 .generate_password_title {
-	margin-left: .5rem;
+	margin-left: 0.5rem;
 	font-weight: 500;
-	color: #DFD9A9;
+	color: #dfd9a9;
 	text-shadow: 1px 1px #000000;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -74,21 +73,22 @@
 }
 
 .console_line {
-	color: #00D800;
+	color: #00d800;
 	font-weight: normal;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell,
+		'Open Sans', 'Helvetica Neue', sans-serif;
 	font-weight: 400;
 	width: 100%;
 }
 
 .console_response {
-	color: #00D800;
+	color: #00d800;
 	width: 100%;
 	word-wrap: break-word;
 }
 
 .simbol {
-	color: #82817B;
+	color: #82817b;
 }
 
 .file_common {
@@ -102,16 +102,16 @@
 }
 
 .file {
-	color: #ED2826;
+	color: #ed2826;
 }
 
 .folder {
-	color: #709ECD;
+	color: #709ecd;
 }
 
 .command_user {
 	font-weight: 500;
-	color: #42FF55;
+	color: #42ff55;
 }
 
 .command_input {
@@ -119,7 +119,6 @@
 	border: none;
 	outline: none;
 }
-
 
 .circle {
 	height: 1.5rem;
@@ -132,7 +131,7 @@
 	align-items: center;
 	justify-content: center;
 	font-size: 12px;
-	background-color: #82817B;
+	background-color: #82817b;
 }
 
 .header {
@@ -150,7 +149,7 @@
 }
 
 .activity {
-	transition: .2s all;
+	transition: 0.2s all;
 	cursor: pointer;
 }
 
@@ -160,12 +159,12 @@
 
 .right_header {
 	display: flex;
-	gap: .5rem;
+	gap: 0.5rem;
 }
 
 .right_header img {
 	cursor: pointer;
-	transition: .2s all;
+	transition: 0.2s all;
 }
 
 .right_header img:hover {
@@ -194,13 +193,12 @@
 	min-width: 2.5rem;
 	width: 2.5rem;
 	cursor: pointer;
-	transition: .2s all;
+	transition: 0.2s all;
 }
 
 .sidebar_item:hover {
 	scale: 1.1;
 }
-
 
 .grid_icon {
 	position: absolute;
@@ -226,7 +224,7 @@
 		min-height: 1.5rem;
 		min-width: 1.5rem;
 		cursor: pointer;
-		transition: .2s all;
+		transition: 0.2s all;
 	}
 
 	.grid_icon {

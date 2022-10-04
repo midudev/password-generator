@@ -25,8 +25,14 @@ const PasswordInput = ({ isDisabled, setIsDisabled }) => {
 				value={generatedPassword}
 				onChange={({ target }) => setGenerate(target.value)}
 			/>
-			<span onClick={copyClipboard} disabled={isDisabled} className={`inline-flex items-center px-4 text-md ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'} text-gray-900 bg-gray-200 rounded-r-md border border-l-0 border-gray-300 dark:bg-gray-600 dark:text-gray-700 dark:border-gray-600`}>
-				{copied ? <ClipboardCheck size='24' color='#48BB78' /> : <Clipboard size='24' /> }
+			<span
+				onClick={copyClipboard}
+				disabled={isDisabled}
+				className={`inline-flex items-center px-4 text-md ${
+					isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'
+				} text-gray-900 bg-gray-200 rounded-r-md border border-l-0 border-gray-300 dark:bg-gray-600 dark:text-gray-700 dark:border-gray-600`}
+			>
+				{copied ? <ClipboardCheck size='24' color='#48BB78' /> : <Clipboard size='24' />}
 			</span>
 			<ConfirmToast isOpen={isOpen} setOpen={setOpen} />
 		</div>

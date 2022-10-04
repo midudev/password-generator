@@ -1,4 +1,3 @@
-
 const Info = (props) => {
 	return (
 		<svg

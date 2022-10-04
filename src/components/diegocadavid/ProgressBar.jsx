@@ -35,8 +35,7 @@ const ProgressBar = ({ handleFinish = () => {} }) => {
 	return (
 		<div>
 			<p>
-				Generando...{' '}
-				{progressBar < 15 && <span className='text-zinc-700'>¿Lento? Click aqui</span>}
+				Generando... {progressBar < 15 && <span className='text-zinc-700'>¿Lento? Click aqui</span>}
 			</p>
 			<p> [{stringBar}] % </p>
 		</div>

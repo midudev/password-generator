@@ -11,15 +11,11 @@ export default function App() {
 	const [copied, setCopied] = useState(false)
 	const [passwordSize, setPasswordSize] = useState(9)
 
-	const {
-		password,
-		generateBySize,
-		generateByBtn
-	} = useGenerator()
+	const { password, generateBySize, generateByBtn } = useGenerator()
 
 	generateBySize(passwordSize)
 
-	const handlerSize = e => {
+	const handlerSize = (e) => {
 		setPasswordSize(e.target.value)
 		if (copied) setCopied(false)
 	}
@@ -56,12 +52,13 @@ export default function App() {
 
 				<div className='password-result'>
 					<span className='password-result__offset'></span>
-					<span className='password-result__password'>{ password }</span>
+					<span className='password-result__password'>{password}</span>
 					<span className='password-result__copy'>
 						<button
 							className={`password-result__btn ${copied && 'password-result__btn--copied'}`}
-							onClick={handlerClickCopy}>
-							<CopyIcon/>
+							onClick={handlerClickCopy}
+						>
+							<CopyIcon />
 						</button>
 					</span>
 				</div>
@@ -69,17 +66,14 @@ export default function App() {
 				<input
 					type='range'
 					className='input-lenght'
-					value={ passwordSize }
-					style={ bgSize }
-					onChange={ handlerSize }
+					value={passwordSize}
+					style={bgSize}
+					onChange={handlerSize}
 					min='6'
 					max={MAX}
 				/>
 
-				<button
-					className='generate-btn'
-					onClick={ handlerClickBtn }
-				>
+				<button className='generate-btn' onClick={handlerClickBtn}>
 					Generate Password
 				</button>
 			</section>

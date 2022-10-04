@@ -1,4 +1,3 @@
-
 export default function Slider({ value, onChange, min, max }) {
 	return (
 		<div className='text-center my-6'>

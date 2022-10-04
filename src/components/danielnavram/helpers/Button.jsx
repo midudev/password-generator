@@ -12,7 +12,11 @@ const Button = ({ setIsDisabled }) => {
 		setIsDisabled(false)
 	}
 	return (
-		<button type='button' onClick={handleClick} className='w-full mt-4 text-white bg-orange-500 hover:bg-orange-700 focus:outline-none active:bg-orange-700 font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center justify-center dark:bg-orange-500 dark:hover:bg-orange-700 transition-all'>
+		<button
+			type='button'
+			onClick={handleClick}
+			className='w-full mt-4 text-white bg-orange-500 hover:bg-orange-700 focus:outline-none active:bg-orange-700 font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center justify-center dark:bg-orange-500 dark:hover:bg-orange-700 transition-all'
+		>
 			Generate Password
 			<Key size='24' />
 		</button>

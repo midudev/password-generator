@@ -13,13 +13,7 @@ const getRandomChar = (chars, charsIndex) => {
 	return chars[charsIndex][charIndex]
 }
 
-const generatePassword = ({
-	length,
-	uppercases,
-	lowercases,
-	numbers,
-	symbols
-}) => {
+const generatePassword = ({ length, uppercases, lowercases, numbers, symbols }) => {
 	const lengthPassword = Math.max(length, minimumPasswordLength)
 	const chars = [
 		uppercases ? dictionary.upperCases : [],

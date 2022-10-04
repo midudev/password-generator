@@ -3,7 +3,6 @@ import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { generatePassword } from './passwordGenrator'
 import style from './range.module.css'
 
-
 function PasswordGenerator() {
 	const [passwordLen, setPasswordLen] = useState(8)
 	const [password, setPassword] = useState(generatePassword({ length: passwordLen }))
@@ -27,9 +26,7 @@ function PasswordGenerator() {
 			<h1 className='text-center text-3xl font-semibold uppercase mb-10'>Password Generator</h1>
 
 			<div className='mb-8 flex items-center justify-between'>
-				<span className='text-xl truncate w-full'>
-					{password }
-				</span>
+				<span className='text-xl truncate w-full'>{password}</span>
 
 				<button
 					className='group relative ml-2 flex h-10 w-10 items-center justify-center'

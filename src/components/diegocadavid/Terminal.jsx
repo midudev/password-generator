@@ -7,7 +7,7 @@ const Terminal = ({ addCommand, commands }) => {
 			<div>
 				<p>Terminal Password [Version 9.22.2006]</p>
 				<p>
-					Creado por {' '}
+					Creado por{' '}
 					<a
 						href='https://diegocadavid-client-production.up.railway.app/'
 						target='_blank'

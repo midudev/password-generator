@@ -9,7 +9,7 @@ const maxLength = 20
 const defaultLength = 8
 const defaultPassword = 'Generate your password'
 
-export default function PasswordGenerator () {
+export default function PasswordGenerator() {
 	const [password, setPassword] = useState(defaultPassword)
 	const [length, setLength] = useState(defaultLength)
 
@@ -29,8 +29,8 @@ export default function PasswordGenerator () {
 
 	return (
 		<main className='passwordGenerator'>
-			<Toast/>
-			<Password password={password}/>
+			<Toast />
+			<Password password={password} />
 			<div className='card'>
 				<div className='lengthLabel'>
 					<label>Character lenght</label>

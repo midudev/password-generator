@@ -1,4 +1,3 @@
-
 export default function CopyIcon({ fill = '#000000', size = 24 }) {
 	return (
 		<svg

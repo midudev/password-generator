@@ -13,7 +13,7 @@ const ShowPassword = () => {
 	}, [])
 
 	return (
-		<Card className="flex justify-between items-center">
+		<Card className='flex justify-between items-center'>
 			<span className='text-gray-300 text-md'>{password}</span>
 			<span className='text-[8px] cursor-pointer' onClick={() => copyToClipboard(password)}>
 				COPY

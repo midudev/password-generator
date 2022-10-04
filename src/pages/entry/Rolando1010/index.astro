@@ -79,7 +79,7 @@ import CopyIcon from '@components/Rolando1010/copy-icon.astro'
 
 	.copy-toast {
 		background-color: #9663a9;
-    color: #4dff4d;
+		color: #4dff4d;
 		display: inline;
 		position: absolute;
 		padding: 5px 10px;
@@ -87,7 +87,7 @@ import CopyIcon from '@components/Rolando1010/copy-icon.astro'
 		font-size: 18px;
 		transform: translateY(-230%) translateX(155%);
 		opacity: 0;
-		transition: opacity .5s;
+		transition: opacity 0.5s;
 	}
 </style>
 
@@ -98,7 +98,7 @@ import CopyIcon from '@components/Rolando1010/copy-icon.astro'
 			<p class='label-container'>Contraseña:</p>
 			<article class='password-container'>
 				<p id='generated-password'>-</p>
-				<button id='copy-password'><CopyIcon/></button>
+				<button id='copy-password'><CopyIcon /></button>
 			</article>
 			<article class='copy-toast'>Copiado</article>
 		</section>
@@ -117,47 +117,47 @@ import CopyIcon from '@components/Rolando1010/copy-icon.astro'
 </Layout>
 
 <script type='module'>
-const passwordGeneratorButton = document.querySelector('.password-generator')
-const generatedPasswordContainer = document.querySelector('#generated-password')
-const passwordLengthContainer = document.querySelector('#password-length')
-const passwordLengthInput = document.querySelector('#password-length-input')
-const copyPasswordButton = document.querySelector('#copy-password')
-const copyToast = document.querySelector('.copy-toast')
+	const passwordGeneratorButton = document.querySelector('.password-generator')
+	const generatedPasswordContainer = document.querySelector('#generated-password')
+	const passwordLengthContainer = document.querySelector('#password-length')
+	const passwordLengthInput = document.querySelector('#password-length-input')
+	const copyPasswordButton = document.querySelector('#copy-password')
+	const copyToast = document.querySelector('.copy-toast')
 
-let passwordLength = 4
-let password = '-'
+	let passwordLength = 4
+	let password = '-'
 
-const generatePassword = () => {
-	const characters =
+	const generatePassword = () => {
+		const characters =
 			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()()–_=+[][]{}{}|;:‘“,./<><>?'
-	let newPassword = ''
-	for (let i = 0; i < passwordLength; i++) {
-		const charIndex = Math.floor(Math.random() * characters.length)
-		newPassword += characters[charIndex]
+		let newPassword = ''
+		for (let i = 0; i < passwordLength; i++) {
+			const charIndex = Math.floor(Math.random() * characters.length)
+			newPassword += characters[charIndex]
+		}
+		return newPassword
 	}
-	return newPassword
-}
 
-const activateCopyToast = () => {
-	copyToast.style.opacity = '1'
-	setTimeout(() => {
-		copyToast.style.opacity = '0'
-	}, 3000)
-}
+	const activateCopyToast = () => {
+		copyToast.style.opacity = '1'
+		setTimeout(() => {
+			copyToast.style.opacity = '0'
+		}, 3000)
+	}
 
-passwordLengthInput.addEventListener('change', () => {
-	passwordLength = passwordLengthInput.value
-	passwordLengthContainer.innerHTML = passwordLength
-})
+	passwordLengthInput.addEventListener('change', () => {
+		passwordLength = passwordLengthInput.value
+		passwordLengthContainer.innerHTML = passwordLength
+	})
 
-passwordGeneratorButton.addEventListener('click', () => {
-	const newPassword = generatePassword()
-	generatedPasswordContainer.innerHTML = newPassword
-	password = newPassword
-})
+	passwordGeneratorButton.addEventListener('click', () => {
+		const newPassword = generatePassword()
+		generatedPasswordContainer.innerHTML = newPassword
+		password = newPassword
+	})
 
-copyPasswordButton.addEventListener('click', () => {
-	navigator.clipboard.writeText(password)
-	activateCopyToast()
-})
+	copyPasswordButton.addEventListener('click', () => {
+		navigator.clipboard.writeText(password)
+		activateCopyToast()
+	})
 </script>

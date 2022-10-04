@@ -14,12 +14,12 @@ const INITIAL_STATE: State = {
 
 function reducerPasswordGenerator(state: State, action: Actions) {
 	switch (action.type) {
-	case 'generate':
-		return { ...state, password: generatePassword(state.length) }
-	case 'setLength':
-		return { ...state, length: action.payload }
-	default:
-		throw new Error('Unexpected action')
+		case 'generate':
+			return { ...state, password: generatePassword(state.length) }
+		case 'setLength':
+			return { ...state, length: action.payload }
+		default:
+			throw new Error('Unexpected action')
 	}
 }
 

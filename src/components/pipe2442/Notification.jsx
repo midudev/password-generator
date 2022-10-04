@@ -1,4 +1,3 @@
-
 const Notification = ({ handleNotification }) => {
 	return (
 		<div className='flex w-96 shadow-lg rounded-lg absolute r-0 bottom-14 hover:animate-pulse'>

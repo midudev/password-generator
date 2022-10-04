@@ -1,4 +1,3 @@
-
 export const CopyIcon = ({ className }) => (
 	<svg
 		width='30px'

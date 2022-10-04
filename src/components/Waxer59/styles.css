@@ -169,7 +169,7 @@ h1 {
 }
 
 @media (max-width: 300px) {
-	.alert{
+	.alert {
 		width: 150px;
 	}
 }

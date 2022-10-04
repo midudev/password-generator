@@ -1,4 +1,3 @@
-
 export const Range = ({ rangeCharacters, setRangeCharacters }) => {
 	return (
 		<div>

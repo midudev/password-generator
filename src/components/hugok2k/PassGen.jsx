@@ -29,7 +29,8 @@ export default function PassGen() {
 					className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-600 inputCont'
 					type='text'
 					id='myInput'
-					defaultValue={password} />
+					defaultValue={password}
+				/>
 				<button className='svgCopy' onClick={() => myFunction()}>
 					<CopySVG />
 				</button>
@@ -44,15 +45,16 @@ export default function PassGen() {
 					min='1'
 					max='25'
 					value={input}
-					onChange={(e) => setInput(e.target.value)} />
+					onChange={(e) => setInput(e.target.value)}
+				/>
 				<label className='labelRange'>{input}</label>
 			</div>
 			<div className='containerButton'>
 				<button className='button' onClick={() => setPassword(randomPassword(input))}>
-				Generate
+					Generate
 				</button>
 				<button className='button' onClick={() => myFunction()}>
-				Copy
+					Copy
 				</button>
 			</div>
 		</div>

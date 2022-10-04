@@ -1,4 +1,3 @@
-
 const Slider = ({ value, min, max, onChange }) => {
 	const handleOnChange = (event) => {
 		onChange(event)

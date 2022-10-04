@@ -8,7 +8,7 @@
 	align-items: center;
 }
 
-#swc-container{
+#swc-container {
 	font-family: monospace;
 	width: min-content;
 	height: auto;
@@ -33,14 +33,12 @@
 	margin-block-end: 1.1rem;
 }
 
-#swc-label{
+#swc-label {
 	font-size: 1.1rem;
 	margin-block-end: 1rem;
 }
 
-
-
-.swc-row{
+.swc-row {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -86,28 +84,28 @@
 	min-width: 10rem;
 }
 
-#swc-icon{
+#swc-icon {
 	width: 20px;
 	height: 20px;
 }
 
-#swc-copy-text{
+#swc-copy-text {
 	text-align: center;
-	width: 100%
+	width: 100%;
 }
 
-#swc-small{
+#swc-small {
 	text-decoration: underline;
 	text-decoration-color: purple;
 }
-@media screen and (max-width: 430px){
+@media screen and (max-width: 430px) {
 	#swc-container {
 		min-width: unset;
 		width: 95%;
 		padding-top: 2rem;
-		padding-bottom: 2rem; 
+		padding-bottom: 2rem;
 		max-height: unset;
-		height: auto
+		height: auto;
 	}
 
 	#swc-header h1 {
@@ -115,12 +113,12 @@
 		text-align: center;
 		margin-block-end: 1.8rem;
 	}
-	
+
 	#swc-header p {
 		margin-block-end: 1.8rem;
 	}
 
-	#swc-genpass{
+	#swc-genpass {
 		font-size: 0.9rem;
 		max-width: 95%;
 
@@ -129,7 +127,7 @@
 	}
 
 	#swc-slider {
-		margin-block-start: 1rem;;
+		margin-block-start: 1rem;
 		width: 90%;
 	}
 

@@ -2,7 +2,7 @@ import React from 'react'
 import CopyIcon from './CopyIcon'
 import './style.css'
 
-export default function Password ({ password }) {
+export default function Password({ password }) {
 	const handleCopy = () => {
 		navigator.clipboard.writeText(password)
 	}

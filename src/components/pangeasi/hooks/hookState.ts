@@ -16,7 +16,7 @@ export type IHookStateResolvable<S> = S | IHookStateInitialSetter<S> | IHookStat
 // 	currentState?: C
 // ): S
 
-export function resolveHookState<S, C extends S> (
+export function resolveHookState<S, C extends S>(
 	nextState: IHookStateResolvable<S>,
 	currentState?: C
 ): S {

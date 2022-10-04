@@ -1,5 +1,6 @@
 #box {
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+		Verdana, sans-serif;
 	color: white;
 	position: fixed;
 	height: 60vh;
@@ -12,7 +13,6 @@
 	transform: translate(-50%, -50%);
 }
 
-
 #password-generator {
 	height: 55vh;
 	display: flex;
@@ -24,8 +24,8 @@
 
 h1 {
 	font-size: 24px;
-	background: #7004CF;
-	background: linear-gradient(to right, #7004CF 0%, #CF00CF 100%);
+	background: #7004cf;
+	background: linear-gradient(to right, #7004cf 0%, #cf00cf 100%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -52,7 +52,7 @@ h1 {
 }
 
 #length-slider {
-	accent-color: rgb(100, 26, 165)
+	accent-color: rgb(100, 26, 165);
 }
 
 #generate-button {

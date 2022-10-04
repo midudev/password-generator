@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play&display=swap');
 
-.containerPassGen{
+.containerPassGen {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -10,9 +10,9 @@
 	height: 600px;
 	border-radius: 8px;
 	padding: 20px;
-	color: #dadada
+	color: #dadada;
 }
-.containerInputPass{
+.containerInputPass {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -20,14 +20,14 @@
 	position: relative;
 	width: 350px;
 }
-.title{
+.title {
 	color: #fff;
 	font-family: 'Cairo Play', cursive;
 	font-size: 40px;
 	margin-bottom: 30px;
 	text-align: center;
 }
-.button{
+.button {
 	color: #fff;
 	border: 2px solid #fff;
 	font-size: 20px;
@@ -36,52 +36,53 @@
 	border-radius: 6px;
 	transition: 0.3s;
 }
-.button:hover{
+.button:hover {
 	background-color: #dadada;
 	color: #000;
-
 }
-.inputCont{
+.inputCont {
 	position: relative;
 }
-.inputRange{
+.inputRange {
 	width: 310px;
 	margin: 20px 0 20px 0;
 }
-.labelRange{
+.labelRange {
 	font-size: 24px;
 	width: 30px;
 	margin: 0 0 0 12px;
 	text-align: right;
 }
-.containerRange{
+.containerRange {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
 }
-.svgGenerate, .svgCopy {
-	width: 30px;	
+.svgGenerate,
+.svgCopy {
+	width: 30px;
 	transition: transform 0.2s;
 	position: absolute;
 }
 .svgGenerate {
 	stroke: #000;
-	stroke-width:8px;
+	stroke-width: 8px;
 	right: 50px;
 }
-.svgCopy{
+.svgCopy {
 	fill: #000;
 	right: 10px;
 }
-.svgGenerate:hover, .svgCopy:hover{
+.svgGenerate:hover,
+.svgCopy:hover {
 	transform: scale(1.1);
 }
-.headerContainer{
+.headerContainer {
 	width: 350px;
 	margin-bottom: 40px;
 }
-.headerContainer:hover{
+.headerContainer:hover {
 	transform: scale(1.05);
 }
 

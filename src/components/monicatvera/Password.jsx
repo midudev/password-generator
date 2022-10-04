@@ -1,4 +1,3 @@
-
 const Password = ({ password }) => {
 	const Clipboard = () => {
 		if (password.length > 0) {

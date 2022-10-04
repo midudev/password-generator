@@ -10,13 +10,15 @@ import { usePasswordGenerator } from '../../hooks/angelograngetto/usePasswordGen
 
 const Card = () => {
 	const { pass, generatePass, length, onSetLength, onCopy } = usePasswordGenerator()
-	return <section className='flex flex-col'>
-		<button onClick={() => onCopy()}>Copy</button>
-		<input value={pass} readOnly />
-		<button onClick={() => generatePass()}>Generate</button>
-		<input type='range' min='8' max='128' step='1' value={length} onChange={onSetLength} />
-		<p>{length} characters</p>
-	</section>
+	return (
+		<section className='flex flex-col'>
+			<button onClick={() => onCopy()}>Copy</button>
+			<input value={pass} readOnly />
+			<button onClick={() => generatePass()}>Generate</button>
+			<input type='range' min='8' max='128' step='1' value={length} onChange={onSetLength} />
+			<p>{length} characters</p>
+		</section>
+	)
 }
 
 export default Card

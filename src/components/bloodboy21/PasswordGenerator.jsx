@@ -74,7 +74,7 @@ const Alert = ({ alert, setAlert }) => {
 	)
 }
 
-function PasswordGenerator () {
+function PasswordGenerator() {
 	const { options, setOptions, createPassword, password, setPassword, alert, setAlert } = storage()
 	const optionHandler = (e) => {
 		const { name, checked } = e.target

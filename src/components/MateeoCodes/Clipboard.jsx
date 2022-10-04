@@ -1,4 +1,3 @@
-
 function Clipboard({ ...props }) {
 	return (
 		<button role='button' {...props}>

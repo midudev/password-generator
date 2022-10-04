@@ -1,4 +1,3 @@
-
 import './CopyIcon.css'
 
 const CopyIcon = ({ onClick }) => {

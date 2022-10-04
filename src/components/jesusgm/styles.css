@@ -15,22 +15,16 @@
 	transition: all 0.2s ease 0s;
 }
 
-#jesusgm  .special {
-	filter:
-		drop-shadow(rgba(255 215 77 60%) -1px -1px 2px)
+#jesusgm .special {
+	filter: drop-shadow(rgba(255 215 77 60%) -1px -1px 2px)
 		drop-shadow(rgba(124 127 255 60%) 1px 1px 2px);
 	animation: 1.5s ease 0s infinite alternate none running jNbght;
-	background: linear-gradient(
-		90deg,
-		rgb(255 215 77) 0%,
-		rgb(64 221 255) 30%,
-		rgb(124 127 255) 85%
-	)
+	background: linear-gradient(90deg, rgb(255 215 77) 0%, rgb(64 221 255) 30%, rgb(124 127 255) 85%)
 		0% 0% / 200% 100%;
 	color: rgb(23 15 30);
 }
 
-#jesusgm  .special:hover {
+#jesusgm .special:hover {
 	transform: rotate(2deg);
 }
 
@@ -52,16 +46,10 @@
 	padding: 8px 18px;
 	text-decoration: none;
 	transition: all 0.2s ease 0s;
-	filter:
-		drop-shadow(rgba(255 215 77 60%) -1px -1px 2px)
+	filter: drop-shadow(rgba(255 215 77 60%) -1px -1px 2px)
 		drop-shadow(rgba(124 127 255 60%) 1px 1px 2px);
 	animation: 1.5s ease 0s infinite alternate none running jNbght;
-	background: linear-gradient(
-		90deg,
-		rgb(255 215 77) 0%,
-		rgb(64 221 255) 30%,
-		rgb(124 127 255) 85%
-	)
+	background: linear-gradient(90deg, rgb(255 215 77) 0%, rgb(64 221 255) 30%, rgb(124 127 255) 85%)
 		0% 0% / 200% 100%;
 	color: rgb(23 15 30);
 }

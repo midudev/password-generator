@@ -1,4 +1,3 @@
-
 export const Notification = ({ copyClass }) => {
 	return (
 		<div

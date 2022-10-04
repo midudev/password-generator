@@ -9,6 +9,6 @@ const initialState = {
 }
 
 const { subscribe, update: updateState } = writable(initialState)
-const update = (props) => updateState(state => ({ ...state, ...props }))
+const update = (props) => updateState((state) => ({ ...state, ...props }))
 
 export { initialState, subscribe, update }

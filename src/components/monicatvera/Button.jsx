@@ -1,4 +1,3 @@
-
 const Button = ({ children, onClick }) => {
 	return (
 		<button

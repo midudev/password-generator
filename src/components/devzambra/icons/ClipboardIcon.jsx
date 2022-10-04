@@ -1,5 +1,4 @@
-
-function ClipboardIcon ({ width, height, fill = '#fff' }) {
+function ClipboardIcon({ width, height, fill = '#fff' }) {
 	return (
 		<svg
 			width={`${width}px`}
