@@ -31,7 +31,7 @@ export const PasswordGenerator = () => {
 			<h1 className='josel95-password-generator-title'>Password generator</h1>
 			<Password value={passwordGenerated} blurred={loading}/>
 			<Range value={passwordLength} onChange={handleLengthChange}/>
-			<button className='josel95-password-generator-button' onClick={handlePasswordGenerate}>Generate</button>
+			<button className='josel95-password-generator-button' disabled={loading} onClick={handlePasswordGenerate}>Generate</button>
 		</div>
 	)
 }
