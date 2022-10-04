@@ -1,3 +1,7 @@
+import GitHubIcon from './icons/GitHubIcon'
+import WebIcon from './icons/WebIcon'
+import LinkedinIcon from './icons/LinkedinIcon'
+
 const PASSWORD_MIN = 4
 const PASSWORD_MAX = 20
 const INPUT_STEPS = 1
@@ -111,4 +115,25 @@ const OPTIONS = [
 	}
 ]
 
-export { PASSWORD_MIN, PASSWORD_MAX, INPUT_STEPS, OPTIONS }
+const SOCIAL_MEDIA = [
+	{
+		id: 'web',
+		title: 'Web Page',
+		icon: WebIcon,
+		url: 'https://www.davidbasto.dev/'
+	},
+	{
+		id: 'github',
+		title: 'Github',
+		icon: GitHubIcon,
+		url: 'https://github.com/david-fb'
+	},
+	{
+		id: 'linkedin',
+		title: 'LinkedIn',
+		icon: LinkedinIcon,
+		url: 'https://www.linkedin.com/in/david-basto/'
+	}
+]
+
+export { PASSWORD_MIN, PASSWORD_MAX, INPUT_STEPS, OPTIONS, SOCIAL_MEDIA }

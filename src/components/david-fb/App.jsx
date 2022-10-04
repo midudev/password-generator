@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import InputRange from './InputRange'
 import Toaster from './toaster'
+import Footer from './footer'
 
 import ListIcon from './icons/ListIcon'
 import SaveIcon from './icons/SaveIcon'
@@ -215,6 +216,7 @@ export default function App() {
 						</button>
 					</section>
 				</article>
+				<Footer />
 			</div>
 		</main>
 	)
