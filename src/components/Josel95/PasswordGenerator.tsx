@@ -1,7 +1,8 @@
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 
 import { generatePassword } from './utils/generatePassword'
 import { Password } from './Password'
+import { Range } from './Range'
 
 export const PasswordGenerator = () => {
 	const [passwordGenerated, setPasswordGenerated] = useState('')
@@ -21,16 +22,15 @@ export const PasswordGenerator = () => {
 		}, 1000)
 	}
 
-	const handleLengthChange = (event: ChangeEvent<HTMLInputElement>) => {
-		const rangeValue = parseInt(event.target.value)
-		setPasswordLength(rangeValue)
+	const handleLengthChange = (value: number) => {
+		setPasswordLength(value)
 	}
 
 	return (
 		<div className='josel95-password-generator-container'>
 			<h1 className='josel95-password-generator-title'>Password generator</h1>
 			<Password value={passwordGenerated} blurred={loading}/>
-			<input className='josel95-password-generator-length' type='range' min={5} max={64} defaultValue={10} onChange={handleLengthChange}/>
+			<Range value={passwordLength} label='Length' onChange={handleLengthChange}/>
 			<button className='josel95-password-generator-button' onClick={handlePasswordGenerate}>Generate</button>
 		</div>
 	)

@@ -13,6 +13,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	gap: 2rem;
 }
 
 .josel95-password-generator-title {
@@ -26,8 +27,33 @@
 	width: 50%;
 }
 
-.josel95-password-generator-length {
+.josel95-range-container {
+	display: flex;
+	gap: 1rem;
+}
 
+.josel95-range {
+	flex: 1;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.josel95-range::-webkit-slider-runnable-track {
+	appearance: none;
+	height: 1px;
+	background-color: #FFF;
+}
+
+.josel95-range::-webkit-slider-thumb {
+	appearance: none;
+	transform: translateY(-0.7rem);
+	height: 1.4rem;
+	aspect-ratio: 1;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	background-color: #FFF;
+	transition: transform 0.3s;
 }
 
 .josel95-password-generator-button {
