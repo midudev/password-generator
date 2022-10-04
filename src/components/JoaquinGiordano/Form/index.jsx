@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import CopyIcon from '@components/JoaquinGiordano/CopyIcon.jsx'
-import '../styles.css'
+import styles from '../Styles.module.css'
 const Form = () => {
 	const [password, setPassword] = useState()
 	const [passLength, setPassLength] = useState(16)
@@ -38,9 +38,12 @@ const Form = () => {
 	}, [passLength])
 
 	return (
-		<div id='container' className='w-full sm:w-4/6 xl:w-2/6 p-10 text-white flex flex-col gap-5 '>
+		<div
+			id='container'
+			className='w-full sm:w-4/6 xl:w-2/6 p-10 text-white flex flex-col gap-5 font-[system-ui]'
+		>
 			<div>
-				<h1 className='font-bold text-blue-500 text-2xl'>Password Generator</h1>
+				<h1 className='font-bold text-blue-500 text-2xl text-left'>Password Generator</h1>
 				<h2 className='text-blue-400 text-xl'>by Joaquin Giordano</h2>
 			</div>
 			<div className='flex gap-2 w-full'>
@@ -60,7 +63,7 @@ const Form = () => {
 			</div>
 			<input
 				type='range'
-				id='JoaquinGiordano_range'
+				className={styles['jg-range']}
 				defaultValue={16}
 				min={4}
 				max={28}
