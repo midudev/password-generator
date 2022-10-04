@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react'
 
 function Generator() {
 	const [password, setPassword] = useState('')
-	const [passLength, setPassLength] = useState(6)
+	const [passLength, setPassLength] = useState(15)
 	const inputStyle = {
 		fontFamily: 'Anonymous Pro'
 	}
 
 	useEffect(() => {
-		return () => {
-			generatePass()
-		}
+		generatePass()
 	}, [passLength])
 
 	// Copiar al portapapeles
@@ -22,12 +20,13 @@ function Generator() {
 		}
 	}
 
-	function generatePass() {
+	async function generatePass() {
 		let generatedPass = ''
-		const chars = '0123456789abcdefghijklmnñopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+		const max = 33
+		const min = 126
 		for (let i = 0; i < passLength; i++) {
-			const randomNumber = Math.floor(Math.random() * chars.length)
-			generatedPass += chars.substring(randomNumber, randomNumber + 1)
+			const randomNumber = Math.floor(Math.random() * (max - min) + min)
+			generatedPass += String.fromCharCode(randomNumber)
 		}
 		setPassword(generatedPass)
 	}
@@ -49,14 +48,26 @@ function Generator() {
 					id='generatedPass'
 					onChange={(e) => setPassword(e.target.value)}
 					style={inputStyle}
+					tabindex='-1'
 				/>
 				<a
 					id='copy'
-					class='bg-indigo-700 p-2 rounded-md cursor-pointer'
+					class='bg-indigo-700 p-2 rounded-md cursor-pointer hover:bg-indigo-900 transition-all duration-150'
 					onClick={() => copyClipboard()}
 				>
-					<svg class='svg-icon' viewBox='0 0 20 20' fill='white' width={20} height={30}>
-						<path d='M17.391,2.406H7.266c-0.232,0-0.422,0.19-0.422,0.422v3.797H3.047c-0.232,0-0.422,0.19-0.422,0.422v10.125c0,0.232,0.19,0.422,0.422,0.422h10.125c0.231,0,0.422-0.189,0.422-0.422v-3.797h3.797c0.232,0,0.422-0.19,0.422-0.422V2.828C17.812,2.596,17.623,2.406,17.391,2.406 M12.749,16.75h-9.28V7.469h3.375v5.484c0,0.231,0.19,0.422,0.422,0.422h5.483V16.75zM16.969,12.531H7.688V3.25h9.281V12.531z'></path>
+					<svg
+						className='w-6 h-6'
+						stroke='white'
+						viewBox='0 0 24 24'
+						xmlns='http://www.w3.org/2000/svg'
+						fill='none'
+					>
+						<path
+							strokeLinecap='round'
+							strokeLinejoin='round'
+							strokeWidth={2}
+							d='M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3'
+						/>
 					</svg>
 				</a>
 			</div>
@@ -65,19 +76,36 @@ function Generator() {
 					for='minmax-range'
 					className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
 				>
-					Password Length {passLength}
+					Password Length: {passLength}
 				</label>
 				<input
 					id='minmax-range'
 					type='range'
-					min={6}
-					max={22}
+					min={5}
+					max={30}
 					value={passLength}
 					onChange={(event) => setPassLength(event.target.value)}
 					className='w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer'
 				/>
 			</div>
-			<button class='bg-indigo-600 text-white px-10 py-3 rounded-xl' onClick={() => generatePass()}>
+			<button
+				class='bg-indigo-600 text-white px-10 py-3 rounded-xl hover:bg-indigo-900 ease-in-out transition-all duration-200 flex flex-row justify-center items-center gap-4'
+				onClick={() => generatePass()}
+			>
+				<svg
+					className='w-6 h-6'
+					fill='none'
+					stroke='white'
+					viewBox='0 0 24 24'
+					xmlns='http://www.w3.org/2000/svg'
+				>
+					<path
+						strokeLinecap='round'
+						strokeLinejoin='round'
+						strokeWidth={2}
+						d='M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z'
+					/>
+				</svg>
 				Generate Password
 			</button>
 		</div>
