@@ -1,0 +1,35 @@
+---
+// import '@components/marsidev/styles/slider.css'
+---
+
+<style>
+	.marsidev-custom-range-number {
+		accent-color: red;
+	}
+</style>
+
+<div class='flex flex-col items-start justify-center gap-2 text-black font-semibold text-lg w-full'>
+	<label for='marsidev-pwd-length' class='text-[1rem]'>Longitud de la contraseña</label>
+
+	<div class='flex flex-row items-center justify-start gap-2 text-black text-[1rem] w-full'>
+		<input
+			class='marsidev-custom-range-number w-[60px] text-[16px] p-2 rounded-md text-center shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.25)] border border-[#c8c8c8] h-[40px]'
+			type='number'
+			step='1'
+			min='4'
+			max='50'
+			name='length'
+			id='marsidev-pwd-length'
+			value='16'
+		/>
+
+		<input
+			class='marsidev-slider w-full'
+			type='range'
+			min='4'
+			max='50'
+			value='16'
+			id='marsidev-pwd-range'
+		/>
+	</div>
+</div>

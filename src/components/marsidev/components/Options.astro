@@ -1,0 +1,20 @@
+---
+import Checkboxes from '@components/marsidev/components/Checkboxes.astro'
+import LengthSlider from '@components/marsidev/components/LengthSlider.astro'
+---
+
+<div
+	class='w-full p-8 bg-white rounded-md text-black flex flex-col justify-center text-4xl border-t border-l border-r border-b-0 max-w-[800px] min-h-[115px] relative shadow-[0_2px_8px_rgba(0,0,0,0.15)] gap-2'
+>
+	<h4 class='text-left font-semibold text-lg pb-4'>
+		Personalice su contraseña
+	</h4>
+
+	<div
+		class='flex flex-row items-center justify-between gap-2'
+	>
+		<LengthSlider />
+		<Checkboxes />
+	</div>
+</div>
+
