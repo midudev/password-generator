@@ -9,7 +9,7 @@ import CheckIcon from '@components/johansantana/icons/CheckIcon.vue'
 const MIN_LENGTH = 6
 const MAX_LENGTH = 24
 const PASSWORD_CHARACTERS =
-	'0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	'0123456789abcdefghijklmnopqrstuvwxyz_-¿!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 /*
 	MAX_LENGTH / 2 + MIN_LENGTH / 2 --> sets the initial value
@@ -22,7 +22,7 @@ const passwordLengthNumber = computed(() => {
 	return Number(passwordLength.value)
 })
 
-const newPassword = (number) => {
+const handleGenerateNewPassword = (number) => {
 	const emptyArray = [...Array(number)]
 	password.value = emptyArray
 		.map((x) => {
@@ -49,7 +49,7 @@ const handleCopy = () => {
 		const tooltipTimeout = window.setTimeout(() => {
 			showTooltipMessage.value = false
 			window.clearTimeout(tooltipTimeout)
-		}, 2000)
+		}, 1500)
 	})
 }
 </script>
@@ -60,6 +60,7 @@ const handleCopy = () => {
 		<!-- Generator -->
 		<div class="py-10 flex flex-col">
 			<h1
+				id="johansantana__h1"
 				class="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-pink-500 mb-4"
 			>
 				Password Generator
@@ -69,7 +70,7 @@ const handleCopy = () => {
 			</p>
 			<div class="mb-6 flex gap-6 items-center">
 				<input
-					id="range"
+					id="johansantana__range"
 					type="range"
 					:min="MIN_LENGTH"
 					:max="MAX_LENGTH"
@@ -80,7 +81,7 @@ const handleCopy = () => {
 			</div>
 			<button
 				class="px-6 bg-blue-700 rounded-full py-3 text-white text-lg mb-6 hover:scale-105 hover:bg-blue-600 transition outline-8 outline-offset-4"
-				@click="newPassword(passwordLengthNumber)"
+				@click="handleGenerateNewPassword(passwordLengthNumber)"
 			>
 				Generate!
 			</button>
@@ -128,11 +129,11 @@ const handleCopy = () => {
 </template>
 
 <style scoped>
-h1 {
+#johansantana__h1 {
 	font-family: 'Inter', sans-serif;
 }
 
-input[type='range']::-webkit-slider-thumb {
+#johansantana__range::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	appearance: none;
 	width: 24px;
@@ -143,7 +144,7 @@ input[type='range']::-webkit-slider-thumb {
 	transition: background-color 0.2s ease;
 }
 
-input[type='range']:hover::-webkit-slider-thumb {
+#johansantana__range:hover::-webkit-slider-thumb {
 	border-radius: 999%;
 	background-color: rgb(200, 200, 200);
 }
