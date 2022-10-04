@@ -18,10 +18,10 @@ export const PasswordGenerator = () => {
 
 	return (
 		<div className='josel95-password-generator-container'>
-			<h1>Password generator</h1>
-			<span>{passwordGenerated}</span>
-			<input type='range' min={5} max={64} defaultValue={10} onChange={handleLengthChange}/>
-			<button onClick={handlePasswordGenerate}>Generate</button>
+			<h1 className='josel95-password-generator-title'>Password generator</h1>
+			<input className='josel95-password-generator-password' type='text' value={passwordGenerated} />
+			<input className='josel95-password-generator-length' type='range' min={5} max={64} defaultValue={10} onChange={handleLengthChange}/>
+			<button className='josel95-password-generator-button' onClick={handlePasswordGenerate}>Generate</button>
 		</div>
 	)
 }

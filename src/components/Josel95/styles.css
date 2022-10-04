@@ -4,6 +4,31 @@
 }
 
 .josel95-password-generator-container {
+	height: 50%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.josel95-password-generator-title {
+	font-size: 5rem;
+}
+
+.josel95-password-generator-password {
+	padding: 1rem;
+	font-size: 2rem;
+	color: #000;
+	width: 50%;
+}
+
+.josel95-password-generator-length {
+
+}
+
+.josel95-password-generator-button {
+	background-color: #F5A11D;
+	border-radius: 0.1rem;
+	font-size: 1.4rem;
+	padding: 1.5rem 3rem;
 }
