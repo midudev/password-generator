@@ -8,6 +8,8 @@ import SaveIcon from './icons/SaveIcon'
 import CopyIcon from './icons/CopyIcon'
 import ArrowLeft from './icons/ArrowLeft'
 import ArrowRight from './icons/ArrowRight'
+import CloseButton from './icons/CloseIcon'
+import ClearIcon from './icons/ClearIcon'
 
 import { generatePassword, getPasswordLevel } from './utils'
 import { PASSWORD_MIN, PASSWORD_MAX, INPUT_STEPS, OPTIONS } from './constants'
@@ -19,6 +21,8 @@ export default function App() {
 	const [passwordLevel, setPasswordLevel] = useState('')
 	const [checkboxes, setCheckboxes] = useState(OPTIONS)
 	const [toasts, setToasts] = useState([])
+	const [mainView, setMainView] = useState(true)
+	const [myPasswords, setMyPasswords] = useState([])
 
 	const handleCheckboxChange = (evt, id) => {
 		const changes = checkboxes.map((obj) => {
@@ -39,7 +43,7 @@ export default function App() {
 		}, [])
 		if (!characters.length) {
 			addToast({
-				message: 'You must select at least one option!',
+				message: 'You have to select at least one option!',
 				duration: 4
 			})
 			return
@@ -48,9 +52,10 @@ export default function App() {
 		setPassword(newPassword)
 	}
 
-	const handleCopy = () => {
-		if (password) {
-			navigator.clipboard.writeText(password)
+	const handleCopy = (evt, payload) => {
+		if (payload || password) {
+			let toCopy = payload || password
+			navigator.clipboard.writeText(toCopy)
 			addToast({
 				message: 'Copied to Clipboard!',
 				duration: 2
@@ -59,12 +64,21 @@ export default function App() {
 	}
 
 	const handleSave = () => {
-		if (password) {
+		if (password && !myPasswords.includes(password)) {
+			setMyPasswords((state) => [...state, password])
 			addToast({
 				message: 'Password Saved!',
 				duration: 2
 			})
 		}
+	}
+
+	const handleDelete = (payload) => {
+		setMyPasswords((state) => state.filter((elem) => elem !== payload))
+	}
+
+	const clearAllPasswords = () => {
+		setMyPasswords([])
 	}
 
 	const addToast = (payload) => {
@@ -77,6 +91,10 @@ export default function App() {
 		}
 
 		setToasts((state) => [newToast, ...state])
+	}
+
+	const handleView = () => {
+		setMainView(!mainView)
 	}
 
 	useEffect(() => {
@@ -95,71 +113,104 @@ export default function App() {
 				</a>
 				<h1 className='david-fb__title'>Password Generator</h1>
 				<article className='david-fb__container'>
-					<section>
-						<header className='david-fb__password'>
-							<hgroup>
-								<div className='david-fb__password-input'>
-									<input
-										type='text'
-										id='PasswordInput'
-										value={password}
-										onChange={(e) => setPassword(e.target.value)}
-									/>
+					<div className='david-fb__content-wrapper'>
+						{/* Password Generator */}
+						<section
+							className={`david-fb__password-generator ${
+								mainView ? '' : 'david-fb__hide-generator'
+							}`}
+						>
+							<header className='david-fb__password'>
+								<hgroup>
+									<div className='david-fb__password-input'>
+										<input
+											type='text'
+											id='PasswordInput'
+											value={password}
+											onChange={(e) => setPassword(e.target.value)}
+										/>
+										<button
+											className='david-fb__hide-mobile'
+											title='Copy Password'
+											onClick={handleCopy}
+										>
+											<CopyIcon size={51} color={'#40B852'} />
+										</button>
+									</div>
 									<button
 										className='david-fb__hide-mobile'
-										title='Copy Password'
-										onClick={handleCopy}
+										onClick={handleSave}
+										title='Save Password'
 									>
-										<CopyIcon />
-									</button>
-								</div>
-								<button
-									className='david-fb__hide-mobile'
-									onClick={handleSave}
-									title='Save Password'
-								>
-									<SaveIcon />
-								</button>
-								<div className='david-fb__mobile-copy'>
-									<button title='Copy Password' onClick={handleCopy}>
-										<CopyIcon />
-									</button>
-									<button onClick={handleSave} title='Save Password'>
 										<SaveIcon />
 									</button>
-								</div>
-							</hgroup>
-							<p>{passwordLevel}</p>
-						</header>
+									<div className='david-fb__mobile-copy'>
+										<button title='Copy Password' onClick={handleCopy}>
+											<CopyIcon size={51} color={'#40B852'} />
+										</button>
+										<button onClick={handleSave} title='Save Password'>
+											<SaveIcon />
+										</button>
+									</div>
+								</hgroup>
+								<p>{passwordLevel}</p>
+							</header>
 
-						<InputRange
-							min={PASSWORD_MIN}
-							max={PASSWORD_MAX}
-							steps={INPUT_STEPS}
-							value={passwordlength}
-							handleValueChange={setPasswordLength}
-						/>
+							<InputRange
+								min={PASSWORD_MIN}
+								max={PASSWORD_MAX}
+								steps={INPUT_STEPS}
+								value={passwordlength}
+								handleValueChange={setPasswordLength}
+							/>
 
-						<section className='david-fb__checkboxes'>
-							{checkboxes.map((cb) => (
-								<label className='david-fb__customCheckbox' key={cb.id}>
-									<input
-										type='checkbox'
-										checked={cb.status}
-										onChange={(evt) => handleCheckboxChange(evt, cb.id)}
-									/>
-									<span className='david-fb__checkmark'></span>
-									<span>{cb.title}</span>
-								</label>
-							))}
+							<section className='david-fb__checkboxes'>
+								{checkboxes.map((cb) => (
+									<label className='david-fb__customCheckbox' key={cb.id}>
+										<input
+											type='checkbox'
+											checked={cb.status}
+											onChange={(evt) => handleCheckboxChange(evt, cb.id)}
+										/>
+										<span className='david-fb__checkmark'></span>
+										<span>{cb.title}</span>
+									</label>
+								))}
+							</section>
 						</section>
-					</section>
-
+						{/* Password List */}
+						<section
+							className={`david-fb__my-passwords ${mainView ? 'david-fb__hide-passwords' : ''}`}
+						>
+							<header>
+								<h2 className='david-fb__my-passwords__title'>Password List</h2>
+								<button onClick={clearAllPasswords} title='Clear all'>
+									<ClearIcon />
+								</button>
+							</header>
+							<div className='david-fb__my-passwords__cards'>
+								{myPasswords.map((item, index) => (
+									<section className='david-fb__my-passwords__card' key={`myPassword-${index}`}>
+										<p>{item}</p>
+										<div>
+											<button title='Copy' onClick={(e) => handleCopy(e, item)}>
+												<CopyIcon size={28} color={'#fff'} />
+											</button>
+											<button title='Delete' onClick={() => handleDelete(item)}>
+												<CloseButton />
+											</button>
+										</div>
+									</section>
+								))}
+							</div>
+						</section>
+					</div>
+					{/* Generate and toggle view buttons */}
 					<section className='david-fb__control'>
 						<button className='david-fb__generate' onClick={handleGeneratePassword}>
 							Generate <ArrowRight />
 						</button>
-						<button className='david-fb__password-list'>
+						<button onClick={handleView} className='david-fb__password-list'>
 							<ListIcon />
 						</button>
 					</section>
