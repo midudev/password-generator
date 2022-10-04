@@ -14,23 +14,23 @@
 	}
 </script>
 
-<div class="input-range flex flex-col mb-4">
-	<span class="input-range__label mb-4">{label}</span>
-	<strong class="input-range__value">{value}</strong>
+<div class="krrskl-input-range flex flex-col mb-4">
+	<span class="krrskl-input-range__label mb-4">{label}</span>
+	<strong class="krrskl-input-range__value">{value}</strong>
 	<input type="range" {min} {max} bind:value {step} on:change={onRangeChanged} />
 </div>
 
 <style>
-	.input-range {
+	.krrskl-input-range {
 		position: relative;
 	}
 
-	.input-range__value {
+	.krrskl-input-range__value {
 		position: absolute;
 		right: 0;
 	}
 
-	.input-range input[type='range'] {
+	.krrskl-input-range input[type='range'] {
 		-webkit-appearance: none;
 		height: 0.5rem;
 		background: var(--krrskl-primary-color);
@@ -38,7 +38,7 @@
 		border-radius: 8px;
 	}
 
-	.input-range input[type='range']::-webkit-slider-thumb {
+	.krrskl-input-range input[type='range']::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		height: 20px;
 		width: 20px;
@@ -48,7 +48,7 @@
 		cursor: ew-resize;
 	}
 
-	.input-range input[type='range']::-webkit-slider-runnable-track {
+	.krrskl-input-range input[type='range']::-webkit-slider-runnable-track {
 		-webkit-appearance: none;
 		box-shadow: none;
 		border: none;

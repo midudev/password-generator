@@ -1,7 +1,7 @@
-<h1 class="title">Password generator tool</h1>
+<h1 class="krrskl-title">Password generator tool</h1>
 
 <style>
-	.title {
+	.krrskl-title {
 		font-size: 2em;
 		font-weight: 700;
 		text-transform: uppercase;

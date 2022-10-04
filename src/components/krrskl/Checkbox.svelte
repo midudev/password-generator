@@ -6,7 +6,7 @@
 	export let label = ''
 </script>
 
-<div class="checkbox flex items-center">
+<div class="krrskl-checkbox flex items-center">
 	<input type="checkbox" bind:checked on:change={dispatch('onChange', checked)} />
 	{#if checked}
 		<svg width="20" height="20" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,11 +21,11 @@
 			/>
 		</svg>
 	{/if}
-	<span class="checkbox__label ml-3">Allow {label}</span>
+	<span class="krrskl-checkbox__label ml-3">Allow {label}</span>
 </div>
 
 <style>
-	.checkbox input {
+	.krrskl-checkbox input {
 		position: absolute;
 		opacity: 0;
 		cursor: pointer;
@@ -33,7 +33,7 @@
 		width: 20px;
 	}
 
-	.checkbox svg {
+	.krrskl-checkbox svg {
 		fill: var(--krrskl-primary-color);
 	}
 </style>

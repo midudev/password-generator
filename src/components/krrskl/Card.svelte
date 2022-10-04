@@ -1,9 +1,9 @@
-<div class="card">
+<div class="krrskl-card">
 	<slot />
 </div>
 
 <style>
-	.card {
+	.krrskl-card {
 		background-color: var(--krrskl-white-color);
 		border-radius: 8px;
 		padding: 1rem;
@@ -11,13 +11,13 @@
 	}
 
 	@media (max-width: 425px) {
-		.card {
+		.krrskl-card {
 			width: 95vw;
 		}
 	}
 
 	@media (min-width: 768px) {
-		.card {
+		.krrskl-card {
 			min-width: 600px;
 		}
 	}
