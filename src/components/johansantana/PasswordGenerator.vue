@@ -129,7 +129,7 @@ const handleCopy = () => {
 	</div>
 </template>
 
-<style>
+<style scoped>
 h1 {
 	font-family: 'Inter', sans-serif;
 }
