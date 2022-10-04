@@ -1,18 +1,29 @@
-import { useState, useEffect } from "react";
 
-const PasswordValues = () => {
 
-	const[value, setValue] = useState(8);
+const PasswordValues = (props) => {
 
-	useEffect(() => {
-		console.log(value);
-	}, [value])
+	const {value, 
+		   setValue, 
+		   abc, 
+		   setAbc, 
+		   numbers, 
+		   setNumbers, 
+		   special, 
+		   setSpecial} = props;
+
+	const changeCheckboxes = (type) => {
+
+	}
 
 	return(
 		<div className="paula2208-PasswordValuesContainer">
 
 			<div className="paula2208-Checkboxes">
-				<input type="checkbox" className="paula2208-Checkbox"/>
+				<input type="checkbox" 
+					   className="paula2208-Checkbox"
+					   checked={abc}
+					   onChange={() => changeCheckboxes('abc')}
+				/>
 				<label>
 					AaBbCc
 				</label>
@@ -21,6 +32,8 @@ const PasswordValues = () => {
 			<div className="paula2208-Checkboxes">
 				<input type="checkbox" 
 					   className="paula2208-Checkbox"
+					   checked={numbers}
+					   onChange={() => changeCheckboxes('numbers')}
 				/>
 				<label>
 					123456
@@ -28,7 +41,11 @@ const PasswordValues = () => {
 			</div>
 
 			<div className="paula2208-Checkboxes">
-				<input type="checkbox" className="paula2208-Checkbox"/>
+				<input type="checkbox" 
+					   className="paula2208-Checkbox"
+					   checked={special}
+					   onChange={() => changeCheckboxes('special')}
+				/>
 				<label>
 					* _ / % @
 				</label>
@@ -46,8 +63,6 @@ const PasswordValues = () => {
 					onChange={(e) => setValue(e.target.value)}
 				/>
 			</div>
-
-			
 			
 		</div>
 	)
