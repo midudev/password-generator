@@ -1,0 +1,28 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 600px;
+	height: 100%;
+	background-color: rgb(225, 225, 225);
+}
+
+.separator {
+	height: 30px;
+}
+.horizontalSeparator {
+	width: 16px;
+}
+
+.button {
+	border-color: cadetblue;
+	border-width: 1px;
+	padding: 10px;
+}
+
+.rowContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
