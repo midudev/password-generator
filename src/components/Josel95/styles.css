@@ -12,7 +12,8 @@
 }
 
 .josel95-password-generator-container {
-	width: 50%;
+	width: 100%;
+	max-width: 650px;
 	background-color: #FFF;
 	border-radius: 5px; 
 	padding: 1rem; 
@@ -24,13 +25,15 @@
 }
 
 .josel95-password-generator-title {
-	font-size: 3rem;
+	font-size: calc(100% + 5vw);
+	text-align: center;
 }
 
 .josel95-input-icon {
 	position: relative;
 	display: flex;
-	width: 75%;
+	width: 100%;
+	max-width: 460px;
 }
 
 .josel95-input-button {
@@ -97,4 +100,10 @@
 
 .josel95-password-generator-button:hover {
 	background-position: 100% 0;
+}
+
+@media (min-width: 650px) {
+	.josel95-password-generator-title {
+		font-size: 3rem;
+	}
 }
