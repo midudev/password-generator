@@ -114,7 +114,7 @@ export default function PasswordGenerator() {
 					onChange={(e) => setIncludeSymbols(e.target.checked)}
 				/>
 				<PasswordStrength password={password} />
-				<Button onClick={generatePassword} text={'GENERATE 🠺'} />
+				<Button onClick={generatePassword} text={'GENERATE 🡆'} />
 			</article>
 		</section>
 	)
