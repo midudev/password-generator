@@ -1,5 +1,52 @@
 ---
 import Layout from '@layout'
+import ClipboardIcon from '@components/israel-gs/assets/clipboard-text.svg'
+import RefreshIcon from '@components/israel-gs/assets/refresh.svg'
+import IconButton from '@components/israel-gs/components/IconButton.jsx'
 ---
 
-<Layout title='israel-gs' />
+<Layout title='israel-gs'>
+	<div class='w-screen h-screen flex justify-center items-center'>
+		<div class='flex flex-col gap-4 w-full px-8 md:w-5/6 lg:w-3/6 xl:w-2/6'>
+			<div class='flex items-center w-full bg-white px-4 py-2 rounded-md'>
+				<output class='text-black flex-1' name='length'> 40asdasdasd</output>
+				<IconButton
+					client:only='react'
+					src={ClipboardIcon}
+					handleClick={() => {
+						console.log('copied')
+					}}
+				/>
+				<IconButton
+					client:only='react'
+					src={RefreshIcon}
+					handleClick={() => {
+						console.log('refreshed')
+					}}
+				/>
+			</div>
+			<div class='px-6 py-4 rounded-lg relative bg-gray-600/50 text-white w-full'>
+				<h1 class='text-2xl font-bold mb-4'>Generador de contraseñas</h1>
+				<div class='flex flex-col gap-4 mb-4'>
+					<div class='flex flex-col gap-2'>
+						<label for='length'>Caracteres:</label>
+						<input type='range' id='length' name='length' min='4' max='20' value='8' />
+					</div>
+				</div>
+				<div>
+					<label>
+						<input class='mr-3' type='checkbox' id='cbox1' value='uppercase' />Mayúsculas
+					</label>
+					<br />
+					<label>
+						<input class='mr-3' type='checkbox' id='cbox1' value='lowercase' />Minúsculas
+					</label>
+					<br />
+					<label>
+						<input class='mr-3' type='checkbox' id='cbox1' value='numbers' />Numbers
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>
