@@ -1,5 +1,4 @@
 
-
 const PasswordValues = (props) => {
 
 	const {value, 
@@ -11,8 +10,28 @@ const PasswordValues = (props) => {
 		   special, 
 		   setSpecial} = props;
 
-	const changeCheckboxes = (type) => {
+	const changeCheckboxes = (type, data) => {
+		if(type === 'abc'){
+			if(!numbers && !special){
+				return;
+			}
+			setAbc(data);
+		}
 
+		if(type === 'numbers'){
+			if(!abc && !special){
+				return;
+			}
+			setNumbers(data);
+		}
+
+		if(type === 'special'){
+			if(!numbers && !abc){
+				return;
+			}
+			setSpecial(data);
+		}
+		
 	}
 
 	return(
@@ -22,7 +41,7 @@ const PasswordValues = (props) => {
 				<input type="checkbox" 
 					   className="paula2208-Checkbox"
 					   checked={abc}
-					   onChange={() => changeCheckboxes('abc')}
+					   onChange={(e) => changeCheckboxes('abc', e.target.checked)}
 				/>
 				<label>
 					AaBbCc
@@ -33,7 +52,7 @@ const PasswordValues = (props) => {
 				<input type="checkbox" 
 					   className="paula2208-Checkbox"
 					   checked={numbers}
-					   onChange={() => changeCheckboxes('numbers')}
+					   onChange={(e) => changeCheckboxes('numbers', e.target.checked)}
 				/>
 				<label>
 					123456
@@ -44,7 +63,7 @@ const PasswordValues = (props) => {
 				<input type="checkbox" 
 					   className="paula2208-Checkbox"
 					   checked={special}
-					   onChange={() => changeCheckboxes('special')}
+					   onChange={(e) => changeCheckboxes('special', e.target.checked)}
 				/>
 				<label>
 					* _ / % @

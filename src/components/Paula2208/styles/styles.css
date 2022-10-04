@@ -1,20 +1,29 @@
 
+.paula2208-pointer{
+	cursor:pointer;
+}
+
 /*GenerateContainer*/
 .paula2208-GenerateContainer{
 	display: flex;
     justify-content: center;
-    width: 70%;
+    width: fit-content;
     margin-top: 5%;
-    margin-left: 15%;
-    margin-right: 10%;
-
+    margin-left: 25%;
 	color: #9cf3ff;
+}
+
+.paula2208-buttonsContainer{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .paula2208-GridContainer{
 	display: grid;
-	grid-template-columns: 10px repeat(2, 1fr);
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: 25px 225px 350px;
+	grid-template-rows: 80px 150px 15px;
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
 }
@@ -22,7 +31,7 @@
 .paula2208-left-line{
 	background-color: #9cf3ff;
     width: 20px;
-    height: 500px;
+    height: auto;
     grid-area: 1 / 1 / 4 / 2;
     border-radius: 10px;
 }
@@ -36,18 +45,18 @@
 	gap: 10px;
 	font-size: 50px;
 	font-weight: bold;
-	margin-left: 10px;
+	margin-left: 5px;
+	align-items: center;
 }
 
 /*PasswordValues*/
 
 .paula2208-PasswordValuesContainer{
-	grid-area: 2 / 2 / 4 / 3;
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
 	border: 1px solid #9cf3ff;
-	margin-left: 10%;
+	margin-left: 18px;
     width: 200px;
     height: fit-content;
 	border-radius: 10px;
@@ -88,13 +97,48 @@
 /*OutputOptions*/
 
 .paula2208-OutputOptionsContainer{
-	grid-area: 3 / 3 / 4 / 4;
-	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.paula2208-OutputOptionsContainer-label{
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+.paula2208-OutputOptionsContainer-label label{
+	margin-top: 10px;
+}
+
+.paula2208-Password{
+	height: 30px;
+	border-radius: 10px;
+	padding: 5px;
+	background-color: transparent;
+	border: 1px solid #9cf3ff;
 }
 
 /*GenerateOptions*/
-
 .paula2208-GenerateOptionsContainer{
-	grid-area: 2 / 3 / 3 / 4;
-	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	align-items: center;
+}
+
+.paula2208-information{
+	font-size: 50px;
+	font-weight: 700px;
+}
+
+.paula2208-btnGenerate{
+	background-color: #9cf3ff;
+	border: 1px solid #9cf3ff;
+	border-radius: 20px;
+	color: #16182e !important;
+	padding: 10px;
 }

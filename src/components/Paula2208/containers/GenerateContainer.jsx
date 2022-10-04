@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 import GenerateOptions from '../components/GenerateOptions';
 import OutputOptions from '../components/OutputOptions';
 import PasswordValues from '../components/PasswordValues';
+
+import {checkPassword} from '../helpers/passwordHelpers.js'
 
 import '../styles/styles.css'
 
@@ -13,7 +15,37 @@ const GenerateContainer = () => {
 	const [numbers, setNumbers] = useState(true);
 	const [special, setSpecial] = useState(true);
 
-	const [password, setPassword] = useState('holiii');
+	const [password, setPassword] = useState('');
+
+	const letters = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz';
+	const nums= '0123456789';
+	const spl = '!%*/-$@_';
+
+	const generatePasswordRandom = () => {
+		let pass = '';
+		let base = '';
+
+		if(abc){
+			base= base+letters;
+		}
+		if(numbers){
+			base= base+nums;
+		}
+		if(special){
+			base= base+spl;
+		}
+
+		for (let i = 0; i < value; i++){
+			pass = pass + base.charAt(Math.floor(Math.random() * base.length))
+		}
+
+		if(checkPassword(pass, abc, numbers, special, letters, nums, spl)){
+			setPassword(pass);
+		}
+		else{
+			generatePasswordRandom();
+		}
+	}
 
 	return (
 		<div className="paula2208-GenerateContainer">
@@ -33,10 +65,15 @@ const GenerateContainer = () => {
 					special={special}
 					setSpecial={setSpecial}
 				/>
-				<GenerateOptions />
-				<OutputOptions 
-					password={password}
-				/>
+				<div className="paula2208-buttonsContainer">
+					<GenerateOptions 
+						generatePasswordRandom={generatePasswordRandom}
+					/>
+					<OutputOptions 
+						password={password}
+					/>
+				</div>
+				
 			</div>
 
 		</div>
