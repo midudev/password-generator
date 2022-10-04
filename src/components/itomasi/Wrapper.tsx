@@ -11,7 +11,7 @@ const Wrapper: FC<Props> = function({
 		<div
 			className='fixed inset-0 flex justify-center items-center bg-gradient-to-r from-blue-500 to-blue-600'
 		>
-			<div className='w-full max-h-screen overflow-y-auto py-8 px-4'>
+			<div className='w-full max-h-screen overflow-y-auto px-4 py-8'>
 				<div className='bg-[#0A0F31] max-w-xl mx-auto p-4 rounded-md text-lg text-white'>
 					{children}
 				</div>
