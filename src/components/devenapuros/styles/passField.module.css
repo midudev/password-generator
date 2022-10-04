@@ -2,7 +2,8 @@
 	padding: 10px 15px;
 	display: flex;
 	align-items: center;
-	font-size: 17px;
+	font-size: 16px;
+	width: 100%;
 	font-weight: 600;
 	border-radius: 12px;
 	border: 1px solid #00000020;
@@ -14,6 +15,7 @@
 	display: flex;
 	align-items: center;
 	width: 100%;
+	background-color: transparent;
 }
 
 .container > input:focus {

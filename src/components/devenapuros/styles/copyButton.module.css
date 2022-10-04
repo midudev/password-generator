@@ -1,0 +1,13 @@
+.copyButton {
+	position: relative;
+	background-color: transparent;
+}
+
+.copyButton svg {
+	transition: stroke 300ms ease;
+	stroke: #777;
+}
+
+.copyButton:hover svg {
+	stroke: #222;
+}

@@ -7,7 +7,6 @@ export const CopyIcon = () => {
 			fill='none'
 			viewBox='0 0 24 24'
 			strokeWidth='1.5'
-			stroke='#777'
 			className='w-6 h-6'
 		>
 			<path
