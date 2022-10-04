@@ -44,10 +44,10 @@ export const PasswordGenerator = () => {
 			})
 	}
 	return (
-		<div className='container'>
-			<div className='password-display'>
+		<div className='seand52-container'>
+			<div className='seand52-password-display'>
 				{generatedPassword}
-				<button className='copy-icon' onClick={handleCopyPassword}>
+				<button className='seand52-copy-icon' onClick={handleCopyPassword}>
 					<Copy />
 				</button>
 			</div>
@@ -60,10 +60,10 @@ export const PasswordGenerator = () => {
 				onChange={handlePasswordLengthChange}
 				onPointerUp={handleGeneratePassword}
 			></input>
-			<button className='generate-btn' onClick={handleGeneratePassword}>
+			<button className='seand52-generate-btn' onClick={handleGeneratePassword}>
 				Generate Password
 			</button>
-			{copySuccess && <p className='message__success'>Copied to clipboard!</p>}
+			{copySuccess && <p className='seand52-message-success'>Copied to clipboard!</p>}
 		</div>
 	)
 }
