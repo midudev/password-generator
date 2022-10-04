@@ -73,7 +73,7 @@ const Form = () => {
 			/>
 
 			<button
-				className='bg-blue-500 hover:bg-blue-600 duration-500 py-3 rounded outline-none'
+				className='bg-blue-500 hover:bg-blue-600 font-bold duration-500 py-3 rounded outline-none'
 				onClick={handleNewPassword}
 			>
 				Generate
