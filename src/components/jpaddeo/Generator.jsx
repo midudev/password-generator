@@ -1,58 +1,46 @@
-import { useState } from 'react'
-
-import GeneratorOptions from '@components/jpaddeo/GeneratorOptions'
-import Clipboard from '@components/jpaddeo/icons/Clipboard'
+import GeneratorOptions from '@components/jpaddeo/GeneratorOptions.jsx'
+import PasswordCard from '@components/jpaddeo/partials/PasswordCard.jsx'
+import Actions from '@components/jpaddeo/partials/Actions.jsx'
 
 import {
 	PasswordGeneratorContextProvider,
 	usePasswordGenerator
 } from '@components/jpaddeo/hooks/usePasswordGenerator.jsx'
+import Lock from './icons/Lock'
 
 function InnerGenerator() {
-	const [copying, setCopying] = useState(false)
-
-	const { generatePassword, generatedPassword } = usePasswordGenerator()
-
-	const handleCopy = (e) => {
-		setCopying(true)
-		navigator.clipboard.writeText(generatedPassword).then(
-			() => {
-				setCopying(false)
-				console.log('Copiado')
-			},
-			() => {
-				setCopying(false)
-				console.log('No Copiado')
-			}
-		)
-	}
-
-	const handleRefresh = (e) => {
-		generatePassword()
-	}
+	const { generatedPassword, strength } = usePasswordGenerator()
 
 	return (
-		<section className='flex flex-col items-center justify-center gap-4 bg-red-500 max-w-sm md:max-w-lg mx-auto p-6 mt-6 rounded-lg shadow-md shadow-gray-200'>
-			<h1 className='text-white text-2xl uppercase mt-2'>Password Generator</h1>
-			<span className='bg-gray-900 dark:bg-gray-200 p-6 rounded-xl'>
-				{generatedPassword || 'Generating...'}
+		<section className='flex flex-col items-center justify-center gap-4 bg-gray-500 max-w-sm md:max-w-lg mx-auto p-6 mt-6 rounded-lg shadow-md shadow-gray-200 font-mono bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900'>
+			<div className='flex items-center justify-center gap-2 text-white text-2xl uppercase mt-2'>
+				<Lock className='w-5 h-5 animate-pulse' />
+				<h1>Password Generator</h1>
+				<Lock className='w-5 h-5 animate-pulse' />
+			</div>
+			<div className='flex items-center justify-center gap-2'>
+				<PasswordCard password={generatedPassword} />
+				<Actions />
+			</div>
+			<span
+				className={`text-sm font-bold ${
+					strength === 'strong' ? 'text-green-600' : strength === 'medium' ? 'text-yellow-600' : ''
+				}`}
+			>
+				{strength}
 			</span>
 			<GeneratorOptions />
-			<div>
-				<div className='flex items-center justify-between gap-4'>
-					<button onClick={handleRefresh} className='bg-gray-400 text-white px-4 py-2 rounded-2xl'>
-						Refresh
-					</button>
-					<button
-						onClick={handleCopy}
-						className='bg-blue-400 text-white px-4 py-2 rounded-2xl'
-						disabled={copying}
+			<footer className='text-sm text-white'>
+				<span>
+					Developed with 💙 by {' '}
+					<a
+						href='https://github.com/jpaddeo'
+						className='border-b-2 border-dotted  border-white hover:border-gray-500'
 					>
-						{copying ? 'Copiando...' : 'Copiar'}
-						<Clipboard className='w-6 h-6' />
-					</button>
-				</div>
-			</div>
+						jpaddeo
+					</a>
+				</span>
+			</footer>
 		</section>
 	)
 }
