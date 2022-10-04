@@ -33,7 +33,7 @@ const App = () => {
 
 	const handlerCopyPassword = () => {
 		navigator.clipboard.writeText(document.querySelector('#password-generated').value)
-		generateAlert('Password copied to clipboard!', 3000, 'copy')
+		generateAlert('Password copied to clipboard!', 5000, 'copy')
 	}
 
 	const handlerNewPassword = (delay = false) => {
