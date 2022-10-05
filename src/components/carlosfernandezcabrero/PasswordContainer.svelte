@@ -34,7 +34,7 @@
 <div class="flex flex-col items-center gap-y-14 w-full">
 	<div class="flex flex-col gap-y-4 items-center justify-center lg:flex-row lg:gap-x-4 w-full">
 		<p
-			class="bg-[#F0F5F9] text-[#1E2022] text-5xl py-[30px] px-12 rounded-full text-center w-full lg:w-9/12 sm:w-11/12"
+			class="bg-[#F0F5F9] text-[#1E2022] text-5xl py-[25px] px-12 rounded-full text-center w-full lg:w-9/12 sm:w-11/12 font-['ShareTechMono']"
 		>
 			{password}
 		</p>
@@ -113,6 +113,11 @@
 </div>
 
 <style>
+	@font-face {
+		font-family: 'ShareTechMono';
+		src: url('/public/carlosfernandezcabrero/ShareTechMono-Regular.ttf');
+	}
+
 	input[type='range'] {
 		appearance: none;
 	}
