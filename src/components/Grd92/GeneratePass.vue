@@ -1,6 +1,6 @@
 <template>
 	<div class="flex justify-center items-center flex-col h-full">
-		<h1 class="title text-violet-600 text-5xl text-center mb-3 w-1/3">Password Generator</h1>
+		<h1 class="title text-violet-600 text-center mb-3 w-1/3">Password Generator</h1>
 
 		<div
 			id="result-password"
@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 * {
 	font-size: 18px;
 	font-family: monospace, sans-serif;
@@ -101,6 +101,7 @@ export default {
 }
 
 .title {
+	font-size: 3em;
 	font-weight: 800;
 }
 
