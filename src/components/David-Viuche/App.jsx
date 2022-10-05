@@ -7,7 +7,9 @@ const App = () => {
 				<form id='form-dv' className='center-dv'>
 					<div id='pass-cont-dv'>
 						<span id='pass-dv'>agagagajahsbfkdmencj</span>
-						<img src='/public/David-Viuche/copy.svg' alt='copiar contraseña' />
+						<button>
+							<img src='/public/David-Viuche/copy.svg' alt='copiar contraseña' />
+						</button>
 					</div>
 					<input type='range' />
 					<button>Generar</button>

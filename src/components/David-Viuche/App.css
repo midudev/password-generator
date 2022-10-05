@@ -55,16 +55,30 @@
 	padding: 6%;
 	color: var(--color-3-dv);
 	display: inline-block;
+	max-width: 80%;
+	overflow: hidden;
 }
 
 #pass-cont-dv{
-	background-color: var(--color-4-dv);
+	background-color: var(--color-2-dv);
 	display: flex;
 	align-items: center;
+	width: 90%;
+	justify-content: center;
+	margin: 0 10px;
+	border-radius: 15px;
 }
 
 #pass-cont-dv img{
 	width: 2rem;
 	height: 2rem;
 	display: inline-block;
+	margin: 10px;
+}
+
+#pass-cont-dv img{
+	width: 2rem;
+	height: 2rem;
+	display: inline-block;
+	margin: 10px;
 }
