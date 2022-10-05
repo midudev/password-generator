@@ -7,7 +7,7 @@
     "lint:modified": "eslint $(git diff --name-only --diff-filter=ACMRTUXB main | grep  -E \"(.js$|.ts$|.tsx$)\") --fix",
     "commit": "cz",
     "dev": "astro dev",
-    "start": "astro dev --root .src/pages/entry/pcabreram1234/",
+    "start": "astro dev",
     "build": "astro build",
     "typecheck": "astro check && tsc --noEmit",
     "preview": "astro preview",
