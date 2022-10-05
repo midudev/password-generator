@@ -6,37 +6,55 @@ import genPassword from './genPassword'
 const PassGenerator = () => {
 	const [password, setPassword] = useState('')
 	const [configPassword, setConfigPassword] = useState({
-		length: 4,
+		length: 3,
 		uppercase: false,
 		lowercase: false,
 		numbers: false,
 		symbols: false
 	})
+	const [showMessageEmpty, setShowMessageEmpty] = useState(false)
+	const [showMessageCopy, setShowMessageCopy] = useState(false)
 
 	const handlerGenerateButton = () => {
-		console.log(
-			'🚀 ~ file: passGenerator.jsx ~ line 17 ~ handlerGenerateButton ~ configPassword',
-			configPassword
-		)
 		setPassword(genPassword(configPassword))
+		setShowMessageEmpty(true)
 	}
+
+	const copyPassword = () => {
+		navigator.clipboard.writeText(password)
+		setShowMessageCopy(true)
+		setTimeout(() => setShowMessageCopy(false), 2000)
+	}
+
 	return (
 		<section className='password-container'>
+			{password.length === 0 && showMessageEmpty && (
+				<div className='message'>
+					<p>Select some case ⚠️</p>
+				</div>
+			)}
+			{password.length !== 0 && showMessageCopy && (
+				<div className='message'>
+					<p>Password copied ✅😀</p>
+				</div>
+			)}
 			<h1 className='title'>Passoword Generator</h1>
 			<div className='password'>
 				<p>{password}</p>
-				<SvgCopy fill='#35e679' />
+				<span onClick={copyPassword}>
+					<SvgCopy fill='#35e679' />
+				</span>
 			</div>
 			<div className='password-confing'>
 				<div className='length'>
 					<p>Character length</p>
-					<span>{configPassword.length}</span>
+					<span>{parseInt(configPassword.length) + 1}</span>
 				</div>
 				<div className='slide-length'>
 					<input
 						type='range'
-						min='4'
-						max='30'
+						min='3'
+						max='14'
 						value={configPassword.length}
 						className='slider'
 						onChange={(e) => setConfigPassword({ ...configPassword, length: e.target.value })}

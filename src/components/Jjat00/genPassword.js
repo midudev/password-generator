@@ -1,5 +1,9 @@
 const genPassword = (configPassword) => {
-	const chars = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	let chars = ''
+	if (configPassword.uppercase) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	if (configPassword.lowercase) chars += 'abcdefghijklmnopqrstuvwxyz'
+	if (configPassword.numbers) chars += '0123456789'
+	if (configPassword.symbols) chars += '!@#$%^&*()'
 	const passwordLength = configPassword.length
 	let password = ''
 	for (let i = 0; i <= passwordLength; i++) {

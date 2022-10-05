@@ -22,6 +22,13 @@
 	min-width: 300px;
 }
 
+.message {
+	border: 1px solid var(--secondary-color);
+	color: var(--secondary-color);
+	padding: 10px;
+	width: 100%;
+}
+
 .title {
 	font-size: 1.6rem;
 	margin: 10px 0;
@@ -35,9 +42,9 @@
 	align-items: center;
 	width: 100%;
 	background-color: var(--primary-color);
-	color: #56555b;
+	color: #7e7e7f;
 	height: 50px;
-	font-size: 2rem;
+	font-size: 1.4rem;
 	text-align: left;
 	padding: 0 20px;
 	margin: 10px 0;
