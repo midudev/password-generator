@@ -1,4 +1,4 @@
-#box {
+#zerok1986-box {
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	color: white;
 	position: fixed;
@@ -13,7 +13,7 @@
 }
 
 
-#password-generator {
+#zerok1986-password-generator {
 	height: 55vh;
 	display: flex;
 	flex-direction: column;
@@ -22,7 +22,7 @@
 	align-content: center;
 }
 
-h1 {
+#zerok1986-title {
 	font-size: 24px;
 	background: #7004CF;
 	background: linear-gradient(to right, #7004CF 0%, #CF00CF 100%);
@@ -31,7 +31,7 @@ h1 {
 	-webkit-text-fill-color: transparent;
 }
 
-#password-box {
+#zerok1986-password-box {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -45,17 +45,27 @@ h1 {
 	width: 300px;
 }
 
-#password-text {
+#zerok1986-password-text {
 	color: text;
 	width: 80%;
 	text-align: center;
 }
 
-#length-slider {
+#zerok1986-settings {
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
+
+#zerok1986-length-slider {
 	accent-color: rgb(100, 26, 165)
 }
 
-#generate-button {
+#zerok1986-generate-button {
 	background-color: rgb(126 34 206);
 	border-radius: 28px;
 	display: inline-block;
@@ -66,21 +76,11 @@ h1 {
 	text-shadow: 0px 1px 0px #9b14b3;
 }
 
-#generate-button:hover {
+#zerok1986-generate-button:hover {
 	background-color: rgb(100, 26, 165);
 }
 
-#generate-button:active {
+#zerok1986-generate-button:active {
 	position: relative;
 	top: 1px;
-}
-
-#settings {
-	height: 150px;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: center;
-	align-content: center;
 }
