@@ -14,7 +14,7 @@ const PassGenerator = () => {
 		return allCharacters
 	}
 	const generate = () => {
-		let allCharacters = setup()
+		const allCharacters = setup()
 		for (let i = 0; i < length; i++) {
 			setPass((p) => p + allCharacters[Math.floor(Math.random() * allCharacters.length)])
 		}
