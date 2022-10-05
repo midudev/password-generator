@@ -1,0 +1,139 @@
+<script type='module'>
+	class LengthSlider extends HTMLElement {
+		constructor() {
+			super()
+			this.attachShadow({ mode: 'open' })
+		}
+
+		static get styles() {
+			const THUMB_STYLES = `
+				width: 16px;
+				height: 16px;
+				border-radius: 50%;
+				cursor: ew-resize;
+				background: var(--color-details);
+				box-shadow: 0 0 2px 0 #555;
+				transition: background .3s ease-in-out;
+				-webkit-appearance: none;
+			`
+
+			const TRACK_STYLES = `
+				border: none;
+				background: transparent;
+				box-shadow: none;
+				-webkit-appearance: none;
+			`
+
+			return /* css */ `
+				.container {
+					display: flex;
+					flex-direction: column;
+					font-size: 1rem;
+					gap: 8px;
+				}
+
+				.header {
+					display: flex;
+					flex-wrap: nowrap;
+				}
+
+				.label {
+					flex-grow: 1;
+				}
+
+				.number {
+					color: var(--color-details);
+				}
+
+				.slider {
+					height: 2px;
+					margin: 8px 0;
+					border-radius: 5px;
+					background: var(--color-words);
+					background-image: linear-gradient(var(--color-details), var(--color-details));
+					background-repeat: no-repeat;
+					background-size: 0% 100%;
+					-webkit-appearance: none;
+				}
+
+				.slider::-webkit-slider-thumb {
+					${THUMB_STYLES}
+				}
+
+				.slider::-moz-range-thumb {
+					${THUMB_STYLES}
+				}
+
+				.slider::-ms-thumb {
+					${THUMB_STYLES}
+				}
+
+				.slider::-webkit-slider-runnable-track {
+					${TRACK_STYLES}
+				}
+
+				input[type=range]::-moz-range-track {
+					${TRACK_STYLES}
+				}
+
+				input[type="range"]::-ms-track {
+					${TRACK_STYLES}
+				}
+			`
+		}
+
+		updateOutput({ target: input }) {
+			this.output.value = input.value
+		}
+
+		handleInputStyles({ target: input }) {
+			const min = input.min
+			const max = input.max
+			const val = input.value
+			input.style.backgroundSize = ((val - min) * 100) / (max - min) + '% 100%'
+		}
+
+		handleInputChange() {
+			this.dispatchEvent(
+				new CustomEvent('length-changed', {
+					bubbles: true,
+					composed: true,
+					detail: { value: this.output.value }
+				})
+			)
+		}
+
+		connectedCallback() {
+			this.render()
+			this.output = this.shadowRoot.querySelector('#number')
+			this.input = this.shadowRoot.querySelector('#length')
+			this.updateOutput = this.updateOutput.bind(this)
+			this.handleInputChange = this.handleInputChange.bind(this)
+			this.input.addEventListener('input', this.updateOutput)
+			this.input.addEventListener('input', this.handleInputStyles)
+			this.input.addEventListener('change', this.handleInputChange)
+		}
+
+		disconnectedCallback() {
+			this.input.removeEventListener('input', this.updateOutput)
+			this.input.removeEventListener('input', this.handleInputChange)
+			this.input.removeEventListener('change', this.handleInputChange)
+		}
+
+		render() {
+			const initialValue = 8
+			this.shadowRoot.innerHTML = /* html */ `
+				<style>${LengthSlider.styles}</style>
+				<section class="container">
+					<header class="header">
+						<label class="label" for="length">Longitud</label>
+						<output id="number" name="number" for="length" class="number">${initialValue}</output>
+					</header>
+					<input id="length" class="slider" type="range" min="${initialValue}" max="32" value="${initialValue}">
+				</section>
+			`
+		}
+	}
+
+	customElements.define('length-slider', LengthSlider)
+</script>
