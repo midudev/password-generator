@@ -1,23 +1,26 @@
-export const generatePassword = (length: number) => {
+export const generatePassword = (length: number, numbers: boolean, symbols: boolean) => {
 	let generatedPassword = ''
 
 	for (let i = 0; i < length; i++) {
-		generatedPassword += getRandomChar()
+		generatedPassword += getRandomChar(numbers, symbols)
 	}
 
 	return generatedPassword
 }
 
-const getRandomChar = () => {
+const getRandomChar = (numbers: boolean, symbols: boolean) => {
 	const LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 	const NUMBERS = '0123456789'
 	const SYMBOLS = '|@·~¬!"#$%&/()=¿°?¡¨*[]{},.-;:_'
 
-	const POSSIBLE_CHARS = LETTERS.concat(NUMBERS.concat(SYMBOLS))
+	let possibleChars = LETTERS
 
-	const MAX_CHAR = LETTERS.length + NUMBERS.length + SYMBOLS.length
+	if (numbers) possibleChars = possibleChars.concat(NUMBERS)
+	if (symbols) possibleChars = possibleChars.concat(SYMBOLS)
+
+	const MAX_CHAR = possibleChars.length
 
 	const randomIndex = Math.floor(Math.random() * MAX_CHAR)
 
-	return POSSIBLE_CHARS[randomIndex]
+	return possibleChars[randomIndex]
 }

@@ -3,6 +3,8 @@
 	import { generatePassword } from './generatePassword'
 
 	let passwordLength = 12
+	let numbers = true
+	let symbols = true
 	let password = ''
 
 	const copyToClipboard = () => {
@@ -10,7 +12,7 @@
 	}
 
 	const handlePasswordChange = () => {
-		password = generatePassword(passwordLength)
+		password = generatePassword(passwordLength, numbers, symbols)
 	}
 </script>
 
@@ -38,11 +40,23 @@
 		type="range"
 		max="64"
 		bind:value={passwordLength}
-		on:click={() => handlePasswordChange()}
+		on:change={() => handlePasswordChange()}
 	/>
+
+	<div class="my-4 flex justify-center items-center gap-8">
+		<label class="text-base">
+			<input type="checkbox" bind:checked={numbers} on:change={() => handlePasswordChange()} />
+			Numbers
+		</label>
+		<label class="text-base">
+			<input type="checkbox" bind:checked={symbols} on:change={() => handlePasswordChange()} />
+			Symbols
+		</label>
+	</div>
+
 	<button
 		on:click={() => handlePasswordChange()}
-		class="mt-6 py-2 bg-blue-500 text-white rounded-lg hover:shadow-md transition"
+		class="py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:shadow-md transition"
 		>Generate password!</button
 	>
 </article>
