@@ -6,8 +6,8 @@ import Layout from '@layout'
 
 <Layout title='carlosfernandezcabrero'>
 	<Notification text='Texto copiado al portapapeles 🚀' />
-	<main class='min-h-screen text-[#F0F5F9] md:px-8 px-1 pb-16 max-w-[1440px] mx-auto'>
-		<header class='py-3 text-right mb-16 flex items-center justify-end'>
+	<div class='pb-16 max-w-[1440px] mx-auto text-[#F0F5F9] min-h-screen'>
+		<header class='py-3 px-4 mb-14 flex items-center justify-center sm:justify-end'>
 			<a
 				href='https://github.com/carlosfernandezcabrero/password-generator.git'
 				target='_blank'
@@ -28,16 +28,16 @@ import Layout from '@layout'
 						d='M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5'
 					></path>
 				</svg>
-				<span class='text-xl'>View on GitHub</span>
+				<span class='text-lg'>View on GitHub</span>
 			</a>
 		</header>
-		<div class='flex flex-col items-center justify-center gap-y-20'>
-			<h1 class='text-5xl text-[#FFECDA] font-medium text-center tracking-tight'>
+		<main class='md:px-8 px-1'>
+			<h1 class='text-5xl text-[#FFECDA] font-medium text-center tracking-tight mb-20'>
 				Genera tu super contraseña secreta 🥷 !!
 			</h1>
-			<PasswordContainer client:only='svelte' />
-		</div>
-	</main>
+			<PasswordContainer client:visible />
+		</main>
+	</div>
 </Layout>
 
 <style>
