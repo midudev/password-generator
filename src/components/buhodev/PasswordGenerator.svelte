@@ -24,7 +24,7 @@
 	onMount(() => password = generate_password(8, DEFAULT_OPTIONS))
 </script>
 
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg">
+<div class="absolute border-gray-600/20 border-2 p-6 bg-gray-800/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg">
 	<!-- Title -->
 	<h1 class="text-5xl font-bold text-center">Password Generator</h1>
 
