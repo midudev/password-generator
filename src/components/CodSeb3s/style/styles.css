@@ -1,0 +1,416 @@
+ :root {
+	/* s = CodSeb3s - Represent my initial name */
+	--s-bg-components: #1F232B;
+	--s-prim-color: #FFFFFF;
+	--s-sub-color: #A9AEB7;
+	--s-uncheck-color: #545A64;
+	--s-init-slide-bg-color: linear-gradient(
+		to right, 
+		#A4FFAF 0%, 
+		#A4FFAF 0%, 
+		#18171F 0%, 
+		#18171F 100%
+	);
+	--s-black-color: #000000;
+	--s-grey-color: #817D92;
+	--s-red-color: #F64A4A;
+	--s-orange-color: #FB7C58;
+	--s-yellow-color: #F8CD65;
+	--s-green-color: #A4FFAF;
+}
+
+/* Set globals word spacing for every text */
+#header-title, #header-sub-title, #pw, #copy-txt, #container-title, #container-sub-title, #quantity-length, .checkbox, #strength-title, #strength-lvl-title, #primary-btn {
+	word-spacing: -0.19rem;
+}
+
+/* Set globals font size with identifiers */
+#header-title {
+	font-size: 1.35rem;
+}
+
+#pw, #container-title, #quantity-length {
+	font-size: 1.25rem;
+}
+
+#header-sub-title, #copy-txt, #container-sub-title, .checkbox, #strength-title, #strength-lvl-title, #primary-btn {
+	font-size: .875rem;
+}
+
+/* Set globals color with identifiers */
+#header-sub-title, #strength-title {
+	color: var(--s-grey-color);
+}
+
+#pw, #container-sub-title, .checkbox, #strength-lvl-title {
+	color: var(--s-sub-color);
+}
+
+#copy-txt, #quantity-length {
+	color: var(--s-green-color);
+}
+
+#header-title, #container-title {
+	color: var(--s-prim-color);
+}
+
+#primary-btn {
+	color: var(--s-black-color);
+}
+
+/* Setting properly the position of the SQUARE just in Safari 7.1.+ */
+_::-webkit-full-page-media, _:future, :root #square-container {
+	top: 14.5rem !important;
+	left: 2.0625rem !important;
+}
+
+/* Setting properly the position of the SQUARE just in Firefox 69+ */
+@supports selector(:-moz-is-html) { 
+	#square-container { 
+		top: 14.75rem !important;
+		left: 2.1rem !important;
+	} 
+}
+
+/* Re-Position the header in devices Smallers than 374px */
+@media only screen and (max-width: 374px) {
+	#header-container {
+		width: 18.75rem !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	#header-container-wrapper {
+		transform: translateX(-2.1875rem) !important;
+	}
+}
+
+/* Re-position of the header in devices between 414px and 639px */
+@media only screen and (min-width: 414px) {
+	#header-container {
+		margin-bottom: 1.875rem !important;
+	}
+}
+
+/* Re-position of the header and square design between 640px and greathers */
+@media only screen and (min-width: 640px) {
+	#header-title {
+		font-size: 1.45rem !important; 
+	}
+
+	#pw, #container-title, #quantity-length {
+		font-size: 1.35rem !important;
+	}
+
+	#square-container {
+		width: 10.125rem !important;
+		top: 16.375rem !important;
+		left: 2.9875rem !important;
+	}
+
+	/* Setting properly the position of the SQUARE just in Safari 7.1.+ */
+	_::-webkit-full-page-media, _:future, :root #square-container {
+		top: 16.625rem !important;
+		left: 3.1875rem !important;
+	}
+
+	/* Setting properly the position of the SQUARE just in Firefox 69+ */
+	@supports selector(:-moz-is-html) { 
+		#square-container { 
+			top: 16.375rem !important;
+			left: 2.9rem !important;
+		} 
+	}
+}
+
+
+/* Set the arrow movement of the header */
+/* Line > */
+#arrow:hover #arrow__linePath {
+	transform: translateX(.21875rem);
+	transition: 150ms cubic-bezier(0.215,0.61,0.355,1);
+	outline: none;
+}
+
+/* Tip - */
+#arrow:hover #arrow__tipPath {
+	transform: translateX(.21875rem);
+	transition: 150ms cubic-bezier(0.215,0.61,0.355,1);
+	outline: none;
+}
+
+#container1:active {
+	outline: none;
+}
+
+#container1::-moz-focus-inner {
+	outline: none;
+}
+
+/* Password width container animated */
+.current-size, .resize {
+	font-size: 1.25rem;
+	letter-spacing: .156rem;
+	margin: auto auto auto 0;
+	background-color: var(--s-bg-components);
+	overflow-wrap: break-word;
+}
+
+.current-size {
+	width: 90%;
+	animation-delay: 3s;
+	animation: fade-in-keyframes .2s;
+	-webkit-animation: fade-in-keyframes .2s;
+	-moz-animation: fade-in-keyframes .2s;
+	-o-animation: fade-in-keyframes .2s;
+}
+@keyframes fade-in-keyframes {
+	from {width: 68%;}
+	to {width: 90%;}
+}
+@-webkit-keyframes fade-in-keyframes {
+	from {width: 68%;}
+	to {width: 90%;}
+}
+@-moz-keyframes fade-in-keyframes {
+	from {width: 68%;}
+	to {width: 90%;}
+  }
+@-o-keyframes fade-in-keyframes {
+	from {width: 68%;}
+	to {width: 90%;}
+}
+
+.resize {
+	width: 68%;
+	animation: fade-out-keyframes .2s;
+	-webkit-animation: fade-out-keyframes .2s;
+	-moz-animation: fade-out-keyframes .2s;
+	-o-animation: fade-out-keyframes .2s;
+}
+@keyframes fade-out-keyframes {
+	from { width: 90%; }
+	to { width: 68%; }
+}
+@-webkit-keyframes fade-out-keyframes {
+	from { width: 90%; }
+	to { width: 68%; }
+}
+@-moz-keyframes fade-out-keyframes {
+	from { width: 90%; }
+	to { width: 68%;}
+  }
+@-o-keyframes fade-out-keyframes {
+	from { width: 90%; }
+	to { width: 68%; }
+}
+
+/* Copy clipboard animated */
+#copy-txt {
+	opacity: 1;
+	animation: fade-in-out-keyframes-txt 4s linear;
+	-webkit-animation: fade-in-out-keyframes-txt 4s linear;
+	-moz-animation: fade-in-out-keyframes-txt 4s linear;
+	-o-animation: fade-in-out-keyframes-txt 4s linear;
+}
+@keyframes fade-in-out-keyframes-txt {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+@-webkit-keyframes fade-in-out-keyframes-txt {
+  0%, 100% { opacity: 0; -webkit-opacity: 0; }
+  50% { opacity: 1 ; -moz-opacity: 1; }
+}
+@-moz-keyframes fade-in-out-keyframes-txt {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+  }
+@-o-keyframes fade-in-out-keyframes-txt {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Square animated */
+#square-container {
+	animation: fade-in-keyframes-square 2.5s;
+	-webkit-animation: fade-in-keyframes-square 2.5s;
+	-moz-animation: fade-in-keyframes-square 2.5s;
+	-o-animation: fade-in-keyframes-square 2.5s;
+}
+@keyframes fade-in-keyframes-square {
+  from { opacity: 0 } 
+  to{ opacity: 1 }
+}
+@-webkit-keyframes fade-in-keyframes-square {
+	from { opacity: 0; -webkit-opacity: 0; } 
+	to{ opacity: 1; -webkit-opacity: 1; }
+}
+@-moz-keyframes fade-in-keyframes-square {
+	from { opacity: 0 } 
+	to{ opacity: 1 }
+  }
+@-o-keyframes fade-in-keyframes-square {
+	from { opacity: 0 } 
+	to{ opacity: 1 }
+}
+
+/* Set the color of the COPY button */
+#copy-button:active path {
+	fill: var(--s-sub-color) !important;
+	outline: none;
+}
+
+/* Prevents color stucked in MOBILE DEVICES */
+@media (hover:hover) {
+	#copy-button:hover path {
+		fill: var(--s-sub-color) !important;
+		outline: none;
+	}
+}
+
+/* Range Input Styles */
+/* Styling and resetting the slider for all browsers */
+#slider {
+	width: 100%;
+	height: .375rem;
+	-webkit-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	background: var(--s-init-slide-bg-color);
+}
+
+/** Chrome, Safari, Edge and Opera **/
+/* Focus Style */
+#slider:focus {
+	outline: none;
+}
+
+/* Track Styles */
+#slider::-webkit-slider-runnable-track {
+	height: .375rem; /* track heigth */
+}
+
+/* Thumb Styles */
+#slider::-webkit-slider-thumb {
+	width: 1.25rem;
+	height: 1.25rem; /* thumb heigth */
+	margin-top: -0.4375rem; /* (track height / 2) - (thumb height / 2) */
+	-webkit-appearance: none;
+	border-radius: 100%;
+	background-color: var(--s-sub-color);
+}
+
+/** Firefox **/
+/* Thumb Styles */
+#slider::-moz-range-thumb {
+	width: 1.25rem;
+	height: 1.25rem; 
+	border: none;
+	border-radius: 100%;
+	background: var(--s-sub-color);
+}
+
+/* Accesibility purposes */
+.checkbox {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#check-true {
+	color: var(--s-sub-color) !important;
+}
+
+#check-false {
+	color: var(--s-uncheck-color) !important;
+}
+
+/* Override the width of the container */
+#container-checkboxs div:nth-child(3) > label, 
+#container-checkboxs div:nth-child(4) > label 
+{
+	width: 5.25rem !important;
+}
+
+/* Set the color of the CHECKBOX button */
+.checkbox:active input ~ .checkmark {
+	border-color: var(--s-green-color);
+}
+
+/* Prevents color stucked in MOBILE DEVICES */
+@media (hover:hover) {
+	.checkbox:hover input ~ .checkmark {
+		border-color: var(--s-green-color);
+	}
+}
+
+/* Custom checkbox on SELECTION */
+.checkbox input:checked ~ .checkmark {
+	background-color: var(--s-green-color) !important;
+	border-color: var(--s-green-color);
+}
+
+/* Hidde the CHECKMARK (✓) when not checked */
+.checkmark::after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+/* Show the CHECKMARK (✓) when checked */
+.checkbox input:checked ~ .checkmark::after {
+	display: block;
+}
+
+/* Style the CHECKMARK (✓) */
+.checkbox .checkmark::after {
+	left: .25rem;
+	top: .03125rem;
+	width: .25rem;
+	height: .5rem;
+	border: solid var(--s-black-color);
+	border-width: 0 .09375rem .09375rem 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/* Set the style of the PRINCIPAL button */
+#primary-btn:active {
+	border: solid .09375rem var(--s-green-color);
+	background-color: var(--s-bg-components);
+	color: var(--s-sub-color);
+	outline: none;
+}
+
+/* Prevents color stucked in MOBILE DEVICES */
+@media (hover:hover) {
+	#primary-btn:hover {
+		border: solid .09375rem var(--s-green-color);
+		background-color: var(--s-bg-components);
+		color: var(--s-sub-color);
+		outline: none;
+	}
+}
+
+/* Set color to indicate the strengh of the password */
+#too-weak {
+	background-color: var(--s-red-color);
+	border: none;
+}
+
+#weak {
+	background-color: var(--s-orange-color);
+	border: none;
+}
+
+#medium {
+	background-color: var(--s-yellow-color);
+	border: none;
+}
+
+#strong {
+	background-color: var(--s-green-color);
+	border: none;
+}
