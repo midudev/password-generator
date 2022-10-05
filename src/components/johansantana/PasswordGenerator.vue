@@ -12,19 +12,32 @@ const PASSWORD_CHARACTERS =
 	'0123456789abcdefghijklmnopqrstuvwxyz_-¿!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 /*
-	MAX_LENGTH / 2 + MIN_LENGTH / 2 --> sets the initial value
-	to the middle of the input range
+	MAX_LENGTH / 2 + MIN_LENGTH / 2
+	sets the initial value to the middle of the input range
 */
 const passwordLength = ref(MAX_LENGTH / 2 + MIN_LENGTH / 2)
-const password = ref('')
+const password = ref(null)
+const animatedPassword = ref('')
 
 const passwordLengthNumber = computed(() => {
 	return Number(passwordLength.value)
 })
 
-const handleGenerateNewPassword = (number) => {
+const animate = (originalString, destination) => {
+	const symbols = '~#!@£$%&}{":;?><][+=-_*^'
+
+	destination.value = ''
+	password.value.split('').forEach((letter, index) => {
+		const letterRevealTimeout = window.setTimeout(() => {
+			destination.value += letter
+			window.clearTimeout(letterRevealTimeout)
+		}, index * 100)
+	})
+}
+
+const newPassword = (number) => {
 	const emptyArray = [...Array(number)]
-	password.value = emptyArray
+	return emptyArray
 		.map((x) => {
 			const randomIndex = Math.floor(Math.random() * PASSWORD_CHARACTERS.length)
 			return PASSWORD_CHARACTERS.charAt(randomIndex)
@@ -32,19 +45,24 @@ const handleGenerateNewPassword = (number) => {
 		.join('')
 }
 
-const showTooltipMessage = ref(false)
-const warningMessage = ref(false)
+const handleGenerateNewPassword = (number) => {
+	password.value = newPassword(number)
+	animate(password.value, animatedPassword)
+}
 
-const handleCopy = () => {
-	if (!password.value) {
+const showTooltipMessage = ref(false)
+const warningMessage = ref(null)
+
+const handleCopy = (text) => {
+	if (!text) {
 		warningMessage.value = 'Generate a password before copying.'
 		const warningTimeout = window.setTimeout(() => {
-			warningMessage.value = ''
+			warningMessage.value = null
 			window.clearTimeout(warningTimeout)
 		}, 3000)
 		return
 	}
-	navigator.clipboard.writeText(password.value).then(() => {
+	navigator.clipboard.writeText(text).then(() => {
 		showTooltipMessage.value = true
 		const tooltipTimeout = window.setTimeout(() => {
 			showTooltipMessage.value = false
@@ -56,7 +74,9 @@ const handleCopy = () => {
 
 <template>
 	<div class="flex flex-col gap-10 relative">
-		<WarningMessage v-if="warningMessage" :message="warningMessage" />
+		<Transition name="slide">
+			<WarningMessage v-if="warningMessage" :message="warningMessage" />
+		</Transition>
 		<!-- Generator -->
 		<div class="py-10 flex flex-col">
 			<h1
@@ -91,7 +111,7 @@ const handleCopy = () => {
 			<div class="flex gap-3">
 				<input
 					type="text"
-					:value="password"
+					:value="animatedPassword"
 					placeholder="here goes your password..."
 					readonly
 					class="bg-transparent border-2 text-sm sm:text-base border-white text-white placeholder-gray-400 rounded-lg focus:outline-none block w-full p-3"
@@ -99,13 +119,15 @@ const handleCopy = () => {
 				<button
 					id="johansantana-copy-button"
 					class="bg-transparent relative border-2 border-white p-2 px-3 rounded-lg text-white hover:bg-white hover:scale-110 hover:text-gray-700 focus:outline-none transition"
-					@click="handleCopy"
+					@click="handleCopy(password)"
 				>
 					<CopyIcon />
 
-					<TooltipMessage v-if="showTooltipMessage" message="Copied!">
-						<CheckIcon class="text-green-400" />
-					</TooltipMessage>
+					<Transition name="fade">
+						<TooltipMessage v-if="showTooltipMessage" message="Copied!">
+							<CheckIcon class="text-green-400" />
+						</TooltipMessage>
+					</Transition>
 				</button>
 			</div>
 		</div>
@@ -133,6 +155,8 @@ const handleCopy = () => {
 </template>
 
 <style scoped>
+@import url('./styles/transitions.css');
+
 #johansantana-h1 {
 	font-family: 'Inter', sans-serif;
 }
