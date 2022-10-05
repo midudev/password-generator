@@ -174,7 +174,7 @@ export default function PasswordGenerator() {
 					title='Regenerate Password'
 					onMouseOver={(e) => leetText(e.target, true)}
 					onMouseLeave={(e) => leetText(e.target, false)}
-					className={`w-full font-bold font-sans flex items-center justify-center py-2 tracking-wider rounded-xs uppercase border-none transition-all ease-in-out text-[#170f1e] bg-[#e5e1e6] hover:bg-[#a5f71e] ${styles.regenerateButton}`}
+					className={`w-full font-bold font-sans flex items-center justify-center py-2 tracking-wider rounded-xs uppercase border-none transition-all ease-in-out text-[#170f1e] bg-[#e5e1e6] hover:bg-[#a5f71e] ${styles['regenerate-button']}`}
 					data-value='REGENERATE'
 				>
 					REGENERATE
