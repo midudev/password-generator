@@ -1,0 +1,21 @@
+.btn-generate {
+	background: rgb(200 255 150 / 24%);
+	backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+	font-weight: 500;
+}
+
+.btn-generate:hover {
+	background: rgb(200 255 150 / 50%);
+}
+
+.btn-copy {
+	background: rgb(255 254 200 / 24%);
+	backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+	font-weight: 500;
+}
+
+.btn-copy:hover {
+	background: rgb(248 255 150 / 50%);
+}
