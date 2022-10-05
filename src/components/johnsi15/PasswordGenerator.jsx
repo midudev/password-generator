@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import styles from './PasswordGenerator.module.css'
+import CopyIcon from './CopyIcon.jsx'
 
 // prettier-ignore
 export default function PasswordGenerator () {
-	const [password, setPassword] = useState('')
-	const [rangeValue, setRangeValue] = useState(6)
+	const [password, setPassword] = useState('Generete a password')
+	const [rangeValue, setRangeValue] = useState(12)
 
 	const checkboxOptions = {
 		IncludeLowerCaseLetters: true,
@@ -33,25 +35,30 @@ export default function PasswordGenerator () {
 			if (option === 'IncludeUpperCaseLetters' && checkedState[option]) {
 				randomCharacters = [...randomCharacters, ...IncludeUpperCaseLetters]
 			}
+
+			if (option === 'IncludeNumbers' && checkedState[option]) {
+				randomCharacters = [...randomCharacters, ...IncludeNumbers]
+			}
+
+			if (option === 'IncludeSymbols' && checkedState[option]) {
+				randomCharacters = [...randomCharacters, ...IncludeSymbols]
+			}
 		})
-		console.log({ randomCharacters })
 		return randomCharacters
 	}
 
 	function getRandomCharacters (characters) {
 		let randomPassword = ''
 		for (let i = 0; i < passwordLength; i++) {
-		// const newchar = getRandomCharacterFrom(characters)
 			if (characters.length === 0) {
-				return ''
+				return randomPassword
 			}
 
-			const max = characters.length - 1
+			const max = characters.length
 			const randomCharacterIdx = Math.floor(Math.random() * max)
 
 			randomPassword = randomPassword + characters[randomCharacterIdx]
 		}
-		console.log(randomPassword)
 		return randomPassword
 	}
 
@@ -62,8 +69,9 @@ export default function PasswordGenerator () {
 
 
 	const handleChangeRange = (e) => {
-		console.log(e.target.value)
-		setRangeValue(Number(e.target.value))
+		const { value } = e.target
+		// console.log(e.target.value)
+		setRangeValue(Number(value))
 	}
 
 	const handleGenerate = (e) => {
@@ -76,32 +84,63 @@ export default function PasswordGenerator () {
 		const { name, value, checked } = e.target
 		console.log(e.target.value)
 		console.log(e.target.checked)
-		setCheckedState({
-			...checkedState,
-			[name]: checked
+		// console.log(checkedState)
+		// setCheckedState({
+		// 	...checkedState,
+		// 	[name]: checked
+		// })
+		let count = 0
+		setCheckedState(prevState => {
+			console.log(prevState)
+			const entries = Object.entries(prevState)
+			entries.forEach(([prop, val]) => {
+				if (!val) count++
+				if (name === prop && !val) count = 0
+			})
+
+			if (count !== 3) {
+				return {
+					...prevState,
+					[name]: checked
+				}
+			}
+
+			return { ...prevState }
+		})
+	}
+
+	const handleCopy = () => {
+		navigator.clipboard.writeText(password).then(() => {
+			console.log('Copying to clipboard was successful!')
+		}, (err) => {
+			console.error('Could not copy text: ', err)
 		})
 	}
 
 	return (
-		<section className='PasswordGenerator'>
-			<h1>Password Generator</h1>
-			<div className='password'>{password}</div>
-			<form onSubmit={handleGenerate}>
-				<label htmlFor='characterLength'>
+		<section className={styles.PasswordGenerator}>
+			<h1 className={styles.title}>Password Generator</h1>
+			<div className={styles.password}>
+				<p>{password}</p>
+				<button type='button' onClick={handleCopy} ><CopyIcon /></button>
+			</div>
+			<form className={styles.form} onSubmit={handleGenerate}>
+				<label htmlFor='characterLength' className={styles.characterLength}>
 					Character length
 					<span>{rangeValue}</span>
 				</label>
 				<input
 					type='range'
+					className={styles.inputRange}
 					id='characterLength'
 					value={rangeValue}
-					min='1'
+					min='8'
 					max='30'
 					name='characterLength'
 					onChange={handleChangeRange}
 				/>
 
-				<div className='options'>
+				<div className={styles.options}>
 					{Object.keys(checkboxOptions).map((optionId) => {
 						// const optionId = option.replaceAll(' ', '')
 						const isUpperCase = (letter) => letter === letter.toUpperCase()
@@ -118,7 +157,7 @@ export default function PasswordGenerator () {
 									id={optionId}
 									name={optionId}
 									value={optionId}
-									className='mr-2 accent-yellow-300'
+									className={styles.inputCheckbox}
 									checked={checkedState[optionId]}
 									onChange={handleChecked}
 								/>
@@ -127,7 +166,7 @@ export default function PasswordGenerator () {
 						)
 					})}
 				</div>
-				<button type='submit'>Generate</button>
+				<button type='submit' className={styles.btnGenerate}>Generate</button>
 			</form>
 		</section>
 	)
