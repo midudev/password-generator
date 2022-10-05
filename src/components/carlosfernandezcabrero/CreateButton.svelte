@@ -12,6 +12,7 @@
 	const getRandomNumber = (dataSet) => Math.floor(Math.random() * dataSet.length)
 
 	function generatePassword() {
+		password = ''
 		let randomSetElected
 
 		if (caseSensitive === 2) randomSetElected = randomSet.basic + randomSet.upperCase
