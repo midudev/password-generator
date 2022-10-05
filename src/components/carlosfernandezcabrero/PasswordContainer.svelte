@@ -21,12 +21,12 @@
 	<CaseOptions bind:caseSensitive />
 	<LengthSlider bind:length />
 
-	<CreateButton {caseSensitive} {length} />
+	<CreateButton {caseSensitive} {length} bind:password />
 </div>
 
 <style>
 	@font-face {
 		font-family: 'ShareTechMono';
-		src: url('/public/carlosfernandezcabrero/ShareTechMono-Regular.ttf');
+		src: url('/carlosfernandezcabrero/ShareTechMono-Regular.ttf');
 	}
 </style>

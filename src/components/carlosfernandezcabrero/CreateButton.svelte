@@ -1,10 +1,7 @@
 <script>
 	export let caseSensitive
 	export let length
-
-	console.log({ caseSensitive, length })
-
-	let password = ''
+	export let password = ''
 
 	const randomSet = {
 		basic: '!@¡#$%&*()_+-{}[]:;.?¿,<>/|=€ªº·~^`´0123456789',
