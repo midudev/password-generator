@@ -71,9 +71,9 @@ const useTimerAlert = () => {
 
 						if (findSameType >= 0) {
 							const newPrev = prev
-							prev[findSameType] = newAlert
+							newPrev.splice(findSameType, 1)
 
-							return newPrev
+							return [...newPrev, newAlert]
 						}
 
 						return [...prev, newAlert]
