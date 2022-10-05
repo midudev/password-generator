@@ -6,13 +6,13 @@ const useTimerAlert = () => {
 
 	const Alerts = memo(() => {
 		return (
-			<div className='mt-3 absolute top-0 left-0 right-0 flex flex-col items-center md:items-start'>
+			<div className='m-3 pb-0 absolute top-0 left-0 flex flex-col items-center md:items-end md:justify-end md:top-auto md:left-auto md:right-0 md:bottom-0 md:flex-col-reverse'>
 				{refreshAlerts &&
 					alerts.map((alert) => (
 						<div
 							key={alert.id}
 							id='toast-default'
-							className='m-1 sm:m-2 flex items-center p-4 w-72 sm:w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800'
+							className='mb-2 sm:mb-2 min-w-[280px] flex items-center p-4 w-72 sm:w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800'
 							role='alert'
 						>
 							<div className='inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-800 dark:text-blue-200'>
@@ -71,9 +71,9 @@ const useTimerAlert = () => {
 
 						if (findSameType >= 0) {
 							const newPrev = prev
-							prev[findSameType] = newAlert
+							newPrev.splice(findSameType, 1)
 
-							return newPrev
+							return [...newPrev, newAlert]
 						}
 
 						return [...prev, newAlert]
