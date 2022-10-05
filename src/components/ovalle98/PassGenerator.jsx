@@ -31,13 +31,13 @@ const PassGenerator = () => {
 	}
 
 	return (
-		<main className='column-center pd-main'>
+		<main id='oj98' className='column-center pd-main'>
 			<div className='column-center pg-card'>
-				<h1>Password generator</h1>
+				<h1 className='fz-h1'>Password generator</h1>
 				<ShowPass password={password} copiedPass={copiedPass}/>
 				<div id='msj'></div>
 				<div className='pg-generator'>
-					<span>Password length: {range}</span>
+					<span className='fs-11'>Password length: {range}</span>
 					<SliderPass MIN={MIN} MAX={MAX} range={range} setRange={setRange}/>
 					<NewPassBnt handlePass={handlePass}/>
 				</div>

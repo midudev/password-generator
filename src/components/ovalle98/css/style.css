@@ -1,10 +1,10 @@
 @media only screen and (min-width : 901px) {
 	.pd-main {padding: 3rem;}
 	.pg-card {width: 40%;}
-	h1 {font-size: 2rem;}
+	.fz-h1 {font-size: 2rem;}
 	.pg-card {padding: 10px 25px 10px 25px;}
 	.pass {font-size: 1.5rem;}
-	span, p {font-size: 1.1rem;}
+	.fs-11 {font-size: 1.1rem;}
 	#msj{
 		position: fixed;
 		bottom: 10px;
@@ -15,10 +15,10 @@
 @media only screen and (max-width : 900px) {
 	.pd-main {padding: 1.5rem;}
 	.pg-card {width: 95%;}
-	h1 {font-size: 1.8rem;}
+	.fz-h1 {font-size: 1.8rem;}
 	.pg-card {padding: 10px;}
 	.pass {font-size: 1.3rem;}
-	span, p {font-size: 1rem;}
+	.fs-11 {font-size: 1rem;}
 	#msj{
 		position: relative;
 		bottom: 0px;
@@ -27,7 +27,7 @@
 	}
 	.pg-msj {font-size: 1rem;}
 }
-svg:hover {opacity: .75;}
+#oj98 .svg-copy:hover {opacity: .75;}
 .column-center {
 	display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@ svg:hover {opacity: .75;}
 	padding: 10px;
     border-radius: 10px;
 }
-.pg-card h1 {
+.pg-card .fz-h1 {
     text-align: center;
     cursor: default;
     padding-bottom: 15px;
@@ -77,7 +77,7 @@ svg:hover {opacity: .75;}
     border-radius: 10px;
     margin-top: 20px;
 }
-.slider {
+#oj98 .slider {
 	-webkit-appearance: none;
 	width: 90%;
 	height: 12px;
@@ -89,8 +89,8 @@ svg:hover {opacity: .75;}
 	transition: opacity .2s;
 	margin: 0 10px;
 }  
-.slider:hover {opacity: 1;} 
-.slider::-webkit-slider-thumb {
+#oj98 .slider:hover {opacity: 1;} 
+#oj98 .slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	appearance: none;
 	width: 20px;
@@ -99,17 +99,14 @@ svg:hover {opacity: .75;}
 	background: #0a06e2;
 	cursor: pointer;
 }
-.slider::-moz-range-thumb {
+#oj98 .slider::-moz-range-thumb {
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
 	background: #0a06e2;
 	cursor: pointer;
 }
-input[type=range]::-webkit- -s-lower {
-    background: #777;
-}
-.row {
+#oj98 .row {
 	display: flex;
     flex-direction: row;
     align-items: center;
@@ -153,8 +150,8 @@ input[type=range]::-webkit- -s-lower {
   touch-action: manipulation;
 }
 .button-75:active, .button-75:hover {outline: 0;}
-.button-75 span {transition: all 200ms;}
-.button-75:hover span {
+#oj98 .button-75 span {transition: all 200ms;}
+#oj98 .button-75:hover span {
   transform: scale(.9);
   opacity: .75;
 }
@@ -163,5 +160,5 @@ input[type=range]::-webkit- -s-lower {
     font-size: 15px;
     height: 50px;
   }
-  .button-75 span {line-height: 50px;}
+  #oj98 .button-75 span {line-height: 50px;}
 }

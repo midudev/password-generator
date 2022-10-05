@@ -3,7 +3,7 @@ import React from 'react'
 const SliderPass = ({ MIN, MAX, range, setRange }) => {
 	return (
 		<div className='row pt-10'>
-			<p>{MIN}</p>
+			<p className='fs-11'>{MIN}</p>
 			<input type='range'
 				min={MIN}
 				max={MAX}
@@ -12,7 +12,7 @@ const SliderPass = ({ MIN, MAX, range, setRange }) => {
 				className='slider'
 				onChange={(e) => setRange(e.target.value)}
 			/>
-			<p>{MAX}</p>
+			<p className='fs-11'>{MAX}</p>
 		</div>
 	)
 }
