@@ -30,5 +30,6 @@
 	@font-face {
 		font-family: 'ShareTechMono';
 		src: url('/carlosfernandezcabrero/ShareTechMono-Regular.ttf');
+		font-display: swap;
 	}
 </style>
