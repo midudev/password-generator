@@ -1,0 +1,16 @@
+.fedmg-main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	color: #fff;
+}
+
+.fedmg-main .form {
+	border: 1px solid #fff;
+	height: 100%;
+	width: 100%;
+	max-width: 600px;
+	max-height: 400px;
+}
