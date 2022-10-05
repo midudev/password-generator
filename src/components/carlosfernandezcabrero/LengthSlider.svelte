@@ -13,6 +13,7 @@
 			max={passwordLengthValues.at(-1)}
 			list="range-values"
 			bind:value={length}
+			aria-label="Longitud de la contraseña"
 		/>
 		<datalist
 			id="range-values"

@@ -18,6 +18,7 @@
 <button
 	class="p-4 rounded-full bg-[#29BB89] border-4 border-[#29BB89] hover:bg-[#289672] active:bg-[#1E6F5C] active:border-[#1E6F5C]"
 	on:click={copyToClipboard}
+	aria-label="Copy to clipboard"
 >
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
