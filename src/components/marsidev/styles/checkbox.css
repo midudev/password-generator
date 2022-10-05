@@ -1,5 +1,3 @@
-/* @link https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3 */
-
 .marsidev-checkbox input[type='checkbox'] {
 	opacity: 0;
 }
@@ -38,9 +36,9 @@
 	border-bottom: 3px solid;
 	transform: rotate(-45deg);
 	border-radius: 0;
-	left: 6px;
+	left: 5px;
 	top: 15px;
-	border-color: #0572ec;
+	border-color: #9f7aea;
 }
 
 /* Hide the check mark by default */
@@ -48,12 +46,35 @@
 	content: none;
 }
 
-/* Un-hide on the checked state */
+/* Un-hide mark on the checked state */
 .marsidev-checkbox input[type='checkbox']:checked + label::after {
 	content: '';
 }
 
-.marsidev-checkbox input[type='checkbox']:focus + label::before {
-	outline: #0572ec auto 6px;
+/* default outline color */
+.marsidev-checkbox input[type='checkbox'] + label::before {
+	outline: #9f7aea auto 1px;
 }
 
+/* outline color on focus/active/hover */
+.marsidev-checkbox input[type='checkbox']:focus + label::before,
+.marsidev-checkbox input[type='checkbox']:active + label::before,
+.marsidev-checkbox input[type='checkbox']:hover + label::before {
+	outline: #6b46c1 auto 1px;
+}
+
+/* check mark color on focus/active/hover */
+.marsidev-checkbox input[type='checkbox']:focus + label::after,
+.marsidev-checkbox input[type='checkbox']:active + label::after,
+.marsidev-checkbox input[type='checkbox']:hover + label::after {
+	border-color: #6b46c1;
+}
+
+/* styles on disabled */
+.marsidev-checkbox input[type='checkbox']:disabled + label::before {
+	outline: #b1b1b1 auto 1px;
+}
+
+.marsidev-checkbox input[type='checkbox']:disabled + label::after {
+	border-color: #b1b1b1;
+}

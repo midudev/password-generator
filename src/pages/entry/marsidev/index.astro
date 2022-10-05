@@ -1,14 +1,16 @@
 ---
 import Layout from '@layout'
-import PasswordGen from '@components/marsidev/components/PasswordGen.astro'
+import { PasswordGenerator } from '@components/marsidev/components/PasswordGenerator'
 import Header from '@components/marsidev/components/Header.astro'
 import Footer from '@components/marsidev/components/Footer.astro'
 ---
 
 <Layout title='marsidev'>
-	<div class='flex flex-col items-center justify-center min-h-[100vh] text-white w-full bg-white gap-4'>
+	<div
+		class='flex flex-col items-center justify-center min-h-[100vh] text-white w-full bg-white gap-4'
+	>
 		<Header />
-		<PasswordGen />
+		<PasswordGenerator client:load />
 		<Footer />
 	</div>
 </Layout>
