@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import './styles.css'
 
 const Password = ({ password }) => {
+	const a = ''
 	const $password = useRef(null)
 
 	const copyPassword = () => {
