@@ -1,10 +1,13 @@
 <script lang="ts">
   	import { onMount } from "svelte"
+	import { fly } from 'svelte/transition'
+	import { backOut } from 'svelte/easing'
 	import { generate_password, type DefaultOptions } from "./generate_password"
 	import {copy_to_clipboard} from "./copy_to_clipboard"
-	
+
 	let password = ""
 	let isCopied = false;
+	let animate = true
 	
 	const DEFAULT_OPTIONS: DefaultOptions = {
 		uppercase: true,
@@ -27,8 +30,49 @@
 
 	<!-- Password -->
 	<div class="flex items-center justify-center mt-8 w-full">
-		<span class="flex font-bold text-3xl">
-			{password}
+		<span class="flex font-bold text-3xl mr-auto">
+			{#if !animate}
+				{password}
+			{:else}
+				{#key password}
+					{#each password.split("") as char, i}
+						{#if !isNaN(Number(char))}
+							<span
+								class="block text-pink-400"
+								in:fly={{
+									y: -5,
+									delay: 15 * i,
+									easing: backOut
+								}}
+							>
+								{char}
+							</span>
+						{:else if /[^a-zA-Z]/.test(char)}
+							<span
+								class="block text-blue-400"
+								in:fly={{
+									y: -5,
+									delay: 15 * i,
+									easing: backOut
+								}}
+							>
+								{char}
+							</span>
+						{:else}
+							<span
+								class="block"
+								in:fly={{
+									y: -5,
+									delay: 15 * i,
+									easing: backOut
+								}}
+							>
+								{char}
+							</span>
+						{/if}
+					{/each}
+				{/key}
+			{/if}
 		</span>
 
 		<button use:copy_to_clipboard={{text: password}} on:copied={handleSuccessfulCopy} on:error={() => alert("error")} title="Copy password" class="rounded-md border-2 border-slate-700 hover:border-slate-600 flex items-center justify-center py-1 px-2">
