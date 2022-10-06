@@ -2,12 +2,80 @@
 import Layaout from '@layout'
 ---
 
+<style>
+	.container {
+		background-color: #8cb3fcec;
+		display: flex;
+		padding: 10px;
+		margin: auto;
+		margin-top: 50px;
+		font-size: 30px;
+		font-family: fantasy;
+		flex-direction: column;
+		width: 400px;
+		align-items: center;
+		justify-content: center;
+		border-radius: 30px;
+	}
+
+	.neontext {
+		text-shadow: 0 0 7px rgb(15, 167, 255), 0 0 10px rgb(15, 167, 255), 0 0 21px rgb(15, 167, 255),
+			0 0 42px rgb(76, 0, 255), 0 0 82px rgb(76, 0, 255), 0 0 92px rgb(76, 0, 255),
+			0 0 102px rgb(76, 0, 255), 0 0 151px rgb(76, 0, 255);
+	}
+
+	p {
+		font-size: 30px;
+		font-family: fantasy;
+		padding: 10px;
+	}
+	.svg {
+		width: 5px;
+		height: 5px;
+	}
+	input {
+		height: 50px;
+	}
+
+	button {
+		text-shadow: 0 0 7px rgb(15, 167, 255), 0 0 10px rgb(15, 167, 255), 0 0 21px rgb(15, 167, 255),
+			0 0 42px rgb(76, 0, 255), 0 0 82px rgb(76, 0, 255), 0 0 92px rgb(76, 0, 255),
+			0 0 102px rgb(76, 0, 255), 0 0 151px rgb(76, 0, 255);
+	}
+	#clip {
+		height: 40px;
+	}
+</style>
+
 <Layaout title='yagolscpt'>
 	<div class='container'>
 		<span class='neontext'>Generador de Contraseñas</span>
 		<button id='button'><p>Click aquí</p></button>
 		<input id='long' type='range' min='1' max='20' value='8' />
 		<div id='result'></div>
-		<img src='' alt='' />
+		<svg id='clip' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'
+		><path
+				d='M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z'
+			></path>
+		</svg>
 	</div>
 </Layaout>
+<script>
+	function clipboard() {
+		navigator.clipboard.writeText(document.getElementById('result').innerHTML)
+		alert('contraseña copiada')
+	}
+	function generatePass() {
+		const longe = parseInt((document.getElementById('long') as HTMLInputElement).value)
+		const letters = 'abcdefghijklmnñopqrstUVXYZABCDEFGHIJCLMNÑOPQRSTUVXYZ123456789'
+		let generatedPassword = ''
+		for (let i = 0; i < longe; i++) {
+			const character = letters[Math.floor(Math.random() * (letters.length - 0 + 0))]
+			generatedPassword = generatedPassword + character
+		}
+
+		document.getElementById('result').innerHTML = generatedPassword
+	}
+	document.getElementById('button').addEventListener('click', generatePass)
+	document.getElementById('clip').addEventListener('click', clipboard)
+</script>
