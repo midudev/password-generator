@@ -1,5 +1,4 @@
 ---
-import './slider.css'
 const { min, max, id } = Astro.props
 ---
 
@@ -16,8 +15,4 @@ const { min, max, id } = Astro.props
 	slide.addEventListener('input', () => {
 		labelSlider.innerText = slide.value
 	})
-
-	function getValue() {
-		return slide.value
-	}
 </script>
