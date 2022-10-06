@@ -1,22 +1,19 @@
 import React, { useState } from 'react'
+import { getRandomPassword, copyPassword } from './utils/handlePassword'
 
 const NUMBERS = '0123456789'
 const LOWER_CASE = 'abcdefghijklmnopqrstuvwxyz'
 const UPPER_CASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const SPECIAL = '!#$%&()*+,-./:;<=>?@[]^_`{|}~'
 
-function getRandomPassword(charactersAvaliable, length) {
-	let randomPassword = ''
-	for (let i = 0; i < length; i++) {
-		randomPassword += charactersAvaliable.charAt(
-			Math.floor(Math.random() * charactersAvaliable.length)
-		)
-	}
-	return randomPassword
-}
-
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
+	const [passwordLength, setPasswordLength] = useState(12)
+
+	function handleCopy() {
+		const success = copyPassword()
+		// TODO: if success show toast
+	}
 
 	function handleGeneratePassword() {
 		let charactersAvaliable = ''
@@ -26,16 +23,7 @@ const PasswordGenerator = () => {
 		charactersAvaliable += UPPER_CASE
 		charactersAvaliable += SPECIAL
 
-		// TODO: get from slider
-		const length = 22
-
-		setPassword(getRandomPassword(charactersAvaliable, length))
-	}
-
-	function handleCopy() {
-		navigator.clipboard.writeText(password).then(() => {
-			// TODO: shsow success copy to clipboard message
-		})
+		setPassword(getRandomPassword(charactersAvaliable, passwordLength))
 	}
 
 	return (
@@ -55,11 +43,11 @@ const PasswordGenerator = () => {
 				<div className='flex flex-row gap-4'>
 					<button
 						onClick={handleGeneratePassword}
-						className='border border-l-white rounded-lg py-2 px-2 w-1/2'
+						className='border border-l-white rounded-lg py-2 px-2 w-2/3'
 					>
 						Generate password
 					</button>
-					<button onClick={handleCopy} className='border border-l-white rounded-lg py-2 px-2 w-1/2'>
+					<button onClick={handleCopy} className='border border-l-white rounded-lg py-2 px-2 w-1/3'>
 						Copy
 					</button>
 				</div>
