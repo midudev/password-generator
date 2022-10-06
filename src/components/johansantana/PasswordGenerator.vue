@@ -1,15 +1,14 @@
 <script setup>
 import { ref, computed } from 'vue'
-import TooltipMessage from '@components/johansantana/TooltipMessage.vue'
-import WarningMessage from '@components/johansantana/WarningMessage.vue'
-import GithubIcon from '@components/johansantana/icons/GithubIcon.vue'
-import CopyIcon from '@components/johansantana/icons/CopyIcon.vue'
-import CheckIcon from '@components/johansantana/icons/CheckIcon.vue'
+import { animate, newPassword } from './utils.js'
+import TooltipMessage from './TooltipMessage.vue'
+import WarningMessage from './WarningMessage.vue'
+import GithubIcon from './icons/GithubIcon.vue'
+import CopyIcon from './icons/CopyIcon.vue'
+import CheckIcon from './icons/CheckIcon.vue'
 
 const MIN_LENGTH = 6
 const MAX_LENGTH = 24
-const PASSWORD_CHARACTERS =
-	'0123456789abcdefghijklmnopqrstuvwxyz_-¿!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 /*
 	MAX_LENGTH / 2 + MIN_LENGTH / 2
@@ -22,28 +21,6 @@ const animatedPassword = ref('')
 const passwordLengthNumber = computed(() => {
 	return Number(passwordLength.value)
 })
-
-const animate = (originalString, destination) => {
-	const symbols = '~#!@£$%&}{":;?><][+=-_*^'
-
-	destination.value = ''
-	password.value.split('').forEach((letter, index) => {
-		const letterRevealTimeout = window.setTimeout(() => {
-			destination.value += letter
-			window.clearTimeout(letterRevealTimeout)
-		}, index * 100)
-	})
-}
-
-const newPassword = (number) => {
-	const emptyArray = [...Array(number)]
-	return emptyArray
-		.map((x) => {
-			const randomIndex = Math.floor(Math.random() * PASSWORD_CHARACTERS.length)
-			return PASSWORD_CHARACTERS.charAt(randomIndex)
-		})
-		.join('')
-}
 
 const handleGenerateNewPassword = (number) => {
 	password.value = newPassword(number)
