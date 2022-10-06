@@ -3,6 +3,13 @@ import Layout from '@layout'
 import { PasswordGenerator } from '@components/marsidev/components/PasswordGenerator'
 import Header from '@components/marsidev/components/Header.astro'
 import Footer from '@components/marsidev/components/Footer.astro'
+import { generatePassword } from '@components/marsidev/utils/generate-password'
+import {
+	DEFAULT_KEYS as pwdDict,
+	DEFAULT_PASSWORD_LENGTH as pwdLength
+} from '@components/marsidev/utils/constants'
+
+const initialPassword = generatePassword(pwdLength, pwdDict)
 ---
 
 <Layout title='marsidev'>
@@ -10,7 +17,7 @@ import Footer from '@components/marsidev/components/Footer.astro'
 		class='flex flex-col items-center justify-center min-h-[100vh] text-white w-full bg-white gap-4'
 	>
 		<Header />
-		<PasswordGenerator client:load />
+		<PasswordGenerator initialPassword={initialPassword} client:load />
 		<Footer />
 	</div>
 </Layout>

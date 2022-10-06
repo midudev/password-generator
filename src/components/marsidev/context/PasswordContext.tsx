@@ -1,21 +1,27 @@
 /** @jsxImportSource solid-js */
 import type { ParentProps, Setter } from 'solid-js'
 import type { DictionaryKeys, PasswordContextType } from '@components/marsidev/types'
-import { createContext, useContext, createSignal, createMemo } from 'solid-js'
+import { createContext, useContext, createSignal } from 'solid-js'
 import { generatePassword } from '@components/marsidev/utils/generate-password'
-import { DEFAULT_OPTIONS, DEFAULT_PASSWORD_LENGTH } from '@components/marsidev/utils/constants'
+import { DEFAULT_KEYS, DEFAULT_PASSWORD_LENGTH } from '@components/marsidev/utils/constants'
+import { copyTextToClipboard } from '@components/marsidev/utils/copy-to-clipboard'
+import { toastify } from '@components/marsidev/utils/toastify'
+
+interface PasswordProviderProps extends ParentProps {
+	initialPassword: string
+}
 
 const PasswordContext = createContext<PasswordContextType>()
 
-export const PasswordProvider = (props: ParentProps) => {
+export const PasswordProvider = (props: PasswordProviderProps) => {
 	const [passwordLength, setPasswordLength] = createSignal(DEFAULT_PASSWORD_LENGTH)
+	const [passwordDictionary, setPasswordDictionary] = createSignal(DEFAULT_KEYS)
 	const [withUpper, setWithUpper] = createSignal(true)
 	const [withLower, setWithLower] = createSignal(true)
 	const [withNumbers, setWithNumbers] = createSignal(true)
 	const [withSymbols, setWithSymbols] = createSignal(true)
-	const [passwordDictionary, setPasswordDictionary] = createSignal(DEFAULT_OPTIONS)
-	const initialPassword = createMemo(() => generatePassword(passwordLength(), passwordDictionary()))
-	const [password, setPassword] = createSignal(initialPassword())
+
+	const [password, setPassword] = createSignal(props.initialPassword)
 
 	const store: PasswordContextType = {
 		password,
@@ -27,6 +33,7 @@ export const PasswordProvider = (props: ParentProps) => {
 		dictionary: passwordDictionary,
 
 		generate: () => updatePassword(),
+		onCopy: () => onCopyPassword(),
 		onChangeLength: (length) => onChangeLength(length),
 		onToggleUppercase: (event) => onToggleCheckbox(event, setWithUpper),
 		onToggleLowercase: (event) => onToggleCheckbox(event, setWithLower),
@@ -76,7 +83,7 @@ export const PasswordProvider = (props: ParentProps) => {
 			if (next === true) return next
 			if (passwordDictionary().length > 1) return next // unchecking a checkbox when there is 2+ checkboxes checked
 
-			console.log('cannot uncheck! at least 1 checkbox should be checked')
+			// console.log('cannot uncheck! at least 1 checkbox should be checked')
 			return prev
 		})
 
@@ -84,7 +91,17 @@ export const PasswordProvider = (props: ParentProps) => {
 		updatePassword()
 	}
 
+	async function onCopyPassword() {
+		const copied = await copyTextToClipboard(password())
+		if (copied) {
+			toastify('Password copied to clipboard!', { theme: 'dark' })
+		} else {
+			toastify('Could not copy!', { theme: 'dark' })
+		}
+	}
+
 	return <PasswordContext.Provider value={store}>{props.children}</PasswordContext.Provider>
 }
 
-export const usePassword = (): PasswordContextType => useContext(PasswordContext)
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+export const usePassword = () => useContext(PasswordContext)!
