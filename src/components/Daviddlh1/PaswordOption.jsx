@@ -23,7 +23,7 @@ const PasswordOption = ({ handleClick, name, optionMessage }) => {
 				/>
 				<span onClick={checkCheckboxWithSpan} className='password-option__chekbox--checkmark'></span>
 			</div>
-			<p>{optionMessage}</p>
+			<p onClick={checkCheckboxWithSpan}>{optionMessage}</p>
 		</div>
 	)
 }

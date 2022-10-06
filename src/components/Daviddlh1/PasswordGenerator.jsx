@@ -127,7 +127,7 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<div className='password-generator__wrapper'>
+		<div id='daviddlh1' className='daviddlh1 password-generator__wrapper'>
 			<div className='password-generator__main-container'>
 				<h1>Password Generator</h1>
 				<div className='password-generator__containers password-generator__first-container'>
