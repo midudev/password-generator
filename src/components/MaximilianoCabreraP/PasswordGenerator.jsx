@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Toast from './toast/Toast'
 
-import './Toast/toast.css'
-
 const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
 const NUMBERS = '0123456789'
@@ -33,7 +31,11 @@ export const PasswordGenerator = () => {
 	}
 
 	useEffect(() => {
-		generatePassword()
+		if (Object.values(filters).includes(true)) {
+			generatePassword()
+		} else {
+			setPassword('por favor seleccioná al menos un filtro')
+		}
 	}, [passwordLength, filters])
 
 	function generatePassword () {
@@ -73,11 +75,8 @@ export const PasswordGenerator = () => {
 			Selected {passwordLength}
 			<div className='flex justify-center items-center gap-2'>
 				Password:
-				<span className='text-slate-300 font-bold bg-transparent ml-1 p-1 '>{password || 'por favor seleccioná al menos un filtro'}</span>
-				<button
-					onClick={handleCopy}
-				>
-
+				<span className='text-slate-300 font-bold bg-transparent ml-1 p-1 '>{password}</span>
+				<button onClick={handleCopy}>
 					<img id='image' className='w-5' src='https://cdn.icon-icons.com/icons2/412/PNG/128/Copy_40923.png' alt='copy to clipboard' />
 				</button>
 				<Toast showToast={showToast} />
