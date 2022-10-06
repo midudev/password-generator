@@ -1,6 +1,6 @@
-input[type='range'] {
+#slider-wayaba {
 	margin-right: 15px;
-	width: -webkit-fill-available;
+	width: fill-available;
 	height: 7px;
 	border-radius: 5px;
 }
