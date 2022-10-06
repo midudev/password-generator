@@ -30,7 +30,7 @@
 </script>
 
 <button
-	class="text-2xl bg-[#007AB5] hover:bg-[#005A85] border-4 border-[#007AB5] active:bg-[#004262] active:border-[#004262] py-3 px-8 rounded-full"
+	class="text-2xl bg-[#007AB5] hover:bg-[#005A85] border-4 border-[#007AB5] active:bg-[#004262] active:border-[#004262] py-3 px-8 rounded-full mt-6"
 	on:click={generatePassword}
 >
 	Crear contraseña

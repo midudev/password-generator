@@ -4,35 +4,36 @@
 	const passwordLengthValues = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 </script>
 
-<div class="flex flex-col items-center gap-y-8 lg:flex-row lg:gap-x-4">
-	<fieldset class="flex flex-col items-center w-9/12 pt-3 px-2">
-		<input
-			type="range"
-			class="bg-transparent w-full mb-4"
-			min={passwordLengthValues[0]}
-			max={passwordLengthValues.at(-1)}
-			list="range-values"
-			bind:value={length}
-			aria-label="Longitud de la contraseña"
-		/>
-		<datalist
-			id="range-values"
-			class="flex items-center justify-start lg:gap-x-[1rem] sm:gap-x-[0.6rem] w-full"
-		>
-			{#each passwordLengthValues as value}
-				<option
-					{value}
-					class={`bg-gray-300 rounded-full text-black font-medium text-lg h-7 w-7 flex items-center justify-center ${
-						value % 2 !== 0 ? 'invisible' : ''
-					}`}>{value}</option
-				>
-			{/each}
-		</datalist>
-	</fieldset>
-	<output class="text-5xl bg-gray-800 rounded-full h-20 w-20 flex justify-center items-center"
-		>{length}</output
+<fieldset class="flex flex-col items-center   pt-3 px-2">
+	<label for="length" class="text-left w-full text-xl mb-6">
+		Longitud de la contraseña:&nbsp;&nbsp;
+		<span class="bg-gray-800 px-6 py-2 rounded-full text-2xl">
+			{length}
+		</span>
+	</label>
+	<input
+		type="range"
+		class="bg-transparent w-full mb-4"
+		min={passwordLengthValues[0]}
+		max={passwordLengthValues.at(-1)}
+		list="range-values"
+		bind:value={length}
+		id="length"
+	/>
+	<datalist
+		id="range-values"
+		class="flex items-center justify-start lg:gap-x-[1.7rem] sm:gap-x-[0.9rem] w-full"
 	>
-</div>
+		{#each passwordLengthValues as value}
+			<option
+				{value}
+				class={`bg-gray-300 rounded-full text-black font-medium text-lg h-7 w-7 flex items-center justify-center ${
+					value % 2 !== 0 ? 'invisible' : ''
+				}`}>{value}</option
+			>
+		{/each}
+	</datalist>
+</fieldset>
 
 <style>
 	input[type='range'] {
