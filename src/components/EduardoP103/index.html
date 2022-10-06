@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Generar  contraseñas</title>
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="ff-quantum mainTitle">Generador de contraseñas desarrollado por <a href="https://bio-link-orcin.vercel.app/" target="_blank">Alex22_SV</a>.</h1>
+
+        <div class="password-generator">
+            <!-- <h1 class="title">Generador de Contraseñas</h1> -->
+            <div id="warnings">
+              <p class="hidden warning" id="warningMsg">¡El número de caracteres no puede ser mayor a 50! <br> Has ingresado <b>${value}</b> que se encuentra ${value-50} caracteres arriba del valor permitido.</p>
+            </div>
+            <h3 class="password-display" id="passwordDisplay">contraseña</h3>
+            <form id="passwordGeneratorForm" class="form">
+              <label for="characterAmountNumber">Número de caracteres</label>
+              <div class="character-amount-container">
+                <input type="range" min="1" max="50" value="10" id="characterAmountRange">
+                <input class="number-input" type="number" min="1" max="50" value="10" id="characterAmountNumber">
+              </div>
+        
+              <label for="includeUppercase">¿Deseas incluir mayúsculas?</label>
+              <input type="checkbox" id="includeUppercase">
+        
+              <label for="includeNumbers">¿Deseas incluir números?</label>
+              <input type="checkbox" id="includeNumbers">
+        
+              <label for="includeSymbols">¿Deseas incluir símbolos?</label>
+              <input type="checkbox" id="includeSymbols">
+        
+              <button type="submit" class="btn" id="submitBtn">Generar contraseña</button>
+            </form>
+          </div>
+    </div>
+    <!-- Aqui viene la magia  -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

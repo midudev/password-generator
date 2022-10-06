@@ -1,0 +1,139 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Custom fonts */
+@font-face {
+    font-family: "Quantum";
+    src: url("../fonts/quantum/Quantum.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+.ff-quantum {
+    font-family: 'Quantum';
+}
+
+body {
+    background: #f2f6f8;
+    background: -moz-linear-gradient(left, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, #f2f6f8), color-stop(51%, #ccdbe3), color-stop(69%, #d6e5f0), color-stop(100%, #e0eff9));
+    background: -webkit-linear-gradient(left, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+    background: -o-linear-gradient(left, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+    background: -ms-linear-gradient(left, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+    background: linear-gradient(to right, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+}
+.mainTitle {
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+}
+.password-generator {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+.form {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 1rem;
+    column-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.title {
+    margin: 0;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.character-amount-container {
+    display: flex;
+    align-items: center;
+}
+
+.number-input {
+    width: 3rem;
+}
+input {
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+}
+input#characterAmountRange {
+    width: 100px;
+    margin-right: 10px;
+}
+.password-display {
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    border: 5px solid #333;
+    height: auto;
+    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+    border-radius: .5rem;
+    font-size: 30px;
+    text-align: center;
+}
+.warning {
+    font-size: 25px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 30px 0;
+}
+.hidden {
+    display: none;
+}
+.btn {
+    width: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 20px;
+    background-color: #291752;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+}
+.disabledBtn {
+    cursor: not-allowed;
+    background-color: #29175242;
+}
+@media(max-width:500px) {
+    label {
+        font-size: 20px;
+    }
+    .password-display {
+        font-size: 20px;
+    }
+    input {
+        width: 15px;
+        height: 15px;
+        font-size: 13px;
+    }
+    input#characterAmountRange {
+        width: 50px;
+    }
+    .form {
+        column-gap: 5px;
+    }
+}
