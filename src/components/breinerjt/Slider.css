@@ -1,8 +1,0 @@
-input[type='range'] {
-	-webkit-appearance: none;
-	@apply w-full h-2 bg-slate-800 rounded-full;
-}
-input[type='range']::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	@apply w-5 h-5 bg-[#64e2ff] rounded-full cursor-pointer;
-}

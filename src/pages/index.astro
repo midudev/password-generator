@@ -12,6 +12,7 @@ import Layout from '@layout'
 			font-display: swap;
 			src: url('/Orbitron-ExtraBold.woff2') format('woff2');
 		}
+
 		@font-face {
 			font-family: 'Jet Brains Mono';
 			font-style: normal;
@@ -19,6 +20,7 @@ import Layout from '@layout'
 			font-display: swap;
 			src: url('/JetBrainsMono-Regular.woff2') format('woff2');
 		}
+
 		@font-face {
 			font-family: 'Jet Brains Mono';
 			font-style: normal;
@@ -26,6 +28,7 @@ import Layout from '@layout'
 			font-display: swap;
 			src: url('/JetBrainsMono-Bold.woff2') format('woff2');
 		}
+
 		@keyframes binary {
 			25% {
 				content: '01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001';
@@ -40,6 +43,7 @@ import Layout from '@layout'
 				content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
 			}
 		}
+
 		main::before {
 			animation: 1s linear 1s infinite normal none running binary;
 			content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
@@ -63,8 +67,8 @@ import Layout from '@layout'
 			overflow: hidden;
 			z-index: 200;
 		}
+
 		main {
-			height: 100%;
 			background: url('/grain-dark.png');
 		}
 	</style>
@@ -84,6 +88,11 @@ import Layout from '@layout'
 					></path>
 				</svg>Sigue el evento en Twitch</a
 			>
+
+			<h2 class='text-white font-bold font-special uppercase text-3xl mt-8 mb-2'>CUÁNDO</h2>
+
+			<p class='text-2xl'>¡Empezamos el <strong class='text-surf'>4 de octubre!</strong></p>
+
 			<h2 class='text-white font-bold font-special uppercase text-3xl mt-8 mb-2'>OBJETIVO</h2>
 
 			<p class='text-2xl'>Crea una app que genera passwords al usuario de forma aleatoria.</p>
@@ -113,37 +122,6 @@ import Layout from '@layout'
 				</li>
 				<li>Implementa la solución del reto siguiendo todos los requerimientos</li>
 			</ol>
-
-			<h2 class='text-yellow-400 font-bold font-special uppercase text-3xl mt-8 mb-2'>PREMIOS</h2>
-
-			<p>
-				Además de poder conseguir la camiseta de la Hacktoberfest, haremos una votación para elegir
-				las mejores soluciones. Los premios son:
-			</p>
-
-			<ul>
-				<li>
-					🥇 Teclado mecánico <a
-						href='https://www.keychron.com/products/keychron-k3-wireless-mechanical-keyboard?variant=32220198633561'
-						target='_blank'
-						rel='noopener'>Keychron K3 v2 RGB Backlight</a
-					>.
-				</li>
-				<li>
-					🥈 <a href='https://www.redbubble.com/es/' target='_blank' rel='noopener noreferrer'
-					>Cheque regalo para Red Bubble</a
-					> por valor de 30€.
-				</li>
-				<li>
-					🥉 <a href='https://leanpub.com/aprendiendo-git' target='_blank' rel='noopener noreferrer'
-					>Libro de Aprendiendo Git</a
-					>) + <a
-						href='https://leanpub.com/descubre-svelte'
-						target='_blank'
-						rel='noopener noreferrer'>Descubre Svelte</a
-					>
-				</li>
-			</ul>
 		</div>
 
 		<section class='prose prose-invert'>
@@ -160,11 +138,12 @@ import Layout from '@layout'
 					<span class='italic'>El próximo requerimiento se desbloquea el 4 de octubre</span>
 				</li>
 			</ul>
+
 			<h2 class='text-surf font-special uppercase text-3xl mt-8 mb-2'>Reglas</h2>
 			<ul class='list-disc'>
 				<li>
-					Puedes usar cualquier framework dentro de esta lista: React, Vue, Svelte, Preact y Solid.
-					También puedes usar Vanilla JavaScript.
+					Puedes usar cualquier framework dentro de esta lista: React, Vue, Svelte y Solid. También
+					puedes usar Vanilla Javascript.
 				</li>
 				<li>
 					NO puedes usar dependencias de terceros. Nada de <code>npm install</code>, ni <code
@@ -173,9 +152,8 @@ import Layout from '@layout'
 				</li>
 				<li>
 					Se puede utilizar CSS y Tailwind pero NO se puede utilizar otro framework CSS como
-					Bootstrap, Bulma, NextUI, Material UI, etc... ni tampoco SASS, Stylus o similares.
+					Bootstrap, Bulma, NextUI, Material UI, etc... ni tampoco SASS, Styles o similares.
 				</li>
-				<li>NO USES ESTILOS GLOBALES. NO ESTILES etiquetas. Usa siempre un selector muy específico (por ejemplo, una id con tu nombre) y a partir de ahí estila lo que quieras de tu solución. Así evitamos conflictos entre estilos.</li>
 				<li>No copies soluciones de otros participantes o soluciones de fuera.</li>
 				<li>Crea tus PRs del 1 al 31 de octubre.</li>
 				<li>No uses ni modifiques código o componentes de otros participantes.</li>
