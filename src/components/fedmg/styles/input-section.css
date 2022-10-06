@@ -1,6 +1,6 @@
 .fedmg-main .input-container {
 	display: grid;
-	gap: clamp(0.82em, 3vw, 1.1em) 0;
+	gap: clamp(1em, 3vw, 1.3em) 0;
 }
 
 .label-container {

@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap';
-@import './input.css';
-@import './password.css';
-@import './button.css';
+@import './input-section.css';
+@import './output-section.css';
+@import './control-section.css';
 @import './icon.css';
 @import './message.css';
 

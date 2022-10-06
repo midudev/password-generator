@@ -2,6 +2,7 @@
 .fedmg-main .response-message-wrong {
 	text-overflow: ellipsis;
 	font-size: clamp(0.9em, 3vw, 1.05em);
+	font-weight: 600;
 }
 
 .fedmg-main .response-message-wrong {
