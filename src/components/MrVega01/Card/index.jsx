@@ -36,7 +36,7 @@ export default function Card() {
 	}
 
 	return (
-		<div className='containerApp'>
+		<div id='mrvega01'>
 			<div className='card'>
 				<h3>Random password generator!</h3>
 				<input type='range' className='rangeInput' min='5' max='25' value={passwordLength} onChange={(e) => setPasswordLength(e.target.value)}></input>
