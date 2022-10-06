@@ -6,7 +6,7 @@ const InputPassword = () => {
 
 	const handlerCopyPassword = () => {
 		navigator.clipboard.writeText(password)
-		generateAlert('Password copied to clipboard!', 3000, 'copy')
+		generateAlert('Password copied to clipboard!', 5000, 'copy')
 	}
 
 	return (
