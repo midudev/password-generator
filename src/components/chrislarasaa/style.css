@@ -9,7 +9,7 @@
 .container {
 	justify-content: center;
 	align-items: center;
-	background-color: #343A40;
+	background-color: #343a40;
 	width: 1200px;
 	padding-top: 20px;
 	border-radius: 25px;
@@ -22,14 +22,14 @@
 .container-title {
 	padding-bottom: 10px;
 	font-weight: bold;
-	color: #E1E8EB;
+	color: #e1e8eb;
 	text-align: center;
 	font-size: 50px;
 	margin: 0 10px 0 10px;
 }
 
 .slider-range {
-	color: #E1E8EB;
+	color: #e1e8eb;
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 20px;
@@ -44,7 +44,7 @@
 }
 
 .char-lenght {
-	color: #E1E8EB;
+	color: #e1e8eb;
 	text-align: center;
 	font-weight: bold;
 }
@@ -115,7 +115,7 @@
 }
 
 .tooltip .tooltiptext::after {
-	content: "";
+	content: '';
 	position: absolute;
 	left: 56%;
 	top: 100%;
@@ -150,6 +150,6 @@
 	}
 
 	.icon {
-		padding: 15px
+		padding: 15px;
 	}
 }
