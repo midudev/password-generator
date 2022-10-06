@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Toast from './toast/Toast'
+import Toast from './Toast/Toast'
 
 const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
