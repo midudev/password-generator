@@ -8,7 +8,7 @@ export default function PasswordDisplay() {
 		<div className='flex flex-col md:flex-row justify-center mt-3'>
 			<label className='text-white text-center'>Generated password:</label>
 			<input
-				className='text-black border border-white-500 rounded-full ml-2 px-3 glass'
+				className='text-black border border-white-500 rounded-full ml-2 px-3 csharls-glass'
 				type='text'
 				value={password}
 				readOnly={true}

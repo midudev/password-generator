@@ -21,14 +21,14 @@ export default function Controls() {
 			<Slider />
 			<div className='flex justify-around md:justify-center my-3'>
 				<button
-					className='rounded-full border border-green-400 shadow p-3 px-4 mx-2 shadow btn-generate text-center text-white'
+					className='rounded-full border border-green-400 shadow p-3 px-4 mx-2 shadow csharls-btn-generate text-center text-white'
 					onClick={handleClick}
 				>
 					<img className='mx-auto' width={20} height={20} src='/csharls/gear.svg' />
 					Generar
 				</button>
 				<button
-					className='rounded-full border border-yellow-400 shadow p-3 px-5 ,x-2 shadow text-center text-white btn-copy'
+					className='rounded-full border border-yellow-400 shadow p-3 px-5 ,x-2 shadow text-center text-white csharls-btn-copy'
 					onClick={handleCopy}
 				>
 					<img className='mx-auto' width={20} height={20} src='/csharls/clipboard.svg' />
