@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import Toast from './toast/Toast'
 
-import './password.css'
+import './Toast/toast.css'
 
 const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
@@ -13,19 +14,22 @@ export const PasswordGenerator = () => {
 		uppercase: true,
 		lowercase: true,
 		numbers: true,
-		symbols: true,
+		symbols: true
 	})
 	const [password, setPassword] = useState('')
 
 	function handleChangeLength ({ target }) {
 		setPasswordLength(target.value)
 	}
+	const [showToast, setShowToast] = useState(2)
 
 	function handleCopy () {
 		navigator.clipboard.writeText(password).then(() => {
-			let clipboard_message = document.getElementById('clipboard-message')
-			clipboard_message.classList.add("transition-opacity duration-300")
-		});
+			setShowToast(1)
+			setTimeout(() => {
+				setShowToast(2)
+			}, 6000)
+		})
 	}
 
 	useEffect(() => {
@@ -41,7 +45,7 @@ export const PasswordGenerator = () => {
 
 		let randomstring = ''
 		for (let i = 0; i < passwordLength; i++) {
-			let randomNumber = Math.floor(Math.random() * chars.length)
+			const randomNumber = Math.floor(Math.random() * chars.length)
 			randomstring += chars.substring(randomNumber, randomNumber + 1)
 		}
 		setPassword(randomstring)
@@ -67,16 +71,17 @@ export const PasswordGenerator = () => {
 				/> 64
 			</span>
 			Selected {passwordLength}
-			<span className="">
+			<div className='flex justify-center items-center gap-2'>
 				Password:
 				<span className='text-slate-300 font-bold bg-transparent ml-1 p-1 '>{password || 'por favor seleccioná al menos un filtro'}</span>
 				<button
 					onClick={handleCopy}
 				>
-					<img id="image" className="w-5" src="https://cdn.icon-icons.com/icons2/412/PNG/128/Copy_40923.png" alt="copy to clipboard" />
+
+					<img id='image' className='w-5' src='https://cdn.icon-icons.com/icons2/412/PNG/128/Copy_40923.png' alt='copy to clipboard' />
 				</button>
-				<span id="clipboard-message" className="ml-3 opacity-10">copied!</span>
-			</span>
+				<Toast showToast={showToast} />
+			</div>
 			<button className='bg-sky-700 rounded py-1 px-2 hover:bg-sky-500' onClick={generatePassword}>Generate</button>
 		</div>
 	)

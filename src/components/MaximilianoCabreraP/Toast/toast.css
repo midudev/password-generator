@@ -1,0 +1,39 @@
+  .alert-toast {
+	animation: slide-in-top 5.5s ease both;
+  }
+
+  .copied-text {
+	display: block;
+	white-space: nowrap;
+	border-right: 2px solid;
+	width: 7ch;
+	
+	animation: typing 2s steps(7), blink .5s infinite step-end alternate;
+	overflow: hidden;
+  }
+
+  @keyframes slide-in-top {
+	0% {
+	  transform: translateX(-20px);
+	  opacity: 0
+	}
+
+	20%,
+	80% {
+	  transform: translateX(0px);
+	  opacity: 1
+	}
+
+	100% {
+		transform: translateX(-20px);
+		opacity: 0
+	  }
+  }
+
+  @keyframes typing {
+	from { width: 0}
+  }
+
+  @keyframes blink {
+	50% {border-color: transparent}
+  }
