@@ -28,7 +28,7 @@ export const ToastProvider = (props: ToastProviderProps) => {
 	const classByNewestOnTop = newestOnTop ? 'flex-col-reverse' : 'flex-col'
 
 	const containerClass = [
-		'absolute flex gap-4 z-[9999] w-[320px] overflow-hidden pb-2',
+		'absolute z-[9999] flex w-[320px] gap-4 overflow-hidden pb-2',
 		classByPosition,
 		classByNewestOnTop
 	].join(' ')

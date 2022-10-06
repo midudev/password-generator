@@ -3,7 +3,7 @@ import { createSignal } from 'solid-js'
 import { generatePassword } from '@components/marsidev/utils/generate-password'
 import { DEFAULT_TOAST_OPTIONS } from '@components/marsidev/utils/constants'
 
-const generateId = () => generatePassword(16, ['lowercase', 'uppercase', 'numbers'])
+const generateId = () => generatePassword(8, ['lowercase', 'uppercase', 'numbers'])
 
 const [toastSignals, setToastSignals] = createSignal<ToastSignal[]>([])
 export { toastSignals }
