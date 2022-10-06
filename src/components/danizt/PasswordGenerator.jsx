@@ -11,7 +11,7 @@ const PasswordGenerator = () => {
 	const [passwordLength, setPasswordLength] = useState(12)
 
 	function handleCopy() {
-		const success = copyPassword()
+		const success = copyPassword(password)
 		// TODO: if success show toast
 	}
 
@@ -33,12 +33,25 @@ const PasswordGenerator = () => {
 			</h2>
 			<div className='border border-l-white rounded-lg p-8 flex flex-col gap-y-4'>
 				<label
-					id='password-generated'
 					type='text'
 					className='rounded-lg outline-0 py-2 px-2 text-gray-800 bg-white text-center w-96'
 				>
 					{password || '👇 Generate a strong password 👇'}
 				</label>
+				<label className='flex justify-center gap-2'>
+					<span>Password length:</span>
+					<span className='text-blue-300 font-bold'>{passwordLength}</span>
+				</label>
+				<input
+					className='mb-4 accent-blue-300'
+					type='range'
+					min='1'
+					max='30'
+					value={passwordLength}
+					onChange={({ target: { value } }) => {
+						setPasswordLength(value)
+					}}
+				/>
 
 				<div className='flex flex-row gap-4'>
 					<button
