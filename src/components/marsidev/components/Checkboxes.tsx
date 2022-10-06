@@ -1,7 +1,7 @@
 /** @jsxImportSource solid-js */
 import type { Component } from 'solid-js'
 import '@components/marsidev/styles/checkbox.css'
-import { usePassword } from '@components/marsidev/context/PasswordContext'
+import { usePassword } from '@components/marsidev/lib/PasswordContext'
 import { Checkbox } from '@components/marsidev/components/Checkbox'
 
 export const Checkboxes: Component = () => {

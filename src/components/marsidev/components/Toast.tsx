@@ -1,23 +1,17 @@
 /** @jsxImportSource solid-js */
 import type {
-	ToastTheme,
 	CommonToastOptions,
 	WithUndef,
 	ToastSignal,
 	ToastType
 } from '@components/marsidev/types'
 import type { Component, JSX } from 'solid-js'
-import { onRemoveToast } from '@components/marsidev/utils/toastify'
+import { onRemoveToast } from '@components/marsidev/lib/toast/toastify'
 import { Success, Error, Info, Warn } from '@components/marsidev/components/icons'
 import { DEFAULT_TOAST_OPTIONS as defaultOptions } from '@components/marsidev/utils/constants'
 
 export type ToastProps = WithUndef<CommonToastOptions> & {
 	toast: ToastSignal
-}
-
-const CLASSES_BY_THEME: Record<ToastTheme, string> = {
-	dark: 'bg-[#121212] text-white',
-	light: 'bg-white text-[#757575]'
 }
 
 const ICONS_BY_TYPE: Record<ToastType, JSX.Element> = {
@@ -43,15 +37,6 @@ export const Toast: Component<ToastProps> = (props) => {
 		}
 	}
 
-	const classByTheme = CLASSES_BY_THEME[theme]
-	const classByCloseOnClick = closeOnClick ? 'cursor-pointer' : 'cursor-auto'
-
-	const toastClass = [
-		'relative flex flex-row max-h-[800px] min-h-[64px] justify-start items-start overflow-hidden rounded-md border-t border-l border-r border-b-0 p-[8px] shadow-[0_2px_8px_rgba(0,0,0,0.15)]',
-		classByTheme,
-		classByCloseOnClick
-	].join(' ')
-
 	const ToastIcon = ICONS_BY_TYPE[toastType]
 
 	return (
@@ -60,7 +45,13 @@ export const Toast: Component<ToastProps> = (props) => {
 			aria-live='assertive'
 			aria-atomic='true'
 			role='alert'
-			class={toastClass}
+			class='relative flex max-h-[800px] min-h-[64px] flex-row items-start justify-start overflow-hidden rounded-md p-[8px] shadow-md hover:shadow-lg'
+			classList={{
+				'bg-[#121212] text-white': isDarkTheme,
+				'bg-white text-[#757575]': !isDarkTheme,
+				'cursor-pointer': closeOnClick,
+				'cursor-auto': !closeOnClick
+			}}
 			onClick={handleClick}
 		>
 			<div
@@ -79,7 +70,7 @@ export const Toast: Component<ToastProps> = (props) => {
 				aria-label='Close toast'
 				data-dismiss='toast'
 				classList={{ 'text-white': isDarkTheme, 'text-black': !isDarkTheme }}
-				class='cursor-pointer border-0 bg-transparent p-0 opacity-30 outline-0 transition-all duration-300 ease-in-out hover:opacity-100'
+				class='cursor-pointer border-0 bg-transparent p-1 opacity-30 outline-0 transition-all ease-out hover:opacity-100 focus:opacity-100 focus:outline-2'
 				onClick={() => onRemoveToast(id)}
 			>
 				<svg aria-hidden='true' viewBox='0 0 14 16' fill='currentColor' height='16' width='14'>

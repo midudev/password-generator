@@ -1,6 +1,6 @@
 /** @jsxImportSource solid-js */
 import type { Component, JSX } from 'solid-js'
-import { usePassword } from '@components/marsidev/context/PasswordContext'
+import { usePassword } from '@components/marsidev/lib/PasswordContext'
 
 export const PasswordLength: Component = () => {
 	const { length, onChangeLength } = usePassword()

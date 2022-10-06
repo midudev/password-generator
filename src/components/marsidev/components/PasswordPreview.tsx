@@ -1,6 +1,6 @@
 /** @jsxImportSource solid-js */
 import type { Component } from 'solid-js'
-import { usePassword } from '@components/marsidev/context/PasswordContext'
+import { usePassword } from '@components/marsidev/lib/PasswordContext'
 
 export const PasswordPreview: Component = () => {
 	const { password } = usePassword()

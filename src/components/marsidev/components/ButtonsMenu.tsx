@@ -1,7 +1,7 @@
 /** @jsxImportSource solid-js */
 import type { Component } from 'solid-js'
 import { Button } from '@components/marsidev/components/Button'
-import { usePassword } from '@components/marsidev/context/PasswordContext'
+import { usePassword } from '@components/marsidev/lib/PasswordContext'
 
 export const ButtonsMenu: Component = () => {
 	const { generate, onCopy } = usePassword()

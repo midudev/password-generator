@@ -51,7 +51,7 @@ export type ToastOptions = CommonToastOptions & {
 }
 
 /** ToastProvider props */
-export type ToastProviderOptions = CommonToastOptions & {
+export type ToastContainerProps = CommonToastOptions & {
 	/**
 	 * Set the default position to use.
 	 * `One of: 'top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-center', 'bottom-left'`

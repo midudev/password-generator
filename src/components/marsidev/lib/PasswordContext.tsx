@@ -5,7 +5,7 @@ import { createContext, useContext, createSignal } from 'solid-js'
 import { generatePassword } from '@components/marsidev/utils/generate-password'
 import { DEFAULT_KEYS, DEFAULT_PASSWORD_LENGTH } from '@components/marsidev/utils/constants'
 import { copyTextToClipboard } from '@components/marsidev/utils/copy-to-clipboard'
-import { toastify } from '@components/marsidev/utils/toastify'
+import { toastify } from '@components/marsidev/lib/toast/toastify'
 
 interface PasswordProviderProps extends ParentProps {
 	initialPassword: string
@@ -95,7 +95,8 @@ export const PasswordProvider = (props: PasswordProviderProps) => {
 		const copied = await copyTextToClipboard(password())
 		if (copied) {
 			toastify.success('Password copied to the clipboard!', {
-				theme: 'dark'
+				theme: 'dark',
+				duration: 3000
 			})
 		} else {
 			toastify.error('Could not copy!', { theme: 'dark' })
