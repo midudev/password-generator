@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CustomStrength({ strength }) {
+export default function Strength({ strength }) {
 	return (
 		<div 
 			id={strength} 

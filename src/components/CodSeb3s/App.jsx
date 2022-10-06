@@ -29,14 +29,14 @@ export default function App() {
 
   // Make an random uppercase password when the user enter the first time
   useEffect(() => {
-    passwordGenerator(passwordLength)
+    passwordGenerator()
   }, [])
 
   // GLOBALS VARIABLES //
   const UPPERCASE = 'ABCDEFHIJKLMNOPQRSTUVWXYZ' // Avl = Availables
   const LOWERCASE= 'abcdefghijklmnopqrstuvwxyz'
   const NUMBERS = '0123456789'
-  const SYMBOLS = '@_*/.'
+  const SYMBOLS = '~&+@_*/.=$#'
   
   // Array of TRUE/FALSE options selected by the user
   const arrOptionsSelected = Object.values(options)
@@ -58,9 +58,8 @@ export default function App() {
   }
 
   // FUNCTION - Generate the random password
-  const passwordGenerator = (arrOptsSel=arrOptionsSelected, pwLength=passwordLength) => {
+  const passwordGenerator = (pwLength=passwordLength) => {
     if(allOptionsSelected === false) return alert('Please enter at least one option')
-
     const strOptionsSelected = getRandomStr(options)
     let password = ''
     for (let i = 0; i < pwLength; i++) {
@@ -95,7 +94,9 @@ export default function App() {
         ((twoOneOtps) && pwLength <= 30)
       ) 
     {
-      setColorStrength(colorStrength.fill('too-weak', 0, 1).fill('empty', 1, 4))
+      setColorStrength(
+		colorStrength.fill('codseb3s-too-weak', 0, 1).fill('empty', 1, 4)
+	  )
       setNameStrength('TOO WEAK!')
     }
     else if(
@@ -104,7 +105,9 @@ export default function App() {
         ((twoOneOtps) && pwLength <= 40)
       ) 
     {
-      setColorStrength(colorStrength.fill('weak', 0, 2).fill('empty', 2, 4))
+      setColorStrength(
+		colorStrength.fill('codseb3s-weak', 0, 2).fill('empty', 2, 4)
+	  )
       setNameStrength('WEAK')
     }
     else if(
@@ -113,7 +116,9 @@ export default function App() {
         ((twoOneOtps) && pwLength <= 64)
       ) 
     {
-      setColorStrength(colorStrength.fill('medium', 0, 3).fill('empty', 3, 4))
+      setColorStrength(
+		colorStrength.fill('codseb3s-medium', 0, 3).fill('empty', 3, 4)
+	  )
       setNameStrength('MEDIUM')
     }
     else if(
@@ -122,7 +127,7 @@ export default function App() {
         ((twoOneOtps) && pwLength >= 65)
       ) 
     {
-      setColorStrength(colorStrength.fill('strong', 0, 4))
+      setColorStrength(colorStrength.fill('codseb3s-strong', 0, 4))
       setNameStrength('STRONG')
     }
   }

@@ -1,72 +1,75 @@
+/* Identifier of my GitHub name */
+/*********** codseb3s ***********/
+
  :root {
-	/* s = CodSeb3s - Represent my initial name */
-	--s-bg-components: #1F232B;
-	--s-prim-color: #FFFFFF;
-	--s-sub-color: #A9AEB7;
-	--s-uncheck-color: #545A64;
-	--s-init-slide-bg-color: linear-gradient(
+	--codseb3s-bg-components: #1F232B;
+	--codseb3s-prim-color: #FFFFFF;
+	--codseb3s-sub-color: #A9AEB7;
+	--codseb3s-uncheck-color: #545A64;
+	--codseb3s-init-slide-bg-color: linear-gradient(
 		to right, 
 		#A4FFAF 0%, 
 		#A4FFAF 0%, 
 		#18171F 0%, 
 		#18171F 100%
 	);
-	--s-black-color: #000000;
-	--s-grey-color: #817D92;
-	--s-red-color: #F64A4A;
-	--s-orange-color: #FB7C58;
-	--s-yellow-color: #F8CD65;
-	--s-green-color: #A4FFAF;
+	--codseb3s-black-color: #000000;
+	--codseb3s-grey-color: #817D92;
+	--codseb3s-red-color: #F64A4A;
+	--codseb3s-orange-color: #FB7C58;
+	--codseb3s-yellow-color: #F8CD65;
+	--codseb3s-green-color: #A4FFAF;
 }
 
 /* Set globals word spacing for every text */
-#header-title, #header-sub-title, #pw, #copy-txt, #container-title, #container-sub-title, #quantity-length, .checkbox, #strength-title, #strength-lvl-title, #primary-btn {
+#codseb3s-header-title, #codseb3s-header-sub-title, #codseb3s-pw, #codseb3s-copy-txt, #codseb3s-container-title, #codseb3s-container-sub-title, #codseb3s-quantity-length, #codseb3s-strength-title,#codseb3s-strength-lvl-title, #codseb3s-primary-btn, .codseb3s-checkbox {
 	word-spacing: -0.19rem;
 }
 
 /* Set globals font size with identifiers */
-#header-title {
+#codseb3s-header-title {
 	font-size: 1.35rem;
 }
 
-#pw, #container-title, #quantity-length {
+#codseb3s-pw, #codseb3s-container-title, #codseb3s-quantity-length {
 	font-size: 1.25rem;
 }
 
-#header-sub-title, #copy-txt, #container-sub-title, .checkbox, #strength-title, #strength-lvl-title, #primary-btn {
+#codseb3s-header-sub-title, #codseb3s-copy-txt, #codseb3s-container-sub-title, 
+#codseb3s-strength-title, #codseb3s-strength-lvl-title, #codseb3s-primary-btn, .codseb3s-checkbox {
 	font-size: .875rem;
 }
 
 /* Set globals color with identifiers */
-#header-sub-title, #strength-title {
-	color: var(--s-grey-color);
+#codseb3s-header-sub-title, #codseb3s-strength-title {
+	color: var(--codseb3s-grey-color);
 }
 
-#pw, #container-sub-title, .checkbox, #strength-lvl-title {
-	color: var(--s-sub-color);
+#codseb3s-pw, #codseb3s-container-sub-title, #codseb3s-strength-lvl-title, .codseb3s-checkbox {
+	color: var(--codseb3s-sub-color);
 }
 
-#copy-txt, #quantity-length {
-	color: var(--s-green-color);
+#codseb3s-copy-txt, #codseb3s-quantity-length {
+	color: var(--codseb3s-green-color);
 }
 
-#header-title, #container-title {
-	color: var(--s-prim-color);
+#codseb3s-header-title, #codseb3s-container-title {
+	color: var(--codseb3s-prim-color);
 }
 
-#primary-btn {
-	color: var(--s-black-color);
+#codseb3s-primary-btn {
+	color: var(--codseb3s-black-color);
 }
 
 /* Setting properly the position of the SQUARE just in Safari 7.1.+ */
-_::-webkit-full-page-media, _:future, :root #square-container {
+_::-webkit-full-page-media, _:future, :root #codseb3s-square-container {
 	top: 14.5rem !important;
 	left: 2.0625rem !important;
 }
 
 /* Setting properly the position of the SQUARE just in Firefox 69+ */
 @supports selector(:-moz-is-html) { 
-	#square-container { 
+	#codseb3s-square-container { 
 		top: 14.75rem !important;
 		left: 2.1rem !important;
 	} 
@@ -74,49 +77,49 @@ _::-webkit-full-page-media, _:future, :root #square-container {
 
 /* Re-Position the header in devices Smallers than 374px */
 @media only screen and (max-width: 374px) {
-	#header-container {
+	#codseb3s-header-container {
 		width: 18.75rem !important;
 		margin-left: auto !important;
 		margin-right: auto !important;
 	}
 
-	#header-container-wrapper {
+	#codseb3s-header-container-wrapper {
 		transform: translateX(-2.1875rem) !important;
 	}
 }
 
 /* Re-position of the header in devices between 414px and 639px */
 @media only screen and (min-width: 414px) {
-	#header-container {
+	#codseb3s-header-container {
 		margin-bottom: 1.875rem !important;
 	}
 }
 
 /* Re-position of the header and square design between 640px and greathers */
 @media only screen and (min-width: 640px) {
-	#header-title {
+	#codseb3s-header-title {
 		font-size: 1.45rem !important; 
 	}
 
-	#pw, #container-title, #quantity-length {
+	#codseb3s-pw, #codseb3s-container-title, #codseb3s-quantity-length {
 		font-size: 1.35rem !important;
 	}
 
-	#square-container {
+	#codseb3s-square-container {
 		width: 10.125rem !important;
 		top: 16.375rem !important;
 		left: 2.9875rem !important;
 	}
 
 	/* Setting properly the position of the SQUARE just in Safari 7.1.+ */
-	_::-webkit-full-page-media, _:future, :root #square-container {
+	_::-webkit-full-page-media, _:future, :root #codseb3s-square-container {
 		top: 16.625rem !important;
 		left: 3.1875rem !important;
 	}
 
 	/* Setting properly the position of the SQUARE just in Firefox 69+ */
 	@supports selector(:-moz-is-html) { 
-		#square-container { 
+		#codseb3s-square-container { 
 			top: 16.375rem !important;
 			left: 2.9rem !important;
 		} 
@@ -126,250 +129,189 @@ _::-webkit-full-page-media, _:future, :root #square-container {
 
 /* Set the arrow movement of the header */
 /* Line > */
-#arrow:hover #arrow__linePath {
+#codseb3s-arrow:hover #codseb3s-arrow__line-path {
 	transform: translateX(.21875rem);
 	transition: 150ms cubic-bezier(0.215,0.61,0.355,1);
 	outline: none;
 }
 
 /* Tip - */
-#arrow:hover #arrow__tipPath {
+#codseb3s-arrow:hover #codseb3s-arrow__tip-path {
 	transform: translateX(.21875rem);
 	transition: 150ms cubic-bezier(0.215,0.61,0.355,1);
 	outline: none;
 }
 
-#container1:active {
+#codseb3s-arrow-wrapper:active {
 	outline: none;
 }
 
-#container1::-moz-focus-inner {
+#codseb3s-arrow-wrapper::-moz-focus-inner {
 	outline: none;
 }
 
 /* Password width container animated */
-.current-size, .resize {
+.codseb3s-current-size, .codseb3s-resize {
 	font-size: 1.25rem;
 	letter-spacing: .156rem;
 	margin: auto auto auto 0;
-	background-color: var(--s-bg-components);
+	background-color: var(--codseb3s-bg-components);
 	overflow-wrap: break-word;
 }
 
-.current-size {
+.codseb3s-current-size {
 	width: 90%;
 	animation-delay: 3s;
-	animation: fade-in-keyframes .2s;
-	-webkit-animation: fade-in-keyframes .2s;
-	-moz-animation: fade-in-keyframes .2s;
-	-o-animation: fade-in-keyframes .2s;
+	animation: codseb3s-fade-in-keyframes .2s;
 }
-@keyframes fade-in-keyframes {
-	from {width: 68%;}
-	to {width: 90%;}
-}
-@-webkit-keyframes fade-in-keyframes {
-	from {width: 68%;}
-	to {width: 90%;}
-}
-@-moz-keyframes fade-in-keyframes {
-	from {width: 68%;}
-	to {width: 90%;}
-  }
-@-o-keyframes fade-in-keyframes {
+@keyframes codseb3s-fade-in-keyframes {
 	from {width: 68%;}
 	to {width: 90%;}
 }
 
-.resize {
+.codseb3s-resize {
 	width: 68%;
-	animation: fade-out-keyframes .2s;
-	-webkit-animation: fade-out-keyframes .2s;
-	-moz-animation: fade-out-keyframes .2s;
-	-o-animation: fade-out-keyframes .2s;
+	animation: codseb3s-fade-out-keyframes .2s;
 }
-@keyframes fade-out-keyframes {
-	from { width: 90%; }
-	to { width: 68%; }
-}
-@-webkit-keyframes fade-out-keyframes {
-	from { width: 90%; }
-	to { width: 68%; }
-}
-@-moz-keyframes fade-out-keyframes {
-	from { width: 90%; }
-	to { width: 68%;}
-  }
-@-o-keyframes fade-out-keyframes {
+@keyframes codseb3s-fade-out-keyframes {
 	from { width: 90%; }
 	to { width: 68%; }
 }
 
 /* Copy clipboard animated */
-#copy-txt {
+#codseb3s-copy-txt {
 	opacity: 1;
-	animation: fade-in-out-keyframes-txt 4s linear;
-	-webkit-animation: fade-in-out-keyframes-txt 4s linear;
-	-moz-animation: fade-in-out-keyframes-txt 4s linear;
-	-o-animation: fade-in-out-keyframes-txt 4s linear;
+	animation: codseb3s-fade-in-out-keyframes-txt 4s linear;
 }
-@keyframes fade-in-out-keyframes-txt {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
-}
-@-webkit-keyframes fade-in-out-keyframes-txt {
-  0%, 100% { opacity: 0; -webkit-opacity: 0; }
-  50% { opacity: 1 ; -moz-opacity: 1; }
-}
-@-moz-keyframes fade-in-out-keyframes-txt {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
-  }
-@-o-keyframes fade-in-out-keyframes-txt {
+@keyframes codseb3s-fade-in-out-keyframes-txt {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
 }
 
 /* Square animated */
-#square-container {
-	animation: fade-in-keyframes-square 2.5s;
-	-webkit-animation: fade-in-keyframes-square 2.5s;
-	-moz-animation: fade-in-keyframes-square 2.5s;
-	-o-animation: fade-in-keyframes-square 2.5s;
+#codseb3s-square-container {
+	animation: codseb3s-fade-in-keyframes-square 2.5s;
 }
-@keyframes fade-in-keyframes-square {
+@keyframes codseb3s-fade-in-keyframes-square {
   from { opacity: 0 } 
   to{ opacity: 1 }
 }
-@-webkit-keyframes fade-in-keyframes-square {
-	from { opacity: 0; -webkit-opacity: 0; } 
-	to{ opacity: 1; -webkit-opacity: 1; }
-}
-@-moz-keyframes fade-in-keyframes-square {
-	from { opacity: 0 } 
-	to{ opacity: 1 }
-  }
-@-o-keyframes fade-in-keyframes-square {
-	from { opacity: 0 } 
-	to{ opacity: 1 }
-}
 
 /* Set the color of the COPY button */
-#copy-button:active path {
-	fill: var(--s-sub-color) !important;
+#codseb3s-copy-button:active path {
+	fill: var(--codseb3s-sub-color) !important;
 	outline: none;
 }
 
 /* Prevents color stucked in MOBILE DEVICES */
 @media (hover:hover) {
-	#copy-button:hover path {
-		fill: var(--s-sub-color) !important;
+	#codseb3s-copy-button:hover path {
+		fill: var(--codseb3s-sub-color) !important;
 		outline: none;
 	}
 }
 
 /* Range Input Styles */
 /* Styling and resetting the slider for all browsers */
-#slider {
+#codseb3s-slider {
 	width: 100%;
 	height: .375rem;
 	-webkit-appearance: none;
 	appearance: none;
 	cursor: pointer;
-	background: var(--s-init-slide-bg-color);
+	background: var(--codseb3s-init-slide-bg-color);
 }
 
 /** Chrome, Safari, Edge and Opera **/
 /* Focus Style */
-#slider:focus {
+#codseb3s-slider:focus {
 	outline: none;
 }
 
 /* Track Styles */
-#slider::-webkit-slider-runnable-track {
+#codseb3s-slider::-webkit-slider-runnable-track {
 	height: .375rem; /* track heigth */
 }
 
 /* Thumb Styles */
-#slider::-webkit-slider-thumb {
+#codseb3s-slider::-webkit-slider-thumb {
 	width: 1.25rem;
 	height: 1.25rem; /* thumb heigth */
 	margin-top: -0.4375rem; /* (track height / 2) - (thumb height / 2) */
 	-webkit-appearance: none;
 	border-radius: 100%;
-	background-color: var(--s-sub-color);
+	background-color: var(--codseb3s-sub-color);
 }
 
 /** Firefox **/
 /* Thumb Styles */
-#slider::-moz-range-thumb {
+#codseb3s-slider::-moz-range-thumb {
 	width: 1.25rem;
 	height: 1.25rem; 
 	border: none;
 	border-radius: 100%;
-	background: var(--s-sub-color);
+	background: var(--codseb3s-sub-color);
 }
 
 /* Accesibility purposes */
-.checkbox {
+.codseb3s-checkbox {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
 
-#check-true {
-	color: var(--s-sub-color) !important;
+#codseb3s-check-true {
+	color: var(--codseb3s-sub-color) !important;
 }
 
-#check-false {
-	color: var(--s-uncheck-color) !important;
+#codseb3s-check-false {
+	color: var(--codseb3s-uncheck-color) !important;
 }
 
 /* Override the width of the container */
-#container-checkboxs div:nth-child(3) > label, 
-#container-checkboxs div:nth-child(4) > label 
-{
+#codseb3s-container-checkboxs div:nth-child(3) > label, 
+#codseb3s-container-checkboxs div:nth-child(4) > label {
 	width: 5.25rem !important;
 }
 
 /* Set the color of the CHECKBOX button */
-.checkbox:active input ~ .checkmark {
-	border-color: var(--s-green-color);
+.codseb3s-checkbox:active input ~ .codseb3s-checkmark {
+	border-color: var(--codseb3s-green-color);
 }
 
 /* Prevents color stucked in MOBILE DEVICES */
 @media (hover:hover) {
-	.checkbox:hover input ~ .checkmark {
-		border-color: var(--s-green-color);
+	.codseb3s-checkbox:hover input ~ .codseb3s-checkmark {
+		border-color: var(--codseb3s-green-color);
 	}
 }
 
 /* Custom checkbox on SELECTION */
-.checkbox input:checked ~ .checkmark {
-	background-color: var(--s-green-color) !important;
-	border-color: var(--s-green-color);
+.codseb3s-checkbox input:checked ~ .codseb3s-checkmark {
+	background-color: var(--codseb3s-green-color) !important;
+	border-color: var(--codseb3s-green-color);
 }
 
 /* Hidde the CHECKMARK (✓) when not checked */
-.checkmark::after {
+.codseb3s-checkmark::after {
 	content: '';
 	position: absolute;
 	display: none;
 }
 
 /* Show the CHECKMARK (✓) when checked */
-.checkbox input:checked ~ .checkmark::after {
+.codseb3s-checkbox input:checked ~ .codseb3s-checkmark::after {
 	display: block;
 }
 
 /* Style the CHECKMARK (✓) */
-.checkbox .checkmark::after {
+.codseb3s-checkbox .codseb3s-checkmark::after {
 	left: .25rem;
 	top: .03125rem;
 	width: .25rem;
 	height: .5rem;
-	border: solid var(--s-black-color);
+	border: solid var(--codseb3s-black-color);
 	border-width: 0 .09375rem .09375rem 0;
 	-webkit-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
@@ -377,40 +319,40 @@ _::-webkit-full-page-media, _:future, :root #square-container {
 }
 
 /* Set the style of the PRINCIPAL button */
-#primary-btn:active {
-	border: solid .09375rem var(--s-green-color);
-	background-color: var(--s-bg-components);
-	color: var(--s-sub-color);
+#codseb3s-primary-btn:active {
+	border: solid .09375rem var(--codseb3s-green-color);
+	background-color: var(--codseb3s-bg-components);
+	color: var(--codseb3s-sub-color);
 	outline: none;
 }
 
 /* Prevents color stucked in MOBILE DEVICES */
 @media (hover:hover) {
-	#primary-btn:hover {
-		border: solid .09375rem var(--s-green-color);
-		background-color: var(--s-bg-components);
-		color: var(--s-sub-color);
+	#codseb3s-primary-btn:hover {
+		border: solid .09375rem var(--codseb3s-green-color);
+		background-color: var(--codseb3s-bg-components);
+		color: var(--codseb3s-sub-color);
 		outline: none;
 	}
 }
 
 /* Set color to indicate the strengh of the password */
-#too-weak {
-	background-color: var(--s-red-color);
+#codseb3s-too-weak {
+	background-color: var(--codseb3s-red-color);
 	border: none;
 }
 
-#weak {
-	background-color: var(--s-orange-color);
+#codseb3s-weak {
+	background-color: var(--codseb3s-orange-color);
 	border: none;
 }
 
-#medium {
-	background-color: var(--s-yellow-color);
+#codseb3s-medium {
+	background-color: var(--codseb3s-yellow-color);
 	border: none;
 }
 
-#strong {
-	background-color: var(--s-green-color);
+#codseb3s-strong {
+	background-color: var(--codseb3s-green-color);
 	border: none;
 }

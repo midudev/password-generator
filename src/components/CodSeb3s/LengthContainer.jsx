@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function LengthContainer({ allOptionsSelected, passwordGenerator, passwordLength, setPasswordLength, arrOptionsSelected, showSquare }) {
+export default function LengthContainer({ allOptionsSelected, passwordGenerator, passwordLength, setPasswordLength, showSquare }) {
 
   // Make the design dynamic and easy to change
   const [sizePwGenerator, ] = useState({
@@ -34,21 +34,21 @@ export default function LengthContainer({ allOptionsSelected, passwordGenerator,
       #18171F 100%
 	  )`
   
-	  passwordGenerator(arrOptionsSelected, bgSize)
+	  passwordGenerator(bgSize)
 	}
     
 	return (
 		<div className='p-4 sm:p-7 mb-3 bg-[#1F232B]'>
-			<h3 id='container-title' className='font-sans mb-1'>Length</h3>
-			<div className='flex mb-3'>
-				<p id='container-sub-title' className='font-sans my-auto mr-auto'>Character Length</p>
-				<p id='quantity-length' className='font-sans'>
+			<h3 id='codseb3s-container-title' className='font-sans mb-1'>Length</h3>
+			<div className='flex mb-3 sm:mb-[.875rem]'>
+				<p id='codseb3s-container-sub-title' className='font-sans my-auto mr-auto'>Character Length</p>
+				<p id='codseb3s-quantity-length' className='font-sans'>
 						{passwordLength}
 				</p>
 			</div>
 			{/* Slider container */}
-			<div className='mb-5'>
-				<input id='slider' className='w-[100%]' onChange={(e) => handleSlide(e)} type='range' min={min} max={max} defaultValue={passwordLength} step={1}/>
+			<div className='mb-1'>
+				<input id='codseb3s-slider' className='w-[100%]' onChange={(e) => handleSlide(e)} type='range' min={min} max={max} defaultValue={passwordLength} step={1}/>
 			</div>
 		</div>
 	)

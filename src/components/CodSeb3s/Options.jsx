@@ -8,9 +8,9 @@ export default function Options({ strBooleanOption, option }) {
 	return (
 		<div className='relative mb-2'>
 			<label id={strBooleanOption === true 
-				? 'check-true' 
-				: 'check-false'} 
-				className='checkbox block relative font-sans w-[6.25rem] pl-6 cursor-pointer' htmlFor='toggle'>
+				? 'codseb3s-check-true' 
+				: 'codseb3s-check-false'} 
+				className='codseb3s-checkbox block relative font-sans w-[6.25rem] pl-6 cursor-pointer' htmlFor='toggle'>
 				{capitalizeName}
 				{ option === 'uppercase' 
 					? <input
@@ -27,9 +27,9 @@ export default function Options({ strBooleanOption, option }) {
 				}
 				<span 
 					id={strBooleanOption === true 
-						? 'check-true' 
-						: 'check-false'}
-					className='checkmark absolute w-[.875rem] h-[.875rem] top-[.1875rem] left-0 border-solid border-[.09375rem] border-[#545A64] cursor-pointer'>
+						? 'codseb3s-check-true' 
+						: 'codseb3s-check-false'}
+					className='codseb3s-checkmark absolute w-[.875rem] h-[.875rem] top-[.1875rem] left-0 border-solid border-[.09375rem] border-[#545A64] cursor-pointer'>
 				</span>
 			</label>
 		</div>

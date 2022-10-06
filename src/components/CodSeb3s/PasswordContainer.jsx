@@ -24,12 +24,12 @@ export default function PasswordContainer({ password, showSquare, setShowSquare 
 
     // Resize the width of the password to add the word 'COPIED'
     setShowText((prev) => !prev)
-    inputRef.current.className = 'resize'
+    inputRef.current.className = 'codseb3s-resize'
     // Execute the original width of the password 3s later
     setTimeout(() => {
       setShowSquare(false)
       setShowText((prev) => !prev)
-      inputRef.current.className = 'current-size'
+      inputRef.current.className = 'codseb3s-current-size'
     }, 3000)
   }
 
@@ -50,10 +50,10 @@ export default function PasswordContainer({ password, showSquare, setShowSquare 
     <>
       <div className='relative flex p-4 sm:p-7 bg-[#1F232B] mb-3'>
         <div
-          className='current-size' 
+          className='codseb3s-current-size' 
           ref={inputRef}
         >
-          <span id='pw' className='font-sans'>{password}</span>
+          <span id='codseb3s-pw' className='font-sans'>{password}</span>
         </div>
         {/* Show a RECTANGLE for design purposes only in length MAX value */}
         { showSquare === true

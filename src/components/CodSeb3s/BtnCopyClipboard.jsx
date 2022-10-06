@@ -3,7 +3,7 @@ import React from 'react';
 export default function BtnCopyClipboard({ handleCopy }) {
 	return (
 		<button 
-				id='copy-button' 
+				id='codseb3s-copy-button' 
 				className='w-[6%] my-auto cursor-pointer'
 				onClick={() => handleCopy()}>
 			<svg role='img' width='16' height='16' viewBox='0 0 18 20' fill='' xmlns='http://www.w3.org/2000/svg'>
