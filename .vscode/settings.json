@@ -7,9 +7,11 @@
     "typescriptreact" // Enable .tsx
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true
   },
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "editor.insertSpaces": false,
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+	"stylelint.enable": true
 }
