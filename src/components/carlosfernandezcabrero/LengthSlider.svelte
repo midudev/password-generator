@@ -4,7 +4,9 @@
 	const passwordLengthValues = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 </script>
 
-<fieldset class="flex flex-col items-center pt-3 px-2">
+<fieldset
+	class="flex flex-col items-center pt-3 px-2 w-full sm:w-10/12 md:w-9/12 lg:w-7/12 xl:w-5/12"
+>
 	<label for="length" class="text-left w-full text-xl mb-6">
 		Longitud de la contraseña:&nbsp;&nbsp;
 		<span class="bg-gray-800 px-6 py-2 rounded-full text-2xl">
@@ -20,14 +22,11 @@
 		bind:value={length}
 		id="length"
 	/>
-	<datalist
-		id="range-values"
-		class="flex items-center justify-start lg:gap-x-[1.7rem] sm:gap-x-[0.9rem] w-full"
-	>
+	<datalist id="range-values" class="flex items-center justify-between w-full">
 		{#each passwordLengthValues as value}
 			<option
 				{value}
-				class={`bg-gray-300 rounded-full text-black font-medium text-lg h-7 w-7 flex items-center justify-center ${
+				class={`bg-gray-300 rounded-full text-black font-medium text-lg h-8 w-8 flex items-center justify-center ${
 					value % 2 !== 0 ? 'invisible' : ''
 				}`}>{value}</option
 			>
