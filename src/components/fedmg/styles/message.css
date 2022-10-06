@@ -1,7 +1,13 @@
-/* 
-.fedmg-main .response-message {
+.fedmg-main .response-message-success,
+.fedmg-main .response-message-wrong {
+	text-overflow: ellipsis;
+	font-size: clamp(0.9em, 3vw, 1.05em);
 }
-.fedmg-main .response-message_success {
+
+.fedmg-main .response-message-wrong {
+	color: rgb(200 20 20 / 100%);
 }
-.fedmg-main .response-message_wrong {
-} */
+
+.fedmg-main .response-message-success {
+	color: rgb(20 140 40 / 100%);
+}

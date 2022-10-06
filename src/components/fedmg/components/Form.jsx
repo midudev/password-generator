@@ -16,17 +16,17 @@ export const Form = () => {
 
 	const generatePass = () => {
 		setResponse({
-			...response,
-			// status: true,
+			...responses,
 			password: getPassword(range)
 		})
 	}
 
 	const saveToClipboard = () => {
-		if (response.status) {
-			navigator.clipboard.writeText(response.password)
-			setResponse({
+		if (response.password) {
+			// navigator.clipboard.writeText(response.password)
+			return setResponse({
 				...response,
+				status: true,
 				message: 'Copied to the clipboard successfully!'
 			})
 		}
@@ -40,7 +40,7 @@ export const Form = () => {
 		<div className='form'>
 			<InputSection handler={getRange} state={range} />
 			<OutputSection response={response} save={saveToClipboard} />
-			<ControlSection response={response.message} handler={generatePass} />
+			<ControlSection response={response} handler={generatePass} />
 		</div>
 	)
 }

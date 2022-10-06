@@ -4,8 +4,9 @@
 }
 
 .label-container {
-	display: grid;
+	display: inherit;
 	grid-template-columns: 1fr 1fr;
+	align-items: center;
 }
 
 .fedmg-main .range-input {
@@ -14,15 +15,15 @@
 
 .fedmg-main .range-lbl {
 	text-align: start;
-
-	/* clamp(13.5px, 3vw, 19px) */
-	font-size: clamp(1.05em, 3vw, 1.16em);
+	font-family: 'Noto Sans', sans-serif;
+	font-size: clamp(0.9em, 3vw, 1.16em);
 }
 
 .fedmg-main .range-span {
 	font-size: clamp(0.96em, 3vw, 1.1em);
-	border: 1px solid #fff;
+	border: 2px solid #fff;
 	background: rgb(0 0 0 / 30%);
-	border-radius: 0.29em;
+	border-radius: 0.22em;
+	font-weight: 600;
 	font-family: 'Courier new', Courier, sans-serif;
 }
