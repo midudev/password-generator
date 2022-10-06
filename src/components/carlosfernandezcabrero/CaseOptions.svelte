@@ -2,7 +2,7 @@
 	export let caseSensitive
 </script>
 
-<div class="flex flex-col items-start gap-y-2 sm:flex-row lg:gap-x-12 sm:gap-x-10 sm:items-center">
+<div class="flex flex-col items-start gap-y-2 sm:flex-row sm:gap-x-10 sm:items-center">
 	<fieldset class="flex items-center gap-x-2">
 		<input
 			type="radio"
