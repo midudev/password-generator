@@ -1,4 +1,4 @@
-.background{
+.backgroundMrVega01{
 	height: 100vh;
 	width: 100vw;
 	position: absolute;
@@ -6,7 +6,7 @@
 	filter: blur(5px);
 	z-index: -1;
 }
-.background::after{
+.backgroundMrVega01::after{
 	content: '';
 	position: absolute;
 	height: 40vw;
@@ -16,7 +16,7 @@
 	border-radius: 50%;
 	background: linear-gradient(to bottom, #ffad61, #ffeeae);;
 }
-.background::before{
+.backgroundMrVega01::before{
 	content: '';
 	position: absolute;
 	height: 30vw;
