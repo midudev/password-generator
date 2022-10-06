@@ -83,7 +83,7 @@ export const PasswordProvider = (props: PasswordProviderProps) => {
 			if (next === true) return next
 			if (passwordDictionary().length > 1) return next // unchecking a checkbox when there is 2+ checkboxes checked
 
-			// console.log('cannot uncheck! at least 1 checkbox should be checked')
+			// console.log('cannot uncheck!at least 1 checkbox should be checked')
 			return prev
 		})
 
@@ -94,9 +94,11 @@ export const PasswordProvider = (props: PasswordProviderProps) => {
 	async function onCopyPassword() {
 		const copied = await copyTextToClipboard(password())
 		if (copied) {
-			toastify('Password copied to clipboard!', { theme: 'dark' })
+			toastify.success('Password copied to the clipboard!', {
+				theme: 'dark'
+			})
 		} else {
-			toastify('Could not copy!', { theme: 'dark' })
+			toastify.error('Could not copy!', { theme: 'dark' })
 		}
 	}
 

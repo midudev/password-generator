@@ -1,42 +1,58 @@
-import type { ToastOptions, CommonToastOptions, WithUndef } from '@components/marsidev/types'
+import type { ToastOptions, ToastType, ToastSignal, Toaster } from '@components/marsidev/types'
 import { createSignal } from 'solid-js'
 import { generatePassword } from '@components/marsidev/utils/generate-password'
 import { DEFAULT_TOAST_OPTIONS } from '@components/marsidev/utils/constants'
 
 const generateId = () => generatePassword(16, ['lowercase', 'uppercase', 'numbers'])
 
-export type ToastSignal = WithUndef<CommonToastOptions> & {
-	id: string
-	message: string
-}
+const [toastSignals, setToastSignals] = createSignal<ToastSignal[]>([])
+export { toastSignals }
 
-export const [toasts, setToasts] = createSignal<ToastSignal[]>([])
-
-export const onRemoveToast = (id: string) => {
-	const toastToRemove = toasts().find((toast) => toast.id === id)
-
-	if (toastToRemove) {
-		const newToasts = toasts().filter((toast) => toast.id !== toastToRemove.id)
-		setToasts(newToasts)
-	}
-}
-
-export const toastify = (message: string, options?: ToastOptions) => {
+export const onAddToastByType = (toastType: ToastType, message: string, options?: ToastOptions) => {
 	const toastDuration = options?.duration || DEFAULT_TOAST_OPTIONS.duration
 	const { theme, closeOnClick } = options ?? {}
 
 	const newToastSignal: ToastSignal = {
 		id: generateId(),
+		type: toastType,
 		message,
 		theme,
 		closeOnClick
 	}
 
-	setToasts((t) => [...t, newToastSignal])
+	setToastSignals((t) => [...t, newToastSignal])
 
 	setInterval(() => {
-		const newToasts = toasts().filter((toast) => toast.id !== newToastSignal.id)
-		setToasts(newToasts)
+		const newToasts = toastSignals().filter((toast) => toast.id !== newToastSignal.id)
+		setToastSignals(newToasts)
 	}, toastDuration)
-	// onCleanup(() => clearInterval(timer))
 }
+
+export const onRemoveToast = (id: string) => {
+	const toastToRemove = toastSignals().find((toast) => toast.id === id)
+
+	if (toastToRemove) {
+		const newToasts = toastSignals().filter((toast) => toast.id !== toastToRemove.id)
+		setToastSignals(newToasts)
+	}
+}
+
+export const toastify = ((): Toaster => {
+	const toaster: Toaster = (message, options) => {
+		const toastType = options?.type || DEFAULT_TOAST_OPTIONS.type
+		onAddToastByType(toastType, message, options)
+	}
+	toaster.info = (message, options) => {
+		onAddToastByType('info', message, options)
+	}
+	toaster.success = (message, options) => {
+		onAddToastByType('success', message, options)
+	}
+	toaster.warn = (message, options) => {
+		onAddToastByType('warn', message, options)
+	}
+	toaster.error = (message, options) => {
+		onAddToastByType('error', message, options)
+	}
+	return toaster
+})()

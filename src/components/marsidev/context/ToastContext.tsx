@@ -4,7 +4,7 @@ import type { ToastPosition, ToastProviderOptions } from '@components/marsidev/t
 import { createContext, For } from 'solid-js'
 import { Portal } from 'solid-js/web'
 import { Toast } from '@components/marsidev/components/Toast'
-import { toasts } from '@components/marsidev/utils/toastify'
+import { toastSignals } from '@components/marsidev/utils/toastify'
 import { DEFAULT_TOAST_OPTIONS as defaultOptions } from '@components/marsidev/utils/constants'
 
 type ToastProviderProps = ParentProps & ToastProviderOptions
@@ -27,9 +27,11 @@ export const ToastProvider = (props: ToastProviderProps) => {
 	const newestOnTop = props.newestOnTop ?? defaultOptions.newestOnTop
 	const classByNewestOnTop = newestOnTop ? 'flex-col-reverse' : 'flex-col'
 
-	const containerClass = ['absolute flex gap-4 z-[9999]', classByPosition, classByNewestOnTop].join(
-		' '
-	)
+	const containerClass = [
+		'absolute flex gap-4 z-[9999] w-[320px] overflow-hidden pb-2',
+		classByPosition,
+		classByNewestOnTop
+	].join(' ')
 
 	return (
 		<ToastContext.Provider value={null}>
@@ -37,7 +39,7 @@ export const ToastProvider = (props: ToastProviderProps) => {
 
 			<Portal>
 				<aside class={containerClass}>
-					<For each={toasts()}>
+					<For each={toastSignals()}>
 						{(toast) => {
 							return <Toast toast={toast} closeOnClick={props.closeOnClick} theme={props.theme} />
 						}}

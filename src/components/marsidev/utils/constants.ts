@@ -22,5 +22,6 @@ export const DEFAULT_TOAST_OPTIONS: WithRequired<ToastOptions & ToastProviderOpt
 	newestOnTop: true,
 	position: 'bottom-right',
 	closeOnClick: true,
-	theme: 'light'
+	theme: 'light',
+	type: 'default'
 }
