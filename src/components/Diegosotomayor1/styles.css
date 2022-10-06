@@ -1,0 +1,22 @@
+.inputRange input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+	height: 15px;
+    width: 15px;
+	border-radius: 50% ;
+    background: #54270E;
+    -webkit-appearance: none;
+}
+
+.inputCheckbox input[type="checkbox"] {
+    background: #b8b1c4;
+    appearance: none;
+    width: 1rem;
+    border-radius: 5px;
+    height: 1rem;
+}
+.inputCheckbox input[type="checkbox"]:checked {
+    background: #54270E
+}
+.passwordwidth{
+	width: calc(100% - 5.5rem);
+}

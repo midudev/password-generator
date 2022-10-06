@@ -13,6 +13,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@layout": ["src/layouts/Layout.astro"],
+	  "@images/*":["src/images/*"]
     }
   }
 }
