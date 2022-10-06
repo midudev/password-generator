@@ -2,6 +2,6 @@
 	@apply bg-[rgba(255,255,255,.5)] rounded-2xl shadow-xl;
 }
 
-.card > .card-bg {
-	@apply w-full h-full bg-[url('/grain-dark.png')] px-8 py-6;
+.card>.card-bg {
+	@apply w-full h-full bg-[url('/grain-dark.png')] px-8 py-6
 }

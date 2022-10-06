@@ -1,1 +1,0 @@
-<h1 class="text-4xl uppercase mb-10">Password Generator</h1>

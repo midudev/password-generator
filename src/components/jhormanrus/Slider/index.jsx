@@ -8,7 +8,7 @@ const Slider = ({ value, onChange, className }) => {
 		sliderBg()
 		onChange(event)
 	}
-
+	
 	const sliderBg = () => {
 		const value = slider.current.value
 		const min = slider.current.min
@@ -20,17 +20,10 @@ const Slider = ({ value, onChange, className }) => {
 	return (
 		<div className={className}>
 			<div className='flex justify-center items-center gap-3'>
-				<div className='slider-value'>{value}</div>
-				<input
-					ref={slider}
-					className='slider'
-					type='range'
-					name='volume'
-					min='8'
-					max='16'
-					value={value}
-					onChange={handleSlider}
-				/>
+				<div className='slider-value'>
+					{value}
+				</div>
+				<input ref={slider} className="slider" type="range" name="volume" min="8" max="16" value={value} onChange={handleSlider} />
 			</div>
 		</div>
 	)
