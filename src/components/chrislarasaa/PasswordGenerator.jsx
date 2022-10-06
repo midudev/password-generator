@@ -24,16 +24,19 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<Container title='Password Generator'>
-			<PasswordInput placeholder='Password generated' password={password} />
+		<section className='section-center'>
+			<Container title='Password Generator'>
+				<PasswordInput placeholder='Password generated' password={password} />
 
-			<h1 className='char-lenght'>Password Length: {sliderValue}</h1>
-			<Slider sliderValue={sliderValue} setSliderValue={setSliderValue} />
-			<Button
-				handleGeneratePassword={handleGeneratePassword}
-				buttonText='Generate Random Password'
-			/>
-		</Container>
+				<h1 className='char-lenght'>Password Length: {sliderValue}</h1>
+				<Slider sliderValue={sliderValue} setSliderValue={setSliderValue} />
+				<Button
+					handleGeneratePassword={handleGeneratePassword}
+					buttonText='Generate Random Password'
+				/>
+			</Container>
+		</section>
+
 	)
 }
 
