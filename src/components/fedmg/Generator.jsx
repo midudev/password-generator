@@ -6,7 +6,7 @@ function getPassword(range) {
 	let code = ''
 
 	for (let i = 0; i < range; i++) {
-		code += characters[Math.floor(Math.random() * characters.length - i)]
+		code += characters[Math.floor(Math.random() * characters.length)]
 	}
 	return code
 }
@@ -49,15 +49,45 @@ const PasswordGenerator = () => {
 
 	return (
 		<main className='fedmg-main'>
-			<div className='form'>
-				<h2>Password Generator</h2>
-				<span>{response.password}</span>
-				<button onClick={saveToClipboard}>{response.status ? 'Copied' : 'Copy'}</button>
-				<input type='range' className='input-range' min='4' max='100' onChange={getRange} />
-				<label>{range}</label>
-				<button onClick={generatePass}>Generate</button>
-				<span>{response.message}</span>
-			</div>
+			<section className='section'>
+				<h2 className='title'>Password generator</h2>
+				<div className='form'>
+					{/* <span>Password length</span> */}
+					<div className='input-container'>
+						<div className='label-container'>
+							<label className='range-lbl' for='range'>
+								Password length:
+							</label>
+							<span className='range-span'>{range}</span>
+						</div>
+						<input
+							type='range'
+							id='range'
+							className='range-input'
+							min='4'
+							max='18'
+							onChange={getRange}
+						/>
+					</div>
+
+					<div className='password-container'>
+						<div className='container-pass'>
+							<span className='password-response'>{response.password}</span>
+						</div>
+						<button className='clipboard-button' onClick={saveToClipboard}>
+							{response.status ? 'Copied' : 'Copy'}
+						</button>
+					</div>
+					<div className='button-container'>
+						<div className='message-container'>
+							<span className='response-message'>{response.message}</span>
+						</div>
+						<button className='generate-button' onClick={generatePass}>
+							Generate
+						</button>
+					</div>
+				</div>
+			</section>
 		</main>
 	)
 }

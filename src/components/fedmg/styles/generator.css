@@ -1,3 +1,6 @@
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Rubik&display=swap';
+
 .fedmg-main {
 	display: flex;
 	justify-content: center;
@@ -7,10 +10,134 @@
 	color: #fff;
 }
 
-.fedmg-main .form {
-	border: 1px solid #fff;
+.fedmg-main .section {
+	--height-custom: 20em;
+
+	background: linear-gradient(to right, rgb(55 65 81), rgb(17 24 39), rgb(0 0 0));
+	max-width: 26em;
+	max-height: var(--height-custom);
 	height: 100%;
 	width: 100%;
-	max-width: 600px;
-	max-height: 400px;
+	text-align: center;
+	border-radius: 0.33em;
+}
+
+.fedmg-main .title {
+	font-size: clamp(16px, 3vw, 24.5px);
+	font-family: "Noto sans", Rubik, sans-serif; /* Orbitron; */
+	margin: 0.9em 0;
+}
+
+.fedmg-main .form {
+	/* border: 1px solid #fff; */
+
+	/* width: 100%; */
+	padding: clamp(0.4em, 3vw, 1.15em);
+}
+
+/* range */
+.fedmg-main .input-container {
+	display: grid;
+	gap: clamp(0.82em, 3vw, 1.1em) 0;
+}
+
+.label-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.fedmg-main .range-input {
+	user-select: none;
+}
+
+.fedmg-main .range-lbl {
+	text-align: start;
+
+	/* clamp(13.5px, 3vw, 19px) */
+	font-size: clamp(1.05em, 3vw, 1.16em);
+}
+
+.fedmg-main .range-span {
+	font-size: clamp(0.96em, 3vw, 1.1em);
+	border: 1px solid #fff;
+	background: rgb(0 0 0 / 30%);
+	border-radius: 0.29em;
+	font-family: 'Courier new', Courier, sans-serif;
+}
+
+/* password */
+.fedmg-main .password-container {
+	margin: clamp(0.82em, 3vw, 1.1em) 0;
+	background: rgb(0 0 0 / 30%);
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 0.9em;
+}
+
+.fedmg-main .container-pass {
+	/* text-overflow: hidden; */
+	grid-column: 1/3;
+	border: 1px solid #fff;
+	padding: clamp(0.1em, 2vw, 0.3em) 0;
+}
+
+.fedmg-main .password-response {
+	font-size: clamp(0.96em, 3vw, 1.1em);
+	font-family: 'Courier new', Courier, sans-serif;
+	text-overflow: hidden;
+}
+
+.fedmg-main .clipboard-button {
+	grid-column: 3;
+	border: 1px solid #fff;
+}
+
+.fedmg-main .button-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fedmg-main .generate-button {
+	background: rgb(0 0 0 / 30%);
+	grid-column: 3;
+	border: 1px solid #fff;
+	padding: 0.23em 0.22em;
+	border-radius: 0.29em;
+	font-weight: 600;
+}
+
+/* message */
+.fedmg-main .message-container {
+	grid-column: 1/3;
+
+	/* font-size: clamp(13.5px, 3vw, 17.5px); */
+	font-size: clamp(0.95em, 3vw, 1.1em);
+}
+
+/* 
+.fedmg-main .response-message {
+}
+.fedmg-main .response-message_success {
+}
+.fedmg-main .response-message_wrong {
+} */
+
+/* button status */
+.fedmg-main .generate-button:hover {
+	background: rgb(255 255 255 / 30%);
+	border: 1px solid rgb(255 255 255 / 70%);
+	color: rgb(0 0 0);
+}
+
+.fedmg-main .generate-button:active {
+	background: rgb(0 0 0 / 30%);
+	border: 1px solid #fff;
+	color: #fff;
+}
+
+/* breakpoints */
+@media (max-width: 600px) {
+	.fedmg-main .section {
+		max-height: 16em;
+	}
 }
