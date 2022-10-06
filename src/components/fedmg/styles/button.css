@@ -1,0 +1,33 @@
+.fedmg-main .button-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fedmg-main .message-container {
+	grid-column: 1/3;
+
+	/* font-size: clamp(13.5px, 3vw, 17.5px); */
+	font-size: clamp(0.95em, 3vw, 1.1em);
+}
+
+.fedmg-main .generate-button {
+	background-color: rgb(0 0 0 / 30%);
+	grid-column: 3;
+	border: 1px solid #fff;
+	padding: 0.23em 0.22em;
+	border-radius: 0.29em;
+	font-weight: 600;
+}
+
+/* status */
+.fedmg-main .generate-button:hover {
+	background-color: rgb(255 255 255 / 30%);
+	border: 1px solid rgb(255 255 255 / 70%);
+	color: rgb(0 0 0);
+}
+
+.fedmg-main .generate-button:active {
+	background-color: rgb(0 0 0 / 30%);
+	border: 1px solid #fff;
+	color: #fff;
+}

@@ -1,0 +1,44 @@
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap';
+@import './input.css';
+@import './password.css';
+@import './button.css';
+@import './message.css';
+
+.fedmg-main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	color: #fff;
+}
+
+.fedmg-main .section {
+	--height-custom: 20em;
+
+	background: linear-gradient(to right, rgb(55 65 81), rgb(17 24 39), rgb(0 0 0));
+	max-width: 26em;
+	max-height: var(--height-custom);
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	border-radius: 0.33em;
+}
+
+.fedmg-main .title {
+	font-size: clamp(16px, 3vw, 24.5px);
+	font-family: 'Noto sans', sans-serif;
+	margin: 0.9em 0;
+}
+
+/* form */
+.fedmg-main .form {
+	padding: clamp(0.4em, 3vw, 1.15em);
+}
+
+/* breakpoints */
+@media (max-width: 600px) {
+	.fedmg-main .section {
+		max-height: 16em;
+	}
+}
