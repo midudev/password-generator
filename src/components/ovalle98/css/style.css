@@ -1,52 +1,52 @@
 @media only screen and (min-width : 901px) {
-	.pd-main {padding: 3rem;}
-	.pg-card {width: 40%;}
-	.fz-h1 {font-size: 2rem;}
-	.pg-card {padding: 10px 25px 10px 25px;}
-	.pass {font-size: 1.5rem;}
-	.fs-11 {font-size: 1.1rem;}
-	#msj{
+	.ovalle98-pd-main {padding: 3rem;}
+	.ovalle98-pg-card {width: 40%;}
+	.ovalle98-fz-h1 {font-size: 2rem;}
+	.ovalle98-pg-card {padding: 10px 25px 10px 25px;}
+	.ovalle98-pass {font-size: 1.5rem;}
+	.ovalle98-fs-11 {font-size: 1.1rem;}
+	#ovalle98-msj{
 		position: fixed;
 		bottom: 10px;
     	right: 10px;
 	}
-	.pg-msj {font-size: 1.3rem;}
+	.ovalle98-pg-msj {font-size: 1.3rem;}
 }
 @media only screen and (max-width : 900px) {
-	.pd-main {padding: 1.5rem;}
-	.pg-card {width: 95%;}
-	.fz-h1 {font-size: 1.8rem;}
-	.pg-card {padding: 10px;}
-	.pass {font-size: 1.3rem;}
-	.fs-11 {font-size: 1rem;}
-	#msj{
+	.ovalle98-pd-main {padding: 1.5rem;}
+	.ovalle98-pg-card {width: 95%;}
+	.ovalle98-fz-h1 {font-size: 1.8rem;}
+	.ovalle98-pg-card {padding: 10px;}
+	.ovalle98-pass {font-size: 1.3rem;}
+	.ovalle98-fs-11 {font-size: 1rem;}
+	#ovalle98-msj{
 		position: relative;
 		bottom: 0px;
 		right: auto;
 		margin-bottom: -15px;
 	}
-	.pg-msj {font-size: 1rem;}
+	.ovalle98-pg-msj {font-size: 1rem;}
 }
-#oj98 .svg-copy:hover {opacity: .75;}
-.column-center {
+.ovalle98-svg-copy:hover {opacity: .75;}
+.ovalle98-column-center {
 	display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.pg-card {
+.ovalle98-pg-card {
     background-color: #2f2f32;
     color: #efefef;
     padding: 10px 25px 10px 25px;
 	padding: 10px;
     border-radius: 10px;
 }
-.pg-card .fz-h1 {
+.ovalle98-pg-card .ovalle98-fz-h1 {
     text-align: center;
     cursor: default;
     padding-bottom: 15px;
 }
-.pg-pass {
+.ovalle98-pg-pass {
     width: 90%;
     min-height: 50px;
     background-color: #585566;
@@ -54,12 +54,12 @@
     border-radius: 10px;
 	position: relative;
 }
-#msj{
+#ovalle98-msj{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
-.pg-msj {
+.ovalle98-pg-msj {
     border-radius: 10px;
     color: #e5e5e5;
     margin: 0.5rem;
@@ -70,14 +70,14 @@
     flex-direction: row-reverse;
     background-color: #04ff634d;
 }
-.pg-generator {
+.ovalle98-pg-generator {
     width: 90%;
     background-color: #585566;
     padding: 10px;
     border-radius: 10px;
     margin-top: 20px;
 }
-#oj98 .slider {
+.ovalle98-slider {
 	-webkit-appearance: none;
 	width: 90%;
 	height: 12px;
@@ -89,8 +89,8 @@
 	transition: opacity .2s;
 	margin: 0 10px;
 }  
-#oj98 .slider:hover {opacity: 1;} 
-#oj98 .slider::-webkit-slider-thumb {
+.ovalle98-slider:hover {opacity: 1;} 
+.ovalle98-slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	appearance: none;
 	width: 20px;
@@ -99,30 +99,30 @@
 	background: #0a06e2;
 	cursor: pointer;
 }
-#oj98 .slider::-moz-range-thumb {
+.ovalle98-slider::-moz-range-thumb {
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
 	background: #0a06e2;
 	cursor: pointer;
 }
-#oj98 .row {
+.ovalle98-row {
 	display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-.pt-10 {padding-top: 10px;}
-.ptb {
+.ovalle98-pt-10 {padding-top: 10px;}
+.ovalle98-ptb {
 	padding-top: 25px;
     padding-bottom: 10px;
 }
-.btn-copy {
+.ovalle98-btn-copy {
 	position: absolute;
     top: 17px;
     right: 10px;
 }
-.button-75 {
+.ovalle98-button-75 {
   align-items: center;
   background-image: linear-gradient(135deg, #071244 50%, #0a06e2);
   border: 0;
@@ -149,16 +149,16 @@
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-.button-75:active, .button-75:hover {outline: 0;}
-#oj98 .button-75 span {transition: all 200ms;}
-#oj98 .button-75:hover span {
+.ovalle98-button-75:active, .ovalle98-button-75:hover {outline: 0;}
+.ovalle98-button-75 .ovalle98-span {transition: all 200ms;}
+.ovalle98-button-75:hover .ovalle98-span {
   transform: scale(.9);
   opacity: .75;
 }
 @media screen and (max-width: 991px) {
-  .button-75 {
+  .ovalle98-button-75 {
     font-size: 15px;
     height: 50px;
   }
-  #oj98 .button-75 span {line-height: 50px;}
+  .ovalle98-button-75 .ovalle98-span {line-height: 50px;}
 }
