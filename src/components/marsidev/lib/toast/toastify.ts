@@ -1,9 +1,6 @@
 import type { ToastOptions, ToastType, ToastSignal, Toaster } from '@components/marsidev/types'
-import { createSignal } from 'solid-js'
-import { generatePassword } from '@components/marsidev/utils/generate-password'
+import { createSignal, createUniqueId } from 'solid-js'
 import { DEFAULT_TOAST_OPTIONS } from '@components/marsidev/utils/constants'
-
-const generateId = () => generatePassword(8, ['lowercase', 'uppercase', 'numbers'])
 
 const [toastSignals, setToastSignals] = createSignal<ToastSignal[]>([])
 export { toastSignals }
@@ -13,7 +10,7 @@ export const onAddToastByType = (toastType: ToastType, message: string, options?
 	const { theme, closeOnClick } = options ?? {}
 
 	const newToastSignal: ToastSignal = {
-		id: generateId(),
+		id: createUniqueId(),
 		type: toastType,
 		message,
 		theme,
