@@ -39,7 +39,7 @@ const CopyButton = ({ value }) => {
 	return (
 		<button
 			onClick={copyToClipboard}
-			className='absolute right-3 border-none bg-transparent hover:-translate-y-1 transition-all duration-300'
+			className='border-none bg-transparent hover:-translate-y-1 transition-all duration-300'
 		>
 			<CopySvg className='w-7 h-7' />
 		</button>
