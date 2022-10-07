@@ -7,6 +7,12 @@ const LOWER_CASE = 'abcdefghijklmnopqrstuvwxyz'
 const UPPER_CASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const SPECIAL = '!#$%&()*+,-./:;<=>?@[]^_`{|}~'
 
+const hover1Style =
+	'relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white dark:focus:ring-cyan-800'
+
+const hover2Style =
+	'relative transition-all ease-in duration-150 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full'
+
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
 	const [passwordLength, setPasswordLength] = useState(12)
@@ -37,7 +43,7 @@ const PasswordGenerator = () => {
 
 	return (
 		<>
-			<h2 className='flex justify-center my-4 mt-0 font-medium leading-tight text-4xl text-blue-300'>
+			<h2 className='flex justify-center my-4 mt-0 font-medium leading-tight text-4xl text-cyan-500'>
 				Password Generator
 			</h2>
 			<div className='border border-white rounded-lg p-8 flex flex-col gap-y-4'>
@@ -48,20 +54,18 @@ const PasswordGenerator = () => {
 					>
 						{password}
 					</label>
-					<button
-						onClick={handleCopy}
-						disabled={!password}
-						className='border border-green-500 rounded-lg py-2 px-2'
-					>
-						<CopySvg />
+					<button onClick={handleCopy} className={hover1Style}>
+						<span className={`${hover2Style} py-2 px-2`}>
+							<CopySvg />
+						</span>
 					</button>
 				</div>
 				<label className='flex justify-center gap-2'>
 					<span>Password length:</span>
-					<span className='text-blue-300 font-bold'>{passwordLength}</span>
+					<span className='text-cyan-500 font-bold'>{passwordLength}</span>
 				</label>
 				<input
-					className='mb-4 accent-blue-300'
+					className='mb-4 accent-cyan-500'
 					type='range'
 					min='1'
 					max='30'
@@ -71,11 +75,8 @@ const PasswordGenerator = () => {
 					}}
 				/>
 
-				<button
-					onClick={handleGeneratePassword}
-					className='border border-white rounded-lg py-2 px-2'
-				>
-					Generate password
+				<button onClick={handleGeneratePassword} className={hover1Style}>
+					<span className={`${hover2Style} py-2 px-2`}>Generate password</span>
 				</button>
 			</div>
 
