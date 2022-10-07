@@ -26,7 +26,7 @@ const App = () => {
 				<h2 className='z-0 absolute left-10 hidden sm:block w-1 text-white text-2xl sm:text-5xl select-none transition-all duration-300'>
 					猫がパスワードを作る
 				</h2>
-				<h2 className='z-0 absolute right-10 hidden sm:block w-44 text-white font-thin text-3xl uppercase break-words italic text-end select-none'>
+				<h2 className='z-0 absolute right-10 hidden md:block w-44 text-white font-thin text-3xl uppercase break-words italic text-end select-none'>
 					cat password generator
 				</h2>
 				<span className='absolute bottom-2 right-2 text-white font-thin text-xs md:text-sm'>
