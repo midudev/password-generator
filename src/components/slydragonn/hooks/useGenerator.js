@@ -12,7 +12,8 @@ const useGenerator = (
 	const Config = {
 		setLength: (number) => {
 			setConfig((config) => ({ ...config, maxLength: number }))
-		}
+		},
+		length: config.maxLength
 	}
 
 	const generatePassword = () => {
