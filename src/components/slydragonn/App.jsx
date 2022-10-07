@@ -1,13 +1,17 @@
 import React from 'react'
 import { Button, Cat, Form, Slider, CopyButton } from './components'
 import useGenerator from './hooks'
+import './styles/App.css'
 
 const App = () => {
 	const [password, generatePassword, Config] = useGenerator()
 
 	return (
 		<section className='flex justify-center items-center'>
-			<section className="relative flex flex-col items-center w-full h-[100vh] p-5 overflow-hidden bg-[url('/@astroimage/components/slydragonn/assets/bg.png')]">
+			<section
+				id='app-slydragonn'
+				className='relative flex flex-col items-center w-full min-h-[100vh] p-5 overflow-hidden'
+			>
 				<h1 className='text-white text-2xl sm:text-4xl font-thin uppercase underline italic'>
 					Meow Generator &#9752;
 				</h1>
@@ -19,7 +23,7 @@ const App = () => {
 						<CopyButton value={password} />
 					</div>
 				</Form>
-				<h2 className='z-0 absolute left-10 w-1 text-white text-2xl sm:text-5xl select-none transition-all duration-300'>
+				<h2 className='z-0 absolute left-10 hidden sm:block w-1 text-white text-2xl sm:text-5xl select-none transition-all duration-300'>
 					猫がパスワードを作る
 				</h2>
 				<h2 className='z-0 absolute right-10 hidden sm:block w-44 text-white font-thin text-3xl uppercase break-words italic text-end select-none'>
