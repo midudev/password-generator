@@ -9,9 +9,6 @@ export const getRandomPassword = (charactersAvaliable, length) => {
 }
 
 export const copyPassword = (password) => {
-	let success = false
-	navigator.clipboard.writeText(password).then(() => {
-		success = true
-	})
-	return success
+	navigator.clipboard.writeText(password)
+	return true
 }
