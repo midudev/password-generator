@@ -1,0 +1,39 @@
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap';
+@import './input-section.css';
+@import './output-section.css';
+@import './control-section.css';
+@import './icon.css';
+@import './message.css';
+
+.fedmg-main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	color: #fff;
+}
+
+.fedmg-main .section {
+	--height-custom: 20em;
+
+	padding: clamp(0.3em, 2vw, 1.15em);
+	background: linear-gradient(to right, rgb(55 65 81), rgb(17 24 39), rgb(0 0 0));
+	max-width: 35em;
+	max-height: var(--height-custom);
+	width: 100%;
+	text-align: center;
+	border-radius: 0.33em;
+	box-shadow: 0.22px 0.22px 0.9px 0.357px #fff;
+}
+
+.fedmg-main .title {
+	font-size: clamp(1.15em, 3.5vw, 1.8em);
+	font-family: 'Noto sans', sans-serif;
+	margin: 0 0 0.9em;
+}
+
+/* form */
+.fedmg-main .form {
+	padding: clamp(0.05em, 2vw, 1.15em);
+}

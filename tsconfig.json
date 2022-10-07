@@ -1,4 +1,5 @@
 {
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -13,6 +14,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@layout": ["src/layouts/Layout.astro"],
+      "@hooks/*": ["src/hooks/*"]
     }
   }
 }

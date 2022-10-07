@@ -1,0 +1,24 @@
+---
+import Layout from '@layout'
+import Title from '@components/Appithe/Titile.svelte'
+import PasswordGenerator from '@components/Appithe/PasswordGenerator.svelte'
+---
+
+<Layout title='appithe'>
+	<main
+		class='bg-[#272727] h-screen flex place-content-center'
+	>
+		<section
+			class='container__shadow w-[600px] h-fit p-9 bg-[#D0F4EA] rounded-xl self-center flex flex-col items-center'
+		>
+			<Title />
+			<PasswordGenerator client:load/>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.container__shadow {
+		box-shadow: 0px 4px 15px 4px #d0f4ea40;
+	}
+</style>
