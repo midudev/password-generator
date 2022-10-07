@@ -8,16 +8,16 @@
 	opacity: 0;
 }
 
-.slide-enter-active {
+.slidedown-enter-active {
 	transition: all 0.3s ease-out;
 }
 
-.slide-leave-active {
+.slidedown-leave-active {
 	transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
-.slide-enter-from,
-.slide-leave-to {
+.slidedown-enter-from,
+.slidedown-leave-to {
 	top: -120px;
 	opacity: 0;
 }
