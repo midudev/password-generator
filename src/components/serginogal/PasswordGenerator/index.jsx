@@ -54,6 +54,12 @@ export default function PasswordGenerator() {
 		setPassword(pw)
 	}
 
+	const handleCopy = () => {
+		navigator.clipboard.writeText(password).then(
+			() => alert('Password copied to clipboard')
+		)
+	}
+
 	const updateOptionValues = useCallback(
 		(arrIndex, key, newValue) => {
 			const updatedOptions = options.map((option, index) => {
@@ -74,7 +80,7 @@ export default function PasswordGenerator() {
 	return (
 		<div className={styles.generatorWrapper}>
 			<h2>Password Generator</h2>
-			<TextInput value={password} placeholder='Generated password...' />
+			<TextInput value={password} placeholder='Generated password...' onCopy={handleCopy} />
 			<Slider {...{ passwordLength, setPasswordLength }} title='Select password length'/>
 			<OptIns title={'Password generation opt-ins'} {...{ options, updateOptionValues }} />
 			<Button onClick={() => handleGeneratePassword(options, passwordLength)}>Generate Password</Button>
