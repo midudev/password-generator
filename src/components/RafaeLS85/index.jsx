@@ -32,8 +32,8 @@ export default function PasswordGenerator() {
 	} = usePassGenerator()
 
 	return (
-		<main id='rafaels85' className='mt-8'>
-			<div className='grid place-items-center text-white'>
+		<main className='mt-8'>
+			<div className='grid place-items-center text-white rafaelscontainer'>
 				<h2>Password Generator</h2>
 				<div className={`flex ${styles.box} justify-between`}>
 					<div className={styles.password}> {password} </div>
@@ -120,7 +120,7 @@ export default function PasswordGenerator() {
 						<div>{getStrength()}</div>
 					</div>
 
-					<div className='flex text-center '>
+					<div className='text-center '>
 						<button
 							className={`${styles.generatebtn} text-slate-900  
                         ${

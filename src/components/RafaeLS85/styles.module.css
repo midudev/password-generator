@@ -5,7 +5,7 @@
 	--green: #a4ffaf;
 }
 
-* {
+.rafaelscontainer {
 	font-family: 'Space Mono', monospace;
 	font-style: normal;
 	font-weight: 400;
@@ -20,6 +20,7 @@
 .generatebtn {
 	padding: 8px;
 	background-color: var(--green);
+	width: 100%;
 }
 
 .box {
