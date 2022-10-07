@@ -71,7 +71,10 @@ export const Toast: Component<ToastProps> = (props) => {
 				data-dismiss='toast'
 				classList={{ 'text-white': isDarkTheme, 'text-black': !isDarkTheme }}
 				class='cursor-pointer border-0 bg-transparent p-1 opacity-30 outline-0 transition-all ease-out hover:opacity-100 focus:opacity-100 focus:outline-2'
-				onClick={() => onRemoveToast(id)}
+				onClick={(e) => {
+					e.stopPropagation()
+					onRemoveToast(id)
+				}}
 			>
 				<svg aria-hidden='true' viewBox='0 0 14 16' fill='currentColor' height='16' width='14'>
 					<path
