@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getRandomPassword, copyPassword } from './utils/handlePassword'
 
 const NUMBERS = '0123456789'
@@ -9,6 +9,10 @@ const SPECIAL = '!#$%&()*+,-./:;<=>?@[]^_`{|}~'
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
 	const [passwordLength, setPasswordLength] = useState(12)
+
+	useEffect(() => {
+		handleGeneratePassword()
+	}, [])
 
 	function handleCopy() {
 		const success = copyPassword(password)
@@ -36,7 +40,7 @@ const PasswordGenerator = () => {
 					type='text'
 					className='rounded-lg outline-0 py-2 px-2 text-gray-800 bg-white text-center w-96'
 				>
-					{password || '👇 Generate a strong password 👇'}
+					{password}
 				</label>
 				<label className='flex justify-center gap-2'>
 					<span>Password length:</span>
@@ -60,7 +64,11 @@ const PasswordGenerator = () => {
 					>
 						Generate password
 					</button>
-					<button onClick={handleCopy} className='border border-l-white rounded-lg py-2 px-2 w-1/3'>
+					<button
+						onClick={handleCopy}
+						disabled={!password}
+						className='border border-l-white rounded-lg py-2 px-2 w-1/3'
+					>
 						Copy
 					</button>
 				</div>
