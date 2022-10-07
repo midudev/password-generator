@@ -1,0 +1,65 @@
+@import 'https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap';
+
+:root {
+	--main-bg-color: #24232b;
+	--green: #a4ffaf;
+}
+
+* {
+	font-family: 'Space Mono', monospace;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	font-synthesis: none;
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-size-adjust: 100%;
+}
+
+.generatebtn {
+	padding: 8px;
+	background-color: var(--green);
+}
+
+.box {
+	margin: 10px auto;
+	width: 350px;
+	padding: 20px;
+	background-color: var(--main-bg-color);
+}
+
+.numlength {
+	color: var(--green);
+}
+
+.password {
+	font-weight: 600;
+	font-size: 20px;
+	color: #fff;
+}
+
+.slider {
+	appearance: none;
+	height: 5px;
+	width: 100%;
+	background: linear-gradient(90deg, rgb(214 214 214) 0%, rgb(214 214 214) 100%);
+	border-radius: 12px;
+}
+
+.slider::-webkit-slider-thumb {
+	appearance: none;
+	width: 15px;
+	height: 15px;
+	background: white;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	background: white;
+	border-radius: 50%;
+	cursor: pointer;
+}
