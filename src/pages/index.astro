@@ -1,9 +1,198 @@
 ---
 import Participants from '@components/Participants.astro'
 import Layout from '@layout'
-import App from './entry/williamvp/index.astro'
 ---
 
 <Layout title='midudev <> Hacktoberfest 2022 - Participa en el código abierto'>
-	<App />
+	<style>
+		@font-face {
+			font-family: 'Orbitron';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url('/Orbitron-ExtraBold.woff2') format('woff2');
+		}
+		@font-face {
+			font-family: 'Jet Brains Mono';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url('/JetBrainsMono-Regular.woff2') format('woff2');
+		}
+		@font-face {
+			font-family: 'Jet Brains Mono';
+			font-style: normal;
+			font-weight: 600;
+			font-display: swap;
+			src: url('/JetBrainsMono-Bold.woff2') format('woff2');
+		}
+		@keyframes binary {
+			25% {
+				content: '01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001';
+			}
+			50% {
+				content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
+			}
+			75% {
+				content: '01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001';
+			}
+			100% {
+				content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
+			}
+		}
+		main::before {
+			animation: 1s linear 1s infinite normal none running binary;
+			content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
+			top: 0px;
+			left: 0px;
+			color: rgb(229, 225, 230);
+			font-size: 12px;
+			pointer-events: none;
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			opacity: 0.3;
+			-webkit-mask-image: linear-gradient(
+				90deg,
+				rgba(0, 0, 0, 0) 5%,
+				rgb(0, 0, 0) 20%,
+				rgb(0, 0, 0) 80%,
+				rgba(0, 0, 0, 0) 95%
+			);
+			white-space: nowrap;
+			overflow: hidden;
+			z-index: 200;
+		}
+		main {
+			height: 100%;
+			background: url('/grain-dark.png');
+		}
+	</style>
+
+	<main class='grid xl:grid-cols-3 items-start pt-20 gap-10 p-10'>
+		<div class='prose prose-invert h-full'>
+			<img class='w-72 h-auto' src='/logo.svg' alt='Hacktoberfest logo' />
+
+			<a
+				href='https://twitch.tv/midudev'
+				target='_blank'
+				rel='noopener noreferrer'
+				class='inline-flex items-center justify-center px-4 py-2 gap-x-2 text-xs leading-6 whitespace-no-wrap transition font-bold duration-150 ease-in-out rounded-full lg:text-base xl:text-lg text-white bg-purple-700 hover:bg-purple-500 focus:border-purple-800 active:bg-purple-800'
+			><svg class='w-6 h-6 fill-current' viewBox='0 0 24 24'
+				><path
+						d='M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0 1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z'
+					></path>
+				</svg>Sigue el evento en Twitch</a
+			>
+			<h2 class='text-white font-bold font-special uppercase text-3xl mt-8 mb-2'>OBJETIVO</h2>
+
+			<p class='text-2xl'>Crea una app que genera passwords al usuario de forma aleatoria.</p>
+
+			<h2 class='text-spark font-bold font-special uppercase text-3xl mt-8 mb-2'>
+				Cómo participar
+			</h2>
+			<ol class='list-decimal'>
+				<li>
+					Regístrate en la <a
+						target='_blank'
+						rel='noopener noreferrer'
+						href='https://hacktoberfest.com'>Hacktoberfest</a
+					>
+				</li>
+				<li>
+					Crear un fork de <a
+						href='https://github.com/midudev/hacktoberfest-2022'
+						target='_blank'
+						rel='noopener noreferrer'>este repositorio</a
+					>
+				</li>
+				<li>
+					Crea una página en <code
+					>/pages/entry/&lt;tu-nombre-de-usuario-en-github&gt;/index.astro</code
+					>
+				</li>
+				<li>Implementa la solución del reto siguiendo todos los requerimientos</li>
+			</ol>
+
+			<h2 class='text-yellow-400 font-bold font-special uppercase text-3xl mt-8 mb-2'>PREMIOS</h2>
+
+			<p>
+				Además de poder conseguir la camiseta de la Hacktoberfest, haremos una votación para elegir
+				las mejores soluciones. Los premios son:
+			</p>
+
+			<ul>
+				<li>
+					🥇 Teclado mecánico <a
+						href='https://www.keychron.com/products/keychron-k3-wireless-mechanical-keyboard?variant=32220198633561'
+						target='_blank'
+						rel='noopener'>Keychron K3 v2 RGB Backlight</a
+					>.
+				</li>
+				<li>
+					🥈 <a href='https://www.redbubble.com/es/' target='_blank' rel='noopener noreferrer'
+					>Cheque regalo para Red Bubble</a
+					> por valor de 30€.
+				</li>
+				<li>
+					🥉 <a href='https://leanpub.com/aprendiendo-git' target='_blank' rel='noopener noreferrer'
+					>Libro de Aprendiendo Git</a
+					>) + <a
+						href='https://leanpub.com/descubre-svelte'
+						target='_blank'
+						rel='noopener noreferrer'>Descubre Svelte</a
+					>
+				</li>
+			</ul>
+		</div>
+
+		<section class='prose prose-invert'>
+			<h2 class='text-psybeam font-special uppercase text-3xl mb-2'>Requerimientos</h2>
+
+			<ul class='list-disc'>
+				<li>Muestra un botón que al hacer click, se le genera un password aleatorio al usuario.</li>
+				<li>
+					Muestra un slider para que el usuario pueda determinar la longitud del password que se
+					genera.
+				</li>
+				<li>Añade un icono al lado del password generado, para que pueda copiar el password</li>
+				<li>
+					<span class='italic'>El próximo requerimiento se desbloquea el 4 de octubre</span>
+				</li>
+			</ul>
+			<h2 class='text-surf font-special uppercase text-3xl mt-8 mb-2'>Reglas</h2>
+			<ul class='list-disc'>
+				<li>
+					Puedes usar cualquier framework dentro de esta lista: React, Vue, Svelte, Preact y Solid.
+					También puedes usar Vanilla JavaScript.
+				</li>
+				<li>
+					NO puedes usar dependencias de terceros. Nada de <code>npm install</code>, ni <code
+					>yarn add</code
+					> ni similares.
+				</li>
+				<li>
+					Se puede utilizar CSS y Tailwind pero NO se puede utilizar otro framework CSS como
+					Bootstrap, Bulma, NextUI, Material UI, etc... ni tampoco SASS, Stylus o similares.
+				</li>
+				<li>
+					NO USES ESTILOS GLOBALES. NO ESTILES etiquetas. Usa siempre un selector muy específico
+					(por ejemplo, una id con tu nombre) y a partir de ahí estila lo que quieras de tu
+					solución. Así evitamos conflictos entre estilos.
+				</li>
+				<li>No copies soluciones de otros participantes o soluciones de fuera.</li>
+				<li>Crea tus PRs del 1 al 31 de octubre.</li>
+				<li>No uses ni modifiques código o componentes de otros participantes.</li>
+				<li>
+					Si necesitas crear componentes auxiliares para tu solución, crea una carpeta en <code
+					>components/&lt;nombre-de-usuario-en-github&gt;/*</code
+					>
+				</li>
+			</ul>
+		</section>
+
+		<aside class='text-center'>
+			<Participants />
+		</aside>
+	</main>
 </Layout>
