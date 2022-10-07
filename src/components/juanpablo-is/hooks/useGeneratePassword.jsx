@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useTimerAlert from './useTimerAlert'
 
 const options = {
 	symbols: [
@@ -13,6 +14,7 @@ const options = {
 }
 
 const useGeneratePassword = ({ length, optionsCharacter }) => {
+	const { generateAlert } = useTimerAlert()
 	const [password, setPassword] = useState('')
 	const [loading, setLoading] = useState(false)
 
@@ -51,6 +53,17 @@ const useGeneratePassword = ({ length, optionsCharacter }) => {
 		setLoading(true)
 		mainProcess()
 		setLoading(false)
+
+		generateAlert(
+			<>
+				New password generated.
+				<span className='text-blue-500 font-bold cursor-pointer pl-2' onClick={handlerCopyPassword}>
+					Copy
+				</span>
+			</>,
+			5000,
+			'password'
+		)
 	}
 
 	return { password, loading, generateNewPassword }
