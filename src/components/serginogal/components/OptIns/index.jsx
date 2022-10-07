@@ -6,9 +6,9 @@ export default function OptIns({ title = 'title opt-ins', options = [], updateOp
 	return (
 		<div className={styles.optionsWrapper}>
 			<label className='title'>{title}</label>
-			{options.map(({ title, description, value }, index) => {
+			{options.map(({ id, title, description, value }, index) => {
 				return (
-					<label key={`${title}_${index}`}>
+					<label key={id}>
 						<div>
 							<input type='checkbox' checked={value} onChange={e => handleChange(index, e)} />
 							<p>{title}</p>

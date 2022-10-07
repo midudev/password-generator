@@ -5,21 +5,25 @@ import Slider from '../components/Slider'
 
 const initialOptions = [
 	{
+		id: 'uppercase',
 		title: 'Uppercase',
 		description: 'Include uppercase characters in your password',
 		value: true
 	},
 	{
+		id: 'lowercase',
 		title: 'Lowercase',
 		description: 'Include lowercase characters in your password',
 		value: true
 	},
 	{
+		id: 'numbers',
 		title: 'Numbers',
 		description: 'Include numbers characters in your password',
 		value: false
 	},
 	{
+		id: 'special_characters',
 		title: 'Special Characters',
 		description: 'Include special characters in your password',
 		value: false
