@@ -14,8 +14,10 @@
 					v-if="!saveCheck"
 					class="w-10 h-10 group-hover:animate-bounce animate-none opacity-40 animate-bounce transition-all duration-100"
 				/>
-				<CheckIcon v-else class="w-10 h-10" />
-				<p class="hidden group-focus:block">Saved!</p>
+				<div v-else>
+					<CheckIcon class="w-10 h-10" />
+					<p>Saved!</p>
+				</div>
 			</div>
 		</button>
 	</div>
@@ -27,11 +29,12 @@ export default {
 	name: 'PassLabel',
 	data() {
 		return {
-			password: 'Password Generator',
 			saveCheck: false
 		}
 	},
-	props: {},
+	props: {
+		password: String
+	},
 	components: {
 		SaveIcon,
 		CheckIcon
