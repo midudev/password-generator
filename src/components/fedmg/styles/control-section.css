@@ -15,14 +15,13 @@
 	border: 2px solid #fff;
 	padding: 0.23em 0.22em;
 	border-radius: 0.22em;
-	font-weight: 700;
+	font-weight: 500;
 }
 
 /* status */
 .fedmg-generate-button:hover {
 	background: linear-gradient(to right, rgb(55 65 81), rgb(17 24 39));
 	border: 2px solid rgb(255 255 255 / 70%);
-	font-weight: 700;
 	color: #000;
 }
 

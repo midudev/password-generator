@@ -1,48 +1,81 @@
 #fedmg-range {
-	--bg-input-color: rgba(220 220 220 / 90%);
+	--bg-input-color: #fff;
 	--border-input: 0.05px 0.05px 0.1px 0.3px #bbb;
 	--border-rad: 0.083;
 
 	appearance: none;
-	appearance: none;
-	overflow: hidden;
-	background-color: var(--bg-input-color);
 	box-shadow: var(--border-input);
 	border-radius: var(--border-rad);
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 0.97em;
+	overflow: hidden;
+	transition: none;
+
+	/* bg-input-color */
+	background-color: rgba(220 220 220 / 90%);
 }
 
-#fedmg-range::-webkit-slider-runnable-track {
+.fedmg-main #fedmg-range::-webkit-slider-runnable-track {
 	appearance: none;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	transition: none;
+	height: auto;
 }
 
-#fedmg-range::-webkit-slider-thumb {
+.fedmg-main #fedmg-range::-webkit-slider-thumb {
 	--thumb-color: linear-gradient(to right, rgb(55 65 81), rgb(17 24 39));
-	--progress-color: -16em 0 0 16em rgba(20 20 30 / 80%);
 	--thumb-border: 1px solid #ddd;
 
 	appearance: none;
+	margin: 0;
+	transition: none;
+	padding: 0.45em 0;
+	cursor: auto;
 	width: 0.85em;
 	height: 0.85em;
-	background: var(--thumb-color);
-	box-shadow: var(--progress-color);
 	border: var(--thumb-border);
+	border-radius: 0;
+	background: var(--thumb-color);
+
+	/* progress-color */
+	box-shadow: -16em 0 0 16em rgba(20 20 30 / 80%);
 }
 
 /* states */
-#fedmg-range::-webkit-slider-thumb:hover {
-	--thumb-color: linear-gradient(to right, rgb(35 45 61), rgb(7 14 29));
-	--progress-color: -16em 0 0 16em rgba(25 25 40 / 72%);
+.fedmg-main #fedmg-range::-webkit-slider-thumb:hover {
+	--thumb-border: 1px solid #ddd;
 
-	background: var(--thumb-color);
-	box-shadow: var(--progress-color);
+	margin: 0;
+	width: 0.85em;
+	height: 0.85em;
+	border-radius: 0;
+	border: var(--thumb-border);
+
+	/* thumb-color */
+	background: linear-gradient(to right, rgb(35 45 61), rgb(7 14 29));
+
+	/* progress-color */
+	box-shadow: -16em 0 0 16em rgba(25 25 40 / 72%);
 }
 
-#fedmg-range::-webkit-slider-thumb:active {
-	--thumb-color: linear-gradient(to right, rgb(60 70 85), rgb(20 30 45));
-	--progress-color: -16em 0 0 16em rgba(20 20 20 / 60%);
+.fedmg-main #fedmg-range::-webkit-slider-thumb:active {
+	--thumb-border: 1px solid #ddd;
 
-	background: var(--thumb-color);
-	box-shadow: var(--progress-color);
+	margin: 0;
+	width: 0.85em;
+	height: 0.85em;
+	border-radius: 0;
+	border: var(--thumb-border);
+
+	/* thumb-color */
+	background: linear-gradient(to right, rgb(60 70 85), rgb(20 30 45));
+
+	/* progress-color */
+	box-shadow: -16em 0 0 16em rgba(20 20 20 / 60%);
 }
 
 /* Firefox */
