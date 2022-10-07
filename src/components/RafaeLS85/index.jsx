@@ -33,10 +33,10 @@ export default function PasswordGenerator() {
 
 	return (
 		<main className='mt-8'>
-			<div className='grid place-items-center text-white rafaelscontainer'>
+			<div className={`grid place-items-center text-white ${styles['rafaels85-container']}`}>
 				<h2>Password Generator</h2>
-				<div className={`flex ${styles.box} justify-between`}>
-					<div className={styles.password}> {password} </div>
+				<div className={`flex ${styles['rafaels85-box']} justify-between`}>
+					<div className={styles['rafaels85-password']}> {password} </div>
 					<div className={`${password ? 'cursor-pointer' : 'opacity-20 pointer-events-none'}`}>
 						<CopyImg
 							className='justify-center mx-0 mt-1 '
@@ -45,16 +45,16 @@ export default function PasswordGenerator() {
 						/>
 					</div>
 				</div>
-				<div className={styles.box}>
+				<div className={styles['rafaels85-box']}>
 					<form>
 						<div className='flex'>
 							<div className='w-1/2 text-start text-slate-500 text-sm '>Caracter Length</div>
-							<div className={`w-1/2 text-end  ${styles.numlength}  `}>
+							<div className={`w-1/2 text-end  ${styles['rafaels85-num-length']}  `}>
 								{stepsConversor(passwordLength)}
 							</div>
 						</div>
 						<input
-							className={`w-ful ${styles.slider} `}
+							className={`w-ful ${styles['rafaels85-slider']} `}
 							type='range'
 							min='0'
 							max='100'
@@ -122,7 +122,7 @@ export default function PasswordGenerator() {
 
 					<div className='text-center '>
 						<button
-							className={`${styles.generatebtn} text-slate-900  
+							className={`${styles['rafaels85-generate-btn']} text-slate-900  
                         ${
 		enableButton({
 			passwordLength,
