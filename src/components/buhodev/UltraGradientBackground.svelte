@@ -26,7 +26,7 @@
 	bind:this={svgRef}
 	viewBox="0 0 1512 982"
 	fill="none"
-	class="min-h-screen w-screen"
+	class="min-h-screen min-w-[100vw]"
 	xmlns="http://www.w3.org/2000/svg"
 >
 	<g clip-path="url(#clip0_878_1737)">
