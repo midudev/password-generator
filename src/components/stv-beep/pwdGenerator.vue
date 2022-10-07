@@ -1,15 +1,15 @@
 <template>
   <h1 class="font-mono font-bold text-4xl text-center bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-300 to-slate-700 mt-14">Random Password Generator</h1>
   <div class="justify-center items-center p-2 m-2 text-center">
-    <div class="bg-zinc-800 font-mono justify-center items-center rounded-xl mx-2 my-6">
-      <button v-on:click="copy" class="m-9 lg:p-2 sd:p-1 rounded-lg focus:bg-amber-500 hover:bg-amber-400" :disabled="!password">📋</button>
-      <input class="bg-zinc-800 text-amber-500 rounded-md lg:text-2xl md:text-md lg:w-96 md:w-56" :value="password" placeholder="your password will be here!" v-on:focus="$event.target.select()" ref="clone" readonly />
-    </div>
-    <div class="bg-zinc-800 font-mono justify-center items-center rounded-xl m-2">
-      <span class="text-white">Password length: </span>
-      <input type="range" class="mx-3 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-amber-500 active:bg-amber-500" min="6" max="25" v-model="value">
-      <input type="number" class="bg-zinc-800 text-amber-500 lg:w-10 ml-2 lg:text-2xl md:w-6 md:text-md" min="6" max="25" v-model="value" readonly>
-      <button type="button" class="rounded-md bg-gray-100 hover:bg-amber-200 active:bg-amber-300 lg:text-2xl md:text-md m-8 px-32 py-2" v-on:click="generatePassword(this.value)"><strong>Generate</strong></button>
+    <div class="content-center bg-zinc-800 font-mono justify-center items-center rounded-xl mx-2 my-6 py-3 text-white hover:text-amber-800 
+	hover:bg-amber-200 hover:cursor-pointer hover:border-amber-500 border-4 border-zinc-800 m-9" v-on:click="copy(password)">
+      <span class="m-9 hover:bg-amber-200 font-bold rounded-md text-2xl xl:text-4xl md:text-3xl sm:text-2xl" :value="password" v-on:focus="$event.target.select()" ref="clone">{{password || msg}}</span>
+	</div>
+    <div class="bg-zinc-800 font-mono justify-center rounded-xl m-2 p-4">
+		<span class="text-white text-lg">Select length </span>
+      	<input type="range" class="bg-gray-200 rounded-lg w-40 appearance-none cursor-pointer dark:bg-amber-500 active:bg-amber-500 focus:ring-0" min="6" max="25" v-model="value" v-on:click="generatePassword(this.value)">
+      	<input type="number" class="text-center bg-zinc-800 text-amber-500 text-3xl" min="6" max="25" v-model="value" readonly>
+	  <button type="button" class="rounded-md font-bold bg-gray-100 hover:bg-amber-200 hover:text-amber-700 active:bg-amber-300 m-6 px-32 py-2 xl:text-2xl md:text-xl sm:text-lg" v-on:click="generatePassword(this.value)">Generate</button>
     </div>
   </div>
 </template>
@@ -19,9 +19,9 @@ export default {
   name: 'pwdGenerator',
   data() {
     return {
-      password: '', value: 8
+      password: '', value: 8, msg: 'Password here...'
     }
-  },	
+  }, 
   methods: {
     generatePassword(length) {
     let chars = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -32,10 +32,9 @@ export default {
 			this.password += chars.substring(randomNumber, randomNumber +1)
 		}
     },
-    copy() {
-      this.$refs.clone.focus();
-      document.execCommand('copy')
-      this.password === '' ? alert('You have to generate a password first!') : alert('Password copied!')
+    async copy(password) {
+		if (password !== '' ) await navigator.clipboard.writeText(password)
+		this.password === '' ? alert('You have to generate a password first!') : alert('Password copied!')
     }
   }
 }
