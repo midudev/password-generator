@@ -14,6 +14,10 @@
 	color: rgb(229, 225, 230);
 }
 
+.input:hover {
+	border-color: #40ddff;
+}
+
 @media (min-width: 640px) {
 	.sm\:leading-snug {
 		line-height: 1.375;
