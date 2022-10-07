@@ -18,7 +18,7 @@ const ActionsButtons = () => {
 				optionsCharacter
 			})
 		)
-		generateAlert('Options saved!', 3000, 'options')
+		generateAlert('Options saved!', 5000, 'options')
 	}
 
 	return (
