@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import styles from './styles.module.css'
-import { Button, TextInput, OptIns } from '../components'
 import Slider from '../components/Slider'
+import generatePassword from '../helpers/generatePassword.js'
+import { Button, TextInput, OptIns } from '../components'
 
 const initialOptions = [
 	{
@@ -30,13 +31,28 @@ const initialOptions = [
 	}
 ]
 
+const generatorChars = {
+	uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+	lowercase: 'abcdefghijklmnopqrstuvwxyz',
+	numbers: '0123456789',
+	special_characters: '!@#$%^&*()[]'
+}
+
 export default function PasswordGenerator() {
 	const [options, setOptions] = useState(initialOptions)
-	const [passwordLength, setPasswordLength] = useState(10)
+	const [password, setPassword] = useState('')
+	const [passwordLength, setPasswordLength] = useState(16)
 
-	useEffect(() => {
-		console.log('generate password')
-	}, [options])
+	const handleGeneratePassword = (options, passwordLength) => {
+		let chars = ''
+
+		options.forEach(option => {
+			const { id, value: isEnabled } = option
+			if (isEnabled) chars += generatorChars[id]
+		})
+		const pw = generatePassword(chars, passwordLength)
+		setPassword(pw)
+	}
 
 	const updateOptionValues = useCallback(
 		(arrIndex, key, newValue) => {
@@ -51,13 +67,17 @@ export default function PasswordGenerator() {
 		[options]
 	)
 
+	useEffect(() => {
+		handleGeneratePassword(options, passwordLength)
+	}, [options, passwordLength])
+
 	return (
 		<div className={styles.generatorWrapper}>
 			<h2>Password Generator</h2>
-			<TextInput />
+			<TextInput value={password} placeholder='Generated password...' />
 			<Slider {...{ passwordLength, setPasswordLength }} title='Select password length'/>
 			<OptIns title={'Password generation opt-ins'} {...{ options, updateOptionValues }} />
-			<Button>Generate Password</Button>
+			<Button onClick={() => handleGeneratePassword(options, passwordLength)}>Generate Password</Button>
 		</div>
 	)
 }

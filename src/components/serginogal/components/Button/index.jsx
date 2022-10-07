@@ -33,9 +33,9 @@ const GlassShineSVG = () => {
 	)
 }
 
-export default function Button({ children }) {
+export default function Button({ children, onClick }) {
 	return (
-		<button className={styles.btn}>
+		<button {...{ onClick }} className={styles.btn}>
 			<GlassShineSVG />
 			{children}
 		</button>
