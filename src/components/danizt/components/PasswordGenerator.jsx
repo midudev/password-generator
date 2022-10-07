@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { getRandomPassword, copyPassword } from './utils/handlePassword'
-import CopySvg from './icons/copySvg'
+import Toast from './Toast'
+import { getRandomPassword, copyPassword } from '../utils/handlePassword'
+import CopySvg from '../icons/copySvg'
+import { hover1Style, hover2Style } from '../styles/hover'
 
 const NUMBERS = '0123456789'
 const LOWER_CASE = 'abcdefghijklmnopqrstuvwxyz'
 const UPPER_CASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const SPECIAL = '!#$%&()*+,-./:;<=>?@[]^_`{|}~'
-
-const hover1Style =
-	'relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white dark:focus:ring-cyan-800'
-
-const hover2Style =
-	'relative transition-all ease-in duration-150 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full'
 
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
@@ -85,28 +81,7 @@ const PasswordGenerator = () => {
 					passwordCopied ? 'opacity-1' : 'opacity-0'
 				}`}
 			>
-				<div
-					className='flex items-center p-4 space-x-4 w-full max-w-xs bg-white rounded-lg divide-x divide-gray-200 shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800'
-					role='alert'
-				>
-					<div className='inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200'>
-						<svg
-							aria-hidden='true'
-							className='w-5 h-5'
-							fill='currentColor'
-							viewBox='0 0 20 20'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								fillRule='evenodd'
-								d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-								clipRule='evenodd'
-							></path>
-						</svg>
-						<span className='sr-only'>Check icon</span>
-					</div>
-					<div className='pl-4 text-sm font-normal text-white'>Password copied successfully.</div>
-				</div>
+				<Toast text='Password copied successfully.' />
 			</div>
 		</>
 	)
