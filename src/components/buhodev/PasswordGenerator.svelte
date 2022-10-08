@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
 	import { fly } from 'svelte/transition'
 	import { backOut } from 'svelte/easing'
 	import { generate_password, type DefaultOptions } from './generate_password'
 	import { copy_to_clipboard } from './copy_to_clipboard'
 	import UltraGradientBackground from './UltraGradientBackground.svelte'
 
-	let password = ""
 	let isCopied = false
 	let animate = true
 	let length = 6
@@ -23,7 +21,7 @@
 		setTimeout(() => (isCopied = false), 1000)
 	}
 
-	onMount(() => password = generate_password(length, DEFAULT_OPTIONS))
+	$: password = generate_password(length, DEFAULT_OPTIONS)
 </script>
 
 <UltraGradientBackground />
