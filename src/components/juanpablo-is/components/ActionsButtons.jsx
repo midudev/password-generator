@@ -1,13 +1,14 @@
 import { useContext } from 'react'
 import passwordContext from '../context/PasswordContext'
 
-const ActionsButtons = ({ handlerNewPassword }) => {
+const ActionsButtons = () => {
 	const {
 		passwordLength,
 		automaticGenerator,
 		setAutomaticGenerator,
 		optionsCharacter,
-		generateAlert
+		generateAlert,
+		handlerNewPassword
 	} = useContext(passwordContext)
 
 	const handlerSaveConfiguration = () => {
