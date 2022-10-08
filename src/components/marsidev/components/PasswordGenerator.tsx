@@ -21,7 +21,7 @@ export const PasswordGenerator: Component<PasswordGeneratorProps> = (props) => {
 				</div>
 			</PasswordProvider>
 
-			<ToastContainer position='bottom-right' newestOnTop />
+			<ToastContainer position='bottom-right' newestOnTop transition='bounce' />
 		</>
 	)
 }

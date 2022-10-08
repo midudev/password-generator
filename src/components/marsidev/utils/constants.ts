@@ -23,5 +23,10 @@ export const DEFAULT_TOAST_OPTIONS: WithRequired<ToastOptions & ToastContainerPr
 	position: 'top-right',
 	closeOnClick: true,
 	theme: 'light',
-	type: 'default'
+	type: 'default',
+	transition: 'bounce'
 }
+
+export const COLLAPSE_DURATION = 300
+
+export const ENTRANCE_ANIMATION_END = 'd'

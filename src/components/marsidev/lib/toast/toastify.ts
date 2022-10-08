@@ -1,20 +1,21 @@
 import type { ToastOptions, ToastType, ToastSignal, Toaster } from '@components/marsidev/types'
 import { createSignal, createUniqueId } from 'solid-js'
-import { DEFAULT_TOAST_OPTIONS } from '@components/marsidev/utils/constants'
+import { DEFAULT_TOAST_OPTIONS as defaults } from '@components/marsidev/utils/constants'
 
 const [toastSignals, setToastSignals] = createSignal<ToastSignal[]>([])
 export { toastSignals }
 
 export const onAddToastByType = (toastType: ToastType, message: string, options?: ToastOptions) => {
-	const toastDuration = options?.duration || DEFAULT_TOAST_OPTIONS.duration
-	const { theme, closeOnClick } = options ?? {}
+	const toastDuration = options?.duration || defaults.duration
+	const { theme, closeOnClick, transition } = options ?? {}
 
 	const newToastSignal: ToastSignal = {
 		id: createUniqueId(),
 		type: toastType,
 		message,
 		theme,
-		closeOnClick
+		closeOnClick,
+		transition
 	}
 
 	setToastSignals((t) => [...t, newToastSignal])
@@ -36,7 +37,7 @@ export const onRemoveToast = (id: string) => {
 
 export const toastify = ((): Toaster => {
 	const toaster: Toaster = (message, options) => {
-		const toastType = options?.type || DEFAULT_TOAST_OPTIONS.type
+		const toastType = options?.type || defaults.type
 		onAddToastByType(toastType, message, options)
 	}
 	toaster.info = (message, options) => {

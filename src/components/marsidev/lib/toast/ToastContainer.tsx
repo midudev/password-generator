@@ -3,9 +3,9 @@ import type { Component } from 'solid-js'
 import type { ToastPosition, ToastContainerProps } from '@components/marsidev/types'
 import { For } from 'solid-js'
 import { Portal } from 'solid-js/web'
-import { Toast } from '@components/marsidev/components/Toast'
+import { Toast } from '@components/marsidev/lib/toast/Toast'
 import { toastSignals } from '@components/marsidev/lib/toast/toastify'
-import { DEFAULT_TOAST_OPTIONS as defaultOptions } from '@components/marsidev/utils/constants'
+import { DEFAULT_TOAST_OPTIONS as defaults } from '@components/marsidev/utils/constants'
 
 const CLASSES_BY_POSITION: Record<ToastPosition, string> = {
 	'bottom-left': 'left-8 bottom-8',
@@ -17,15 +17,15 @@ const CLASSES_BY_POSITION: Record<ToastPosition, string> = {
 }
 
 export const ToastContainer: Component<ToastContainerProps> = (props) => {
-	const position = props.position ?? defaultOptions.position
-	const newestOnTop = props.newestOnTop ?? defaultOptions.newestOnTop
+	const position = props.position ?? defaults.position
+	const newestOnTop = props.newestOnTop ?? defaults.newestOnTop
 
 	const classByPosition = CLASSES_BY_POSITION[position]
 
 	return (
 		<Portal>
 			<aside
-				class='fixed z-[9999] flex w-[320px] gap-4 overflow-hidden'
+				class='fixed z-[9999] flex w-[320px] gap-4 overflow-hidden transition-all duration-700'
 				classList={{
 					'flex-col-reverse': newestOnTop,
 					'flex-col': !newestOnTop,
@@ -34,7 +34,15 @@ export const ToastContainer: Component<ToastContainerProps> = (props) => {
 			>
 				<For each={toastSignals()}>
 					{(toast) => {
-						return <Toast toast={toast} closeOnClick={props.closeOnClick} theme={props.theme} />
+						return (
+							<Toast
+								toast={toast}
+								closeOnClick={props.closeOnClick}
+								theme={props.theme}
+								transition={props.transition}
+								position={position}
+							/>
+						)
 					}}
 				</For>
 			</aside>

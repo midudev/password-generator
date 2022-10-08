@@ -14,6 +14,8 @@ export type ToastPosition =
 	| 'bottom-right'
 	| 'bottom-center'
 
+export type ToastTransition = 'bounce' | 'flip' | 'slide' | 'zoom' | 'none'
+
 export type ToastTheme = 'light' | 'dark'
 
 /** Options that can be used from the provider or from the toastify function */
@@ -30,6 +32,11 @@ export type CommonToastOptions = {
 	 * `Default: true`
 	 */
 	closeOnClick?: boolean
+
+	/**
+	 * Transition animation to use when showing/removing toasts.
+	 */
+	transition?: ToastTransition
 }
 
 /** Toastify function options */
