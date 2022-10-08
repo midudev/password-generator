@@ -65,7 +65,7 @@ export const Toast: Component<ToastProps> = (props) => {
 				aria-live='assertive'
 				aria-atomic='true'
 				role='alert'
-				class='relative flex max-h-[800px] min-h-[64px] flex-row items-start justify-start overflow-hidden rounded-md p-[8px] shadow-md hover:shadow-lg grow duration-1000'
+				class='relative flex max-h-[800px] min-h-[64px] flex-row items-start justify-start overflow-hidden rounded-none p-[8px] shadow-md transition-all hover:shadow-lg sm:rounded-md'
 				classList={{
 					'bg-[#121212] text-white': isDarkTheme,
 					'bg-white text-[#757575]': !isDarkTheme,

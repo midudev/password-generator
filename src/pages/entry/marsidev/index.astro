@@ -12,9 +12,22 @@ import {
 const initialPassword = generatePassword(pwdLength, pwdDict)
 ---
 
+<link rel='preconnect' href='https://fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link
+	href='https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap'
+	rel='stylesheet'
+/>
+
+<style>
+	.marsidev-entry {
+		font-family: Nunito, 'Segoe UI', Tahoma, Geneva, Verdana, system-ui, sans-serif;
+	}
+</style>
+
 <Layout title='marsidev'>
 	<div
-		class='flex flex-col items-center justify-center min-h-[100vh] text-white w-full bg-white gap-4'
+		class='marsidev-entry flex flex-col items-center justify-center min-h-[100vh] text-white w-full bg-white gap-4'
 	>
 		<Header />
 		<PasswordGenerator initialPassword={initialPassword} client:load />
