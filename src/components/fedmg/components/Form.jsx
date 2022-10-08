@@ -39,7 +39,7 @@ export const Form = () => {
 	}
 
 	return (
-		<div className='form'>
+		<div className='fedmg-form'>
 			<InputSection handler={getRange} state={range} />
 			<OutputSection response={response} save={saveToClipboard} />
 			<ControlSection response={response} handler={generatePass} />

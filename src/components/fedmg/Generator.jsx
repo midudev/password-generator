@@ -5,8 +5,8 @@ import { Form } from './components/Form.jsx'
 const PasswordGenerator = () => {
 	return (
 		<main className='fedmg-main'>
-			<section className='section'>
-				<h2 className='title'>Password generator</h2>
+			<section className='fedmg-section'>
+				<h2 className='fedmg-title'>Password generator</h2>
 				<Form />
 			</section>
 		</main>
