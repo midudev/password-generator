@@ -1,0 +1,250 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+	font-size: 20px;
+  }
+  
+  body {
+	background: #35355d;
+	color: #fff;
+  }
+  
+  .title {
+	font-size: 40px;
+	margin-bottom: 30px;
+  }
+  .contenedor {
+	max-width: 500px;
+	width: 90%;
+	margin: 40px auto;
+	margin-top: 0;
+  }
+  
+  .app .fila {
+	margin-bottom: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+  }
+  
+  .app .col {
+	width: 50%;
+  }
+  
+  .app label {
+	line-height: 40px;
+  }
+  
+  .app input {
+	text-align: center;
+	border: none;
+  }
+  
+  .app .btn {
+	width: 100%;
+	background: #16b892;
+	color: #fff;
+	display: inline-block;
+	height: 40px;
+	vertical-align: top;
+	font-size: 16px;
+	text-align: center;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+  }
+  
+  .app .btn:hover {
+	background: #b4a5ff;
+  }
+  
+  .app .btn.false {
+	background: #16b892;
+  }
+  
+  .app .numero-caracteres .botones div {
+	width: 100%;
+  }
+  
+  .app .numero-caracteres .botones div:nth-child(1) button {
+	border-radius: 4px 0 0 4px;
+  }
+  .app .numero-caracteres input {
+	height: 40px;
+	width: 100%;
+	cursor: default;
+	background: #40abd9;
+	color: #fff;
+	border-radius: 7px;
+  }
+  .app .numero-caracteres .botones div:nth-child(3) button {
+	border-radius: 0 4px 4px 0;
+  }
+  
+  .app .numero-caracteres .botones {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+  }
+  
+  .app .fila.generar {
+	margin-bottom: 10px;
+  }
+  
+  .app .fila.generar .col:nth-child(1) {
+	width: 30%;
+  }
+  
+  .app .fila.generar .col:nth-child(2) {
+	width: 65%;
+  }
+  
+  .app .fila.generar .btn.btn-generar {
+	width: 100%;
+	height: 40px;
+	font-size: 18px;
+	padding: 0;
+	line-height: 40px;
+	position: relative;
+	z-index: 1;
+  }
+  
+  .app .fila.generar .btn.btn-generar i {
+	margin-left: 20px;
+	position: relative;
+	top: -1px;
+	font-size: 14px;
+  }
+  
+  .app .fila.generar .btn.btn-generar:after {
+	content: "";
+	display: inline-block;
+	background: #16b892;
+	width: 14px;
+	height: 14px;
+	position: absolute;
+	top: 13px;
+	right: -7px;
+	transform: rotate(45deg);
+	z-index: 9;
+	transition: all 0.3s ease;
+  }
+  
+  .app .fila.generar .col:nth-child(1):hover .btn-generar:after {
+	background: #16b892;
+  }
+  
+  .app .fila.generar .input-password {
+	width: 100%;
+	background: none;
+	border-radius: 4px;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	color: #fff;
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+  }
+  
+  .app .fila.generar .input-password:hover {
+	border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .app .fila.generar input::selection {
+	background: #212139;
+  }
+  
+  .app .fila.generar input::-moz-selection {
+	background: #212139;
+  }
+  
+  .app .fila.alerta {
+	justify-content: flex-end;
+  }
+  
+  .app .fila.alerta .col {
+	width: 65%;
+  }
+  .app .fila.alerta .alerta-copiado {
+	text-align: center;
+	color: rgba(255, 255, 255, 0);
+	transition: all 0.3s ease;
+  }
+  
+  .app .fila.alerta .alerta-copiado.active {
+	color: rgba(255, 255, 255, 1);
+  }
+  
+  .app .fila.alerta .alerta-copiado p,
+  .app .fila.alerta .alerta-copiado i {
+	font-size: 12px;
+  }
+  @media screen and (max-width: 500px) {
+	.logo img {
+	  width: 70%;
+	}
+  
+	.app .fila {
+	  flex-direction: column;
+	  margin-bottom: 20px;
+	}
+  
+	.app .fila .col {
+	  width: 100%;
+	  margin-bottom: 20px;
+	}
+  
+	.app .fila.generar {
+	  border-top: 1px solid rgba(255, 255, 255, 0.25);
+	  padding-top: 40px;
+	}
+  
+	.app .fila.generar .col:nth-child(1),
+	.app .fila.generar .col:nth-child(2) {
+	  width: 100%;
+	}
+  
+	.app .fila.generar .btn.btn-generar:after {
+	  top: auto;
+	  left: 50%;
+	  right: 50%;
+	  bottom: -7px;
+	}
+  }
+  
+  .howToUse {
+	border: 3px solid rgb(208, 211, 15);
+	border-radius: 6px;
+	width: 300px;
+	padding: 20px;
+	transform: translateX(-800px);
+	transition: transform 0.7s ease;
+  }
+  
+  .howToUse h1 {
+	text-align: center;
+  }
+  
+  .modal {
+	transform: translateX(-200px);
+  }
+  
+  #howToUseLabel {
+	background: #16b892;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	width: 200px;
+	display: inline;
+	transform: translateY(-50px);
+  }
+  
+  #howToUseLabel:hover {
+	background: #199c7e;
+	cursor: pointer;
+	transition: background 0.5s ease;
+  }
+  
