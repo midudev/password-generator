@@ -75,7 +75,7 @@ const HomeNav = ({ openWindows = [] }) => {
 					</div>
 					{miduEasterEgg && (
 						<img
-							className='absolute w-32 h-32 right-1 -top-36 animate-up'
+							className='absolute w-32 h-32 right-1 -top-36 diegocadavid_animate-up'
 							src='/diegocadavid/midu.png'
 							alt=''
 						/>

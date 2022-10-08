@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './app.css'
+import './diegocadavid.app.css'
 
 import CliTerminal from './CliTerminal'
 import WindowTerminal from './WindowTerminal'
@@ -106,7 +106,7 @@ const listDocCommads = [
 
 const App = () => {
 	const [commands, setCommands] = useState([])
-	const [showLogin, setShowLogin] = useState(true)
+	const [showLogin, setShowLogin] = useState(false)
 
 	const [showTerminal, setShowTerminal] = useState(false)
 	const [showCli, setShowCli] = useState(false)
