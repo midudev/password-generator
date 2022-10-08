@@ -1,6 +1,5 @@
 import styles from './Main.module.css'
 import { useRef, useState } from 'react'
-import { style } from '@angular/animations'
 
 function Main() {
 	const [value, setValue] = useState(8)
@@ -9,14 +8,14 @@ function Main() {
 	const [password, setPassword] = useState()
 	const rangeRef = useRef()
 
-	const handleChange = (e) => {
+	const handleChange = () => {
 		setValue(rangeRef.current.value)
 	}
 
 	const handleGenerate = () => {
-		let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+		const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 		let key = ''
-		for (var i = 0, n = charset.length; i < value; ++i) {
+		for (let i = 0, n = charset.length; i < value; ++i) {
 			key += charset.charAt(Math.floor(Math.random() * n))
 		}
 		setPassword(key)

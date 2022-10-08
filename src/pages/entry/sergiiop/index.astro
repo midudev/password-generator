@@ -1,0 +1,405 @@
+---
+import Layout from '@layout'
+---
+
+<Layout title='Generate Password'>
+	<main>
+		<section class='flex flex-col md:gap-3 gap-2 items-center'>
+			<header class='md:mb-1'>
+				<h1 class='md:text-4xl text-2xl font-semibold uppercase'>Generate Password</h1>
+			</header>
+			<div class='w-full'>
+				<h3 class='md:text-lg text-base clr-sblue-200 md:mb-1'>Generated Password</h3>
+				<div
+					class='md:px-4 md:py-4 w-full flex justify-between bg-gray-soft px-2 py-2 items-center'
+				>
+					<h2 class='md:text-3xl text-lg font-bold' id='generated-password'></h2>
+					<button id='copy-button' class='button-copy'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='24'
+							height='24'
+							viewBox='0 0 24 24'
+							class='svg-icon'
+							><path
+								d='M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z'
+							></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<form id='form-data' class='w-full text-2xl flex flex-col gap-1'>
+				<h3 class='md:text-lg text-base clr-sblue-200 md:mb-1'>Length</h3>
+				<div class='bg-gray-soft flex justify-between px-4 py-2 items-center gap-4'>
+					<input
+						class='range'
+						type='range'
+						name='length'
+						value='4'
+						min='4'
+						max='16'
+						id='input-range'
+					/>
+					<p class='w-5 md:text-2xl text-lg' id='valueRange'>4</p>
+				</div>
+				<h3 class='md:text-lg text-base clr-sblue-200 md:mb-1'>Settings</h3>
+				<div class='py-2 px-4 flex flex-col bg-gray-soft gap-0.5'>
+					<label for='uppercase' class='flex justify-between'>
+						<span class='md:text-2xl text-lg'>Include Uppercase Letters</span>
+						<div class='checkbox-con'>
+							<input type='checkbox' name='uppercase' id='uppercase' />
+						</div>
+					</label>
+					<label for='lowercase' class='flex justify-between'>
+						<span class='md:text-2xl text-lg'>Include Lowercase Letters</span>
+						<div class='checkbox-con'>
+							<input type='checkbox' name='lowercase' id='lowercase' />
+						</div>
+					</label>
+					<label for='numbers' class='flex justify-between items-center'>
+						<span class='md:text-2xl text-lg'>Include Numbers</span>
+						<div class='checkbox-con'>
+							<input type='checkbox' name='numbers' id='numbers' />
+						</div>
+					</label>
+					<label for='symbols' class='flex justify-between'>
+						<span class='md:text-2xl text-lg'>Include Symbols</span>
+						<div class='checkbox-con'>
+							<input type='checkbox' name='symbols' id='symbols' />
+						</div>
+					</label>
+				</div>
+				<!-- TODO: Strength Level -->
+				<div class='flex bg-gray-soft py-4 px-4 justify-between items-center mt-3'>
+					<span class='md:text-2xl text-lg'>STRENGTH</span>
+					<div class='flex gap-4'>
+						<span class='md:text-2xl text-lg' id='strength-text'></span>
+						<div class='flex gap-2 items-center' id='columns-container'>
+							<span class='strength-col inline-flex'></span>
+							<span class='strength-col inline-flex'></span>
+							<span class='strength-col inline-flex'></span>
+							<span class='strength-col inline-flex'></span>
+						</div>
+					</div>
+				</div>
+				<button class='button' id='button-generate'>
+					<span class='button-content'>Generate</span>
+				</button>
+			</form>
+			<h4 class='text-red-400' id='error-message'></h4>
+			<h4 class='text-green-400' id='succes-message'></h4>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700&display=swap');
+	:root {
+		--clr-soft-blue-400: hsl(194, 88%, 93%);
+		--clr-soft-blue-200: hsl(194, 88%, 93%, 0.6);
+	}
+	main {
+		background-color: #262424;
+		width: 100%;
+		min-height: 100vh;
+		padding-block-start: 3rem;
+		font-family: 'Darker Grotesque', sans-serif;
+		color: var(--clr-soft-blue-400);
+	}
+
+	@media (min-width: 768px) {
+		main {
+			padding-block-start: 5rem;
+		}
+	}
+
+	section {
+		width: min(91.46667%, 500px);
+		margin-inline: auto;
+		padding-inline: 2rem;
+	}
+
+	.bg-gray-soft {
+		background-color: #333131;
+	}
+
+	.clr-sblue-200 {
+		color: var(--clr-soft-blue-200);
+	}
+
+	.range {
+		-webkit-appearance: none;
+		appearance: none;
+		background: transparent;
+		cursor: pointer;
+		min-width: 90%;
+	}
+
+	.range:focus {
+		outline: none;
+	}
+
+	.range::-webkit-slider-runnable-track {
+		background-color: #262424;
+		border-radius: 15px;
+		overflow: hidden;
+		height: 15px;
+	}
+
+	.range::-webkit-slider-thumb {
+		appearance: none;
+		width: 15px;
+		height: 15px;
+		background: #00b140;
+		border-radius: 50%;
+		border: 2px solid rgba(2, 194, 2, 0.5);
+		box-shadow: -407px 0 0 400px rgba(2, 194, 2, 0.2);
+	}
+
+	/* From uiverse.io by @varoonrao */
+	.checkbox-con {
+		margin: 10px;
+		display: flex;
+		align-items: center;
+		color: white;
+	}
+
+	.checkbox-con input[type='checkbox'] {
+		appearance: none;
+		width: 40px;
+		height: 22px;
+		border: 2px solid #ff0000;
+		border-radius: 20px;
+		background: #f1e1e1;
+		position: relative;
+		box-sizing: border-box;
+	}
+
+	.checkbox-con input[type='checkbox']::before {
+		content: '';
+		width: 14px;
+		height: 14px;
+		background: rgba(234, 7, 7, 0.5);
+		border: 2px solid #ea0707;
+		border-radius: 50%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate(15%, 15%);
+		transition: all 0.3s ease-in-out;
+	}
+
+	.checkbox-con input[type='checkbox']:checked {
+		border: 2px solid #00b140;
+		background: #e2f1e1;
+	}
+
+	.checkbox-con input[type='checkbox']:checked::before {
+		background: rgba(2, 194, 2, 0.5);
+		border: 2px solid #00b140;
+		transform: translate(133%, 13%);
+		transition: all 0.3s ease-in-out;
+	}
+	.button {
+		position: relative;
+		overflow: hidden;
+		height: 3rem;
+		padding: 0 2rem;
+		border-radius: 1.5rem;
+		background: #333131;
+		background-size: 400%;
+		margin-top: 1rem;
+		margin-inline: auto;
+		width: 80%;
+	}
+
+	.button:hover::before {
+		transform: scaleX(1);
+	}
+
+	.button-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.button::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		width: 100%;
+		height: inherit;
+		border-radius: inherit;
+		background: linear-gradient(
+			to right,
+			#262424,
+			#00b140
+		); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		transition: all 0.475s;
+	}
+
+	.button-copy {
+		padding: 0.4rem;
+	}
+
+	.button-copy:hover {
+		border-radius: 50%;
+		background-color: rgb(30, 29, 29, 0.2);
+	}
+
+	.svg-icon {
+		fill: #262424;
+	}
+
+	.strength-col {
+		--clr: var(--clr-level);
+		--clr-border: var(--clr-bd);
+		width: 10px;
+		height: 30px;
+		border: 2px solid var(--clr-border, rgb(30, 29, 29));
+		background-color: var(--clr, transparent);
+	}
+</style>
+
+<script type='module'>
+	const buttonGenerate = document.querySelector('#button-generate')
+	const formGenerate = document.querySelector('#form-data')
+	const generetedPassword = document.querySelector('#generated-password')
+	const rangeValue = document.querySelector('#valueRange')
+	const inputRange = document.querySelector('#input-range')
+	const buttonCopy = document.querySelector('#copy-button')
+	const errorMessage = document.querySelector('#error-message')
+	const succesMessage = document.querySelector('#succes-message')
+	const columns = document.querySelectorAll('#columns-container span')
+	const strengthText = document.querySelector('#strength-text')
+
+	const generalOptions = {
+		lowercase: 'abcdefghijklmnopqrstuvwxyz',
+		uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+		numbers: '0123456789',
+		symbols: '!#$%&()*+,-./:;<=>?@[]^_`{|}~' + "'"
+	}
+
+	const handlerStrength = (len, options) => {
+		let text = ''
+		let property = ''
+		let columnsN = 0
+		if (len <= 6) {
+			text = 'Too Weak'
+			property = 'hsl(0, 91%, 63%)'
+			columnsN = 1
+			console.log(columns)
+		}
+
+		if (len > 6 && options.length >= 2) {
+			text = 'Weak'
+			property = 'hsl(13, 95%, 66%)'
+			columnsN = 2
+		}
+		if (len > 10 && len <= 13 && options.length === 3) {
+			text = 'Medium'
+			property = 'hsl(42, 91%, 68%)'
+			columnsN = 3
+		}
+		if (len > 10 && len <= 16 && options.length === 4) {
+			text = 'Strong'
+			property = 'hsl(127, 100%, 82%)'
+			columnsN = 4
+		}
+
+		strengthText.textContent = text
+
+		for (let i = 0; i < 4; i++) {
+			if (i < columnsN) {
+				columns[i].style.setProperty('--clr-level', property)
+				columns[i].style.setProperty('--clr-bd', property)
+			} else {
+				columns[i].style.setProperty('--clr-level', 'transparent')
+				columns[i].style.setProperty('--clr-bd', 'rgb(30, 29, 29)')
+			}
+		}
+	}
+
+	function rangeSlider() {
+		rangeValue.textContent = inputRange.value
+	}
+
+	function copyToClickBoard() {
+		const content = generetedPassword.innerHTML
+		console.log(content)
+
+		if (content) {
+			errorMessage.textContent = ''
+			navigator.clipboard
+				.writeText(content)
+				.then(() => {
+					setTimeout(() => {
+						succesMessage.textContent = ''
+					}, 2000)
+					succesMessage.textContent = 'Password Copied'
+				})
+				.catch((err) => {
+					console.log('Something went wrong', err)
+				})
+		} else {
+			setTimeout(() => {
+				errorMessage.textContent = ''
+			}, 2000)
+			errorMessage.textContent = 'There is nothing to copy!'
+		}
+	}
+
+	const getRandomInt = (max) => {
+		return Math.floor(Math.random() * max)
+	}
+
+	const generatePassword = (len, options) => {
+		const password = []
+		const newCharacteres = options.reduce((prev, current) => prev + generalOptions[current], '')
+
+		for (let i = 0; i < len; i++) {
+			const numberRamdon = getRandomInt(newCharacteres.length)
+			const character = newCharacteres[numberRamdon]
+			password.push(character)
+		}
+		return password.join('')
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		const formData = new window.FormData(formGenerate)
+		const data = []
+		const len = formData.get('length')
+		const uppercase = formData.get('uppercase')
+		const lowercase = formData.get('lowercase')
+		const numbers = formData.get('numbers')
+		const symbols = formData.get('symbols')
+
+		if (uppercase) data.push('uppercase')
+		if (lowercase) data.push('lowercase')
+		if (numbers) data.push('numbers')
+		if (symbols) data.push('symbols')
+
+		if (!uppercase && !lowercase && !numbers && !symbols) {
+			setTimeout(() => {
+				errorMessage.textContent = ''
+			}, 2000)
+			errorMessage.textContent = 'Select at least one option'
+		} else {
+			const newPassword = generatePassword(len, data)
+			handlerStrength(len, data)
+			generetedPassword.textContent = newPassword
+			succesMessage.textContent = 'Password Genereted'
+			setTimeout(() => {
+				succesMessage.textContent = ''
+			}, 1500)
+		}
+	}
+
+	buttonCopy.addEventListener('click', copyToClickBoard)
+	inputRange.addEventListener('mousemove', rangeSlider)
+	buttonGenerate.addEventListener('click', handleSubmit)
+</script>
