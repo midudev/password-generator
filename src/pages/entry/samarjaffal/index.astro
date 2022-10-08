@@ -1,0 +1,34 @@
+---
+import Layout from '@layout'
+import PasswordGenerator from '@components/samarjaffal/PasswordGenerator.svelte'
+---
+
+<Layout title='midudev'>
+	<style>
+		@font-face {
+			font-family: 'Orbitron';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url('/Orbitron-ExtraBold.woff2') format('woff2');
+		}
+		@font-face {
+			font-family: 'Jet Brains Mono';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url('/JetBrainsMono-Regular.woff2') format('woff2');
+		}
+		@font-face {
+			font-family: 'Jet Brains Mono';
+			font-style: normal;
+			font-weight: 600;
+			font-display: swap;
+			src: url('/JetBrainsMono-Bold.woff2') format('woff2');
+		}
+	</style>
+	<main class='flex flex-col justify-center items-center min-h-screen px-8 lg:px-0'>
+		<PasswordGenerator client:visible />
+		<p class='text-white text-sm my-4'>Realizado con mucho ♥️</p>
+	</main>
+</Layout>

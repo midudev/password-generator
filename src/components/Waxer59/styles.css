@@ -1,0 +1,167 @@
+/* MAIN CONTAINER */
+
+#waxer59 {
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	background: #1c1c1c;
+	margin: 0 auto;
+	height: 450px;
+	width: 500px;
+	margin-top: 25px;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 25px;
+}
+/* TITTLE */
+
+#waxer59 .header {
+	font-family: sans-serif, Arial, Helvetica;
+	text-align: center;
+	color: #e0e0e0;
+	font-size: calc(var(--font-size-base) * 1.3);
+}
+/* INPUTS */
+
+#waxer59 .passwordInput {
+	font-family: sans-serif, Arial, Helvetica;
+	color: #e0e0e0;
+	margin-bottom: 15px;
+	background: none;
+	border: 0.1px solid #e0e0e0;
+	border-radius: 15px;
+	box-sizing: border-box;
+	outline: none;
+	height: 30px;
+	font-size: var(--font-size-base);
+	padding: 15px;
+	cursor: pointer;
+	width: 90%;
+}
+
+#waxer59 .inputs-btns {
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 90%;
+	display: flex;
+	flex-flow: column;
+}
+
+#waxer59 .inputs {
+	display: flex;
+	flex-flow: column;
+}
+
+#waxer59 .copy {
+	height: 25px;
+	width: 25px;
+}
+
+#waxer59 .textInput-copy {
+	display: flex;
+	justify-content: space-between;
+}
+
+#waxer59 .range-label {
+	color: #e0e0e0;
+	text-align: center;
+	font-size: var(--font-size-base);
+}
+
+#waxer59 .rangeInput {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 10px;
+	background: #e0e0e0;
+	outline: none;
+	opacity: 0.7;
+	border-radius: 5px;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+
+#waxer59 .rangeInput:hover {
+	opacity: 1;
+}
+
+#waxer59 .rangeInput::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	background: #2c2c2c;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+#waxer59 .rangeInput::-moz-range-thumb {
+	width: 20px;
+	height: 20px;
+	background: #2c2c2c;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+/* BTN CREATEPASSWORD */
+
+#waxer59 .createPassword {
+	margin: 0 auto;
+	margin-top: 25px;
+	border: 1px solid #e0e0e0;
+	border-radius: 50%;
+	font-family: sans-serif, Arial, Helvetica;
+	color: #e0e0e0;
+	height: 50px;
+	width: 50px;
+	transition: all 0.3s ease-in-out;
+}
+
+#waxer59 .createPassword:hover {
+	color: #1c1c1c;
+	background: #e0e0e0;
+}
+
+/* ALERT */
+
+#waxer59 .alert {
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	height: 50px;
+	width: 200px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: 25px;
+	margin-right: 25px;
+	border-radius: 25px;
+	border: 1px solid #4bb543b4;
+	background: rgba(75, 181, 67, 0.09);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s ease-in-out;
+}
+
+#waxer59 .alert-text {
+	text-shadow: 0 0 5px #e0e0e0;
+	font-family: sans-serif, Arial, Helvetica;
+	color: #e0e0e0;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 600px) {
+	#waxer59 .section {
+		width: 70%;
+	}
+	#waxer59 .passwordInput {
+		width: 85%;
+	}
+}
+
+@media (max-width: 300px) {
+	#waxer59 .alert {
+		width: 150px;
+	}
+}
