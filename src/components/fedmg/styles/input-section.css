@@ -1,25 +1,21 @@
-.fedmg-main .input-container {
+.fedmg-input-section {
 	display: grid;
 	gap: clamp(1em, 3vw, 1.3em) 0;
 }
 
-.label-container {
+.fedmg-label-section {
 	display: inherit;
 	grid-template-columns: 1fr 1fr;
 	align-items: center;
 }
 
-.fedmg-main .range-input {
-	user-select: none;
-}
-
-.fedmg-main .range-lbl {
+.fedmg-label {
 	text-align: start;
 	font-family: 'Noto Sans', sans-serif;
 	font-size: clamp(0.9em, 3vw, 1.16em);
 }
 
-.fedmg-main .range-span {
+.fedmg-range-span {
 	font-size: clamp(0.96em, 3vw, 1.1em);
 	border: 2px solid #fff;
 	background: rgb(0 0 0 / 30%);
