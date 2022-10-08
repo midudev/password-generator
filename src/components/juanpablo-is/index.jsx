@@ -24,21 +24,24 @@ const App = () => {
 		numbers: true,
 		symbols: true
 	})
-	const { password, generateNewPassword } = useGeneratePassword({
-		length: passwordLength,
-		optionsCharacter
-	})
+	const { password, generateNewPassword } = useGeneratePassword()
 
 	const handlerNewPassword = (delay = false) => {
 		if (delay) {
 			const delayDebounceFn = setTimeout(() => {
-				generateNewPassword()
+				generateNewPassword({
+					length: passwordLength,
+					options: optionsCharacter
+				})
 			}, 300)
 
 			return () => clearTimeout(delayDebounceFn)
 		}
 
-		generateNewPassword()
+		generateNewPassword({
+			length: passwordLength,
+			options: optionsCharacter
+		})
 	}
 
 	useEffect(() => {
