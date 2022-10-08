@@ -12,14 +12,14 @@ const options = {
 	minus: [{ start: 97, end: 122 }]
 }
 
-const useGeneratePassword = () => {
+const useGeneratePassword = ({ length, optionsCharacter }) => {
 	const [password, setPassword] = useState('')
 	const [loading, setLoading] = useState(false)
 
-	const mainProcess = (length, optionsCharacter) => {
+	const mainProcess = () => {
 		let text = ''
 
-		const mapped = optionsCharacter.reduce((acc, allowed) => {
+		const mapped = Object.keys(optionsCharacter).reduce((acc, allowed) => {
 			if (allowed && options[allowed]) {
 				acc.push([[allowed], options[allowed]])
 			}
@@ -31,14 +31,15 @@ const useGeneratePassword = () => {
 			const randomOption = Math.floor(Math.random() * mapped.length + 1)
 			const option = mapped[randomOption - 1]
 
-			const item = option[1][Math.floor(Math.random() * option[1].length)]
+			const randomItem = option[1].length === 1 ? 0 : Math.floor(Math.random() * option[1].length)
+			const item = option[1][randomItem]
 
 			const character = Math.floor(Math.random() * (item.end - item.start + 1) + item.start)
 
 			const charCodeString = String.fromCharCode(character)
 
 			// TODO: option to user, same character
-			if (text.length == 0 || charCodeString !== text[text.length - 1]) {
+			if (text.length === 0 || charCodeString !== text[text.length - 1]) {
 				text += String.fromCharCode(character)
 			}
 		}
@@ -46,9 +47,9 @@ const useGeneratePassword = () => {
 		setPassword(text)
 	}
 
-	const generateNewPassword = (length, optionsCharacter) => {
+	const generateNewPassword = () => {
 		setLoading(true)
-		mainProcess(length, optionsCharacter)
+		mainProcess()
 		setLoading(false)
 	}
 
