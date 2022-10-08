@@ -17,6 +17,7 @@ import './index.css'
 const App = () => {
 	const { generateAlert, Alerts } = useTimerAlert()
 	const [passwordLength, setPasswordLength] = useLocalStorage('length', '25')
+	const [concurrenceLength, setConcurrenceLength] = useLocalStorage('concurrence', '1')
 	const [automaticGenerator, setAutomaticGenerator] = useLocalStorage('automaticGenerator', true)
 	const [optionsCharacter, setOptionsCharacter] = useLocalStorage('optionsCharacter', {
 		mayus: true,
@@ -74,10 +75,12 @@ const App = () => {
 				password,
 				handlerNewPassword,
 				generateAlert,
-				optionsCharacter,
-				setOptionsCharacter,
 				passwordLength,
 				setPasswordLength,
+				optionsCharacter,
+				setOptionsCharacter,
+				concurrenceLength,
+				setConcurrenceLength,
 				automaticGenerator,
 				setAutomaticGenerator
 			}}

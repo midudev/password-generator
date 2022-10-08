@@ -3,6 +3,7 @@ import InputPassword from './InputPassword'
 import InputRangePassword from './InputRangePassword'
 import CheckboxOptions from './CheckboxOptions'
 import ActionsButtons from './ActionsButtons'
+import InputRangeConcurrence from './InputRangeConcurrence'
 
 const Main = () => {
 	return (
@@ -25,9 +26,11 @@ const Main = () => {
 
 			<div className='flex flex-col w-full max-w-xl my-2  overflow-auto'>
 				<hr className='my-2 sm:my-4' />
+
 				<div className=''>
 					<InputRangePassword />
 					<CheckboxOptions />
+					<InputRangeConcurrence />
 				</div>
 
 				<hr className='my-2 sm:my-4' />

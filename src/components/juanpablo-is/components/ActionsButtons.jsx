@@ -4,6 +4,7 @@ import passwordContext from '../context/PasswordContext'
 const ActionsButtons = () => {
 	const {
 		passwordLength,
+		concurrenceLength,
 		automaticGenerator,
 		setAutomaticGenerator,
 		optionsCharacter,
@@ -16,6 +17,7 @@ const ActionsButtons = () => {
 			'preferencies-password-generator',
 			JSON.stringify({
 				length: passwordLength,
+				concurrence: concurrenceLength,
 				automaticGenerator,
 				optionsCharacter
 			})
