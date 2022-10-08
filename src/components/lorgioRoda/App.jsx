@@ -1,0 +1,15 @@
+import React, { useState } from 'react'
+import PasswordGenerator from './PasswordGenerator'
+import SliderRange from './SliderRange'
+
+const App = () => {
+	const [value, setValue] = useState(6)
+	return (
+		<>
+			<PasswordGenerator value={value}/>
+			<SliderRange value={value} setValue={setValue}/>
+		</>
+	)
+}
+
+export default App
