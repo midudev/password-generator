@@ -9,6 +9,7 @@
 	let password = ""
 	let isCopied = false
 	let animate = true
+	let length = 6
 
 	const DEFAULT_OPTIONS: DefaultOptions = {
 		uppercase: true,
@@ -22,7 +23,7 @@
 		setTimeout(() => (isCopied = false), 1000)
 	}
 
-	onMount(() => password = generate_password(8, DEFAULT_OPTIONS))
+	onMount(() => password = generate_password(length, DEFAULT_OPTIONS))
 </script>
 
 <UltraGradientBackground />
@@ -121,7 +122,7 @@
 		</button>
 
 		<button
-			on:click={() => (password = generate_password(6, DEFAULT_OPTIONS))}
+			on:click={() => (password = generate_password(length, DEFAULT_OPTIONS))}
 			title="Refresh password"
 			class="rounded-md border-2 border-slate-700 hover:border-slate-600 group flex items-center justify-center py-1 px-2"
 		>
@@ -142,9 +143,14 @@
 		</button>
 	</div>
 
+	<label for="length" class="mt-8 inline-block w-full">
+		<span class="text-lg">Length: {length}</span>
+		<input type="range" min="4" max="30" class="w-full mt-2" bind:value={length} />
+	</label>
+
 	<!-- Generate Password Button -->
 	<button
-		on:click={() => (password = generate_password(6, DEFAULT_OPTIONS))}
+		on:click={() => (password = generate_password(length, DEFAULT_OPTIONS))}
 		class="relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]"
 		>Generate Password</button
 	>
