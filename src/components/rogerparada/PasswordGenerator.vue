@@ -29,7 +29,7 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import icon from './assets/images/iconCopy.svg'
+import icon from './assets/images/copyIcon.svg'
 
 export default {
 	setup() {
