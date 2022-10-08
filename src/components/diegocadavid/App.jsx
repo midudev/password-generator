@@ -106,7 +106,7 @@ const listDocCommads = [
 
 const App = () => {
 	const [commands, setCommands] = useState([])
-	const [showLogin, setShowLogin] = useState(false)
+	const [showLogin, setShowLogin] = useState(true)
 
 	const [showTerminal, setShowTerminal] = useState(false)
 	const [showCli, setShowCli] = useState(false)
