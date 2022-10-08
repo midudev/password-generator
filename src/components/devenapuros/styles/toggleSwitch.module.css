@@ -17,7 +17,7 @@
 	background-color: #0085ee;
 }
 
-.active span {
+.active > span {
 	left: 20px;
 }
 

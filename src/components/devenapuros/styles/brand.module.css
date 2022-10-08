@@ -1,4 +1,4 @@
-header {
+.header {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -21,7 +21,7 @@ header {
 	text-align: center;
 }
 
-.brandTitle h1 {
+.brandTitle > h1 {
 	font-size: 32px;
 	font-weight: 700;
 	margin-bottom: -6px;

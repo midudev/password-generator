@@ -12,7 +12,7 @@
 	transition: background-color 300ms ease;
 }
 
-.primaryButton svg {
+.primaryButton > svg {
 	stroke: white;
 }
 
