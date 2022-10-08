@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Generador de Contraseñas</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="img/logo.png" alt="">
+        </div>
+        <form action="" class="app" id="generator">
+            <div class="row n_caracteres">
+                <div class="col">
+                    <label for="n_caracteres">¿de cuantos caracteres?</label>
+                </div>
+                <div class="col characters">
+                        <div>
+                        <button class="btn" id="btn-minus">
+                            <span class="material-symbols-outlined">
+                                indeterminate_check_box
+                            </span>
+                        </button>
+                        </div>
+                        <div>   
+                        <input type="text" id="n_caracteres" readonly value="12">
+                        </div>
+                        <div>
+                        <button class="btn" id="btn-plus">
+                            <span class="material-symbols-outlined">
+                                add_box
+                            </span>
+                        </button>
+                        </div>
+                </div>
+            </div>
+            <div class="row symbols">
+                <div class="col">
+                    <label for="symbols">generar con simbolos</label>
+                </div>
+                <div class="col">
+                    <div>
+                        <button class="btn" id="btn-symbols">
+                            <span class="material-symbols-outlined" id="span1">check_box</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row numbers">
+                <div class="col">
+                    <label for="numbers">generar con numeros</label>
+                </div>
+                <div class="col">
+                    <div>
+                        <button class="btn" id="btn-numbers">
+                            <span class="material-symbols-outlined">check_box</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row capital">
+                <div class="col">
+                    <label for="capital">generar con mayusculas</label>
+                </div>
+                <div class="col">
+                    <div >
+                        <button class="btn" id="btn-capital">
+                            <span class="material-symbols-outlined">check_box</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row ignition">
+                <div class="col">
+                    <button class="btn btn-generator" id="btn-ignition">
+                        Generar
+                        <span class="material-symbols-outlined">
+                            lock
+                        </span>
+                    </button>
+                </div>
+                <div class="col">
+                    <div >
+                        <input type="text" class="input-password" id="input-password" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row alert">
+                <div class="col">
+                    <div class="alert-copy" id="copied">
+                        <span class="material-symbols-outlined">
+                            content_copy
+                        </span>
+                        texto copiado
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- codigo javascript generador de contrseñas -->
+    <script src="js/app.js"></script>
+</body>
+</html>
