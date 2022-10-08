@@ -32,7 +32,8 @@ const App = () => {
 			const delayDebounceFn = setTimeout(() => {
 				generateNewPassword({
 					length: passwordLength,
-					options: optionsCharacter
+					options: optionsCharacter,
+					count: concurrenceLength
 				})
 			}, 300)
 
@@ -41,7 +42,8 @@ const App = () => {
 
 		generateNewPassword({
 			length: passwordLength,
-			options: optionsCharacter
+			options: optionsCharacter,
+			count: concurrenceLength
 		})
 	}
 
@@ -67,7 +69,7 @@ const App = () => {
 		if (automaticGenerator) {
 			return handlerNewPassword(true)
 		}
-	}, [passwordLength, optionsCharacter])
+	}, [passwordLength, optionsCharacter, concurrenceLength])
 
 	return (
 		<PasswordContext.Provider

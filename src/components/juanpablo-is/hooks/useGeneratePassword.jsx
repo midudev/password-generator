@@ -17,7 +17,7 @@ const useGeneratePassword = () => {
 	const [password, setPassword] = useState('')
 	const [loading, setLoading] = useState(false)
 
-	const mainProcess = (length, optionsCharacter) => {
+	const mainProcess = (length, count, optionsCharacter) => {
 		let text = ''
 
 		const mapped = Object.keys(optionsCharacter).reduce((acc, allowed) => {
@@ -39,18 +39,18 @@ const useGeneratePassword = () => {
 
 			const charCodeString = String.fromCharCode(character)
 
-			// TODO: option to user, same character
-			if (text.length === 0 || charCodeString !== text[text.length - 1]) {
-				text += String.fromCharCode(character)
+			// Check if the character exists in a range count index
+			if (text.length === 0 || ![...text.substring(text.length - count)].includes(charCodeString)) {
+				text += charCodeString
 			}
 		}
 
 		setPassword(text)
 	}
 
-	const generateNewPassword = ({ length = 0, options = {} }) => {
+	const generateNewPassword = ({ length = 0, count = 0, options = {} }) => {
 		setLoading(true)
-		mainProcess(length, options)
+		mainProcess(length, count, options)
 		setLoading(false)
 	}
 
