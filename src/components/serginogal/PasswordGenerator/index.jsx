@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import generatePassword from '../helpers/generatePassword.js'
-import { Button, TextInput, OptIns, Slider } from '../components'
+import { Button, TextInput, OptIns, Slider, Toast } from '../components'
 
 const initialOptions = [
 	{
@@ -38,6 +38,7 @@ const generatorChars = {
 }
 
 export default function PasswordGenerator() {
+	const toastRef = useRef()
 	const [options, setOptions] = useState(initialOptions)
 	const [password, setPassword] = useState('')
 	const [passwordLength, setPasswordLength] = useState(16)
@@ -55,7 +56,7 @@ export default function PasswordGenerator() {
 
 	const handleCopy = () => {
 		navigator.clipboard.writeText(password).then(
-			() => alert('Password copied to clipboard')
+			() => toastRef.current.displayToast('Password copied to clipboard')
 		)
 	}
 
@@ -77,12 +78,15 @@ export default function PasswordGenerator() {
 	}, [options, passwordLength])
 
 	return (
-		<div className={styles.generatorWrapper}>
-			<h2>Password Generator</h2>
-			<TextInput value={password} placeholder='Generated password...' onCopy={handleCopy} />
-			<Slider {...{ passwordLength, setPasswordLength }} title='Select password length'/>
-			<OptIns title={'Password generation opt-ins'} {...{ options, updateOptionValues }} />
-			<Button onClick={() => handleGeneratePassword(options, passwordLength)}>Generate Password</Button>
-		</div>
+		<>
+			<Toast ref={toastRef} />
+			<div className={styles.generatorWrapper}>
+				<h2>Password Generator</h2>
+				<TextInput value={password} placeholder='Generated password...' onCopy={handleCopy} />
+				<Slider {...{ passwordLength, setPasswordLength }} title='Select password length'/>
+				<OptIns title={'Password generation opt-ins'} {...{ options, updateOptionValues }} />
+				<Button onClick={() => handleGeneratePassword(options, passwordLength)}>Generate Password</Button>
+			</div>
+		</>
 	)
 }
