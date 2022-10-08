@@ -32,11 +32,6 @@ const App = () => {
 		optionsCharacter
 	})
 
-	const handlerCopyPassword = () => {
-		navigator.clipboard.writeText(document.querySelector('#password-generated').value)
-		generateAlert('Password copied to clipboard!', 5000, 'copy')
-	}
-
 	const handlerNewPassword = (delay = false) => {
 		if (delay) {
 			const delayDebounceFn = setTimeout(() => {
@@ -50,6 +45,24 @@ const App = () => {
 	}
 
 	useEffect(() => {
+		const handlerCopyPassword = () => {
+			navigator.clipboard.writeText(document.querySelector('#password-generated').value)
+			generateAlert('Password copied to clipboard!', 5000, 'copy')
+		}
+
+		generateAlert(
+			<>
+				New password generated.
+				<span className='text-blue-500 font-bold cursor-pointer pl-2' onClick={handlerCopyPassword}>
+					Copy
+				</span>
+			</>,
+			5000,
+			'password'
+		)
+	}, [password])
+
+	useEffect(() => {
 		if (automaticGenerator) {
 			return handlerNewPassword(true)
 		}
@@ -60,20 +73,20 @@ const App = () => {
 			value={{
 				password,
 				generateNewPassword,
+				generateAlert,
 				optionsCharacter,
 				setOptionsCharacter,
 				passwordLength,
 				setPasswordLength,
 				automaticGenerator,
-				setAutomaticGenerator,
-				generateAlert
+				setAutomaticGenerator
 			}}
 		>
 			<div
 				id='juanpablo-is'
 				className='max-w-xl h-screen flex flex-col items-center justify-start text-center w-10/12 m-auto'
 			>
-				<div className='w-full flex flex-col justify-center flex-[2]'>
+				<div className='w-full flex flex-col justify-center flex-1'>
 					<div className='flex flex-col justify-end flex-1 mb-5'>
 						<h1 className='mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white'>
 							Password Generator
