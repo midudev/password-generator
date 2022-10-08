@@ -1,13 +1,15 @@
 import React from 'react'
-import { Button, Cat, Form, Slider, CopyButton } from './components'
-import useGenerator from './hooks'
+import { Button, Cat, Form, Slider, CopyButton, Banner } from './components'
+import useGenerator, { useTemporal } from './hooks'
 import './styles/App.css'
 
 const App = () => {
 	const [password, generatePassword, Config] = useGenerator()
+	const [show, showInfo, message] = useTemporal(3000)
 
 	return (
 		<section className='flex justify-center items-center'>
+			<Banner show={show} message={message} />
 			<section
 				id='app-slydragonn'
 				className='relative flex flex-col items-center w-full min-h-[100vh] p-5 overflow-hidden'
@@ -20,7 +22,7 @@ const App = () => {
 					<Slider handleChange={Config.setLength} />
 					<div className='flex items-center'>
 						<Button handleClick={generatePassword} message='Generate作成する' />
-						<CopyButton value={password} />
+						<CopyButton value={password} setMessage={showInfo} />
 					</div>
 				</Form>
 				<h2 className='z-0 absolute left-10 hidden sm:block w-1 text-white text-2xl sm:text-5xl select-none transition-all duration-300'>
