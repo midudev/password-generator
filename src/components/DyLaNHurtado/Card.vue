@@ -4,7 +4,7 @@
 	>
 		<PassLabel :password="passwordValue" />
 		<div class="w-full h-4/6 flex flex-col p-10">
-			<Length @rangeUpdated="updateCharLength" />
+			<Length @rangeUpdated="updatePassLength" />
 			<Options @checksUpdated="updateCheckboxs" />
 		</div>
 		<SecureIndicator />
@@ -25,9 +25,15 @@ export default {
 	name: 'Card',
 	data() {
 		return {
-			charLength: 4,
+			passLength: 4,
 			passwordValue: 'Password Generator',
-			arrayCheckbox: []
+			arrayCheckbox: [],
+			characters: {
+				lowercase: 'qwertyuiopasdfghjklzxcvbnm',
+				uppercase: 'QWERTYUIOPASDFGHJKLZXCVBNM',
+				numbers: '1234567890',
+				symbols: '!?$%&@#'
+			}
 		}
 	},
 	props: {},
@@ -39,14 +45,33 @@ export default {
 	},
 	methods: {
 		generatePasswd() {
-			console.log('Gol')
-			this.passwordValue = '3!3213!fd'
-			console.log(this.passwordValue)
+			if (!this.arrayCheckbox.length == 0) {
+				const charsChoosen = []
+				if (this.arrayCheckbox.includes('lowercase')) {
+					charsChoosen.push(this.characters.lowercase)
+				}
+				if (this.arrayCheckbox.includes('uppercase')) {
+					charsChoosen.push(this.characters.uppercase)
+				}
+				if (this.arrayCheckbox.includes('numbers')) {
+					charsChoosen.push(this.characters.numbers)
+				}
+				if (this.arrayCheckbox.includes('symbols')) {
+					charsChoosen.push(this.characters.symbols)
+				}
+				this.passwordValue = ''
+				for (let i = 0; i < this.passLength; i++) {
+					let charType = charsChoosen[Math.floor(Math.random() * charsChoosen.length)]
+					this.passwordValue += charType[Math.floor(Math.random() * charType.length)]
+				}
+			} else {
+				window.alert('Select at least one option!')
+			}
 		},
-		updateCharLength(newValue) {
-			console.log(this.charLength)
-			this.charLength = newValue
-			console.log(this.charLength)
+		updatePassLength(newValue) {
+			console.log(this.passLength)
+			this.passLength = newValue
+			console.log(this.passLength)
 		},
 		updateCheckboxs(newValue) {
 			console.log(this.arrayCheckbox)
