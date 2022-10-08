@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import styles from './styles.module.css'
-import Slider from '../components/Slider'
 import generatePassword from '../helpers/generatePassword.js'
-import { Button, TextInput, OptIns } from '../components'
+import { Button, TextInput, OptIns, Slider } from '../components'
 
 const initialOptions = [
 	{
