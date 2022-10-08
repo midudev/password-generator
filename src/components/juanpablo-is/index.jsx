@@ -27,7 +27,7 @@ const App = () => {
 	const { password, generateNewPassword } = useGeneratePassword()
 
 	const handlerNewPassword = (delay = false) => {
-		if (delay) {
+		if (delay === true) {
 			const delayDebounceFn = setTimeout(() => {
 				generateNewPassword({
 					length: passwordLength,

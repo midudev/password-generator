@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import passwordContext from '../context/PasswordContext'
 
-const InputRange = () => {
+const InputRangePassword = () => {
 	const { passwordLength, setPasswordLength } = useContext(passwordContext)
 
 	return (
@@ -26,4 +26,4 @@ const InputRange = () => {
 	)
 }
 
-export default InputRange
+export default InputRangePassword

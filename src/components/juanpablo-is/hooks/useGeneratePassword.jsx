@@ -48,7 +48,7 @@ const useGeneratePassword = () => {
 		setPassword(text)
 	}
 
-	const generateNewPassword = ({ length = 0, options = [] }) => {
+	const generateNewPassword = ({ length = 0, options = {} }) => {
 		setLoading(true)
 		mainProcess(length, options)
 		setLoading(false)
