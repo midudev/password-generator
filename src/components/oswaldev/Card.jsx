@@ -9,7 +9,6 @@ function Card() {
 		numbers: false,
 		symbols: false
 	})
-
 	const [handleText, setHandleText] = useState('')
 	const [copiedText, setCopiedText] = useState(false)
 
@@ -35,7 +34,7 @@ function Card() {
 	}
 
 	const handleChangeSymbols = () => {
-		setHandleText({
+		setPassword({
 			...password,
 			symbols: !password.symbols
 		})
@@ -43,25 +42,25 @@ function Card() {
 
 	const setPasswordLength = (val) => {
 		setPassword({
-			...pasword,
+			...password,
 			length: val
 		})
-		console.log(length)
 	}
 
 	function generatePassword() {
-		const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-		const symbolsArray = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+']
-		const charactersCodes = Array.from(Array(26)).map((_e, i) => i + 97)
-		const lowercaseLetters = charactersCodes.map((letter) => String.fromCharCode(letter))
-		const uppercaseLetters = lowercaseLetters.map((letter) => letter.toUpperCase())
+		const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+		const symbolsArray = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')']
 
-		const { length, uppercase, lowercase, numbers, symbols } = setPassword
+		const characterCodes = Array.from(Array(26)).map((_e, i) => i + 97)
+		const lowerCaseLetters = characterCodes.map((code) => String.fromCharCode(code))
+		const upperCaseLetters = lowerCaseLetters.map((letter) => letter.toUpperCase())
 
-		const generateWord = (length, uppercase, lowercase, numbers, symbols) => {
+		const { length, uppercase, lowercase, numbers, symbols } = password
+
+		const generateTheWord = (length, uppercase, lowercase, numbers, symbols) => {
 			const availableCharacters = [
-				...(uppercase ? uppercaseLetters : []),
-				...(lowercase ? lowercaseLetters : []),
+				...(lowercase ? lowerCaseLetters : []),
+				...(uppercase ? upperCaseLetters : []),
 				...(numbers ? numbersArray : []),
 				...(symbols ? symbolsArray : [])
 			]
@@ -70,7 +69,8 @@ function Card() {
 			setHandleText(characters.join(''))
 			return characters
 		}
-		generateWord(length, uppercase, lowercase, numbers, symbols)
+
+		generateTheWord(length, uppercase, lowercase, numbers, symbols)
 	}
 
 	return (
@@ -78,7 +78,7 @@ function Card() {
 			<h1>Generate random password</h1>
 			<div className='flex px-6 py-4'>
 				<div>
-					<label>Passowrd length</label>
+					<label>Password length</label>
 				</div>
 				<div>
 					<input
