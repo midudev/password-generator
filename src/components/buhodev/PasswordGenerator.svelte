@@ -9,11 +9,18 @@
 	let animate = true
 	let length = 6
 
+	const TITLES = {
+		uppercase: 'A-Z',
+		lowercase: 'a-z',
+		numbers: '0-9',
+		symbols: '!@#$%^&*'
+	}
+
 	const DEFAULT_OPTIONS: DefaultOptions = {
 		uppercase: true,
 		lowercase: true,
 		numbers: true,
-		symbols: false
+		symbols: true
 	}
 
 	function handleSuccessfulCopy() {
@@ -145,6 +152,25 @@
 		<span class="text-lg">Length: {length}</span>
 		<input type="range" min="4" max="30" class="w-full mt-2" bind:value={length} />
 	</label>
+	<ul class="grid gap-6 w-full grid-cols-2 lg:grid-cols-4">
+		{#each Object.keys(DEFAULT_OPTIONS) as option}
+			<li>
+				<input
+					type="checkbox"
+					id={option}
+					value=""
+					bind:checked={DEFAULT_OPTIONS[option]}
+					class="hidden peer"
+				/>
+				<label
+					for={option}
+					class="inline-flex justify-between items-center p-4 text-center w-full text-white bg-gray-800/20 rounded-lg border-[3px] border-gray-400/20 cursor-pointer peer-checked:border-sky-600 hover:text-gray-100 peer-checked:text-white transition-colors hover:bg-gray-500/20"
+				>
+					<div class="w-full text-lg font-semibold">{TITLES[option]}</div>
+				</label>
+			</li>
+		{/each}
+	</ul>
 
 	<!-- Generate Password Button -->
 	<button
