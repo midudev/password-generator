@@ -21,5 +21,3 @@ export const CopyIcon: Component = () => {
 		</svg>
 	)
 }
-
-export default CopyIcon

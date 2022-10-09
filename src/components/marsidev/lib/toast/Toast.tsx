@@ -9,7 +9,7 @@ import type {
 import type { Component, JSX } from 'solid-js'
 import { createSignal } from 'solid-js'
 import { onRemoveToast } from '@components/marsidev/lib/toast/toastify'
-import { Success, Error, Info, Warn } from '@components/marsidev/components/icons'
+import { SuccessIcon, ErrorIcon, InfoIcon, WarnIcon } from '@components/marsidev/components/icons'
 import { DEFAULT_TOAST_OPTIONS as defaults } from '@components/marsidev/utils/constants'
 import { ToastTransitionWrapper } from '@components/marsidev/lib/toast/ToastTransitionWrapper'
 import { ToastCloseButton } from '@components/marsidev/lib/toast/ToastCloseButton'
@@ -20,10 +20,10 @@ type ToastProps = WithUndef<CommonToastOptions> & {
 }
 
 const ICONS_BY_TYPE: Record<ToastType, JSX.Element> = {
-	success: Success,
-	error: Error,
-	info: Info,
-	warn: Warn,
+	success: SuccessIcon,
+	error: ErrorIcon,
+	info: InfoIcon,
+	warn: WarnIcon,
 	default: null
 }
 

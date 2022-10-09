@@ -1,8 +1,6 @@
-import Error from './Error'
-import Info from './Info'
-import Success from './Success'
-import Warn from './Warn'
-
-export { GenerateIcon } from './GenerateIcon'
 export { CopyIcon } from './CopyIcon'
-export { Error, Info, Success, Warn }
+export { ErrorIcon } from './ErrorIcon'
+export { GenerateIcon } from './GenerateIcon'
+export { InfoIcon } from './InfoIcon'
+export { SuccessIcon } from './SuccessIcon'
+export { WarnIcon } from './WarnIcon'

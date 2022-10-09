@@ -31,5 +31,3 @@ export const GenerateIcon: Component<GenerateIconProps> = (props) => {
 		</svg>
 	)
 }
-
-export default GenerateIcon
