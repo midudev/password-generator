@@ -40,15 +40,23 @@ export default {
 				this.message = 'Thinking...'
 				setTimeout(() => {
 					console.log(this.password)
-					if (this.password.length >= 4 && this.password.length < 7) {
-						this.stars = '⭐⚫⚫'
-						this.message = '🙄 Your password could be better ! 🤓 '
-					} else if (this.password.length >= 7 && this.password.length < 12) {
-						this.stars = '⭐⭐⚫'
-						this.message = '🔥 🤘 Your password rocks ! 🤘 🔥 '
-					} else {
+					if (this.password.length > 12 && this.password.match(/(?=.*[0-9])(?=.*[!?$%&@#])/)) {
 						this.stars = '⭐⭐⭐'
 						this.message = '👹 Your password is hell for hackers! 👹 '
+					} else if (this.password.length >= 7 && this.password.match(/(?=.*[0-9!?$%&@#])/)) {
+						this.stars = '⭐⭐⚫'
+						this.message = '🔥 🤘 Your password rocks ! 🤘 🔥 '
+					} else if (
+						this.password.length >= 7 ||
+						this.password.match(/.*[0-9!?$%&@#]/) ||
+						this.password.match(/(?=.*[0-9])(?=.*[!?$%&@#])/) ||
+						this.password.match(/(?=.*[a-z])(?=.*[A-Z])/)
+					) {
+						this.stars = '⭐⚫⚫'
+						this.message = '🙄 Your password could be better ! 🤓 '
+					} else {
+						this.stars = '⚫⚫⚫'
+						this.message = '😲 Your password is a house without door ! 💩 '
 					}
 					this.isThinking = false
 				}, 1000)
