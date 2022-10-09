@@ -34,14 +34,14 @@
 <UltraGradientBackground />
 
 <div
-	class="absolute border-gray-600/20 border-2 p-6 bg-gray-800/20 backdrop-blur-sm top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg"
+	class="absolute border-gray-600/20 border-2 p-6 bg-gray-900/60 backdrop-blur-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg"
 >
 	<!-- Title -->
 	<h1 class="text-5xl font-bold text-center">Password Generator</h1>
 
 	<!-- Password -->
-	<div class="flex items-center justify-center mt-8 w-full">
-		<span class="flex font-bold text-3xl mr-auto">
+	<div class="flex items-center justify-center gap-2 mt-8 w-full">
+		<span class="flex font-bold text-3xl py-1 px-2 mr-auto bg-gray-800/20 border border-white/30 rounded-md w-full">
 			{#if !animate}
 				{password}
 			{:else}
@@ -91,7 +91,7 @@
 			on:copied={handleSuccessfulCopy}
 			on:error={() => alert('error')}
 			title="Copy password"
-			class="rounded-md border-2 border-slate-700 hover:border-slate-600 flex items-center justify-center py-1 px-2"
+			class="rounded-md border border-white/30 hover:border-white/60 active:bg-gray-400/20 flex items-center group justify-center p-2"
 		>
 			{#if !isCopied}
 				<svg
@@ -100,7 +100,7 @@
 					viewBox="0 0 24 24"
 					stroke-width="1.5"
 					stroke="currentColor"
-					class="w-6 h-6"
+					class="w-6 h-6 group-hover:-rotate-6 duration-75 transition-transform"
 				>
 					<path
 						stroke-linecap="round"
@@ -115,7 +115,7 @@
 					viewBox="0 0 24 24"
 					stroke-width="1.5"
 					stroke="currentColor"
-					class="w-6 h-6"
+					class="w-6 h-6 group-hover:-rotate-6 duration-75 transition-transform"
 				>
 					<path
 						stroke-linecap="round"
@@ -129,7 +129,7 @@
 		<button
 			on:click={() => (password = generate_password(length, DEFAULT_OPTIONS))}
 			title="Refresh password"
-			class="rounded-md border-2 border-slate-700 hover:border-slate-600 group flex items-center justify-center py-1 px-2"
+			class="rounded-md border border-white/30 hover:border-white/60 active:bg-gray-400/20 group flex items-center justify-center p-2"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +137,7 @@
 				viewBox="0 0 24 24"
 				stroke-width="1.5"
 				stroke="currentColor"
-				class="w-6 h-6 group-hover:-rotate-3 duration-75 transition-transform spin"
+				class="w-6 h-6 group-hover:-rotate-6 duration-75 transition-transform spin"
 			>
 				<path
 					stroke-linecap="round"
