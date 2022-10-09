@@ -27,7 +27,7 @@ const initialPassword = generatePassword(pwdLength, pwdDict)
 
 <Layout title='marsidev'>
 	<div
-		class='marsidev-entry flex flex-col items-center justify-center min-h-[100vh] text-white w-full bg-white gap-4'
+		class='marsidev-entry flex flex-col items-center justify-center min-h-[100vh] text-white w-full bg-white gap-4 py-8 px-4'
 	>
 		<Header />
 		<PasswordGenerator initialPassword={initialPassword} client:load />

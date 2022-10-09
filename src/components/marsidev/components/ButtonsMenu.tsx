@@ -16,7 +16,7 @@ export const ButtonsMenu: Component = () => {
 	}
 
 	return (
-		<div class='flex flex-row gap-2'>
+		<div class='flex flex-col gap-2 sm:flex-row'>
 			<Button onClick={onGeneratePassword}>
 				<GenerateIcon rotate={rotate()} />
 				Generar

@@ -1,5 +1,6 @@
 .marsidev-checkbox input[type='checkbox'] {
 	opacity: 0;
+	margin-left: -8px;
 }
 
 .marsidev-checkbox label {

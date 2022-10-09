@@ -1,6 +1,7 @@
 /** @jsxImportSource solid-js */
 import type { Component, JSX } from 'solid-js'
 import { usePassword } from '@components/marsidev/lib/PasswordContext'
+import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from '@components/marsidev/utils/constants'
 
 export const PasswordLength: Component = () => {
 	const { length, onChangeLength } = usePassword()
@@ -17,15 +18,14 @@ export const PasswordLength: Component = () => {
 
 			<div class='flex w-full flex-row items-center justify-start gap-2 text-[1rem] text-black'>
 				<input
-					class='h-[40px] w-[60px] rounded-md border border-[#c8c8c8] p-2 text-center text-[16px] shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.25)] outline-[#9F7AEA]'
+					class='h-[40px] w-[64px] rounded-md border border-[#c8c8c8] p-2 text-center text-[16px] shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.25)] outline-[#9F7AEA]'
 					type='number'
 					step='1'
-					min='4'
-					max='50'
+					min={MIN_PASSWORD_LENGTH}
+					max={MAX_PASSWORD_LENGTH}
 					name='length'
 					id='marsidev-pwd-length'
 					value={length()}
-					// onChange={onChange}
 					onInput={onInput}
 				/>
 
@@ -33,11 +33,10 @@ export const PasswordLength: Component = () => {
 					class='marsidev-slider w-full cursor-pointer accent-[#9F7AEA]'
 					type='range'
 					step='1'
-					min='4'
-					max='50'
+					min={MIN_PASSWORD_LENGTH}
+					max={MAX_PASSWORD_LENGTH}
 					id='marsidev-pwd-range'
 					value={length()}
-					// onChange={onChange}
 					onInput={onInput}
 				/>
 			</div>

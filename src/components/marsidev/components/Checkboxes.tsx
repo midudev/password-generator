@@ -18,7 +18,7 @@ export const Checkboxes: Component = () => {
 	} = usePassword()
 
 	return (
-		<div class='flex flex-col items-start	justify-start px-2 font-semibold text-black'>
+		<div class='flex flex-col items-start	justify-start px-0 font-semibold text-black sm:px-2'>
 			<Checkbox
 				checked={uppercase()}
 				disabled={uppercase() && dictionary().length === 1}
