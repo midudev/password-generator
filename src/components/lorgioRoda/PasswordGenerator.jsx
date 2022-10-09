@@ -18,10 +18,10 @@ const passwordGenerator = (props) => {
 	return (
 		<>
 			<div>
-				<label className='block text-gray-700 text-m font-bold mb-2' for='password-generator'>
+				<label className='block text-gray-700 text-m font-bold mb-2' for='password-generator-lorgio'>
 					Password Generator
 				</label>
-				<input className='shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type='text' value={password} id='password-generator' />
+				<input className='shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type='text' value={password} id='password-generator-lorgio' />
 				<button className='m-2' onClick={() => useCopieText(password)}>
 					<CopieIcon />
 				</button>
