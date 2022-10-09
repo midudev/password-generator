@@ -30,7 +30,7 @@ function PasswordGenerator() {
 		}
 
 		setPasswordLen(e.target.value)
-		setPassword(generatePassword({ length }))
+		setPassword(generatePassword({ length, includeNumbers }))
 	}
 
 	function checkLength(e) {
@@ -48,8 +48,9 @@ function PasswordGenerator() {
 	}
 
 	function handleSwitchChange() {
-		setIncludeNumbers(!includeNumbers)
-		setPassword(generatePassword({ length: passwordLen, includeNumbers: !includeNumbers }))
+		const numbers = !includeNumbers
+		setIncludeNumbers(numbers)
+		setPassword(generatePassword({ length: passwordLen, includeNumbers: numbers }))
 	}
 
 	return (
@@ -69,7 +70,11 @@ function PasswordGenerator() {
 			</button>
 
 			<div className='mb-8 text-xl truncate w-full px-4 py-2 rounded-lg ring-1 ring-zinc-600/70'>
-				{password}
+				{[...password].map((char, idx) => (
+					<span key={idx} className={/^\d$/.test(char) ? 'text-blue-500' : ''}>
+						{char}
+					</span>
+				))}
 			</div>
 
 			<div className='divide-y divide-neutral-100/10'>
@@ -105,14 +110,14 @@ function PasswordGenerator() {
 				<InputSwitch
 					label='Symbols'
 					value={includeNumbers}
-					onChange={() => setIncludeNumbers(true)}
+					onChange={() => setIncludeNumbers(!includeNumbers)}
 					className='py-4'
 				/>
 			</div>
 
 			<button
 				className='bg-pink-500 hover:bg-pink-600 mt-6 w-full py-2 rounded-lg uppercase text-sm font-semibold tracking-wide'
-				onClick={() => setPassword(generatePassword({ length: passwordLen }))}
+				onClick={() => setPassword(generatePassword({ length: passwordLen, includeNumbers }))}
 			>
 				Generate
 			</button>

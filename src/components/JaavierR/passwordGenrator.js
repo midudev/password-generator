@@ -16,12 +16,20 @@ export function generatePassword({ length, includeNumbers }) {
 	for (let i = 0; i < parseInt(length); i++) {
 		const x = Math.random()
 
-		if (x < 0.33) {
-			password += getUpper()
-		} else if (x >= 0.33 && x < 0.66) {
-			password += getLower()
-		} else if (x >= 0.66 && includeNumbers) {
-			password += getNumber()
+		if (includeNumbers) {
+			if (x < 0.33) {
+				password += getUpper()
+			} else if (x >= 0.33 && x < 0.66) {
+				password += getLower()
+			} else if (x >= 0.66) {
+				password += getNumber()
+			}
+		} else {
+			if (x < 0.5) {
+				password += getUpper()
+			} else {
+				password += getLower()
+			}
 		}
 	}
 
