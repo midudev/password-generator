@@ -19,22 +19,30 @@ export const Layout:FC<PropsLayout> = ({ layout }) => {
 	}
 }
 
+
 export const PasswordGenerator = () => {
 	const [showLayout, setShowLayout] = useState<layouts>('1')
+
+	const handleLayout = (layout:layouts) => {
+		setShowLayout(layout)
+	}
+
 	return (
 		<section className='w-full grid place-content-center'>
 			<h1 className='uppercase font-bold text-4xl text-white text-center my-8'>Password Generator</h1>
 			<div className='w-[600px] bg-[#0c2f46] rounded'>
+
 				<div className='w-full bg-[#0c2f46] grid grid-cols-2'>
-					<span className='text-center p-2'>
+					<span className='text-center p-2 cursor-pointer text-white font-bold' onClick={() => handleLayout('1')} style={{ backgroundColor: (showLayout !== '1') ? '#0e3e5e' : 'transparent' }}>
 						Custom Password
 					</span>
-					<span className='text-center p-2 bg-[#0e3e5e]'>
+					<span className='text-center p-2 cursor-pointer text-white font-bold' onClick={() => handleLayout('2')} style={{ backgroundColor: (showLayout !== '2') ? '#0e3e5e' : 'transparent' }} >
 						Advanced Password
 					</span>
 				</div>
+
 				<div className='py-8 w-full'>
-					<Layout layout='2' />
+					<Layout layout={showLayout} />
 				</div>
 			</div>
 		</section>
