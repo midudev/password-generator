@@ -41,7 +41,9 @@
 
 	<!-- Password -->
 	<div class="flex items-center justify-center gap-2 mt-8 w-full">
-		<span class="flex font-bold text-3xl py-1 px-2 mr-auto bg-gray-800/20 border border-white/30 rounded-md w-full">
+		<span
+			class="flex font-bold text-3xl py-1 px-2 mr-auto bg-gray-800/20 border border-white/30 rounded-md w-full"
+		>
 			{#if !animate}
 				{password}
 			{:else}
@@ -193,17 +195,20 @@
 		}
 	}
 	.generate-password {
-		box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-		transition: box-shadow .05s, transform .05s;
+		box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+			rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+		transition: box-shadow 0.05s, transform 0.05s;
 		will-change: box-shadow, transform;
 	}
 
 	.generate-password:focus {
-		box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+		box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+			rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 	}
 
 	.generate-password:hover {
-		box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+		box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+			#3c4fe0 0 -3px 0 inset;
 	}
 
 	.generate-password:active {
