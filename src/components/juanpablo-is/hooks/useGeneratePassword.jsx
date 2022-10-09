@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import useTimerAlert from './useTimerAlert'
 
 const options = {
 	symbols: [
