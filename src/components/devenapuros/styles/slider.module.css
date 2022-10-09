@@ -1,0 +1,35 @@
+.container {
+	margin: 15px 0;
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 5px;
+	width: 100%;
+	background-color: #ccc;
+	border-radius: 5px;
+}
+
+.bar {
+	position: absolute;
+	height: 5px;
+	background-color: #0085ee;
+	border-radius: 5px;
+}
+
+.button {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 22px;
+	width: 22px;
+	background-color: white;
+	border-radius: 100%;
+	border: 1px solid #00000035;
+	transition: border 300ms ease;
+}
+
+.button:hover {
+	cursor: pointer;
+	border: 1px solid #0085ee;
+}
