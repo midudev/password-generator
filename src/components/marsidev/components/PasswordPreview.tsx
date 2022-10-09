@@ -13,7 +13,7 @@ export const PasswordPreview: Component = () => {
 	const { password } = usePassword()
 
 	return (
-		<div class="relative mt-6 flex min-h-[115px] w-full max-w-[800px] flex-wrap items-center justify-center break-all rounded-md border-t border-l border-r border-b-0 bg-white p-8 font-['Courier_Prime',ui-monospace,Monaco,Consolas,monospace] text-4xl text-black shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
+		<div class="relative mt-6 flex min-h-[80px] w-full max-w-[800px] flex-wrap items-center justify-center break-all rounded-md border-t border-l border-r border-b-0 bg-white p-6 font-['Courier_Prime',ui-monospace,Monaco,Consolas,monospace] text-3xl text-black shadow-[0_2px_8px_rgba(0,0,0,0.15)] sm:text-4xl">
 			<For each={password().split('')}>
 				{(char) => {
 					return (

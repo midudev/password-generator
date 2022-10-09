@@ -8,7 +8,7 @@ export const Button: ParentComponent<ButtonsProps> = (props) => {
 	return (
 		<button
 			onClick={props.onClick ? props.onClick : () => {}}
-			class='flex w-auto min-w-[180px] items-center justify-center gap-2 rounded-[60px] bg-[#9F7AEA] py-2 px-4 text-lg font-bold leading-8 text-white transition duration-150 ease-in-out hover:scale-105 hover:brightness-90 focus:outline-violet-600 active:scale-95'
+			class='text-md flex min-h-[50px] w-auto min-w-[140px] items-center justify-center gap-2 rounded-[60px] bg-[#9F7AEA] py-2 px-4 font-bold leading-8 text-white shadow-md transition duration-150 ease-in-out hover:scale-105 hover:brightness-90 focus:outline-violet-600 active:scale-95 sm:min-w-[180px] sm:text-lg'
 		>
 			{props.children}
 		</button>
