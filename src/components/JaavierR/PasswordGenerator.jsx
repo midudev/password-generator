@@ -3,7 +3,6 @@ import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { generatePassword } from './passwordGenrator'
 import style from './range.module.css'
 
-
 function PasswordGenerator() {
 	const [passwordLen, setPasswordLen] = useState(8)
 	const [password, setPassword] = useState(generatePassword({ length: passwordLen }))
@@ -17,6 +16,35 @@ function PasswordGenerator() {
 		}, 1500)
 	}
 
+	function handleChange(e) {
+		let length = e.target.value
+
+		if (length < 8) {
+			length = 8
+		}
+
+		if (length > 100) {
+			length = 100
+		}
+
+		setPasswordLen(e.target.value)
+		setPassword(generatePassword({ length }))
+	}
+
+	function checkLength(e) {
+		let length = e.target.value
+
+		if (length < 8) {
+			length = 8
+		}
+
+		if (length > 100) {
+			length = 100
+		}
+
+		setPasswordLen(length)
+	}
+
 	return (
 		<div className='relative text-white p-10 rounded-lg ring-1 ring-neutral-100/10 backdrop-blur-md w-full max-w-md'>
 			<div className='absolute flex -bottom-px left-1/2 -ml-48 h-[0.125rem] w-96'>
@@ -26,33 +54,38 @@ function PasswordGenerator() {
 
 			<h1 className='text-center text-3xl font-semibold uppercase mb-10'>Password Generator</h1>
 
-			<div className='mb-8 flex items-center justify-between'>
-				<span className='text-xl truncate w-full'>
-					{password }
-				</span>
+			<button
+				className='group relative ml-2 flex h-10 w-10 items-center justify-center'
+				onClick={copyClipboard}
+			>
+				{copied ? <ClipboardClicked /> : <Clipboard />}
+			</button>
 
-				<button
-					className='group relative ml-2 flex h-10 w-10 items-center justify-center'
-					onClick={copyClipboard}
-				>
-					{copied ? <ClipboardClicked /> : <Clipboard />}
-				</button>
+			<div className='mb-8 text-xl truncate w-full px-4 py-2 rounded-lg ring-1 ring-zinc-600/70'>
+				{password}
 			</div>
 
-			<div className='flex justify-between text-lg'>
-				<h1 className='font-semibold'>Character length</h1>
-				<span>{passwordLen}</span>
-			</div>
+			<div className='flex justify-between items-center text-base space-x-4'>
+				<h1 className='font-semibold'>Characters</h1>
 
-			<input
-				type='range'
-				min={8}
-				max={100}
-				className={style.inputRange}
-				step={1}
-				value={passwordLen}
-				onChange={(e) => setPasswordLen(e.target.value)}
-			/>
+				<input
+					type='range'
+					min={8}
+					max={100}
+					className={style.inputRange}
+					step={1}
+					value={passwordLen}
+					onChange={handleChange}
+				/>
+
+				<input
+					type='text'
+					className='w-10 text-white bg-[#170f1e] ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-[#170f1e] focus:outline-none'
+					value={passwordLen}
+					onChange={handleChange}
+					onBlur={checkLength}
+				/>
+			</div>
 
 			<button
 				className='bg-pink-500 hover:bg-pink-600 mt-6 w-full py-2 rounded-lg uppercase text-sm font-semibold tracking-wide'
