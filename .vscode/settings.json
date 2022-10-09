@@ -13,5 +13,8 @@
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "editor.insertSpaces": false,
   "editor.detectIndentation": false,
-	"stylelint.enable": true
+	"stylelint.enable": true,
+	"githubPullRequests.ignoredPullRequestBranches": [
+		"main"
+	]
 }

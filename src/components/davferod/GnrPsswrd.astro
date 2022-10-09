@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
+---
+import './css/style.css'
+import logo from './img/logo.png';
+---
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="css/style.css">
-    <title>Generador de Contraseñas</title>
+    <title>Generador de Password</title>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <img src="img/logo.png" alt="">
+            <img src={logo}>
         </div>
         <form action="" class="app" id="generator">
             <div class="row n_caracteres">
@@ -107,6 +109,107 @@
     </div>
 
     <!-- codigo javascript generador de contrseñas -->
-    <script src="js/app.js"></script>
+    <script is:inline>
+        (function() {
+    let app = document.getElementById('generator')
+    let inputCharacters = document.getElementById('n_caracteres')
+
+    let config = {
+        characters: parseInt(inputCharacters.value),
+        symbols: true,
+        numbers: true,
+        upperCaseLetters: true,
+        lowercase: true,
+    }
+
+    let  characters = {
+        numbers: '0 1 2 3 4 5 6 7 8 9',
+        symbols: '¡ ? = ) ( / & % $ # ! ° * ] [ { } _ - . : , ; < > ¿ + ',
+        upperCaseLetters: 'A B C D E F G H I I J K L M N O P Q R S T U V W X Y Z',
+        lowercase: 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
+    }
+
+    // evento evita refresh //
+    app.addEventListener('submit', (e) => {e.preventDefault()})
+
+
+    // botones //
+    app.elements.namedItem('btn-plus').addEventListener('click', () => {
+        config.characters++
+        inputCharacters.value = config.characters
+    })
+
+    app.elements.namedItem('btn-minus').addEventListener('click', () => {
+        if (config.characters > 3){
+            config.characters--
+            inputCharacters.value = config.characters
+        }
+    })
+
+    app.elements.namedItem('btn-symbols').addEventListener('click', () => {
+        btnToggle(app.elements.namedItem('btn-symbols'))
+        config.symbols = !config.symbols
+        console.log(config.symbols)
+    })
+
+    app.elements.namedItem('btn-numbers').addEventListener('click', () => {
+        btnToggle(app.elements.namedItem('btn-numbers'))
+        config.numbers = !config.numbers
+    })
+
+    app.elements.namedItem('btn-capital').addEventListener('click', () => {
+        btnToggle(app.elements.namedItem('btn-capital'))
+        config.upperCaseLetters = !config.upperCaseLetters
+    })
+
+    app.elements.namedItem('btn-ignition').addEventListener('click', () =>{
+        passwordGenerator()
+    })
+
+    // copiar contraseña //
+    app.elements.namedItem('input-password').addEventListener('click', () =>{
+        copyPassword()
+    })
+
+    // funciones //
+    function btnToggle(element) {
+        element.classList.toggle('false')
+        btnBox = element.children[0].textContent
+        if( element.children[0].textContent == 'check_box'){
+            element.children[0].textContent = 'disabled_by_default'
+        } else {
+            element.children[0].textContent = 'check_box'
+        }
+    }
+
+    function passwordGenerator(){
+        let finalCharacters=''
+        let password = ''
+
+        for(props in config){
+            if(config[props] == true){
+                finalCharacters += characters[props] + ' ' 
+            }
+        }
+        finalCharacters = finalCharacters.trim()
+        finalCharacters = finalCharacters.split(' ')
+        for( let i = 0; i < config.characters; i++){
+            password = password + finalCharacters[Math.floor(Math.random() * finalCharacters.length)]
+        }
+        app.elements.namedItem('input-password').value = password
+    }
+
+    function copyPassword(){
+        app.elements.namedItem('input-password').select()
+        document.execCommand('copy')
+        document.getElementById('copied').classList.add('active')
+
+        setTimeout(() => {
+            document.getElementById('copied').classList.remove('active')
+        }, 1500)
+    }
+
+    passwordGenerator()
+}())
+      </script>
 </body>
-</html>
