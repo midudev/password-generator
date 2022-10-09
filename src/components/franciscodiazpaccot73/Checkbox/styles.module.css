@@ -1,4 +1,4 @@
-.checkbox-input:checked + label .checkbox:after {
+.checkboxInput:checked + label .checkbox:after {
 	transform: translate(-50%, -50%) scale(1);
 }
 .checkbox:after {

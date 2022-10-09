@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { generatePasword, calculateSecurityLevel, generatePaswordValue, SECURITY_COLORS, SECURITY_NAMES } from "../utils";
 import Icon from "../icons";
 
-import './slider.css';
-
 const Generator = ({ chars, length, generate }) => {
 	const [password, setValue] = useState('')
 	const [isCopied, setIsCopied] = useState(false)

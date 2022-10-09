@@ -3,11 +3,6 @@
 	padding: 24px 0;
 }
 
-input,
-output {
-	font-size: 1em;
-}
-
 input[type="range"]:focus {
 	box-shadow: 0 0 1px 1px #d97706;
 	outline: none;

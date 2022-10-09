@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import Checkbox from '../Checkbox';
 import { INITIAL_CHECKBOXES } from '../utils';
 
-import './slider.css';
+import styles from './slider.module.css';
 
 const Settings = ({ setPasswordLength, onCheckbox }) => {
 	const [length, setLength] = useState(12)
@@ -38,13 +38,13 @@ const Settings = ({ setPasswordLength, onCheckbox }) => {
 				<div className="text-amber-600 text-sm mr-2">Longitud:</div>
 				<output className="w-10 rounded-md text-sm text-amber-600 font-semibold">{length}</output>
 			</div>
-			<div className="slider flex items-center relative">
+			<div className={`${styles.slider} flex items-center relative`}>
 				<input ref={inputRef} onInput={handleChange} type="range" min="8" max="32" value={length} />
 				<button
 					onClick={() => setPasswordLength(length)}
-					className='generate text-sm py-1 px-2 rounded-xl relative'
+					className={`${styles.generate} text-sm py-1 px-2 rounded-xl relative`}
 				>
-					<span className='animated hidden md:inline-block'>Aplicar</span>
+					<span className={`${styles.animated} hidden md:inline-block`}>Aplicar</span>
 					<span className='inline-block md:hidden'>Go</span>
 				</button>
 			</div>
