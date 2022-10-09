@@ -1,7 +1,4 @@
-.checkboxInput:checked + label .checkbox:after {
-	transform: translate(-50%, -50%) scale(1);
-}
-.checkbox:after {
+.checkbox::after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -13,4 +10,8 @@
 	background-color: #d97706;
 	border-radius: 4px;
 	transition: 0.3s;
+}
+
+.checkboxInput:checked + label .checkbox::after {
+	transform: translate(-50%, -50%) scale(1);
 }

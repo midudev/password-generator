@@ -1,12 +1,7 @@
-import React from "react";
+import React from 'react'
 
 const CopyIcon = () => (
-	<svg
-		className='w-6 h-6'
-		fill='none'
-		stroke='currentColor'
-		viewBox='0 0 24 24'
-	>
+	<svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
 		<path
 			strokeLinecap='round'
 			strokeLinejoin='round'
@@ -16,4 +11,4 @@ const CopyIcon = () => (
 	</svg>
 )
 
-export default CopyIcon;
+export default CopyIcon

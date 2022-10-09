@@ -3,13 +3,8 @@
 	padding: 24px 0;
 }
 
-input[type="range"]:focus {
-	box-shadow: 0 0 1px 1px #d97706;
-	outline: none;
-}
-
-input[type="range"] {
-	-webkit-appearance: none;
+input[type='range'] {
+	appearance: none;
 	margin-right: 15px;
 	width: 420px;
 	height: 7px;
@@ -17,21 +12,26 @@ input[type="range"] {
 	border: 1px solid #d97706;
 	border-radius: 5px;
 	background-image: linear-gradient(#d97706, #d97706);
-	background-size: 70% 100%;
 	background-repeat: no-repeat;
+
 	/* (val - min) * 100 / (max - min) + '% 100%' */
 	background-size: 16.67% 100%;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
+input[type='range']:focus {
+	box-shadow: 0 0 1px 1px #d97706;
+	outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+	appearance: none;
 	height: 20px;
 	width: 20px;
 	border-radius: 50%;
 	background: #d97706;
 	cursor: grab;
 	box-shadow: 0 0 2px 0 #555;
-	transition: background .3s ease-in-out;
+	transition: background 0.3s ease-in-out;
 }
 
 .generate {
@@ -44,7 +44,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .generate:active {
-	transform: translateY(3px)
+	transform: translateY(3px);
 }
 
 .generate .animated {
@@ -53,7 +53,7 @@ input[type="range"]::-webkit-slider-thumb {
 	transition: 0.3s;
 }
 
-.generate .animated:after {
+.generate .animated::after {
 	content: '\00bb';
 	position: absolute;
 	opacity: 0;
@@ -66,7 +66,7 @@ input[type="range"]::-webkit-slider-thumb {
 	padding-right: 15px;
 }
 
-.generate:hover .animated:after {
+.generate:hover .animated::after {
 	opacity: 1;
 	right: 0;
 }

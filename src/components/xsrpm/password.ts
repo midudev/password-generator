@@ -17,7 +17,8 @@ const getArray = (options: Options) => {
 export const randPassword = (length, options: Options = { uppercase: true }) => {
 	const arrayOptions = getArray(options)
 	const generatedArray = []
-	for (let i = 0; i < length; i++)
+	for (let i = 0; i < length; i++) {
 		generatedArray.push(arrayOptions[Math.floor(Math.random() * arrayOptions.length)])
+	}
 	return generatedArray.map((x) => x[Math.floor(Math.random() * x.length)]).join('')
 }
