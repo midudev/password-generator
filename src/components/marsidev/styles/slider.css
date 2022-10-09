@@ -1,9 +1,15 @@
-/* @link https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+/* stylelint-disable comment-empty-line-before */
 
 .marsidev-slider {
 	appearance: none;
 	margin: 18px 0;
 	width: 100%;
+	border-radius: 5px;
+	background: rgb(221 214 254); /* violet.200 */
+	background-image: linear-gradient(rgb(167 139 250), rgb(167 139 250)); /* violet.400 */
+	background-size: 4.76% 100%;
+	background-repeat: no-repeat;
+	/* transition: background-image 1000ms ease-out; */
 }
 
 .marsidev-slider:focus {
@@ -12,88 +18,35 @@
 
 .marsidev-slider::-webkit-slider-runnable-track {
 	width: 100%;
-	height: 8.4px;
+	height: 8px;
 	cursor: pointer;
-	box-shadow: 1px 1px 1px #000, 0 0 1px #0d0d0d;
-	background: #3071a9;
-	border-radius: 1.3px;
-	border: 0.2px solid #010101;
+	transition: all 100ms ease-out;
 }
 
 .marsidev-slider::-webkit-slider-thumb {
-	box-shadow: 1px 1px 1px #000, 0 0 1px #0d0d0d;
-	border: 1px solid #000;
-	height: 36px;
-	width: 16px;
-	border-radius: 3px;
+	border: 1px solid #dbdbdb;
+	height: 32px;
+	width: 32px;
+	border-radius: 9999px;
 	background: #fff;
 	cursor: pointer;
 	appearance: none;
-	margin-top: -14px;
+	margin-top: -12px;
+	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+	transition: all 100ms ease-out;
 }
 
-.marsidev-slider:focus::-webkit-slider-runnable-track {
-	background: #367ebd;
+/* violet.500 */
+.marsidev-slider:hover,
+.marsidev-slider:focus,
+.marsidev-slider:active {
+	background-image: linear-gradient(rgb(139 92 246), rgb(139 92 246));
 }
 
-.marsidev-slider::-moz-range-track {
-	width: 100%;
-	height: 8.4px;
-	cursor: pointer;
-	box-shadow: 1px 1px 1px #000, 0 0 1px #0d0d0d;
-	background: #3071a9;
-	border-radius: 1.3px;
-	border: 0.2px solid #010101;
+.marsidev-slider:hover::-webkit-slider-thumb {
+	transform: scale(1.05);
 }
 
-.marsidev-slider::-moz-range-thumb {
-	box-shadow: 1px 1px 1px #000, 0 0 1px #0d0d0d;
-	border: 1px solid #000;
-	height: 36px;
-	width: 16px;
-	border-radius: 3px;
-	background: #fff;
-	cursor: pointer;
-}
-
-.marsidev-slider::-ms-track {
-	width: 100%;
-	height: 8.4px;
-	cursor: pointer;
-	background: transparent;
-	border-color: transparent;
-	border-width: 16px 0;
-	color: transparent;
-}
-
-.marsidev-slider::-ms-fill-lower {
-	background: #2a6495;
-	border: 0.2px solid #010101;
-	border-radius: 2.6px;
-	box-shadow: 1px 1px 1px #000, 0 0 1px #0d0d0d;
-}
-
-.marsidev-slider::-ms-fill-upper {
-	background: #3071a9;
-	border: 0.2px solid #010101;
-	border-radius: 2.6px;
-	box-shadow: 1px 1px 1px #000, 0 0 1px #0d0d0d;
-}
-
-.marsidev-slider::-ms-thumb {
-	box-shadow: 1px 1px 1px #000, 0 0 1px #0d0d0d;
-	border: 1px solid #000;
-	height: 36px;
-	width: 16px;
-	border-radius: 3px;
-	background: #fff;
-	cursor: pointer;
-}
-
-.marsidev-slider:focus::-ms-fill-lower {
-	background: #3071a9;
-}
-
-.marsidev-slider:focus::-ms-fill-upper {
-	background: #367ebd;
+.marsidev-slider:focus::-webkit-slider-thumb {
+	border: 2px solid rgb(139 92 246); /* violet.500 */
 }

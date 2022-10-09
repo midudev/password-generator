@@ -17,6 +17,7 @@
 	display: inline-block;
 	border-radius: 5px;
 	background-color: white;
+	transition: all 100ms ease-out;
 }
 
 /* Outer box of the fake checkbox */
@@ -39,7 +40,7 @@
 	border-radius: 0;
 	left: 5px;
 	top: 15px;
-	border-color: #9f7aea;
+	border-color: rgb(167 139 250); /* violet.400 */
 }
 
 /* Hide the check mark by default */
@@ -54,21 +55,21 @@
 
 /* default outline color */
 .marsidev-checkbox input[type='checkbox'] + label::before {
-	outline: #9f7aea auto 1px;
+	outline: rgb(167 139 250) auto 1px; /* violet.400 */
 }
 
 /* outline color on focus/active/hover */
 .marsidev-checkbox input[type='checkbox']:focus + label::before,
 .marsidev-checkbox input[type='checkbox']:active + label::before,
 .marsidev-checkbox input[type='checkbox']:hover + label::before {
-	outline: #6b46c1 auto 1px;
+	outline: rgb(139 92 246) auto 1px; /* violet.500 */
 }
 
 /* check mark color on focus/active/hover */
 .marsidev-checkbox input[type='checkbox']:focus + label::after,
 .marsidev-checkbox input[type='checkbox']:active + label::after,
 .marsidev-checkbox input[type='checkbox']:hover + label::after {
-	border-color: #6b46c1;
+	border-color: rgb(139 92 246); /* violet.500 */
 }
 
 /* styles on disabled */
