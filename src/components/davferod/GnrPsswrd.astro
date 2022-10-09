@@ -1,6 +1,5 @@
 ---
 import './css/style.css'
-import logo from './img/logo.png';
 ---
 <head>
     <meta charset="UTF-8">
@@ -13,34 +12,16 @@ import logo from './img/logo.png';
     <link rel="stylesheet" href="css/style.css">
     <title>Generador de Password</title>
 </head>
-<body>
+<body id="davferod">
     <div class="container">
-        <div class="logo">
-            <img src={logo}>
-        </div>
         <form action="" class="app" id="generator">
             <div class="row n_caracteres">
                 <div class="col">
                     <label for="n_caracteres">¿de cuantos caracteres?</label>
                 </div>
                 <div class="col characters">
-                        <div>
-                        <button class="btn" id="btn-minus">
-                            <span class="material-symbols-outlined">
-                                indeterminate_check_box
-                            </span>
-                        </button>
-                        </div>
-                        <div>   
-                        <input type="text" id="n_caracteres" readonly value="12">
-                        </div>
-                        <div>
-                        <button class="btn" id="btn-plus">
-                            <span class="material-symbols-outlined">
-                                add_box
-                            </span>
-                        </button>
-                        </div>
+                    <input type='range' min='4' max="40" value="4" step="1" id="n_caracteres" />
+                    <output id="outRange" for="n_caracteres">4</output>
                 </div>
             </div>
             <div class="row symbols">
@@ -107,7 +88,6 @@ import logo from './img/logo.png';
             </div>
         </form>
     </div>
-
     <!-- codigo javascript generador de contrseñas -->
     <script is:inline>
         (function() {
@@ -115,7 +95,6 @@ import logo from './img/logo.png';
     let inputCharacters = document.getElementById('n_caracteres')
 
     let config = {
-        characters: parseInt(inputCharacters.value),
         symbols: true,
         numbers: true,
         upperCaseLetters: true,
@@ -132,19 +111,12 @@ import logo from './img/logo.png';
     // evento evita refresh //
     app.addEventListener('submit', (e) => {e.preventDefault()})
 
+    // mostrar valor del track //
+    app.elements.namedItem('n_caracteres').addEventListener('change', () => {
+        document.getElementById('outRange').value = inputCharacters.value
+    })
 
     // botones //
-    app.elements.namedItem('btn-plus').addEventListener('click', () => {
-        config.characters++
-        inputCharacters.value = config.characters
-    })
-
-    app.elements.namedItem('btn-minus').addEventListener('click', () => {
-        if (config.characters > 3){
-            config.characters--
-            inputCharacters.value = config.characters
-        }
-    })
 
     app.elements.namedItem('btn-symbols').addEventListener('click', () => {
         btnToggle(app.elements.namedItem('btn-symbols'))
@@ -193,7 +165,7 @@ import logo from './img/logo.png';
         }
         finalCharacters = finalCharacters.trim()
         finalCharacters = finalCharacters.split(' ')
-        for( let i = 0; i < config.characters; i++){
+        for( let i = 0; i < inputCharacters.value; i++){
             password = password + finalCharacters[Math.floor(Math.random() * finalCharacters.length)]
         }
         app.elements.namedItem('input-password').value = password
