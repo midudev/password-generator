@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Clipboard, ClipboardClicked } from './ClipboardIcons'
+import { InputSwitch } from './InputSwitch'
 import { generatePassword } from './passwordGenrator'
 import style from './range.module.css'
 
@@ -7,6 +8,7 @@ function PasswordGenerator() {
 	const [passwordLen, setPasswordLen] = useState(8)
 	const [password, setPassword] = useState(generatePassword({ length: passwordLen }))
 	const [copied, setCopied] = useState(false)
+	const [includeNumbers, setIncludeNumbers] = useState(false)
 
 	function copyClipboard() {
 		navigator.clipboard.writeText(password)
@@ -45,8 +47,13 @@ function PasswordGenerator() {
 		setPasswordLen(length)
 	}
 
+	function handleSwitchChange() {
+		setIncludeNumbers(!includeNumbers)
+		setPassword(generatePassword({ length: passwordLen, includeNumbers: !includeNumbers }))
+	}
+
 	return (
-		<div className='relative text-white p-10 rounded-lg ring-1 ring-neutral-100/10 backdrop-blur-md w-full max-w-md'>
+		<div className='relative text-white p-10 rounded-lg ring-1 ring-neutral-100/10 backdrop-blur-md w-full max-w-md bg-neutral-800/50'>
 			<div className='absolute flex -bottom-px left-1/2 -ml-48 h-[0.125rem] w-96'>
 				<div className='w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]'></div>
 				<div className='-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,rgba(14,165,233,0.5)_42.29%,rgba(236,72,153,0.4)_57.19%,rgba(236,72,153,0)_100%)]'></div>
@@ -65,25 +72,41 @@ function PasswordGenerator() {
 				{password}
 			</div>
 
-			<div className='flex justify-between items-center text-base space-x-4'>
-				<h1 className='font-semibold'>Characters</h1>
+			<div className='divide-y divide-neutral-100/10'>
+				<div className='flex justify-between items-center text-base space-x-4 py-4'>
+					<h1 className='font-semibold'>Characters</h1>
 
-				<input
-					type='range'
-					min={8}
-					max={100}
-					className={style.inputRange}
-					step={1}
-					value={passwordLen}
-					onChange={handleChange}
+					<input
+						type='range'
+						min={8}
+						max={100}
+						className={style.inputRange}
+						step={1}
+						value={passwordLen}
+						onChange={handleChange}
+					/>
+
+					<input
+						type='text'
+						className='w-10 text-white bg-neutral-900 ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-neutral-800 focus:outline-none'
+						value={passwordLen}
+						onChange={handleChange}
+						onBlur={checkLength}
+					/>
+				</div>
+
+				<InputSwitch
+					label='Numbers'
+					value={includeNumbers}
+					onChange={handleSwitchChange}
+					className='py-4'
 				/>
 
-				<input
-					type='text'
-					className='w-10 text-white bg-[#170f1e] ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-[#170f1e] focus:outline-none'
-					value={passwordLen}
-					onChange={handleChange}
-					onBlur={checkLength}
+				<InputSwitch
+					label='Symbols'
+					value={includeNumbers}
+					onChange={() => setIncludeNumbers(true)}
+					className='py-4'
 				/>
 			</div>
 
