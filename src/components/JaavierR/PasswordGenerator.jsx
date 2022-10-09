@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { InputSwitch } from './InputSwitch'
-import { generatePassword } from './passwordGenerator'
+import { generatePassword } from './helper/passwordGenerator'
 import style from './range.module.css'
 
 function PasswordGenerator() {
@@ -63,7 +63,7 @@ function PasswordGenerator() {
 			<h1 className='text-center text-3xl font-semibold uppercase mb-10'>Password Generator</h1>
 
 			<button
-				className='group relative ml-2 flex h-10 w-10 items-center justify-center'
+				className='group relative flex h-10 w-10 items-center justify-center'
 				onClick={copyClipboard}
 			>
 				{copied ? <ClipboardClicked /> : <Clipboard />}
