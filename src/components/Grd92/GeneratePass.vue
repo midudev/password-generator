@@ -1,5 +1,5 @@
 <template>
-	<div class="flex justify-center items-center flex-col h-full">
+	<div id="grd92" class="flex justify-center items-center flex-col h-full">
 		<h1 class="title text-violet-600 text-center mb-3 w-1/3">Password Generator</h1>
 
 		<div
@@ -85,45 +85,45 @@ export default {
 </script>
 
 <style scoped>
-* {
+#grd92 * {
 	font-size: 18px;
 	font-family: monospace, sans-serif;
 
 	--main-green-color: rgb(5 150 105 / var(--tw-bg-opacity));
 	--main-violet-color: rgb(124 58 237 / var(--tw-text-opacity));
 }
-#copy-button img {
+#grd92 #copy-button img {
 	filter: invert(1);
 }
-#result-password {
+#grd92 #result-password {
 	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 		Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-.title {
+#grd92 .title {
 	font-size: 3em;
 	font-weight: 800;
 }
 
-input[type='range'] {
+#grd92 input[type='range'] {
 	display: block;
 	cursor: grab;
 }
 
-input[type='range']:active {
+#grd92 input[type='range']:active {
 	cursor: grabbing;
 }
-input[type='range']:focus {
+#grd92 input[type='range']:focus {
 	outline: none;
 }
 
-input[type='range'],
-input[type='range']::-webkit-slider-runnable-track,
-input[type='range']::-webkit-slider-thumb {
+#grd92 input[type='range'],
+#grd92 input[type='range']::-webkit-slider-runnable-track,
+#grd92 input[type='range']::-webkit-slider-thumb {
 	-webkit-appearance: none;
 }
 
-input[type='range']::-webkit-slider-thumb {
+#grd92 input[type='range']::-webkit-slider-thumb {
 	background-color: var(--main-violet-color);
 	border: 3px solid var(--main-violet-color);
 	width: 20px;
@@ -132,7 +132,7 @@ input[type='range']::-webkit-slider-thumb {
 	margin-top: -9px;
 }
 
-input[type='range']::-moz-range-thumb {
+#grd92 input[type='range']::-moz-range-thumb {
 	background-color: var(--main-violet-color);
 	border: 3px solid var(--main-violet-color);
 	width: 15px;
@@ -141,7 +141,7 @@ input[type='range']::-moz-range-thumb {
 	border-radius: 50%;
 }
 
-input[type='range']::-ms-thumb {
+#grd92 input[type='range']::-ms-thumb {
 	background-color: white;
 	border: 3px solid var(--main-violet-color);
 	width: 20px;
@@ -149,34 +149,34 @@ input[type='range']::-ms-thumb {
 	border-radius: 50%;
 }
 
-input[type='range']::-webkit-slider-runnable-track {
+#grd92 input[type='range']::-webkit-slider-runnable-track {
 	background-color: rgb(160, 160, 160);
 	border: 1px solid rgb(160, 160, 160);
 	height: 1px;
 }
 
-input[type='range']:focus::-webkit-slider-runnable-track {
+#grd92 input[type='range']:focus::-webkit-slider-runnable-track {
 	outline: none;
 }
 
-input[type='range']::-moz-range-track {
+#grd92 input[type='range']::-moz-range-track {
 	background-color: rgb(160, 160, 160);
 	border: 1px solid rgb(160, 160, 160);
 	height: 1px;
 }
 
-input[type='range']::-ms-track {
+#grd92 input[type='range']::-ms-track {
 	background-color: rgb(160, 160, 160);
 	border: 1px solid rgb(160, 160, 160);
 	height: 1px;
 }
 
-input[type='range']::-ms-fill-lower {
+#grd92 input[type='range']::-ms-fill-lower {
 	background-color: rgb(160, 160, 160);
 	border: 1px solid rgb(160, 160, 160);
 }
 
-input[type='range']::-ms-fill-upper {
+#grd92 input[type='range']::-ms-fill-upper {
 	background-color: whirgb(160, 160, 160);
 	border: 1px solid rgb(160, 160, 160);
 }
