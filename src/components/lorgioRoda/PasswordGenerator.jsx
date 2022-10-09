@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CopieIcon from './CopieIcon'
 import { useCopieText } from './hook/useCopieText'
 
 const passwordGenerator = (props) => {
@@ -16,10 +17,16 @@ const passwordGenerator = (props) => {
 
 	return (
 		<>
-			<h1>Password Generator</h1>
-			<input type='text' value={password} />
-			<button onClick={() => generator()}>Click</button>
-			<button onClick={() => useCopieText(password)}>Copy To Clipboard</button>
+			<div>
+				<label className='block text-gray-700 text-m font-bold mb-2' for='password-generator'>
+					Password Generator
+				</label>
+				<input className='shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type='text' value={password} id='password-generator' />
+				<button className='m-2' onClick={() => useCopieText(password)}>
+					<CopieIcon />
+				</button>
+			</div>
+			<button className='mt-2 bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded focus:outline-none focus:shadow-outline' onClick={() => generator()}>Generator</button>
 		</>
 	)
 }
