@@ -7,7 +7,7 @@
 			<Length @rangeUpdated="updatePassLength" />
 			<Options @checksUpdated="updateCheckboxs" />
 		</div>
-		<SecureIndicator />
+		<SecureIndicator :password="passwordValue" />
 	</div>
 	<button
 		@click="generatePasswd()"
@@ -23,6 +23,9 @@ import Options from './Options.vue'
 import PassLabel from './PassLabel.vue'
 export default {
 	name: 'Card',
+	mounted() {
+		this.passwordValue = 'Password Generator'
+	},
 	data() {
 		return {
 			passLength: 4,
@@ -46,22 +49,9 @@ export default {
 	methods: {
 		generatePasswd() {
 			if (!this.arrayCheckbox.length == 0) {
-				const charsChoosen = []
-				if (this.arrayCheckbox.includes('lowercase')) {
-					charsChoosen.push(this.characters.lowercase)
-				}
-				if (this.arrayCheckbox.includes('uppercase')) {
-					charsChoosen.push(this.characters.uppercase)
-				}
-				if (this.arrayCheckbox.includes('numbers')) {
-					charsChoosen.push(this.characters.numbers)
-				}
-				if (this.arrayCheckbox.includes('symbols')) {
-					charsChoosen.push(this.characters.symbols)
-				}
 				this.passwordValue = ''
 				for (let i = 0; i < this.passLength; i++) {
-					let charType = charsChoosen[Math.floor(Math.random() * charsChoosen.length)]
+					let charType = this.arrayCheckbox[Math.floor(Math.random() * this.arrayCheckbox.length)]
 					this.passwordValue += charType[Math.floor(Math.random() * charType.length)]
 				}
 			} else {
@@ -69,14 +59,12 @@ export default {
 			}
 		},
 		updatePassLength(newValue) {
-			console.log(this.passLength)
 			this.passLength = newValue
-			console.log(this.passLength)
+			this.generatePasswd()
 		},
 		updateCheckboxs(newValue) {
-			console.log(this.arrayCheckbox)
 			this.arrayCheckbox = newValue
-			console.log(this.arrayCheckbox)
+			this.generatePasswd()
 		}
 	}
 }

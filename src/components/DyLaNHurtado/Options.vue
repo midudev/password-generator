@@ -48,6 +48,7 @@ export default {
 			'1234567890',
 			'!?$%&@#'
 		]
+		this.$emit('checksUpdated', this.checks)
 	},
 	methods: {
 		updateChecks(checkInput) {

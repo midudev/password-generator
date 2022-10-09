@@ -19,7 +19,7 @@ export default {
 		return {
 			value: 4,
 			min: 4,
-			max: 22
+			max: 20
 		}
 	},
 	emits: ['rangeUpdated']
