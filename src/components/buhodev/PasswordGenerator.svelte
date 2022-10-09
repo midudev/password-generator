@@ -175,7 +175,7 @@
 	<!-- Generate Password Button -->
 	<button
 		on:click={() => (password = generate_password(length, DEFAULT_OPTIONS))}
-		class="relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]"
+		class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
 		>Generate Password</button
 	>
 </div>
@@ -191,5 +191,22 @@
 		to {
 			transform: rotate(180deg);
 		}
+	}
+	.generate-password {
+		box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+		transition: box-shadow .05s, transform .05s;
+		will-change: box-shadow, transform;
+	}
+
+	.generate-password:focus {
+		box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+	}
+
+	.generate-password:hover {
+		box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+	}
+
+	.generate-password:active {
+		box-shadow: #3c4fe0 0 3px 7px inset;
 	}
 </style>
