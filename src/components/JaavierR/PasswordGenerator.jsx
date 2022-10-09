@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { InputSwitch } from './InputSwitch'
-import { generatePassword } from './passwordGenrator'
+import { generatePassword } from './passwordGenerator'
 import style from './range.module.css'
 
 function PasswordGenerator() {
