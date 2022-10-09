@@ -37,13 +37,9 @@ const PasswordGenerator = () => {
 
 	useEffect(() => {
 		if (passwordLength < 10) setSecurity(SECURITY.LOW)
-		if (passwordLength >= 10 && passwordLength < 15) {
-			setSecurity(SECURITY.NORMAL)
-		}
+		if (passwordLength >= 10 && passwordLength < 15) setSecurity(SECURITY.NORMAL)
 		if (passwordLength >= 15) setSecurity(SECURITY.STRONG)
-	}, [passwordLength])
 
-	useEffect(() => {
 		setPassword(generatePassword(passwordLength))
 	}, [passwordLength])
 
@@ -63,7 +59,12 @@ const PasswordGenerator = () => {
 							value={password}
 							className='border border-cyan-700 w-4/5 rounded read-only:bg-gray-100'
 						/>
-						<div className='flex flex-row justify-center items-center ml-2 px-2  cursor-pointer rounded  hover:border hover:border-black'>
+						<div
+							className='flex flex-row justify-center items-center ml-2 px-2  cursor-pointer rounded  hover:border hover:border-black'
+							onClick={() => {
+								navigator.clipboard.writeText(password)
+							}}
+						>
 							<p>Copiar</p>
 							<img
 								src={copyIcon}
@@ -103,7 +104,10 @@ const PasswordGenerator = () => {
 					</div>
 				</div>
 			</div>
-			<div className='border-red-700 border-yellow-700 border-green-700 accent-red-700 accent-green-700 accent-yellow-700' />
+			{/* Estos estilos los pongo acá para que cuando los cambie dinámicamente en la app, se puedan ver reflejados */}
+			<div className='border-red-700  accent-red-700' />
+			<div className='border-yellow-700 accent-yellow-700' />
+			<div className='border-green-700 accent-green-700' />
 		</>
 	)
 }
