@@ -9,7 +9,7 @@ function Card() {
 		numbers: false,
 		symbols: false
 	})
-	const [handleText, setHandleText] = useState('')
+	const [handleText, setHandleText] = useState(8)
 	const [copiedText, setCopiedText] = useState(false)
 
 	const handleChangeUppercase = () => {
@@ -74,8 +74,8 @@ function Card() {
 	}
 
 	return (
-		<div className='max-w-sm rounded overflow-hidden shadow-lg bg-white grid justify-items-center justify-center text-center'>
-			<h1>Generate random password</h1>
+		<div className='mx-auto my-40 rounded overflow-hidden shadow-lg w-96 bg-white grid justify-items-center justify-center text-center'>
+			<h1 className=''>Generate random password</h1>
 			<div className='flex px-6 py-4'>
 				<div>
 					<label>Password length</label>
@@ -83,7 +83,8 @@ function Card() {
 				<div>
 					<input
 						type='range'
-						value={handleText}
+						min='8'
+						max='40'
 						onChange={(e) => setPasswordLength(e.target.value)}
 					/>
 				</div>
