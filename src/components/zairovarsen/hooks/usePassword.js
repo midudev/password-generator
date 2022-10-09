@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export function usePassword() {
 	const lowerCase = 'abcdefghijklmnopqrstuvxyz'
@@ -16,7 +16,9 @@ export function usePassword() {
 	})
 
 	const getRandomValFromArr = (arr) => {
-		if (!arr.length) { return '' }
+		if (!arr.length) {
+			return ''
+		}
 		const index = Math.floor(Math.random() * arr.length)
 		return arr[index]
 	}
