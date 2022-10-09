@@ -11,7 +11,7 @@ export default function PasswordGenerator() {
 	const { isCopied, saveToClipBoard } = useClipboard()
 
 	return (
-		<div id='app'>
+		<div id='zairovarsen-app'>
 			<main>
 				<div className='container'>
 					<div className='output-container'>
