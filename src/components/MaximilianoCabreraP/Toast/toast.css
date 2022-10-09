@@ -1,8 +1,8 @@
-.alert-toast {
-	animation: slide-in-top 5.5s ease both;
+.maximilianocabrerap-alert-toast {
+	animation: maximilianocabrerap-slide-in-top 5.5s ease both;
 }
 
-@keyframes slide-in-top {
+@keyframes maximilianocabrerap-slide-in-top {
 	0% {
 		transform: translateX(-20px);
 		opacity: 0;
