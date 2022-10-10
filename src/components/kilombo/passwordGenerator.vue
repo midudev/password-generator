@@ -2,7 +2,7 @@
 	<div
 		class="main-container min-h-screen min-w-full flex text-black  justify-center items-center bg-contain bg-center bg-no-repeat">
 		<section>
-			<div class="window" style="width: 300px">
+			<div class="window" style="width: 325px">
 				<div class="title-bar">
 					<div class="title-bar-text">Password Generator</div>
 				</div>
@@ -16,6 +16,24 @@
 						<label for="range27">High</label>
 					</div>
 					<p class="my-2 text-center">Length: {{passwordLength}} </p>
+					<div class="my-2">
+						<div>
+							<input v-model="useLowercase" type="checkbox" id="useLowercase" />
+							<label for="useLowercase">Use lowercase</label>
+						</div>
+						<div>
+							<input v-model="useUppercase" type="checkbox" id="useUppercase" />
+							<label for="useUppercase">Use uppercase</label>
+						</div>
+						<div>
+							<input v-model="useNumbers" type="checkbox" id="useNumbers" />
+							<label for="useNumbers">Use numbers</label>
+						</div>
+						<div>
+							<input v-model="useSymbols" type="checkbox" id="useSymbols" />
+							<label for="useSymbols">Use symbols</label>
+						</div>
+					</div>
 					<button @click="generatePassword" class="">Generate password</button>
 				</div>
 			</div>
@@ -33,22 +51,31 @@ export default {
 			generatedPassword: '',
 			passwordLength: 10,
 			lowercaseChars: "abcdefghijklmnopqrstuvwxyz",
+			useLowercase: true,
 			uppercaseChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+			useUppercase: false,
 			numbersChars: "0123456789",
+			useNumbers: false,
 			symbolsChars: "!@#$%^&*_-+=",
+			useSymbols: false,
 			selectedChars: ''
 		}
 	},
-	computed: {
-
-	},
 	methods: {
 		generatePassword () {
-			this.selectedChars = this.lowercaseChars;
 			this.generatedPassword = this.generateString();
 		},
 		generateString () {
 			let password = '';
+			this.selectedChars = '';
+			if (this.useLowercase) this.selectedChars += this.lowercaseChars;
+			if (this.useUppercase) this.selectedChars += this.uppercaseChars;
+			if (this.useNumbers) this.selectedChars += this.numbersChars;
+			if (this.useSymbols) this.selectedChars += this.symbolsChars;
+			if (!this.selectedChars) {
+				this.useLowercase = true;
+				this.selectedChars = this.lowercaseChars;
+			}
 			for (let i = 0; i < this.passwordLength; i++) {
 				password += this.selectedChars.charAt(Math.floor(Math.random() * this.selectedChars.length)
 				);
