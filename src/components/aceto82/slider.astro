@@ -7,7 +7,8 @@ const { min, max, id } = Astro.props
 	<span id='labelSlider'>{min}</span>
 </div>
 <span id='idSlide' style='display:none'>{id}</span>
-<script>
+
+<script is:inline>
 	const idSlide = document.getElementById('idSlide').innerText
 	const slide = document.getElementById(idSlide)
 	const labelSlider = document.getElementById('labelSlider')

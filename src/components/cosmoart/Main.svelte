@@ -1,57 +1,76 @@
 <script>
-	const CHARSET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-	let password = 'iYwOP'
-	let passwordLength = 5
-	let copiedDialog
-
-	function createPassword(passwordLength) {
-		let result = ''
-		for (let i = 0; i < passwordLength; i++) {
-			result += CHARSET.charAt(Math.floor(Math.random() * CHARSET.length))
-		}
-		password = result
-	}
-
-	function handleRange(e) {
-		passwordLength = e.target.value
-		createPassword(passwordLength)
-	}
-
-	function handleClipboard(e) {
-		e.preventDefault()
-		navigator.clipboard.writeText(password)
-		copiedDialog.showModal()
-		setTimeout(() => copiedDialog.close(), 1000)
-	}
+	import Form from './components/Form.svelte'
 </script>
 
-<main
-	class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded p-6 w-full max-w-sm"
->
-	<h1 class="uppercase font-bold">Password Generator</h1>
-	<form>
-		<input type="range" min="5" max="30" value="5" on:input={handleRange} class="w-full" />
-		<span>Number: {passwordLength}</span>
-		<div class="relative">
-			<textarea
-				readonly
-				class="bg-purple-100 block resize-none text-black w-full"
-				value={password}
-			/>
-			<button
-				class="p-2 bg-purple-500 font-bold uppercase scale-90 absolute top-1 right-2"
-				on:click={(e) => {
-					e.preventDefault()
-					createPassword(passwordLength)
-				}}>Other</button
-			>
-		</div>
-		<button
-			class="p-2 bg-purple-500 font-bold uppercase my-2 w-full hover:opacity-95"
-			on:click={handleClipboard}>Copy</button
-		>
-	</form>
-</main>
-<dialog bind:this={copiedDialog} class="top-4 bottom-auto">
-	<p class="">Copied to clipboard!</p>
-</dialog>
+<div class="box">
+	<main
+	class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#2A2B38] bg-opacity-75 p-10 w-11/12 max-w-[30rem] text-white overflow-hidden after:w-4/5 after:h-80 after:-top-40 after:absolute after:-z-10"
+	>
+		<h1 class="uppercase font-bold mb-3 text-[17px]">P4SSW0RD G3NER4T0R</h1>
+		<Form />
+	</main>
+</div>
+
+<style>
+	:global(body) {
+		background: #1c1c1f;
+	}
+	:global(body::after){
+		content: "";
+    position: absolute;
+    left: 0px;
+		top: 0;
+    background-image: url(./assets/pattern_square.svg);
+    opacity: 0.2;
+    -webkit-mask-image: radial-gradient(70% 80% at 50% 50%, black 40%, transparent 70%);
+		mask-image: radial-gradient(70% 80% at 50% 50%, black 40%, transparent 70%);
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+	}
+	.box{
+		height: 100%;
+		width: 100%;
+	}
+	.box::after {
+		background: radial-gradient(circle, rgba(111, 123, 138, 0.1) 0%, rgba(40, 47, 55, 0) 70%);
+	}
+	@keyframes binary {
+		25% {
+			content: '01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001';
+		}
+		50% {
+			content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
+		}
+		75% {
+			content: '01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001 01100110 01101111 01110010 00100000 01100001 00100000 01110011 01110101 01110010 01110000 01110010 01101001 01110011 01100101 00100001 00100001';
+		}
+		100% {
+			content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
+		}
+	}
+	.box::before,
+	.box::after {
+		animation: 1s linear 1s infinite normal none running binary;
+		content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
+		left: 0px;
+		color: white;
+		font-size: 14px;
+		pointer-events: none;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		opacity: 0.3;
+		-webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 5%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0) 95%);
+		mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 5%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0) 95%);
+		white-space: nowrap;
+		overflow: hidden;
+		z-index: 200;
+	}
+	.box::after{
+		top: 0px;
+	}
+	.box::before{
+		bottom: 0px;
+	}
+</style>
