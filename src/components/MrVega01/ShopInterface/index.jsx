@@ -83,6 +83,7 @@ export default function ShopInterface() {
 						<li onClick={setInterfacePasswordLength}><img src={heartImg.src}/>Change password length</li>
 						<li onClick={setInterfaceCharactersTypes}><img src={heartImg.src}/>Change characters types</li>
 						<li onClick={musicButtonHandler}><img src={heartImg.src}/>{isPlaying ? 'Stop song' : 'Play song'}</li>
+						<li><img src={heartImg.src}/><a href='https://www.linkedin.com/in/jos%C3%A9-vega-89135421a/' target='blank' rel='linkedin-profile'>Contact me!</a></li>
 					</ul>
 
 					<ul style={actualOptions === 'backOption' ? {} : { display: 'none' }}>

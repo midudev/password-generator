@@ -73,3 +73,13 @@
 #mrvega01 .rangeInput::-webkit-slider-thumb:hover{
 	background: #ff8a1d;
 }
+@media (max-width: 750px){
+	#mrvega01 .shopInterface{
+		font-size: 1.5em;
+	}
+}
+@media (max-width: 628px){
+	#mrvega01 .shopInterface{
+		font-size: 1em;
+	}
+}
