@@ -1,10 +1,6 @@
 @import 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap';
 
-* {
-	font-family: Poppins, sans-serif;
-}
-
-h1 {
+.h1-williamvp {
 	text-align: center;
 	font-family: Poppins, sans-serif;
 	font-size: 2rem;
@@ -16,6 +12,7 @@ h1 {
 	height: 100vh;
 	padding-top: 40px;
 	background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+	font-family: Poppins, sans-serif;
 }
 
 .row-box {
@@ -82,8 +79,8 @@ h1 {
 	border-radius: 5px;
 	background-size: 70% 100%;
 	background-repeat: no-repeat;
-	box-shadow: none !important;
-	border: none !important;
+	border: 1px solid #eee;
+	box-shadow: 0 0 4px 0 #eee !important;
 }
 
 .range-wavp::-webkit-slider-thumb {
