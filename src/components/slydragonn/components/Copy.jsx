@@ -29,11 +29,11 @@ const CopySvg = (props) => (
 	</svg>
 )
 
-const CopyButton = ({ value }) => {
+const CopyButton = ({ value, setMessage }) => {
 	const copyToClipboard = () => {
-		if (!value) return
+		if (!value) return setMessage('No Password')
 		navigator.clipboard.writeText(value)
-		alert('Copied Password')
+		setMessage('Copied Password 🚀')
 	}
 
 	return (
