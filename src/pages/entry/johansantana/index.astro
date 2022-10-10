@@ -1,0 +1,15 @@
+---
+import Layout from '@layout'
+import PasswordGenerator from '@components/johansantana/PasswordGenerator.vue'
+import '@components/johansantana/styles/binary.css'
+import '@components/johansantana/styles/fonts.css'
+---
+
+<Layout title='johansantana - Solution'>
+	<main
+		id='johansantana-main'
+		class='bg-[url("/grain-dark.png")] sm:overflow-hidden bg-black/40 min-h-screen flex items-center justify-center p-10'
+	>
+		<PasswordGenerator client:visible />
+	</main>
+</Layout>
