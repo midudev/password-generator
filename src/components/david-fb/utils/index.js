@@ -15,7 +15,7 @@ function generatePassword(PasswordLength, characters) {
 
 function getPasswordLevel(password) {
 	const length = password.length
-	let level = OPTIONS.reduce((acc, obj) => {
+	const level = OPTIONS.reduce((acc, obj) => {
 		const isInPassword = obj.characters.some((char) => password.includes(char))
 		if (isInPassword) {
 			acc++

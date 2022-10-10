@@ -27,7 +27,7 @@ const PassGenerator = () => {
 	}
 
 	return (
-		<section className='password-container'>
+		<section id='Jjat00' className='password-container'>
 			{password.length === 0 && showMessageEmpty && (
 				<div className='message'>
 					<p>Select some case ⚠️</p>
