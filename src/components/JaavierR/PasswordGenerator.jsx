@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Clipboard, ClipboardClicked } from './ClipboardIcons'
-import { InputSwitch } from './InputSwitch'
+import { Clipboard, ClipboardClicked } from './components/ClipboardIcons'
+import { InputSwitch } from './components/InputSwitch'
 import { randomPassword, pinCode, smartPassword } from './helper/passwordGenerator'
-import SelectPasswordType from './SelectPasswordType'
-import { InputRangeSelector } from './InputRangeSelector'
+import SelectPasswordType from './components/SelectPasswordType'
+import { InputRangeSelector } from './components/InputRangeSelector'
 
 function PasswordGenerator() {
 	const [passwordLength, setPasswordLength] = useState(8)
@@ -96,7 +96,7 @@ function PasswordGenerator() {
 	}
 
 	return (
-		<div className='relative text-white p-10 rounded-xl ring-1 ring-neutral-100/10 backdrop-blur w-full max-w-md bg-neutral-800/40 m-auto font-["JetBrains_Mono"]'>
+		<div className='relative text-white p-10 rounded-xl ring-1 ring-neutral-100/10 backdrop-blur w-full max-w-md bg-neutral-800/40 shadow m-auto font-["JetBrains_Mono"]'>
 			<div className='absolute flex -bottom-px left-1/2 -ml-48 h-[0.125rem] w-96'>
 				<div className='w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]'></div>
 				<div className='-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,rgba(14,165,233,0.5)_42.29%,rgba(236,72,153,0.4)_57.19%,rgba(236,72,153,0)_100%)]'></div>
