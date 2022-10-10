@@ -111,7 +111,7 @@ function PasswordGenerator() {
 				{copied ? <ClipboardClicked /> : <Clipboard />}
 			</button>
 
-			<div className='mb-6 text-xl truncate w-full px-4 py-2 rounded-lg ring-1 ring-zinc-600/70 transition duration-200 font-sans tracking-wider'>
+			<div className='mb-6 text-xl truncate w-full px-4 py-2 rounded-lg ring-1 ring-zinc-600/70 transition duration-200 font-sans tracking-wider bg-neutral-900'>
 				{[...password].map((char, idx) => (
 					<span key={idx} className={checkCharType(char)}>
 						{char}
