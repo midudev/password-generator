@@ -53,23 +53,11 @@ function PasswordGenerator() {
 				length = 12
 			}
 
-			setPassword(pinCode({ length }))
+			setPassword(pinCode({ length: pinLength }))
 		}
 	}, [passwordLength, pinLength, includeNumbers, includeSymbols, passwordType, regenerate])
 
 	function handleChange(e) {
-		let length = e.target.value
-		const minLengthByType = passwordType === 'PIN Code' ? 4 : 8
-		const maxLengthByType = passwordType === 'PIN Code' ? 12 : 100
-
-		if (length < minLengthByType) {
-			length = minLengthByType
-		}
-
-		if (length > maxLengthByType) {
-			length = maxLengthByType
-		}
-
 		if (passwordType === 'PIN Code') {
 			setPinLength(e.target.value)
 		} else {
