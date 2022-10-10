@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { InputSwitch } from './InputSwitch'
-import { generatePassword } from './helper/passwordGenerator'
+import { generatePassword, smartPassword } from './helper/passwordGenerator'
 import style from './range.module.css'
 
 function PasswordGenerator() {
@@ -69,6 +69,8 @@ function PasswordGenerator() {
 			return ''
 		}
 	}
+
+	console.log(smartPassword())
 
 	return (
 		<div className='relative text-white p-10 rounded-lg ring-1 ring-neutral-100/10 backdrop-blur-md w-full max-w-md bg-neutral-800/50'>
