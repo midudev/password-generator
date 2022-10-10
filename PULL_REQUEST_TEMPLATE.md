@@ -32,4 +32,4 @@ para la configuración de su prueba. Ejemplo:*
 - [ ] Mis cambios no generan nuevos avisos *.
 - [ ] No he instalado nuevos módulos con `npm install` o `yarn install` *.
 - [ ] La solución es de mi autoría y no he copiado código de otros participantes *.
-- [ ] No modifique ningun otro archivo más que los míos *.
+- [ ] No modifiqué ningún otro archivo más que los míos *.
