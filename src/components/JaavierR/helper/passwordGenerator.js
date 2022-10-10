@@ -72,7 +72,7 @@ export function randomPassword({ length, includeNumbers, includeSymbols }) {
 		}
 	}
 
-	return password
+	return [...password]
 }
 
 export function smartPassword() {
@@ -103,7 +103,27 @@ export function smartPassword() {
 		}
 	}
 
-	return password
+	if (!upper) {
+		const textPositon = [0, 4, 8, 12, 16]
+		const randomPosition = textPositon[Math.floor(Math.random() * textPositon.length)]
+
+		password = password.replace(password[randomPosition], getUpper())
+		password = password.replace(password[randomPosition + 1], getUpper())
+		password = password.replace(password[randomPosition + 2], getUpper())
+	}
+
+	const positions = [3, 6, 9, 12]
+	const position = positions[Math.floor(Math.random() * positions.length)]
+
+	if (!/\d/.test(password)) {
+		password = password.replace(password[position], getNumber())
+	}
+
+	if (!/[!@*_\-/.]/.test(password)) {
+		password = password.replace(password[position], getSymbol())
+	}
+
+	return [...password]
 }
 
 export function pinCode({ length }) {
@@ -113,5 +133,5 @@ export function pinCode({ length }) {
 		password += getNumber()
 	}
 
-	return password
+	return [...password]
 }
