@@ -1,25 +1,39 @@
 import { ChangeEvent, useState } from 'react'
+import { useClipboard } from '@hooks/cmglezpdev/useClipboard'
 
-import clipboard from '@components/cmglezpdev/icons/clipboard-copy.svg'
+import clipboardCopy from '@components/cmglezpdev/icons/clipboard-copy.svg'
+import clipboardCopied from '@components/cmglezpdev/icons/clipboard-copied.svg'
 
 export const InputPassword = () => {
 	const [lenghtPassword, setLenghtPassword] = useState('10')
+	const { refElement, copied, copyText } = useClipboard()
 
 	const handleLenghtControl = (e:ChangeEvent<HTMLInputElement>) => {
 		setLenghtPassword(e.target.value)
+	}
+
+	const handleCopyText = () => {
+		copyText() // clipboard
 	}
 
 	return (
 		<>
 			<div className='flex gap-2'>
 				<input
+					ref={refElement}
 					type='text'
 					name='password'
 					className='py-1 px-2 rounded w-96 outline-none text-gray-600 text-xl'
 				/>
-				<button className='flex items-center gap-1 px-2 bg-gray-400 rounded outline-none'>
-					<img src={clipboard} alt='clipboard' className='w-4' />
-					<span className='uppercase text-xs font-bold'>Copy</span>
+				<button
+					className='flex items-center gap-1 px-2 bg-gray-400 rounded outline-none'
+					onClick={() => handleCopyText()}
+				>
+					<img src={!copied ? clipboardCopy : clipboardCopied} alt='clipboard' className='w-4' />
+					<span
+						className='uppercase text-xs font-bold'
+						style={{ color: copied ? '#19770d' : '#000' }}
+					>Copy</span>
 				</button>
 			</div>
 
@@ -28,11 +42,22 @@ export const InputPassword = () => {
 					<span className='text-white font-bold'>Lenght</span>
 					<span className='text-white font-bold'>{ lenghtPassword }</span>
 				</p>
-
-				<input type='range' name='range' min='6' max='40' defaultValue='10' className='w-72 outline-none' onChange={handleLenghtControl} />
+				<input
+					type='range'
+					name='range'
+					min='6'
+					max='40'
+					defaultValue='10'
+					className='w-72 outline-none'
+					onChange={handleLenghtControl}
+				/>
 			</div>
 
-			<button className='uppercase py-3 px-5 bg-blue-800 rounded-3xl text-white font-bold mt-4 outline-none hover:bg-blue-700 transition-colors'>Generate Password</button>
+			<button
+				className='uppercase py-3 px-5 bg-blue-800 rounded-3xl text-white font-bold mt-4 outline-none hover:bg-blue-700 transition-colors'
+			>
+				Generate Password
+			</button>
 		</>
 	)
 }
