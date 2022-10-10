@@ -21,7 +21,17 @@ export function generatePassword({ length, includeNumbers, includeSymbols }) {
 	for (let i = 0; i < parseInt(length); i++) {
 		const x = Math.random()
 
-		if (includeNumbers) {
+		if (includeNumbers && includeSymbols) {
+			if (x < 0.3) {
+				password += getUpper()
+			} else if (x >= 0.3 && x < 0.6) {
+				password += getLower()
+			} else if (x >= 0.6 && x < 0.8) {
+				password += getNumber()
+			} else {
+				password += getSymbol()
+			}
+		} else if (includeNumbers) {
 			if (x < 0.33) {
 				password += getUpper()
 			} else if (x >= 0.33 && x < 0.66) {
