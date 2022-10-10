@@ -69,7 +69,7 @@ export default {
 	}
 }
 </script>
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
 .card {
 	font-family: 'Baloo 2', cursive;

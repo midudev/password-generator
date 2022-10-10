@@ -12,9 +12,9 @@
 			<div class="flex items-center justify-center flex-col group">
 				<SaveIcon
 					v-if="!saveCheck"
-					class="w-10 h-10 group-hover:animate-bounce animate-none opacity-40 animate-bounce transition-all duration-100"
+					class="w-10 h-10 group-hover:animate-bounce animate-none transition-all duration-100"
 				/>
-				<div v-else>
+				<div v-else class="">
 					<CheckIcon class="w-10 h-10" />
 					<p>Saved!</p>
 				</div>

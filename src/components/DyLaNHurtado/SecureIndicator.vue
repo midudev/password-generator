@@ -3,7 +3,12 @@
 		v-if="isThinking"
 		class="h-1/6 bg-stone-700 border-stone-500 border-t-2 w-full text-3xl py-5 flex flex-row justify-center items-center animate-pulse"
 	>
-		<img src="./icons/brain.gif" class="h-24 w-34" alt="Thinking gif icon" />
+		<img
+			src="https://raw.githubusercontent.com/midudev/password-generator/15a21d3b1414bdd8cab35dc72350ea271ec5e2d4/src/components/DyLaNHurtado/icons/brain.gif"
+			placeholder="src\components\DyLaNHurtado\icons\brain.gif"
+			class="h-24 w-34"
+			alt="Thinking gif icon"
+		/>
 		{{ message }}
 	</div>
 	<div id="color-div" class="h-1/6 border-t-2 hidden w-full text-3xl py-5">
