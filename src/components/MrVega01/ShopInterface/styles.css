@@ -21,6 +21,9 @@
 #mrvega01 .charactersType{
 	padding: 0.5em;
 }
+#mrvega01 .charactersType li{
+	cursor: pointer;
+}
 #mrvega01 .typeEnable{
 	color: #ff8a1d;
 }
