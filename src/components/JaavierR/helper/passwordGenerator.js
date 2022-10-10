@@ -56,6 +56,22 @@ export function randomPassword({ length, includeNumbers, includeSymbols }) {
 		}
 	}
 
+	if (includeNumbers && includeSymbols) {
+		if (!/\d/.test(password)) {
+			password = password.replace(
+				password[Math.floor(Math.random() * password.length)],
+				getNumber()
+			)
+		}
+
+		if (!/[!@*_\-/.]/.test(password)) {
+			password = password.replace(
+				password[Math.floor(Math.random() * password.length)],
+				getSymbol()
+			)
+		}
+	}
+
 	return password
 }
 
