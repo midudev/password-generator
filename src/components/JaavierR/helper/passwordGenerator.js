@@ -15,7 +15,7 @@ function getSymbol() {
 	return String.fromCharCode(symbols[Math.floor(Math.random() * symbols.length)])
 }
 
-export function generatePassword({ length, includeNumbers, includeSymbols }) {
+export function randomPassword({ length, includeNumbers, includeSymbols }) {
 	let password = ''
 
 	for (let i = 0; i < parseInt(length); i++) {

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { InputSwitch } from './InputSwitch'
-import { generatePassword, pinCode, smartPassword } from './helper/passwordGenerator'
+import { randomPassword, pinCode, smartPassword } from './helper/passwordGenerator'
 import SelectPasswordType from './SelectPasswordType'
 import { InputRangeSelector } from './InputRangeSelector'
 
 function PasswordGenerator() {
 	const [passwordLength, setPasswordLength] = useState(8)
 	const [pinLength, setPinLength] = useState(4)
-	const [password, setPassword] = useState(generatePassword({ length: passwordLength }))
+	const [password, setPassword] = useState(randomPassword({ length: passwordLength }))
 	const [includeNumbers, setIncludeNumbers] = useState(false)
 	const [includeSymbols, setIncludeSymbols] = useState(false)
 	const [passwordType, setPasswordType] = useState('Smart Password')
@@ -39,7 +39,7 @@ function PasswordGenerator() {
 				length = 100
 			}
 
-			setPassword(generatePassword({ length, includeNumbers, includeSymbols }))
+			setPassword(randomPassword({ length, includeNumbers, includeSymbols }))
 		}
 
 		if (passwordType === 'PIN Code') {
