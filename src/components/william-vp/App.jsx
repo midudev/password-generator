@@ -72,10 +72,10 @@ const App = () => {
 	return (
 		<div className='container-box'>
 			<div className='row-box xl:1/4 lg:w-1/3 md:w-1/2 sm:w-full sm:mx-2'>
-				<h1>Password Generator</h1>
+				<h1 className='h1-williamvp'>Password Generator</h1>
 				<div className='result-box'>
 					<div className='grid grid-cols-3 gap-4'>
-						<div className='col-span-2'>
+						<div className='col-span-2 overflow-hidden'>
 							<h3>{showPass ? password : getTemplatePass()}</h3>
 						</div>
 						<div className='col-auto div-icons'>
