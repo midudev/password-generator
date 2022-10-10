@@ -112,7 +112,7 @@ export default function PasswordGenerator() {
 								: DEFAULT_SETTING.MAX_CHAR_LENGTH
 						}
 						value={formData.withWords ? formData.wordLength : formData.charLength}
-						className='w-full h-2 bg-gray-100 appearance-none cursor-pointer transition-all ease-in-out '
+						className={`w-full h-2 bg-gray-100 appearance-none cursor-pointer transition-all ease-in-out ${styles.range}`}
 						onChange={(e) => {
 							if (formData.withWords) {
 								onUpdateForm('wordLength', +e.target.value)

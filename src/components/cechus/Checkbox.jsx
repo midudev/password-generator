@@ -6,7 +6,7 @@ export default function Checkbox(props) {
 	return (
 		<div className='flex gap-x-2 items-center'>
 			<input
-				className='w-4 h-4'
+				className='w-4 h-4 accent-[#a5f71e] cursor-pointer'
 				value={value}
 				checked={value}
 				onChange={() => onChange()}
