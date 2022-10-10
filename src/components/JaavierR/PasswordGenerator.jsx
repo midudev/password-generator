@@ -3,6 +3,7 @@ import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { InputSwitch } from './InputSwitch'
 import { generatePassword, smartPassword } from './helper/passwordGenerator'
 import style from './range.module.css'
+import SelectPasswordType from './SelectPasswordType'
 
 function PasswordGenerator() {
 	const [passwordLen, setPasswordLen] = useState(8)
@@ -10,6 +11,7 @@ function PasswordGenerator() {
 	const [copied, setCopied] = useState(false)
 	const [includeNumbers, setIncludeNumbers] = useState(false)
 	const [includeSymbols, setIncludeSymbols] = useState(false)
+	const [passwordType, setPasswordType] = useState('Smart Password')
 
 	function copyClipboard() {
 		navigator.clipboard.writeText(password)
@@ -70,8 +72,6 @@ function PasswordGenerator() {
 		}
 	}
 
-	console.log(smartPassword())
-
 	return (
 		<div className='relative text-white p-10 rounded-lg ring-1 ring-neutral-100/10 backdrop-blur-md w-full max-w-md bg-neutral-800/50'>
 			<div className='absolute flex -bottom-px left-1/2 -ml-48 h-[0.125rem] w-96'>
@@ -96,43 +96,52 @@ function PasswordGenerator() {
 				))}
 			</div>
 
-			<div className='divide-y divide-neutral-100/10'>
-				<div className='flex justify-between items-center text-base space-x-4 py-4'>
-					<h1 className='font-semibold'>Characters</h1>
+			<SelectPasswordType
+				label='Password type'
+				name='Password type'
+				value={passwordType}
+				onChange={(e) => setPasswordType(e.target.value)}
+			/>
 
-					<input
-						type='range'
-						min={8}
-						max={100}
-						className={style.inputRange}
-						step={1}
-						value={passwordLen}
-						onChange={handleChange}
+			{passwordType === 'Random Password' && (
+				<div className='divide-y divide-neutral-100/10'>
+					<div className='flex justify-between items-center text-base space-x-4 py-4'>
+						<h1 className='font-semibold'>Characters</h1>
+
+						<input
+							type='range'
+							min={8}
+							max={100}
+							className={style.inputRange}
+							step={1}
+							value={passwordLen}
+							onChange={handleChange}
+						/>
+
+						<input
+							type='text'
+							className='w-10 text-white bg-neutral-900 ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-neutral-800 focus:outline-none'
+							value={passwordLen}
+							onChange={handleChange}
+							onBlur={checkLength}
+						/>
+					</div>
+
+					<InputSwitch
+						label='Numbers'
+						value={includeNumbers}
+						onChange={handleSwitchChange}
+						className='py-4'
 					/>
 
-					<input
-						type='text'
-						className='w-10 text-white bg-neutral-900 ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-neutral-800 focus:outline-none'
-						value={passwordLen}
-						onChange={handleChange}
-						onBlur={checkLength}
+					<InputSwitch
+						label='Symbols'
+						value={includeNumbers}
+						onChange={handleSwitchSymbol}
+						className='py-4'
 					/>
 				</div>
-
-				<InputSwitch
-					label='Numbers'
-					value={includeNumbers}
-					onChange={handleSwitchChange}
-					className='py-4'
-				/>
-
-				<InputSwitch
-					label='Symbols'
-					value={includeNumbers}
-					onChange={handleSwitchSymbol}
-					className='py-4'
-				/>
-			</div>
+			)}
 
 			<button
 				className='bg-pink-500 hover:bg-pink-600 mt-6 w-full py-2 rounded-lg uppercase text-sm font-semibold tracking-wide'
