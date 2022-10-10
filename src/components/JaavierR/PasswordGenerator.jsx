@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { InputSwitch } from './InputSwitch'
-import { generatePassword, smartPassword } from './helper/passwordGenerator'
+import { generatePassword, pinCode, smartPassword } from './helper/passwordGenerator'
 import style from './range.module.css'
 import SelectPasswordType from './SelectPasswordType'
 
 function PasswordGenerator() {
 	const [passwordLength, setPasswordLength] = useState(8)
+	const [pinLength, setPinLength] = useState(4)
 	const [password, setPassword] = useState(generatePassword({ length: passwordLength }))
 	const [includeNumbers, setIncludeNumbers] = useState(false)
 	const [includeSymbols, setIncludeSymbols] = useState(false)
@@ -40,34 +41,60 @@ function PasswordGenerator() {
 
 			setPassword(generatePassword({ length, includeNumbers, includeSymbols }))
 		}
-	}, [passwordLength, includeNumbers, includeSymbols, passwordType, regenerate])
+
+		if (passwordType === 'PIN Code') {
+			let length = pinLength
+
+			if (length < 4) {
+				length = 4
+			}
+
+			if (length > 12) {
+				length = 12
+			}
+
+			setPassword(pinCode({ length }))
+		}
+	}, [passwordLength, pinLength, includeNumbers, includeSymbols, passwordType, regenerate])
 
 	function handleChange(e) {
 		let length = e.target.value
+		const minLengthByType = passwordType === 'PIN Code' ? 4 : 8
+		const maxLengthByType = passwordType === 'PIN Code' ? 12 : 100
 
-		if (length < 8) {
-			length = 8
+		if (length < minLengthByType) {
+			length = minLengthByType
 		}
 
-		if (length > 100) {
-			length = 100
+		if (length > maxLengthByType) {
+			length = maxLengthByType
 		}
 
-		setPasswordLength(e.target.value)
+		if (passwordType === 'PIN Code') {
+			setPinLength(e.target.value)
+		} else {
+			setPasswordLength(e.target.value)
+		}
 	}
 
 	function checkLength(e) {
 		let length = e.target.value
+		const minLengthByType = passwordType === 'PIN Code' ? 4 : 8
+		const maxLengthByType = passwordType === 'PIN Code' ? 12 : 100
 
-		if (length < 8) {
-			length = 8
+		if (length < minLengthByType) {
+			length = minLengthByType
 		}
 
-		if (length > 100) {
-			length = 100
+		if (length > maxLengthByType) {
+			length = maxLengthByType
 		}
 
-		setPasswordLength(length)
+		if (passwordType === 'PIN Code') {
+			setPinLength(length)
+		} else {
+			setPasswordLength(length)
+		}
 	}
 
 	function checkCharType(char) {
@@ -162,14 +189,14 @@ function PasswordGenerator() {
 							max={12}
 							className={style.inputRange}
 							step={1}
-							value={passwordLength}
-							onChange={(e) => setPasswordLength(e.target.value)}
+							value={pinLength}
+							onChange={(e) => setPinLength(e.target.value)}
 						/>
 
 						<input
 							type='text'
 							className='w-10 text-white bg-neutral-900 ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-neutral-800 focus:outline-none'
-							value={passwordLength}
+							value={pinLength}
 							onChange={handleChange}
 							onBlur={checkLength}
 						/>

@@ -89,3 +89,13 @@ export function smartPassword() {
 
 	return password
 }
+
+export function pinCode({ length }) {
+	let password = ''
+
+	for (let i = 0; i < parseInt(length); i++) {
+		password += getNumber()
+	}
+
+	return password
+}
