@@ -6,8 +6,8 @@ import style from './range.module.css'
 import SelectPasswordType from './SelectPasswordType'
 
 function PasswordGenerator() {
-	const [passwordLen, setPasswordLength] = useState(8)
-	const [password, setPassword] = useState(generatePassword({ length: passwordLen }))
+	const [passwordLength, setPasswordLength] = useState(8)
+	const [password, setPassword] = useState(generatePassword({ length: passwordLength }))
 	const [includeNumbers, setIncludeNumbers] = useState(false)
 	const [includeSymbols, setIncludeSymbols] = useState(false)
 	const [passwordType, setPasswordType] = useState('Smart Password')
@@ -28,7 +28,7 @@ function PasswordGenerator() {
 		}
 
 		if (passwordType === 'Random Password') {
-			let length = passwordLen
+			let length = passwordLength
 
 			if (length < 8) {
 				length = 8
@@ -40,7 +40,7 @@ function PasswordGenerator() {
 
 			setPassword(generatePassword({ length, includeNumbers, includeSymbols }))
 		}
-	}, [passwordLen, includeNumbers, includeSymbols, passwordType, regenerate])
+	}, [passwordLength, includeNumbers, includeSymbols, passwordType, regenerate])
 
 	function handleChange(e) {
 		let length = e.target.value
@@ -104,52 +104,78 @@ function PasswordGenerator() {
 				))}
 			</div>
 
-			<SelectPasswordType
-				label='Password type'
-				name='Password type'
-				value={passwordType}
-				onChange={(e) => setPasswordType(e.target.value)}
-			/>
+			<div className='divide-y divide-neutral-100/10'>
+				<SelectPasswordType
+					label='Type'
+					name='Type'
+					value={passwordType}
+					onChange={(e) => setPasswordType(e.target.value)}
+				/>
 
-			{passwordType === 'Random Password' && (
-				<div className='divide-y divide-neutral-100/10'>
+				{passwordType === 'Random Password' && (
+					<>
+						<div className='flex justify-between items-center text-base space-x-4 py-4'>
+							<label className='font-semibold'>Characters</label>
+
+							<input
+								type='range'
+								min={8}
+								max={100}
+								className={style.inputRange}
+								step={1}
+								value={passwordLength}
+								onChange={(e) => setPasswordLength(e.target.value)}
+							/>
+
+							<input
+								type='text'
+								className='w-10 text-white bg-neutral-900 ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-neutral-800 focus:outline-none'
+								value={passwordLength}
+								onChange={handleChange}
+								onBlur={checkLength}
+							/>
+						</div>
+
+						<InputSwitch
+							label='Numbers'
+							value={includeNumbers}
+							onChange={() => setIncludeNumbers(!includeNumbers)}
+							className='py-4'
+						/>
+
+						<InputSwitch
+							label='Symbols'
+							value={includeSymbols}
+							onChange={() => setIncludeSymbols(!includeSymbols)}
+							className='py-4'
+						/>
+					</>
+				)}
+
+				{passwordType === 'PIN Code' && (
 					<div className='flex justify-between items-center text-base space-x-4 py-4'>
-						<h1 className='font-semibold'>Characters</h1>
+						<label className='font-semibold'>Numbers</label>
 
 						<input
 							type='range'
-							min={8}
-							max={100}
+							min={4}
+							max={12}
 							className={style.inputRange}
 							step={1}
-							value={passwordLen}
+							value={passwordLength}
 							onChange={(e) => setPasswordLength(e.target.value)}
 						/>
 
 						<input
 							type='text'
 							className='w-10 text-white bg-neutral-900 ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-neutral-800 focus:outline-none'
-							value={passwordLen}
+							value={passwordLength}
 							onChange={handleChange}
 							onBlur={checkLength}
 						/>
 					</div>
-
-					<InputSwitch
-						label='Numbers'
-						value={includeNumbers}
-						onChange={() => setIncludeNumbers(!includeNumbers)}
-						className='py-4'
-					/>
-
-					<InputSwitch
-						label='Symbols'
-						value={includeSymbols}
-						onChange={() => setIncludeSymbols(!includeSymbols)}
-						className='py-4'
-					/>
-				</div>
-			)}
+				)}
+			</div>
 
 			<button
 				className='bg-pink-500 hover:bg-pink-600 mt-6 w-full py-2 rounded-lg uppercase text-sm font-semibold tracking-wide'

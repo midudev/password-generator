@@ -2,8 +2,8 @@ import style from './select.module.css'
 
 export default function SelectPasswordType({ label, name, value, onChange }) {
 	return (
-		<div className='flex justify-end'>
-			<label htmlFor={name} className='sr-only'>
+		<div className='flex justify-between items-center py-4'>
+			<label htmlFor={name} className='mr-2 font-semibold'>
 				{label}
 			</label>
 			<select

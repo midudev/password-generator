@@ -1,7 +1,7 @@
 export function InputSwitch({ label, name, value, onChange, className }) {
 	return (
 		<div className={`flex items-center justify-between ${className}`}>
-			<label htmlFor={name} className='mr-2'>
+			<label htmlFor={name} className='mr-2 font-semibold'>
 				{label}
 			</label>
 			<div className='items-center flex'>
