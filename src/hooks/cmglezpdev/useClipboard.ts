@@ -1,4 +1,4 @@
-import { useState, useRef, LegacyRef, JSXElementConstructor } from 'react'
+import { useState, useRef } from 'react'
 
 export const useClipboard = () => {
 	const [copied, setCopied] = useState<boolean>(false)
