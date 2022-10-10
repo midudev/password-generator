@@ -1,6 +1,5 @@
 input.inputRange[type='range'] {
 	appearance: none;
-	appearance: none;
 	background: transparent;
 	cursor: pointer;
 	width: 100%;
@@ -9,6 +8,7 @@ input.inputRange[type='range'] {
 
 input.inputRange[type='range']:focus {
 	outline: none;
+	box-shadow: none;
 }
 
 /***** Chrome, Safari, Opera and Edge Chromium styles *****/
@@ -19,7 +19,6 @@ input.inputRange[type='range']::-webkit-slider-runnable-track {
 }
 
 input.inputRange[type='range']::-webkit-slider-thumb {
-	appearance: none;
 	appearance: none;
 	margin-top: -6px;
 	border-radius: 50%;
