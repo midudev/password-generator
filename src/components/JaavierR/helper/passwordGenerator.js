@@ -84,14 +84,10 @@ export function smartPassword() {
 		const rdm = Math.random()
 
 		if (randUpper < 0.5 && !upper) {
-			password += getUpper()
-			password += getUpper()
-			password += getUpper()
+			password += getUpper() + getUpper() + getUpper()
 			upper = true
 		} else {
-			password += getLower()
-			password += getLower()
-			password += getLower()
+			password += getLower() + getLower() + getLower()
 		}
 
 		if (i < 4) {
@@ -106,13 +102,15 @@ export function smartPassword() {
 	if (!upper) {
 		const textPositon = [0, 4, 8, 12, 16]
 		const randomPosition = textPositon[Math.floor(Math.random() * textPositon.length)]
+		const fixUpper = getUpper() + getUpper() + getUpper()
 
-		password = password.replace(password[randomPosition], getUpper())
-		password = password.replace(password[randomPosition + 1], getUpper())
-		password = password.replace(password[randomPosition + 2], getUpper())
+		password =
+			password.substring(0, randomPosition) +
+			fixUpper +
+			password.substring(randomPosition + 3, password.length)
 	}
 
-	const positions = [3, 6, 9, 12]
+	const positions = [3, 7, 11, 15]
 	const position = positions[Math.floor(Math.random() * positions.length)]
 
 	if (!/\d/.test(password)) {
