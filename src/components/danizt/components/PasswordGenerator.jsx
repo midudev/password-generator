@@ -13,6 +13,10 @@ const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
 	const [passwordLength, setPasswordLength] = useState(12)
 	const [passwordCopied, setPasswordCopied] = useState(false)
+	const [chkNumbers, setChkNumbers] = useState(true)
+	const [chkLowercase, setChkLowercase] = useState(true)
+	const [chkUppercase, setChkUppercase] = useState(true)
+	const [chkSpecial, setChkSpecial] = useState(true)
 
 	useEffect(() => {
 		handleGeneratePassword()
@@ -26,13 +30,28 @@ const PasswordGenerator = () => {
 		setPasswordCopied(copyPassword(password))
 	}
 
+	function handleChangeChkNumbers() {
+		setChkNumbers(!chkNumbers)
+	}
+
+	function handleChangeChkLowercase() {
+		setChkLowercase(!chkLowercase)
+	}
+
+	function handleChangeChkUppercase() {
+		setChkUppercase(!chkUppercase)
+	}
+
+	function handleChangeChkSpecial() {
+		setChkSpecial(!chkSpecial)
+	}
+
 	function handleGeneratePassword() {
 		let charactersAvaliable = ''
-		// TODO: if from checkbox
-		charactersAvaliable += NUMBERS
-		charactersAvaliable += LOWER_CASE
-		charactersAvaliable += UPPER_CASE
-		charactersAvaliable += SPECIAL
+		if (chkNumbers) charactersAvaliable += NUMBERS
+		if (chkLowercase) charactersAvaliable += LOWER_CASE
+		if (chkUppercase) charactersAvaliable += UPPER_CASE
+		if (chkSpecial) charactersAvaliable += SPECIAL
 
 		setPassword(getRandomPassword(charactersAvaliable, passwordLength))
 	}
@@ -71,6 +90,75 @@ const PasswordGenerator = () => {
 					}}
 				/>
 
+				<h3 className='mb-1'>Configuration:</h3>
+				<ul className='items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white'>
+					<li className='w-full border-b border-gray-600 sm:border-b-0 sm:border-r'>
+						<div className='flex items-center pl-3'>
+							<input
+								id='danizt_chk_numbers'
+								type='checkbox'
+								value=''
+								className='w-4 h-4 rounded'
+								defaultChecked={chkNumbers}
+								onChange={handleChangeChkNumbers}
+							/>
+							<label htmlFor='danizt_chk_numbers' className='py-3 ml-2 w-full text-sm font-medium'>
+								Numbers
+							</label>
+						</div>
+					</li>
+					<li className='w-full border-b border-gray-600 sm:border-b-0 sm:border-r'>
+						<div className='flex items-center pl-3'>
+							<input
+								id='danizt_chk_lower_case'
+								type='checkbox'
+								value=''
+								className='w-4 h-4 rounded'
+								defaultChecked={chkLowercase}
+								onChange={handleChangeChkLowercase}
+							/>
+							<label
+								htmlFor='danizt_chk_lower_case'
+								className='py-3 ml-2 w-full text-sm font-medium'
+							>
+								Lowercase
+							</label>
+						</div>
+					</li>
+					<li className='w-full border-b border-gray-600 sm:border-b-0 sm:border-r'>
+						<div className='flex items-center pl-3'>
+							<input
+								id='danizt_chk_upper_case'
+								type='checkbox'
+								value=''
+								className='w-4 h-4 rounded'
+								defaultChecked={chkUppercase}
+								onChange={handleChangeChkUppercase}
+							/>
+							<label
+								htmlFor='danizt_chk_upper_case'
+								className='py-3 ml-2 w-full text-sm font-medium'
+							>
+								Uppercase
+							</label>
+						</div>
+					</li>
+					<li className='w-full border-b border-gray-600 sm:border-b-0 sm:border-r'>
+						<div className='flex items-center pl-3'>
+							<input
+								id='danizt_chk_special'
+								type='checkbox'
+								value=''
+								className='w-4 h-4 rounded'
+								defaultChecked={chkSpecial}
+								onChange={handleChangeChkSpecial}
+							/>
+							<label htmlFor='danizt_chk_special' className='py-3 ml-2 w-full text-sm font-medium'>
+								Special
+							</label>
+						</div>
+					</li>
+				</ul>
 				<button onClick={handleGeneratePassword} className={hover1Style}>
 					<span className={`${hover2Style} py-2 px-2`}>Generate password</span>
 				</button>
