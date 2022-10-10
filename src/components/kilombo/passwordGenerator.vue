@@ -1,51 +1,51 @@
 <template>
 	<div
 		class="main-container min-h-screen min-w-full flex text-black  justify-center items-center bg-contain bg-center bg-no-repeat">
-		<section>
-			<div class="window" style="width: 325px">
-				<div class="title-bar">
-					<div class="title-bar-text">Password Generator</div>
-				</div>
-				<div class="window-body">
-					<div class="my-2">Your password: <span id="generatedPasswordText" class="font-bold"
-							v-on:focus="$event.target.select()">{{generatedPassword}}</span><button v-if="generatedPassword"
-							@click="copyToClipboard" class="mx-1">Copy</button></div>
-					<div class="field-row my-2">
-						<label for="range26">Low</label>
-						<input id="range26" type="range" min="1" max="20" v-model="passwordLength" class="block" />
-						<label for="range27">High</label>
-					</div>
-					<p class="my-2 text-center">Length: {{passwordLength}} </p>
-					<div class="my-2">
-						<div>
-							<input v-model="useLowercase" type="checkbox" id="useLowercase" />
-							<label for="useLowercase">Use lowercase</label>
-						</div>
-						<div>
-							<input v-model="useUppercase" type="checkbox" id="useUppercase" />
-							<label for="useUppercase">Use uppercase</label>
-						</div>
-						<div>
-							<input v-model="useNumbers" type="checkbox" id="useNumbers" />
-							<label for="useNumbers">Use numbers</label>
-						</div>
-						<div>
-							<input v-model="useSymbols" type="checkbox" id="useSymbols" />
-							<label for="useSymbols">Use symbols</label>
-						</div>
-					</div>
-					<button @click="generatePassword" class="">Generate password</button>
-				</div>
+		<div class="window" style="width: 325px">
+			<div class="title-bar">
+				<div class="title-bar-text">Password Generator</div>
 			</div>
-
-		</section>
+			<div class="window-body">
+				<div class="my-2">Your password: <span id="generatedPasswordText" class="font-bold"
+						v-on:focus="$event.target.select()">{{generatedPassword}}</span><button v-if="generatedPassword"
+						@click="copyToClipboard" class="mx-1">Copy</button></div>
+				<div class="field-row my-2">
+					<label for="range26">Low</label>
+					<input id="range26" type="range" min="1" max="20" v-model="passwordLength" class="block" />
+					<label for="range27">High</label>
+				</div>
+				<p class="my-2 text-center">Length: {{passwordLength}} </p>
+				<div class="my-2">
+					<div>
+						<input v-model="useLowercase" type="checkbox" id="useLowercase" />
+						<label for="useLowercase">Use lowercase</label>
+					</div>
+					<div>
+						<input v-model="useUppercase" type="checkbox" id="useUppercase" />
+						<label for="useUppercase">Use uppercase</label>
+					</div>
+					<div>
+						<input v-model="useNumbers" type="checkbox" id="useNumbers" />
+						<label for="useNumbers">Use numbers</label>
+					</div>
+					<div>
+						<input v-model="useSymbols" type="checkbox" id="useSymbols" />
+						<label for="useSymbols">Use symbols</label>
+					</div>
+				</div>
+				<button @click="generatePassword" class="">Generate password</button>
+			</div>
+		</div>
+		<modal :title="modalTitle" :text="modalText" :isOpened="isModalVisible" @close="closeModalHandler"></modal>
 	</div>
 </template>
 
 <script>
+import modal from '@components/kilombo/components/modal.vue'
+
 export default {
 	name: "passwordGenerator",
-	components: {},
+	components: { modal },
 	data () {
 		return {
 			generatedPassword: '',
@@ -58,7 +58,10 @@ export default {
 			useNumbers: false,
 			symbolsChars: "!@#$%^&*_-+=",
 			useSymbols: false,
-			selectedChars: ''
+			selectedChars: '',
+			isModalVisible: false,
+			modalTitle: '',
+			modalText: ''
 		}
 	},
 	methods: {
@@ -84,6 +87,12 @@ export default {
 		},
 		copyToClipboard () {
 			navigator.clipboard.writeText(this.generatedPassword);
+			this.modalText = 'Copied to clipboard!';
+			this.isModalVisible = true;
+		},
+		closeModalHandler () {
+			this.modalText = '';
+			this.isModalVisible = false;
 		}
 	},
 }
