@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { Clipboard, ClipboardClicked } from './ClipboardIcons'
 import { InputSwitch } from './InputSwitch'
 import { generatePassword, pinCode, smartPassword } from './helper/passwordGenerator'
-import style from './range.module.css'
 import SelectPasswordType from './SelectPasswordType'
+import { InputRangeSelector } from './InputRangeSelector'
 
 function PasswordGenerator() {
 	const [passwordLength, setPasswordLength] = useState(8)
@@ -53,7 +53,7 @@ function PasswordGenerator() {
 				length = 12
 			}
 
-			setPassword(pinCode({ length: pinLength }))
+			setPassword(pinCode({ length }))
 		}
 	}, [passwordLength, pinLength, includeNumbers, includeSymbols, passwordType, regenerate])
 
@@ -129,27 +129,15 @@ function PasswordGenerator() {
 
 				{passwordType === 'Random Password' && (
 					<>
-						<div className='flex justify-between items-center text-base space-x-4 py-4'>
-							<label className='font-semibold'>Characters</label>
-
-							<input
-								type='range'
-								min={8}
-								max={100}
-								className={style.inputRange}
-								step={1}
-								value={passwordLength}
-								onChange={(e) => setPasswordLength(e.target.value)}
-							/>
-
-							<input
-								type='text'
-								className='w-10 text-white bg-neutral-900 ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-neutral-800 focus:outline-none'
-								value={passwordLength}
-								onChange={handleChange}
-								onBlur={checkLength}
-							/>
-						</div>
+						<InputRangeSelector
+							label='Characters'
+							name='Characters'
+							min={8}
+							max={100}
+							value={passwordLength}
+							onChange={handleChange}
+							onBlur={checkLength}
+						/>
 
 						<InputSwitch
 							label='Numbers'
@@ -168,27 +156,15 @@ function PasswordGenerator() {
 				)}
 
 				{passwordType === 'PIN Code' && (
-					<div className='flex justify-between items-center text-base space-x-4 py-4'>
-						<label className='font-semibold'>Numbers</label>
-
-						<input
-							type='range'
-							min={4}
-							max={12}
-							className={style.inputRange}
-							step={1}
-							value={pinLength}
-							onChange={(e) => setPinLength(e.target.value)}
-						/>
-
-						<input
-							type='text'
-							className='w-10 text-white bg-neutral-900 ring-1 ring-zinc-600/70 rounded-lg text-center focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 focus:ring-offset-neutral-800 focus:outline-none'
-							value={pinLength}
-							onChange={handleChange}
-							onBlur={checkLength}
-						/>
-					</div>
+					<InputRangeSelector
+						label='Numbers'
+						name='PIN Length'
+						min={4}
+						max={12}
+						value={pinLength}
+						onChange={handleChange}
+						onBlur={checkLength}
+					/>
 				)}
 			</div>
 
