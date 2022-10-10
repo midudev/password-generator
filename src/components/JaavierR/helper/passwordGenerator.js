@@ -61,26 +61,30 @@ export function generatePassword({ length, includeNumbers, includeSymbols }) {
 
 export function smartPassword() {
 	let password = ''
-	let upper = 0
-	const randUpper = Math.random()
+	let upper = false
 
-	for (let i = 0; i < 15; i++) {
-		if (i % 3 === 0 && i !== 0) {
-			const rdm = Math.random()
+	for (let i = 0; i < 5; i++) {
+		const randUpper = Math.random()
+		const rdm = Math.random()
 
+		if (randUpper < 0.5 && !upper) {
+			password += getUpper()
+			password += getUpper()
+			password += getUpper()
+			upper = true
+		} else {
+			password += getLower()
+			password += getLower()
+			password += getLower()
+		}
+
+		if (i < 4) {
 			if (rdm < 0.5) {
 				password += getSymbol()
 			} else {
 				password += getNumber()
 			}
 		}
-
-		if (upper < 2 && randUpper < 0.5) {
-			password += getUpper()
-			upper += 1
-		}
-
-		password += getLower()
 	}
 
 	return password
