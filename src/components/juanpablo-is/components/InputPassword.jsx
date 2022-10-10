@@ -16,14 +16,14 @@ const InputPassword = () => {
 	}
 
 	return (
-		<div className='my-4 relative w-full'>
+		<div className='mt-4 relative w-full'>
 			<input
 				id='password-generated'
 				value={showPassword ? password : '*'.repeat(password.length)}
 				type='text'
 				disabled
 				placeholder='Click "Generate password"'
-				className='block p-4 pr-28 w-full text-lg text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+				className='block p-4 pr-28 w-full text-lg rounded-tl-md rounded-tr-md text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 			/>
 			<div className='flex items-center absolute h-full top-0 right-0 text-sm font-medium'>
 				<button
@@ -35,7 +35,7 @@ const InputPassword = () => {
 				<button
 					type='button'
 					onClick={handlerCopyPassword}
-					className='flex items-center h-full p-1.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+					className='flex items-center h-full p-1.5 text-sm rounded-tr-md font-medium text-white bg-blue-700 border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
 				>
 					<IconCopy />
 					<span>Copy</span>
