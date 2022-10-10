@@ -5,38 +5,40 @@ import PasswordGenerator from '@components/JaavierR/PasswordGenerator'
 
 <Layout title='JaavierR hacktoberfest 2022 entry'>
 	<main class='h-screen flex flex-col items-center justify-center min-h-[50rem] px-4 sm:px-0'>
-		<div class='w-full px-8 mt-20 max-w-6xl mx-auto'>
-			<a
-				href='/'
-				class='text-white group bg-neutral-500/10 hover:bg-neutral-500/20 rounded-lg inline-flex p-2 items-center justify-center'
-			>
-				<svg
-					xmlns='http://www.w3.org/2000/svg'
-					fill='none'
-					viewBox='0 0 24 24'
-					stroke-width='1.5'
-					stroke='currentColor'
-					class='w-6 h-6 group-hover:-translate-x-0.5 transition duration-200'
+		<section class='container'>
+			<div class='w-full px-4 mt-20 max-w-6xl mx-auto'>
+				<a
+					href='/'
+					class='text-white group bg-neutral-500/10 hover:bg-neutral-500/20 rounded-lg inline-flex p-2 items-center justify-center ring-1 ring-neutral-500/30'
 				>
-					<path
-						stroke-linecap='round'
-						stroke-linejoin='round'
-						d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18'></path>
-				</svg>
-			</a>
-		</div>
-
-		<div class='h-full flex flex-col items-center justify-center -mt-40'>
-			<img class='w-72 h-auto mx-auto mb-8' src='/logo.svg' alt='Hacktoberfest logo' />
-			<PasswordGenerator client:only='react' />
-			<div class='text-white mt-6 font-semibold text-sm font-mono'>
-				Made with <span class='text-red-500'>❤</span> by <a
-					href='https://github.com/JaavierR'
-					target='_blank'
-					class='text-pink-400'>JaavierR</a
-				>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						fill='none'
+						viewBox='0 0 24 24'
+						stroke-width='1.5'
+						stroke='currentColor'
+						class='w-6 h-6 group-hover:-translate-x-0.5 transition duration-200'
+					>
+						<path
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18'></path>
+					</svg>
+				</a>
 			</div>
-		</div>
+
+			<div class='h-full flex flex-col items-center justify-center -mt-40'>
+				<img class='w-72 h-auto mx-auto mb-8' src='/logo.svg' alt='Hacktoberfest logo' />
+				<PasswordGenerator client:only='react' />
+				<div class='text-white mt-6 font-semibold text-sm font-mono'>
+					Made with <span class='text-red-500'>❤</span> by <a
+						href='https://github.com/JaavierR'
+						target='_blank'
+						class='text-pink-400'>JaavierR</a
+					>
+				</div>
+			</div>
+		</section>
 	</main>
 </Layout>
 
@@ -72,9 +74,6 @@ import PasswordGenerator from '@components/JaavierR/PasswordGenerator'
 	* {
 		user-select: none;
 	}
-	body::after {
-		content: none !important;
-	}
 	main::before {
 		animation: 1s linear 1s infinite normal none running binary;
 		content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
@@ -102,19 +101,42 @@ import PasswordGenerator from '@components/JaavierR/PasswordGenerator'
 		min-height: 100vh;
 		background: url('/grain-dark.png');
 	}
-	main::after {
+	.container {
+		height: 100vh;
+		min-height: 50rem;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-family: 'JetBrains Mono', sans-serif;
+	}
+
+	.container::before {
 		content: '';
+		background-image: url('./assets/grid-square.svg');
 		position: absolute;
 		margin: 0px auto;
 		left: 0px;
 		top: 5vh;
 		filter: brightness(0.4) sepia(1) hue-rotate(205deg) saturate(8);
-		background-image: url('./assets/grid-square.svg');
 		opacity: 0.2;
 		-webkit-mask-image: radial-gradient(70% 80% at 50% 50%, black 40%, transparent 70%);
 		width: 100%;
 		min-height: 90vh;
 		z-index: -1;
-		font-family: 'JetBrains Mono', sans-serif;
+	}
+
+	.container::after {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		content: '';
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(45deg, rgb(34, 211, 255) 0%, rgb(255, 62, 165) 100%);
+		opacity: 0.1;
+		z-index: -2;
+		-webkit-mask-image: radial-gradient(70% 80% at 50% 50%, black -40%, transparent 60%);
 	}
 </style>
