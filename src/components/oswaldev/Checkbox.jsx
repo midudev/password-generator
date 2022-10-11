@@ -4,7 +4,7 @@ function Checkbox(props) {
 	const { value, onChange } = props
 
 	return (
-		<div>
+		<div className='ml-5'>
 			<input type='checkbox' checked={value} onChange={onChange} />
 		</div>
 	)
