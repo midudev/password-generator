@@ -1,5 +1,7 @@
 <script>
-	import icon_arrow_clockwise from '../assets/icon_arrow_clockwise.svg'
+	import icon_arrow_clockwise from '../assets/icon_arrow_clockwise.svg';
+	export let clipboardDialog;
+
 	const CHARSET_UPERRCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 	const CHARSET_LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
 	const CHARSET_NUMBER = '0123456789'
@@ -16,8 +18,6 @@
 		20: {width: "80%", color: "#66dc26"},
 		30: {width: "100%", color: "linear-gradient(90deg, #9333ea, #4a53eb)"}
 	}
-
-	let clipboardDialog
 
 	function createPassword(animated = true) {
 		for (let i = 0; i < password_length; i++) {
@@ -54,7 +54,7 @@
 	function handleClipboard() {
 		navigator.clipboard.writeText(password)
 		clipboardDialog.showModal()
-		setTimeout(() => clipboardDialog.close(), 300)
+		setTimeout(() => clipboardDialog.close(), 700)
 	}
 </script>
 
@@ -74,7 +74,7 @@
 		/>
 		<input type="range" min="3" max="40" value={password_length}
 			on:input={(e) => {password_length = e.target.value; createPassword(false)}}
-			class="input_range cursor-pointer h-[6px] my-[10px] mx-0 w-full rounded-full focus:outline-none"
+			class="input_range cursor-pointer h-[6px] my-[10px] mx-0 w-full rounded-full focus:outline-none appearance-none"
 			style={`--left-slider: ${Math.round(((password_length - 3) * 100) / (40 - 3))}`}
 		/>
 		<button type="button" disabled={password_length >= 40} title="Add one"
@@ -83,8 +83,7 @@
 		/>
 	</fieldset>
 
-	<button type="button" class="p-2 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 font-bold uppercase my-4 w-full hover:opacity-95 bg-[length:300%_100%] hover:bg-[100%_0] transition-all duration-300"
-	on:click={handleClipboard}>Copy</button>
+	<button type="button" class="text-white p-2 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 font-bold uppercase my-4 w-full hover:opacity-95 bg-[length:300%_100%] hover:bg-[100%_0] transition-all duration-300" on:click={handleClipboard} style="box-shadow: 0 0 15px #6447ea7a">Copy</button>
 
 	<fieldset class="flex gap-2 justify-between mt-2">
 		<legend class="contents">Characters used:</legend>
@@ -111,11 +110,6 @@
 	</fieldset>
 </form>
 
-<dialog  bind:this={clipboardDialog} class="transition-all px-6 bg-[#2A2B38] text-white font-bold block -top-60 bottom-auto opacity-0 open:top-2 open:opacity-100 backdrop:bg-transparent">
-	<p class="">Copied to clipboard!</p>
-</dialog>
-
-<!-- 214 -->
 <style>
 	:disabled {
 		filter: grayscale(100%);
@@ -127,7 +121,6 @@
 	}
 	/* === Input === */
 	.input_range {
-		-webkit-appearance: none;
 		background: rgba(128, 128, 128, 0.6) linear-gradient(white, white) no-repeat;
 		background-size: calc(var(--left-slider) * 1%) 100%;
 	}
@@ -135,17 +128,28 @@
 		height: 30px;
 		width: 30px;
 		border-radius: 100%;
-		background: #ffffff;
 		cursor: ew-resize;
 		-webkit-appearance: none;
 		margin-top: -1px;
 		transition: transform 0.2s ease;
-		background:white  url('../assets/icon_unfold_more.svg') no-repeat center;
+		background:white url('../assets/icon_unfold_more.svg') no-repeat center;
 		background-size: 100%;
 		background-position: 1px;
 	}
 	.input_range:hover::-webkit-slider-thumb {
 		transform: scale(1.1);
+	}
+	:global(body.light-mode) .input_range::-webkit-slider-thumb{
+		background: #e4e4fd  url('../assets/icon_unfold_more.svg') no-repeat center;
+		background-size: 100%;
+		background-position: 1px;
+	}
+	:global(body.light-mode) .input_range{
+		background: rgba(128, 128, 128, 0.6) linear-gradient(#e4e4fd, #e4e4fd) no-repeat;
+		background-size: calc(var(--left-slider) * 1%) 100%;
+	}
+	:global(body.light-mode) textarea{
+		background: #e4e4fd;
 	}
 	/* === Checkboxes === */
 	.charset_checkbox::before {
