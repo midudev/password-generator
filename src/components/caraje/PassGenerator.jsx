@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import './styles/generatorStyles.css'
 import { capitalLetters, lowercaseLetters, numbers, simbols } from './utils/characters'
 import PassComponent from './PassComponent'
+import styles from './styles/generatorStyles.module.css'
 
 const PassGenerator = () => {
 	const [pass, setPass] = useState('')
@@ -68,8 +68,8 @@ const PassGenerator = () => {
 	return (
 		<>
 			{active && (
-				<div className='caraje-notification'>
-					<h3 className='caraje-h3'>¡¡¡Copiado!!!</h3>
+				<div className={styles.caraje_notification}>
+					<h3 className={styles.caraje_h3}>¡¡¡Copiado!!!</h3>
 				</div>
 			)}
 
