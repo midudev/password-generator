@@ -13,6 +13,10 @@ const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
 	const [passwordLength, setPasswordLength] = useState(12)
 	const [passwordCopied, setPasswordCopied] = useState(false)
+	const [chkNumbers, setChkNumbers] = useState(true)
+	const [chkLowercase, setChkLowercase] = useState(true)
+	const [chkUppercase, setChkUppercase] = useState(true)
+	const [chkSpecial, setChkSpecial] = useState(true)
 
 	useEffect(() => {
 		handleGeneratePassword()
@@ -26,13 +30,28 @@ const PasswordGenerator = () => {
 		setPasswordCopied(copyPassword(password))
 	}
 
+	function handleChangeChkNumbers() {
+		setChkNumbers(!chkNumbers)
+	}
+
+	function handleChangeChkLowercase() {
+		setChkLowercase(!chkLowercase)
+	}
+
+	function handleChangeChkUppercase() {
+		setChkUppercase(!chkUppercase)
+	}
+
+	function handleChangeChkSpecial() {
+		setChkSpecial(!chkSpecial)
+	}
+
 	function handleGeneratePassword() {
 		let charactersAvaliable = ''
-		// TODO: if from checkbox
-		charactersAvaliable += NUMBERS
-		charactersAvaliable += LOWER_CASE
-		charactersAvaliable += UPPER_CASE
-		charactersAvaliable += SPECIAL
+		if (chkNumbers) charactersAvaliable += NUMBERS
+		if (chkLowercase) charactersAvaliable += LOWER_CASE
+		if (chkUppercase) charactersAvaliable += UPPER_CASE
+		if (chkSpecial) charactersAvaliable += SPECIAL
 
 		setPassword(getRandomPassword(charactersAvaliable, passwordLength))
 	}
@@ -61,7 +80,7 @@ const PasswordGenerator = () => {
 					<span className='text-cyan-500 font-bold'>{passwordLength}</span>
 				</label>
 				<input
-					className='mb-4 accent-cyan-500'
+					className='mb-1 accent-cyan-500'
 					type='range'
 					min='1'
 					max='30'
@@ -70,6 +89,50 @@ const PasswordGenerator = () => {
 						setPasswordLength(value)
 					}}
 				/>
+
+				<h3 className='mb-1'>Configuration:</h3>
+
+				<div className='flex flex-wrap px-6 mb-2'>
+					<label className='pl-2 w-1/2'>
+						<input
+							type='checkbox'
+							className='mr-2 accent-cyan-500'
+							defaultChecked={chkNumbers}
+							onChange={handleChangeChkNumbers}
+						/>
+						Numbers
+					</label>
+
+					<label className='pl-2 w-1/2'>
+						<input
+							type='checkbox'
+							className='mr-2 accent-cyan-500'
+							defaultChecked={chkLowercase}
+							onChange={handleChangeChkLowercase}
+						/>
+						Lowercase
+					</label>
+
+					<label className='pl-2 w-1/2'>
+						<input
+							type='checkbox'
+							className='mr-2 accent-cyan-500'
+							defaultChecked={chkUppercase}
+							onChange={handleChangeChkUppercase}
+						/>
+						Uppercase
+					</label>
+
+					<label className='pl-2 w-1/2'>
+						<input
+							type='checkbox'
+							className='mr-2 accent-cyan-500'
+							defaultChecked={chkSpecial}
+							onChange={handleChangeChkSpecial}
+						/>
+						Special
+					</label>
+				</div>
 
 				<button onClick={handleGeneratePassword} className={hover1Style}>
 					<span className={`${hover2Style} py-2 px-2`}>Generate password</span>
