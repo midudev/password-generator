@@ -6,6 +6,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: rgb(23 15 30);
 }
 
 .caraje-cardpass {
@@ -98,4 +99,21 @@
 .caraje-h3 {
 	color: white;
 	font-size: 0.8rem;
+}
+
+.caraje-selections {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.caraje-option {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	color: #333;
+	font-size: 2rem;
+	font-weight: 700;
+	font-family: Nunito, sans-serif;
 }
