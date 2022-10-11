@@ -56,7 +56,23 @@ export function randomPassword({ length, includeNumbers, includeSymbols }) {
 		}
 	}
 
-	return password
+	if (includeNumbers && includeSymbols) {
+		if (!/\d/.test(password)) {
+			password = password.replace(
+				password[Math.floor(Math.random() * password.length)],
+				getNumber()
+			)
+		}
+
+		if (!/[!@*_\-/.]/.test(password)) {
+			password = password.replace(
+				password[Math.floor(Math.random() * password.length)],
+				getSymbol()
+			)
+		}
+	}
+
+	return [...password]
 }
 
 export function smartPassword() {
@@ -68,14 +84,10 @@ export function smartPassword() {
 		const rdm = Math.random()
 
 		if (randUpper < 0.5 && !upper) {
-			password += getUpper()
-			password += getUpper()
-			password += getUpper()
+			password += getUpper() + getUpper() + getUpper()
 			upper = true
 		} else {
-			password += getLower()
-			password += getLower()
-			password += getLower()
+			password += getLower() + getLower() + getLower()
 		}
 
 		if (i < 4) {
@@ -87,7 +99,29 @@ export function smartPassword() {
 		}
 	}
 
-	return password
+	if (!upper) {
+		const textPositon = [0, 4, 8, 12, 16]
+		const randomPosition = textPositon[Math.floor(Math.random() * textPositon.length)]
+		const fixUpper = getUpper() + getUpper() + getUpper()
+
+		password =
+			password.substring(0, randomPosition) +
+			fixUpper +
+			password.substring(randomPosition + 3, password.length)
+	}
+
+	const positions = [3, 7, 11, 15]
+	const position = positions[Math.floor(Math.random() * positions.length)]
+
+	if (!/\d/.test(password)) {
+		password = password.replace(password[position], getNumber())
+	}
+
+	if (!/[!@*_\-/.]/.test(password)) {
+		password = password.replace(password[position], getSymbol())
+	}
+
+	return [...password]
 }
 
 export function pinCode({ length }) {
@@ -97,5 +131,5 @@ export function pinCode({ length }) {
 		password += getNumber()
 	}
 
-	return password
+	return [...password]
 }
