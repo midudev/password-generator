@@ -34,7 +34,7 @@
 <UltraGradientBackground />
 
 <div
-	class="absolute border-gray-600/20 border-2 p-6 bg-gray-900/60 backdrop-blur-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg"
+	class="bg-noise absolute border-white/20 border-2 p-6 backdrop-blur-sm top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg"
 >
 	<!-- Title -->
 	<h1 class="text-5xl font-bold text-center">Password Generator</h1>
@@ -213,5 +213,10 @@
 
 	.generate-password:active {
 		box-shadow: #3c4fe0 0 3px 7px inset;
+	}
+
+	.bg-noise {
+		background: linear-gradient(to bottom, rgba(17, 24, 39, 0.6), rgba(0, 0, 0, 0.8)),
+			url(/grain-dark.png);
 	}
 </style>
