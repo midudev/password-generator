@@ -7,4 +7,9 @@ export interface SliderType {
 
 export interface PasswordType {
 	passwordLength: number
+	charactersTypes: string[]
+}
+
+export interface CharacterType {
+	onChangeHandler: (list: string[]) => void
 }
