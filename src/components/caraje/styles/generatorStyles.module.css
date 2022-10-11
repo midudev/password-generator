@@ -1,6 +1,6 @@
 @import 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap';
 
-.caraje-screen {
+.caraje_screen {
 	height: 100vh;
 	width: 100vw;
 	display: flex;
@@ -9,7 +9,7 @@
 	background-color: rgb(23 15 30);
 }
 
-.caraje-cardpass {
+.caraje_cardpass {
 	background-color: #fff;
 	max-width: 50rem;
 	padding: 2rem 5rem;
@@ -17,11 +17,11 @@
 	box-shadow: 0 0 100px 5px rgb(0 104 250 / 70%);
 }
 
-.caraje-header {
+.caraje_header {
 	width: 100%;
 }
 
-.caraje-h1 {
+.caraje_h1 {
 	color: #0068fa;
 	font-size: 4rem;
 	font-family: Nunito, sans-serif;
@@ -29,7 +29,7 @@
 	text-align: center;
 }
 
-.caraje-generator {
+.caraje_generator {
 	margin: 1rem 0;
 	display: flex;
 	flex-direction: column;
@@ -37,13 +37,13 @@
 	gap: 2rem;
 }
 
-.caraje-groupkey {
+.caraje_groupkey {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 }
 
-.caraje-key {
+.caraje_key {
 	width: 85%;
 	border: 1px solid #ccc;
 	border-radius: 10px;
@@ -53,15 +53,15 @@
 	font-weight: 400;
 }
 
-.caraje-copy:hover {
+.caraje_copy:hover {
 	filter: drop-shadow(0 0 15px rgb(0 104 250 / 50%));
 }
 
-.caraje-slide {
+.caraje_slide {
 	width: 85%;
 }
 
-.caraje-btn {
+.caraje_btn {
 	background-color: #0068fa;
 	border-radius: 10px;
 	color: #eee;
@@ -74,12 +74,12 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.caraje-btn:hover {
+.caraje_btn:hover {
 	background-color: #257af1;
 	box-shadow: 0 0 20px 5px rgb(0 104 250 / 50%);
 }
 
-.caraje-h2 {
+.caraje_h2 {
 	color: #333;
 	font-size: 1.5rem;
 	font-family: Nunito, sans-serif;
@@ -87,7 +87,7 @@
 	text-align: center;
 }
 
-.caraje-notification {
+.caraje_notification {
 	position: absolute;
 	left: 50%;
 	top: 2%;
@@ -96,19 +96,19 @@
 	padding: 0.1rem 0.5rem;
 }
 
-.caraje-h3 {
+.caraje_h3 {
 	color: white;
 	font-size: 0.8rem;
 }
 
-.caraje-selections {
+.caraje_selections {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 }
 
-.caraje-option {
+.caraje_option {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
