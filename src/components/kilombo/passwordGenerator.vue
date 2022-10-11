@@ -36,6 +36,8 @@
 				<button @click="generatePassword" class="">Generate password</button>
 			</div>
 		</div>
+		<div class="absolute bottom-2 text-white">Made with <a href='https://jdan.github.io/98.css/' target='_blank'
+				class="text-white font-bold">98.css</a></div>
 		<modal :title="modalTitle" :text="modalText" :isOpened="isModalVisible" @close="closeModalHandler"></modal>
 	</div>
 </template>
@@ -101,5 +103,11 @@ export default {
 <style scoped>
 .main-container {
 	background-image: url('./assets/windows_98_background_in_1920x1080.png')
+}
+
+@media screen and (max-width:600px) {
+	.main-container {
+		background-image: none;
+	}
 }
 </style>
