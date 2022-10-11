@@ -28,7 +28,7 @@ La **[Hacktoberfest](https://hacktoberfest.com/)** es un evento anual organizado
 
 2. **Crea un fork de este repositorio**:
 
-- Click en *Fork* en la esquina superior derecha o haz click [aquí](https://github.com/midudev/hacktoberfest-2022/fork).
+- Click en _Fork_ en la esquina superior derecha o haz click [aquí](https://github.com/midudev/hacktoberfest-2022/fork).
 
 3. **Clona el repositorio:**
 
@@ -100,6 +100,18 @@ Si usas Solid o Preact, debes indicar el [`jsxImportSource`](https://www.typescr
 // Para Solid
 /** @jsxImportSource solid-js */
 ```
+
+para poder ejeuctar solo los test que esten en tus carpetas tienes que ir al archivo <code>jest.config.js</code> y modifica el parametro <code>testMatch</code>
+
+```JSON
+{
+	"testMatch": ["**/<tu-nombre-de-usuario-en-github>/**/*.spec.{js,ts}"]
+}
+```
+
+**Nota: tendras que deshacer este cambio antes de hacer commit**
+
+<br>
 
 Más información al respecto [aquí](https://docs.astro.build/es/guides/typescript/#soluci%C3%B3n-de-problemas).
 
