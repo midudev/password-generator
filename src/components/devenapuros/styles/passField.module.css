@@ -1,0 +1,29 @@
+.container {
+	padding: 10px 15px;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	width: 100%;
+	font-weight: 600;
+	border-radius: 12px;
+	border: 1px solid #00000020;
+	transition: background-color 300ms ease;
+	gap: 10px;
+}
+
+.container > input {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	background-color: transparent;
+}
+
+.container > input:focus {
+	border: 0;
+	outline: none;
+}
+
+.separator {
+	height: 26px;
+	border-left: 1px solid #00000020;
+}
