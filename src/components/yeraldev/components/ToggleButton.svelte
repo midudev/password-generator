@@ -3,15 +3,15 @@
 	export let data: TagValue, customMethod: () => void
 </script>
 
-<button on:click={customMethod}>
+<button class="toggle-button" on:click={customMethod}>
 	{data.tag}
-	<span class:toggle={!data.value}>
-		<em class:red-icon={!data.value} />
+	<span class="toggle-back" class:toggle={!data.value}>
+		<em class="toggle-switch" class:red-icon={!data.value} />
 	</span>
 </button>
 
 <style>
-	button {
+	.toggle-button {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -22,13 +22,13 @@
 		text-shadow: inherit;
 		transition: all 0.5s ease-in-out;
 	}
-	button:active {
+	.toggle-button:active {
 		text-shadow: var(--text-shadow-hover);
 	}
-	button:hover {
+	.toggle-button:hover {
 		text-shadow: var(--text-shadow-hover);
 	}
-	span {
+	.toggle-back {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
@@ -39,7 +39,7 @@
 		box-shadow: inset var(--green) -1px -1px 1px;
 		transition: all 0.5s ease-in-out;
 	}
-	em {
+	.toggle-switch {
 		display: grid;
 		place-content: center;
 		width: 1.5rem;

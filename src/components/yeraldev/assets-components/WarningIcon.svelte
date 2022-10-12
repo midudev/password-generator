@@ -1,7 +1,7 @@
-<span />
+<span class="warning" />
 
 <style>
-	span {
+	.warning {
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
@@ -14,8 +14,8 @@
 		border-radius: 100%;
 		box-shadow: inset var(--text-shadow-hover);
 	}
-	span::before,
-	span::after {
+	.warning::before,
+	.warning::after {
 		content: '';
 		width: 0.25rem;
 		height: 1.25rem;
@@ -23,7 +23,7 @@
 		border: inherit;
 		background-color: var(--color);
 	}
-	span::after {
+	.warning::after {
 		height: 0.5rem;
 		width: 0.5rem;
 		border-radius: inherit;

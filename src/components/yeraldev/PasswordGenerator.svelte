@@ -8,8 +8,7 @@
 	import { passwordSettings } from './store/index'
 </script>
 
-<main>
-	<GeneratorAlertFormat />
+<main class="root">
 	<Header />
 
 	<CopyButton />
@@ -19,7 +18,7 @@
 		customMethod={passwordSettings.customizePasswordLength}
 	/>
 
-	<section>
+	<section class="toggle-buttons">
 		<span>Password options:</span>
 		<ToggleButton
 			data={$passwordSettings.lowercase}
@@ -34,6 +33,7 @@
 	</section>
 
 	<Footer />
+	<GeneratorAlertFormat />
 </main>
 
 <style>
@@ -51,7 +51,7 @@
 			hsla(239, 100%, 74%, 0.8) 1px 1px 6px;
 		--toggle-shadow: hsla(47, 100%, 65%, 0.5) -1px -1px 6px, hsla(239, 100%, 74%, 0.5) 1px 1px 6px;
 	}
-	main {
+	.root {
 		display: grid;
 		place-content: center;
 		gap: 1rem;
@@ -64,14 +64,14 @@
 		text-align: center;
 	}
 
-	section {
+	.toggle-buttons {
 		display: grid;
 		place-content: center;
 		gap: 1rem;
 	}
 
 	@media (max-width: 600px) {
-		main {
+		.root {
 			font-size: 1.5em;
 			padding: 0 1rem;
 		}

@@ -1,7 +1,7 @@
-<span />
+<span class="success" />
 
 <style>
-	span {
+	.success {
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -16,8 +16,8 @@
 		box-shadow: inset var(--text-shadow-hover);
 		transform: rotateZ(-45deg);
 	}
-	span::before,
-	span::after {
+	.success::before,
+	.success::after {
 		position: absolute;
 		content: '';
 		width: 1.55rem;
@@ -27,7 +27,7 @@
 		transform: translate(2px, 3px);
 		background-color: var(--color);
 	}
-	span::after {
+	.success::after {
 		position: absolute;
 		transform: translate(-7px, -2px);
 		height: 0.9rem;

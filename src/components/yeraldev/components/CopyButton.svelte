@@ -21,22 +21,20 @@
 
 <section>
 	<button
+		class="copy-button"
 		style="
 		--background-color:{setBackgroundColor($passwordSettings).icon}; 
 		--opacity-background-color:{setBackgroundColor($passwordSettings).card}"
 		on:click={() => clipboard($passwordGenerated)}
 	>
-		<span>
+		<span class="password">
 			{$passwordGenerated}
 		</span>
 	</button>
 </section>
 
 <style>
-	section {
-		display: block;
-	}
-	button {
+	.copy-button {
 		position: relative;
 		display: grid;
 		background-color: var(--opacity-background-color);
@@ -52,8 +50,8 @@
 		box-shadow: var(--text-shadow-hover);
 		transition: all 0.3s ease-in-out;
 	}
-	button::before,
-	button::after {
+	.copy-button::before,
+	.copy-button::after {
 		position: absolute;
 		content: '';
 		height: 2rem;
@@ -65,19 +63,19 @@
 		border: 2px solid var(--color);
 		box-shadow: inherit;
 	}
-	button::before {
+	.copy-button::before {
 		top: 0.35rem;
 		right: 0.85rem;
 	}
-	button:hover {
+	.copy-button:hover {
 		transform: scale(1.05);
 		text-shadow: var(--text-shadow-hover);
 	}
-	button:active {
+	.copy-button:active {
 		transform: scale(1);
 		text-shadow: var(--text-shadow-hover);
 	}
-	span {
+	.password {
 		width: 90%;
 		overflow: hidden;
 	}
