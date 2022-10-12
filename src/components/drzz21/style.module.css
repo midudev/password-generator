@@ -1,0 +1,12 @@
+.container {
+	height: 100vh;
+	background-color: #222831;
+}
+
+.text {
+	color: #00adb5;
+}
+
+.textDisabled {
+	color: #222831;
+}
