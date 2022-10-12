@@ -22,7 +22,7 @@ const INITIAL_STATE: SettingsOption[] = [
 
 
 export const Settings = () => {
-	const { settings, handleInputChange, findByName, checkAll, checked } = useSettings(INITIAL_STATE)
+	const { settings, handleInputChange, findByName, checkAll } = useSettings(INITIAL_STATE)
 
 	return (
 		<div className='mt-6'>
