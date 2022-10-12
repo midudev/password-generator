@@ -13,7 +13,7 @@ export const usePassword = () => {
 		setPassword('Hola Cuba')
 	}
 
-	const generatePasswordByPhrase = (phrase:string, lenght:number) : string => {
+	const generatePasswordByPhrase = (phrase:string, lenght:number) => {
 		// Convert the phrase string in a array of characters
 		phrase = phrase.toLowerCase()
 		const ph:string[] = []
@@ -62,12 +62,12 @@ export const usePassword = () => {
 		}
 
 		// convert to string
-		let password = ''
+		let pw = ''
 		for (let i = 0; i < ph.length; i++) {
-			if (i % 4 === 0) password += ' '
-			password += ph[i]
+			if (i % 4 === 0) pw += ' '
+			pw += ph[i]
 		}
-		return password
+		setPassword(pw)
 	}
 
 
