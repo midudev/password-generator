@@ -1,0 +1,62 @@
+* {
+	box-sizing:border-box;
+	list-style: none;
+	padding: 0;
+	outline: none;
+}
+.wid-100 {
+	width: 100%;
+}
+.flex-x-between{
+	justify-content: space-between;
+}
+.btn {
+	padding: 10px 13px;
+}
+.diff-btn {
+	font-size: 13px;
+	flex-grow: 1;
+	flex-shrink: 0;
+	border-radius: 5px;
+	border: 2px solid transparent;
+	transition:.3s;
+	font-weight: 600;
+}
+.generate-password-btn {
+	font-size: 14px;
+	border-radius: 5px;
+	background-color: #1f1f1f;
+	padding: 13px;
+	transition: .3s;
+}
+.generate-password-btn:hover {
+	background-color: #fff;
+	color: #1f1f1f;
+}
+
+.password-box {
+	width: 400px;
+	max-width: 100%;
+	padding: 20px;
+}
+.password-input input {
+	color: #000;
+	padding: 10px 20px;
+	border-radius: 5px;
+	height:50px;
+}
+
+.password-config,.password-box{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.password-config__diff{
+	display: flex;
+	gap: 20px;
+	justify-content: space-between;
+}
+.password-config__item-label {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
