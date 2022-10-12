@@ -1,11 +1,11 @@
-import { GeneratePasswordComponent } from './Form'
-import { Castle } from './Castle'
+import { GeneratePassword } from './GeneratePassword'
+import { Animation } from './Animation'
 
 export default function Home() {
 	return (
 		<>
-			<GeneratePasswordComponent />
-			<Castle />
+			<GeneratePassword />
+			<Animation />
 		</>
 	)
 }
