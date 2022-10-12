@@ -9,7 +9,7 @@ import {
 const generatorAlertFormatConfig = () => {
 	const { subscribe, update, set } = writable<GeneratorAlertFormat>(InitGeneratorAlertFormat)
 	const close = () => set(InitGeneratorAlertFormat)
-	const autoClose = () => setTimeout(() => close(), 5000)
+	const autoClose = () => setTimeout(() => close(), 3000)
 	const customStyle = ({ message, cardStyle, iconStyle, type }: Partial<GeneratorAlertFormat>) => {
 		update(() => {
 			return { message, show: true, type, cardStyle, iconStyle }
@@ -26,7 +26,7 @@ const generatorAlertFormatConfig = () => {
 				iconStyle: GeneratorAlertStyle.success
 			}
 		})
-		// autoClose()
+		autoClose()
 	}
 	const info = (message: string) => {
 		update(() => {
