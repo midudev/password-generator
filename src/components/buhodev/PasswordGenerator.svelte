@@ -186,7 +186,7 @@
 				/>
 				<label
 					for={option}
-					class="inline-flex justify-between items-center p-4 text-center w-full text-white bg-gray-800/20 rounded-lg border-[3px] border-gray-400/20 cursor-pointer peer-checked:border-sky-600 hover:text-gray-100 peer-checked:text-white transition-colors hover:bg-gray-500/20"
+					class="inline-flex justify-between items-center p-4 text-center w-full text-white bg-gray-800/20 rounded-lg border-2 border-gray-400/20 cursor-pointer peer-checked:border-sky-600 hover:text-gray-100 peer-checked:text-white transition-colors hover:bg-gray-500/20"
 				>
 					<div class="w-full text-lg font-semibold">{TITLES[option]}</div>
 				</label>
