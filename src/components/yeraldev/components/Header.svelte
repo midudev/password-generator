@@ -1,17 +1,17 @@
-<section>
-	<p>online password generator tool</p>
-	<h1>Generate a secure password</h1>
+<section class="header">
+	<p class="slogan">online password generator tool</p>
+	<h1 class="title">Generate a secure password</h1>
 </section>
 
 <style>
-	section {
+	.header {
 		text-align: center;
 	}
-	p {
+	.slogan {
 		font-size: 0.75em;
 		text-shadow: inherit;
 	}
-	h1 {
+	.title {
 		font-size: 1.5rem;
 		text-shadow: inherit;
 	}

@@ -9,6 +9,7 @@
 
 {#if $generatorAlert.show}
 	<button
+		class="alert-card"
 		on:click={generatorAlert.close}
 		transition:fade
 		style="--opacity-background-color:{$generatorAlert.cardStyle};
@@ -30,7 +31,7 @@
 {/if}
 
 <style>
-	button {
+	.alert-card {
 		position: absolute;
 		display: flex;
 		gap: 0.5rem;
