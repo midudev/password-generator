@@ -55,7 +55,7 @@ const PasswordConfig = ({ onSubmit }) => {
 							className='btn diff-btn'
 							style={
 								value === selectedDiff
-									? { backgroundColor: color, color: 'var(--primary-color)' }
+									? { backgroundColor: color, color: '#000' }
 									: { border: `2px solid ${color}`, color }
 							}
 							onClick={handleSelectDiff(value, DIFF_CONFIG[value])}

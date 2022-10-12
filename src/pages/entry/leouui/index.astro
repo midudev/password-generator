@@ -7,9 +7,11 @@ import App from './../../../components/leouui/App'
 <script src='https://kit.fontawesome.com/72662fb630.js' crossorigin='anonymous'></script>
 
 <style>
-	:root {
-		--primary-color:#1f1f1f;
-		--secondary-color:#62cd65;
+	* {
+		box-sizing:border-box;
+		list-style: none;
+		padding: 0;
+		outline: none;
 	}
 	.main-container {
 		width: 100%;
@@ -25,7 +27,7 @@ import App from './../../../components/leouui/App'
 </style>
 
 <Layout title='Password Generator'>
-	<main class='main-container'>
+	<main class='main-container' id='leouui'>
 		<App client:visible/>
 	</main>
 </Layout>
