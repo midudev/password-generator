@@ -4,13 +4,41 @@ const letters = 'ajkbidmnocdefghlpqrsvyztwxu'
 const numbers = '8056219437'
 const special = '&*#$%+!@=^</'
 
+interface ISettings {
+	length: number;
+	letters?: boolean;
+	numbers?: boolean;
+	special?: boolean;
+}
+
 export const usePassword = () => {
 	const [password, setPassword] = useState<string>('')
 	// const [settings, setSettings] = useState('')
 
 
-	const generatePassword = () => {
-		setPassword('Hola Cuba')
+	const generatePassword = (settings:ISettings) => {
+		let repo = ''
+		if (settings.letters) repo += letters
+		if (settings.numbers) repo += numbers
+		if (settings.special) repo += special
+
+
+		const r:string[] = []
+		for (let i = 0; i < repo.length; i++) r.push(repo[i])
+
+		// merge the characters
+		r.sort(() => Math.random() * 1000 - Math.random() * 1000)
+		r.sort(() => Math.random() * 1000 - Math.random() * 1000)
+		r.sort(() => Math.random() * 1000 - Math.random() * 1000)
+		r.sort(() => Math.random() * 1000 - Math.random() * 1000)
+		r.sort(() => Math.random() * 1000 - Math.random() * 1000)
+
+		let genPass = ''
+		for (let i = 1; i < settings.length; i++) {
+			const n = Math.floor(Math.random() * 10000 % r.length)
+			genPass += r[n]
+		}
+		setPassword(genPass)
 	}
 
 	const generatePasswordByPhrase = (phrase:string, lenght:number) => {
