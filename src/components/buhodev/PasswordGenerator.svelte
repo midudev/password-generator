@@ -113,7 +113,7 @@
 			on:copied={handleSuccessfulCopy}
 			on:error={() => alert('error')}
 			title="Copy password"
-			class="rounded-md border border-white/30 hover:border-white/60 active:bg-gray-400/20 flex items-center group justify-center p-2"
+			class="rounded-md border border-white/30 hover:border-white/60 active:bg-gray-400/20 flex items-center group justify-center p-2.5"
 		>
 			{#if !isCopied}
 				<svg
@@ -151,7 +151,7 @@
 		<button
 			on:click={() => (password = generate_password(length, DEFAULT_OPTIONS))}
 			title="Refresh password"
-			class="rounded-md border border-white/30 hover:border-white/60 active:bg-gray-400/20 group flex items-center justify-center p-2"
+			class="rounded-md border border-white/30 hover:border-white/60 active:bg-gray-400/20 group flex items-center justify-center p-2.5"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
