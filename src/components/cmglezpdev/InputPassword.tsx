@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, useEffect } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { usePassword, useClipboard } from '@hooks/cmglezpdev'
 
 import clipboardCopy from '@components/cmglezpdev/icons/clipboard-copy.svg'
@@ -10,16 +10,22 @@ export const InputPassword = () => {
 	const { password, generatePassword, generatePasswordByPhrase } = usePassword()
 
 
-	useEffect(() => {
-		generatePasswordByPhrase('My recovery Phrase', 10)
-	}, [])
+	// useEffect(() => {
+	// 	generatePasswordByPhrase('My recovery Phrase', 10)
+	// }, [])
 
 	const handleLenghtControl = (e:ChangeEvent<HTMLInputElement>) => {
 		setLenghtPassword(e.target.value)
 	}
 
 	const handleGenPassword = () => {
-		generatePassword()
+		const set = {
+			length: 10,
+			letters: true,
+			special: true,
+			numbers: true
+		}
+		generatePassword(set)
 	}
 
 	return (
