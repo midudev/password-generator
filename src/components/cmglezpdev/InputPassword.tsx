@@ -19,13 +19,14 @@ export const InputPassword = () => {
 	}
 
 	const handleGenPassword = () => {
-		const set = {
-			length: 10,
-			letters: true,
-			special: true,
-			numbers: true
-		}
-		generatePassword(set)
+		// const set = {
+		// 	length: 10,
+		// 	letters: true,
+		// 	special: true,
+		// 	numbers: true
+		// }
+		// generatePassword(set)
+		generatePasswordByPhrase('Esto es una frase', 10)
 	}
 
 	return (
