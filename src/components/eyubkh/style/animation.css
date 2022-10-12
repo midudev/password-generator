@@ -1,48 +1,55 @@
-#divtest {
-	position: relative;
-	overflow: hidden;
-	height: 100vh;
-	width: 100vw;
+#eyubkh-castle {
+	position: absolute ;
+	background-image: url('/eyubkh/castle.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 559px;
+	min-width: 309.5px;
+	transition: margin-bottom ease-in-out 1s;
+	z-index: 0;
 }
 
-#tower {
-	position: absolute;
-	bottom: 0;
-	transform: translateX(-50%);
-	transition: bottom ease-in-out 1s;
-	animation: show 1s ease-in-out normal forwards;
-	left: 32.5%;
-	z-index: 3;
+#eyubkh-tower {
+	background-image: url('/eyubkh/tower.svg');
+	background-repeat: no-repeat;
+	height: 200px;
+	min-width: 90px;
+	transition: margin-bottom ease-in-out 1s;
+	z-index: 2;
 }
 
-#tower2 {
+#eyubkh-fullWall {
 	position: absolute;
-	transform: translateX(-50%) translateY(100%);
-	transition: bottom ease-in-out 1s;
-	animation: show 1s ease-in-out normal forwards;
-	bottom: 0;
-	left: 67.5%;
-	z-index: 3;
+	background-image: url('/eyubkh/wall.svg');
+	background-position: top;
+	height: 151px;
+	width: 100%;
+	transition: margin-bottom ease-in-out 1s;
+	margin-bottom: -151px;
+	/* background-color: blue; */
+	z-index: 0;
 }
 
-#castle {
-	position: absolute;
-	bottom: 0;
-	transition: bottom ease-in-out 1s;
-	left: 50%;
-	transform: translateX(-50%) translateY(120%);
-	animation: show 1s ease-in-out forwards;
+#eyubkh-wall {
+	background-image: url('/eyubkh/wall.svg');
+	background-repeat: no-repeat;
+	height: 151px;
+	min-width: 378px;
+	transition: margin-bottom ease-in-out 1s;
+	margin: 0 -11px;
 	z-index: 1;
 }
 
-#wall {
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transition: bottom ease-in-out 1s;
-	transform: translateX(-50%) translateY(100%);
-	animation: show 1s ease-in-out forwards;
-	z-index: 2;
+#eyubkh-conteiner {
+	position: relative;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: flex-end;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
 }
 
 @keyframes show {
@@ -54,6 +61,7 @@
 		transform: translateX(-50%) translateY(0%);
 	}
 }
+
 @keyframes hidde {
 	to {
 		transform: translateX(-50%) translateY(100%);
