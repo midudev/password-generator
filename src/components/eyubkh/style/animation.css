@@ -1,0 +1,61 @@
+#divtest {
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+}
+
+#tower {
+	position: absolute;
+	bottom: 0;
+	transform: translateX(-50%);
+	transition: bottom ease-in-out 1s;
+	animation: show 1s ease-in-out normal forwards;
+	left: 32.5%;
+	z-index: 3;
+}
+
+#tower2 {
+	position: absolute;
+	transform: translateX(-50%) translateY(100%);
+	transition: bottom ease-in-out 1s;
+	animation: show 1s ease-in-out normal forwards;
+	bottom: 0;
+	left: 67.5%;
+	z-index: 3;
+}
+
+#castle {
+	position: absolute;
+	bottom: 0;
+	transition: bottom ease-in-out 1s;
+	left: 50%;
+	transform: translateX(-50%) translateY(120%);
+	animation: show 1s ease-in-out forwards;
+	z-index: 1;
+}
+
+#wall {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transition: bottom ease-in-out 1s;
+	transform: translateX(-50%) translateY(100%);
+	animation: show 1s ease-in-out forwards;
+	z-index: 2;
+}
+
+@keyframes show {
+	from {
+		transform: translateX(-50%) translateY(100%);
+	}
+
+	to {
+		transform: translateX(-50%) translateY(0%);
+	}
+}
+@keyframes hidde {
+	to {
+		transform: translateX(-50%) translateY(100%);
+	}
+}
