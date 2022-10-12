@@ -8,10 +8,12 @@
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-		"source.fixAll.stylelint": true
+    "source.fixAll.stylelint": true
   },
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "editor.insertSpaces": false,
   "editor.detectIndentation": false,
-	"stylelint.enable": true
+  "stylelint.enable": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on"
 }
