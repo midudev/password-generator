@@ -79,7 +79,7 @@ function Card() {
 
 		const { length, uppercase, lowercase, numbers, symbols } = password
 
-		const generateTheWord = (length, uppercase, lowercase, numbers, symbols) => {
+		const generateThePassword = (length, uppercase, lowercase, numbers, symbols) => {
 			const availableCharacters = [
 				...(lowercase ? lowerCaseLetters : []),
 				...(uppercase ? upperCaseLetters : []),
@@ -92,7 +92,7 @@ function Card() {
 			return characters
 		}
 
-		generateTheWord(length, uppercase, lowercase, numbers, symbols)
+		generateThePassword(length, uppercase, lowercase, numbers, symbols)
 	}
 
 	return (
