@@ -19,7 +19,7 @@ function getSymbol() {
 
 export function randomPassword({ length = 8, includeNumbers, includeSymbols }) {
 	let password = ''
-	length = length < 8 ? 8 : length > 100 ? 100 : length
+	length = setMinMaxLength({ length, min: 8, max: 100 })
 
 	for (let i = 0; i < parseInt(length); i++) {
 		const x = Math.random()
@@ -129,7 +129,7 @@ export function smartPassword() {
 
 export function pinCode({ length = 4 }) {
 	let password = ''
-	length = length < 4 ? 4 : length > 12 ? 12 : length
+	length = setMinMaxLength({ length, min: 4, max: 12 })
 
 	for (let i = 0; i < parseInt(length); i++) {
 		password += getNumber()
@@ -145,7 +145,7 @@ export function memorablePassword({
 	fullWords = true
 }) {
 	let wordsArray = []
-	wordsNumber = wordsNumber < 3 ? 3 : wordsNumber > 15 ? 15 : wordsNumber
+	wordsNumber = setMinMaxLength({ length: wordsNumber, min: 3, max: 5 })
 
 	if (fullWords) {
 		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordsNumber)
@@ -157,4 +157,8 @@ export function memorablePassword({
 	}
 
 	return [...wordsArray.join(separator)]
+}
+
+function setMinMaxLength({ length, min, max }) {
+	return length < min ? min : length > max ? max : length
 }
