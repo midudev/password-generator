@@ -8,6 +8,7 @@ import {
 	memorablePassword
 } from './helper/passwordGenerator'
 import SelectPasswordType from './components/SelectPasswordType'
+import SelectSeparator from './components/SelectSeparator'
 import { InputRangeSelector } from './components/InputRangeSelector'
 
 function PasswordGenerator() {
@@ -21,6 +22,7 @@ function PasswordGenerator() {
 	const [regenerate, setRegenerate] = useState(false)
 
 	const [wordsNumber, setWordsNumber] = useState(6)
+	const [separator, setSeparator] = useState('Hyphens')
 	const [capitalize, setCapitalize] = useState(false)
 	const [fullWords, setFullWords] = useState(true)
 
@@ -193,6 +195,13 @@ function PasswordGenerator() {
 							value={wordsNumber}
 							onChange={handleChange}
 							onBlur={checkLength}
+						/>
+
+						<SelectSeparator
+							label='Type'
+							name='Type'
+							value={separator}
+							onChange={(e) => setSeparator(e.target.value)}
 						/>
 
 						<InputSwitch
