@@ -1,0 +1,215 @@
+#davferod {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+}
+
+#davferod *::selection {
+	background: rgb(93, 12, 160);
+	color: black;
+}
+
+#davferod {
+	width: 100%;
+	background: rgb(18,0,38);
+	background: linear-gradient(176deg, rgba(18,0,38,0.9304096638655462) 52%, rgba(69,9,121,0.8799894957983193) 100%, rgba(0,212,255,1) 100%); 
+	color: white;
+}
+
+.container {
+	max-width: 500px;
+	width:90%;
+	margin: 50px auto;
+}
+
+/* logo */
+.logo {
+	margin-bottom: 40px;
+	width: 100%;
+}
+
+.logo img {
+	width: 40%;
+	border-radius: 15px;
+	display: block;
+	margin: auto;
+
+}
+
+/* estilos form */
+.app .row {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.app .col {
+	width: 50%
+}
+
+/* estilos botones e inputs */
+
+.app label{
+	line-height: 40px;
+}
+
+.app input {
+	text-align: center;
+	border: none;
+}
+
+.app .btn {
+	width: 100%;
+	background: DarkSlateBlue;
+	color: white;
+	display: inline-block;
+	height:40px;
+	vertical-align: top;
+	font-size: 16px;
+	text-align: center;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.app .btn:hover {
+	background: MediumSlateBlue;
+}
+
+.app .btn.false {
+	background: DarkOrchid;
+}
+
+.app .n_caracteres .characters input {
+	height: 40px;
+	width: 85%;
+}
+
+.app .n_caracteres .characters {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.app .n_caracteres .characters output {
+	text-align: center;
+	width: 15%;
+}
+
+/*estilos de fila ignition password*/
+
+.app .row.ignition {
+	margin-bottom: 10px;
+
+}
+
+.app .row.ignition .col:nth-child(1){
+	width: 30%;
+}
+
+.app .row.ignition .col:nth-child(2){
+	width: 65%;
+}
+
+.app .row.ignition .btn-generator {
+	width: 100%;
+	height: 40px;
+	font-size: 18px;
+	padding: 0;
+	line-height:40px;
+	position: relative;
+}
+
+.app .row.ignition .btn-generator span{
+	margin-left: 10px;
+	position: relative;
+	top: 3px;
+	font-size: 18px
+}
+
+.app .row.ignition .btn-generator:after {
+	content: "";
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: DarkSlateBlue;
+	transform: rotate(45deg);
+	position: absolute;
+	top: 13px;
+	right: -7px;
+}
+
+.app .row.ignition .col:nth-child(1):hover .btn-generator:after {
+	transition: all .3s ease;
+	background: MediumSlateBlue;
+}
+
+.app .row.ignition .input-password {
+	width: 100%;
+	height: 40px;
+	background: none;
+	border-radius: 4px;
+	border: 1px solid rgba(255,255,255,.25);
+	color: white;
+	line-height: 40px;
+	cursor: pointer;
+	transition: all .3s ease;
+	font-size: 18px;
+}
+
+.app .row.ignition .input-password:hover {
+	border: 1px solid rgba(255,255,255,.5);
+}
+
+.app .row.ignition .input::selection {
+	background: DarkOrchid;
+}
+
+/* estilos de fila alerta */
+
+.app .row.alert {
+	justify-content: flex-end;
+}
+
+.app .row.alert .alert-copy {
+	width: 65%;
+	text-align: center;
+	color: rgba(255,255,255,0);
+	transition: all .3s ease;
+	
+}
+
+.app .row.alert .alert-copy.active {
+	color: rgba(255,255,255,1);
+}
+
+.app .row.alert .alert-copy,
+.app .row.alert .alert-copy span {
+	font-size: 12px;
+}
+
+@media screen and (max-width: 500px){
+	.app .row {
+			flex-direction: column;
+			margin-bottom: 6px;
+	}
+	.app .row .col {
+			width: 100%;
+			margin-bottom: 14px;
+	}
+	.app .row.ignition {
+			border-top: 1px solid rgba(255,255,255,.25);
+			padding-top: 30px;
+	}
+	.app .row.ignition .col:nth-child(1),
+	.app .row.ignition .col:nth-child(2) {
+			width: 100%;
+	}
+	.app .row.ignition .btn-generator:after {
+			top: auto;
+			left: 50%;
+			right: 50%;
+			bottom: -7px;
+	}
+}
