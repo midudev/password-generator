@@ -1,8 +1,7 @@
 import { ChangeEvent, useState } from 'react'
-import { SettingsOption } from '@hooks/cmglezpdev/useSettings'
-import { ISettings, usePassword } from '@hooks/cmglezpdev'
-import { ButtonComponent, RangeInputComponent, InputComponent } from './basic-components'
-import { Settings } from './Settings'
+import { ISettings, SettingsOption, usePassword } from '@hooks/cmglezpdev'
+import { Settings } from '@components/cmglezpdev/Settings'
+import { ButtonComponent, RangeInputComponent, InputComponent } from '@components/cmglezpdev/basic-components'
 
 const INITIAL_STATE: SettingsOption[] = [
 	{
