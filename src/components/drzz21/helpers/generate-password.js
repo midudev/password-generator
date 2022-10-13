@@ -59,17 +59,22 @@ const generatePassword = (config) => {
 	return scramble(password)
 }
 
-function scramble(word) {
-	const newWord = []
+function scramble(word, it = 3) {
+	let newWord = word
+	let arrWord = []
 
-	const arrNumbers = Array.from(Array(+word.length)).map((e, i) => i)
-	arrNumbers.sort((_, _2) => 0.5 - Math.random())
+	for (let i = 0; i < it; i++) {
+		arrWord = []
+		const arrNumbers = Array.from(Array(+newWord.length)).map((e, i) => i)
+		arrNumbers.sort((_, _2) => 0.5 - Math.random())
 
-	arrNumbers.forEach((x) => {
-		newWord.push(word[x])
-	})
+		arrNumbers.forEach((x) => {
+			arrWord.push(newWord[x])
+		})
+		newWord = arrWord.join('')
+	}
 
-	return newWord.join('')
+	return arrWord.join('')
 }
 
 function getRandomChar(c) {
