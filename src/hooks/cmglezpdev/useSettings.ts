@@ -27,6 +27,7 @@ export const useSettings = (settingsOption: SettingsOption[]) => {
 			return { ...sett, checked }
 		})
 		setSettings(upSettings)
+		return upSettings
 	}
 
 	const findByName = (name:string) => {
