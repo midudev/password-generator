@@ -41,7 +41,7 @@ export const usePassword = () => {
 		const r = randomSort(toArray(repo))
 
 		let genPass = ''
-		for (let i = 1; i < settings.length; i++) {
+		for (let i = 0; i < settings.length; i++) {
 			const n = Math.floor(Math.random() * 10000 % r.length)
 			genPass += r[n]
 		}
