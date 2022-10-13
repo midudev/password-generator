@@ -1,12 +1,18 @@
-.container {
+.drzz21container {
 	height: 100vh;
 	background-color: #222831;
+	font-family: 'Jet Brains Mono', monospace;
 }
 
-.text {
+.drzz21text {
 	color: #00adb5;
+	text-decoration: none;
 }
 
-.textDisabled {
+.drzz21textDisabled {
 	color: #222831;
+	text-decoration: line-through;
+	text-decoration-color: #00adb5;
+	text-decoration-thickness: 1px;
+	opacity: 0.8;
 }
