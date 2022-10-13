@@ -13,7 +13,5 @@
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "editor.insertSpaces": false,
   "editor.detectIndentation": false,
-  "stylelint.enable": true,
-  "editor.tabSize": 2,
-  "editor.wordWrap": "on"
+  "stylelint.enable": true
 }
