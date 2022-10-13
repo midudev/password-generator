@@ -1,10 +1,32 @@
 import { ChangeEvent, useState } from 'react'
-import { usePassword } from '@hooks/cmglezpdev'
+import { SettingsOption } from '@hooks/cmglezpdev/useSettings'
+import { ISettings, usePassword } from '@hooks/cmglezpdev'
 import { ButtonComponent, RangeInputComponent, InputComponent } from './basic-components'
 import { Settings } from './Settings'
 
+const INITIAL_STATE: SettingsOption[] = [
+	{
+		name: 'letters',
+		checked: true
+	},
+	{
+		name: 'numbers',
+		checked: false
+	},
+	{
+		name: 'div_in_groups',
+		checked: false
+	},
+	{
+		name: 'special',
+		checked: false
+	}
+]
+
+
 export const CustomPassword = () => {
 	const [lengthPassword, setLenghtPassword] = useState(10)
+	const [settings, setSettings] = useState<SettingsOption[]>(INITIAL_STATE)
 	const { password, generatePassword } = usePassword()
 
 	const handleLengthControl = (e:ChangeEvent<HTMLInputElement>) => {
@@ -12,13 +34,13 @@ export const CustomPassword = () => {
 	}
 
 	const handleGenPassword = () => {
-		const set = {
-			length: lengthPassword,
-			letters: true,
-			special: true,
-			numbers: true
+		const set = {}
+
+		for (let i = 0; i < settings.length; i++) {
+			const config = settings[i]
+			set[config.name] = config.checked
 		}
-		generatePassword(set)
+		generatePassword(set as ISettings, lengthPassword)
 	}
 
 
@@ -40,7 +62,10 @@ export const CustomPassword = () => {
 				onClick={handleGenPassword}
 			/>
 
-			<Settings />
+			<Settings
+				initalSettings={INITIAL_STATE}
+				getValues={setSettings}
+			/>
 		</div>
 	)
 }
