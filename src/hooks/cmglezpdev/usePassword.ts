@@ -4,7 +4,7 @@ const letters = 'ajkbidmnocdefghlpqrsvyztwxu'
 const numbers = '8056219437'
 const special = '&*#$%+!@=^</'
 
-interface ISettings {
+export interface ISettings {
 	length: number;
 	letters?: boolean;
 	numbers?: boolean;
@@ -31,7 +31,7 @@ const toArray = (text:string) => {
 export const usePassword = () => {
 	const [password, setPassword] = useState<string>('')
 
-	const generatePassword = (settings:ISettings) => {
+	const generatePassword = (settings:ISettings, length: number) => {
 		let repo = ''
 		if (settings.letters) repo += letters
 		if (settings.numbers) repo += numbers
@@ -41,7 +41,7 @@ export const usePassword = () => {
 		const r = randomSort(toArray(repo))
 
 		let genPass = ''
-		for (let i = 0; i < settings.length; i++) {
+		for (let i = 0; i < length; i++) {
 			const n = Math.floor(Math.random() * 10000 % r.length)
 			genPass += r[n]
 		}
