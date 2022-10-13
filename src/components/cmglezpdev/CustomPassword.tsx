@@ -5,7 +5,7 @@ import { Settings } from './Settings'
 
 export const CustomPassword = () => {
 	const [lengthPassword, setLenghtPassword] = useState(10)
-	const { password, generatePassword, generatePasswordByPhrase } = usePassword()
+	const { password, generatePassword } = usePassword()
 
 	const handleLengthControl = (e:ChangeEvent<HTMLInputElement>) => {
 		setLenghtPassword(parseInt(e.target.value))
@@ -19,7 +19,6 @@ export const CustomPassword = () => {
 			numbers: true
 		}
 		generatePassword(set)
-		// generatePasswordByPhrase('Esto es una frase', 10)
 	}
 
 

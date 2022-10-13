@@ -53,8 +53,10 @@ export const usePassword = () => {
 		while (phrase.length < length) {
 			phrase += phrase
 		}
-		phrase = phrase.substring(0, length)
 
+		// take the string of the end
+		const init = phrase.length - length
+		phrase = phrase.substring(init)
 
 		// create a hashes
 		const BASE = 73 // prime number
