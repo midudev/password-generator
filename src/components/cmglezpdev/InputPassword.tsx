@@ -9,24 +9,19 @@ export const InputPassword = () => {
 	const { refElement, copied, copyText } = useClipboard()
 	const { password, generatePassword, generatePasswordByPhrase } = usePassword()
 
-
-	// useEffect(() => {
-	// 	generatePasswordByPhrase('My recovery Phrase', 10)
-	// }, [])
-
 	const handleLenghtControl = (e:ChangeEvent<HTMLInputElement>) => {
 		setLenghtPassword(e.target.value)
 	}
 
 	const handleGenPassword = () => {
-		// const set = {
-		// 	length: 10,
-		// 	letters: true,
-		// 	special: true,
-		// 	numbers: true
-		// }
-		// generatePassword(set)
-		generatePasswordByPhrase('Esto es una frase', 10)
+		const set = {
+			length: parseInt(lenghtPassword),
+			letters: true,
+			special: true,
+			numbers: true
+		}
+		generatePassword(set)
+		// generatePasswordByPhrase('Esto es una frase', 10)
 	}
 
 	return (
@@ -53,7 +48,7 @@ export const InputPassword = () => {
 
 			<div className='mt-3'>
 				<p className='w-72 flex justify-between px-4'>
-					<span className='text-white font-bold'>Lenght</span>
+					<span className='text-white font-bold'>Length</span>
 					<span className='text-white font-bold'>{ lenghtPassword }</span>
 				</p>
 				<input
