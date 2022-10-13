@@ -1,8 +1,6 @@
 import { ChangeEvent, FC } from 'react'
 import { useClipboard } from '@hooks/cmglezpdev'
-
-import clipboardCopy from '@components/cmglezpdev/icons/clipboard-copy.svg'
-import clipboardCopied from '@components/cmglezpdev/icons/clipboard-copied.svg'
+import { CopiedSVG, CopySVG } from '../icons'
 
 interface Props {
 	value: string;
@@ -28,7 +26,7 @@ export const InputComponent:FC<Props> = ({ name = '', value, onChange }) => {
 				className='flex items-center gap-1 px-2 bg-gray-400 rounded outline-none'
 				onClick={() => copyText()}
 			>
-				<img src={!copied ? clipboardCopy : clipboardCopied} alt='clipboard' className='w-4' />
+				{ (!copied) ? <CopySVG /> : <CopiedSVG /> }
 				<span
 					className='uppercase text-xs font-bold'
 					style={{ color: copied ? '#19770d' : '#000' }}
