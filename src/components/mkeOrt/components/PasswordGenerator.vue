@@ -46,8 +46,8 @@ const {
 			<div class="flex justify-end">
 				<small>{{ range }}</small>
 			</div>
-			<div class="mt-5">
-				<div class="w-full flex justify-between mb-3 items-center">
+			<div class="mt-1">
+				<div class="w-full flex justify-between py-3 items-center">
 					<label class="w-full" for="a-z">a-z</label>
 					<input
 						type="checkbox"
@@ -120,10 +120,11 @@ const {
 }
 
 .mke-checkbox:disabled {
-	border: 8px solid #372948 !important;
+	border: 8px solid gray !important;
+	cursor: not-allowed;
 }
 
 .mke-checkbox:checked {
-	border: 8px solid #ffcaca;
+	border: 8px solid #372948;
 }
 </style>
