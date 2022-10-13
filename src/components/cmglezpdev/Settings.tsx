@@ -1,6 +1,5 @@
 import { ChangeEvent, FC } from 'react'
-import { SettingsOption } from '@hooks/cmglezpdev/useSettings'
-import { useSettings } from '@hooks/cmglezpdev'
+import { useSettings, SettingsOption } from '@hooks/cmglezpdev'
 
 interface Props {
 	initalSettings: SettingsOption[];
