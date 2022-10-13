@@ -156,6 +156,16 @@ export function memorablePassword({
 		wordsArray[randNumber] = wordsArray[randNumber].toUpperCase()
 	}
 
+	if (separator === 'Numbers') {
+		let position = 1
+		wordsArray.forEach((_val, _idx, arr) => {
+			const randNumber = Math.floor(Math.random() * 10)
+			arr.splice(position, 0, randNumber)
+			position += 2
+		})
+		return wordsArray
+	}
+
 	return [...wordsArray.join(setSeparator(separator))]
 }
 
