@@ -1,3 +1,5 @@
+import words from '../data.json'
+
 function getUpper() {
 	return String.fromCharCode(Math.floor(Math.random() * 26 + 65))
 }
@@ -132,4 +134,24 @@ export function pinCode({ length }) {
 	}
 
 	return [...password]
+}
+
+export function memorablePassword({
+	wordsNumber = 3,
+	separator = '.',
+	capitalize = false,
+	fullWords = true
+}) {
+	let wordsArray = []
+
+	if (fullWords) {
+		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordsNumber)
+	}
+
+	if (capitalize) {
+		const randNumber = Math.floor(Math.random() * wordsNumber)
+		wordsArray[randNumber] = wordsArray[randNumber].toUpperCase()
+	}
+
+	return [...wordsArray.join(separator)]
 }

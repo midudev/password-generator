@@ -15,6 +15,7 @@ export default function SelectPasswordType({ label, name, value, onChange }) {
 			>
 				<option>Smart Password</option>
 				<option>Random Password</option>
+				<option>Memorable Password</option>
 				<option>PIN Code</option>
 			</select>
 		</div>

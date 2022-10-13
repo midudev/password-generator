@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Clipboard, ClipboardClicked } from './components/ClipboardIcons'
 import { InputSwitch } from './components/InputSwitch'
-import { randomPassword, pinCode, smartPassword } from './helper/passwordGenerator'
+import {
+	randomPassword,
+	pinCode,
+	smartPassword,
+	memorablePassword
+} from './helper/passwordGenerator'
 import SelectPasswordType from './components/SelectPasswordType'
 import { InputRangeSelector } from './components/InputRangeSelector'
 
@@ -14,6 +19,10 @@ function PasswordGenerator() {
 	const [passwordType, setPasswordType] = useState('Smart Password')
 	const [copied, setCopied] = useState(false)
 	const [regenerate, setRegenerate] = useState(false)
+
+	const [wordsNumber, setWordsNumber] = useState(6)
+	const [capitalize, setCapitalize] = useState(false)
+	const [fullWords, setFullWords] = useState(true)
 
 	function copyClipboard() {
 		navigator.clipboard.writeText(password.join(''))
@@ -42,6 +51,20 @@ function PasswordGenerator() {
 			setPassword(randomPassword({ length, includeNumbers, includeSymbols }))
 		}
 
+		if (passwordType === 'Memorable Password') {
+			let length = wordsNumber
+
+			if (length < 3) {
+				length = 3
+			}
+
+			if (length > 15) {
+				length = 15
+			}
+
+			setPassword(memorablePassword({ wordsNumber: length, capitalize, fullWords }))
+		}
+
 		if (passwordType === 'PIN Code') {
 			let length = pinLength
 
@@ -55,11 +78,23 @@ function PasswordGenerator() {
 
 			setPassword(pinCode({ length }))
 		}
-	}, [passwordLength, pinLength, includeNumbers, includeSymbols, passwordType, regenerate])
+	}, [
+		passwordLength,
+		pinLength,
+		wordsNumber,
+		includeNumbers,
+		includeSymbols,
+		passwordType,
+		regenerate,
+		capitalize,
+		fullWords
+	])
 
 	function handleChange(e) {
 		if (passwordType === 'PIN Code') {
 			setPinLength(e.target.value)
+		} else if (passwordType === 'Memorable Password') {
+			setWordsNumber(e.target.value)
 		} else {
 			setPasswordLength(e.target.value)
 		}
@@ -67,8 +102,19 @@ function PasswordGenerator() {
 
 	function checkLength(e) {
 		let length = e.target.value
-		const minLengthByType = passwordType === 'PIN Code' ? 4 : 8
-		const maxLengthByType = passwordType === 'PIN Code' ? 12 : 100
+		let minLengthByType
+		let maxLengthByType
+
+		if (passwordType === 'PIN Code') {
+			minLengthByType = 4
+			maxLengthByType = 12
+		} else if (passwordType === 'Memorable Password') {
+			minLengthByType = 3
+			maxLengthByType = 15
+		} else {
+			minLengthByType = 8
+			maxLengthByType = 100
+		}
 
 		if (length < minLengthByType) {
 			length = minLengthByType
@@ -80,6 +126,8 @@ function PasswordGenerator() {
 
 		if (passwordType === 'PIN Code') {
 			setPinLength(length)
+		} else if (passwordType === 'Memorable Password') {
+			setWordsNumber(length)
 		} else {
 			setPasswordLength(length)
 		}
@@ -160,6 +208,34 @@ function PasswordGenerator() {
 							label='Symbols'
 							value={includeSymbols}
 							onChange={() => setIncludeSymbols(!includeSymbols)}
+							className='py-4'
+						/>
+					</>
+				)}
+
+				{passwordType === 'Memorable Password' && (
+					<>
+						<InputRangeSelector
+							label='Words'
+							name='Words'
+							min={3}
+							max={15}
+							value={wordsNumber}
+							onChange={handleChange}
+							onBlur={checkLength}
+						/>
+
+						<InputSwitch
+							label='Capitalize'
+							value={capitalize}
+							onChange={() => setCapitalize(!capitalize)}
+							className='py-4'
+						/>
+
+						<InputSwitch
+							label='Full words'
+							value={fullWords}
+							onChange={() => setFullWords(!fullWords)}
 							className='py-4'
 						/>
 					</>
