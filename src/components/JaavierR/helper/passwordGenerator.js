@@ -17,8 +17,9 @@ function getSymbol() {
 	return String.fromCharCode(symbols[Math.floor(Math.random() * symbols.length)])
 }
 
-export function randomPassword({ length, includeNumbers, includeSymbols }) {
+export function randomPassword({ length = 8, includeNumbers, includeSymbols }) {
 	let password = ''
+	length = length < 8 ? 8 : length > 100 ? 100 : length
 
 	for (let i = 0; i < parseInt(length); i++) {
 		const x = Math.random()
@@ -126,8 +127,9 @@ export function smartPassword() {
 	return [...password]
 }
 
-export function pinCode({ length }) {
+export function pinCode({ length = 4 }) {
 	let password = ''
+	length = length < 4 ? 4 : length > 12 ? 12 : length
 
 	for (let i = 0; i < parseInt(length); i++) {
 		password += getNumber()
@@ -143,6 +145,7 @@ export function memorablePassword({
 	fullWords = true
 }) {
 	let wordsArray = []
+	wordsNumber = wordsNumber < 3 ? 3 : wordsNumber > 15 ? 15 : wordsNumber
 
 	if (fullWords) {
 		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordsNumber)

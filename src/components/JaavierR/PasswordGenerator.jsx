@@ -38,45 +38,15 @@ function PasswordGenerator() {
 		}
 
 		if (passwordType === 'Random Password') {
-			let length = passwordLength
-
-			if (length < 8) {
-				length = 8
-			}
-
-			if (length > 100) {
-				length = 100
-			}
-
-			setPassword(randomPassword({ length, includeNumbers, includeSymbols }))
+			setPassword(randomPassword({ length: passwordLength, includeNumbers, includeSymbols }))
 		}
 
 		if (passwordType === 'Memorable Password') {
-			let length = wordsNumber
-
-			if (length < 3) {
-				length = 3
-			}
-
-			if (length > 15) {
-				length = 15
-			}
-
-			setPassword(memorablePassword({ wordsNumber: length, capitalize, fullWords }))
+			setPassword(memorablePassword({ wordsNumber, capitalize, fullWords }))
 		}
 
 		if (passwordType === 'PIN Code') {
-			let length = pinLength
-
-			if (length < 4) {
-				length = 4
-			}
-
-			if (length > 12) {
-				length = 12
-			}
-
-			setPassword(pinCode({ length }))
+			setPassword(pinCode({ length: pinLength }))
 		}
 	}, [
 		passwordLength,
