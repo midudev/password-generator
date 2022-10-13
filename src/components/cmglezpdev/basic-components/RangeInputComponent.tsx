@@ -10,7 +10,7 @@ interface Props {
 
 export const RangeInputComponent:FC<Props> = ({ name = '', value, onChange }) => {
 	return (
-		<div className='mt-3'>
+		<div className='mt-3 w-full flex items-center flex-col'>
 			<p className='w-72 flex justify-between px-4'>
 				<span className='text-white font-bold'>Length</span>
 				<span className='text-white font-bold'>{ value }</span>

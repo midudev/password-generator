@@ -28,9 +28,9 @@ export const PasswordGenerator = () => {
 	}
 
 	return (
-		<section className='w-full grid place-content-center'>
+		<section className='w-full flex flex-col items-center'>
 			<h1 className='uppercase font-bold text-4xl text-white text-center my-8'>Password Generator</h1>
-			<div className='w-[600px] bg-[#0c2f46] rounded'>
+			<div className='w-[350px] sm:container md:w-[600px] bg-[#0c2f46] rounded'>
 
 				<div className='w-full bg-[#0c2f46] grid grid-cols-2'>
 					<span className='text-center p-2 cursor-pointer text-white font-bold' onClick={() => handleLayout('1')} style={{ backgroundColor: (showLayout !== '1') ? '#0e3e5e' : 'transparent' }}>

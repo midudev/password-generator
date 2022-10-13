@@ -14,13 +14,13 @@ export const InputComponent:FC<Props> = ({ name = '', value, onChange }) => {
 	const { refElement, copied, copyText } = useClipboard()
 
 	return (
-		<div className='flex gap-2 my-2'>
+		<div className='flex gap-2 my-2 justify-center w-full'>
 			<input
 				ref={refElement}
 				type='text'
 				name={name}
 				value={value}
-				className='py-1 px-2 rounded w-96 outline-none text-gray-600 text-xl'
+				className='py-1 px-2 rounded w-8/12 outline-none text-gray-600 text-xl'
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				onChange={onChange}
 			/>
