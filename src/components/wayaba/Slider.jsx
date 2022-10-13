@@ -5,9 +5,8 @@ const Slider = ({ value, min, max, onChange }) => {
 	return (
 		<div className='flex justify-center items-center gap-3'>
 			<input
-				className='my-4 accent-[#ef233c]'
+				className='my-4 accent-[#ef233c] slider-wayaba'
 				type='range'
-				id='slider-wayaba'
 				min={min}
 				max={max}
 				value={value}
