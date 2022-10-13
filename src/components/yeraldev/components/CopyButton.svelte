@@ -21,23 +21,23 @@
 
 <section>
 	<button
-		class="copy-button"
+		class="--yeraldev-copy-button"
 		style="
-		--background-color:{setBackgroundColor($passwordSettings).icon}; 
-		--opacity-background-color:{setBackgroundColor($passwordSettings).card}"
+		--yeraldev-background-color:{setBackgroundColor($passwordSettings).icon}; 
+		--yeraldev-opacity-background-color:{setBackgroundColor($passwordSettings).card}"
 		on:click={() => clipboard($passwordGenerated)}
 	>
-		<span class="password">
+		<span class="--yeraldev-password">
 			{$passwordGenerated}
 		</span>
 	</button>
 </section>
 
 <style>
-	.copy-button {
+	.--yeraldev-copy-button {
 		position: relative;
 		display: grid;
-		background-color: var(--opacity-background-color);
+		background-color: var(--yeraldev-opacity-background-color);
 		align-items: center;
 		height: 3rem;
 		width: 100%;
@@ -47,35 +47,35 @@
 		border-radius: 0.5rem;
 		overflow: hidden;
 		text-shadow: inherit;
-		box-shadow: var(--text-shadow-hover);
+		box-shadow: var(--yeraldev-text-shadow-hover);
 		transition: all 0.3s ease-in-out;
 	}
-	.copy-button::before,
-	.copy-button::after {
+	.--yeraldev-copy-button::before,
+	.--yeraldev-copy-button::after {
 		position: absolute;
 		content: '';
 		height: 2rem;
 		width: 1.3rem;
-		background-color: var(--background-color);
+		background-color: var(--yeraldev-background-color);
 		top: 0.7rem;
 		right: 0.5rem;
 		border-radius: 0.25rem;
-		border: 2px solid var(--color);
+		border: 2px solid var(--yeraldev-color);
 		box-shadow: inherit;
 	}
-	.copy-button::before {
+	.--yeraldev-copy-button::before {
 		top: 0.35rem;
 		right: 0.85rem;
 	}
-	.copy-button:hover {
+	.--yeraldev-copy-button:hover {
 		transform: scale(1.05);
-		text-shadow: var(--text-shadow-hover);
+		text-shadow: var(--yeraldev-text-shadow-hover);
 	}
-	.copy-button:active {
+	.--yeraldev-copy-button:active {
 		transform: scale(1);
-		text-shadow: var(--text-shadow-hover);
+		text-shadow: var(--yeraldev-text-shadow-hover);
 	}
-	.password {
+	.--yeraldev-password {
 		width: 90%;
 		overflow: hidden;
 	}
