@@ -13,7 +13,7 @@ const INITIAL_STATE: SettingsOption[] = [
 		checked: false
 	},
 	{
-		name: 'div_in_groups',
+		name: 'divide',
 		checked: false
 	},
 	{
@@ -21,7 +21,6 @@ const INITIAL_STATE: SettingsOption[] = [
 		checked: false
 	}
 ]
-
 
 export const CustomPassword = () => {
 	const [lengthPassword, setLenghtPassword] = useState(10)

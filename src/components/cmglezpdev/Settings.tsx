@@ -38,7 +38,7 @@ export const Settings:FC<Props> = ({ getValues, initalSettings }) => {
 				</label>
 
 				<label htmlFor='div_in_groups' className='text-gray-400 text-xl'>
-					<input type='checkbox' name='div_in_groups' checked={findByName('div_in_groups').checked} className='mr-2 outline-none' onChange={handleSettings} />
+					<input type='checkbox' name='divide' checked={findByName('divide').checked} className='mr-2 outline-none' onChange={handleSettings} />
 					Divide
 				</label>
 
