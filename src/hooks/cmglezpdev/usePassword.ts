@@ -9,6 +9,7 @@ export interface ISettings {
 	letters?: boolean;
 	numbers?: boolean;
 	special?: boolean;
+	divide?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -32,6 +33,28 @@ const isLowLetter = (letter:string):boolean => {
 	return 'a'.charCodeAt(0) <= letter.charCodeAt(0) && letter.charCodeAt(0) <= 'z'.charCodeAt(0)
 }
 
+const splitString = (text:string, div:number):string[] => {
+	const split:string[] = []
+
+	for (let i = 0; i < text.length; i += div) {
+		split.push(
+			i + div <= text.length
+				? text.substring(i, i + div)
+				: text.substring(i)
+		)
+	}
+
+	return split
+}
+
+const spaceString = (text:string, div) :string => {
+	const splited = splitString(text, div)
+	let finalpassw = ''
+	for (let i = 0; i < splited.length; i++) { finalpassw += splited[i] + ' ' }
+	finalpassw = finalpassw.substring(0, finalpassw.length - 1)
+	return finalpassw
+}
+
 export const usePassword = () => {
 	const [password, setPassword] = useState<string>('')
 
@@ -53,6 +76,15 @@ export const usePassword = () => {
 				: r[n]
 			genPass += char
 		}
+
+		if (settings.divide) {
+			// div the password
+			const div = (length % 4 !== 3 && length % 4 !== 0) ? 3 : 4
+			const password = spaceString(genPass, div)
+			setPassword(password)
+			return
+		}
+
 		setPassword(genPass)
 	}
 
@@ -96,7 +128,10 @@ export const usePassword = () => {
 			passw = passw.substring(0, i) + special[index % special.length] + passw.substring(i + 1)
 		}
 
-		setPassword(passw)
+		// div the password
+		const div = (length % 4 !== 3 && length % 4 !== 0) ? 4 : 3
+		const password = spaceString(passw, div)
+		setPassword(password)
 	}
 
 
