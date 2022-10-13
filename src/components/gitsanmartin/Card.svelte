@@ -1,7 +1,7 @@
 <script>
 import { store } from '@components/gitsanmartin/store'
 import Display from '@components/gitsanmartin/Display.svelte'
-import Logo from '@components/gitsanmartin/DeletesLogo.svelte'
+import Logo from '@components/gitsanmartin/Logo.svelte'
 
 let password = 'la password'
 
