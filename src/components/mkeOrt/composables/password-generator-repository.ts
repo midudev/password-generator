@@ -1,6 +1,6 @@
-import { onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref } from 'vue'
 
-export const SPECIAL_CHARACTERS = '!@#$%^&*'
+export const SPECIAL_CHARACTERS = '!@#$%^&*()='
 const INITIAL_RANGE_VALUE = 5
 
 interface CharactersToUse {
@@ -41,6 +41,10 @@ export const usePasswordGeneratorRepository = () => {
 	const range = ref(INITIAL_RANGE_VALUE)
 	const password = ref('')
 
+	const selectedCharactersCount = computed(
+		() => Object.values(charactersToUse).filter((el) => el).length
+	)
+
 	const generatePassword = () => {
 		password.value = ''
 		for (let i = 0; i < range.value; i++) {
@@ -57,6 +61,9 @@ export const usePasswordGeneratorRepository = () => {
 		navigator.clipboard.writeText(password.value)
 	}
 
+	const disableCheckbox = (currentItemSelection: boolean) =>
+		selectedCharactersCount.value === 1 && currentItemSelection
+
 	onMounted(() => {
 		generatePassword()
 	})
@@ -67,6 +74,7 @@ export const usePasswordGeneratorRepository = () => {
 		generatePassword,
 		copyToClipboard,
 		onSelectedCharactersChange,
-		charactersToUse
+		charactersToUse,
+		disableCheckbox
 	}
 }

@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import ClipboardIcon from './ClipboardIcon.vue'
 import {
-	usePasswordGeneratorRepository,
-	SPECIAL_CHARACTERS
+	SPECIAL_CHARACTERS,
+	usePasswordGeneratorRepository
 } from '../composables/password-generator-repository'
 
 const {
@@ -12,14 +11,9 @@ const {
 	password,
 	copyToClipboard,
 	charactersToUse,
-	onSelectedCharactersChange
+	onSelectedCharactersChange,
+	disableCheckbox
 } = usePasswordGeneratorRepository()
-
-const selectedCharactersCount = computed(
-	() => Object.values(charactersToUse).filter((el) => el).length
-)
-const disableCheckbox = (currentItemSelection: boolean) =>
-	selectedCharactersCount.value === 1 && currentItemSelection
 </script>
 
 <template>
@@ -53,10 +47,11 @@ const disableCheckbox = (currentItemSelection: boolean) =>
 				<small>{{ range }}</small>
 			</div>
 			<div class="mt-5">
-				<div class="w-full flex justify-between mb-3">
+				<div class="w-full flex justify-between mb-3 items-center">
 					<label class="w-full" for="a-z">a-z</label>
 					<input
 						type="checkbox"
+						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="a-z"
 						value="a-z"
 						v-model="charactersToUse.useLowerCase"
@@ -64,10 +59,11 @@ const disableCheckbox = (currentItemSelection: boolean) =>
 						:disabled="disableCheckbox(charactersToUse.useLowerCase)"
 					/>
 				</div>
-				<div class="w-full flex justify-between mb-3">
+				<div class="w-full flex justify-between mb-3 items-center">
 					<label class="w-full" for="A-Z">A-Z</label>
 					<input
 						type="checkbox"
+						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="A-Z"
 						value="A-Z"
 						v-model="charactersToUse.useUpperCase"
@@ -75,10 +71,11 @@ const disableCheckbox = (currentItemSelection: boolean) =>
 						:disabled="disableCheckbox(charactersToUse.useUpperCase)"
 					/>
 				</div>
-				<div class="w-full flex justify-between mb-3">
+				<div class="w-full flex justify-between mb-3 items-center">
 					<label class="w-full" for="0-9">0-9</label>
 					<input
 						type="checkbox"
+						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="0-9"
 						value="0-9"
 						v-model="charactersToUse.useNumbers"
@@ -86,10 +83,11 @@ const disableCheckbox = (currentItemSelection: boolean) =>
 						:disabled="disableCheckbox(charactersToUse.useNumbers)"
 					/>
 				</div>
-				<div class="w-full flex justify-between mb-3">
+				<div class="w-full flex justify-between mb-3 items-center">
 					<label class="w-full" for="!@#$%^&*">{{ SPECIAL_CHARACTERS }}</label>
 					<input
 						type="checkbox"
+						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="!@#$%^&*"
 						value="!@#$%^&*"
 						v-model="charactersToUse.useSpecialCharacters"
@@ -119,5 +117,13 @@ const disableCheckbox = (currentItemSelection: boolean) =>
 
 #mke-generate-btn:active {
 	color: #372948;
+}
+
+.mke-checkbox:disabled {
+	border: 8px solid #372948 !important;
+}
+
+.mke-checkbox:checked {
+	border: 8px solid #ffcaca;
 }
 </style>
