@@ -140,7 +140,7 @@ export function pinCode({ length = 4 }) {
 
 export function memorablePassword({
 	wordsNumber = 3,
-	separator = '.',
+	separator = 'Hyphens',
 	capitalize = false,
 	fullWords = true
 }) {
@@ -156,9 +156,23 @@ export function memorablePassword({
 		wordsArray[randNumber] = wordsArray[randNumber].toUpperCase()
 	}
 
-	return [...wordsArray.join(separator)]
+	return [...wordsArray.join(setSeparator(separator))]
 }
 
 function setMinMaxLength({ length, min, max }) {
 	return length < min ? min : length > max ? max : length
+}
+
+function setSeparator(separator) {
+	if (separator === 'Hyphens') {
+		return '-'
+	} else if (separator === 'Spaces') {
+		return ' '
+	} else if (separator === 'Periods') {
+		return '.'
+	} else if (separator === 'Commas') {
+		return ','
+	} else if (separator === 'Underscores') {
+		return '_'
+	}
 }

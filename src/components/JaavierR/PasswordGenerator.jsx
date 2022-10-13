@@ -44,7 +44,7 @@ function PasswordGenerator() {
 		}
 
 		if (passwordType === 'Memorable Password') {
-			setPassword(memorablePassword({ wordsNumber, capitalize, fullWords }))
+			setPassword(memorablePassword({ wordsNumber, capitalize, fullWords, separator }))
 		}
 
 		if (passwordType === 'PIN Code') {
@@ -59,7 +59,8 @@ function PasswordGenerator() {
 		passwordType,
 		regenerate,
 		capitalize,
-		fullWords
+		fullWords,
+		separator
 	])
 
 	function handleChange(e) {
@@ -108,7 +109,7 @@ function PasswordGenerator() {
 	function checkCharType(char) {
 		if (/^\d$/.test(char)) {
 			return 'text-blue-400'
-		} else if ([33, 42, 45, 46, 64, 95].includes(char.charCodeAt(0))) {
+		} else if ([33, 42, 44, 45, 46, 64, 95].includes(char.charCodeAt(0))) {
 			return 'text-red-400'
 		} else {
 			return ''
