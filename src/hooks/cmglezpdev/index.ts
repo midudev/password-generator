@@ -1,4 +1,4 @@
-export { useClipboard } from './useClipboard'
-export { usePassword } from './usePassword'
-export { useSettings } from './useSettings'
+export * from './useClipboard'
+export * from './usePassword'
+export * from './useSettings'
 
