@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Toast from './Toast'
-import { getRandomPassword, copyPassword } from '../utils/handlePassword'
+import { getRandomPassword, copyPassword } from '../utils/passwordManager'
 import CopySvg from '../icons/copySvg'
 import { hover1Style, hover2Style } from '../styles/hover'
-
-const NUMBERS = '0123456789'
-const LOWER_CASE = 'abcdefghijklmnopqrstuvwxyz'
-const UPPER_CASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-const SPECIAL = '!#$%&()*+,-./:;<=>?@[]^_`{|}~'
+import { NUMBERS, LOWER_CASE, UPPER_CASE, SPECIAL } from '../constants/characters'
 
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
@@ -139,13 +135,7 @@ const PasswordGenerator = () => {
 				</button>
 			</div>
 
-			<div
-				className={`mt-6 transition-opacity duration-1000 ${
-					passwordCopied ? 'opacity-1' : 'opacity-0'
-				}`}
-			>
-				<Toast text='Password copied successfully.' />
-			</div>
+			<Toast text='Password copied successfully.' showToast={passwordCopied} />
 		</>
 	)
 }
