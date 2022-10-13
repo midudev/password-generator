@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react'
-import { usePassword, useField } from '@hooks/cmglezpdev'
+import { usePassword } from '@hooks/cmglezpdev'
 import { ButtonComponent, InputComponent, RangeInputComponent } from './basic-components'
 
 export const AdvancedPassword = () => {
