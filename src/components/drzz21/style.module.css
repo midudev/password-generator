@@ -9,6 +9,10 @@
 	text-decoration: none;
 }
 
+.drzz21text[disabled] {
+	cursor: not-allowed;
+}
+
 .drzz21textDisabled {
 	color: #222831;
 	text-decoration: line-through;

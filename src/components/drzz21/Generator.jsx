@@ -3,7 +3,6 @@ import styles from './style.module.css'
 import genPass from './helpers/generate-password'
 
 const Generator = () => {
-	const [password, setPassword] = useState(() => genPass())
 	const [configPassword, setConfigPassword] = useState({
 		length: '20',
 		upperCase: true,
@@ -11,6 +10,9 @@ const Generator = () => {
 		numbers: true,
 		symbols: true
 	})
+	const [password, setPassword] = useState(null)
+
+	const disable = Object.values(configPassword).filter((x) => x === true).length > 1
 
 	const onInputPass = (e) => {
 		const { name, value, type } = e.target
@@ -24,16 +26,17 @@ const Generator = () => {
 	}
 
 	const generatePassword = (e) => {
-		setPassword(Array(+e).fill(1))
+		setPassword(genPass(configPassword))
 	}
 
 	useEffect(() => {
-		generatePassword(configPassword.length)
+		generatePassword()
 	}, [configPassword])
 
 	return (
 		<div className={styles.drzz21container + ' flex justify-center items-center flex-col'}>
-			<div className='text-white'>{JSON.stringify(configPassword)}</div>
+			{/* <div className='text-white'>{JSON.stringify(configPassword)}</div> */}
+
 			<div className='flex flex-row drop-shadow-2xl items-center'>
 				<div className='flex flex-col'>
 					<div className={`text-5xl font-bold mb-4 ${styles.drzz21text}`}>Password Generator</div>
@@ -57,13 +60,14 @@ const Generator = () => {
 								type='range'
 								id='vol'
 								name='length'
-								min='1'
+								min='8'
 								max='100'
 							/>
 						</div>
 					</div>
 					<div className='box-border flex space-x-2 mb-3'>
 						<button
+							disabled={!disable && configPassword.upperCase}
 							onClick={onInputPass}
 							name='upperCase'
 							className={`text-2xl font-medium   box-border w-1/2 rounded bg-[#393E46] ${
@@ -73,6 +77,7 @@ const Generator = () => {
 							Uppercase
 						</button>
 						<button
+							disabled={!disable && configPassword.lowerCase}
 							onClick={onInputPass}
 							name='lowerCase'
 							className={`text-2xl font-medium   box-border w-1/2 rounded bg-[#393E46] ${
@@ -84,6 +89,7 @@ const Generator = () => {
 					</div>
 					<div className='box-border flex space-x-2'>
 						<button
+							disabled={!disable && configPassword.numbers}
 							onClick={onInputPass}
 							name='numbers'
 							className={`text-2xl font-medium  px-3 w-1/2   rounded bg-[#393E46]  ${
@@ -93,6 +99,7 @@ const Generator = () => {
 							Numbers
 						</button>
 						<button
+							disabled={!disable && configPassword.symbols}
 							onClick={onInputPass}
 							name='symbols'
 							className={`text-2xl font-medium  px-3 w-1/2   rounded bg-[#393E46] ${
