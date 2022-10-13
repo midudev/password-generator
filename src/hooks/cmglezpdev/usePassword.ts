@@ -57,6 +57,7 @@ export const usePassword = () => {
 	}
 
 	const generatePasswordByPhrase = (phrase:string, length:number) => {
+		if (phrase.length === 0) return
 		// extend the phrase
 		while (phrase.length < length) {
 			phrase += phrase
