@@ -14,6 +14,10 @@ export const Settings:FC<Props> = ({ getValues, initalSettings }) => {
 		getValues(upd)
 	}
 
+	const handleCheckAll = () => {
+		const upd = checkAll(true)
+		getValues(upd)
+	}
 
 	return (
 		<div className='mt-6'>
@@ -22,7 +26,7 @@ export const Settings:FC<Props> = ({ getValues, initalSettings }) => {
 			<div className='grid grid-cols-2 w-60'>
 				<button
 					className='text-cyan-600 text-xl col-span-full transition-colors outline-none hover:text-cyan-300'
-					onClick={() => checkAll(true)}
+					onClick={handleCheckAll}
 				>
 					Strong Password
 				</button>

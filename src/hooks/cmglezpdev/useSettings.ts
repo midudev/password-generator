@@ -41,6 +41,7 @@ export const useSettings = (settingsOption: SettingsOption[]) => {
 	const checkAll = (mark: boolean) => {
 		const updSettings = settings.map(sett => ({ ...sett, checked: mark }))
 		setSettings(updSettings)
+		return updSettings
 	}
 
 	const checked = (name: string) => {
