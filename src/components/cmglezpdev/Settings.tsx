@@ -1,28 +1,20 @@
+import { ChangeEvent, FC } from 'react'
 import { SettingsOption } from '@hooks/cmglezpdev/useSettings'
-import { useSettings } from '../../hooks/cmglezpdev/useSettings'
+import { useSettings } from '@hooks/cmglezpdev'
 
-const INITIAL_STATE: SettingsOption[] = [
-	{
-		name: 'letters',
-		checked: true
-	},
-	{
-		name: 'numbers',
-		checked: false
-	},
-	{
-		name: 'div_in_groups',
-		checked: false
-	},
-	{
-		name: 'special_characters',
-		checked: false
+interface Props {
+	initalSettings: SettingsOption[];
+	getValues: (values:SettingsOption[]) => void;
+}
+
+export const Settings:FC<Props> = ({ getValues, initalSettings }) => {
+	const { handleInputChange, findByName, checkAll } = useSettings(initalSettings)
+
+	const handleSettings = (e:ChangeEvent<HTMLInputElement>) => {
+		const upd = handleInputChange(e)
+		getValues(upd)
 	}
-]
 
-
-export const Settings = () => {
-	const { settings, handleInputChange, findByName, checkAll } = useSettings(INITIAL_STATE)
 
 	return (
 		<div className='mt-6'>
@@ -37,22 +29,22 @@ export const Settings = () => {
 				</button>
 
 				<label htmlFor='letters' className='text-gray-400 text-xl' >
-					<input type='checkbox' name='letters' checked={findByName('letters').checked} className='mr-2 outline-none' onChange={handleInputChange} />
+					<input type='checkbox' name='letters' checked={findByName('letters').checked} className='mr-2 outline-none' onChange={handleSettings} />
 					Letters
 				</label>
 
 				<label htmlFor='numbers' className='text-gray-400 text-xl'>
-					<input type='checkbox' name='numbers' checked={findByName('numbers').checked} className='mr-2 outline-none' onChange={handleInputChange} />
+					<input type='checkbox' name='numbers' checked={findByName('numbers').checked} className='mr-2 outline-none' onChange={handleSettings} />
 					Numbers
 				</label>
 
 				<label htmlFor='div_in_groups' className='text-gray-400 text-xl'>
-					<input type='checkbox' name='div_in_groups' checked={findByName('div_in_groups').checked} className='mr-2 outline-none' onChange={handleInputChange} />
+					<input type='checkbox' name='div_in_groups' checked={findByName('div_in_groups').checked} className='mr-2 outline-none' onChange={handleSettings} />
 					Divide
 				</label>
 
 				<label htmlFor='special_characters' className='text-gray-400 text-xl'>
-					<input type='checkbox' name='special_characters' checked={findByName('special_characters').checked} className='mr-2 outline-none' onChange={handleInputChange} />
+					<input type='checkbox' name='special' checked={findByName('special').checked} className='mr-2 outline-none' onChange={handleSettings} />
 					#%!@
 				</label>
 			</div>
