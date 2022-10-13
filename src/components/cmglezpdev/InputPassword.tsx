@@ -33,6 +33,8 @@ export const InputPassword = () => {
 					name='password'
 					value={password}
 					className='py-1 px-2 rounded w-96 outline-none text-gray-600 text-xl'
+					// eslint-disable-next-line @typescript-eslint/no-empty-function
+					onChange={() => {}}
 				/>
 				<button
 					className='flex items-center gap-1 px-2 bg-gray-400 rounded outline-none'
