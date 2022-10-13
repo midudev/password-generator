@@ -114,6 +114,9 @@ const Generator = () => {
 					className={`flex flex-col break-all justify-center items-center text-2xl rounded bg-[#393E46] mx-2 px-3 w-60 ${styles.drzz21text}`}
 				>
 					<button
+						onClick={() => {
+							navigator.clipboard.writeText(password)
+						}}
 						className={`text-2xl font-medium w-full py-2 my-2 rounded bg-[#222831] ${styles.drzz21text} drop-shadow-2xl`}
 					>
 						Copy

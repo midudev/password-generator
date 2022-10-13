@@ -1,4 +1,23 @@
-const arrSymbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+']
+const arrSymbols = [
+	'!',
+	'@',
+	'#',
+	'$',
+	'%',
+	'^',
+	'&',
+	'*',
+	'(',
+	')',
+	'_',
+	'+',
+	'~',
+	'/',
+	'[',
+	']',
+	'{',
+	'}'
+]
 const arrLetters = Array.from(Array(26))
 	.map((e, i) => i + 65)
 	.map((x) => String.fromCharCode(x))
@@ -24,20 +43,33 @@ const generatePassword = (config) => {
 		password += getRandomChar('l')
 		pchars.push('l')
 	}
-	if (config.symbols) {
-		password += getRandomChar('s')
-		pchars.push('s')
-	}
 	if (config.numbers) {
 		password += getRandomChar('n')
 		pchars.push('n')
+	}
+	if (config.symbols) {
+		password += getRandomChar('s')
+		pchars.push('s')
 	}
 
 	do {
 		password += getRandomChar(pchars[Math.floor(Math.random() * pchars.length)])
 	} while (password.length < +config.length)
 
-	return password
+	return scramble(password)
+}
+
+function scramble(word) {
+	const newWord = []
+
+	const arrNumbers = Array.from(Array(+word.length)).map((e, i) => i)
+	arrNumbers.sort((_, _2) => 0.5 - Math.random())
+
+	arrNumbers.forEach((x) => {
+		newWord.push(word[x])
+	})
+
+	return newWord.join('')
 }
 
 function getRandomChar(c) {
