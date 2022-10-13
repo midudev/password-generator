@@ -5,7 +5,7 @@ import { ButtonComponent, InputComponent, RangeInputComponent } from './basic-co
 export const AdvancedPassword = () => {
 	const [lengthPassword, setLenghtPassword] = useState(10)
 	const [phrase, setPhrase] = useState('')
-	const { password, generatePassword, generatePasswordByPhrase } = usePassword()
+	const { password, generatePassword } = usePassword()
 
 	const handleLengthControl = (e:ChangeEvent<HTMLInputElement>) => {
 		setLenghtPassword(parseInt(e.target.value))

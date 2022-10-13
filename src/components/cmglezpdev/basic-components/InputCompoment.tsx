@@ -14,7 +14,7 @@ export const InputComponent:FC<Props> = ({ name = '', value, onChange }) => {
 	const { refElement, copied, copyText } = useClipboard()
 
 	return (
-		<div className='flex gap-2'>
+		<div className='flex gap-2 my-2'>
 			<input
 				ref={refElement}
 				type='text'
