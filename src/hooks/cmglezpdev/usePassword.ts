@@ -28,6 +28,10 @@ const toArray = (text:string) => {
 	return r
 }
 
+const isLowLetter = (letter:string):boolean => {
+	return 'a'.charCodeAt(0) <= letter.charCodeAt(0) && letter.charCodeAt(0) <= 'z'.charCodeAt(0)
+}
+
 export const usePassword = () => {
 	const [password, setPassword] = useState<string>('')
 
@@ -43,7 +47,11 @@ export const usePassword = () => {
 		let genPass = ''
 		for (let i = 0; i < length; i++) {
 			const n = Math.floor(Math.random() * 10000 % r.length)
-			genPass += r[n]
+
+			const char = (isLowLetter(r[n]) && Math.random() >= 0.55)
+				? (r[n] as string).toUpperCase()
+				: r[n]
+			genPass += char
 		}
 		setPassword(genPass)
 	}
@@ -75,8 +83,8 @@ export const usePassword = () => {
 		for (let i = 0; i < hashs.length; i++) {
 			const rand = hashs[i] % 2
 			let char = ''
-			if (rand === 0) char = letters[hashs[i] % letters.length]
-			if (rand === 1) char = numbers[hashs[i] % numbers.length]
+			if (rand === 0) char = numbers[hashs[i] % numbers.length]
+			if (rand === 1) char = letters[hashs[i] % letters.length]
 			passw += char
 		}
 
