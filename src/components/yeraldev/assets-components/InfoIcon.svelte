@@ -1,7 +1,7 @@
-<span class="info" />
+<span class="--yeraldev-info" />
 
 <style>
-	.info {
+	.--yeraldev-info {
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
@@ -10,20 +10,20 @@
 		padding: 0.1rem;
 		width: 3rem;
 		height: 3rem;
-		border: 1px solid var(--color);
+		border: 1px solid var(--yeraldev-color);
 		border-radius: 100%;
-		box-shadow: inset var(--text-shadow-hover);
+		box-shadow: inset var(--yeraldev-text-shadow-hover);
 	}
-	.info::before,
-	.info::after {
+	.--yeraldev-info::before,
+	.--yeraldev-info::after {
 		content: '';
 		width: 0.25rem;
 		height: 1.25rem;
 		box-shadow: inherit;
 		border: inherit;
-		background-color: var(--color);
+		background-color: var(--yeraldev-color);
 	}
-	.info::before {
+	.--yeraldev-info::before {
 		height: 0.5rem;
 		width: 0.5rem;
 		border-radius: inherit;

@@ -1,17 +1,17 @@
-<section class="header">
-	<p class="slogan">online password generator tool</p>
-	<h1 class="title">Generate a secure password</h1>
+<section class="--yeraldev-header">
+	<p class="--yeraldev-slogan">online password generator tool</p>
+	<h1 class="--yeraldev-title">Generate a secure password</h1>
 </section>
 
 <style>
-	.header {
+	.--yeraldev-header {
 		text-align: center;
 	}
-	.slogan {
+	.--yeraldev-slogan {
 		font-size: 0.75em;
 		text-shadow: inherit;
 	}
-	.title {
+	.--yeraldev-title {
 		font-size: 1.5rem;
 		text-shadow: inherit;
 	}

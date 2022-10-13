@@ -3,15 +3,15 @@
 	export let data: TagValue, customMethod: () => void
 </script>
 
-<button class="toggle-button" on:click={customMethod}>
+<button class="--yeraldev-toggle-button" on:click={customMethod}>
 	{data.tag}
-	<span class="toggle-back" class:toggle={!data.value}>
-		<em class="toggle-switch" class:red-icon={!data.value} />
+	<span class="--yeraldev-toggle-back" class:--yeraldev-toggle={!data.value}>
+		<em class="--yeraldev-toggle-switch" class:--yeraldev-red-icon={!data.value} />
 	</span>
 </button>
 
 <style>
-	.toggle-button {
+	.--yeraldev-toggle-button {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -22,41 +22,39 @@
 		text-shadow: inherit;
 		transition: all 0.5s ease-in-out;
 	}
-	.toggle-button:active {
-		text-shadow: var(--text-shadow-hover);
+	.--yeraldev-toggle-button:active {
+		text-shadow: var(--yeraldev-text-shadow-hover);
 	}
-	.toggle-button:hover {
-		text-shadow: var(--text-shadow-hover);
+	.--yeraldev-toggle-button:hover {
+		text-shadow: var(--yeraldev-text-shadow-hover);
 	}
-	.toggle-back {
+	.--yeraldev-toggle-back {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
 		width: 2.5rem;
 		height: 1rem;
-		border-radius: 1rem;
-		border: 1px solid var(--green);
-		box-shadow: inset var(--green) -1px -1px 1px;
+		border-radius: 0.25rem;
+		border: 1px solid var(--yeraldev-green);
+		box-shadow: inset var(--yeraldev-green) -1px -1px 1px;
 		transition: all 0.5s ease-in-out;
+		/* overflow: hidden; */
 	}
-	.toggle-switch {
-		display: grid;
-		place-content: center;
-		width: 1.5rem;
-		height: 1.5rem;
-		background-color: var(--green);
+	.--yeraldev-toggle-switch {
+		width: 1.25rem;
+		height: 1rem;
+		background-color: var(--yeraldev-green);
 		color: white;
-		border-radius: 1rem;
+		border-radius: 0.25rem;
 		transition: all 0.5s ease-in-out;
-		box-shadow: var(--toggle-shadow);
+		box-shadow: var(--yeraldev-toggle-shadow);
 	}
-	.toggle {
-		justify-content: flex-end;
-		border: 1px solid var(--red);
-		box-shadow: inset var(--red) 1px 1px 1px;
+	.--yeraldev-toggle {
+		border: 1px solid var(--yeraldev-red);
+		box-shadow: inset var(--yeraldev-red) 1px 1px 1px;
 	}
-	.red-icon {
-		transform: translateX(10%);
-		background-color: var(--red);
+	.--yeraldev-red-icon {
+		transform: translateX(1.25rem);
+		background-color: var(--yeraldev-red);
 	}
 </style>

@@ -10,12 +10,12 @@
 	}
 </script>
 
-<section class="range-section">
-	<div class="range-selector">
+<section class="--yeraldev-range-section">
+	<div class="--yeraldev-range-selector">
 		{#each items as item}
 			<span
-				class="slot"
-				class:added={data.value >= item}
+				class="--yeraldev-slot"
+				class:--yeraldev-added={data.value >= item}
 				on:mouseenter={() => customMethod(item)}
 				on:touchstart={() => customMethod(item)}
 			/>
@@ -25,32 +25,32 @@
 </section>
 
 <style>
-	.range-section {
+	.--yeraldev-range-section {
 		display: grid;
 		gap: 1rem;
 		transition: all 0.5s ease-in-out;
-		text-shadow: var(--text-shadow-base);
+		text-shadow: var(--yeraldev-text-shadow-base);
 	}
-	.range-selector {
+	.--yeraldev-range-selector {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 1.5rem;
 		overflow: hidden;
 	}
-	.range-selector:hover + p {
-		text-shadow: var(--text-shadow-hover);
+	.--yeraldev-range-selector:hover + p {
+		text-shadow: var(--yeraldev-text-shadow-hover);
 	}
-	.slot {
+	.--yeraldev-slot {
 		height: 1rem;
 		width: 1rem;
-		box-shadow: inset var(--red) -1px -1px 3px;
-		border: 1px solid var(--red);
+		box-shadow: inset var(--yeraldev-red) -1px -1px 3px;
+		border: 1px solid var(--yeraldev-red);
 		border-radius: 0.25rem;
 	}
-	.added {
-		background-color: var(--green);
-		box-shadow: inset var(--text-shadow-hover);
+	.--yeraldev-added {
+		background-color: var(--yeraldev-green);
+		box-shadow: inset var(--yeraldev-text-shadow-hover);
 		transform: scale(1.1);
 	}
 </style>

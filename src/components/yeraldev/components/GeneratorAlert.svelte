@@ -9,13 +9,13 @@
 
 {#if $generatorAlert.show}
 	<button
-		class="alert-card"
+		class="--yeraldev-alert-card"
 		on:click={generatorAlert.close}
 		transition:fade
-		style="--opacity-background-color:{$generatorAlert.cardStyle};
---background-color:{$generatorAlert.cardStyle}"
+		style="--yeraldev-opacity-background-color:{$generatorAlert.cardStyle};
+--yeraldev-background-color:{$generatorAlert.cardStyle}"
 	>
-		<span class="icon">
+		<span class="--yeraldev-icon">
 			{#if $generatorAlert.type === GeneratorAlertType.success}
 				<SuccessIcon />
 			{:else if $generatorAlert.type === GeneratorAlertType.info}
@@ -24,31 +24,31 @@
 				<WarningIcon />
 			{/if}
 		</span>
-		<span class="message">
+		<span class="--yeraldev-message">
 			{$generatorAlert.message}
 		</span>
 	</button>
 {/if}
 
 <style>
-	.alert-card {
+	.--yeraldev-alert-card {
 		position: absolute;
 		display: flex;
 		gap: 0.5rem;
 		align-items: center;
 		top: 1.5rem;
 		right: 1.5rem;
-		background-color: var(--opacity-background-color);
-		color: var(--color);
+		background-color: var(--yeraldev-opacity-background-color);
+		color: var(--yeraldev-color);
 		text-shadow: inherit;
 		border-radius: 1rem;
 		height: 5rem;
 		width: 20rem;
 		padding: 0.5rem 1rem;
 		z-index: 1;
-		box-shadow: inset var(--text-shadow-hover);
+		box-shadow: inset var(--yeraldev-text-shadow-hover);
 	}
-	.message {
+	.--yeraldev-message {
 		font-size: 1rem;
 	}
 </style>
