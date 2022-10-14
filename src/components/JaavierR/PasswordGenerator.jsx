@@ -10,29 +10,29 @@ import {
 import SelectPasswordType from './components/SelectPasswordType'
 import SelectSeparator from './components/SelectSeparator'
 import { InputRangeSelector } from './components/InputRangeSelector'
+import { PasswordDisplay } from './components/PasswordDisplay'
+import { validatePasswordMinMaxLength } from './helper/utils'
 
 function PasswordGenerator() {
-	const [passwordLength, setPasswordLength] = useState(8)
-	const [pinLength, setPinLength] = useState(4)
-	const [password, setPassword] = useState(randomPassword({ length: passwordLength }))
-	const [includeNumbers, setIncludeNumbers] = useState(false)
-	const [includeSymbols, setIncludeSymbols] = useState(false)
 	const [passwordType, setPasswordType] = useState('Smart Password')
 	const [copied, setCopied] = useState(false)
 	const [regenerate, setRegenerate] = useState(false)
+	const [password, setPassword] = useState(smartPassword())
 
-	const [wordCount, setWordCount] = useState(6)
-	const [separator, setSeparator] = useState('Hyphens')
-	const [capitalize, setCapitalize] = useState(false)
-	const [fullWords, setFullWords] = useState(false)
+	const [randomOpts, setRandomOpts] = useState({
+		length: 12,
+		includeNumbers: false,
+		includeSymbols: false
+	})
 
-	function copyClipboard() {
-		navigator.clipboard.writeText(password.join(''))
-		setCopied(true)
-		setTimeout(() => {
-			setCopied(false)
-		}, 1500)
-	}
+	const [memorableOpts, setMemorableOpts] = useState({
+		separator: 'Hyphens',
+		capitalize: false,
+		fullWords: false,
+		wordCount: 6
+	})
+
+	const [pinOpts, setPinOpts] = useState({ length: 4 })
 
 	useEffect(() => {
 		if (passwordType === 'Smart Password') {
@@ -40,80 +40,47 @@ function PasswordGenerator() {
 		}
 
 		if (passwordType === 'Random Password') {
-			setPassword(randomPassword({ length: passwordLength, includeNumbers, includeSymbols }))
+			setPassword(randomPassword(randomOpts))
 		}
 
 		if (passwordType === 'Memorable Password') {
-			setPassword(memorablePassword({ wordCount, capitalize, fullWords, separator }))
+			setPassword(memorablePassword(memorableOpts))
 		}
 
 		if (passwordType === 'PIN Code') {
-			setPassword(pinCode({ length: pinLength }))
+			setPassword(pinCode(pinOpts))
 		}
-	}, [
-		passwordLength,
-		pinLength,
-		wordCount,
-		includeNumbers,
-		includeSymbols,
-		passwordType,
-		regenerate,
-		capitalize,
-		fullWords,
-		separator
-	])
+	}, [passwordType, regenerate, randomOpts, memorableOpts, pinOpts])
 
 	function handleChange(e) {
 		if (passwordType === 'PIN Code') {
-			setPinLength(e.target.value)
+			setPinOpts({ length: e.target.value })
 		} else if (passwordType === 'Memorable Password') {
-			setWordCount(e.target.value)
+			setMemorableOpts({ ...memorableOpts, wordCount: e.target.value })
 		} else {
-			setPasswordLength(e.target.value)
+			setRandomOpts({ ...randomOpts, length: e.target.value })
 		}
 	}
 
 	function checkLength(e) {
 		let length = e.target.value
-		let minLengthByType
-		let maxLengthByType
+		length = validatePasswordMinMaxLength({ type: passwordType, length })
 
 		if (passwordType === 'PIN Code') {
-			minLengthByType = 4
-			maxLengthByType = 12
+			setPinOpts({ length })
 		} else if (passwordType === 'Memorable Password') {
-			minLengthByType = 3
-			maxLengthByType = 15
+			setMemorableOpts({ ...memorableOpts, wordCount: length })
 		} else {
-			minLengthByType = 8
-			maxLengthByType = 100
-		}
-
-		if (length < minLengthByType) {
-			length = minLengthByType
-		}
-
-		if (length > maxLengthByType) {
-			length = maxLengthByType
-		}
-
-		if (passwordType === 'PIN Code') {
-			setPinLength(length)
-		} else if (passwordType === 'Memorable Password') {
-			setWordCount(length)
-		} else {
-			setPasswordLength(length)
+			setRandomOpts({ ...randomOpts, length })
 		}
 	}
 
-	function checkCharType(char) {
-		if (/^\d$/.test(char)) {
-			return 'text-blue-400'
-		} else if ([33, 42, 44, 45, 46, 64, 95].includes(char.charCodeAt(0))) {
-			return 'text-red-400'
-		} else {
-			return ''
-		}
+	function copyClipboard() {
+		navigator.clipboard.writeText(password.join(''))
+		setCopied(true)
+		setTimeout(() => {
+			setCopied(false)
+		}, 1500)
 	}
 
 	return (
@@ -144,13 +111,7 @@ function PasswordGenerator() {
 				</button>
 			</div>
 
-			<div className='mb-4 text-xl truncate min-w-full px-4 py-2 rounded-lg ring-1 ring-zinc-600/70 transition duration-200 font-sans tracking-wider bg-neutral-900'>
-				{password.map((char, idx) => (
-					<span key={idx} className={checkCharType(char)}>
-						{char}
-					</span>
-				))}
-			</div>
+			<PasswordDisplay password={password} />
 
 			<div className='divide-y divide-neutral-100/10'>
 				<SelectPasswordType
@@ -167,22 +128,26 @@ function PasswordGenerator() {
 							name='Characters'
 							min={8}
 							max={100}
-							value={passwordLength}
+							value={randomOpts.length}
 							onChange={handleChange}
 							onBlur={checkLength}
 						/>
 
 						<InputSwitch
 							label='Numbers'
-							value={includeNumbers}
-							onChange={() => setIncludeNumbers(!includeNumbers)}
+							value={randomOpts.includeNumbers}
+							onChange={() =>
+								setRandomOpts({ ...randomOpts, includeNumbers: !randomOpts.includeNumbers })
+							}
 							className='py-4'
 						/>
 
 						<InputSwitch
 							label='Symbols'
-							value={includeSymbols}
-							onChange={() => setIncludeSymbols(!includeSymbols)}
+							value={randomOpts.includeSymbols}
+							onChange={() =>
+								setRandomOpts({ ...randomOpts, includeSymbols: !randomOpts.includeSymbols })
+							}
 							className='py-4'
 						/>
 					</>
@@ -195,7 +160,7 @@ function PasswordGenerator() {
 							name='Words'
 							min={3}
 							max={15}
-							value={wordCount}
+							value={memorableOpts.wordCount}
 							onChange={handleChange}
 							onBlur={checkLength}
 						/>
@@ -203,21 +168,25 @@ function PasswordGenerator() {
 						<SelectSeparator
 							label='Type'
 							name='Type'
-							value={separator}
-							onChange={(e) => setSeparator(e.target.value)}
+							value={memorableOpts.separator}
+							onChange={(e) => setMemorableOpts({ ...memorableOpts, separator: e.target.value })}
 						/>
 
 						<InputSwitch
 							label='Capitalize'
-							value={capitalize}
-							onChange={() => setCapitalize(!capitalize)}
+							value={memorableOpts.capitalize}
+							onChange={() =>
+								setMemorableOpts({ ...memorableOpts, capitalize: !memorableOpts.capitalize })
+							}
 							className='py-4'
 						/>
 
 						<InputSwitch
 							label='Full words'
-							value={fullWords}
-							onChange={() => setFullWords(!fullWords)}
+							value={memorableOpts.fullWords}
+							onChange={() =>
+								setMemorableOpts({ ...memorableOpts, fullWords: !memorableOpts.fullWords })
+							}
 							className='py-4'
 						/>
 					</>
@@ -229,7 +198,7 @@ function PasswordGenerator() {
 						name='PIN Length'
 						min={4}
 						max={12}
-						value={pinLength}
+						value={pinOpts.length}
 						onChange={handleChange}
 						onBlur={checkLength}
 					/>
