@@ -79,7 +79,7 @@
 		on:copied={handleSuccessfulCopy}
 		on:error={() => alert('error')}
 		title="Copy password"
-		class="relative flex items-center justify-start font-bold group text-3xl mt-8 py-1 pl-2 pr-10 bg-gray-900/60 border border-white/30 rounded-md w-full"
+		class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 py-1 pl-2 pr-10 bg-gray-900/60 border border-white/30 rounded-md w-full"
 	>
 		{#if !animate}
 			{password}
@@ -165,7 +165,7 @@
 
 	<label for="length" class="mt-8 inline-block w-full">
 		<span class="text-lg">Length: {length}</span>
-		<input type="range" min="4" max="30" class="w-full mt-2" bind:value={length} />
+		<input type="range" min="4" max="32" class="w-full mt-2" bind:value={length} />
 	</label>
 	<ul class="grid gap-6 w-full grid-cols-2 lg:grid-cols-4">
 		{#each Object.keys(DEFAULT_OPTIONS) as option}
