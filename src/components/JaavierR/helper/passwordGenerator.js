@@ -8,7 +8,8 @@ import {
 	makeRandomString,
 	randomOddIntFromInterval,
 	setMinMaxLength,
-	setSeparator
+	setSeparator,
+	checkIfIncludeAtLeastOneNumberAndSymbol
 } from './utils'
 
 export function randomPassword({ length = 8, includeNumbers, includeSymbols }) {
@@ -131,7 +132,7 @@ export function memorablePassword({
 	fullWords = true
 }) {
 	let wordsArray = []
-	wordsNumber = setMinMaxLength({ length: wordsNumber, min: 3, max: 5 })
+	wordsNumber = setMinMaxLength({ length: wordsNumber, min: 3, max: 15 })
 
 	if (fullWords) {
 		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordsNumber)
@@ -158,35 +159,17 @@ export function memorablePassword({
 	}
 
 	if (separator === 'Numbers and Symbols') {
-		let position = 1
-
-		wordsArray.forEach((_val, _idx, arr) => {
-			if (position < arr.length) {
-				const prob = Math.random()
-
-				if (prob < 0.5) {
-					arr.splice(position, 0, getNumber())
-				} else {
-					arr.splice(position, 0, getSymbol())
-				}
-
-				position += 2
+		const newArrayLength = wordsNumber * 2 - 1
+		for (let i = 1; i < newArrayLength; i += 2) {
+			const isNumber = Math.random() < 0.5
+			if (isNumber) {
+				wordsArray.splice(i, 0, getNumber())
+			} else {
+				wordsArray.splice(i, 0, getSymbol())
 			}
-		})
-
-		// This ensure there is at least one number or symbol in the password
-		const password = wordsArray.join('')
-		const arrLength = wordsArray.length
-
-		if (!/\d/.test(password)) {
-			wordsArray[randomOddIntFromInterval(0, arrLength)] = getNumber()
 		}
 
-		if (!/[!@*_\-/.]/.test(password)) {
-			wordsArray[randomOddIntFromInterval(0, arrLength)] = getSymbol()
-		}
-
-		return wordsArray
+		return checkIfIncludeAtLeastOneNumberAndSymbol(wordsArray)
 	}
 
 	return [...wordsArray.join(setSeparator(separator))]

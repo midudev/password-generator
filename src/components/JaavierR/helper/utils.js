@@ -78,3 +78,19 @@ export function makeRandomString({ arr, length = null }) {
 		.splice(0, length)
 		.join('')
 }
+
+export function checkIfIncludeAtLeastOneNumberAndSymbol(arr) {
+	const password = arr.join('')
+	const arrLength = arr.length - 1
+	const idx = randomOddIntFromInterval(0, arrLength)
+
+	if (!/\d/.test(password)) {
+		arr[idx] = getNumber()
+	}
+
+	if (!/[!@*_\-/.]/.test(password)) {
+		arr[idx] = getSymbol()
+	}
+
+	return arr
+}
