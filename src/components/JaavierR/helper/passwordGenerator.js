@@ -6,7 +6,6 @@ import {
 	getSymbol,
 	getUpper,
 	makeRandomString,
-	randomOddIntFromInterval,
 	setMinMaxLength,
 	setSeparator,
 	checkIfIncludeAtLeastOneNumberAndSymbol
@@ -84,34 +83,17 @@ export function smartPassword() {
 	const randNumber = Math.floor(Math.random() * 5)
 	password[randNumber] = password[randNumber].toUpperCase()
 
-	let position = 1
-
-	password.forEach((_val, _idx, arr) => {
-		if (position < arr.length) {
-			const prob = Math.random()
-
-			if (prob < 0.5) {
-				arr.splice(position, 0, getNumber())
-			} else {
-				arr.splice(position, 0, getSymbol())
-			}
-
-			position += 2
+	const newArrayLength = 5 * 2 - 1
+	for (let i = 1; i < newArrayLength; i += 2) {
+		const isNumber = Math.random() < 0.5
+		if (isNumber) {
+			password.splice(i, 0, getNumber())
+		} else {
+			password.splice(i, 0, getSymbol())
 		}
-	})
-
-	const stringPassword = password.join('')
-	const arrLength = password.length
-
-	if (!/\d/.test(stringPassword)) {
-		password[randomOddIntFromInterval(0, arrLength)] = getNumber()
 	}
 
-	if (!/[!@*_\-/.]/.test(stringPassword)) {
-		password[randomOddIntFromInterval(0, arrLength)] = getSymbol()
-	}
-
-	return password
+	return checkIfIncludeAtLeastOneNumberAndSymbol(password)
 }
 
 export function pinCode({ length = 4 }) {
