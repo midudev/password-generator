@@ -71,10 +71,10 @@ export function randomOddIntFromInterval(min, max) {
 	return min + 2 * randomIntFromInterval(0, (max - min) / 2)
 }
 
-export function makeRandomString(arr) {
-	const stringLength = Math.random() < 0.5 ? 3 : 4
+export function makeRandomString({ arr, length = null }) {
+	if (!length) length = Math.random() < 0.5 ? 3 : 4
 	return [...arr]
 		.sort(() => 0.5 - Math.random())
-		.splice(0, stringLength)
+		.splice(0, length)
 		.join('')
 }
