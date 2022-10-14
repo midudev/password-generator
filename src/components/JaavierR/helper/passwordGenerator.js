@@ -74,52 +74,43 @@ export function randomPassword({ length = 8, includeNumbers, includeSymbols }) {
 }
 
 export function smartPassword() {
-	let password = ''
-	let upper = false
+	const password = []
 
 	for (let i = 0; i < 5; i++) {
-		const randUpper = Math.random()
-		const rdm = Math.random()
+		password.push(makeRandomString({ arr: ABC_ARRAY, length: 3 }))
+	}
 
-		if (randUpper < 0.5 && !upper) {
-			password += getUpper() + getUpper() + getUpper()
-			upper = true
-		} else {
-			password += getLower() + getLower() + getLower()
-		}
+	const randNumber = Math.floor(Math.random() * 5)
+	password[randNumber] = password[randNumber].toUpperCase()
 
-		if (i < 4) {
-			if (rdm < 0.5) {
-				password += getSymbol()
+	let position = 1
+
+	password.forEach((_val, _idx, arr) => {
+		if (position < arr.length) {
+			const prob = Math.random()
+
+			if (prob < 0.5) {
+				arr.splice(position, 0, getNumber())
 			} else {
-				password += getNumber()
+				arr.splice(position, 0, getSymbol())
 			}
+
+			position += 2
 		}
+	})
+
+	const stringPassword = password.join('')
+	const arrLength = password.length
+
+	if (!/\d/.test(stringPassword)) {
+		password[randomOddIntFromInterval(0, arrLength)] = getNumber()
 	}
 
-	if (!upper) {
-		const textPositon = [0, 4, 8, 12, 16]
-		const randomPosition = textPositon[Math.floor(Math.random() * textPositon.length)]
-		const fixUpper = getUpper() + getUpper() + getUpper()
-
-		password =
-			password.substring(0, randomPosition) +
-			fixUpper +
-			password.substring(randomPosition + 3, password.length)
+	if (!/[!@*_\-/.]/.test(stringPassword)) {
+		password[randomOddIntFromInterval(0, arrLength)] = getSymbol()
 	}
 
-	const positions = [3, 7, 11, 15]
-	const position = positions[Math.floor(Math.random() * positions.length)]
-
-	if (!/\d/.test(password)) {
-		password = password.replace(password[position], getNumber())
-	}
-
-	if (!/[!@*_\-/.]/.test(password)) {
-		password = password.replace(password[position], getSymbol())
-	}
-
-	return [...password]
+	return password
 }
 
 export function pinCode({ length = 4 }) {
@@ -146,7 +137,7 @@ export function memorablePassword({
 		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordsNumber)
 	} else {
 		for (let i = 0; i < wordsNumber; i++) {
-			wordsArray.push(makeRandomString(ABC_ARRAY))
+			wordsArray.push(makeRandomString({ arr: ABC_ARRAY }))
 		}
 	}
 
