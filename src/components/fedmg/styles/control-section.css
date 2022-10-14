@@ -1,0 +1,32 @@
+.fedmg-control-section {
+	display: grid;
+	grid-template-columns: 1fr 1fr 6.4em;
+	gap: 0 0.5em;
+	align-items: center;
+}
+
+.fedmg-message-container {
+	grid-column: 1/3;
+}
+
+.fedmg-generate-button {
+	background-color: rgb(0 0 0 / 30%);
+	grid-column: 3;
+	border: 2px solid #fff;
+	padding: 0.23em 0.22em;
+	border-radius: 0.22em;
+	font-weight: 500;
+}
+
+/* status */
+.fedmg-generate-button:hover {
+	background: linear-gradient(to right, rgb(55 65 81), rgb(17 24 39));
+	border: 2px solid rgb(255 255 255 / 70%);
+	color: #000;
+}
+
+.fedmg-generate-button:active {
+	background: transparent;
+	border: 2px solid #fff;
+	color: #fff;
+}

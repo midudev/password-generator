@@ -1,5 +1,6 @@
 {
 	"env": {
+		"jest": true,
 		"es2022": true,
 		"node": true,
 		"browser": true
@@ -27,6 +28,7 @@
 				"caughtErrorsIgnorePattern": "^_"
 			}
 		],
+		"space-before-function-paren": "off",
 		"no-multiple-empty-lines": "off",
 		"no-tabs": "off",
 		"indent": ["warn", "tab"],

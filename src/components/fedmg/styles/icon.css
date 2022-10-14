@@ -1,0 +1,15 @@
+.fedmg-icon-success {
+	filter: invert(100%) sepia(1%) saturate(154%) hue-rotate(116deg) brightness(112%) contrast(100%);
+}
+
+.fedmg-icon-default {
+	filter: invert(39%) sepia(7%) saturate(7%) hue-rotate(318deg) brightness(95%) contrast(80%);
+}
+
+.fedmg-icon-success:hover {
+	filter: invert(39%) sepia(7%) saturate(7%) hue-rotate(318deg) brightness(95%) contrast(80%);
+}
+
+.fedmg-icon-default:hover {
+	filter: invert(98%) sepia(2%) saturate(129%) hue-rotate(29deg) brightness(109%) contrast(73%);
+}
