@@ -83,17 +83,7 @@ export function smartPassword() {
 	const randNumber = Math.floor(Math.random() * 5)
 	password[randNumber] = password[randNumber].toUpperCase()
 
-	const newArrayLength = 5 * 2 - 1
-	for (let i = 1; i < newArrayLength; i += 2) {
-		const isNumber = Math.random() < 0.5
-		if (isNumber) {
-			password.splice(i, 0, getNumber())
-		} else {
-			password.splice(i, 0, getSymbol())
-		}
-	}
-
-	return checkIfIncludeAtLeastOneNumberAndSymbol(password)
+	return makePasswordWithNumbersAndSymbols({ arr: password, wordCount: 5 })
 }
 
 export function pinCode({ length = 4 }) {
@@ -108,24 +98,24 @@ export function pinCode({ length = 4 }) {
 }
 
 export function memorablePassword({
-	wordsNumber = 3,
+	wordCount = 3,
 	separator = 'Hyphens',
 	capitalize = false,
 	fullWords = true
 }) {
 	let wordsArray = []
-	wordsNumber = setMinMaxLength({ length: wordsNumber, min: 3, max: 15 })
+	wordCount = setMinMaxLength({ length: wordCount, min: 3, max: 15 })
 
 	if (fullWords) {
-		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordsNumber)
+		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordCount)
 	} else {
-		for (let i = 0; i < wordsNumber; i++) {
+		for (let i = 0; i < wordCount; i++) {
 			wordsArray.push(makeRandomString({ arr: ABC_ARRAY }))
 		}
 	}
 
 	if (capitalize) {
-		const randNumber = Math.floor(Math.random() * wordsNumber)
+		const randNumber = Math.floor(Math.random() * wordCount)
 		wordsArray[randNumber] = wordsArray[randNumber].toUpperCase()
 	}
 
@@ -141,18 +131,23 @@ export function memorablePassword({
 	}
 
 	if (separator === 'Numbers and Symbols') {
-		const newArrayLength = wordsNumber * 2 - 1
-		for (let i = 1; i < newArrayLength; i += 2) {
-			const isNumber = Math.random() < 0.5
-			if (isNumber) {
-				wordsArray.splice(i, 0, getNumber())
-			} else {
-				wordsArray.splice(i, 0, getSymbol())
-			}
-		}
-
-		return checkIfIncludeAtLeastOneNumberAndSymbol(wordsArray)
+		return makePasswordWithNumbersAndSymbols({ arr: wordsArray, wordCount })
 	}
 
 	return [...wordsArray.join(setSeparator(separator))]
+}
+
+function makePasswordWithNumbersAndSymbols({ arr, wordCount }) {
+	const finalLength = wordCount * 2 - 1
+
+	for (let i = 1; i < finalLength; i += 2) {
+		const isNumber = Math.random() < 0.5
+		if (isNumber) {
+			arr.splice(i, 0, getNumber())
+		} else {
+			arr.splice(i, 0, getSymbol())
+		}
+	}
+
+	return checkIfIncludeAtLeastOneNumberAndSymbol(arr)
 }
