@@ -32,15 +32,19 @@ const generateCharactersArray = (charactersToUse: string[]) => {
 }
 
 export const usePasswordGeneratorRepository = () => {
+	let timeoutReference = null
+
 	const charactersToUse = ref<string[]>(['a-z'])
 	const characters = ref<string[]>(generateCharactersArray(charactersToUse.value))
 	const range = ref(INITIAL_RANGE_VALUE)
 	const password = ref('')
+	const copied = ref(false)
 
 	const generatePassword = () => {
 		password.value = ''
 		for (let i = 0; i < range.value; i++) {
-			password.value += characters.value[parseInt(`${Math.random() * characters.value.length}`, 10)]
+			const randomIndex = parseInt(`${Math.random() * characters.value.length}`, 10)
+			password.value += characters.value[randomIndex]
 		}
 	}
 
@@ -51,6 +55,13 @@ export const usePasswordGeneratorRepository = () => {
 
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText(password.value)
+		copied.value = true
+		if (timeoutReference) {
+			clearTimeout(timeoutReference)
+		}
+		timeoutReference = setTimeout(() => {
+			copied.value = false
+		}, 400)
 	}
 
 	onMounted(() => {
@@ -58,11 +69,12 @@ export const usePasswordGeneratorRepository = () => {
 	})
 
 	return {
-		range,
-		password,
-		generatePassword,
+		charactersToUse,
+		copied,
 		copyToClipboard,
+		generatePassword,
 		onSelectedCharactersChange,
-		charactersToUse
+		password,
+		range
 	}
 }

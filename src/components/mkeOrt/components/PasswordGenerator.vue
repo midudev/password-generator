@@ -6,12 +6,13 @@ import {
 } from '../composables/password-generator-repository'
 
 const {
-	range,
-	generatePassword,
-	password,
-	copyToClipboard,
 	charactersToUse,
-	onSelectedCharactersChange
+	copied,
+	copyToClipboard,
+	generatePassword,
+	onSelectedCharactersChange,
+	password,
+	range
 } = usePasswordGeneratorRepository()
 </script>
 
@@ -29,21 +30,33 @@ const {
 				</div>
 			</div>
 			<button
+				v-if="!copied"
 				id="mke-generate-btn"
 				class="w-full rounded-b-lg py-2 bg-[#372948] border-t-[0.5px] border-solid border-[#251b37]"
 				@click="generatePassword"
 			>
 				Generate
 			</button>
-			<input
-				type="range"
-				class="w-full mt-5"
-				v-model="range"
-				min="5"
-				max="128"
-				@input="generatePassword"
-			/>
-			<div class="flex justify-end">
+			<div
+				v-if="copied"
+				class="w-full rounded-b-lg py-2 bg-[#ffcaca] text-[#251b37] border-t-[0.5px] border-solid border-[#251b37] flex justify-center"
+			>
+				Copied!
+			</div>
+			<div class="flex items-center justify-between mt-5">
+				<small class="font-bold">5</small>
+				<input
+					type="range"
+					id="mke-range"
+					class="w-full appearance-none h-1 bg-[#372948] outline-none mt-0 mx-3"
+					v-model="range"
+					min="5"
+					max="128"
+					@input="generatePassword"
+				/>
+				<small class="font-bold">128</small>
+			</div>
+			<div class="flex justify-end text-xs">
 				<small>{{ range }}</small>
 			</div>
 			<div class="mt-1">
@@ -125,6 +138,33 @@ const {
 }
 
 .mke-checkbox:checked {
-	border: 8px solid #372948;
+	border: 8px solid #ffcaca;
+}
+
+#mke-range::-webkit-slider-thumb {
+	appearance: none;
+	width: 15px;
+	height: 15px;
+	background: #ffcaca;
+	cursor: grab;
+	border-radius: 50%;
+	border: none;
+}
+
+#mke-range::-webkit-slider-thumb:active {
+	cursor: grabbing;
+}
+
+#mke-range::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	background: #ffcaca;
+	cursor: grab;
+	border-radius: 50%;
+	border: none;
+}
+
+#mke-range::-moz-range-thumb:active {
+	cursor: grabbing;
 }
 </style>
