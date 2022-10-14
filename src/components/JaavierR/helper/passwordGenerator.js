@@ -55,18 +55,13 @@ export function randomPassword({ length = 8, includeNumbers, includeSymbols }) {
 
 	// This ensure there is at least one number or symbol in the password
 	if (includeNumbers && includeSymbols) {
+		const idx = Math.floor(Math.random() * password.length)
 		if (!/\d/.test(password)) {
-			password = password.replace(
-				password[Math.floor(Math.random() * password.length)],
-				getNumber()
-			)
+			password = password.replace(password[idx], getNumber())
 		}
 
 		if (!/[!@*_\-/.]/.test(password)) {
-			password = password.replace(
-				password[Math.floor(Math.random() * password.length)],
-				getSymbol()
-			)
+			password = password.replace(password[idx], getSymbol())
 		}
 	}
 
@@ -74,27 +69,10 @@ export function randomPassword({ length = 8, includeNumbers, includeSymbols }) {
 }
 
 export function smartPassword() {
-	const password = []
-
-	for (let i = 0; i < 5; i++) {
-		password.push(makeRandomString({ arr: ABC_ARRAY, length: 3 }))
-	}
-
-	const randNumber = Math.floor(Math.random() * 5)
-	password[randNumber] = password[randNumber].toUpperCase()
-
+	const password = makeArrayOfRandomStrings({ arr: ABC_ARRAY, wordCount: 5, stringLength: 3 })
+	const idx = Math.floor(Math.random() * 5)
+	password[idx] = password[idx].toUpperCase()
 	return makePasswordWithNumbersAndSymbols({ arr: password, wordCount: 5 })
-}
-
-export function pinCode({ length = 4 }) {
-	let password = ''
-	length = setMinMaxLength({ length, min: 4, max: 12 })
-
-	for (let i = 0; i < parseInt(length); i++) {
-		password += getNumber()
-	}
-
-	return [...password]
 }
 
 export function memorablePassword({
@@ -109,24 +87,19 @@ export function memorablePassword({
 	if (fullWords) {
 		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordCount)
 	} else {
-		for (let i = 0; i < wordCount; i++) {
-			wordsArray.push(makeRandomString({ arr: ABC_ARRAY }))
-		}
+		wordsArray = makeArrayOfRandomStrings({ arr: ABC_ARRAY, wordCount })
 	}
 
 	if (capitalize) {
-		const randNumber = Math.floor(Math.random() * wordCount)
-		wordsArray[randNumber] = wordsArray[randNumber].toUpperCase()
+		const idx = Math.floor(Math.random() * wordCount)
+		wordsArray[idx] = wordsArray[idx].toUpperCase()
 	}
 
 	if (separator === 'Numbers') {
-		let position = 1
-		wordsArray.forEach((_val, _idx, arr) => {
-			if (position < arr.length) {
-				arr.splice(position, 0, getNumber())
-				position += 2
-			}
-		})
+		const finalLength = wordCount * 2 - 1
+		for (let i = 1; i < finalLength; i += 2) {
+			wordsArray.splice(i, 0, getNumber())
+		}
 		return wordsArray
 	}
 
@@ -135,6 +108,17 @@ export function memorablePassword({
 	}
 
 	return [...wordsArray.join(setSeparator(separator))]
+}
+
+export function pinCode({ length = 4 }) {
+	let password = ''
+	length = setMinMaxLength({ length, min: 4, max: 12 })
+
+	for (let i = 0; i < parseInt(length); i++) {
+		password += getNumber()
+	}
+
+	return [...password]
 }
 
 function makePasswordWithNumbersAndSymbols({ arr, wordCount }) {
@@ -150,4 +134,14 @@ function makePasswordWithNumbersAndSymbols({ arr, wordCount }) {
 	}
 
 	return checkIfIncludeAtLeastOneNumberAndSymbol(arr)
+}
+
+function makeArrayOfRandomStrings({ arr, wordCount, stringLength = null }) {
+	const newArray = []
+
+	for (let i = 0; i < wordCount; i++) {
+		newArray.push(makeRandomString({ arr, length: stringLength }))
+	}
+
+	return newArray
 }
