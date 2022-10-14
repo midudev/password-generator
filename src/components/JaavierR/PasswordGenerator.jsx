@@ -21,7 +21,7 @@ function PasswordGenerator() {
 	const [copied, setCopied] = useState(false)
 	const [regenerate, setRegenerate] = useState(false)
 
-	const [wordsNumber, setWordsNumber] = useState(6)
+	const [wordCount, setWordCount] = useState(6)
 	const [separator, setSeparator] = useState('Hyphens')
 	const [capitalize, setCapitalize] = useState(false)
 	const [fullWords, setFullWords] = useState(false)
@@ -44,7 +44,7 @@ function PasswordGenerator() {
 		}
 
 		if (passwordType === 'Memorable Password') {
-			setPassword(memorablePassword({ wordsNumber, capitalize, fullWords, separator }))
+			setPassword(memorablePassword({ wordCount, capitalize, fullWords, separator }))
 		}
 
 		if (passwordType === 'PIN Code') {
@@ -53,7 +53,7 @@ function PasswordGenerator() {
 	}, [
 		passwordLength,
 		pinLength,
-		wordsNumber,
+		wordCount,
 		includeNumbers,
 		includeSymbols,
 		passwordType,
@@ -67,7 +67,7 @@ function PasswordGenerator() {
 		if (passwordType === 'PIN Code') {
 			setPinLength(e.target.value)
 		} else if (passwordType === 'Memorable Password') {
-			setWordsNumber(e.target.value)
+			setWordCount(e.target.value)
 		} else {
 			setPasswordLength(e.target.value)
 		}
@@ -100,7 +100,7 @@ function PasswordGenerator() {
 		if (passwordType === 'PIN Code') {
 			setPinLength(length)
 		} else if (passwordType === 'Memorable Password') {
-			setWordsNumber(length)
+			setWordCount(length)
 		} else {
 			setPasswordLength(length)
 		}
@@ -193,7 +193,7 @@ function PasswordGenerator() {
 							name='Words'
 							min={3}
 							max={15}
-							value={wordsNumber}
+							value={wordCount}
 							onChange={handleChange}
 							onBlur={checkLength}
 						/>
