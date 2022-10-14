@@ -11,8 +11,7 @@ const {
 	password,
 	copyToClipboard,
 	charactersToUse,
-	onSelectedCharactersChange,
-	disableCheckbox
+	onSelectedCharactersChange
 } = usePasswordGeneratorRepository()
 </script>
 
@@ -55,9 +54,9 @@ const {
 						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="a-z"
 						value="a-z"
-						v-model="charactersToUse.useLowerCase"
+						v-model="charactersToUse"
+						:disabled="charactersToUse.length <= 1 && charactersToUse.includes('a-z')"
 						@change="onSelectedCharactersChange"
-						:disabled="disableCheckbox(charactersToUse.useLowerCase)"
 					/>
 				</div>
 				<div class="w-full flex justify-between mb-3 items-center">
@@ -67,9 +66,9 @@ const {
 						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="A-Z"
 						value="A-Z"
-						v-model="charactersToUse.useUpperCase"
+						v-model="charactersToUse"
+						:disabled="charactersToUse.length <= 1 && charactersToUse.includes('A-Z')"
 						@change="onSelectedCharactersChange"
-						:disabled="disableCheckbox(charactersToUse.useUpperCase)"
 					/>
 				</div>
 				<div class="w-full flex justify-between mb-3 items-center">
@@ -79,9 +78,9 @@ const {
 						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="0-9"
 						value="0-9"
-						v-model="charactersToUse.useNumbers"
+						v-model="charactersToUse"
+						:disabled="charactersToUse.length <= 1 && charactersToUse.includes('0-9')"
 						@change="onSelectedCharactersChange"
-						:disabled="disableCheckbox(charactersToUse.useNumbers)"
 					/>
 				</div>
 				<div class="w-full flex justify-between mb-3 items-center">
@@ -91,9 +90,9 @@ const {
 						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="!@#$%^&*"
 						value="!@#$%^&*"
-						v-model="charactersToUse.useSpecialCharacters"
+						v-model="charactersToUse"
+						:disabled="charactersToUse.length <= 1 && charactersToUse.includes('!@#$%^&*')"
 						@change="onSelectedCharactersChange"
-						:disabled="disableCheckbox(charactersToUse.useSpecialCharacters)"
 					/>
 				</div>
 			</div>

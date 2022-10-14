@@ -1,49 +1,27 @@
-import { computed, onMounted, reactive, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 export const SPECIAL_CHARACTERS = '!@#$%^&*()='
 const INITIAL_RANGE_VALUE = 5
-
-interface CharactersToUse {
-	useLowerCase: boolean
-	useUpperCase: boolean
-	useNumbers: boolean
-	useSpecialCharacters: boolean
-}
 
 const generateCharacterRange = (startFrom: number, quantity: number) =>
 	Array(quantity)
 		.fill('')
 		.map((_, index) => String.fromCharCode(index + startFrom))
 
-const generateCharactersArray = ({
-	useLowerCase,
-	useUpperCase,
-	useNumbers,
-	useSpecialCharacters
-}: CharactersToUse) => {
+const generateCharactersArray = (charactersToUse: string[]) => {
 	const characterToUse = []
-	if (useLowerCase) characterToUse.push(...generateCharacterRange(97, 26)) // a-z
-	if (useUpperCase) characterToUse.push(...generateCharacterRange(65, 26)) // A-Z
-	if (useNumbers) characterToUse.push(...generateCharacterRange(48, 10)) // 0-9
-	if (useSpecialCharacters) characterToUse.push(...SPECIAL_CHARACTERS.split('')) // special characters
+	if (charactersToUse.includes('a-z')) characterToUse.push(...generateCharacterRange(97, 26)) // a-z
+	if (charactersToUse.includes('A-Z')) characterToUse.push(...generateCharacterRange(65, 26)) // A-Z
+	if (charactersToUse.includes('0-8')) characterToUse.push(...generateCharacterRange(48, 10)) // 0-9
+	if (charactersToUse.includes('!@#$%^&*')) characterToUse.push(...SPECIAL_CHARACTERS.split('')) // special characters
 	return characterToUse.sort(() => (Math.random() > 0.5 ? 1 : -1)) as string[]
 }
 
 export const usePasswordGeneratorRepository = () => {
-	const charactersToUse: CharactersToUse = reactive({
-		useLowerCase: true,
-		useUpperCase: false,
-		useNumbers: false,
-		useSpecialCharacters: false
-	})
-
-	const characters = ref<string[]>(generateCharactersArray(charactersToUse))
+	const charactersToUse = ref<string[]>(['a-z'])
+	const characters = ref<string[]>(generateCharactersArray(charactersToUse.value))
 	const range = ref(INITIAL_RANGE_VALUE)
 	const password = ref('')
-
-	const selectedCharactersCount = computed(
-		() => Object.values(charactersToUse).filter((el) => el).length
-	)
 
 	const generatePassword = () => {
 		password.value = ''
@@ -53,16 +31,13 @@ export const usePasswordGeneratorRepository = () => {
 	}
 
 	const onSelectedCharactersChange = () => {
-		characters.value = generateCharactersArray(charactersToUse)
+		characters.value = generateCharactersArray(charactersToUse.value)
 		generatePassword()
 	}
 
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText(password.value)
 	}
-
-	const disableCheckbox = (currentItemSelection: boolean) =>
-		selectedCharactersCount.value === 1 && currentItemSelection
 
 	onMounted(() => {
 		generatePassword()
@@ -74,7 +49,6 @@ export const usePasswordGeneratorRepository = () => {
 		generatePassword,
 		copyToClipboard,
 		onSelectedCharactersChange,
-		charactersToUse,
-		disableCheckbox
+		charactersToUse
 	}
 }
