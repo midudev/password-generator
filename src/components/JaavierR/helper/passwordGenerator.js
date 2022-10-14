@@ -59,6 +59,7 @@ export function randomPassword({ length = 8, includeNumbers, includeSymbols }) {
 		}
 	}
 
+	// This ensure there is at least one number or symbol in the password
 	if (includeNumbers && includeSymbols) {
 		if (!/\d/.test(password)) {
 			password = password.replace(
@@ -159,10 +160,43 @@ export function memorablePassword({
 	if (separator === 'Numbers') {
 		let position = 1
 		wordsArray.forEach((_val, _idx, arr) => {
-			const randNumber = Math.floor(Math.random() * 10)
-			arr.splice(position, 0, randNumber)
-			position += 2
+			if (position < arr.length) {
+				arr.splice(position, 0, getNumber())
+				position += 2
+			}
 		})
+		return wordsArray
+	}
+
+	if (separator === 'Numbers and Symbols') {
+		let position = 1
+
+		wordsArray.forEach((_val, _idx, arr) => {
+			if (position < arr.length) {
+				const prob = Math.random()
+
+				if (prob < 0.5) {
+					arr.splice(position, 0, getNumber())
+				} else {
+					arr.splice(position, 0, getSymbol())
+				}
+
+				position += 2
+			}
+		})
+
+		// This ensure there is at least one number or symbol in the password
+		const password = wordsArray.join('')
+		const arrLength = wordsArray.length
+
+		if (!/\d/.test(password)) {
+			wordsArray[randomOddIntFromInterval(0, arrLength)] = getNumber()
+		}
+
+		if (!/[!@*_\-/.]/.test(password)) {
+			wordsArray[randomOddIntFromInterval(0, arrLength)] = getSymbol()
+		}
+
 		return wordsArray
 	}
 
@@ -185,4 +219,13 @@ function setSeparator(separator) {
 	} else if (separator === 'Underscores') {
 		return '_'
 	}
+}
+
+function randomIntFromInterval(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function randomOddIntFromInterval(min, max) {
+	if (min % 2 === 0) ++min
+	return min + 2 * randomIntFromInterval(0, (max - min) / 2)
 }
