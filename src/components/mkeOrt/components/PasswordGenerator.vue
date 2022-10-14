@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ClipboardIcon from './ClipboardIcon.vue'
 import {
-	SPECIAL_CHARACTERS,
+	VALID_CHARACTERS_TO_USE,
 	usePasswordGeneratorRepository
 } from '../composables/password-generator-repository'
 
@@ -48,50 +48,64 @@ const {
 			</div>
 			<div class="mt-1">
 				<div class="w-full flex justify-between py-3 items-center">
-					<label class="w-full" for="a-z">a-z</label>
+					<label class="w-full" for="a-z">{{ VALID_CHARACTERS_TO_USE.LOWERCASE }}</label>
 					<input
 						type="checkbox"
 						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="a-z"
-						value="a-z"
+						:value="VALID_CHARACTERS_TO_USE['LOWERCASE']"
 						v-model="charactersToUse"
-						:disabled="charactersToUse.length <= 1 && charactersToUse.includes('a-z')"
+						:disabled="
+							charactersToUse.length <= 1 &&
+							charactersToUse.includes(VALID_CHARACTERS_TO_USE['LOWERCASE'])
+						"
 						@change="onSelectedCharactersChange"
 					/>
 				</div>
 				<div class="w-full flex justify-between mb-3 items-center">
-					<label class="w-full" for="A-Z">A-Z</label>
+					<label class="w-full" for="A-Z">{{ VALID_CHARACTERS_TO_USE.UPPERCASE }}</label>
 					<input
 						type="checkbox"
 						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="A-Z"
-						value="A-Z"
+						:value="VALID_CHARACTERS_TO_USE.UPPERCASE"
 						v-model="charactersToUse"
-						:disabled="charactersToUse.length <= 1 && charactersToUse.includes('A-Z')"
+						:disabled="
+							charactersToUse.length <= 1 &&
+							charactersToUse.includes(VALID_CHARACTERS_TO_USE.UPPERCASE)
+						"
 						@change="onSelectedCharactersChange"
 					/>
 				</div>
 				<div class="w-full flex justify-between mb-3 items-center">
-					<label class="w-full" for="0-9">0-9</label>
+					<label class="w-full" for="0-9">{{ VALID_CHARACTERS_TO_USE.NUMBERS }}</label>
 					<input
 						type="checkbox"
 						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="0-9"
-						value="0-9"
+						:value="VALID_CHARACTERS_TO_USE.NUMBERS"
 						v-model="charactersToUse"
-						:disabled="charactersToUse.length <= 1 && charactersToUse.includes('0-9')"
+						:disabled="
+							charactersToUse.length <= 1 &&
+							charactersToUse.includes(VALID_CHARACTERS_TO_USE.NUMBERS)
+						"
 						@change="onSelectedCharactersChange"
 					/>
 				</div>
 				<div class="w-full flex justify-between mb-3 items-center">
-					<label class="w-full" for="!@#$%^&*">{{ SPECIAL_CHARACTERS }}</label>
+					<label class="w-full" for="!@#$%^&*">{{
+						VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS
+					}}</label>
 					<input
 						type="checkbox"
 						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
 						id="!@#$%^&*"
-						value="!@#$%^&*"
+						:value="VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS"
 						v-model="charactersToUse"
-						:disabled="charactersToUse.length <= 1 && charactersToUse.includes('!@#$%^&*')"
+						:disabled="
+							charactersToUse.length <= 1 &&
+							charactersToUse.includes(VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS)
+						"
 						@change="onSelectedCharactersChange"
 					/>
 				</div>

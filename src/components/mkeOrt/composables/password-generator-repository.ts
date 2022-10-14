@@ -1,7 +1,13 @@
 import { onMounted, ref } from 'vue'
 
-export const SPECIAL_CHARACTERS = '!@#$%^&*()='
 const INITIAL_RANGE_VALUE = 5
+
+export const VALID_CHARACTERS_TO_USE = Object.freeze({
+	LOWERCASE: 'a-z',
+	UPPERCASE: 'A-Z',
+	NUMBERS: '0-9',
+	SPECIAL_CHARACTERS: '!@#$%^&*()='
+})
 
 const generateCharacterRange = (startFrom: number, quantity: number) =>
 	Array(quantity)
@@ -10,10 +16,18 @@ const generateCharacterRange = (startFrom: number, quantity: number) =>
 
 const generateCharactersArray = (charactersToUse: string[]) => {
 	const characterToUse = []
-	if (charactersToUse.includes('a-z')) characterToUse.push(...generateCharacterRange(97, 26)) // a-z
-	if (charactersToUse.includes('A-Z')) characterToUse.push(...generateCharacterRange(65, 26)) // A-Z
-	if (charactersToUse.includes('0-8')) characterToUse.push(...generateCharacterRange(48, 10)) // 0-9
-	if (charactersToUse.includes('!@#$%^&*')) characterToUse.push(...SPECIAL_CHARACTERS.split('')) // special characters
+	if (charactersToUse.includes(VALID_CHARACTERS_TO_USE.LOWERCASE)) {
+		characterToUse.push(...generateCharacterRange(97, 26)) // a-z
+	}
+	if (charactersToUse.includes(VALID_CHARACTERS_TO_USE.UPPERCASE)) {
+		characterToUse.push(...generateCharacterRange(65, 26)) // A-Z
+	}
+	if (charactersToUse.includes(VALID_CHARACTERS_TO_USE.NUMBERS)) {
+		characterToUse.push(...generateCharacterRange(48, 10)) // 0-9
+	}
+	if (charactersToUse.includes(VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS)) {
+		characterToUse.push(...VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS.split('')) // special characters
+	}
 	return characterToUse.sort(() => (Math.random() > 0.5 ? 1 : -1)) as string[]
 }
 
