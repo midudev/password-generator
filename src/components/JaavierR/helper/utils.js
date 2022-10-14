@@ -68,7 +68,7 @@ export function randomIntFromInterval(min, max) {
 
 export function randomOddIntFromInterval(min, max) {
 	if (min % 2 === 0) ++min
-	return min + 2 * randomIntFromInterval(0, (max - min) / 2)
+	return 2 * randomIntFromInterval(1, (max - min) / 2) - 1
 }
 
 export function makeRandomString({ arr, length = null }) {
