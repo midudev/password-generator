@@ -7,28 +7,35 @@ import PasswordGenerator from '@components/JaavierR/PasswordGenerator'
 	<main class='h-screen flex flex-col items-center justify-center min-h-[50rem] px-4'>
 		<section>
 			<div class='h-full flex flex-col items-center justify-center w-full'>
-				<div class='w-full max-w-6xl mx-auto inline-flex items-center justify-center mb-8'>
-					<a
-						href='/'
-						class='text-white group mr-auto bg-neutral-500/10 hover:bg-neutral-500/20 rounded-lg inline-flex p-2 items-center justify-center ring-1 ring-neutral-500/30'
-					>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							fill='none'
-							viewBox='0 0 24 24'
-							stroke-width='1.5'
-							stroke='currentColor'
-							class='w-6 h-6 group-hover:-translate-x-0.5 transition duration-200'
+				<div
+					class='w-full max-w-5xl mx-auto inline-flex items-center justify-center mb-8 after:content-[" "] after:block after:flex-1'
+				>
+					<div class='flex-1'>
+						<a
+							href='/'
+							class='text-white group bg-neutral-500/10 hover:bg-neutral-500/20 rounded-lg inline-flex p-2 items-center justify-center ring-1 ring-neutral-500/30'
 						>
-							<path
-								stroke-linecap='round'
-								stroke-linejoin='round'
-								d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18'></path>
-						</svg>
-					</a>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='currentColor'
+								class='w-6 h-6 group-hover:-translate-x-0.5 transition duration-200'
+							>
+								<path
+									stroke-linecap='round'
+									stroke-linejoin='round'
+									d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18'></path>
+							</svg>
+						</a>
+					</div>
 
-					<img class='w-40 sm:w-72 h-auto mr-auto' src='/logo.svg' alt='Hacktoberfest logo' />
-					<div>c</div>
+					<img
+						class='w-40 sm:w-56 max-w-[14rem] h-auto flex-1'
+						src='/logo.svg'
+						alt='Hacktoberfest logo'
+					/>
 				</div>
 
 				<div class='min-w-[19rem] w-full max-w-sm sm:max-w-lg'>
