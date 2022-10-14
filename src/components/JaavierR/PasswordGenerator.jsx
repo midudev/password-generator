@@ -24,7 +24,7 @@ function PasswordGenerator() {
 	const [wordsNumber, setWordsNumber] = useState(6)
 	const [separator, setSeparator] = useState('Hyphens')
 	const [capitalize, setCapitalize] = useState(false)
-	const [fullWords, setFullWords] = useState(true)
+	const [fullWords, setFullWords] = useState(false)
 
 	function copyClipboard() {
 		navigator.clipboard.writeText(password.join(''))

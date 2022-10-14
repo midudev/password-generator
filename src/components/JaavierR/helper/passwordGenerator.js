@@ -1,5 +1,34 @@
 import words from '../data.json'
 
+const ABC_ARRAY = [
+	'a',
+	'b',
+	'c',
+	'd',
+	'e',
+	'f',
+	'g',
+	'h',
+	'i',
+	'j',
+	'k',
+	'l',
+	'm',
+	'n',
+	'o',
+	'p',
+	'q',
+	'r',
+	's',
+	't',
+	'u',
+	'v',
+	'w',
+	'x',
+	'y',
+	'z'
+]
+
 function getUpper() {
 	return String.fromCharCode(Math.floor(Math.random() * 26 + 65))
 }
@@ -150,6 +179,10 @@ export function memorablePassword({
 
 	if (fullWords) {
 		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordsNumber)
+	} else {
+		for (let i = 0; i < wordsNumber; i++) {
+			wordsArray.push(makeRandomString(ABC_ARRAY))
+		}
 	}
 
 	if (capitalize) {
@@ -228,4 +261,12 @@ function randomIntFromInterval(min, max) {
 function randomOddIntFromInterval(min, max) {
 	if (min % 2 === 0) ++min
 	return min + 2 * randomIntFromInterval(0, (max - min) / 2)
+}
+
+function makeRandomString(arr) {
+	const stringLength = Math.random() < 0.5 ? 3 : 4
+	return [...arr]
+		.sort(() => 0.5 - Math.random())
+		.splice(0, stringLength)
+		.join('')
 }
