@@ -18,12 +18,9 @@ const {
 
 <template>
 	<div class="h-screen w-screen flex justify-center items-center">
-		<div id="mke-generator-container" class="w-80 bg-white rounded-lg px-7 pt-10 pb-3">
+		<div class="w-80 bg-[#251b37] text-[#ffcaca] rounded-lg px-7 pt-10 pb-3">
 			<div class="relative">
-				<div
-					id="mke-password-container"
-					class="w-full rounded-t-lg p-5 grid grid-cols-6 gap-2 absolute bottom-0"
-				>
+				<div class="w-full rounded-t-lg p-5 grid grid-cols-6 gap-2 absolute bottom-0 bg-[#372948]">
 					<div class="col-span-5 max-w-xs break-all">
 						{{ password }}
 					</div>
@@ -32,7 +29,11 @@ const {
 					</div>
 				</div>
 			</div>
-			<button id="mke-generate-btn" class="w-full rounded-b-lg py-2" @click="generatePassword">
+			<button
+				id="mke-generate-btn"
+				class="w-full rounded-b-lg py-2 bg-[#372948] border-t-[0.5px] border-solid border-[#251b37]"
+				@click="generatePassword"
+			>
 				Generate
 			</button>
 			<input
@@ -101,20 +102,6 @@ const {
 </template>
 
 <style scoped>
-#mke-generator-container {
-	background-color: #251b37;
-	color: #ffcaca;
-}
-
-#mke-password-container {
-	background-color: #372948;
-}
-
-#mke-generate-btn {
-	background-color: #372948;
-	border-top: 0.5px solid #251b37;
-}
-
 #mke-generate-btn:active {
 	color: #372948;
 }
