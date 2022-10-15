@@ -49,7 +49,7 @@
 			<input class="w-[250px] p-2 mb-5" type=range bind:value={passwordLength} on:change={generatePassword(passwordLength)} min=8 max=20>
 			<div class="">
 				<input class="outline-none p-2 w-[320px] text-xl rounded-xl ring-2 ring-[#170F1E]/20" value={password} readonly>
-				<button class="ml-[-40px] mt-[-5px] mr-[15px] align-middle drop-shadow" on:click={copyToClipboard}><CopyIcon/></button>
+				<button class="ml-[-40px] mt-[-5px] mr-[5px] align-middle drop-shadow" on:click={copyToClipboard}><CopyIcon/></button>
 			</div>
 			<button class="bg-[#3A566D] rounded p-2 mt-8 text-white text-lg font-medium" on:click={generatePassword(passwordLength)}>Generate Password</button>
 		</center>
