@@ -153,8 +153,8 @@ function PasswordGenerator() {
 						/>
 
 						<SelectSeparator
-							label='Type'
-							name='Type'
+							label='Separator'
+							name='Separator'
 							value={memorableOpts.separator}
 							onChange={(e) => setMemorableOpts({ ...memorableOpts, separator: e.target.value })}
 						/>
