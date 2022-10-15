@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ClipboardIcon from './ClipboardIcon.vue'
+import Checkbox from './Checkbox.vue'
 import {
 	VALID_CHARACTERS_TO_USE,
 	usePasswordGeneratorRepository
@@ -10,6 +11,7 @@ const {
 	copied,
 	copyToClipboard,
 	generatePassword,
+	isCheckboxDisabled,
 	onSelectedCharactersChange,
 	password,
 	range
@@ -59,86 +61,40 @@ const {
 			<div class="flex justify-end text-xs">
 				<small>{{ range }}</small>
 			</div>
-			<div class="mt-1">
-				<div class="w-full flex justify-between py-3 items-center">
-					<label class="w-full" for="a-z">{{ VALID_CHARACTERS_TO_USE.LOWERCASE }}</label>
-					<input
-						type="checkbox"
-						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
-						id="a-z"
-						:value="VALID_CHARACTERS_TO_USE['LOWERCASE']"
-						v-model="charactersToUse"
-						:disabled="
-							charactersToUse.length <= 1 &&
-							charactersToUse.includes(VALID_CHARACTERS_TO_USE['LOWERCASE'])
-						"
-						@change="onSelectedCharactersChange"
-					/>
-				</div>
-				<div class="w-full flex justify-between mb-3 items-center">
-					<label class="w-full" for="A-Z">{{ VALID_CHARACTERS_TO_USE.UPPERCASE }}</label>
-					<input
-						type="checkbox"
-						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
-						id="A-Z"
-						:value="VALID_CHARACTERS_TO_USE.UPPERCASE"
-						v-model="charactersToUse"
-						:disabled="
-							charactersToUse.length <= 1 &&
-							charactersToUse.includes(VALID_CHARACTERS_TO_USE.UPPERCASE)
-						"
-						@change="onSelectedCharactersChange"
-					/>
-				</div>
-				<div class="w-full flex justify-between mb-3 items-center">
-					<label class="w-full" for="0-9">{{ VALID_CHARACTERS_TO_USE.NUMBERS }}</label>
-					<input
-						type="checkbox"
-						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
-						id="0-9"
-						:value="VALID_CHARACTERS_TO_USE.NUMBERS"
-						v-model="charactersToUse"
-						:disabled="
-							charactersToUse.length <= 1 &&
-							charactersToUse.includes(VALID_CHARACTERS_TO_USE.NUMBERS)
-						"
-						@change="onSelectedCharactersChange"
-					/>
-				</div>
-				<div class="w-full flex justify-between mb-3 items-center">
-					<label class="w-full" for="!@#$%^&*">{{
-						VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS
-					}}</label>
-					<input
-						type="checkbox"
-						class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
-						id="!@#$%^&*"
-						:value="VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS"
-						v-model="charactersToUse"
-						:disabled="
-							charactersToUse.length <= 1 &&
-							charactersToUse.includes(VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS)
-						"
-						@change="onSelectedCharactersChange"
-					/>
-				</div>
+			<div class="mt-5">
+				<Checkbox
+					:disabled="isCheckboxDisabled(VALID_CHARACTERS_TO_USE.LOWERCASE)"
+					v-model="charactersToUse"
+					:checkboxMessage="VALID_CHARACTERS_TO_USE.LOWERCASE"
+					@change="onSelectedCharactersChange"
+				/>
+				<Checkbox
+					:disabled="isCheckboxDisabled(VALID_CHARACTERS_TO_USE.UPPERCASE)"
+					v-model="charactersToUse"
+					:checkboxMessage="VALID_CHARACTERS_TO_USE.UPPERCASE"
+					@change="onSelectedCharactersChange"
+				/>
+				<Checkbox
+					:disabled="isCheckboxDisabled(VALID_CHARACTERS_TO_USE.NUMBERS)"
+					v-model="charactersToUse"
+					:checkboxMessage="VALID_CHARACTERS_TO_USE.NUMBERS"
+					@change="onSelectedCharactersChange"
+				/>
+				<Checkbox
+					:disabled="isCheckboxDisabled(VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS)"
+					v-model="charactersToUse"
+					:checkboxMessage="VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS"
+					@change="onSelectedCharactersChange"
+				/>
 			</div>
 		</div>
 	</div>
+	{{ charactersToUse }}
 </template>
 
 <style scoped>
 #mke-generate-btn:active {
 	color: #372948;
-}
-
-.mke-checkbox:disabled {
-	border: 8px solid gray !important;
-	cursor: not-allowed;
-}
-
-.mke-checkbox:checked {
-	border: 8px solid #ffcaca;
 }
 
 #mke-range::-webkit-slider-thumb {
