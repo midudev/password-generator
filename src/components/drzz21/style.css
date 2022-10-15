@@ -21,7 +21,7 @@
 	opacity: 0.8;
 }
 
-.sInput[type='range'] {
+.drzz21Input[type='range'] {
 	appearance: none;
 	margin-right: 15px;
 	height: 7px;
@@ -32,7 +32,7 @@
 	background-repeat: no-repeat;
 }
 
-.sInput[type='range']::-webkit-slider-thumb {
+.drzz21Input[type='range']::-webkit-slider-thumb {
 	appearance: none;
 	height: 20px;
 	width: 20px;
@@ -43,7 +43,7 @@
 	transition: background 0.3s ease-in-out;
 }
 
-.sInput[type='range']::-webkit-slider-runnable-track {
+.drzz21Input[type='range']::-webkit-slider-runnable-track {
 	appearance: none;
 	box-shadow: none;
 	border: none;

@@ -58,7 +58,9 @@ const Generator = () => {
 					<div className='w-full'>
 						<button
 							onClick={generatePassword}
-							className={'active:bg-[#2b3138] text-2xl font-medium w-full py-2 mb-2 rounded bg-[#393E46] drzz21text drop-shadow-2xl'}
+							className={
+								'active:bg-[#2b3138] text-2xl font-medium w-full py-2 mb-2 rounded bg-[#393E46] drzz21text drop-shadow-2xl'
+							}
 						>
 							Generate Password
 						</button>
@@ -71,7 +73,7 @@ const Generator = () => {
 							<input
 								value={configPassword.length}
 								onInput={onInputPass}
-								className={'w-full mb-3 sInput'}
+								className={'w-full mb-3 drzz21Input'}
 								type='range'
 								id='sInput'
 								name='length'
@@ -91,7 +93,9 @@ const Generator = () => {
 				</div>
 				{/* columna 2 */}
 				<div
-					className={'flex flex-row break-all justify-center items-center text-2xl rounded bg-[#393E46] mx-2 px-3 w-30 md:w-30 lg:w-96 drzz21text'}
+					className={
+						'flex flex-row break-all justify-center items-center text-2xl rounded bg-[#393E46] mx-2 px-3 w-30 md:w-30 lg:w-96 drzz21text'
+					}
 				>
 					<a href='#' className='group w-1/3 mr-2 relative text-center flex justify-center'>
 						<span
@@ -105,7 +109,9 @@ const Generator = () => {
 								navigator.clipboard.writeText(password)
 								showClass()
 							}}
-							className={'text-2xl active:bg-[#191d24]  w-full text-center font-medium py-2 my-2 rounded bg-[#222831] drzz21text drop-shadow-2xl'}
+							className={
+								'text-2xl active:bg-[#191d24]  w-full text-center font-medium py-2 my-2 rounded bg-[#222831] drzz21text drop-shadow-2xl'
+							}
 						>
 							<svg
 								className='fill-[#00adb5] mx-auto text-center'
