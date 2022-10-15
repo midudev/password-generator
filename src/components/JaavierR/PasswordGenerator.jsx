@@ -34,45 +34,32 @@ function PasswordGenerator() {
 
 	const [pinOpts, setPinOpts] = useState({ length: 4 })
 
+	const passwordGenerators = {
+		'Random Password': randomPassword(randomOpts),
+		'Smart Password': smartPassword(),
+		'Memorable Password': memorablePassword(memorableOpts),
+		'PIN Code': pinCode(pinOpts)
+	}
+
+	const passwordLengthSetter = {
+		'Random Password': (newLength) => setRandomOpts({ ...randomOpts, length: newLength }),
+		'Memorable Password': (newLength) =>
+			setMemorableOpts({ ...memorableOpts, wordCount: newLength }),
+		'PIN Code': (newLength) => setPinOpts({ length: newLength })
+	}
+
 	useEffect(() => {
-		if (passwordType === 'Smart Password') {
-			setPassword(smartPassword())
-		}
-
-		if (passwordType === 'Random Password') {
-			setPassword(randomPassword(randomOpts))
-		}
-
-		if (passwordType === 'Memorable Password') {
-			setPassword(memorablePassword(memorableOpts))
-		}
-
-		if (passwordType === 'PIN Code') {
-			setPassword(pinCode(pinOpts))
-		}
+		setPassword(passwordGenerators[passwordType])
 	}, [passwordType, regenerate, randomOpts, memorableOpts, pinOpts])
 
 	function handleChange(e) {
-		if (passwordType === 'PIN Code') {
-			setPinOpts({ length: e.target.value })
-		} else if (passwordType === 'Memorable Password') {
-			setMemorableOpts({ ...memorableOpts, wordCount: e.target.value })
-		} else {
-			setRandomOpts({ ...randomOpts, length: e.target.value })
-		}
+		passwordLengthSetter[passwordType](e.target.value)
 	}
 
 	function checkLength(e) {
 		let length = e.target.value
 		length = validatePasswordMinMaxLength({ type: passwordType, length })
-
-		if (passwordType === 'PIN Code') {
-			setPinOpts({ length })
-		} else if (passwordType === 'Memorable Password') {
-			setMemorableOpts({ ...memorableOpts, wordCount: length })
-		} else {
-			setRandomOpts({ ...randomOpts, length })
-		}
+		passwordLengthSetter[passwordType](length)
 	}
 
 	function copyClipboard() {
