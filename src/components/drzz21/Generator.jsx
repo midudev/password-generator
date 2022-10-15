@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from './style.module.css'
+import './style.css'
 import genPass from './helpers/generate-password'
 import Button from './ui/ButtonOptions'
 
@@ -48,30 +48,30 @@ const Generator = () => {
 	const configButton = { disable, onInputPass, configPassword }
 
 	return (
-		<div className={styles.drzz21container + ' flex justify-center  pt-64 lg:pt-0'}>
+		<div className={'drzz21container flex justify-center  pt-20 lg:pt-0'}>
 			{/* <div className='text-white'>{JSON.stringify(configPassword)}</div> */}
 
 			<div className='flex flex-col lg:flex-row drop-shadow-2xl items-center'>
 				{/* columna 1 */}
-				<div className='flex flex-col mb-2'>
-					<div className={`text-5xl font-bold mb-4 ${styles.drzz21text}`}>Password Generator</div>
+				<div className='flex flex-col mb-2 w-64 lg:w-80'>
+					<div className={'text-5xl text-center font-bold mb-4 drzz21text'}>Password Generator</div>
 					<div className='w-full'>
 						<button
 							onClick={generatePassword}
-							className={`active:bg-[#2b3138] text-2xl font-medium w-full py-2 mb-2 rounded bg-[#393E46] ${styles.drzz21text} drop-shadow-2xl`}
+							className={'active:bg-[#2b3138] text-2xl font-medium w-full py-2 mb-2 rounded bg-[#393E46] drzz21text drop-shadow-2xl'}
 						>
 							Generate Password
 						</button>
 					</div>
 					<div className='w-full bg-[#383f4b] mb-2 px-2 py-2 rounded flex justify-center flex-col'>
-						<div className={`text-center text-2xl font-bold ${styles.drzz21text}`}>
+						<div className={'text-center text-2xl font-bold drzz21text'}>
 							Password length: {configPassword.length}
 						</div>
 						<div>
 							<input
 								value={configPassword.length}
 								onInput={onInputPass}
-								className={`w-full mb-3 ${styles.sInput}`}
+								className={'w-full mb-3 sInput'}
 								type='range'
 								id='sInput'
 								name='length'
@@ -91,11 +91,11 @@ const Generator = () => {
 				</div>
 				{/* columna 2 */}
 				<div
-					className={`flex flex-row break-all justify-center items-center text-2xl rounded bg-[#393E46] mx-2 px-3 w-96 ${styles.drzz21text}`}
+					className={'flex flex-row break-all justify-center items-center text-2xl rounded bg-[#393E46] mx-2 px-3 w-30 md:w-30 lg:w-96 drzz21text'}
 				>
 					<a href='#' className='group w-1/3 mr-2 relative text-center flex justify-center'>
 						<span
-							className={`${styles.drzz21text} absolute  ${classShow}    -top-8 -translate-y-full w-20 px-2 py-1 bg-[#EEEEEE] rounded-lg  text-white text-sm after:content-[''] after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-[#EEEEEE]`}
+							className={`drzz21text absolute  ${classShow}    -top-8 -translate-y-full w-20 px-2 py-1 bg-[#EEEEEE] rounded-lg  text-white text-sm after:content-[''] after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-[#EEEEEE]`}
 						>
 							Copied!
 						</span>
@@ -105,7 +105,7 @@ const Generator = () => {
 								navigator.clipboard.writeText(password)
 								showClass()
 							}}
-							className={`text-2xl active:bg-[#191d24]  w-full text-center font-medium py-2 my-2 rounded bg-[#222831] ${styles.drzz21text} drop-shadow-2xl`}
+							className={'text-2xl active:bg-[#191d24]  w-full text-center font-medium py-2 my-2 rounded bg-[#222831] drzz21text drop-shadow-2xl'}
 						>
 							<svg
 								className='fill-[#00adb5] mx-auto text-center'
