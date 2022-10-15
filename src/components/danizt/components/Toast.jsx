@@ -3,7 +3,9 @@ import React from 'react'
 const Toast = (props) => {
 	return (
 		<div
-			className='flex items-center p-4 space-x-4 w-full max-w-xs bg-white rounded-lg divide-x divide-gray-200 shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800'
+			className={`mt-6 transition-opacity duration-1000 ${
+				props.showToast ? 'opacity-1' : 'opacity-0'
+			} flex items-center p-4 space-x-4 w-full max-w-xs bg-white rounded-lg divide-x divide-gray-200 shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800`}
 			role='alert'
 		>
 			<div className='inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-cyan-500 bg-cyan-100 rounded-lg dark:bg-cyan-500 dark:text-cyan-200'>
