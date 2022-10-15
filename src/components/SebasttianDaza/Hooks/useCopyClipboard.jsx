@@ -5,8 +5,10 @@ const useCopyToClipboard = () => {
 
 	const copyToClipboard = (text) => {
 		try {
-			navigator.clipboard.writeText(text)
-			setIsCopied(true)
+			if (text !== '' || text !== undefined) {
+				navigator.clipboard.writeText(text)
+				setIsCopied(true)
+			}
 		} catch (error) {
 			console.log(error)
 		}
