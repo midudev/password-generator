@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { Container } from './Styled-Components'
+import { Container, Text } from './Styled-Components'
 import { Title, Button } from './Components'
 import { useCopyToClipboard } from './Hooks'
 
@@ -28,33 +28,46 @@ const PasswordGenerator = () => {
 	return (
 		<>
 			<Container>
-				<Title title='Password Generator' className='text-white uppercase text-center' />
+				<Title
+					title='Password Generator'
+					className='text-white uppercase text-center font-sans text-2xl'
+				/>
 				<section className='bg-slate-900 h-48 w-96 flex flex-col items-center justify-evenly rounded drop-shadow-md'>
 					<div className='bg-cyan-900 h-20 rounded py-2 px-2 flex  w-80 items-center justify-around'>
-						<input type='text' className='' defaultValue={isPassword} disabled={true} />
+						<input
+							type='text'
+							className='rounded text-center text-white text-base'
+							defaultValue={isCopied ? 'Copy' : isPassword}
+							disabled={true}
+						/>
 						<Button
 							text='COPY'
-							className='text-white'
+							className='text-white hover:bg-sky-700 text-base py-2 px-2 rounded font-sans'
 							onClick={() => copyToClipboard(isPassword)}
 						/>
 					</div>
-					<input
-						type='range'
-						min='1'
-						max='10'
-						className='in-range:boder-green-500 w-80'
-						step='1'
-						defaultValue={isVolume}
-						onChange={handleVolume}
+					<div className='flex w-80 justify-around'>
+						<input
+							type='range'
+							min='1'
+							max='10'
+							className='in-range:boder-green-500 w-64'
+							step='1'
+							defaultValue={isVolume}
+							onChange={handleVolume}
+						/>
+						<Text>{isVolume}</Text>
+					</div>
+				</section>
+				<section>
+					<Button
+						text='GENERATE'
+						className='bg-cyan-900 w-32 rounded drop-shadow-md py-2 text-white text-base font-sans'
+						onClick={generatePassword}
 					/>
 				</section>
 				<section>
-					<h3 className='text-white uppercase'>{isVolume}</h3>
-					<Button
-						text='Generate'
-						className='bg-cyan-900 w-32 rounded drop-shadow-md py-2 text-white'
-						onClick={generatePassword}
-					/>
+					<Text>Developed by Sebastian Daza</Text>
 				</section>
 			</Container>
 		</>
