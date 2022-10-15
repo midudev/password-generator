@@ -1,11 +1,11 @@
 import style from './select.module.css'
 
-export default function SelectPasswordType({ label, name, value, onChange }) {
+export default function SelectSeparator({ label, name, value, onChange }) {
 	const widths = {
-		8: 'w-[15ch]',
-		14: 'w-[21ch]',
-		15: 'w-[22ch]',
-		18: 'w-[25ch]'
+		6: 'w-[13ch]',
+		7: 'w-[14ch]',
+		11: 'w-[18ch]',
+		19: 'w-[26ch]'
 	}
 
 	return (
@@ -24,10 +24,13 @@ export default function SelectPasswordType({ label, name, value, onChange }) {
 				value={value}
 				onChange={onChange}
 			>
-				<option>Smart Password</option>
-				<option>Random Password</option>
-				<option>Memorable Password</option>
-				<option>PIN Code</option>
+				<option>Hyphens</option>
+				<option>Spaces</option>
+				<option>Periods</option>
+				<option>Commas</option>
+				<option>Underscores</option>
+				<option>Numbers</option>
+				<option>Numbers and Symbols</option>
 			</select>
 		</div>
 	)
