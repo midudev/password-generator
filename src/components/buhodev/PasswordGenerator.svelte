@@ -4,9 +4,12 @@
 	import { generate_password, type DefaultOptions } from './generate_password'
 	import { copy_to_clipboard } from './copy_to_clipboard'
 	import UltraGradientBackground from './UltraGradientBackground.svelte'
+	import { flipboard } from './flipboard'
+	import { highlight } from './highlight'
 
 	let isCopied = false
 	let animate = true
+	let animation = 'fly'
 	let length = 6
 
 	const TITLES = {
@@ -29,6 +32,7 @@
 	}
 
 	$: password = generate_password(length, DEFAULT_OPTIONS)
+	$: highlighted_password = highlight(generate_password(length, DEFAULT_OPTIONS))
 </script>
 
 <UltraGradientBackground />
@@ -79,16 +83,16 @@
 		on:copied={handleSuccessfulCopy}
 		on:error={() => alert('error')}
 		title="Copy password"
-		class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 py-1 pl-2 pr-10 bg-gray-900/60 border border-white/30 rounded-md w-full"
+		class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 h-12 py-1 pl-2 pr-10 bg-gray-900/60 border border-white/30 rounded-md w-full"
 	>
 		{#if !animate}
 			{password}
-		{:else}
+		{:else if animation == 'fly'}
 			{#key password}
 				{#each password.split('') as char, i}
 					{#if !isNaN(Number(char))}
 						<span
-							class="block text-pink-400"
+							class="block text-pink-400 leading-none"
 							in:fly={{
 								y: -5,
 								delay: 15 * i,
@@ -99,7 +103,7 @@
 						</span>
 					{:else if /[^a-zA-Z]/.test(char)}
 						<span
-							class="block text-blue-400"
+							class="block text-blue-400 leading-none"
 							in:fly={{
 								y: -5,
 								delay: 15 * i,
@@ -110,7 +114,7 @@
 						</span>
 					{:else}
 						<span
-							class="block"
+							class="block leading-none"
 							in:fly={{
 								y: -5,
 								delay: 15 * i,
@@ -122,6 +126,12 @@
 					{/if}
 				{/each}
 			{/key}
+		{:else if animation == 'flipboard'}
+			{#key highlighted_password}
+				<span class="leading-none" in:flipboard={{ duration: 300 }}>
+					{@html highlighted_password}
+				</span>
+			{/key}
 		{/if}
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +139,7 @@
 			viewBox="0 0 24 24"
 			stroke-width="1.5"
 			stroke="currentColor"
-			class="absolute right-2 top-2.5 w-6 h-6 group-hover:-rotate-6 duration-75 transition-transform"
+			class="absolute right-2 top-3 w-6 h-6 group-hover:-rotate-6 duration-75 transition-transform"
 		>
 			<path
 				stroke-linecap="round"
