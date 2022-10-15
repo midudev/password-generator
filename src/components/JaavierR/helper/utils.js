@@ -1,9 +1,3 @@
-const passwordsMinMaxLength = {
-	'PIN Code': { min: 4, max: 12 },
-	'Memorable Password': { min: 3, max: 15 },
-	'Random Password': { min: 8, max: 100 }
-}
-
 export const ABC_ARRAY = [
 	'a',
 	'b',
@@ -33,6 +27,20 @@ export const ABC_ARRAY = [
 	'z'
 ]
 
+const passwordsMinMaxLength = {
+	'PIN Code': { min: 4, max: 12 },
+	'Memorable Password': { min: 3, max: 15 },
+	'Random Password': { min: 8, max: 100 }
+}
+
+export const separators = {
+	Hyphens: '-',
+	Underscores: '_',
+	Periods: '.',
+	Commas: ',',
+	Spaces: ' '
+}
+
 export function getUpper() {
 	return String.fromCharCode(Math.floor(Math.random() * 26 + 65))
 }
@@ -52,20 +60,6 @@ export function getSymbol() {
 
 export function setMinMaxLength({ length, min, max }) {
 	return length < min ? min : length > max ? max : length
-}
-
-export function setSeparator(separator) {
-	if (separator === 'Hyphens') {
-		return '-'
-	} else if (separator === 'Spaces') {
-		return ' '
-	} else if (separator === 'Periods') {
-		return '.'
-	} else if (separator === 'Commas') {
-		return ','
-	} else if (separator === 'Underscores') {
-		return '_'
-	}
 }
 
 export function randomIntFromInterval(min, max) {

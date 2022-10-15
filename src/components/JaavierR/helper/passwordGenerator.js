@@ -7,7 +7,7 @@ import {
 	getUpper,
 	makeRandomString,
 	setMinMaxLength,
-	setSeparator,
+	separators,
 	checkIfIncludeAtLeastOneNumberAndSymbol
 } from './utils'
 
@@ -107,7 +107,7 @@ export function memorablePassword({
 		return makePasswordWithNumbersAndSymbols({ arr: wordsArray, wordCount })
 	}
 
-	return [...wordsArray.join(setSeparator(separator))]
+	return [...wordsArray.join(separators[separator])]
 }
 
 export function pinCode({ length = 4 }) {
