@@ -1,3 +1,9 @@
+const passwordsMinMaxLength = {
+	'PIN Code': { min: 4, max: 12 },
+	'Memorable Password': { min: 3, max: 15 },
+	'Random Password': { min: 8, max: 100 }
+}
+
 export const ABC_ARRAY = [
 	'a',
 	'b',
@@ -96,26 +102,12 @@ export function checkIfIncludeAtLeastOneNumberAndSymbol(arr) {
 }
 
 export function validatePasswordMinMaxLength({ type, length }) {
-	let min
-	let max
-
-	if (type === 'PIN Code') {
-		min = 4
-		max = 12
-	} else if (type === 'Memorable Password') {
-		min = 3
-		max = 15
-	} else {
-		min = 8
-		max = 100
+	if (length < passwordsMinMaxLength[type].min) {
+		length = passwordsMinMaxLength[type].min
 	}
 
-	if (length < min) {
-		length = min
-	}
-
-	if (length > max) {
-		length = max
+	if (length > passwordsMinMaxLength[type].max) {
+		length = passwordsMinMaxLength[type].max
 	}
 
 	return length
