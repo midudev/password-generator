@@ -1,6 +1,7 @@
 import { onMounted, ref } from 'vue'
 
 const INITIAL_RANGE_VALUE = 5
+const COPIED_MESSAGE_TIME = 400
 
 export const VALID_CHARACTERS_TO_USE = Object.freeze({
 	LOWERCASE: 'a-z',
@@ -9,11 +10,22 @@ export const VALID_CHARACTERS_TO_USE = Object.freeze({
 	SPECIAL_CHARACTERS: '!@#$%^&*()='
 })
 
+/**
+ * Returns an array of characters using ASCII
+ * @param startFrom Start element index
+ * @param quantity Elements quantity
+ * @returns Characters string
+ */
 const generateCharacterRange = (startFrom: number, quantity: number) =>
 	Array(quantity)
 		.fill('')
 		.map((_, index) => String.fromCharCode(index + startFrom))
 
+/**
+ * Generate a new random characters array depending of what characters are selected to be used
+ * @param charactersToUse String array of characters to be used
+ * @returns Random characters array
+ */
 const generateCharactersArray = (charactersToUse: string[]) => {
 	const characterToUse = []
 	if (charactersToUse.includes(VALID_CHARACTERS_TO_USE.LOWERCASE)) {
@@ -34,12 +46,20 @@ const generateCharactersArray = (charactersToUse: string[]) => {
 export const usePasswordGeneratorRepository = () => {
 	let timeoutReference = null
 
-	const charactersToUse = ref<string[]>(['a-z'])
+	const charactersToUse = ref<string[]>([
+		VALID_CHARACTERS_TO_USE.LOWERCASE,
+		VALID_CHARACTERS_TO_USE.UPPERCASE,
+		VALID_CHARACTERS_TO_USE.NUMBERS,
+		VALID_CHARACTERS_TO_USE.SPECIAL_CHARACTERS
+	])
 	const characters = ref<string[]>(generateCharactersArray(charactersToUse.value))
 	const range = ref(INITIAL_RANGE_VALUE)
 	const password = ref('')
 	const copied = ref(false)
 
+	/**
+	 * Generate a new random string using the generated random string array
+	 */
 	const generatePassword = () => {
 		password.value = ''
 		for (let i = 0; i < range.value; i++) {
@@ -61,8 +81,11 @@ export const usePasswordGeneratorRepository = () => {
 		}
 		timeoutReference = setTimeout(() => {
 			copied.value = false
-		}, 400)
+		}, COPIED_MESSAGE_TIME)
 	}
+
+	const isCheckboxDisabled = (charactersSet: string) =>
+		charactersToUse.value.length <= 1 && charactersToUse.value.includes(charactersSet)
 
 	onMounted(() => {
 		generatePassword()
@@ -73,6 +96,7 @@ export const usePasswordGeneratorRepository = () => {
 		copied,
 		copyToClipboard,
 		generatePassword,
+		isCheckboxDisabled,
 		onSelectedCharactersChange,
 		password,
 		range
