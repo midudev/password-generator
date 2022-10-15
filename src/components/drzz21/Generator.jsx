@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './style.module.css'
 import genPass from './helpers/generate-password'
+import Button from './ui/ButtonOptions'
 
 const Generator = () => {
 	const [configPassword, setConfigPassword] = useState({
@@ -44,12 +45,15 @@ const Generator = () => {
 		generatePassword()
 	}, [configPassword])
 
+	const configButton = { disable, onInputPass, configPassword }
+
 	return (
-		<div className={styles.drzz21container + ' flex justify-center items-center flex-col'}>
+		<div className={styles.drzz21container + ' flex justify-center  pt-64 lg:pt-0'}>
 			{/* <div className='text-white'>{JSON.stringify(configPassword)}</div> */}
 
-			<div className='flex flex-row drop-shadow-2xl items-center'>
-				<div className='flex flex-col'>
+			<div className='flex flex-col lg:flex-row drop-shadow-2xl items-center'>
+				{/* columna 1 */}
+				<div className='flex flex-col mb-2'>
 					<div className={`text-5xl font-bold mb-4 ${styles.drzz21text}`}>Password Generator</div>
 					<div className='w-full'>
 						<button
@@ -77,51 +81,15 @@ const Generator = () => {
 						</div>
 					</div>
 					<div className='box-border flex space-x-2 mb-3'>
-						<button
-							disabled={!disable && configPassword.upperCase}
-							onClick={onInputPass}
-							name='upperCase'
-							className={`text-2xl font-medium   box-border w-1/2 rounded bg-[#393E46] ${
-								configPassword.upperCase ? styles.drzz21text : styles.drzz21textDisabled
-							} drop-shadow-2xl`}
-						>
-							Uppercase
-						</button>
-						<button
-							disabled={!disable && configPassword.lowerCase}
-							onClick={onInputPass}
-							name='lowerCase'
-							className={`text-2xl font-medium   box-border w-1/2 rounded bg-[#393E46] ${
-								configPassword.lowerCase ? styles.drzz21text : styles.drzz21textDisabled
-							} drop-shadow-2xl`}
-						>
-							Lowercase
-						</button>
+						<Button config={{ ...configButton, name: 'upperCase' }} />
+						<Button config={{ ...configButton, name: 'lowerCase' }} />
 					</div>
 					<div className='box-border flex space-x-2'>
-						<button
-							disabled={!disable && configPassword.numbers}
-							onClick={onInputPass}
-							name='numbers'
-							className={`text-2xl font-medium  px-3 w-1/2   rounded bg-[#393E46]  ${
-								configPassword.numbers ? styles.drzz21text : styles.drzz21textDisabled
-							} drop-shadow-2xl`}
-						>
-							Numbers
-						</button>
-						<button
-							disabled={!disable && configPassword.symbols}
-							onClick={onInputPass}
-							name='symbols'
-							className={`text-2xl font-medium  px-3 w-1/2   rounded bg-[#393E46] ${
-								configPassword.symbols ? styles.drzz21text : styles.drzz21textDisabled
-							} drop-shadow-2xl`}
-						>
-							Symbols
-						</button>
+						<Button config={{ ...configButton, name: 'numbers' }} />
+						<Button config={{ ...configButton, name: 'symbols' }} />
 					</div>
 				</div>
-
+				{/* columna 2 */}
 				<div
 					className={`flex flex-row break-all justify-center items-center text-2xl rounded bg-[#393E46] mx-2 px-3 w-96 ${styles.drzz21text}`}
 				>
