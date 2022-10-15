@@ -48,7 +48,7 @@ const Generator = () => {
 	const configButton = { disable, onInputPass, configPassword }
 
 	return (
-		<div className={'drzz21container flex justify-center  pt-20 lg:pt-0'}>
+		<div className={'drzz21container flex justify-center  pt-14 lg:pt-0'}>
 			{/* <div className='text-white'>{JSON.stringify(configPassword)}</div> */}
 
 			<div className='flex flex-col lg:flex-row drop-shadow-2xl items-center'>
@@ -77,7 +77,7 @@ const Generator = () => {
 								type='range'
 								id='sInput'
 								name='length'
-								min='0'
+								min='8'
 								max='100'
 							/>
 						</div>
@@ -94,7 +94,7 @@ const Generator = () => {
 				{/* columna 2 */}
 				<div
 					className={
-						'flex flex-row break-all justify-center items-center text-2xl rounded bg-[#393E46] mx-2 px-3 w-30 md:w-30 lg:w-96 drzz21text'
+						'flex flex-row break-all justify-center items-center text-2xl rounded bg-[#393E46] mx-2 px-3 w-30 w-full md:w-30 lg:w-96 drzz21text'
 					}
 				>
 					<a href='#' className='group w-1/3 mr-2 relative text-center flex justify-center'>
