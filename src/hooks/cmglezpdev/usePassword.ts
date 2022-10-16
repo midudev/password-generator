@@ -14,11 +14,11 @@ export interface ISettings {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const randomSort = (array:any) => {
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
+	array.sort(() => 0.5 - Math.random())
+	array.sort(() => 0.5 - Math.random())
+	array.sort(() => 0.5 - Math.random())
+	array.sort(() => 0.5 - Math.random())
+	array.sort(() => 0.5 - Math.random())
 
 	return array
 }
@@ -90,6 +90,7 @@ export const usePassword = () => {
 
 	const generatePasswordByPhrase = (phrase:string, length:number) => {
 		if (phrase.length === 0) return
+
 		// extend the phrase
 		while (phrase.length < length) {
 			phrase += phrase
@@ -102,13 +103,13 @@ export const usePassword = () => {
 		// create a hashes
 		const BASE = 73 // prime number
 		const MOD = 95471 // prime number
-		const hashs = new Array<number>(length)
+		const hashs = []
 		for (let i = 0; i < phrase.length; i++) {
 			if (i === 0) {
-				hashs[i] = phrase[i].charCodeAt(0) % MOD
+				hashs.push(phrase[i].charCodeAt(0) % MOD)
 				continue
 			}
-			hashs[i] = (hashs[i - 1] * BASE + phrase[i].charCodeAt(0)) % MOD
+			hashs.push((hashs[i - 1] * BASE + phrase[i].charCodeAt(0)) % MOD)
 		}
 
 		// assign characters
@@ -122,8 +123,8 @@ export const usePassword = () => {
 		}
 
 		// put some special characters
-		const nrand = hashs[hashs[1] % hashs.length] % Math.floor(length / 2)
-		for (let i = nrand; i < length; i += nrand) {
+		const nrand = Math.max(hashs[0] % 5, 3)
+		for (let i = nrand; i < hashs.length; i += nrand) {
 			const index = hashs[passw[i].charCodeAt(0) % hashs.length]
 			passw = passw.substring(0, i) + special[index % special.length] + passw.substring(i + 1)
 		}
@@ -131,6 +132,7 @@ export const usePassword = () => {
 		// div the password
 		const div = (length % 4 !== 3 && length % 4 !== 0) ? 4 : 3
 		const password = spaceString(passw, div)
+
 		setPassword(password)
 	}
 

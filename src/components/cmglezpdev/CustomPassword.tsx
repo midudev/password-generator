@@ -46,6 +46,7 @@ export const CustomPassword = () => {
 		<div className='flex flex-col items-center'>
 			<InputComponent
 				value={password}
+				name='password'
 				placeholder={'Password'}
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				onChange={() => {}}

@@ -4,12 +4,12 @@ import { CopiedSVG, CopySVG } from '../icons'
 
 interface Props {
 	value: string;
-	name?: string;
-	placeholder?: string;
+	name: string;
+	placeholder: string;
 	onChange: (e?:ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const InputComponent:FC<Props> = ({ name = '', value, placeholder = '', onChange }) => {
+export const InputComponent:FC<Props> = ({ name, value, placeholder, onChange }) => {
 	const { refElement, copied, copyText } = useClipboard()
 
 	return (

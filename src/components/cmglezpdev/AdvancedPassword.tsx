@@ -18,6 +18,7 @@ export const AdvancedPassword = () => {
 	return (
 		<div className='flex flex-col items-center'>
 			<InputComponent
+				name='password'
 				value={password}
 				placeholder='Password'
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -25,6 +26,7 @@ export const AdvancedPassword = () => {
 			/>
 
 			<InputComponent
+				name='phrase'
 				value={phrase}
 				placeholder='Enter a Recovery Phrase'
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
