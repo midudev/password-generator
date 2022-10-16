@@ -38,4 +38,11 @@ const value = computed({
 .mke-checkbox:checked {
 	border: 8px solid #ffcaca;
 }
+
+.mke-checkbox:checked::before {
+	content: '✓';
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: #251b37;
+}
 </style>
