@@ -12,12 +12,32 @@
 	let animation = 'fly'
 	let length = 6
 
-	const TITLES = {
-		uppercase: 'A-Z',
-		lowercase: 'a-z',
-		numbers: '0-9',
-		symbols: '!@#$%^&*'
-	}
+	const INCLUDE_OPTIONS = [
+		{
+			title: 'Lowercase',
+			id: 'lowercase',
+			characters: 'a-z',
+			description: 'Include unicode characters from position 97 to 122.'
+		},
+		{
+			title: 'Uppercase',
+			id: 'uppercase',
+			characters: 'A-Z',
+			description: 'Include unicode characters from position 65 to 90.'
+		},
+		{
+			title: 'Numbers',
+			id: 'numbers',
+			characters: '0-9',
+			description: 'Include unicode characters from position 48 to 57.'
+		},
+		{
+			title: 'Special',
+			id: 'special',
+			characters: '@#$%^&*',
+			description: 'Include unicode characters from position 33 to 38, 42, 64, and 94.'
+		}
+	]
 
 	const DEFAULT_OPTIONS: DefaultOptions = {
 		uppercase: true,
@@ -175,27 +195,36 @@
 
 	<label for="length" class="mt-8 inline-block w-full">
 		<span class="text-lg">Length: {length}</span>
-		<input type="range" min="4" max="32" class="w-full mt-2" bind:value={length} />
+		<div class="flex items-center justify-center mt-2 gap-2">
+			<span>4</span>
+			<input type="range" min="4" max="32" class="w-full" bind:value={length} />
+			<span>32</span>
+		</div>
 	</label>
-	<ul class="grid gap-6 w-full grid-cols-2 lg:grid-cols-4">
-		{#each Object.keys(DEFAULT_OPTIONS) as option}
-			<li>
+	<div class="flex flex-col gap-6 w-full mt-4">
+		{#each INCLUDE_OPTIONS as { title, id, characters, description } (id)}
+			<label
+				for={id}
+				class="border-lg flex w-full cursor-pointer rounded border-gray-200 border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100 peer-focus-within:scale-105 peer-focus-within:bg-gray-500/20 dark:border-gray-700"
+			>
 				<input
+					{id}
 					type="checkbox"
-					id={option}
 					value=""
-					bind:checked={DEFAULT_OPTIONS[option]}
-					class="sr-only peer"
+					name="id"
+					bind:checked={DEFAULT_OPTIONS[id]}
+					class="w-4 h-4 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
 				/>
-				<label
-					for={option}
-					class="inline-flex justify-between items-center p-4 text-center w-full text-white bg-gray-800/20 rounded-lg border-2 border-gray-400/20 cursor-pointer peer-checked:border-sky-600 hover:text-gray-100 peer-checked:text-white peer-focus:bg-gray-500/20 peer-focus:scale-105 transition hover:bg-gray-500/20"
-				>
-					<div class="w-full text-lg font-semibold">{TITLES[option]}</div>
-				</label>
-			</li>
+				<div class="flex flex-col">
+					<div>
+						<span class="font-semibold">{title}</span>
+						<span class="text-gray-200">{characters}</span>
+					</div>
+					<span class="text-gray-200">{description}</span>
+				</div>
+			</label>
 		{/each}
-	</ul>
+	</div>
 
 	<!-- Generate Password Button -->
 	<button
