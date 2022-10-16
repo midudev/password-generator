@@ -19,12 +19,14 @@ export const AdvancedPassword = () => {
 		<div className='flex flex-col items-center'>
 			<InputComponent
 				value={password}
+				placeholder='Password'
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				onChange={() => {}}
 			/>
 
 			<InputComponent
 				value={phrase}
+				placeholder='Enter a Recovery Phrase'
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				onChange={(e) => { setPhrase(e.target.value) }}
 			/>

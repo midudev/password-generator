@@ -5,10 +5,11 @@ import { CopiedSVG, CopySVG } from '../icons'
 interface Props {
 	value: string;
 	name?: string;
+	placeholder?: string;
 	onChange: (e?:ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const InputComponent:FC<Props> = ({ name = '', value, onChange }) => {
+export const InputComponent:FC<Props> = ({ name = '', value, placeholder = '', onChange }) => {
 	const { refElement, copied, copyText } = useClipboard()
 
 	return (
@@ -18,6 +19,7 @@ export const InputComponent:FC<Props> = ({ name = '', value, onChange }) => {
 				type='text'
 				name={name}
 				value={value}
+				placeholder={placeholder}
 				className='py-1 px-2 rounded w-8/12 outline-none text-gray-600 text-xl'
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				onChange={onChange}
