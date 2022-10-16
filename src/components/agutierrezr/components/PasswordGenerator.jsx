@@ -8,10 +8,14 @@ const PasswordGenerator = () => {
 	const [upper, setUpper] = useState(false)
 	const [number, setNumber] = useState(false)
 	const [symbol, setSymbol] = useState(false)
+	const [history, setHistory] = useState([])
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		setPassword(generatePassword({ lower, upper, symbol, number, length }))
+		const passwordGenerated = generatePassword({ lower, upper, symbol, number, length })
+
+		setPassword(passwordGenerated)
+		setHistory([...history, passwordGenerated])
 	}
 
 	return (
@@ -34,6 +38,7 @@ const PasswordGenerator = () => {
 						<input
 							type='range'
 							id='length'
+							name='length'
 							min={5}
 							max={128}
 							value={length}
@@ -45,33 +50,41 @@ const PasswordGenerator = () => {
 						<label htmlFor='lower'>Minuculas</label>
 						<input
 							type='checkbox'
+							id='lower'
+							name='lower'
 							checked={lower}
 							onChange={({ target }) => setLower(target.checked)}
 						/>
 					</div>
 
 					<div>
-						<label htmlFor='lower'>Mayusculas</label>
+						<label htmlFor='upper'>Mayusculas</label>
 						<input
 							type='checkbox'
+							id='upper'
+							name='upper'
 							checked={upper}
 							onChange={({ target }) => setUpper(target.checked)}
 						/>
 					</div>
 
 					<div>
-						<label htmlFor='lower'>Numeros</label>
+						<label htmlFor='number'>Numeros</label>
 						<input
 							type='checkbox'
+							id='numbers'
+							name='numbers'
 							checked={number}
 							onChange={({ target }) => setNumber(target.checked)}
 						/>
 					</div>
 
 					<div>
-						<label htmlFor='lower'>Simbolos</label>
+						<label htmlFor='symbol'>Simbolos</label>
 						<input
 							type='checkbox'
+							id='symbol'
+							name='symbol'
 							checked={symbol}
 							onChange={({ target }) => setSymbol(target.checked)}
 						/>
@@ -79,6 +92,14 @@ const PasswordGenerator = () => {
 
 					<button>Generate</button>
 				</form>
+
+				<h2>Historial</h2>
+
+				<ul>
+					{history.map((item, idx) => (
+						<li key={idx}>{item}</li>
+					))}
+				</ul>
 			</div>
 		</div>
 	)
