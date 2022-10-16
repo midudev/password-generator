@@ -16,12 +16,12 @@ const value = computed({
 
 <template>
 	<div class="w-full flex justify-between mb-3 items-center">
-		<label class="w-full" for="0-9">{{ props.checkboxMessage }}</label>
+		<label class="w-full" :for="props.checkboxMessage">{{ props.checkboxMessage }}</label>
 		<input
 			:disabled="disabled"
 			type="checkbox"
 			class="mke-checkbox h-2.5 w-2.5 appearance-none rounded-md outline-none border-8 border-solid border-white"
-			id="0-9"
+			:id="props.checkboxMessage"
 			:value="checkboxMessage"
 			v-model="value"
 			@change="emit('change')"
