@@ -9,8 +9,11 @@ import { PassLengthLabel } from '@components/devenapuros/PassLengthLabel'
 import { Slider } from '@components/devenapuros/Slider'
 import { PrimaryButton } from '@components/devenapuros/PrimaryButton'
 import { ReloadIcon } from '@components/devenapuros/icons/ReloadIcon'
+import { ToggleLabel } from './ToggleLabel'
 
 const MiduPassPage = () => {
+	const [password, setPassword] = useState('')
+	const [passLength, setPassLength] = useState(23)
 	const [lowercase, setLowercase] = useState(true)
 	const [uppercase, setUppercase] = useState(false)
 	const [numbers, setNumbers] = useState(true)
@@ -29,25 +32,28 @@ const MiduPassPage = () => {
 					</div>
 					<PasswordQuality />
 				</div>
-				<div className='flex flex-col gap-2'>
-					<PassLengthLabel />
-					<Slider value={23} />
-				</div>
 				<div className='flex flex-col gap-5'>
+					<div className='flex flex-col gap-2'>
+						<PassLengthLabel length={passLength} />
+						<Slider
+							value={passLength}
+							handleChange={(event) => setPassLength(event.target.value)}
+						/>
+					</div>
 					<div className='flex justify-between items-center'>
-						<span>Include lowercase characters</span>
+						<ToggleLabel content='Include lowercase characters' active={lowercase} />
 						<ToggleSwitch active={lowercase} handleClick={() => setLowercase(!lowercase)} />
 					</div>
 					<div className='flex justify-between items-center'>
-						<span>Include uppercase characters</span>
+						<ToggleLabel content='Include uppercase characters' active={uppercase} />
 						<ToggleSwitch active={uppercase} handleClick={() => setUppercase(!uppercase)} />
 					</div>
 					<div className='flex justify-between items-center'>
-						<span>Include numbers</span>
+						<ToggleLabel content='Include numbers' active={numbers} />
 						<ToggleSwitch active={numbers} handleClick={() => setNumbers(!numbers)} />
 					</div>
 					<div className='flex justify-between items-center'>
-						<span>Include symbols</span>
+						<ToggleLabel content='Include symbols' active={symbols} />
 						<ToggleSwitch active={symbols} handleClick={() => setSymbols(!symbols)} />
 					</div>
 				</div>

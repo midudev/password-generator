@@ -3,8 +3,11 @@ import styles from '@components/devenapuros/styles/toggleSwitch.module.css'
 
 export const ToggleSwitch = ({ active, handleClick }) => {
 	return (
-		<div className={`${styles.toggleContainer} ${active && styles.active}`} onClick={handleClick}>
+		<button
+			className={`${styles.toggleContainer} ${active && styles.active}`}
+			onClick={handleClick}
+		>
 			<span className={styles.toggleCircle}></span>
-		</div>
+		</button>
 	)
 }
