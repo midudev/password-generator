@@ -29,10 +29,6 @@ const toArray = (text:string) => {
 	return r
 }
 
-const isLowLetter = (letter:string):boolean => {
-	return 'a'.charCodeAt(0) <= letter.charCodeAt(0) && letter.charCodeAt(0) <= 'z'.charCodeAt(0)
-}
-
 const splitString = (text:string, div:number):string[] => {
 	const split:string[] = []
 
@@ -54,6 +50,11 @@ const spaceString = (text:string, div) :string => {
 	finalpassw = finalpassw.substring(0, finalpassw.length - 1)
 	return finalpassw
 }
+
+const isLowLetter = (letter:string):boolean => {
+	return 'a'.charCodeAt(0) <= letter.charCodeAt(0) && letter.charCodeAt(0) <= 'z'.charCodeAt(0)
+}
+
 
 export const usePassword = () => {
 	const [password, setPassword] = useState<string>('')
@@ -86,6 +87,7 @@ export const usePassword = () => {
 		}
 
 		setPassword(genPass)
+		return genPass
 	}
 
 	const generatePasswordByPhrase = (phrase:string, length:number) => {
@@ -134,12 +136,57 @@ export const usePassword = () => {
 		const password = spaceString(passw, div)
 
 		setPassword(password)
+		return password
+	}
+
+	const countCharacteres = (text: string, dictionary:string[]): number => {
+		let count = 0
+		for (let i = 0; i < text.length; i++) {
+			if (!dictionary.find((ch) => text[i] === ch)) continue
+			count++
+		}
+		return count
+	}
+
+	const passwordStrength = (password: string) => {
+		// Initial Percentage
+		let percentage = 0
+
+		// Special Characters
+		let c = countCharacteres(password, toArray(special))
+		if (c !== 0) percentage += (c >= password.length / 4) ? 20 : 15
+
+		// Letters
+		c = countCharacteres(password, toArray(letters))
+		if (c !== 0) percentage += (c >= password.length / 4) ? 30 : 20
+
+		// Numbers
+		c = countCharacteres(password, toArray(numbers))
+		if (c !== 0) percentage += (c >= password.length / 4) ? 20 : 15
+
+		// Numbers
+		c = countCharacteres(password, [' '])
+		if (c !== 0) percentage += (c >= password.length / 4) ? 10 : 5
+
+
+		// Length
+		if (password.length < 8) percentage -= 10
+		else
+		if (password.length < 10) percentage += 15
+		else
+		if (password.length < 15) percentage += 25
+		else
+		if (password.length < 20) percentage += 35
+		else percentage += 40
+
+		return Math.min(100, percentage)
 	}
 
 
 	return {
 		password,
 		generatePassword,
-		generatePasswordByPhrase
+		generatePasswordByPhrase,
+		passwordStrength
 	}
 }
