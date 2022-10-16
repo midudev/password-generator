@@ -1,7 +1,8 @@
 import React from 'react'
+import PasswordGenerator from './components/PasswordGenerator'
 
 const Home = () => {
-	return <div>Hello World!</div>
+	return <PasswordGenerator />
 }
 
 export default Home
