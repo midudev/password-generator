@@ -205,7 +205,7 @@
 		{#each INCLUDE_OPTIONS as { title, id, characters, description } (id)}
 			<label
 				for={id}
-				class="border-lg flex w-full cursor-pointer rounded border-gray-200 border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100 peer-focus-within:scale-105 peer-focus-within:bg-gray-500/20 dark:border-gray-700"
+				class="border-lg flex w-full cursor-pointer rounded border border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100"
 			>
 				<input
 					{id}
@@ -270,5 +270,14 @@
 	.bg-noise {
 		background: linear-gradient(to bottom, rgba(17, 24, 39, 0.6), rgba(0, 0, 0, 0.8)),
 			url(/grain-dark.png);
+	}
+
+	label:has(input:checked) {
+		box-shadow: 0 0 0 2px rgb(59 130 246);
+	}
+
+	label:has(input[type='checkbox']:focus-visible),
+	label:has(input[type='checkbox']:hover) {
+		transform: scaleX(1.01) scaleY(1.01);
 	}
 </style>
