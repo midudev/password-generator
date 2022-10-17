@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react'
-import { ButtonComponent, InputComponent, RangeInputComponent } from './basic-components'
+import { ButtonComponent, InputComponent, RangeInputComponent, StrengthPassword } from './basic-components'
 import { usePassword } from '@hooks/cmglezpdev'
 
 export const AdvancedPassword = () => {
@@ -32,6 +32,8 @@ export const AdvancedPassword = () => {
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				onChange={(e) => { setPhrase(e.target.value) }}
 			/>
+
+			{/* <StrengthPassword /> */}
 
 			<RangeInputComponent
 				value={lengthPassword}

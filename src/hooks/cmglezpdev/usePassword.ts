@@ -177,7 +177,9 @@ export const usePassword = () => {
 		if (password.length < 15) percentage += 25
 		else
 		if (password.length < 20) percentage += 35
-		else percentage += 40
+		else
+		if (password.length < 30) percentage += 65
+		else percentage += 80
 
 		return Math.min(100, percentage)
 	}
