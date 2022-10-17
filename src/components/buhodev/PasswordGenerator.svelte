@@ -10,7 +10,7 @@
 	let isCopied = false
 	let animate = true
 	let animation = 'fly'
-	let length = 6
+	let length = 12
 
 	const INCLUDE_OPTIONS = [
 		{
