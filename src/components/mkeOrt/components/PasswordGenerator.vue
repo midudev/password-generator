@@ -89,7 +89,6 @@ const {
 			</div>
 		</div>
 	</div>
-	{{ charactersToUse }}
 </template>
 
 <style scoped>
