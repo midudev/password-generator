@@ -1,7 +1,12 @@
 import { ChangeEvent, useState, useEffect } from 'react'
 import { ISettings, SettingsOption, usePassword } from '@hooks/cmglezpdev'
 import { Settings } from '@components/cmglezpdev/Settings'
-import { ButtonComponent, RangeInputComponent, InputComponent, StrengthPassword } from '@components/cmglezpdev/basic-components'
+import {
+	ButtonComponent,
+	RangeInputComponent,
+	InputComponent,
+	StrengthPassword
+} from '@components/cmglezpdev/basic-components'
 
 const INITIAL_STATE: SettingsOption[] = [
 	{
@@ -44,7 +49,6 @@ export const CustomPassword = () => {
 
 	useEffect(() => {
 		if (!password || password.trim().length <= 0) return
-
 		const strength = passwordStrength(password)
 		setStrengthPassword(strength)
 	}, [password])
