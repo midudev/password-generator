@@ -19,15 +19,16 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<div className='h-screen bg-white flex flex-col items-center p-10 space-y-4 text-black'>
+		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-black'>
 			<div>
 				{password}
 
 				<form onSubmit={handleSubmit}>
-					<div>
-						<label htmlFor='length'>
+					<div className='flex items-center justify-between mb-4'>
+						<label className='text-sm font-medium' htmlFor='length'>
 							Length{' '}
 							<input
+								className=''
 								type='number'
 								min={5}
 								max={128}
@@ -37,6 +38,7 @@ const PasswordGenerator = () => {
 						</label>
 						<input
 							type='range'
+							className='h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer'
 							id='length'
 							name='length'
 							min={5}
@@ -46,9 +48,12 @@ const PasswordGenerator = () => {
 						/>
 					</div>
 
-					<div>
-						<label htmlFor='lower'>Minuculas</label>
+					<div className='flex items-center justify-between mb-4'>
+						<label className='text-sm font-medium' htmlFor='lower'>
+							Minuculas
+						</label>
 						<input
+							className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600'
 							type='checkbox'
 							id='lower'
 							name='lower'
@@ -57,10 +62,13 @@ const PasswordGenerator = () => {
 						/>
 					</div>
 
-					<div>
-						<label htmlFor='upper'>Mayusculas</label>
+					<div className='flex items-center justify-between mb-4'>
+						<label className=' text-sm font-medium' htmlFor='upper'>
+							Mayusculas
+						</label>
 						<input
 							type='checkbox'
+							className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600'
 							id='upper'
 							name='upper'
 							checked={upper}
@@ -68,10 +76,13 @@ const PasswordGenerator = () => {
 						/>
 					</div>
 
-					<div>
-						<label htmlFor='number'>Numeros</label>
+					<div className='flex items-center justify-between mb-4'>
+						<label className='text-sm font-medium' htmlFor='number'>
+							Numeros
+						</label>
 						<input
 							type='checkbox'
+							className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600'
 							id='numbers'
 							name='numbers'
 							checked={number}
@@ -79,10 +90,13 @@ const PasswordGenerator = () => {
 						/>
 					</div>
 
-					<div>
-						<label htmlFor='symbol'>Simbolos</label>
+					<div className='flex items-center justify-between mb-4'>
+						<label className=' text-sm font-medium' htmlFor='symbol'>
+							Simbolos
+						</label>
 						<input
 							type='checkbox'
+							className='w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600'
 							id='symbol'
 							name='symbol'
 							checked={symbol}
