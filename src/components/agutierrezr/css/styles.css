@@ -1,0 +1,35 @@
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.app-container {
+	width: 100%;
+	max-width: 460px;
+	background-color: #020728;
+	padding: 30px;
+	border-radius: 0.75rem;
+}
+
+.label {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+	color: hsl(0deg 0% 100% / 50%);
+	margin-bottom: 8px;
+}
+
+.box {
+	background-color: hsl(227deg 88% 15%);
+	border-radius: 0.5rem;
+	word-wrap: break-word;
+}
+
+.box--password {
+	font-size: 24px;
+	padding: 28px 30px;
+	text-align: center;
+	letter-spacing: 0.0625rem;
+	line-height: 1.1;
+	margin-bottom: 36px;
+}
