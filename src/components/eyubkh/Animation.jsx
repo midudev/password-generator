@@ -7,7 +7,7 @@ export const Animation = () => {
 			<div id='eyubkh-tower' />
 			<div id='eyubkh-wall' />
 			<div id='eyubkh-tower' />
-			<div id='eyubkh-fullWall' />
+			<div id='eyubkh-fullwall' />
 		</div>
 	)
 }
