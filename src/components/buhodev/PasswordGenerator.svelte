@@ -54,9 +54,7 @@
 	$: highlighted_password = highlight(generate_password(length, DEFAULT_OPTIONS))
 </script>
 
-<div
-	class="bg-noise absolute border-white/20 border p-6 backdrop-blur-sm top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg"
->
+<main class="max-w-md flex flex-col mx-auto text-white">
 	<!-- Password -->
 	<button
 		use:copy_to_clipboard={{ text: password }}
@@ -192,7 +190,7 @@
 		class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
 		>Generate Password</button
 	>
-</div>
+</main>
 
 <style>
 	.group:active .spin {
