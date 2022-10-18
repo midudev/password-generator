@@ -3,7 +3,6 @@
 	import { backOut } from 'svelte/easing'
 	import { generate_password, type DefaultOptions } from './generate_password'
 	import { copy_to_clipboard } from './copy_to_clipboard'
-	import UltraGradientBackground from './UltraGradientBackground.svelte'
 	import { flipboard } from './flipboard'
 	import { highlight } from './highlight'
 
@@ -54,8 +53,6 @@
 	$: password = generate_password(length, DEFAULT_OPTIONS)
 	$: highlighted_password = highlight(generate_password(length, DEFAULT_OPTIONS))
 </script>
-
-<UltraGradientBackground />
 
 <div
 	class="bg-noise absolute border-white/20 border p-6 backdrop-blur-sm top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg"
