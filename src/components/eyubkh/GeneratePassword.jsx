@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import animation from './library/animation'
-import generatePassword from './library/generatePassword'
+import animation from './utils/animation'
+import generatePassword from './utils/generatePassword'
 
 import './style/generatePassword.css'
 
