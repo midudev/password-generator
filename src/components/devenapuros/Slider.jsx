@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import styles from '@components/devenapuros/styles/slider.module.css'
 
-export const Slider = ({ value = 6, handleChange, min = 6, max = 106 }) => {
+export const Slider = ({ value = 0, handleChange, min = 0, max = 100 }) => {
 	const fillRef = useRef()
 	useEffect(() => {
-		console.log('seeting width:', value - 6)
-		fillRef.current.style.width = `${value - 6}%`
+		const fillLength = ((value - min) * 100) / (max - min)
+		fillRef.current.style.width = `${fillLength}%`
 	}, [value])
 
 	return (
