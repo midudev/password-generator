@@ -1,5 +1,5 @@
 #eyubkh-castle {
-	position: absolute ;
+	position: absolute;
 	background-image: url('/eyubkh/castle.svg');
 	background-position: center;
 	background-repeat: no-repeat;
@@ -18,7 +18,7 @@
 	z-index: 2;
 }
 
-#eyubkh-fullWall {
+#eyubkh-fullwall {
 	position: absolute;
 	background-image: url('/eyubkh/wall.svg');
 	background-position: top;
@@ -26,6 +26,7 @@
 	width: 100%;
 	transition: margin-bottom ease-in-out 1s;
 	margin-bottom: -151px;
+
 	/* background-color: blue; */
 	z-index: 0;
 }
@@ -41,29 +42,11 @@
 }
 
 #eyubkh-conteiner {
-	position: relative;
 	display: flex;
 	position: relative;
 	justify-content: center;
 	align-items: flex-end;
-	overflow: hidden;
 	height: 100vh;
 	width: 100vw;
 	overflow: hidden;
-}
-
-@keyframes show {
-	from {
-		transform: translateX(-50%) translateY(100%);
-	}
-
-	to {
-		transform: translateX(-50%) translateY(0%);
-	}
-}
-
-@keyframes hidde {
-	to {
-		transform: translateX(-50%) translateY(100%);
-	}
 }
