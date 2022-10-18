@@ -11,7 +11,7 @@
 .separator {
 	height: 30px;
 }
-.horizontalSeparator {
+.horizontal-separator {
 	width: 16px;
 }
 
@@ -21,7 +21,7 @@
 	padding: 10px;
 }
 
-.rowContainer {
+.row-container {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
