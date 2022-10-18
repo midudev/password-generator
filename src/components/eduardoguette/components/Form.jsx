@@ -1,95 +1,170 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { AppContext } from '../context'
 import { useForm } from '../hooks/useForm'
 import copyClipboard from '../services/copyClipboard'
 import { getPass } from '../services/getPass'
 import './form.css'
-export const Form = ({ setPass, pass }) => {
+
+export const Form = () => {
+	const { state, setState } = useContext(AppContext)
+	const [isCopied, setIsCopied] = useState(false)
+	const { password } = state
 	const [passValues, handleInputChanges] = useForm({
-		pass,
-		lengthPass: 8,
-		maxLength: 25
+		lengthPass: 14,
+		maxLength: 25,
+		uppercase: false,
+		lowercase: true,
+		numbers: true,
+		symbols: false
 	})
-	const { lengthPass, maxLength } = passValues
+	const { lengthPass, maxLength, uppercase, lowercase, numbers, symbols } = passValues
 
 	useEffect(() => {
-		if (pass === '') {
-			setPass(getPass(lengthPass))
+		if (password === '') {
+			const password = getPass(passValues)
+			setState((p) => ({
+				...p,
+				password
+			}))
 		}
-	}, [lengthPass, pass, lengthPass])
+	}, [password])
 
 	const handleClickNewPass = () => {
-		setPass(getPass(lengthPass))
-		console.log('click', passValues)
+		const password = getPass(passValues)
+		setState((p) => ({
+			...p,
+			password
+		}))
 	}
+
 	const handleCopy = () => {
-		copyClipboard(pass)
+		setIsCopied(true)
+		setTimeout(() => {
+			copyClipboard(password)
+			setIsCopied(false)
+		}, 500)
 	}
 	const handleLengthPass = (e) => {
-		const value = e.target.value
+		e.target.checked = passValues[e.target.name]
 		handleInputChanges(e)
-		setPass(getPass(value))
+		const password = getPass(passValues)
+		setState((p) => ({
+			...p,
+			password
+		}))
 	}
 
-	const handleColor = () => lengthPass < 8 ? 'bg-red-400' : lengthPass >= 8 && lengthPass < 10 ? 'bg-orange-400' : 'bg-green-400'
+	const handleInputCheckboxChange = ({ target }) => {
+		const value = target.checked
+		passValues[target.name] = value
+		console.log(passValues)
+	}
+
+	const handleColor = () =>
+		lengthPass < 10
+			? 'bg-red-400'
+			: lengthPass >= 10 && lengthPass < 14
+				? 'bg-orange-400'
+				: 'bg-green-400'
 
 	return (
-		<section className='text-white'>
-			<div>
-				<label htmlFor='pass' className='block w-96 relative text-white'>
+		<section className='text-white font-mono w-[470px]'>
+			<label htmlFor='pass' className='block w-full relative text-white mb-8'>
+				<div className='px-6 w-full font-mono py-4 rounded focus:outline-none text-2xl h-[64px] bg-[rgb(36,35,44)] text-[#8e7f9f] eg_input'>
+					{password}
+				</div>
+				<div
+					className={`${handleColor()} h-1 w-full absolute -bottom-0 z-10 rounded-bl rounded-br`}
+				></div>
+				{!isCopied
+					? (
+						<button
+							onClick={handleCopy}
+							role='button'
+							title='Copy'
+							className='absolute right-3 block top-0 bottom-0 my-auto focus:outline-none hover:bg-[rgb(8,7,11)] focus:text-black h-max w-max p-3 rounded-full '
+						>
+							<svg
+								width='22px'
+								height='22px'
+								strokeWidth='1.5'
+								viewBox='0 0 24 24'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+								color='#ffffff'
+							>
+								<path
+									d='M19.4 20H9.6a.6.6 0 01-.6-.6V9.6a.6.6 0 01.6-.6h9.8a.6.6 0 01.6.6v9.8a.6.6 0 01-.6.6z'
+									stroke='#ffffff'
+									strokeWidth='1.5'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								></path>
+								<path
+									d='M15 9V4.6a.6.6 0 00-.6-.6H4.6a.6.6 0 00-.6.6v9.8a.6.6 0 00.6.6H9'
+									stroke='#ffffff'
+									strokeWidth='1.5'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								></path>
+							</svg>
+						</button>
+					)
+					: (
+						<span className='absolute top-6 text-xs right-3 bottom-0 my-auto'>Copied!</span>
+					)}
+			</label>
+			<div className='px-6 py-8 bg-[rgb(36,35,44)]'>
+				<label htmlFor='uppercase' className='flex items-center justify-between'>
+					<p className=''>Include Uppercase Letters </p>
 					<input
-						type='text'
-						id='pass'
-						name='pass'
-						value={pass}
-						onChange={handleInputChanges}
-						className='px-4 w-full font-mono py-4 rounded focus:outline-none  bg-[#3e3745] text-white focus:outline-violet-500'
+						className='border scale-150 eg_input'
+						onChange={handleInputCheckboxChange}
+						type='checkbox'
+						name='uppercase'
+						id='uppercase'
+						value={uppercase}
 					/>
-					<div className={`${handleColor()} h-1 w-full absolute -bottom-0 z-10 rounded-bl rounded-br`}></div>
-					<button
-						onClick={handleCopy}
-						role='button'
-						title='Copy'
-						className='absolute right-12 block top-2 my-auto focus:outline-none focus:bg-indigo-200 focus:text-black h-max w-max p-2 rounded-md'
-					>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							className='h-5 w-5'
-							viewBox='0 0 24 24'
-							fill='none'
-							stroke='currentColor'
-							strokeWidth='1.5'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-						>
-							<rect x='9' y='9' width='13' height='13' rx='2' ry='2' />
-							<path d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1' />
-						</svg>
-					</button>
-					<button
-						onClick={handleClickNewPass}
-						role='button'
-						className='absolute right-2 block top-2 my-auto focus:outline-none focus:bg-indigo-200 focus:text-black h-max w-max p-2 rounded-md'
-					>
-						<svg
-							viewBox='0 0 16 16'
-							className='h-5 w-5'
-							fill='currentColor'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path d='M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z' />
-							<path
-								fillRule='evenodd'
-								d='M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z'
-							/>
-						</svg>
-					</button>
+				</label>
+				<label htmlFor='lowercase' className='mt-4 flex items-center justify-between'>
+					<p className=''>Include Lowercase Letters</p>
+					<input
+						className='border scale-150 eg_input'
+						onChange={handleInputCheckboxChange}
+						type='checkbox'
+						name='lowercase'
+						id='lowercase'
+						defaultChecked='on'
+						value={lowercase}
+					/>
+				</label>
+				<label htmlFor='numbers' className='mt-4 flex items-center justify-between'>
+					<p className=''>Include Numbers</p>
+					<input
+						className='border scale-150 eg_input'
+						onChange={handleInputCheckboxChange}
+						type='checkbox'
+						name='numbers'
+						id='numbers'
+						defaultChecked='on'
+						value={numbers}
+					/>
+				</label>
+				<label htmlFor='uppercase' className='mt-4 flex items-center justify-between'>
+					<p className=''>Include Symbols</p>
+					<input
+						className='border scale-150 eg_input'
+						onChange={handleInputCheckboxChange}
+						type='checkbox'
+						name='symbols'
+						id='symbols'
+						value={symbols}
+					/>
 				</label>
 				<label htmlFor='long' className='mt-4 block'>
 					<div className='flex items-center justify-between mb-2'>
-						<span>Longitud</span>
-						<span className='bg-[#3e3745] rounded-md w-9 h-9 grid place-content-center'>
-							{lengthPass}
-						</span>
+						<span>Password Length</span>
+						<span className='text-2xl rounded-md text-[rgb(164,255,175)]'>{lengthPass}</span>
 					</div>
 					<input
 						className='input_eduardoguette w-full h-1 appearance-none focus:outline-violet-500 '
@@ -102,6 +177,23 @@ export const Form = ({ setPass, pass }) => {
 						max={maxLength}
 					/>
 				</label>
+				<button
+					onClick={handleClickNewPass}
+					role='button'
+					className='w-full flex justify-center items-center font-semibold text-lg my-auto focus:outline-none bg-[rgb(164,255,175)] p-4 text-black mt-8'
+				>
+					Generate
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						fill='none'
+						viewBox='0 0 24 24'
+						strokeWidth={2}
+						stroke='currentColor'
+						className='w-5 h-5'
+					>
+						<path strokeLinecap='round' strokeLinejoin='round' d='M12 6v12m6-6H6' />
+					</svg>
+				</button>
 			</div>
 		</section>
 	)
