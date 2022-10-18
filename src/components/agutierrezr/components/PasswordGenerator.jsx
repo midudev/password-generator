@@ -19,9 +19,12 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-black'>
-			<div>
-				{password}
+		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-white'>
+			<div className='app-container'>
+				<div>
+					<div className='label'>Generated Password</div>
+					<div className='box box--password'>{password}</div>
+				</div>
 
 				<form onSubmit={handleSubmit}>
 					<div className='flex items-center justify-between mb-4'>
@@ -91,7 +94,7 @@ const PasswordGenerator = () => {
 					</div>
 
 					<div className='flex items-center justify-between mb-4'>
-						<label className=' text-sm font-medium' htmlFor='symbol'>
+						<label className='text-sm font-medium' htmlFor='symbol'>
 							Simbolos
 						</label>
 						<input
@@ -104,7 +107,24 @@ const PasswordGenerator = () => {
 						/>
 					</div>
 
-					<button>Generate</button>
+					<div>
+						<label for='checked-toggle' class='inline-flex relative items-center cursor-pointer'>
+							<input
+								type='checkbox'
+								value=''
+								id='checked-toggle'
+								class='sr-only peer'
+								checked={symbol}
+								onChange={({ target }) => setSymbol(target.checked)}
+							/>
+							<div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+							<span class='text-sm font-medium'>Checked toggle</span>
+						</label>
+					</div>
+
+					<button className='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full'>
+						Generate
+					</button>
 				</form>
 
 				<h2>Historial</h2>
