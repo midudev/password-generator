@@ -49,9 +49,10 @@ const PasswordGenerator = () => {
 					<div className='label'>Settings</div>
 					<div className='generator-settings'>
 						<div className='box'>
-							<div className='checkbox'>
+							<div className='flex items-center justify-between'>
 								<label htmlFor='lower'>Include lowercase letters</label>
 								<input
+									className='toggle'
 									type='checkbox'
 									id='lower'
 									name='lower'
@@ -61,9 +62,10 @@ const PasswordGenerator = () => {
 							</div>
 						</div>
 						<div className='box'>
-							<div className='checkbox'>
+							<div className='flex items-center justify-between'>
 								<label htmlFor='upper'>Include uppercase letters</label>
 								<input
+									className='toggle'
 									type='checkbox'
 									id='upper'
 									name='upper'
@@ -73,9 +75,10 @@ const PasswordGenerator = () => {
 							</div>
 						</div>
 						<div className='box'>
-							<div className='checkbox'>
+							<div className='flex items-center justify-between'>
 								<label htmlFor='numbers'>Include numbers</label>
 								<input
+									className='toggle'
 									type='checkbox'
 									id='numbers'
 									name='numbers'
@@ -85,9 +88,10 @@ const PasswordGenerator = () => {
 							</div>
 						</div>
 						<div className='box'>
-							<div className='checkbox'>
+							<div className='flex items-center justify-between'>
 								<label htmlFor='symbol'>Include symbols (!@#$%^&*)</label>
 								<input
+									className='toggle'
 									type='checkbox'
 									id='symbol'
 									name='symbol'
