@@ -1,6 +1,6 @@
-import './style/passwordContainer.css'
+import './style/password.css'
 
-export const PasswordContainer = ({ children: password }) => {
+export const Password = ({ children: password }) => {
 	function handlerCopy() {
 		navigator.clipboard.writeText(password)
 	}

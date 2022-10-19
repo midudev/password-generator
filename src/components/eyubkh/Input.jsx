@@ -1,6 +1,6 @@
-import './style/inputRange.css'
+import './style/input.css'
 
-export const InputRange = ({ handler, value }) => {
+export const Input = ({ handler, value }) => {
 	return (
 		<div id='eyubkh-input'>
 			<label htmlFor='eyubkh-input-range'>{value <= 9 ? '0' + value : value}</label>
