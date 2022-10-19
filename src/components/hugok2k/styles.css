@@ -25,7 +25,7 @@
 .title-hugok2k {
 	color: #fff;
 	font-family: 'Cairo Play', cursive;
-	font-size: 40px;
+	font-size: 38px;
 	margin-bottom: 30px;
 	text-align: center;
 }
@@ -122,4 +122,37 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 350px;
+}
+
+.labelcopy-hugok2k {
+	position: absolute;
+	color: red;
+	margin: 23px 0 0 301px;
+	display: none;
+}
+
+.labelcopy-hugok2k-show {
+	position: absolute;
+	color: #fff;
+	margin: 23px 0 0 301px;
+	height: 25px;
+	width: 60px;
+	background: #0075ff;
+	font-size: 12px;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.labelcopy-hugok2k-show::before {
+	border: 7px solid #0075ff;
+	content: '';
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+	border-right-color: transparent;
+	position: absolute;
+	bottom: -13px;
+	left: calc(50% - 7px);
 }
