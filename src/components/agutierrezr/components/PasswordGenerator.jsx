@@ -50,7 +50,7 @@ const PasswordGenerator = () => {
 					<div className='generator-settings'>
 						<div className='box'>
 							<div className='checkbox'>
-								<label htmlFor='lower'>Minuculas</label>
+								<label htmlFor='lower'>Include lowercase letters</label>
 								<input
 									type='checkbox'
 									id='lower'
@@ -62,7 +62,7 @@ const PasswordGenerator = () => {
 						</div>
 						<div className='box'>
 							<div className='checkbox'>
-								<label htmlFor='upper'>Mayusculas</label>
+								<label htmlFor='upper'>Include uppercase letters</label>
 								<input
 									type='checkbox'
 									id='upper'
@@ -74,7 +74,7 @@ const PasswordGenerator = () => {
 						</div>
 						<div className='box'>
 							<div className='checkbox'>
-								<label htmlFor='numbers'>Numeros</label>
+								<label htmlFor='numbers'>Include numbers</label>
 								<input
 									type='checkbox'
 									id='numbers'
@@ -86,7 +86,7 @@ const PasswordGenerator = () => {
 						</div>
 						<div className='box'>
 							<div className='checkbox'>
-								<label htmlFor='symbol'>Simbolos</label>
+								<label htmlFor='symbol'>Include symbols (!@#$%^&*)</label>
 								<input
 									type='checkbox'
 									id='symbol'
