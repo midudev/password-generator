@@ -23,14 +23,14 @@ const MiduPassPage = () => {
 		<MainSection>
 			<Card>
 				<Brand />
-				<div className='flex flex-col gap-2'>
+				<div className='flex flex-col gap-3'>
 					<div className='flex gap-2'>
 						<PassField value='nj23n42jn3kjn43k2j' />
 						<PrimaryButton>
 							<ReloadIcon />
 						</PrimaryButton>
 					</div>
-					<PasswordQuality />
+					<PasswordQuality length={passLength} min={6} max={66} />
 				</div>
 				<div className='flex flex-col gap-5'>
 					<div className='flex flex-col gap-2'>
