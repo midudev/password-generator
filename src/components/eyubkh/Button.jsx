@@ -1,7 +1,9 @@
-export const Button = ({ handler }) => {
+import './style/generate.css'
+
+export const Button = ({ handler, children }) => {
 	return (
-		<button id='eyubkh-button' onClick={handler}>
-			Generate
-		</button>
+		<div onClick={handler} id='eyubkh-generate'>
+			{children}
+		</div>
 	)
 }
