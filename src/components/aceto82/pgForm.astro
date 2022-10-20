@@ -47,8 +47,9 @@ import Slider from './slider.astro'
 		</div>
 	</div>
 </div>
-<script>
-	onload = (event) => {
+
+<script is:inline>
+	window.onload = () => {
 		btnGen.click()
 	}
 

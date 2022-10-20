@@ -5,7 +5,7 @@
     "module": "ESNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["astro/client", "react"],
+    "types": ["astro/client", "react", "jest", "node"],
     "outDir": "./dist",
     "moduleResolution": "node",
     "jsx": "react-jsx",
@@ -16,5 +16,10 @@
       "@layout": ["src/layouts/Layout.astro"],
       "@hooks/*": ["src/hooks/*"]
     }
-  }
+  },
+	"include": [
+		"src/**/*",
+		"**/*.spec.ts",
+		"**/*.test.ts"
+	],
 }
