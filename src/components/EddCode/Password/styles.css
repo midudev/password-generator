@@ -1,18 +1,18 @@
-.password-box {
+.eddcode-password-box {
 	display: flex;
 	border-radius: 5px;
 	background-color: #374151;
 }
 
-.password-box span:first-of-type {
+.eddcode-password-box span:first-of-type {
 	width: 200px;
 }
 
-.password-box span, .password-box button {
+.eddcode-password-box span, .eddcode-password-box button {
 	padding: .3rem;
 }
 
-.svg-container{
+.eddcode-svg-container{
 	cursor: pointer;
 	background-color: #1d2633;
 	border-top-right-radius: 5px;
@@ -20,13 +20,13 @@
 }
 
 
-.tooltip {
+.eddcode-tooltip {
 	position: relative;
 	display: inline-block;
 	border-bottom: 1px dotted black;
 }
 
-.tooltip .tooltiptext {
+.eddcode-tooltip .eddcode-tooltiptext {
 	visibility:hidden;
 	width: 120px;
 	background-color: #1d2633;
@@ -40,6 +40,6 @@
 	z-index: 1;
 }
 
-.tooltip:focus .tooltiptext {
+.eddcode-tooltip:focus .eddcode-tooltiptext {
 	visibility: visible;
 }
