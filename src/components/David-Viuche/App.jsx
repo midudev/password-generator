@@ -39,7 +39,7 @@ const App = () => {
 					<div id='pass-cont-dv'>
 						<span id='pass-dv'>{contra}</span>
 						<button id='copy-btn-dv' onClick={(e) => handleOnclick(e)}>
-							<img src='/public/David-Viuche/copy.svg' alt='copiar contraseña' />
+							<img src='/David-Viuche/copy.svg' alt='copiar contraseña' />
 						</button>
 					</div>
 					<div className='center-dv'>

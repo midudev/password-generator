@@ -1,6 +1,6 @@
-#slider-wayaba {
+.slider-wayaba {
 	margin-right: 15px;
-	width: fill-available;
+	width: stretch;
 	height: 7px;
 	border-radius: 5px;
 }

@@ -1,5 +1,4 @@
 ---
-import CopyClipboardButton from '@components/davbrito/CopyClipboardButton.svelte'
 import Layout from '@layout'
 ---
 
@@ -39,6 +38,7 @@ import Layout from '@layout'
 		navigator.clipboard.writeText(text)
 		alert('El texto se ha copiado!')
 	}
+
 	function generatePass() {
 		const long = parseInt((document.getElementById('long') as HTMLInputElement).value)
 		console.log(long)
@@ -52,6 +52,7 @@ import Layout from '@layout'
 		console.log(generatedPassword)
 		document.getElementById('result').innerHTML = generatedPassword
 	}
+
 	document.getElementById('generate').addEventListener('click', generatePass)
 	document.getElementById('copy').addEventListener('click', copyClipboard)
 </script>
