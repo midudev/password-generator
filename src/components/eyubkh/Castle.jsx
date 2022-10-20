@@ -1,6 +1,6 @@
-import './style/animation.css'
+import './style/castle.css'
 
-export const Animation = () => {
+export const Castle = () => {
 	return (
 		<div id='eyubkh-conteiner'>
 			<div id='eyubkh-castle' />
