@@ -1,12 +1,10 @@
-import { Card } from './Card'
+import { PasswordGenerator } from './PasswordGenerator'
 import { Castle } from './Castle'
-
-import './style/global.css'
 
 export default function Page() {
 	return (
 		<>
-			<Card />
+			<PasswordGenerator />
 			<Castle />
 		</>
 	)
