@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Toast from './Toast'
-import { getRandomPassword, copyPassword } from '../utils/passwordManager'
+import { getRandomPassword, copyPassword, getPasswordStrength } from '../utils/passwordManager'
 import { Copy } from '../icons/icons'
 import { hover1Style, hover2Style } from '../styles/hover'
 import { NUMBERS, LOWER_CASE, UPPER_CASE, SPECIAL } from '../constants/characters'
@@ -8,6 +8,7 @@ import { NUMBERS, LOWER_CASE, UPPER_CASE, SPECIAL } from '../constants/character
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
 	const [passwordLength, setPasswordLength] = useState(12)
+	const [passwordStrength, setPasswordStrength] = useState(0)
 	const [passwordCopied, setPasswordCopied] = useState(false)
 	const [chkNumbers, setChkNumbers] = useState(true)
 	const [chkLowercase, setChkLowercase] = useState(true)
@@ -53,7 +54,9 @@ const PasswordGenerator = () => {
 		if (chkUppercase) charactersAvaliable += UPPER_CASE
 		if (chkSpecial) charactersAvaliable += SPECIAL
 
-		setPassword(getRandomPassword(charactersAvaliable, passwordLength))
+		const newPassword = getRandomPassword(charactersAvaliable, passwordLength)
+		setPassword(newPassword)
+		setPasswordStrength(getPasswordStrength(newPassword))
 	}
 
 	return (
@@ -74,6 +77,22 @@ const PasswordGenerator = () => {
 							<Copy />
 						</span>
 					</button>
+				</div>
+				<div className='flex flex-row justify-evenly'>
+					{[...Array(5)].map((_, i) => {
+						return (
+							<div
+								key={i}
+								className={`h-2 w-1/6 rounded-xl transition-colors ${
+									passwordStrength === 3
+										? 'bg-green-500'
+										: passwordStrength === 2
+											? 'bg-yellow-400'
+											: 'bg-red-400'
+								}`}
+							></div>
+						)
+					})}
 				</div>
 				<label className='flex justify-center gap-2'>
 					<span>Password length:</span>
