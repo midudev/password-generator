@@ -18,6 +18,9 @@ const PasswordGenerator = () => {
 	useEffect(() => {
 		handleGeneratePassword()
 	}, [])
+	useEffect(() => {
+		handleGeneratePassword()
+	}, [chkNumbers, chkLowercase, chkUppercase, chkSpecial])
 
 	useEffect(() => {
 		if (passwordCopied) setTimeout(() => setPasswordCopied(false), 3000)
@@ -29,22 +32,18 @@ const PasswordGenerator = () => {
 
 	function handleChangeChkNumbers() {
 		setChkNumbers(!chkNumbers)
-		handleGeneratePassword()
 	}
 
 	function handleChangeChkLowercase() {
 		setChkLowercase(!chkLowercase)
-		handleGeneratePassword()
 	}
 
 	function handleChangeChkUppercase() {
 		setChkUppercase(!chkUppercase)
-		handleGeneratePassword()
 	}
 
 	function handleChangeChkSpecial() {
 		setChkSpecial(!chkSpecial)
-		handleGeneratePassword()
 	}
 
 	function handleGeneratePassword() {
