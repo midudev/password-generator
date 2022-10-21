@@ -48,7 +48,7 @@ import UltraGradientBackground from '@components/buhodev/UltraGradientBackground
 		</div>
 		<a
 			href='/entry/buhodev/app'
-			class='mt-8 text-lg text-center py-2 px-12 rounded-lg bg-blue-600 self-center'>Get started</a
+			class='relative mt-8 inline-flex h-12 cursor-pointer touch-manipulation select-none items-center justify-center self-center whitespace-nowrap rounded-lg border-0 bg-blue-600 bg-gradient-to-tr from-blue-700 to-sky-400 py-2 px-12 text-center text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]'>Get started</a
 		>
 		<a class='mt-4 text-slate-900' href='https://lordicon.com/'>Animated icons by Lordicon.com</a>
 	</div>
@@ -57,5 +57,26 @@ import UltraGradientBackground from '@components/buhodev/UltraGradientBackground
 <style>
 	h1 {
 		text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.75);
+	}
+
+	.primary-button {
+		box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+			rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+		transition: box-shadow 0.05s, transform 0.05s;
+		will-change: box-shadow, transform;
+	}
+
+	.primary-button:focus {
+		box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+			rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+	}
+
+	.primary-button:hover {
+		box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+			#3c4fe0 0 -3px 0 inset;
+	}
+
+	.primary-button:active {
+		box-shadow: #3c4fe0 0 3px 7px inset;
 	}
 </style>
