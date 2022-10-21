@@ -25,11 +25,11 @@ para la configuración de su prueba. Ejemplo:*
 # 📝 Lista de verificación:
 (*) -> obligatorio.
 
-- [*] Mi código sigue [las reglas](https://github.com/midudev/password-generator#-reglas) de este proyecto *.
-- [*] He creado mis propias clases / ids y he comprobado que no afectan a otros diseños de la comunidad *.
-- [*] He realizado una auto-revisión de mi propio código *.
-- [*] He comentado mi código, particularmente en las áreas difíciles de entender.
-- [*] Mis cambios no generan nuevos avisos *.
-- [*] No he instalado nuevos módulos con `npm install` o `yarn install` *.
-- [*] La solución es de mi autoría y no he copiado código de otros participantes *.
-- [*] No modifiqué ningún otro archivo más que los míos *.
+- [ ] Mi código sigue [las reglas](https://github.com/midudev/password-generator#-reglas) de este proyecto *.
+- [ ] He creado mis propias clases / ids y he comprobado que no afectan a otros diseños de la comunidad *.
+- [ ] He realizado una auto-revisión de mi propio código *.
+- [ ] He comentado mi código, particularmente en las áreas difíciles de entender.
+- [ ] Mis cambios no generan nuevos avisos *.
+- [ ] No he instalado nuevos módulos con `npm install` o `yarn install` *.
+- [ ] La solución es de mi autoría y no he copiado código de otros participantes *.
+- [ ] No modifiqué ningún otro archivo más que los míos *.
