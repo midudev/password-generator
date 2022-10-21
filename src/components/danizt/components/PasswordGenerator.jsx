@@ -58,7 +58,7 @@ const PasswordGenerator = () => {
 				Password Generator
 			</h2>
 			<div className='border border-white rounded-lg p-8 flex flex-col gap-y-4'>
-				<div className='flex gap-2'>
+				<div className='flex justify-around'>
 					<label
 						type='text'
 						className='rounded-lg outline-0 py-2 px-2 text-gray-800 bg-white text-center w-96'
