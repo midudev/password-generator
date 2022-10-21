@@ -28,18 +28,22 @@ const PasswordGenerator = () => {
 
 	function handleChangeChkNumbers() {
 		setChkNumbers(!chkNumbers)
+		handleGeneratePassword()
 	}
 
 	function handleChangeChkLowercase() {
 		setChkLowercase(!chkLowercase)
+		handleGeneratePassword()
 	}
 
 	function handleChangeChkUppercase() {
 		setChkUppercase(!chkUppercase)
+		handleGeneratePassword()
 	}
 
 	function handleChangeChkSpecial() {
 		setChkSpecial(!chkSpecial)
+		handleGeneratePassword()
 	}
 
 	function handleGeneratePassword() {
@@ -76,13 +80,14 @@ const PasswordGenerator = () => {
 					<span className='text-cyan-500 font-bold'>{passwordLength}</span>
 				</label>
 				<input
-					className='mb-1 accent-cyan-500'
+					className='mb-1 accent-cyan-500 cursor-ew-resize'
 					type='range'
 					min='1'
 					max='30'
 					value={passwordLength}
 					onChange={({ target: { value } }) => {
 						setPasswordLength(value)
+						handleGeneratePassword()
 					}}
 				/>
 
