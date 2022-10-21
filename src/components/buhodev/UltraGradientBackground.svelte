@@ -110,4 +110,8 @@
 	:global(body) {
 		overflow: hidden;
 	}
+
+	svg {
+		transform: rotate(180deg) scaleX(-1);
+	}
 </style>
