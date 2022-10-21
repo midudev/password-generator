@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Toast from './Toast'
 import { getRandomPassword, copyPassword } from '../utils/passwordManager'
-import CopySvg from '../icons/copySvg'
+import { Copy } from '../icons/icons'
 import { hover1Style, hover2Style } from '../styles/hover'
 import { NUMBERS, LOWER_CASE, UPPER_CASE, SPECIAL } from '../constants/characters'
 
@@ -67,7 +67,7 @@ const PasswordGenerator = () => {
 					</label>
 					<button onClick={handleCopy} className={hover1Style}>
 						<span className={`${hover2Style} py-2 px-2`}>
-							<CopySvg />
+							<Copy />
 						</span>
 					</button>
 				</div>

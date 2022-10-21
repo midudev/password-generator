@@ -1,6 +1,6 @@
 import React from 'react'
 import PasswordGenerator from './PasswordGenerator'
-import GitHubSvg from '../icons/gitHubSvg'
+import { GitHub } from '../icons/icons'
 
 const Wrapper = () => {
 	return (
@@ -14,7 +14,7 @@ const Wrapper = () => {
 					target='_blank'
 					className='flex flex-row gap-2'
 				>
-					by @danizt <GitHubSvg />
+					by @danizt <GitHub />
 				</a>
 			</p>
 		</div>
