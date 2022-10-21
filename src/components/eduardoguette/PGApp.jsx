@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
 import { Form } from './components/Form'
+import { AppContext } from './context'
 
 function PGApp() {
-	const [pass, setPass] = useState('')
+	const [state, setState] = useState({
+		password: ''
+	})
 	return (
-		<main className='grid place-content-center min-h-screen'>
-			<h1 className='text-white font-mono mb-8 text-center text-xl '>Genere una contraseña segura</h1>
-			<Form pass={pass} setPass={setPass}/>
-		</main>
+		<AppContext.Provider value={{ state, setState }}>
+			<main className='flex justify-center items-center flex-col min-h-screen bg-[rgb(8,7,11)]'>
+				<h1 className='text-white font-mono  text-center text-3xl font-semibold mb-10'>
+					Password Generator
+				</h1>
+				<Form />
+			</main>
+		</AppContext.Provider>
 	)
 }
 

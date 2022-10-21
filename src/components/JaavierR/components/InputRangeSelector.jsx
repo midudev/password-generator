@@ -23,6 +23,11 @@ export function InputRangeSelector({ label, name, value, onChange, onBlur, min, 
 				value={value}
 				onChange={onChange}
 				onBlur={onBlur}
+				onKeyPress={(event) => {
+					if (!/[0-9]/.test(event.key)) {
+						event.preventDefault()
+					}
+				}}
 			/>
 		</div>
 	)

@@ -1,7 +1,13 @@
 .input_eduardoguette[type="range"]::-webkit-slider-thumb{
-	background: #8b5cf6;
+	background: rgb(164, 255, 175);
 	-webkit-appearance: none;
 	border-radius: 100px;
 	height: 1.5rem;
 	width: 1.5rem;
+}
+.eg_input{
+	accent-color: rgb(164, 255, 175);
+}
+.eg_input:focus{
+	outline-color: rgb(164, 255, 175);
 }

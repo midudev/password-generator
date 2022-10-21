@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap';
+@import './variables.css';
 @import './input-section.css';
 @import './input.css';
 @import './output-section.css';
@@ -12,31 +13,26 @@
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
-	color: #fff;
-	font-family: 'Noto sans', sans-serif;
-	background: url('/grain-dark.png');
-	background-color: #000;
+	font-family: var(--fedmg-primary-ff);
+	color: var(--fedmg-secundary-color);
+	background: var(--fedmg-main-bg-url);
+	background-color: var(--fedmg-main-bg-color);
 }
 
 .fedmg-section {
-	--width-board: 35em;
-	--height-board: 20em;
-	--border-rad: 0.15em;
-
-	padding: clamp(0.3em, 2vw, 1.15em);
-	background: linear-gradient(to right, rgb(55 65 81), rgb(17 24 39), rgb(0 0 0));
-	max-width: var(--width-board);
-	max-height: var(--height-board);
 	width: 100%;
-
-	/* height: 100%; */
 	text-align: center;
-	border-radius: var(--border-rad);
-	box-shadow: 0.22px 0.22px 0.9px 0.357px #fff;
+	padding: clamp(0.3em, 2vw, 1.15em);
+	box-shadow: 0 0 0.9px 0.357px #fff;
+	max-width: var(--fedmg-board-width);
+	max-height: var(--fedmg-board-height);
+	border-radius: var(--fedmg-board-bd-rad);
+	background-color: var(--fedmg-board-primary-bg-color);
+	font-weight: 600;
 }
 
 .fedmg-title {
-	font-size: clamp(1.15em, 3.5vw, 1.8em);
+	font-size: var(--fedmg-primary-fz);
 	margin: 0 0 0.9em;
 }
 

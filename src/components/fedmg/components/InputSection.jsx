@@ -4,9 +4,7 @@ export const InputSection = ({ state: range, handler: getRange }) => {
 	return (
 		<div className='fedmg-input-section'>
 			<div className='fedmg-label-section'>
-				<label className='fedmg-label' for='fedmg-range'>
-					Password length:
-				</label>
+				<label className='fedmg-label'>Password length:</label>
 				<span className='fedmg-range-span'>{range}</span>
 			</div>
 			<input
