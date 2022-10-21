@@ -7,7 +7,7 @@ import { NUMBERS, LOWER_CASE, UPPER_CASE, SPECIAL } from '../constants/character
 
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
-	const [passwordLength, setPasswordLength] = useState(12)
+	const [passwordLength, setPasswordLength] = useState(14)
 	const [passwordStrength, setPasswordStrength] = useState(0)
 	const [passwordCopied, setPasswordCopied] = useState(false)
 	const [chkNumbers, setChkNumbers] = useState(true)
@@ -77,7 +77,7 @@ const PasswordGenerator = () => {
 						</span>
 					</button>
 				</div>
-				<div className='flex flex-row justify-evenly'>
+				<div className='flex flex-row justify-evenly mb-4'>
 					{[...Array(5)].map((_, i) => {
 						return (
 							<div
@@ -93,6 +93,7 @@ const PasswordGenerator = () => {
 						)
 					})}
 				</div>
+
 				<label className='flex justify-center gap-2'>
 					<span>Password length:</span>
 					<span className='text-cyan-500 font-bold'>{passwordLength}</span>
@@ -108,8 +109,6 @@ const PasswordGenerator = () => {
 						handleGeneratePassword()
 					}}
 				/>
-
-				<h3 className='mb-1'>Configuration:</h3>
 
 				<div className='flex flex-wrap px-6 mb-2'>
 					<label className='pl-2 w-1/2'>
