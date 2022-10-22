@@ -9,6 +9,7 @@ const useGenerator = (
 	const [password, setPassword] = useState('')
 	const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*+-ñÑ/&%$#!¡¿?'
 
+	// Config Object
 	const Config = {
 		setLength: (number) => {
 			setConfig((config) => ({ ...config, maxLength: number }))

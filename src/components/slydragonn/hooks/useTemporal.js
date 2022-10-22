@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-// Temporal Information
+// Hide information after a time
 const useTemporal = (showTime) => {
 	const [show, setShow] = useState(false)
 	const [message, setMessage] = useState('')
