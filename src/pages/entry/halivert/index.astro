@@ -1,5 +1,6 @@
 ---
 import Range from '@components/halivert/Range.vue'
+import NotificationCenter from '@components/halivert/NotificationCenter.vue'
 
 const minChars = 8
 const maxChars = 40
@@ -12,7 +13,7 @@ const maxChars = 40
 
 	const copy: HTMLButtonElement | null = document.querySelector('#copy')
 
-	const generatePassword = (count = 10) => {
+	const generatePassword = (count) => {
 		const randomIndexes = new Uint8Array(count)
 		// Using crypto module, generate random values to get indexes of the
 		// alphabet
@@ -44,6 +45,21 @@ const maxChars = 40
 		if (!input) return
 
 		await navigator.clipboard.writeText(input.value)
+
+		const notifications: HTMLElement | null = document.querySelector('#notifications')
+
+		if (!notifications) return
+
+		notifications.dispatchEvent(
+			new CustomEvent('notify', {
+				bubbles: true,
+				cancelable: true,
+				detail: {
+					type: 'success',
+					text: 'Copiado a tu portapapeles'
+				}
+			})
+		)
 	})
 </script>
 
@@ -85,6 +101,8 @@ const maxChars = 40
 				<button class='submit'>Generar</button>
 			</div>
 		</form>
+
+		<NotificationCenter client:idle id='notifications' />
 	</main>
 	<footer>
 		<a href='https://halivert.dev'> Halivert</a>
