@@ -1,4 +1,5 @@
 ---
+import CopyButton from '@components/fredoist/CopyButton.svelte'
 import Layout from '@components/fredoist/Layout.astro'
 import PasswordInput from '@components/fredoist/PasswordInput.svelte'
 ---
@@ -12,6 +13,7 @@ import PasswordInput from '@components/fredoist/PasswordInput.svelte'
 				Password Generator
 			</h1>
 			<PasswordInput client:load />
+			<CopyButton client:load />
 		</main>
 	</div>
 </Layout>
