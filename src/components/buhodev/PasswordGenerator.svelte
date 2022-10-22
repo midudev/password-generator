@@ -54,6 +54,36 @@
 	$: highlighted_password = highlight(generate_password(length, DEFAULT_OPTIONS))
 </script>
 
+<nav
+	class="text-white backdrop-blur-sm bg-white/5 fixed w-full z-20 top-0 left-0 flex border-b border-gray-600"
+>
+	<button class="border-r p-3 border-gray-600 flex items-center justify-center mr-auto">
+		<span class="sr-only">Open sidebar</span>
+		<!-- phosphoricons/sidebar-simple -->
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M8.25 4.5v15m12-15H3.75a.75.75 0 0 0-.75.75v13.5c0 .414.336.75.75.75h16.5a.75.75 0 0 0 .75-.75V5.25a.75.75 0 0 0-.75-.75Z"
+				stroke="#fff"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	</button>
+	<button class="border-l p-3 border-gray-600 flex items-center justify-center ml-auto">
+		<span class="sr-only">Open history</span>
+		<!-- phosphoricons/bookmark-simple -->
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="m18 21-6-3.75L6 21V4.5a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 .75.75V21Z"
+				stroke="#fff"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	</button>
+</nav>
 <main class="max-w-md flex flex-col mx-auto text-white">
 	<!-- Password -->
 	<button
