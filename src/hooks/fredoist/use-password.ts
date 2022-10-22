@@ -13,21 +13,12 @@ const DEFAULT_OPTIONS = {
 	symbols: true
 }
 
-export function usePassword(options: Partial<typeof DEFAULT_OPTIONS>) {
-	const { subscribe, set } = writable('')
+const password = writable('')
+
+export function usePassword(options: Partial<typeof DEFAULT_OPTIONS> = {}) {
+	const { subscribe, set } = password
 
 	options = { ...DEFAULT_OPTIONS, ...options }
-
-	const strength = () =>
-		Math.min(
-			(options.numbers ? 1 : 0) +
-				(options.lowercase ? 1 : 0) +
-				(options.uppercase ? 1 : 0) +
-				(options.symbols ? 1 : 0) +
-				(options.length < 16 ? -2 : 0) +
-				(options.length < 8 ? -2 : 0),
-			4
-		)
 
 	const chars = []
 	if (options.numbers) chars.push(NUMBERS)
@@ -47,9 +38,6 @@ export function usePassword(options: Partial<typeof DEFAULT_OPTIONS>) {
 
 	return {
 		subscribe,
-		generate,
-		strength
+		generate
 	}
 }
-
-usePassword.defaultProps = {}
