@@ -8,7 +8,7 @@ import UltraGradientBackground from '@components/buhodev/UltraGradientBackground
 	<div
 		class='max-w-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mx-auto text-white'
 	>
-		<h1 class='text-6xl text-center font-bold font-mono'>
+		<h1 class='text-6xl text-center font-bold'>
 			Unlock the power of world-class password generation
 		</h1>
 
@@ -55,8 +55,14 @@ import UltraGradientBackground from '@components/buhodev/UltraGradientBackground
 </Layout>
 
 <style>
+	@font-face {
+		font-family: "Coanda";
+		src: url(\buhodev\Coanda.woff2);
+	}
+
 	h1 {
 		text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.75);
+		font-family: Coanda, sans-serif;
 	}
 
 	.primary-button {
