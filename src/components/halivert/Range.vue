@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps<{
 	name: string
@@ -7,7 +7,9 @@ const props = defineProps<{
 	max: number
 }>()
 
-const chars = ref(props.min)
+const mid = computed(() => (props.max + props.min) / 2)
+
+const chars = ref(mid.value)
 </script>
 
 <template>
