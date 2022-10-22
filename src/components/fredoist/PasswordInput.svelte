@@ -2,8 +2,7 @@
 	import { onMount } from 'svelte'
 	import { usePassword } from '@hooks/fredoist/use-password'
 
-	const password = usePassword({})
-	const strength = password.strength()
+	const password = usePassword()
 
 	onMount(() => {
 		password.generate()
@@ -26,12 +25,11 @@
 		on:click={copyPassword}
 	/>
 	<div class="absolute right-14 top-5 flex flex-col gap-0.5">
-		{#each Array.from({ length: 4 - strength }) as _}
-			<span class="h-1 w-6 bg-[#00f0ff]" />
-		{/each}
-		{#each Array.from({ length: strength }) as _}
-			<span class="h-1 w-6 bg-[#ff003c]" />
-		{/each}
+		<!-- TODO: determine password strength and display with bars -->
+		<span class="h-1 w-6 bg-[#00f0ff]" />
+		<span class="h-1 w-6 bg-[#00f0ff]" />
+		<span class="h-1 w-6 bg-[#00f0ff]" />
+		<span class="h-1 w-6 bg-[#00f0ff]" />
 	</div>
 	<button class="absolute right-5 top-5 text-[#00f0ff]" on:click={password.generate}>
 		<span class="sr-only">Generate Password</span>
