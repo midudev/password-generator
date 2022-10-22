@@ -5,11 +5,16 @@ const useTemporal = (showTime) => {
 	const [show, setShow] = useState(false)
 	const [message, setMessage] = useState('')
 
+	/**
+		  Show message
+			@param string message.
+		*/
 	const showInfo = (message) => {
 		setMessage(() => message)
 		return setShow(() => true)
 	}
 
+	// hide message
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setShow(() => false)

@@ -20,11 +20,7 @@ const App = () => {
 				<Cat passwordValue={password} length={Config.length} />
 				<FormLayout>
 					<Slider handleChange={Config.setLength} />
-					<div className='flex items-center'>
-						<Button handleClick={generatePassword} message='Generate作成する' />
-						<CopyButton value={password} setMessage={showInfo} />
-					</div>
-					<div>
+					<div className='flex flex-wrap w-full justify-around mb-3'>
 						<CheckBox
 							label='Uppercases'
 							handleClick={Config.setChars}
@@ -32,6 +28,10 @@ const App = () => {
 						/>
 						<CheckBox label='Numbers' handleClick={Config.setChars} chars='1234567890' />
 						<CheckBox label='Symbols' handleClick={Config.setChars} chars='*+-ñÑ/&%$#!¡¿?' />
+					</div>
+					<div className='flex items-center'>
+						<Button handleClick={generatePassword} message='Generate作成する' />
+						<CopyButton value={password} setMessage={showInfo} />
 					</div>
 				</FormLayout>
 				<h2 className='z-0 absolute left-10 hidden sm:block w-1 text-white text-2xl sm:text-5xl select-none transition-all duration-300'>

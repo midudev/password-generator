@@ -7,13 +7,15 @@ const CheckBox = ({ label, handleClick, chars }) => {
 	}
 
 	return (
-		<div>
-			<label htmlFor={`slydragon-checkbox-${label}`}>{label}</label>
+		<div className=''>
 			<input
 				type='checkbox'
 				id={`slydragon-checkbox-${label}`}
 				onClick={(evt) => setPasswordChars(evt.target.checked)}
 			/>
+			<label htmlFor={`slydragon-checkbox-${label}`} className='text-white font-thin italic ml-1'>
+				{label}
+			</label>
 		</div>
 	)
 }
