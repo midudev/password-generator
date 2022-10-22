@@ -223,6 +223,9 @@
 </main>
 
 <style>
+	:global(body) {
+		background: rgb(23 23 23);
+	}
 	.group:active .spin {
 		animation: spin 0.15s linear;
 	}
