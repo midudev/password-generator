@@ -16,7 +16,7 @@
 			title: 'Performant',
 			description: 'Get instant feedback when you interact with the app.',
 			svgSrc: '/buhodev/speed.svg',
-			webpSrc: '/buhodev/speed-long.svg'
+			webpSrc: '/buhodev/speed-long.webp'
 		},
 		{
 			title: 'Minimal',
