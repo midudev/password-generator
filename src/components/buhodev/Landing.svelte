@@ -4,66 +4,69 @@
 
 	let ready = false
 	onMount(() => (ready = true))
+
+	const FEATURE_CARDS = [
+		{
+			title: 'Truly random',
+			description: 'Use your mouse to create a real random seed.',
+			svgSrc: '/buhodev/category.svg',
+			webpSrc: '/buhodev/category-long.webp'
+		},
+		{
+			title: 'Performant',
+			description: 'Get instant feedback when you interact with the app.',
+			svgSrc: '/buhodev/speed.svg',
+			webpSrc: '/buhodev/speed-long.svg'
+		},
+		{
+			title: 'Minimal',
+			description: "Focus on what's important with a delightful UI.",
+			svgSrc: '/buhodev/chat.svg',
+			webpSrc: '/buhodev/chat-long.webp'
+		},
+		{
+			title: 'Secure',
+			description: 'Made following FBI standards for password generation.',
+			svgSrc: '/buhodev/check.svg',
+			webpSrc: '/buhodev/check-long.webp'
+		}
+	]
 </script>
 
 <div
 	class="max-w-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mx-auto text-white"
 >
 	{#if ready}
-		<h1 transition:fly={{ y: -50, duration: 500 }} class="block text-6xl text-center font-bold">
+		<h1 transition:fly={{ y: -50, duration: 700 }} class="block text-6xl text-center font-bold">
 			Unlock the power of world-class password generation
 		</h1>
 
 		<div class="flex justify-between gap-4 mt-8">
-			<div
-				transition:fly={{ y: -50, duration: 500, delay: 200 }}
-				class="group shadow-lg hover:scale-[1.005] hover:shadow-xl transition-all border border-b-0 flex flex-col justify-center h-44 w-48 border-white/10 bg-black/30 backdrop-blur-xl rounded-md p-4"
-			>
-				<img src="/buhodev/category.svg" class="group-hover:hidden block w-10 mb-2" alt="" />
-				<img src="/buhodev/category-long.webp" class="group-hover:block hidden w-10 mb-2" alt="" />
-				<h2 class="font-bold">Truly random</h2>
-				<p>Use your mouse to create a real random seed.</p>
-			</div>
-			<div
-				transition:fly={{ y: -50, duration: 500, delay: 250 }}
-				class="group shadow-lg hover:scale-[1.005] hover:shadow-xl transition-all border border-b-0  flex flex-col justify-center mt-12 h-44 w-48 border-white/10 bg-black/30 backdrop-blur-xl rounded-md p-4"
-			>
-				<img src="/buhodev/speed.svg" class="group-hover:hidden block w-10 mb-2" alt="" />
-				<img src="/buhodev/speed-long.webp" class="group-hover:block hidden w-10 mb-2" alt="" />
-				<h2 class="font-bold">Performant</h2>
-				<p class="text-gray-100">Get instant feedback when you interact with the app.</p>
-			</div>
-			<div
-				transition:fly={{ y: -50, duration: 500, delay: 300 }}
-				class="group shadow-lg hover:scale-[1.005] hover:shadow-xl transition-all border border-b-0 flex flex-col justify-center h-44 w-48 border-white/10 bg-black/30 backdrop-blur-xl rounded-md p-4"
-			>
-				<img src="/buhodev/chat.svg" class="group-hover:hidden block w-10 mb-2" alt="" />
-				<img src="/buhodev/chat-long.webp" class="group-hover:block hidden w-10 mb-2" alt="" />
-				<h2 class="font-bold">Minimal</h2>
-				<p class="text-gray-100">Focus on what's important with a delightful UI.</p>
-			</div>
-			<div
-				transition:fly={{ y: -50, duration: 500, delay: 350 }}
-				class="group shadow-lg hover:scale-[1.005] hover:shadow-xl transition-all border border-b-0 flex flex-col justify-center mt-12 h-44 w-48 border-white/10 bg-black/30 backdrop-blur-xl rounded-md p-4"
-			>
-				<img src="/buhodev/check.svg" class="group-hover:hidden block w-10 mb-2" alt="" />
-				<img src="/buhodev/check-long.webp" class="group-hover:block hidden w-10 mb-2" alt="" />
-				<h2 class="font-bold">Secure</h2>
-				<p class="text-gray-100">Made following FBI standards for password generation.</p>
-			</div>
+			{#each FEATURE_CARDS as { title, description, svgSrc, webpSrc }, i}
+				<div
+					transition:fly={{ y: -50, duration: 500, delay: 200 * (i + 1) - i * 50 }}
+					class:mt-12={i % 2 == 1}
+					class="group shadow-lg hover:scale-[1.005] hover:shadow-xl transition-all border border-b-0 flex flex-col justify-center h-44 w-48 border-white/10 bg-black/30 backdrop-blur-xl rounded-md p-4"
+				>
+					<img src={svgSrc} class="group-hover:hidden block w-10 mb-2" alt="" />
+					<img src={webpSrc} class="group-hover:block hidden w-10 mb-2" alt="" />
+					<h2 class="font-bold">{title}</h2>
+					<p>{description}</p>
+				</div>
+			{/each}
 		</div>
-		<a
-			on:click="{() => ready = false}"
-			transition:fly={{ y: -50, duration: 500, delay: 500 }}
-			href="/entry/buhodev/app"
-			class="primary-button relative mt-8 inline-flex h-12 cursor-pointer touch-manipulation select-none items-center justify-center self-center whitespace-nowrap rounded-lg border-0 bg-blue-600 bg-gradient-to-tr from-blue-700 to-sky-400 py-2 px-12 text-center text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]"
-			>Get started</a
-		>
-		<a
-			transition:fly={{ y: -50, duration: 500, delay: 800 }}
-			class="mt-4 text-slate-900"
-			href="https://lordicon.com/">Animated icons by Lordicon.com</a
-		>
+			<a
+				on:click={() => (ready = false)}
+				transition:fly={{ y: -50, duration: 500, delay: 700 }}
+				href="/entry/buhodev/app"
+				class="primary-button relative mt-8 inline-flex h-12 cursor-pointer touch-manipulation select-none items-center justify-center self-center whitespace-nowrap rounded-lg border-0 bg-blue-600 bg-gradient-to-tr from-blue-700 to-sky-400 py-2 px-12 text-center text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]"
+				>Get started</a
+			>
+			<a
+				transition:fly={{ y: -50, duration: 500, delay: 900 }}
+				class="mt-4 text-slate-900"
+				href="https://lordicon.com/">Animated icons by Lordicon.com</a
+			>
 	{/if}
 </div>
 
