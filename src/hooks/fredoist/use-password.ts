@@ -15,7 +15,9 @@ const DEFAULT_OPTIONS = {
 
 const password = writable('')
 
-export function usePassword(options: Partial<typeof DEFAULT_OPTIONS> = {}) {
+type OptionsType = Partial<typeof DEFAULT_OPTIONS>
+
+export function usePassword(options: OptionsType = {}) {
 	const { subscribe, set } = password
 
 	options = { ...DEFAULT_OPTIONS, ...options }
@@ -36,8 +38,11 @@ export function usePassword(options: Partial<typeof DEFAULT_OPTIONS> = {}) {
 		set(password)
 	}
 
+	const update = (values: OptionsType = {}) => (options = { ...options, ...values })
+
 	return {
 		subscribe,
-		generate
+		generate,
+		update
 	}
 }
