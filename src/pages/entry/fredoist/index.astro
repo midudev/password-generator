@@ -1,0 +1,17 @@
+---
+import Layout from '@components/fredoist/Layout.astro'
+import PasswordInput from '@components/fredoist/PasswordInput.svelte'
+---
+
+<Layout title='Cyberpunk Password Generator'>
+	<div class='container max-auto'>
+		<main role='main' class='px-5 py-12'>
+			<h1
+				class='text-4xl font-bold leading-none tracking-widest max-w-sm uppercase text-[#f8ef00] mb-8'
+			>
+				Password Generator
+			</h1>
+			<PasswordInput client:load />
+		</main>
+	</div>
+</Layout>
