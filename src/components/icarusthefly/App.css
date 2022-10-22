@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&family=Permanent+Marker&display=swap');
 
-body {
+.icarusthefly {
 	background-color: #e2e8f0;
 	margin: 0;
+	height: 100%;
 	padding: 0;
 	text-align: center;
 	font-family: 'Permanent Marker';
 }
 
-.title {
-	margin: 50px;
+.icarusthefly .title {
+	padding: 25px;
 	font-size: 70px;
 }
 
-.container {
+.icarusthefly .container {
 	border: 1px solid black;
 	border-radius: 25px;
 	background-color: #312e81;
@@ -25,7 +26,7 @@ body {
 	position: relative;
 }
 
-.filters {
+.icarusthefly .filters {
 	font-family: 'Kalam';
 	font-size: 24px;
 	margin: 35px auto;
@@ -35,27 +36,27 @@ body {
 	width: 75%;
 }
 
-.filters > label {
+.icarusthefly .filters > label {
 	text-align: right;
 }
-.filters > span {
+.icarusthefly .filters > span {
 	margin: auto 0;
 	text-align: left;
 }
 
-.filters input[type='checkbox'] {
+.icarusthefly .filters input[type='checkbox'] {
 	float: right;
 	height: 30px;
 	width: 30px;
 }
-.filters input[type='checkbox']:before {
+.icarusthefly .filters input[type='checkbox']:before {
 	position: relative;
 	display: block;
 	width: 30px;
 	height: 30px;
 	content: '';
 }
-.filters input[type='checkbox']:after {
+.icarusthefly .filters input[type='checkbox']:after {
 	position: relative;
 	display: block;
 	top: -30px;
@@ -64,17 +65,17 @@ body {
 	content: '';
 	background-image: linear-gradient(135deg, #faeeb1 0%, #fde047 100%);
 }
-.filters input[type='checkbox']:checked:after {
+.icarusthefly .filters input[type='checkbox']:checked:after {
 	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMzEyZTgxIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+'), linear-gradient(135deg, #faeeb1 0%, #fde047 100%);
 }
-.filters input[type='checkbox']:checked:hover:after {
+.icarusthefly .filters input[type='checkbox']:checked:hover:after {
 	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMzEyZTgxIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+'), linear-gradient(135deg, #fff 20%, #fde047 100%);
 }
-.filters input[type='checkbox']:hover:after {
+.icarusthefly .filters input[type='checkbox']:hover:after {
 	background-image: linear-gradient(135deg, #fff 20%, #fde047 100%);
 }
 
-.filters input[type='range'] {
+.icarusthefly .filters input[type='range'] {
 	-webkit-appearance: none;
 	overflow: hidden;
 	width: 100%;
@@ -83,7 +84,7 @@ body {
 	background-color: #faeeb1;
 }
 
-.filters input[type='range']::-webkit-slider-thumb {
+.icarusthefly .filters input[type='range']::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	appearance: none;
 	width: 20px;
@@ -93,53 +94,53 @@ body {
 	box-shadow: -85vw 0 0 85vw #fde047;
 }
 
-.filters .sliderSpan {
+.icarusthefly .filters .sliderSpan {
 	display: grid;
 	grid-template-columns: 80% 20%;
 	grid-gap: 20px;
 	align-items: center;
 }
 
-.generator {
+.icarusthefly .generator {
 	margin-top: 50px;
 	display: flex;
 	justify-content: center;
 }
 
-button {
+.icarusthefly button {
 	background-color: #fde047;
 	color: black;
 	height: 50px;
 }
 
-button:disabled {
+.icarusthefly button:disabled {
 	background-color: lightgray;
 	cursor: default;
 }
 
-button:not(:disabled):hover {
+.icarusthefly button:not(:disabled):hover {
 	background-color: #faeeb1;
 }
 
-.generateButton {
+.icarusthefly .generateButton {
 	width: 200px;
 	border-radius: 25px;
 	margin-right: 20px;
 }
 
-.showPassword {
+.icarusthefly .showPassword {
 	width: 315px;
 	text-align: center;
 	border-radius: 25px 0 0 25px;
 	height: 50px;
 }
 
-.copyButton {
+.icarusthefly .copyButton {
 	width: 50px;
 	border-radius: 0 25px 25px 0;
 }
 
-.passwordCopiedNotification {
+.icarusthefly .passwordCopiedNotification {
 	right: 120px;
 	position: absolute;
 	color: #fde047;

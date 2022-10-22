@@ -42,7 +42,7 @@ export default function App() {
 	};
 
 	return (
-		<div>
+		<div className="icarusthefly">
 			<h2 className='title'>Password Generator</h2>
 			<div className='container'>
 				<div className='filters'>
