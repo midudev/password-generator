@@ -67,9 +67,8 @@ function copyPswd(){
 </template>
 
 <style>
-@import url('http://fonts.cdnfonts.com/css/geosanslight');
-
-                
+@import url('http://fonts.cdnfonts.com/css/thegoodmonolith');
+@import url('http://fonts.cdnfonts.com/css/geosanslight');               
                 
 #jorbelca-app{
 	color:white;
