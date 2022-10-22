@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Cat, FormLayout, Slider, CopyButton, Banner } from './components'
+import { Button, Cat, FormLayout, Slider, CopyButton, Banner, CheckBox } from './components'
 import useGenerator, { useTemporal } from './hooks'
 import './styles/App.css'
 
@@ -23,6 +23,15 @@ const App = () => {
 					<div className='flex items-center'>
 						<Button handleClick={generatePassword} message='Generate作成する' />
 						<CopyButton value={password} setMessage={showInfo} />
+					</div>
+					<div>
+						<CheckBox
+							label='Uppercases'
+							handleClick={Config.setChars}
+							chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+						/>
+						<CheckBox label='Numbers' handleClick={Config.setChars} chars='1234567890' />
+						<CheckBox label='Symbols' handleClick={Config.setChars} chars='*+-ñÑ/&%$#!¡¿?' />
 					</div>
 				</FormLayout>
 				<h2 className='z-0 absolute left-10 hidden sm:block w-1 text-white text-2xl sm:text-5xl select-none transition-all duration-300'>

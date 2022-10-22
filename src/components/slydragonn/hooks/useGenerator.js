@@ -7,14 +7,22 @@ const useGenerator = (
 ) => {
 	const [config, setConfig] = useState(initialConfig)
 	const [password, setPassword] = useState('')
-	const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*+-ñÑ/&%$#!¡¿?'
+	const [chars, setPasswordChars] = useState('abcdefghijklmnopqrstuvwxyz')
+	const c = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*+-ñÑ/&%$#!¡¿?'
 
 	// Config Object
 	const Config = {
 		setLength: (number) => {
 			setConfig((config) => ({ ...config, maxLength: number }))
 		},
-		length: config.maxLength
+		length: config.maxLength,
+		setChars: (newChars, include) => {
+			if (include) {
+				return setPasswordChars((chars) => chars + newChars)
+			}
+			const removedChars = chars.replace(newChars, '')
+			return setPasswordChars(() => removedChars)
+		}
 	}
 
 	const generatePassword = () => {
