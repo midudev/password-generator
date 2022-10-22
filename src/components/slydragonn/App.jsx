@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Cat, Form, Slider, CopyButton, Banner } from './components'
+import { Button, Cat, FormLayout, Slider, CopyButton, Banner, CheckBox } from './components'
 import useGenerator, { useTemporal } from './hooks'
 import './styles/App.css'
 
@@ -18,13 +18,22 @@ const App = () => {
 					Meow Generator &#9752;
 				</h1>
 				<Cat passwordValue={password} length={Config.length} />
-				<Form>
+				<FormLayout>
 					<Slider handleChange={Config.setLength} />
+					<div className='flex flex-wrap w-full justify-around mb-3'>
+						<CheckBox
+							label='Uppercases'
+							handleClick={Config.setChars}
+							chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+						/>
+						<CheckBox label='Numbers' handleClick={Config.setChars} chars='1234567890' />
+						<CheckBox label='Symbols' handleClick={Config.setChars} chars='*+-ñÑ/&%$#!¡¿?' />
+					</div>
 					<div className='flex items-center'>
 						<Button handleClick={generatePassword} message='Generate作成する' />
 						<CopyButton value={password} setMessage={showInfo} />
 					</div>
-				</Form>
+				</FormLayout>
 				<h2 className='z-0 absolute left-10 hidden sm:block w-1 text-white text-2xl sm:text-5xl select-none transition-all duration-300'>
 					猫がパスワードを作る
 				</h2>
