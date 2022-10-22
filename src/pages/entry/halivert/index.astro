@@ -34,7 +34,7 @@
 <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 <link href='https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap' rel='stylesheet' />
 
-<body>
+<body class='halivert'>
 	<header>Generador de contraseñas</header>
 	<main>
 		<form id='form'>
@@ -47,7 +47,13 @@
 		<a href='https://halivert.dev'> Halivert</a>
 	</footer>
 	<style>
-		:root {
+		*,
+		::after,
+		::before {
+			accent-color: var(--primary);
+		}
+
+		.halivert {
 			--primary: #008f8f;
 			--text: #542344;
 			--accent: #d65780;
@@ -56,46 +62,47 @@
 			--primary-hover: #00b8b8;
 			--text-hover: #73305d;
 			--accent-hover: #cf3a69;
-			--background-hover: #ebe4f1;
-		}
+			--background-hover: #fff;
 
-		*,
-		::after,
-		::before {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			accent-color: var(--primary);
-		}
-
-		html {
-			font-size: 18px;
-			font-family: 'Titillium Web', sans-serif;
-		}
-
-		body {
 			display: flex;
 			flex-flow: column nowrap;
 			justify-content: center;
 			min-height: 100vh;
 			width: 100%;
 			background-color: var(--background);
+			color: var(--text);
+			font-size: 18px;
+			font-family: 'Titillium Web', sans-serif;
 		}
 
-		body > main {
+		@media (prefers-color-scheme: dark) {
+			.halivert {
+				--primary: #00a3a3;
+				--text: #cf8cb9;
+				--accent: #d65780;
+				--background: #201529;
+
+				--primary-hover: #008f8f;
+				--text-hover: #bd619e;
+				--accent-hover: #cf3a69;
+				--background-hover: #15001b;
+			}
+		}
+
+		main {
 			display: flex;
 			flex: 1;
 			justify-content: center;
 		}
 
 		header {
-			font-size: 2rem;
+			font-size: 2em;
 			text-align: center;
 			padding: 0.25em 2em;
 		}
 
 		footer {
-			font-size: 0.875rem;
+			font-size: 0.875em;
 			text-align: center;
 			padding: 0.25em 1em;
 		}
@@ -120,6 +127,13 @@
 		input {
 			padding: 0.25em 0.5em;
 			border-radius: 0.25em;
+			background-color: var(--background-hover);
+			color: var(--text);
+			box-shadow: none;
+		}
+
+		input:focus-visible {
+			outline: 2px solid var(--primary);
 		}
 
 		button {
