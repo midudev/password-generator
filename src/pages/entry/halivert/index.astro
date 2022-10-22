@@ -1,7 +1,136 @@
-<!DOCTYPE html>
-<html lang="es-MX">
-	<head>
-		<title>Generador de contraseñas | Halivert</title>
-	</head>
-	<body></body>
-</html>
+<script>
+	const alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+	const form: HTMLFormElement | null = document.querySelector('#form')
+
+	const generatePassword = () => {
+		const randomIndexes = new Uint8Array(10)
+		self.crypto.getRandomValues(randomIndexes)
+
+		return Array.from(randomIndexes)
+			.map((index) => {
+				return alpha[index % alpha.length]
+			})
+			.join('')
+	}
+
+	form?.addEventListener('submit', (evt) => {
+		evt.preventDefault()
+		const password = generatePassword()
+
+		const input: HTMLInputElement | null = document.querySelector('#password')
+
+		if (!input) return
+		input.value = password
+	})
+</script>
+
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<title>Generador de contraseñas | Halivert</title>
+<link rel='preconnect' href='https://fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link href='https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap' rel='stylesheet' />
+
+<body>
+	<header>Generador de contraseñas</header>
+	<main>
+		<form id='form'>
+			<input type='text' readonly id='password' />
+
+			<button>Generar</button>
+		</form>
+	</main>
+	<footer>
+		<a href='https://halivert.dev'> Halivert</a>
+	</footer>
+	<style>
+		:root {
+			--primary: #008f8f;
+			--text: #542344;
+			--accent: #d65780;
+			--background: #efe9f4;
+
+			--primary-hover: #00b8b8;
+			--text-hover: #73305d;
+			--accent-hover: #cf3a69;
+			--background-hover: #ebe4f1;
+		}
+
+		*,
+		::after,
+		::before {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			accent-color: var(--primary);
+		}
+
+		html {
+			font-size: 18px;
+			font-family: 'Titillium Web', sans-serif;
+		}
+
+		body {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			min-height: 100vh;
+			width: 100%;
+			background-color: var(--background);
+		}
+
+		body > main {
+			display: flex;
+			flex: 1;
+			justify-content: center;
+		}
+
+		header {
+			font-size: 2rem;
+			text-align: center;
+			padding: 0.25em 2em;
+		}
+
+		footer {
+			font-size: 0.875rem;
+			text-align: center;
+			padding: 0.25em 1em;
+		}
+
+		a {
+			color: var(--primary);
+			text-decoration: underline;
+		}
+
+		a:hover {
+			color: var(--primary-hover);
+		}
+
+		form {
+			padding: 0.5em 1em;
+			display: flex;
+			flex-flow: column nowrap;
+			width: clamp(250px, 80ch, 100%);
+			gap: 0.5em;
+		}
+
+		input {
+			padding: 0.25em 0.5em;
+			border-radius: 0.25em;
+		}
+
+		button {
+			border: 2px var(--primary) solid;
+			background-color: var(--primary);
+			color: var(--background);
+			border-radius: 0.25em;
+			align-self: center;
+			padding: 0.25em 1em;
+		}
+
+		button:hover {
+			background-color: var(--primary-hover);
+		}
+	</style>
+</body>
