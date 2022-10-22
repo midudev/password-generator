@@ -55,18 +55,18 @@
 				</div>
 			{/each}
 		</div>
-			<a
-				on:click={() => (ready = false)}
-				transition:fly={{ y: -50, duration: 500, delay: 700 }}
-				href="/entry/buhodev/app"
-				class="primary-button relative mt-8 inline-flex h-12 cursor-pointer touch-manipulation select-none items-center justify-center self-center whitespace-nowrap rounded-lg border-0 bg-blue-600 bg-gradient-to-tr from-blue-700 to-sky-400 py-2 px-12 text-center text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]"
-				>Get started</a
-			>
-			<a
-				transition:fly={{ y: -50, duration: 500, delay: 900 }}
-				class="mt-4 text-slate-900"
-				href="https://lordicon.com/">Animated icons by Lordicon.com</a
-			>
+		<a
+			on:click={() => (ready = false)}
+			transition:fly={{ y: -50, duration: 500, delay: 700 }}
+			href="/entry/buhodev/app"
+			class="primary-button relative mt-8 inline-flex h-12 cursor-pointer touch-manipulation select-none items-center justify-center self-center whitespace-nowrap rounded-lg border-0 bg-blue-600 bg-gradient-to-tr from-blue-700 to-sky-400 py-2 px-12 text-center text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]"
+			>Get started</a
+		>
+		<a
+			transition:fly={{ y: -50, duration: 500, delay: 900 }}
+			class="mt-4 text-slate-900"
+			href="https://lordicon.com/">Animated icons by Lordicon.com</a
+		>
 	{/if}
 </div>
 
