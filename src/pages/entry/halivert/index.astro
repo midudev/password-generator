@@ -5,6 +5,8 @@
 
 	const generatePassword = () => {
 		const randomIndexes = new Uint8Array(10)
+		// Using crypto module, generate random values to get indexes of the
+		// alphabet
 		self.crypto.getRandomValues(randomIndexes)
 
 		return Array.from(randomIndexes)
