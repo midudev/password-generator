@@ -9,26 +9,26 @@
 		{
 			title: 'Truly random',
 			description: 'Use your mouse to create a real random seed.',
-			svgSrc: '/buhodev/category.svg',
-			webpSrc: '/buhodev/category-long.webp'
+			svgSrc: '/buhodev/lordicons/category.svg',
+			webpSrc: '/buhodev/lordicons/category-long.webp'
 		},
 		{
 			title: 'Performant',
 			description: 'Get instant feedback when you interact with the app.',
-			svgSrc: '/buhodev/speed.svg',
-			webpSrc: '/buhodev/speed-long.webp'
+			svgSrc: '/buhodev/lordicons/speed.svg',
+			webpSrc: '/buhodev/lordicons/speed-long.webp'
 		},
 		{
 			title: 'Minimal',
 			description: "Focus on what's important with a delightful UI.",
-			svgSrc: '/buhodev/chat.svg',
-			webpSrc: '/buhodev/chat-long.webp'
+			svgSrc: '/buhodev/lordicons/chat.svg',
+			webpSrc: '/buhodev/lordicons/chat-long.webp'
 		},
 		{
 			title: 'Secure',
 			description: 'Made following FBI standards for password generation.',
-			svgSrc: '/buhodev/check.svg',
-			webpSrc: '/buhodev/check-long.webp'
+			svgSrc: '/buhodev/lordicons/check.svg',
+			webpSrc: '/buhodev/lordicons/check-long.webp'
 		}
 	]
 </script>
