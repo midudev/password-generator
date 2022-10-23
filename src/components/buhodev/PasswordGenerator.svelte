@@ -264,6 +264,10 @@
 		height: calc(100% - 48px);
 	}
 
+	.container::-webkit-scrollbar {
+		display: none;
+	}
+
 	.group:active .spin {
 		animation: spin 0.15s linear;
 	}
