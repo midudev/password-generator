@@ -76,22 +76,33 @@
 			/>
 		</svg>
 	</button>
-	<button
-		on:click={() => (isHistoryOpen = isHistoryOpen == true ? false : true)}
-		class="border-l p-3 border-gray-600 flex items-center justify-center ml-auto"
-	>
-		<span class="sr-only">Open history</span>
-		<!-- phosphoricons/bookmark-simple -->
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path
-				d="m18 21-6-3.75L6 21V4.5a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 .75.75V21Z"
-				stroke="#fff"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-			/>
-		</svg>
-	</button>
+
+	<div class="flex items-center justify-center">
+		<button class="rounded-lg inline-block bg-blue-500 text-white py-1 px-4 mr-6">Save</button>
+		
+		<button
+			on:click={() => (isHistoryOpen = isHistoryOpen == true ? false : true)}
+			class="border-l p-3 border-gray-600 flex items-center justify-center ml-auto"
+		>
+			<span class="sr-only">Open history</span>
+			<!-- phosphoricons/bookmark-simple -->
+			<svg
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="m18 21-6-3.75L6 21V4.5a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 .75.75V21Z"
+					stroke="#fff"
+					stroke-width="1.5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+		</button>
+	</div>
 </header>
 
 <div class="relative container max-w-full overflow-y-scroll">
