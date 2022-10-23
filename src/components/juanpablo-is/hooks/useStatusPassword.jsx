@@ -3,9 +3,17 @@ import passwordContext from '../context/PasswordContext'
 import scaleList from '../utils/scale-list'
 
 // Validate length password AND length options according to state
-const validate = (password, options, params) =>
-	password.length >= params.length ||
-	(params.options && Object.keys(options).length >= params.options)
+const validate = (password, options, params) => {
+	if (!params.options) {
+		return password.length >= params.length
+	}
+
+	return (
+		password.length >= params.length &&
+		params.options &&
+		Object.keys(options).length >= params.options
+	)
+}
 
 const useStatusPassword = () => {
 	const [scale, setScale] = useState()
