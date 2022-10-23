@@ -3,6 +3,14 @@ body {
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.number {
+	color: #0ff;
+}
+
+.symbol {
+	color: #f64747;
+}
+
 .app-container {
 	width: 100%;
 	max-width: 460px;
