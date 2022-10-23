@@ -3,8 +3,10 @@ import { generatePassword } from '../helpes/generatePassword'
 import CopyIcon from './CopyIcon'
 import RefreshIcon from './RefreshIcon'
 
+const firstPassword = generatePassword({ lower: true, length: 10 })
+
 const PasswordGenerator = () => {
-	const [password, setPassword] = useState('')
+	const [password, setPassword] = useState(firstPassword)
 	const [length, setLength] = useState(10)
 	const [lower, setLower] = useState(true)
 	const [upper, setUpper] = useState(false)
@@ -24,6 +26,12 @@ const PasswordGenerator = () => {
 		navigator.clipboard.writeText(password)
 	}
 
+	const clr = (s) => {
+		return s
+			.replace(/[!@#$%^&*]/g, (match) => `<span class="symbol">${match}</span>`)
+			.replace(/\d/g, (match) => `<span class="number">${match}</span>`)
+	}
+
 	return (
 		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-white'>
 			<div className='app-container'>
@@ -31,7 +39,7 @@ const PasswordGenerator = () => {
 					<div>
 						<div className='label'>Generated Password</div>
 						<div className='box box--password'>
-							<div className='password'>{password}</div>
+							<div className='password' dangerouslySetInnerHTML={{ __html: clr(password) }} />
 
 							<div className='controls'>
 								<button type='submit'>
@@ -120,13 +128,13 @@ const PasswordGenerator = () => {
 					</div>
 				</form>
 
-				<h2>Historial</h2>
+				{/* <h2>Historial</h2> */}
 
-				<ul>
+				{/* <ul>
 					{history.map((item, idx) => (
 						<li key={idx}>{item}</li>
 					))}
-				</ul>
+				</ul> */}
 			</div>
 		</div>
 	)
