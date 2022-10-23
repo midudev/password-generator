@@ -58,11 +58,11 @@
 </script>
 
 <header
-	class="text-white bg-neutral-900 sticky w-full z-20 top-0 left-0 flex border-b border-gray-600"
+	class="text-white bg-neutral-900 sticky w-full z-20 top-0 left-0 flex justify-between border-b border-gray-600"
 >
 	<button
 		on:click={() => (isSidebarOpen = isSidebarOpen == true ? false : true)}
-		class="border-r p-3 border-gray-600 flex items-center justify-center mr-auto"
+		class="border-r p-3 border-gray-600 flex items-center justify-center"
 	>
 		<span class="sr-only">Open sidebar</span>
 		<!-- phosphoricons/sidebar-simple -->
@@ -77,12 +77,19 @@
 		</svg>
 	</button>
 
+	<div class="flex gap-0.5 items-center -mr-20">
+		<button class="w-40 rounded-md py-1 hover:bg-neutral-800 font-medium text-purple-500"
+			>Password Generator</button
+		>
+		<button class="w-40 rounded-md py-1 hover:bg-neutral-800 font-medium">Password Checker</button>
+	</div>
+
 	<div class="flex items-center justify-center">
-		<button class="rounded-lg inline-block bg-blue-500 text-white py-1 px-4 mr-6">Save</button>
-		
+		<button class="rounded-lg inline-block bg-blue-500 text-white py-1 w-16 mr-6">Save</button>
+
 		<button
 			on:click={() => (isHistoryOpen = isHistoryOpen == true ? false : true)}
-			class="border-l p-3 border-gray-600 flex items-center justify-center ml-auto"
+			class="border-l p-3 border-gray-600 flex items-center justify-center"
 		>
 			<span class="sr-only">Open history</span>
 			<!-- phosphoricons/bookmark-simple -->
