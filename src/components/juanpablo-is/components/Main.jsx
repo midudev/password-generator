@@ -5,6 +5,7 @@ import InputRangePassword from './InputRangePassword'
 import CheckboxOptions from './CheckboxOptions'
 import InputRangeConcurrence from './InputRangeConcurrence'
 import ActionsButtons from './ActionsButtons'
+import HistoryPassword from './HistoryPassword'
 
 const Main = () => {
 	return (
@@ -39,6 +40,7 @@ const Main = () => {
 			</div>
 
 			<ActionsButtons />
+			<HistoryPassword />
 		</div>
 	)
 }
