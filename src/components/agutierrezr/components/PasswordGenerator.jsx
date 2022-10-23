@@ -38,69 +38,74 @@ const PasswordGenerator = () => {
 		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-white'>
 			<div className='app-container'>
 				<form onSubmit={handleSubmit}>
-					<div className='label'>Generated Password</div>
-					<div className='box box--password'>
-						<div className='password' dangerouslySetInnerHTML={{ __html: clr(password) }} />
+					<section className='section section--password'>
+						<div className='label'>Generated Password</div>
+						<div className='box box--password'>
+							<div className='password' dangerouslySetInnerHTML={{ __html: clr(password) }} />
+							<div className='controls'>
+								<button type='submit'>
+									<RefreshIcon />
+								</button>
+								<button type='button' onClick={handleCopyPass}>
+									<CopyIcon />
+								</button>
+							</div>
+						</div>
+					</section>
 
-						<div className='controls'>
-							<button type='submit'>
-								<RefreshIcon />
-							</button>
-							<button type='button' onClick={handleCopyPass}>
-								<CopyIcon />
-							</button>
+					<section className='section'>
+						<div className='label'>Length: {length}</div>
+						<div className='box'>
+							<Slider
+								value={length}
+								onChange={({ target }) => setLength(target.value)}
+								min={5}
+								max={128}
+							/>
 						</div>
-					</div>
+					</section>
 
-					<div className='label'>Length: {length}</div>
-					<div className='box'>
-						<Slider
-							value={length}
-							onChange={({ target }) => setLength(target.value)}
-							min={5}
-							max={128}
-						/>
-					</div>
-
-					<div className='label'>Settings</div>
-					<div className='generator-settings'>
-						<div className='box'>
-							<Toggle
-								label='Include lowercase letters'
-								id='lower'
-								name='lower'
-								checked={lower}
-								onChange={({ target }) => setLower(target.checked)}
-							/>
+					<section className='section'>
+						<div className='label'>Settings</div>
+						<div className='generator-settings'>
+							<div className='box'>
+								<Toggle
+									label='Include lowercase letters'
+									id='lower'
+									name='lower'
+									checked={lower}
+									onChange={({ target }) => setLower(target.checked)}
+								/>
+							</div>
+							<div className='box'>
+								<Toggle
+									label='Include uppercase letters'
+									id='upper'
+									name='upper'
+									checked={upper}
+									onChange={({ target }) => setUpper(target.checked)}
+								/>
+							</div>
+							<div className='box'>
+								<Toggle
+									label='Include numbers'
+									id='numbers'
+									name='numbers'
+									checked={number}
+									onChange={({ target }) => setNumber(target.checked)}
+								/>
+							</div>
+							<div className='box'>
+								<Toggle
+									label='Include symbols (!@#$%^&*)'
+									id='symbol'
+									name='symbol'
+									checked={symbol}
+									onChange={({ target }) => setSymbol(target.checked)}
+								/>
+							</div>
 						</div>
-						<div className='box'>
-							<Toggle
-								label='Include uppercase letters'
-								id='upper'
-								name='upper'
-								checked={upper}
-								onChange={({ target }) => setUpper(target.checked)}
-							/>
-						</div>
-						<div className='box'>
-							<Toggle
-								label='Include numbers'
-								id='numbers'
-								name='numbers'
-								checked={number}
-								onChange={({ target }) => setNumber(target.checked)}
-							/>
-						</div>
-						<div className='box'>
-							<Toggle
-								label='Include symbols (!@#$%^&*)'
-								id='symbol'
-								name='symbol'
-								checked={symbol}
-								onChange={({ target }) => setSymbol(target.checked)}
-							/>
-						</div>
-					</div>
+					</section>
 				</form>
 			</div>
 		</div>
