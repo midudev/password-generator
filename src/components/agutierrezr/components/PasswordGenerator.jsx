@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { generatePassword } from '../helpes/generatePassword'
 import CopyIcon from './CopyIcon'
 import RefreshIcon from './RefreshIcon'
+import Slider from './Slider'
+import Toggle from './Toggle'
 
 const firstPassword = generatePassword({ lower: true, length: 10 })
 
@@ -36,105 +38,70 @@ const PasswordGenerator = () => {
 		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-white'>
 			<div className='app-container'>
 				<form onSubmit={handleSubmit}>
-					<div>
-						<div className='label'>Generated Password</div>
-						<div className='box box--password'>
-							<div className='password' dangerouslySetInnerHTML={{ __html: clr(password) }} />
+					<div className='label'>Generated Password</div>
+					<div className='box box--password'>
+						<div className='password' dangerouslySetInnerHTML={{ __html: clr(password) }} />
 
-							<div className='controls'>
-								<button type='submit'>
-									<RefreshIcon />
-								</button>
-								<button type='button' onClick={handleCopyPass}>
-									<CopyIcon />
-								</button>
-							</div>
+						<div className='controls'>
+							<button type='submit'>
+								<RefreshIcon />
+							</button>
+							<button type='button' onClick={handleCopyPass}>
+								<CopyIcon />
+							</button>
 						</div>
 					</div>
 
 					<div className='label'>Length: {length}</div>
 					<div className='box'>
-						<div className='slider'>
-							<div className='slider__value--left'>5</div>
-							<input
-								type='range'
-								className='slider-field'
-								id='length'
-								name='length'
-								min={5}
-								max={128}
-								value={length}
-								onChange={({ target }) => setLength(target.value)}
-							/>
-							<div className='slider__value--right'>128</div>
-						</div>
-						<div className='field'></div>
+						<Slider
+							value={length}
+							onChange={({ target }) => setLength(target.value)}
+							min={5}
+							max={128}
+						/>
 					</div>
 
 					<div className='label'>Settings</div>
 					<div className='generator-settings'>
 						<div className='box'>
-							<div className='flex items-center justify-between'>
-								<label htmlFor='lower'>Include lowercase letters</label>
-								<input
-									className='toggle'
-									type='checkbox'
-									id='lower'
-									name='lower'
-									checked={lower}
-									onChange={({ target }) => setLower(target.checked)}
-								/>
-							</div>
+							<Toggle
+								label='Include lowercase letters'
+								id='lower'
+								name='lower'
+								checked={lower}
+								onChange={({ target }) => setLower(target.checked)}
+							/>
 						</div>
 						<div className='box'>
-							<div className='flex items-center justify-between'>
-								<label htmlFor='upper'>Include uppercase letters</label>
-								<input
-									className='toggle'
-									type='checkbox'
-									id='upper'
-									name='upper'
-									checked={upper}
-									onChange={({ target }) => setUpper(target.checked)}
-								/>
-							</div>
+							<Toggle
+								label='Include uppercase letters'
+								id='upper'
+								name='upper'
+								checked={upper}
+								onChange={({ target }) => setUpper(target.checked)}
+							/>
 						</div>
 						<div className='box'>
-							<div className='flex items-center justify-between'>
-								<label htmlFor='numbers'>Include numbers</label>
-								<input
-									className='toggle'
-									type='checkbox'
-									id='numbers'
-									name='numbers'
-									checked={number}
-									onChange={({ target }) => setNumber(target.checked)}
-								/>
-							</div>
+							<Toggle
+								label='Include numbers'
+								id='numbers'
+								name='numbers'
+								checked={number}
+								onChange={({ target }) => setNumber(target.checked)}
+							/>
 						</div>
 						<div className='box'>
-							<div className='flex items-center justify-between'>
-								<label htmlFor='symbol'>Include symbols (!@#$%^&*)</label>
-								<input
-									className='toggle'
-									type='checkbox'
-									id='symbol'
-									name='symbol'
-									checked={symbol}
-									onChange={({ target }) => setSymbol(target.checked)}
-								/>
-							</div>
+							<Toggle
+								label='Include symbols (!@#$%^&*)'
+								id='symbol'
+								name='symbol'
+								checked={symbol}
+								onChange={({ target }) => setSymbol(target.checked)}
+							/>
 						</div>
 					</div>
 				</form>
-
-				{/* <h2>Historial</h2> */}
-
-				{/* <ul>
-					{history.map((item, idx) => (
-						<li key={idx}>{item}</li>
-					))}
-				</ul> */}
 			</div>
 		</div>
 	)
