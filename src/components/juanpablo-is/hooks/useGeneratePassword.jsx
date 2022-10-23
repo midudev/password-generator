@@ -53,7 +53,11 @@ const useGeneratePassword = () => {
 		setLoading(false)
 	}
 
-	return { password, loading, generateNewPassword }
+	const displayPassword = (password) => {
+		setPassword(password)
+	}
+
+	return { password, loading, generateNewPassword, displayPassword }
 }
 
 export default useGeneratePassword

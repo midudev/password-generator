@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Drawer from './common/Drawer'
 import IconChevronsDown from './common/icons/IconChevronsDown'
 
+import PasswordContext from '../context/PasswordContext'
+
 const HistoryPassword = () => {
 	const [showDrawer, setShowDrawer] = useState(true)
+	const { displayPassword } = useContext(PasswordContext)
 
 	const passwords = [
 		{ password: '{fxo1~_O>vB_3j95&Nz0U_~75C', date: +new Date() },
@@ -11,11 +14,13 @@ const HistoryPassword = () => {
 		{ password: 'MmtS0dZSVR568laF1qEdUcX1K7', date: +new Date() }
 	]
 
+	const hashPassword = (password) => {
+		return '*'.repeat(password.length - 5) + password.substr(-5)
+	}
+
 	const handlerShowDrawer = () => {
 		setShowDrawer((prev) => !prev)
 	}
-
-	const handlerSetPassword = (password) => {}
 
 	return (
 		<>
@@ -52,13 +57,13 @@ const HistoryPassword = () => {
 												scope='row'
 												className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'
 											>
-												{password}
+												{hashPassword(password)}
 											</th>
 											<td className='py-4 px-6 text-center'>{new Date(date).toISOString()}</td>
 											<td className='py-4 px-6 text-right'>
 												<button
 													className='font-medium text-blue-600 dark:text-blue-500 hover:underline'
-													onClick={() => handlerSetPassword(password)}
+													onClick={() => displayPassword(password)}
 												>
 													SET
 												</button>

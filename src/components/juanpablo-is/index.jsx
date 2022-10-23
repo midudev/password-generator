@@ -25,7 +25,7 @@ const App = () => {
 		numbers: true,
 		symbols: true
 	})
-	const { password, generateNewPassword } = useGeneratePassword()
+	const { password, generateNewPassword, displayPassword } = useGeneratePassword()
 
 	const handlerNewPassword = (delay = false) => {
 		if (delay === true) {
@@ -75,6 +75,7 @@ const App = () => {
 		<PasswordContext.Provider
 			value={{
 				password,
+				displayPassword,
 				handlerNewPassword,
 				generateAlert,
 				passwordLength,
