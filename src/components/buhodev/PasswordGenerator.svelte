@@ -54,8 +54,8 @@
 	$: highlighted_password = highlight(generate_password(length, DEFAULT_OPTIONS))
 </script>
 
-<nav
-	class="text-white backdrop-blur-sm bg-white/5 fixed w-full z-20 top-0 left-0 flex border-b border-gray-600"
+<header
+	class="text-white bg-neutral-900 sticky w-full z-20 top-0 left-0 flex border-b border-gray-600"
 >
 	<button class="border-r p-3 border-gray-600 flex items-center justify-center mr-auto">
 		<span class="sr-only">Open sidebar</span>
@@ -83,7 +83,8 @@
 			/>
 		</svg>
 	</button>
-</nav>
+</header>
+
 <main class="max-w-md flex flex-col mx-auto text-white">
 	<!-- Password -->
 	<button
