@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition'
-	import { backOut } from 'svelte/easing'
+	import { backOut, quadOut, quadIn } from 'svelte/easing'
 	import { generate_password, type DefaultOptions } from './generate_password'
 	import { copy_to_clipboard } from './copy_to_clipboard'
 	import { flipboard } from './flipboard'
@@ -235,6 +235,8 @@
 
 	{#if isSidebarOpen}
 		<aside
+			in:fly={{ x: -250, opacity: 1, easing: quadOut, duration: 100 }}
+			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 100 }}
 			class="fixed top-0 bottom-0 left-0 mt-12 flex w-60 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
 		>
 			Sidebar
@@ -243,6 +245,8 @@
 
 	{#if isHistoryOpen}
 		<aside
+			in:fly={{ x: 250, opacity: 1, easing: quadOut, duration: 100 }}
+			out:fly={{ x: 250, opacity: 1, easing: quadIn, duration: 100 }}
 			class="fixed top-0 right-0 bottom-0 mt-12 flex w-60 flex-col bg-neutral-900 border-l border-l-gray-600 text-white"
 		>
 			History
