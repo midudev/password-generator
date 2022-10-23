@@ -92,7 +92,6 @@ body {
 .slider-field,
 .slider-field::-webkit-slider-thumb {
 	appearance: none;
-	outline: none;
 	border: none;
 	cursor: pointer;
 }
@@ -119,7 +118,6 @@ input.toggle {
 	position: relative;
 	height: 32px;
 	width: 50px;
-	outline: none;
 	background: hsl(224deg 64% 20%);
 	appearance: none;
 	border-radius: 50px;
