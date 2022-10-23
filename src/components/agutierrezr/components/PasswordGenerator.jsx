@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { generatePassword } from '../helpes/generatePassword'
+import CopyIcon from './CopyIcon'
+import RefreshIcon from './RefreshIcon'
 
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState('')
@@ -18,15 +20,30 @@ const PasswordGenerator = () => {
 		setHistory([...history, passwordGenerated])
 	}
 
+	const handleCopyPass = () => {
+		navigator.clipboard.writeText(password)
+	}
+
 	return (
 		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-white'>
 			<div className='app-container'>
-				<div>
-					<div className='label'>Generated Password</div>
-					<div className='box box--password'>{password}</div>
-				</div>
-
 				<form onSubmit={handleSubmit}>
+					<div>
+						<div className='label'>Generated Password</div>
+						<div className='box box--password'>
+							<div className='password'>{password}</div>
+
+							<div className='controls'>
+								<button type='submit'>
+									<RefreshIcon />
+								</button>
+								<button type='button' onClick={handleCopyPass}>
+									<CopyIcon />
+								</button>
+							</div>
+						</div>
+					</div>
+
 					<div className='label'>Length: {length}</div>
 					<div className='box'>
 						<div className='slider'>
@@ -101,10 +118,6 @@ const PasswordGenerator = () => {
 							</div>
 						</div>
 					</div>
-
-					<button className='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full'>
-						Generate
-					</button>
 				</form>
 
 				<h2>Historial</h2>
