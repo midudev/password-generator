@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { generatePassword } from '../helpes/generatePassword'
+import { colorPassword } from '../helpers/colorPassword'
+import { generatePassword } from '../helpers/generatePassword'
 import CopyIcon from './CopyIcon'
 import RefreshIcon from './RefreshIcon'
 import Slider from './Slider'
@@ -28,12 +29,6 @@ const PasswordGenerator = () => {
 		navigator.clipboard.writeText(password)
 	}
 
-	const clr = (s) => {
-		return s
-			.replace(/[!@#$%^&*]/g, (match) => `<span class="symbol">${match}</span>`)
-			.replace(/\d/g, (match) => `<span class="number">${match}</span>`)
-	}
-
 	return (
 		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-white'>
 			<div className='app-container'>
@@ -41,7 +36,10 @@ const PasswordGenerator = () => {
 					<section className='section section--password'>
 						<div className='label'>Generated Password</div>
 						<div className='box box--password'>
-							<div className='password' dangerouslySetInnerHTML={{ __html: clr(password) }} />
+							<div
+								className='password'
+								dangerouslySetInnerHTML={{ __html: colorPassword(password) }}
+							/>
 							<div className='controls'>
 								<button type='submit'>
 									<RefreshIcon />
