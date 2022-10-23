@@ -11,6 +11,9 @@
 	let animation = 'fly'
 	let length = 12
 
+	let isSidebarOpen = false
+	let isHistoryOpen = false
+
 	const INCLUDE_OPTIONS = [
 		{
 			title: 'Lowercase',
@@ -57,7 +60,10 @@
 <header
 	class="text-white bg-neutral-900 sticky w-full z-20 top-0 left-0 flex border-b border-gray-600"
 >
-	<button class="border-r p-3 border-gray-600 flex items-center justify-center mr-auto">
+	<button
+		on:click={() => (isSidebarOpen = isSidebarOpen == true ? false : true)}
+		class="border-r p-3 border-gray-600 flex items-center justify-center mr-auto"
+	>
 		<span class="sr-only">Open sidebar</span>
 		<!-- phosphoricons/sidebar-simple -->
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +76,10 @@
 			/>
 		</svg>
 	</button>
-	<button class="border-l p-3 border-gray-600 flex items-center justify-center ml-auto">
+	<button
+		on:click={() => (isHistoryOpen = isHistoryOpen == true ? false : true)}
+		class="border-l p-3 border-gray-600 flex items-center justify-center ml-auto"
+	>
 		<span class="sr-only">Open history</span>
 		<!-- phosphoricons/bookmark-simple -->
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -223,18 +232,22 @@
 			>Generate Password</button
 		>
 	</main>
-	
-	<aside
-		class="fixed top-0 bottom-0 left-0 mt-12 flex w-60 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
-	>
-		Sidebar
-	</aside>
 
-	<aside
-		class="fixed top-0 right-0 bottom-0 mt-12 flex w-60 flex-col bg-neutral-900 border-l border-l-gray-600 text-white"
-	>
-		History
-	</aside>
+	{#if isSidebarOpen}
+		<aside
+			class="fixed top-0 bottom-0 left-0 mt-12 flex w-60 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
+		>
+			Sidebar
+		</aside>
+	{/if}
+
+	{#if isHistoryOpen}
+		<aside
+			class="fixed top-0 right-0 bottom-0 mt-12 flex w-60 flex-col bg-neutral-900 border-l border-l-gray-600 text-white"
+		>
+			History
+		</aside>
+	{/if}
 </div>
 
 <style>
