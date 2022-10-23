@@ -35,7 +35,7 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<div className='h-screen bg-white flex flex-col items-center justify-between p-10 space-y-4 text-white'>
+		<div className='site'>
 			<div className='app-container'>
 				<form onSubmit={handleSubmit}>
 					<section className='section section--password'>
