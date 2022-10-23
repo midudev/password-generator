@@ -94,7 +94,7 @@
 	</button>
 </header>
 
-<div class="relative">
+<div class="relative container max-w-full overflow-y-scroll">
 	<main class="max-w-md flex flex-col mx-auto text-white">
 		<!-- Password -->
 		<button
@@ -237,7 +237,7 @@
 		<aside
 			in:fly={{ x: -250, opacity: 1, easing: quadOut, duration: 100 }}
 			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 100 }}
-			class="fixed top-0 bottom-0 left-0 mt-12 flex w-60 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
+			class="fixed overflow-y-auto top-0 bottom-0 left-0 mt-12 flex w-60 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
 		>
 			Sidebar
 		</aside>
@@ -247,7 +247,7 @@
 		<aside
 			in:fly={{ x: 250, opacity: 1, easing: quadOut, duration: 100 }}
 			out:fly={{ x: 250, opacity: 1, easing: quadIn, duration: 100 }}
-			class="fixed top-0 right-0 bottom-0 mt-12 flex w-60 flex-col bg-neutral-900 border-l border-l-gray-600 text-white"
+			class="fixed overflow-y-auto top-0 right-0 bottom-0 mt-12 flex w-60 flex-col bg-neutral-900 border-l border-l-gray-600 text-white"
 		>
 			History
 		</aside>
@@ -257,7 +257,13 @@
 <style>
 	:global(body) {
 		background: rgb(23 23 23);
+		overflow-y: hidden;
 	}
+
+	.container {
+		height: calc(100% - 48px);
+	}
+
 	.group:active .spin {
 		animation: spin 0.15s linear;
 	}
