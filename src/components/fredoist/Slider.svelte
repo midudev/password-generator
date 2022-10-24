@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	import { usePassword } from '@hooks/fredoist/use-password'
 
 	const password = usePassword()
