@@ -28,6 +28,7 @@ div {
 	right: 0.5em;
 	width: 10em;
 	max-height: 100vh;
+	display: flex;
 }
 
 .notification {
