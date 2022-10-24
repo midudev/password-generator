@@ -1,18 +1,15 @@
-import { useContext, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Drawer from './common/Drawer'
 import IconChevronsDown from './common/icons/IconChevronsDown'
 
-import PasswordContext from '../context/PasswordContext'
-
 const HistoryPassword = () => {
-	const [showDrawer, setShowDrawer] = useState(true)
-	const { displayPassword } = useContext(PasswordContext)
+	const [showDrawer, setShowDrawer] = useState(false)
+	const [passwords, setPasswords] = useState([])
 
-	const passwords = [
-		{ password: '{fxo1~_O>vB_3j95&Nz0U_~75C', date: +new Date() },
-		{ password: 'd8f7RsSL2135eM6x5AhkWIZ96Z', date: +new Date() },
-		{ password: 'MmtS0dZSVR568laF1qEdUcX1K7', date: +new Date() }
-	]
+	useEffect(() => {
+		const passwords = JSON.parse(window.sessionStorage.getItem('password-generated') || '[]')
+		setPasswords(passwords.sort(({ date: dateA }, { date: dateB }) => dateB - dateA).slice(0, 5))
+	}, [showDrawer])
 
 	const hashPassword = (password) => {
 		return '*'.repeat(password.length - 5) + password.substr(-5)
@@ -20,6 +17,10 @@ const HistoryPassword = () => {
 
 	const handlerShowDrawer = () => {
 		setShowDrawer((prev) => !prev)
+	}
+
+	const handlerCopyPassword = (password) => {
+		navigator.clipboard.writeText(password)
 	}
 
 	return (
@@ -31,7 +32,7 @@ const HistoryPassword = () => {
 
 			{showDrawer && (
 				<Drawer title='History password generated' onClose={() => setShowDrawer(false)}>
-					<div className='overflow-x-auto'>
+					<div className='overflow-x-auto max-h-[40vh]'>
 						{passwords.length > 0 ? (
 							<table className='w-full text-sm relative shadow-md sm:rounded-lg text-left text-gray-500 dark:text-gray-400'>
 								<thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
@@ -43,7 +44,7 @@ const HistoryPassword = () => {
 											Date
 										</th>
 										<th scope='col' className='py-3 px-6 text-end'>
-											Set password
+											Copy password
 										</th>
 									</tr>
 								</thead>
@@ -63,9 +64,9 @@ const HistoryPassword = () => {
 											<td className='py-4 px-6 text-right'>
 												<button
 													className='font-medium text-blue-600 dark:text-blue-500 hover:underline'
-													onClick={() => displayPassword(password)}
+													onClick={() => handlerCopyPassword(password)}
 												>
-													SET
+													Copy
 												</button>
 											</td>
 										</tr>
