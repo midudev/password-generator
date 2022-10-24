@@ -1,10 +1,17 @@
+---
+import Range from '@components/halivert/Range.vue'
+
+const minChars = 8
+const maxChars = 40
+---
+
 <script>
 	const alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 	const form: HTMLFormElement | null = document.querySelector('#form')
 
-	const generatePassword = () => {
-		const randomIndexes = new Uint8Array(10)
+	const generatePassword = (count) => {
+		const randomIndexes = new Uint8Array(count)
 		// Using crypto module, generate random values to get indexes of the
 		// alphabet
 		self.crypto.getRandomValues(randomIndexes)
@@ -18,7 +25,10 @@
 
 	form?.addEventListener('submit', (evt) => {
 		evt.preventDefault()
-		const password = generatePassword()
+		const data = new FormData(evt.target as HTMLFormElement)
+
+		const chars = +data.get('chars')
+		const password = generatePassword(chars)
 
 		const input: HTMLInputElement | null = document.querySelector('#password')
 
@@ -40,7 +50,12 @@
 		<form id='form'>
 			<input type='text' readonly id='password' />
 
-			<button>Generar</button>
+			<div class='inputs'>
+				<div class='range'>
+					<Range client:load name='chars' min={minChars} max={maxChars} />
+				</div>
+				<button>Generar</button>
+			</div>
 		</form>
 	</main>
 	<footer>
@@ -134,6 +149,18 @@
 
 		input:focus-visible {
 			outline: 2px solid var(--primary);
+		}
+
+		.inputs {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 1em;
+		}
+
+		.range {
+			flex: 1;
 		}
 
 		button {
