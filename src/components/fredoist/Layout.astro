@@ -1,0 +1,56 @@
+---
+export interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='generator' content={Astro.generator} />
+		<meta
+			name='description'
+			content='Create secure passwords with this Cyberpunk-themed password generator'
+		/>
+		<meta name='twitter:card' content='summary_large_image' />
+		<meta name='twitter:site' content='@midudev' />
+		<meta name='twitter:creator' content='@fredoist' />
+		<meta name='twitter:title' content={title} />
+		<meta
+			name='twitter:description'
+			content='A Cyberpunk-themed Password Generator built with Svelte, TailwindCSS, and Astro'
+		/>
+		<meta
+			name='twitter:image'
+			content='https://hacktoberfest-2022.vercel.app/fredoist/og-image.png'
+		/>
+
+		<meta name='og:image' content='https://hacktoberfest-2022.vercel.app/fredoist/og-image.png' />
+		<meta name='og:title' content={title} />
+		<meta
+			name='og:description'
+			content='A Cyberpunk-themed password generator built with Svelte, TailwindCSS, and Astro'
+		/>
+		<meta name='og:site_name' content={title} />
+		<meta name='og:type' content='website' />
+
+		<link rel='preconnect' href='https://fonts.googleapis.com' />
+		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+		<link
+			href='https://fonts.googleapis.com/css2?family=Barlow&family=Tomorrow:wght@400;600;700&display=swap'
+			rel='stylesheet'
+		/>
+
+		<title>{title}</title>
+	</head>
+	<body
+		class='bg-black text-[#fafafa] antialiased leading-tight tracking-wide font-[Tomorrow,sans-serif]'
+	>
+		<slot />
+	</body>
+</html>
