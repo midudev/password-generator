@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import { usePassword } from '@hooks/fredoist/use-password'
+	import { useOptions } from '@hooks/fredoist/use-options'
 
 	const password = usePassword()
+	const options = useOptions()
 
 	onMount(() => {
 		password.generate()
 	})
+
+	$: $options && password.generate()
 
 	async function copyPassword(event: Event) {
 		event.preventDefault()
