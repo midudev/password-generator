@@ -1,4 +1,5 @@
 ---
+import Checkboxes from '@components/fredoist/Checkboxes.svelte'
 import CopyButton from '@components/fredoist/CopyButton.svelte'
 import Layout from '@components/fredoist/Layout.astro'
 import PasswordInput from '@components/fredoist/PasswordInput.svelte'
@@ -16,6 +17,7 @@ import Slider from '@components/fredoist/Slider.svelte'
 			<PasswordInput client:load />
 			<CopyButton client:load />
 			<Slider client:load />
+			<Checkboxes client:load />
 		</main>
 	</div>
 </Layout>
