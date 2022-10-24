@@ -1,14 +1,8 @@
-export function copy_to_clipboard (node: HTMLElement, { text = '' }) {
+export function copyToClipboard(node: HTMLElement, { text = '' }) {
 	const handleCopy = async () => {
 		await navigator.clipboard.writeText(text).then(
-			() =>
-				node.dispatchEvent(
-					new CustomEvent('copied')
-				),
-			(e) =>
-				node.dispatchEvent(
-					new CustomEvent('error', { detail: { error: e } })
-				)
+			() => node.dispatchEvent(new CustomEvent('copied')),
+			(e) => node.dispatchEvent(new CustomEvent('error', { detail: { error: e } }))
 		)
 	}
 
@@ -18,7 +12,7 @@ export function copy_to_clipboard (node: HTMLElement, { text = '' }) {
 		update: (params) => {
 			if (params.text !== undefined) text = params.text
 		},
-		destroy () {
+		destroy() {
 			node.removeEventListener('click', handleCopy, true)
 		}
 	}

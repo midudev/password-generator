@@ -1,11 +1,11 @@
 export interface DefaultOptions {
-	uppercase: boolean,
-	lowercase: boolean,
-	numbers: boolean,
+	uppercase: boolean
+	lowercase: boolean
+	numbers: boolean
 	symbols: boolean
 }
 
-export function generate_password (length: number, options: DefaultOptions) {
+export function generatePassword(length: number, options: DefaultOptions) {
 	const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
 	const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 	const NUMBERS = '0123456789'

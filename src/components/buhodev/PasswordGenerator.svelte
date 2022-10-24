@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition'
+	import { flipboard } from './transitions/flipboard'
 	import { backOut, quadOut, quadIn } from 'svelte/easing'
-	import { generate_password, type DefaultOptions } from './generate_password'
-	import { copy_to_clipboard } from './copy_to_clipboard'
-	import { flipboard } from './flipboard'
-	import { highlight } from './highlight'
+	import { generatePassword, type DefaultOptions } from './helpers/generate_password'
+	import { copyToClipboard } from './actions/copy_to_clipboard'
+	import { highlight } from './helpers/highlight'
 
 	let isCopied = false
 	let animate = true

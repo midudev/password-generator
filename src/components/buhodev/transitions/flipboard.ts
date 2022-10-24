@@ -1,4 +1,4 @@
-import { highlight } from './highlight'
+import { highlight } from '../helpers/highlight'
 
 export function flipboard(node, params) {
 	const randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
