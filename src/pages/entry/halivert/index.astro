@@ -10,7 +10,7 @@ const maxChars = 40
 
 	const form: HTMLFormElement | null = document.querySelector('#form')
 
-	const generatePassword = (count = 10) => {
+	const generatePassword = (count) => {
 		const randomIndexes = new Uint8Array(count)
 		// Using crypto module, generate random values to get indexes of the
 		// alphabet
