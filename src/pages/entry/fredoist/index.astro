@@ -2,6 +2,7 @@
 import CopyButton from '@components/fredoist/CopyButton.svelte'
 import Layout from '@components/fredoist/Layout.astro'
 import PasswordInput from '@components/fredoist/PasswordInput.svelte'
+import Slider from '@components/fredoist/Slider.svelte'
 ---
 
 <Layout title='Cyberpunk Password Generator'>
@@ -14,6 +15,7 @@ import PasswordInput from '@components/fredoist/PasswordInput.svelte'
 			</h1>
 			<PasswordInput client:load />
 			<CopyButton client:load />
+			<Slider client:load />
 		</main>
 	</div>
 </Layout>
