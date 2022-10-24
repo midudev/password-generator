@@ -2,9 +2,9 @@
 	import { fly } from 'svelte/transition'
 	import { flipboard } from './transitions/flipboard'
 	import { backOut, quadOut, quadIn } from 'svelte/easing'
-	import { generatePassword, type DefaultOptions } from './helpers/generate_password'
-	import { copyToClipboard } from './actions/copy_to_clipboard'
-	import { highlight } from './helpers/highlight'
+	import { generatePassword, type DefaultOptions } from '@components/buhodev/helpers/generate_password'
+	import { copyToClipboard } from '@components/buhodev/actions/copy_to_clipboard'
+	import { highlight } from '@components/buhodev/helpers/highlight'
 
 	let isCopied = false
 	let animate = true

@@ -1,4 +1,4 @@
-import { highlight } from '../helpers/highlight'
+import { highlight } from '@components/buhodev/helpers/highlight'
 
 export function flipboard(node, params) {
 	const randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
