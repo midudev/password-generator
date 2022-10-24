@@ -18,7 +18,7 @@
 				type="checkbox"
 				name={checkbox}
 				checked={$options[checkbox]}
-				class="appearance-none w-6 h-6 border-2 border-[#f8ef00] checked:bg-[#f8ef00]"
+				class="appearance-none w-6 h-6 border-2 border-[#f8ef00] checked:bg-[#f8ef00] cursor-pointer"
 				on:change={updateCheckbox}
 			/>
 			{checkbox}

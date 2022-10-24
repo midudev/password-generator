@@ -25,17 +25,24 @@
 		type="text"
 		value={$password}
 		readonly
-		class="p-5 pr-24 w-full border-2 border-[#00f0ff] bg-[#00f0ff] bg-opacity-10 text-[#00f0ff] focus:outline-none font-[inherit] tracking-widest mb-5"
+		class="p-5 pr-24 w-full border-2 border-[#00f0ff] bg-[#00f0ff] bg-opacity-10 text-[#00f0ff] focus:outline-none font-[inherit] tracking-widest mb-5 cursor-copy"
 		on:click={copyPassword}
 	/>
-	<div class="absolute right-14 top-5 flex flex-col gap-0.5">
+	<div
+		data-label="Good"
+		class="cursor-help absolute right-14 top-5 flex flex-col gap-0.5 before:absolute before:-top-2 before:right-1/2 before:translate-x-1/2 before:-translate-y-full before:text-xs before:font-[Barlow,sans-serif] before:hidden hover:before:block before:whitespace-nowrap before:py-px before:px-1 before:bg-[#ff003c] before:text-[#fafafa] before:content-[attr(data-label)]"
+	>
 		<!-- TODO: determine password strength and display with bars -->
 		<span class="h-1 w-6 bg-[#00f0ff]" />
 		<span class="h-1 w-6 bg-[#00f0ff]" />
 		<span class="h-1 w-6 bg-[#00f0ff]" />
 		<span class="h-1 w-6 bg-[#00f0ff]" />
 	</div>
-	<button class="absolute right-5 top-5 text-[#00f0ff]" on:click={password.generate}>
+	<button
+		class="absolute right-5 top-5 text-[#00f0ff] before:absolute before:-right-2 before:translate-x-full before:text-xs before:top-1 before:font-[Barlow,sans-serif] before:hidden hover:before:block before:whitespace-nowrap before:py-px before:px-1 before:bg-[#ff003c] before:text-[#fafafa] before:content-[attr(data-label)]"
+		data-label="Generate Password"
+		on:click={password.generate}
+	>
 		<span class="sr-only">Generate Password</span>
 		<svg
 			aria-hidden="true"

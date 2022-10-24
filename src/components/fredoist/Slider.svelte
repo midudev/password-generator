@@ -14,7 +14,7 @@
 <div class="relative my-16">
 	<output
 		for="length"
-		class="absolute w-5 text-center text-xs font-[Barlow,sans-serif] leading-none -top-5"
+		class="absolute w-5 text-center text-xs font-[Barlow,sans-serif] leading-none -top-5 cursor-default"
 		style={`left: calc(${bubblePosition}% + (${0 - bubblePosition * 0.15}px))`}
 	>
 		{$options.length}

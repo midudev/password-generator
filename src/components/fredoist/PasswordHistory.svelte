@@ -9,7 +9,7 @@
 </script>
 
 <div class="max-w-sm">
-	<h3 class="uppercase text-xl font-semibold tracking-widest">Password History</h3>
+	<h3 class="uppercase text-xl font-semibold tracking-widest cursor-default">Password History</h3>
 	<div class="fredoist-password-history relative my-8 flex flex-col gap-5 overflow-y-auto max-h-56">
 		{#each $history as password}
 			<div class="flex items-center justify-between gap-5">
