@@ -2,8 +2,8 @@ import { writable } from 'svelte/store'
 
 type ToastOptions = {
 	id: number
-	type: string
-	dismissible: boolean
+	type: 'error' | 'success' | 'info'
+	dismissible?: boolean
 	timeout: number
 }
 
@@ -15,7 +15,7 @@ export const addToast = (toast: ToastOptions) => {
 	const defaults: ToastOptions = {
 		id,
 		type: 'info',
-		dismissible: true,
+		dismissible: false,
 		timeout: 3000
 	}
 
