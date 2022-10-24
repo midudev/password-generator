@@ -5,6 +5,8 @@
 	import { generatePassword, type DefaultOptions } from '@components/buhodev/helpers/generate_password'
 	import { copyToClipboard } from '@components/buhodev/actions/copy_to_clipboard'
 	import { highlight } from '@components/buhodev/helpers/highlight'
+	import Toasts from "@components/buhodev/Toast/Toasts.svelte";
+	import { addToast } from './stores/toast'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte';
 
 	let isCopied = false
@@ -53,12 +55,15 @@
 
 	function handleSuccessfulCopy() {
 		isCopied = true
+		addToast({ message: "Copied", type: "info", dismissible: false, timeout: 3000 })
 		setTimeout(() => (isCopied = false), 1000)
 	}
 
 	$: password = generatePassword(length, DEFAULT_OPTIONS)
 	$: highlighted_password = highlight(generatePassword(length, DEFAULT_OPTIONS))
 </script>
+
+<Toasts />
 
 <header
 	class="text-white bg-neutral-900 sticky w-full z-20 top-0 left-0 flex justify-between border-b border-gray-600"
@@ -121,7 +126,7 @@
 		<button
 			use:copyToClipboard={{ text: password }}
 			on:copied={handleSuccessfulCopy}
-			on:error={() => alert('error')}
+			on:error={() => addToast({ message: "Error: Password not copied", type: "error", timeout: 3000 })}
 			title="Copy password"
 			class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 h-12 py-1 pl-2 pr-10 bg-gray-900/60 border border-white/30 rounded-md w-full"
 		>
