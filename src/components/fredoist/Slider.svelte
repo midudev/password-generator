@@ -1,16 +1,13 @@
 <script lang="ts">
-  import { useOptions } from '@hooks/fredoist/use-options'
-	import { usePassword } from '@hooks/fredoist/use-password'
+	import { useOptions } from '@hooks/fredoist/use-options'
 
-	const password = usePassword()
 	const options = useOptions()
-	$: bubblePosition = (($password.length - 8) * 100) / (100 - 8)
+	$: bubblePosition = (($options.length - 8) * 100) / (100 - 8)
 
 	async function updateLength(event: Event) {
 		const input = event.target as HTMLInputElement
 		length = parseInt(input.value)
 		options.update({ length })
-		password.generate()
 	}
 </script>
 
