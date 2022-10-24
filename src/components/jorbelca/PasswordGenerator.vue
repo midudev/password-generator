@@ -66,10 +66,13 @@ function copyPswd(){
 
 </template>
 
-<style>
-@import url('http://fonts.cdnfonts.com/css/thegoodmonolith');
-@import url('http://fonts.cdnfonts.com/css/geosanslight');               
-                
+<style scoped>
+         
+@font-face {
+		font-family: 'TheGoodMonolith';
+		src: url('/jorbelca/TheGoodMonolith.ttf');
+		font-display: swap;
+	}               
 #jorbelca-app{
 	color:white;
 	display:flex;
@@ -96,7 +99,7 @@ function copyPswd(){
 	position:absolute;
 	top:100px;
 	font-family: 'TheGoodMonolith', sans-serif;
-	font-size: 3vh ;
+	font-size: 3.2vw ;
 	font-weight: 200;
 	border-radius:50px;
 	padding:10px 20px;
@@ -129,7 +132,7 @@ function copyPswd(){
 }
 .title {
 	padding-bottom: 20px;
-	font: bold 5vw 'TheGoodMonolith', sans-serif;
+	font: bold 3vw 'TheGoodMonolith', sans-serif;
 }
 .title h1{
 	display: flex;

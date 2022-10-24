@@ -25,8 +25,12 @@
 	</footer>
 </template>
 
-<style>
-@import url('http://fonts.cdnfonts.com/css/thegoodmonolith');
+<style scoped>
+@font-face {
+		font-family: 'TheGoodMonolith';
+		src: url('/jorbelca/TheGoodMonolith.ttf');
+		font-display: swap;
+	}   
 .foot{
 	display: flex;
 	color: white;
