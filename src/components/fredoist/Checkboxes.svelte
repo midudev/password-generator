@@ -7,12 +7,11 @@
 	async function updateCheckbox(event: Event) {
 		const input = event.target as HTMLInputElement
 		const { name, checked } = input
-		console.log(name, checked)
 		options.update({ [name]: checked })
 	}
 </script>
 
-<div class="grid grid-cols-2 gap-5">
+<div class="grid grid-cols-2 gap-5 mb-16">
 	{#each checkboxes as checkbox}
 		<label class="inline-flex items-center gap-x-2 capitalize">
 			<input
