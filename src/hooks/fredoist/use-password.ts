@@ -10,9 +10,9 @@ const password = writable('')
 
 export function usePassword() {
 	const { subscribe, set } = password
+	const options = useOptions()
 
 	const generate = () => {
-		const options = useOptions()
 		const { length, numbers, lowercase, uppercase, symbols } = get(options)
 
 		const chars = []
@@ -21,7 +21,7 @@ export function usePassword() {
 		if (uppercase) chars.push(UPPERCASE_LETTERS)
 		if (symbols) chars.push(SYMBOLS)
 
-		if (!chars.length) return ''
+		if (!chars.length) return set('')
 
 		const charSet = chars.join('')
 
