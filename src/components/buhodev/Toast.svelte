@@ -5,7 +5,7 @@
 	const dispatch = createEventDispatcher()
 
 	export let type: 'error' | 'success' | 'info' = 'info'
-	// export let dismissible = false
+	export let dismissible = false
 </script>
 
 <article
