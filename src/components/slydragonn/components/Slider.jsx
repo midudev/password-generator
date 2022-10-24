@@ -2,9 +2,10 @@ import { useState } from 'react'
 import '../styles/Slider.css'
 
 const Slider = ({ handleChange }) => {
-	const [value, setValue] = useState(6)
+	const [value, setValue] = useState(6) // default password length
 
 	const sliderHandleChange = (number) => {
+		// Set password length
 		handleChange(number)
 		setValue(() => number)
 	}
