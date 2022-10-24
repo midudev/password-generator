@@ -30,7 +30,7 @@ const Main = () => {
 			<div className='flex flex-col w-full max-w-xl my-2  overflow-auto'>
 				<hr className='my-2 sm:my-4' />
 
-				<div className=''>
+				<div className='px-2'>
 					<InputRangePassword />
 					<CheckboxOptions />
 					<InputRangeConcurrence />

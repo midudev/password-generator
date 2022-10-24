@@ -25,7 +25,10 @@ const HistoryPassword = () => {
 
 	return (
 		<>
-			<div className='flex flex-col items-center py-2 text-white' onClick={handlerShowDrawer}>
+			<div
+				className='flex flex-col items-center py-2 text-white cursor-pointer'
+				onClick={handlerShowDrawer}
+			>
 				<IconChevronsDown />
 				<p className='font-bold capitalize'>Show history password</p>
 			</div>
@@ -60,7 +63,7 @@ const HistoryPassword = () => {
 											>
 												{hashPassword(password)}
 											</th>
-											<td className='py-4 px-6 text-center'>{new Date(date).toISOString()}</td>
+											<td className='py-4 px-6 text-center'>{new Date(date).toLocaleString()}</td>
 											<td className='py-4 px-6 text-right'>
 												<button
 													className='font-medium text-blue-600 dark:text-blue-500 hover:underline'
