@@ -118,7 +118,7 @@
 	<main class="max-w-md flex flex-col mx-auto text-white">
 		<!-- Password -->
 		<button
-			use:copy_to_clipboard={{ text: password }}
+			use:copyToClipboard={{ text: password }}
 			on:copied={handleSuccessfulCopy}
 			on:error={() => alert('error')}
 			title="Copy password"
