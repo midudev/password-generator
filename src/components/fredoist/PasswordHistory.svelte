@@ -10,7 +10,7 @@
 
 <div class="max-w-sm">
 	<h3 class="uppercase text-xl font-semibold tracking-widest">Password History</h3>
-	<div class="password-history relative my-8 flex flex-col gap-5 overflow-y-auto max-h-56">
+	<div class="fredoist-password-history relative my-8 flex flex-col gap-5 overflow-y-auto max-h-56">
 		{#each $history as password}
 			<div class="flex items-center justify-between gap-5">
 				<span class="truncate flex-1">{password}</span>
@@ -43,7 +43,7 @@
 </div>
 
 <style>
-	.password-history::-webkit-scrollbar {
+	.fredoist-password-history::-webkit-scrollbar {
 		width: 0.25rem;
 	}
 </style>

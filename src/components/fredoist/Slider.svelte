@@ -26,13 +26,13 @@
 		min="8"
 		max="100"
 		data-length={$options.length}
-		class="appearance-none h-1 bg-[#00f0ff] w-full"
+		class="fredoist-slider appearance-none h-1 bg-[#00f0ff] w-full"
 		on:input={updateLength}
 	/>
 </div>
 
 <style>
-	input[type='range']::-webkit-slider-thumb {
+	.fredoist-slider::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
 		width: 1.25rem;
