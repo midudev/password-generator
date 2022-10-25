@@ -287,6 +287,13 @@
 
 			{#each $savedPasswords as { password, generated } (password)}
 				<PasswordEntry {password} {generated} />
+			{:else}
+				<div
+					class="m-4 p-10 flex flex-col bg-neutral-600/10 text-gray-100 rounded-md items-center justify-center leading-none whitespace-nowrap"
+				>
+					<img class="w-10 h-10 mb-4" src="/buhodev/icons/lordicon/book-1.webp" alt="" />
+					You have no saved passwords
+				</div>
 			{/each}
 		</aside>
 	{/if}
