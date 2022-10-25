@@ -37,6 +37,8 @@
 	background-color: #020728;
 	padding: 30px;
 	border-radius: 0.75rem;
+	max-height: 840px;
+	min-height: 680px;
 }
 
 .section {
@@ -174,4 +176,20 @@ input.toggle:checked::before {
 	display: flexbox;
 	display: flex;
 	gap: 8px;
+}
+
+.app-controls {
+	display: box;
+	display: flexbox;
+	display: flex;
+	-webkit-box-pack: space-evenly;
+	-ms-flex-pack: space-evenly;
+	justify-content: space-evenly;
+	margin-top: 20px;
+}
+
+.app-controls button {
+	width: 100%;
+	background-color: hsl(227deg 88% 15%);
+	padding: 24px;
 }
