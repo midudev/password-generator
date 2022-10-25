@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition'
+	import { fade, fly } from 'svelte/transition'
 	import { flipboard } from './transitions/flipboard'
 	import { backOut, quadOut, quadIn } from 'svelte/easing'
 	import {
@@ -289,6 +289,7 @@
 				<PasswordEntry {password} {generated} />
 			{:else}
 				<div
+					in:fade={{ delay: 200 }}
 					class="m-4 p-10 flex flex-col bg-neutral-600/10 text-gray-100 rounded-md items-center justify-center leading-none whitespace-nowrap"
 				>
 					<img class="w-10 h-10 mb-4" src="/buhodev/icons/lordicon/book-1.webp" alt="" />
