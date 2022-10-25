@@ -8,18 +8,24 @@ import Slider from '@components/fredoist/Slider.svelte'
 ---
 
 <Layout title='Cyberpunk Password Generator'>
-	<div class='container max-auto'>
+	<div class='container mx-auto md:max-w-xl lg:max-w-screen-xl'>
 		<main role='main' class='px-5 py-12'>
 			<h1
-				class='text-4xl font-bold leading-none tracking-widest max-w-sm uppercase text-[#f8ef00] mb-8'
+				class='text-4xl font-bold leading-none tracking-widest max-w-sm uppercase text-[#f8ef00] mb-8 cursor-default'
 			>
 				Password Generator
 			</h1>
-			<PasswordInput client:load />
-			<CopyButton client:load />
-			<Slider client:load />
-			<Checkboxes client:load />
-			<PasswordHistory client:load />
+			<div class='lg:flex gap-36'>
+				<section class='lg:w-1/2'>
+					<PasswordInput client:load />
+					<CopyButton client:load />
+					<Slider client:load />
+					<Checkboxes client:load />
+				</section>
+				<aside class='lg:w-1/2'>
+					<PasswordHistory client:load />
+				</aside>
+			</div>
 		</main>
 	</div>
 </Layout>

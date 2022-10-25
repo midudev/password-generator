@@ -2,7 +2,7 @@
 	import { useOptions } from '@hooks/fredoist/use-options'
 
 	const options = useOptions()
-	$: bubblePosition = (($options.length - 8) * 100) / (100 - 8)
+	$: bubblePosition = (($options.length - 0) * 100) / (100 - 0)
 
 	async function updateLength(event: Event) {
 		const input = event.target as HTMLInputElement
@@ -14,7 +14,7 @@
 <div class="relative my-16">
 	<output
 		for="length"
-		class="absolute w-5 text-center text-xs font-[Barlow,sans-serif] leading-none -top-5"
+		class="absolute w-5 text-center text-xs font-[Barlow,sans-serif] leading-none -top-5 cursor-default"
 		style={`left: calc(${bubblePosition}% + (${0 - bubblePosition * 0.15}px))`}
 	>
 		{$options.length}
@@ -23,16 +23,16 @@
 		type="range"
 		name="length"
 		value={$options.length}
-		min="8"
+		min="0"
 		max="100"
 		data-length={$options.length}
-		class="appearance-none h-1 bg-[#00f0ff] w-full"
+		class="fredoist-slider appearance-none h-1 bg-[#00f0ff] w-full"
 		on:input={updateLength}
 	/>
 </div>
 
 <style>
-	input[type='range']::-webkit-slider-thumb {
+	.fredoist-slider::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
 		width: 1.25rem;
