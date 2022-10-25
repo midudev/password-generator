@@ -7,6 +7,7 @@
 	import { highlight } from '@components/buhodev/helpers/highlight'
 	import Toasts from "@components/buhodev/Toast/Toasts.svelte";
 	import { addToast } from './stores/toast'
+	import { savedPasswords } from '@components/buhodev/stores/history'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte';
 
 	let isCopied = false
@@ -277,8 +278,8 @@
 		>
 			<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SAVED PASSWORDS</span>
 
-			{#each Array(8) as _, i}
-				<PasswordEntry {i} />
+			{#each $savedPasswords as { password, generated }, i (password)}
+				<PasswordEntry {password} {generated} />
 			{/each}
 		</aside>
 	{/if}
