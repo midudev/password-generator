@@ -1,9 +1,9 @@
 .number {
-	color: #0ff;
+	color: #8db0bb;
 }
 
 .symbol {
-	color: #f64747;
+	color: #fde3a7;
 }
 
 .copy-message {
@@ -12,17 +12,9 @@
 }
 
 .site {
-	display: box;
-	display: flexbox;
 	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
 	flex-direction: column;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
 	height: 100vh;
 	color: #fff;
@@ -32,11 +24,7 @@
 }
 
 .app-container {
-	display: box;
-	display: flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
 	flex-direction: column;
 	width: 100%;
 	max-width: 460px;
@@ -47,8 +35,6 @@
 }
 
 .app-container .app-main {
-	-webkit-box-flex: 1;
-	-ms-flex-positive: 1;
 	flex-grow: 1;
 	padding: 30px;
 	overflow-y: auto;
@@ -106,11 +92,7 @@
 }
 
 .box--password {
-	display: box;
-	display: flexbox;
 	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	font-size: 24px;
 	padding: 28px 30px;
@@ -120,40 +102,26 @@
 
 .box--password .password {
 	margin-right: 20px;
-	-webkit-box-flex: 1;
-	-ms-flex-positive: 1;
 	flex-grow: 1;
 	word-wrap: break-word;
 	overflow-y: hidden;
 }
 
 .box--history {
-	display: box;
-	display: flexbox;
 	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
 	justify-content: space-between;
 }
 
 .box--history .password {
 	margin-right: 20px;
-	-webkit-box-flex: 1;
-	-ms-flex-positive: 1;
 	flex-grow: 1;
 	word-wrap: break-word;
 	overflow-y: hidden;
 }
 
 .slider {
-	display: box;
-	display: flexbox;
 	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 }
 
@@ -225,18 +193,12 @@ input.toggle:checked::before {
 }
 
 .controls {
-	display: box;
-	display: flexbox;
 	display: flex;
 	gap: 8px;
 }
 
 .app-navigation {
-	display: box;
-	display: flexbox;
 	display: flex;
-	-webkit-box-pack: space-evenly;
-	-ms-flex-pack: space-evenly;
 	justify-content: space-evenly;
 }
 
