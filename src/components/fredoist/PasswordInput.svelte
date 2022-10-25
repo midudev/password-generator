@@ -8,10 +8,6 @@
 	const options = useOptions()
 	const strength = useStrengthMeter()
 
-	onMount(() => {
-		password.generate()
-	})
-
 	$: $options && password.generate()
 
 	async function copyPassword(event: Event) {
