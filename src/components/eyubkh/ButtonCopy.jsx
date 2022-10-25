@@ -3,6 +3,11 @@ import './style/button.css'
 export const ButtonCopy = ({ password }) => {
 	function handlerCopy() {
 		navigator.clipboard.writeText(password)
+		const copiedComponent = window.document.getElementById('eyubkh-copied')
+		copiedComponent.style.top = '30px'
+		setTimeout(() => {
+			copiedComponent.style.top = '-50px'
+		}, 1200)
 	}
 
 	return (
