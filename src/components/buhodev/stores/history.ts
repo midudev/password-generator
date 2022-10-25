@@ -10,7 +10,7 @@ type PasswordEntry = {
 export const savedPasswords = writable('saved_passwords', [])
 
 export const addPassword = (passwordEntry: PasswordEntry) => {
-	if (passwordEntry.password === get(savedPasswords)[0].password) {
+	if (passwordEntry.password === get(savedPasswords)[0]?.password) {
 		addToast({ type: 'info', timeout: 3000, message: 'Password already saved' })
 		// avoid having duplicated keys on each block
 		return
