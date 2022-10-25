@@ -7,7 +7,7 @@ import { passwordReducer } from '../reducers/passwordReducer'
 import { CopyIcon, RefreshIcon } from './icons'
 import { Slider, Toggle } from './fields'
 
-const initialConfig = { lower: true, length: 10 }
+const initialConfig = { lower: true, upper: false, number: false, symbol: false, length: 10 }
 const firstPassword = generatePassword(initialConfig)
 
 const PasswordGenerator = () => {
@@ -114,8 +114,8 @@ const PasswordGenerator = () => {
 					{showHistory && (
 						<>
 							<div className='label'>History</div>
-							{history.map((pwd) => (
-								<div className='box box--history'>
+							{history.map((pwd, index) => (
+								<div key={index} className='box box--history'>
 									<div
 										className='password'
 										dangerouslySetInnerHTML={{ __html: colorPassword(pwd) }}
