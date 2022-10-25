@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition'
 	import { deletePassword } from '@components/buhodev/stores/history'
+	import { copyToClipboard } from '@components/buhodev/actions/copy_to_clipboard'
+	import { addToast } from '@components/buhodev/stores/toast'
 
 	export let password: string, generated: string
 
@@ -75,7 +77,12 @@
 				</svg>
 			{/if}
 		</button>
-		<button>
+		<button
+			use:copyToClipboard={{ text: password }}
+			on:copied={() => addToast({ message: 'Copied', type: 'info', timeout: 3000 })}
+			on:error={() =>
+				addToast({ message: 'Error: Password not copied', type: 'error', timeout: 3000 })}
+		>
 			<!-- phosphoricons/copy -->
 			<svg
 				width="20"
