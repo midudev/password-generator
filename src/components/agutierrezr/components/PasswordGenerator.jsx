@@ -34,7 +34,7 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<div className='site'>
+		<div id='agutierrezr' className='site'>
 			<div className='app-container'>
 				<div className='app-main'>
 					{!showHistory && (
@@ -132,14 +132,14 @@ const PasswordGenerator = () => {
 				</div>
 				<nav className='app-navigation'>
 					<button
-						className={!showHistory && 'active'}
+						className={!showHistory ? 'active' : undefined}
 						type='button'
 						onClick={() => setShowHistory(false)}
 					>
 						Generator
 					</button>
 					<button
-						className={showHistory && 'active'}
+						className={showHistory ? 'active' : undefined}
 						type='button'
 						onClick={() => setShowHistory(true)}
 					>
