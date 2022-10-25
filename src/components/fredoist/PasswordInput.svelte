@@ -2,9 +2,11 @@
 	import { onMount } from 'svelte'
 	import { usePassword } from '@hooks/fredoist/use-password'
 	import { useOptions } from '@hooks/fredoist/use-options'
+	import { useStrengthMeter } from '@hooks/fredoist/use-strengthmeter'
 
 	const password = usePassword()
 	const options = useOptions()
+	const strength = useStrengthMeter()
 
 	onMount(() => {
 		password.generate()
@@ -29,17 +31,15 @@
 		on:click={copyPassword}
 	/>
 	<div
-		data-label="Good"
-		class="cursor-help absolute right-14 top-5 flex flex-col gap-0.5 before:absolute before:-top-2 before:right-1/2 before:translate-x-1/2 before:-translate-y-full before:text-xs before:font-[Barlow,sans-serif] before:hidden hover:before:block before:whitespace-nowrap before:py-px before:px-1 before:bg-[#ff003c] before:text-[#fafafa] before:content-[attr(data-label)]"
+		data-label={$strength.description}
+		class="cursor-help absolute right-14 top-5 flex flex-col-reverse gap-0.5 before:absolute before:-top-2 before:right-1/2 before:translate-x-1/2 before:-translate-y-full before:text-xs before:font-[Barlow,sans-serif] before:hidden hover:before:block before:whitespace-nowrap before:py-px before:px-1 before:bg-[#ff003c] before:text-[#fafafa] before:content-[attr(data-label)]"
 	>
-		<!-- TODO: determine password strength and display with bars -->
-		<span class="h-1 w-6 bg-[#00f0ff]" />
-		<span class="h-1 w-6 bg-[#00f0ff]" />
-		<span class="h-1 w-6 bg-[#00f0ff]" />
-		<span class="h-1 w-6 bg-[#00f0ff]" />
+		{#each Array.from({ length: 4 }) as _, key}
+			<span class={`h-1 w-6 ${key < $strength.score ? 'bg-[#ff003c]' : 'bg-[#00f0ff]'}`} />
+		{/each}
 	</div>
 	<button
-		class="absolute right-5 top-5 text-[#00f0ff] before:absolute before:-right-2 before:translate-x-full before:text-xs before:top-1 before:font-[Barlow,sans-serif] before:hidden hover:before:block before:whitespace-nowrap before:py-px before:px-1 before:bg-[#ff003c] before:text-[#fafafa] before:content-[attr(data-label)]"
+		class="absolute right-5 top-5 text-[#00f0ff] before:absolute before:-right-2 before:translate-x-full before:text-xs before:top-1 before:font-[Barlow,sans-serif] before:hidden lg:hover:before:block before:whitespace-nowrap before:py-px before:px-1 before:bg-[#ff003c] before:text-[#fafafa] before:content-[attr(data-label)]"
 		data-label="Generate Password"
 		on:click={password.generate}
 	>

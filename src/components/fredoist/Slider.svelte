@@ -2,7 +2,7 @@
 	import { useOptions } from '@hooks/fredoist/use-options'
 
 	const options = useOptions()
-	$: bubblePosition = (($options.length - 8) * 100) / (100 - 8)
+	$: bubblePosition = (($options.length - 0) * 100) / (100 - 0)
 
 	async function updateLength(event: Event) {
 		const input = event.target as HTMLInputElement
@@ -23,7 +23,7 @@
 		type="range"
 		name="length"
 		value={$options.length}
-		min="8"
+		min="0"
 		max="100"
 		data-length={$options.length}
 		class="fredoist-slider appearance-none h-1 bg-[#00f0ff] w-full"
