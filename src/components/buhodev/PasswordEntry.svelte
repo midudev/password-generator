@@ -11,7 +11,7 @@
 
 <div
 	in:fly={{ y: -20, duration: 200 }}
-	out:fly={{ y: -10, duration: 200 }}
+	out:fly={{ y: -10, duration: 150 }}
 	class="hover:bg-neutral-800 rounded-md flex mx-2 px-2 py-1.5 mt-3 justify-between items-center"
 >
 	<div class="flex flex-col">

@@ -270,7 +270,7 @@
 	{#if isSidebarOpen}
 		<aside
 			in:fly={{ x: -250, opacity: 1, easing: quadOut, duration: 100 }}
-			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 100 }}
+			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 150 }}
 			class="fixed overflow-y-auto top-0 bottom-0 left-0 mt-12 flex w-72 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
 		>
 			Sidebar
@@ -280,7 +280,7 @@
 	{#if isHistoryOpen}
 		<aside
 			in:fly={{ x: 250, opacity: 1, easing: quadOut, duration: 100 }}
-			out:fly={{ x: 250, opacity: 1, easing: quadIn, duration: 100 }}
+			out:fly={{ x: 250, opacity: 1, easing: quadIn, duration: 150 }}
 			class="fixed overflow-y-auto top-0 right-0 bottom-0 mt-12 flex w-72 flex-col bg-neutral-900 border-l border-l-gray-600 text-white"
 		>
 			<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SAVED PASSWORDS</span>
