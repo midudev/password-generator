@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
+	import { deletePassword } from '@components/buhodev/stores/history'
 	
 	export let password: string, generated: string
 
@@ -99,7 +100,7 @@
 				/>
 			</svg>
 		</button>
-		<button>
+		<button on:click={() => deletePassword(password)}>
 			<!-- phosphoricons/trash -->
 			<svg
 				width="20"
