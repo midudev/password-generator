@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store'
 import { usePassword } from '@hooks/fredoist/use-password'
 
-const history = writable<string[]>([])
+const history = writable<string[]>(JSON.parse(localStorage.getItem('fredoist_history')) || [])
 
 export function useHistory() {
 	const { subscribe, set, update } = history
@@ -13,6 +13,8 @@ export function useHistory() {
 	const clear = () => {
 		set([])
 	}
+
+	subscribe((items) => localStorage.setItem('fredoist_history', JSON.stringify(items)))
 
 	return {
 		subscribe,

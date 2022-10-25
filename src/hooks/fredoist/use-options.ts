@@ -8,13 +8,15 @@ const DEFAULT_OPTIONS = {
 	symbols: true
 }
 
-const options = writable(DEFAULT_OPTIONS)
+const options = writable(JSON.parse(localStorage.getItem('fredoist_options')) || DEFAULT_OPTIONS)
 
 export const useOptions = () => {
 	const { subscribe, update: updateStore } = options
 
 	const update = (values: Partial<typeof DEFAULT_OPTIONS>) =>
 		updateStore((current) => ({ ...current, ...values }))
+
+	subscribe((values) => localStorage.setItem('fredoist_options', JSON.stringify(values)))
 
 	return {
 		subscribe,
