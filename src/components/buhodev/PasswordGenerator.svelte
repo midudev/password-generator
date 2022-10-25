@@ -97,7 +97,10 @@
 	</div>
 
 	<div class="flex items-center justify-center">
-		<button class="rounded-lg inline-block bg-blue-500 text-white py-1 w-16 mr-6">Save</button>
+		<button
+			on:click={() => addPassword({ password, generated: 'Nov 2, 14:00' })}
+			class="rounded-lg inline-block bg-blue-500 text-white py-1 w-16 mr-6">Save</button
+		>
 
 		<button
 			on:click={() => (isHistoryOpen = isHistoryOpen == true ? false : true)}
@@ -282,7 +285,7 @@
 		>
 			<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SAVED PASSWORDS</span>
 
-			{#each $savedPasswords as { password, generated }, i (password)}
+			{#each $savedPasswords as { password, generated } (password)}
 				<PasswordEntry {password} {generated} />
 			{/each}
 		</aside>
