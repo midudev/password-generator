@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Slider = ({ value, onChange, min, max }) => {
+export const Slider = ({ value, onChange, min, max }) => {
 	return (
 		<div className='slider'>
 			<div className='slider__value--left'>{min}</div>
@@ -18,5 +18,3 @@ const Slider = ({ value, onChange, min, max }) => {
 		</div>
 	)
 }
-
-export default Slider

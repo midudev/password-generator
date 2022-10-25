@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Toggle = ({ checked, onChange, label, id, name }) => {
+export const Toggle = ({ checked, onChange, label, id, name }) => {
 	return (
 		<div className='flex items-center justify-between'>
 			<label htmlFor={id}>{label}</label>
@@ -15,5 +15,3 @@ const Toggle = ({ checked, onChange, label, id, name }) => {
 		</div>
 	)
 }
-
-export default Toggle
