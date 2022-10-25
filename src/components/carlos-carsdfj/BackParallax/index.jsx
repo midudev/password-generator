@@ -14,28 +14,28 @@ const BackParallax = ({ children, sun = 0, rainy = false, opacity = 0, storm = f
 		}
 		setLightning(false)
 	}, [storm])
-	const flowerAmount = Math.floor(width / 200)
+	const flowerAmount = Math.floor(width / 160)
 	const flowersSize = '0'
 		.repeat(flowerAmount)
 		.split('')
 		.map((n, i) => ({
-			tspacing: i * 180 + 20,
+			tspacing: i * 160 + 20,
 			bSpacing: (i / 2) % 2 === 0 ? 30 : 10
 		}))
 	const sunMotion = [
-		'top-[160%]',
-		'top-[120%]',
-		'top-[90%]',
-		'top-[81%]',
-		'top-[72%]',
-		'top-[63%]',
-		'top-[54%]',
-		'top-[45%]',
-		'top-[36%]',
-		'top-[27%]',
-		'top-[18%]',
-		'top-[9%]',
-		'top-0'
+		'translate-y-[160%]',
+		'translate-y-[120%]',
+		'translate-y-[90%]',
+		'translate-y-[81%]',
+		'translate-y-[72%]',
+		'translate-y-[63%]',
+		'translate-y-[54%]',
+		'translate-y-[45%]',
+		'translate-y-[36%]',
+		'translate-y-[27%]',
+		'translate-y-[18%]',
+		'translate-y-[9%]',
+		'translate-y-0'
 	]
 	const rain = rainy ? styles.rain : ''
 	const back = sun > 10 ? 'bg-blue-300' : 'bg-black-300'
@@ -90,13 +90,13 @@ const BackParallax = ({ children, sun = 0, rainy = false, opacity = 0, storm = f
 					}
 				/>
 				{flowersSize.map((flower) => {
-					const duration = Math.random() * 4 + 's'
+					const duration = (Math.random() * 4).toString() + 's'
 					return (
 						<FlowerHappy
 							key={flower.tspacing}
 							step={step}
 							duration={duration}
-							height='200px'
+							width='160px'
 							style={{
 								left: flower.tspacing + 'px',
 								bottom: flower.bSpacing + 'px'
@@ -111,7 +111,7 @@ const BackParallax = ({ children, sun = 0, rainy = false, opacity = 0, storm = f
 			{children}
 			<div
 				className={
-					'absolute transition-all ease-in-out z-10  bg-[url("/carlos-carsdfj/ligth.png")]  bg-cover flex justify-center  items-start	p-5  h-full w-full left-0' +
+					'absolute transition-transform top-0 duration-[1s]  ease-linear z-10  bg-[url("/carlos-carsdfj/ligth.png")]  bg-cover flex justify-center  items-start	p-5  h-full w-full left-0' +
 					` ${sunMotion[sun]}`
 				}
 			>
