@@ -1,4 +1,6 @@
 import { writable } from './localStorage'
+import { get } from 'svelte/store'
+import { addToast } from './toast'
 
 type PasswordEntry = {
 	password: string
@@ -8,6 +10,11 @@ type PasswordEntry = {
 export const savedPasswords = writable('saved_passwords', [])
 
 export const addPassword = (passwordEntry: PasswordEntry) => {
+	if (passwordEntry.password === get(savedPasswords)[0].password) {
+		addToast({ type: 'info', timeout: 3000, message: 'Password already saved' })
+		// avoid having duplicated keys on each block
+		return
+	}
 	savedPasswords.update((all) => [{ ...passwordEntry }, ...all])
 }
 
