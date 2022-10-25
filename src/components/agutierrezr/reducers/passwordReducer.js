@@ -2,6 +2,11 @@ const isEverySettingFalse = (state) => {
 	return [state.lower, state.upper, state.number, state.symbol].every((v) => !v)
 }
 
+/**
+ * It allows you to control the configuration properties to generate passwords
+ * and also prevents all empty configurations from being sent.
+ *
+ */
 export function passwordReducer(state, action) {
 	switch (action.type) {
 	case 'length': {

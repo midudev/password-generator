@@ -1,11 +1,11 @@
 import React, { useReducer, useState } from 'react'
-import { colorPassword } from '../helpers/colorPassword'
-import { generatePassword } from '../helpers/generatePassword'
+
+import { colorPassword, generatePassword } from '../helpers/'
+import { copyToClipboard } from '../utils'
 import { passwordReducer } from '../reducers/passwordReducer'
-import CopyIcon from './CopyIcon'
-import RefreshIcon from './RefreshIcon'
-import Slider from './Slider'
-import Toggle from './Toggle'
+
+import { CopyIcon, RefreshIcon } from './icons'
+import { Slider, Toggle } from './fields'
 
 const initialConfig = { lower: true, length: 10 }
 const firstPassword = generatePassword(initialConfig)
@@ -26,10 +26,8 @@ const PasswordGenerator = () => {
 	}
 
 	const handleCopyPass = () => {
-		navigator.clipboard.writeText(password)
-
+		copyToClipboard(password)
 		setShowMessage(true)
-
 		setTimeout(() => {
 			setShowMessage(false)
 		}, 2500)
@@ -116,14 +114,14 @@ const PasswordGenerator = () => {
 					{showHistory && (
 						<>
 							<div className='label'>History</div>
-							{history.map((item) => (
+							{history.map((pwd) => (
 								<div className='box box--history'>
 									<div
 										className='password'
-										dangerouslySetInnerHTML={{ __html: colorPassword(item) }}
+										dangerouslySetInnerHTML={{ __html: colorPassword(pwd) }}
 									/>
 									<div className='controls'>
-										<button type='button' onClick={() => navigator.clipboard.writeText(item)}>
+										<button type='button' onClick={() => copyToClipboard(pwd)}>
 											<CopyIcon />
 										</button>
 									</div>
