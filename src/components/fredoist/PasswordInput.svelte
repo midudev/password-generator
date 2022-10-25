@@ -8,10 +8,6 @@
 	const options = useOptions()
 	const strength = useStrengthMeter()
 
-	onMount(() => {
-		password.generate()
-	})
-
 	$: $options && password.generate()
 
 	async function copyPassword(event: Event) {
@@ -47,7 +43,7 @@
 		<svg
 			aria-hidden="true"
 			xmlns="http://www.w3.org/2000/svg"
-			class="w-6 h-6 fill-current"
+			class="w-6 h-6 fill-current hover:-rotate-12 transition-transform duration-200"
 			viewBox="0 0 512 512"
 		>
 			<path

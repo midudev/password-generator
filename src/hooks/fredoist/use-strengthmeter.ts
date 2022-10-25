@@ -3,7 +3,7 @@ import { usePassword } from '@hooks/fredoist/use-password'
 
 const DEFAULT_VALUES = {
 	score: 0,
-	description: 'Bad'
+	description: 'Empty'
 }
 
 const StrongPassword = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{16,})/
