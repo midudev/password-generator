@@ -103,7 +103,7 @@
 		>
 
 		<button
-			on:click={() => (isHistoryOpen = isHistoryOpen == true ? false : true)}
+			on:click={() => (isHistoryOpen = !isHistoryOpen)}
 			class="border-l p-3 border-gray-600 flex items-center justify-center"
 		>
 			<span class="sr-only">Open history</span>
