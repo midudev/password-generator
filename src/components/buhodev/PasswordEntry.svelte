@@ -15,8 +15,8 @@
 	class="hover:bg-neutral-800 rounded-md flex mx-2 px-2 py-1.5 mt-3 justify-between items-center"
 >
 	<div class="flex flex-col">
-		<span class="">{!isPasswordShown ? '••••••••••••' : password}</span>
-		<span class="text-sm text-neutral-300 whitespace-nowrap">Generated on {generated}</span>
+		<span class="w-44 overflow-hidden text-ellipsis">{!isPasswordShown ? '••••••••••••' : password}</span>
+		<span class="w-44 text-sm text-neutral-300 whitespace-nowrap">Generated on {generated}</span>
 	</div>
 	<div class="flex gap-2">
 		<button on:click={() => (isPasswordShown = !isPasswordShown)}>
