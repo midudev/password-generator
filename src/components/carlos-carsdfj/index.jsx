@@ -1,13 +1,15 @@
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
 import usePassGenerate from './utils/usePassGenerate'
-import { CopyIcon, OptionLogo } from './SvgComponents'
+import { CopyIcon, OptionLogo, AudiIcon } from './SvgComponents'
 import BackParallax from './BackParallax'
+import useEffectAudio from './utils/useEffectAudio'
 export default function App() {
 	const [notification, setNotification] = useState(false)
 	const [transparent, setTransparent] = useState(true)
+
 	const { changeDigits, changeFormat, digits, format, passGenerated, namesKey, FORMAT_OPTIONS } =
 		usePassGenerate()
+	const { rainAud, dayAud, nightAud, mutedToggle, isSound } = useEffectAudio()
 	const boxBg = transparent ? ' blur-3xl' : ' '
 	const isStorm = !format[FORMAT_OPTIONS.NUMBER]
 	const isRainy = !format[FORMAT_OPTIONS.SPECIAL_CHART]
@@ -15,6 +17,23 @@ export default function App() {
 	const notifi = notification
 		? ' -translate-y-11 block opacity-100 flex '
 		: '   opacity-0  translate-y-5 '
+
+	useEffect(() => {
+		if (isRainy) {
+			rainAud?.play()
+		} else {
+			rainAud?.pause()
+		}
+		if (digits < 13) {
+			dayAud?.pause()
+			nightAud?.play()
+		}
+		if (digits > 15) {
+			nightAud?.pause()
+			dayAud?.play()
+		}
+	}, [isRainy, digits])
+
 	const handleRangeChange = (ev) => {
 		const { value } = ev.target
 		changeDigits(value)
@@ -30,6 +49,7 @@ export default function App() {
 			setNotification(false)
 		}, 600)
 	}
+
 	return (
 		<BackParallax storm={isStorm} opacity={opacity} rainy={isRainy} sun={Number(digits) - 8}>
 			<main
@@ -48,6 +68,16 @@ export default function App() {
 						}}
 					>
 						<OptionLogo height='20px' />
+					</button>
+					<button
+						className='absolute top-0 right-0 hover:bg-blue-800/25 font-extrabold text-gray-900  rounded-lg text-sm p-1 text-center inline-flex items-center '
+						type='button'
+						title='sound mute/ unmute'
+						onClick={() => {
+							mutedToggle()
+						}}
+					>
+						<AudiIcon height='20px' bgfill={isSound ? '#000000' : 'transparent'} />{' '}
 					</button>
 					<form className='relative z-50'>
 						<span

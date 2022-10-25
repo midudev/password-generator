@@ -14,11 +14,11 @@ export interface ISettings {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const randomSort = (array:any) => {
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
-	array.sort(() => Math.random() * 1000 - Math.random() * 1000)
+	array.sort(() => 0.5 - Math.random())
+	array.sort(() => 0.5 - Math.random())
+	array.sort(() => 0.5 - Math.random())
+	array.sort(() => 0.5 - Math.random())
+	array.sort(() => 0.5 - Math.random())
 
 	return array
 }
@@ -27,10 +27,6 @@ const toArray = (text:string) => {
 	const r:string[] = []
 	for (let i = 0; i < text.length; i++) r.push(text[i])
 	return r
-}
-
-const isLowLetter = (letter:string):boolean => {
-	return 'a'.charCodeAt(0) <= letter.charCodeAt(0) && letter.charCodeAt(0) <= 'z'.charCodeAt(0)
 }
 
 const splitString = (text:string, div:number):string[] => {
@@ -54,6 +50,11 @@ const spaceString = (text:string, div) :string => {
 	finalpassw = finalpassw.substring(0, finalpassw.length - 1)
 	return finalpassw
 }
+
+const isLowLetter = (letter:string):boolean => {
+	return 'a'.charCodeAt(0) <= letter.charCodeAt(0) && letter.charCodeAt(0) <= 'z'.charCodeAt(0)
+}
+
 
 export const usePassword = () => {
 	const [password, setPassword] = useState<string>('')
@@ -86,10 +87,12 @@ export const usePassword = () => {
 		}
 
 		setPassword(genPass)
+		return genPass
 	}
 
 	const generatePasswordByPhrase = (phrase:string, length:number) => {
 		if (phrase.length === 0) return
+
 		// extend the phrase
 		while (phrase.length < length) {
 			phrase += phrase
@@ -102,13 +105,13 @@ export const usePassword = () => {
 		// create a hashes
 		const BASE = 73 // prime number
 		const MOD = 95471 // prime number
-		const hashs = new Array<number>(length)
+		const hashs = []
 		for (let i = 0; i < phrase.length; i++) {
 			if (i === 0) {
-				hashs[i] = phrase[i].charCodeAt(0) % MOD
+				hashs.push(phrase[i].charCodeAt(0) % MOD)
 				continue
 			}
-			hashs[i] = (hashs[i - 1] * BASE + phrase[i].charCodeAt(0)) % MOD
+			hashs.push((hashs[i - 1] * BASE + phrase[i].charCodeAt(0)) % MOD)
 		}
 
 		// assign characters
@@ -122,8 +125,8 @@ export const usePassword = () => {
 		}
 
 		// put some special characters
-		const nrand = hashs[hashs[1] % hashs.length] % Math.floor(length / 2)
-		for (let i = nrand; i < length; i += nrand) {
+		const nrand = Math.max(hashs[0] % 5, 3)
+		for (let i = nrand; i < hashs.length; i += nrand) {
 			const index = hashs[passw[i].charCodeAt(0) % hashs.length]
 			passw = passw.substring(0, i) + special[index % special.length] + passw.substring(i + 1)
 		}
@@ -131,13 +134,61 @@ export const usePassword = () => {
 		// div the password
 		const div = (length % 4 !== 3 && length % 4 !== 0) ? 4 : 3
 		const password = spaceString(passw, div)
+
 		setPassword(password)
+		return password
+	}
+
+	const countCharacteres = (text: string, dictionary:string[]): number => {
+		let count = 0
+		for (let i = 0; i < text.length; i++) {
+			if (!dictionary.find((ch) => text[i] === ch)) continue
+			count++
+		}
+		return count
+	}
+
+	const passwordStrength = (password: string) => {
+		// Initial Percentage
+		let percentage = 0
+
+		// Special Characters
+		let c = countCharacteres(password, toArray(special))
+		if (c !== 0) percentage += (c >= password.length / 4) ? 20 : 15
+
+		// Letters
+		c = countCharacteres(password, toArray(letters))
+		if (c !== 0) percentage += (c >= password.length / 4) ? 30 : 20
+
+		// Numbers
+		c = countCharacteres(password, toArray(numbers))
+		if (c !== 0) percentage += (c >= password.length / 4) ? 20 : 15
+
+		// Numbers
+		c = countCharacteres(password, [' '])
+		if (c !== 0) percentage += (c >= password.length / 4) ? 10 : 5
+
+
+		// Length
+		if (password.length < 8) percentage -= 10
+		else
+		if (password.length < 10) percentage += 15
+		else
+		if (password.length < 15) percentage += 25
+		else
+		if (password.length < 20) percentage += 35
+		else
+		if (password.length < 30) percentage += 65
+		else percentage += 80
+
+		return Math.min(100, percentage)
 	}
 
 
 	return {
 		password,
 		generatePassword,
-		generatePasswordByPhrase
+		generatePasswordByPhrase,
+		passwordStrength
 	}
 }

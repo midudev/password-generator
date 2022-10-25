@@ -1,7 +1,12 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState, useEffect } from 'react'
 import { ISettings, SettingsOption, usePassword } from '@hooks/cmglezpdev'
 import { Settings } from '@components/cmglezpdev/Settings'
-import { ButtonComponent, RangeInputComponent, InputComponent } from '@components/cmglezpdev/basic-components'
+import {
+	ButtonComponent,
+	RangeInputComponent,
+	InputComponent,
+	StrengthPassword
+} from '@components/cmglezpdev/basic-components'
 
 const INITIAL_STATE: SettingsOption[] = [
 	{
@@ -25,7 +30,8 @@ const INITIAL_STATE: SettingsOption[] = [
 export const CustomPassword = () => {
 	const [lengthPassword, setLenghtPassword] = useState(10)
 	const [settings, setSettings] = useState<SettingsOption[]>(INITIAL_STATE)
-	const { password, generatePassword } = usePassword()
+	const { password, generatePassword, passwordStrength } = usePassword()
+	const [strengthPassword, setStrengthPassword] = useState<number>(null)
 
 	const handleLengthControl = (e:ChangeEvent<HTMLInputElement>) => {
 		setLenghtPassword(parseInt(e.target.value))
@@ -41,13 +47,24 @@ export const CustomPassword = () => {
 		generatePassword(set as ISettings, lengthPassword)
 	}
 
+	useEffect(() => {
+		if (!password || password.trim().length <= 0) return
+		const strength = passwordStrength(password)
+		setStrengthPassword(strength)
+	}, [password])
 
 	return (
 		<div className='flex flex-col items-center'>
 			<InputComponent
 				value={password}
+				name='password'
+				placeholder={'Password'}
 				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				onChange={() => {}}
+			/>
+
+			<StrengthPassword
+				strength={strengthPassword}
 			/>
 
 			<RangeInputComponent
