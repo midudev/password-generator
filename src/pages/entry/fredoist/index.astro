@@ -34,9 +34,10 @@ import Slider from '@components/fredoist/Slider.svelte'
 			<AudioPlayer client:media='(min-width: 80rem)' />
 			<span
 				aria-hidden='true'
-				class='w-px h-8 bg-gradient-to-b from-transparent via-white/50 to-transparent'></span>
+				class='w-px h-8 bg-gradient-to-b from-transparent via-white/50 to-transparent hidden md:block'
+			></span>
 			<button
-				class='uppercase text-xs focus:outline-none'
+				class='uppercase text-xs focus:outline-none hidden md:block'
 				onclick='window.dispatchEvent(new KeyboardEvent("keydown", { key: "k" }))'
 			>
 				Keyboard Shortcuts
@@ -48,7 +49,7 @@ import Slider from '@components/fredoist/Slider.svelte'
 			>
 				Source Code
 			</a>
-			<a href='https://bio.link/freddy' target='_blank' rel='noopener noreferrer'> Author</a>
+			<a href='https://bio.link/freddy' target='_blank' rel='noopener noreferrer'>Author</a>
 		</footer>
 	</div>
 </Layout>
