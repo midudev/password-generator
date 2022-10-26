@@ -1,4 +1,5 @@
 ---
+import AudioPlayer from '@components/fredoist/AudioPlayer.svelte'
 import Checkboxes from '@components/fredoist/Checkboxes.svelte'
 import CopyButton from '@components/fredoist/CopyButton.svelte'
 import Layout from '@components/fredoist/Layout.astro'
@@ -27,5 +28,18 @@ import Slider from '@components/fredoist/Slider.svelte'
 				</aside>
 			</div>
 		</main>
+		<footer class='px-5 py-5 uppercase flex items-center gap-5 text-xs'>
+			<AudioPlayer client:load />
+			<span
+				aria-hidden='true'
+				class='w-px h-8 bg-gradient-to-b from-transparent via-[#ff003c]/80 to-transparent'></span>
+			<a
+				href='https://github.com/fredoist/password-generator'
+				target='_blank'
+				rel='noopener noreferrer'
+			>
+				Source Code
+			</a>
+		</footer>
 	</div>
 </Layout>

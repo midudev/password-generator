@@ -9,9 +9,10 @@ export function useHistory() {
 	const { subscribe, set, update } = history
 	const password = usePassword()
 	password.subscribe((password) =>
-		update((items) =>
-			password !== '' ? [{ value: password, timestamp: Date.now() }, ...items] : items
-		)
+		update((items) => {
+			const filtered = items.filter(({ value }) => value !== password)
+			return password !== '' ? [{ value: password, timestamp: Date.now() }, ...filtered] : items
+		})
 	)
 
 	const clear = () => {
