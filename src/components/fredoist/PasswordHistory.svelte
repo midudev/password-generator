@@ -15,7 +15,7 @@
 		<span class="text-xs font-normal font-[Barlow,sans-serif]">({$history.length})</span>
 	</h3>
 	<div
-		class="relative my-8 overflow-hidden after:absolute after:inset-x-0 after:bottom-0 after:h-12 after:bg-gradient-to-t after:from-black"
+		class="relative my-8 overflow-hidden after:absolute after:inset-x-0 after:-bottom-px after:h-12 after:bg-gradient-to-t after:from-black"
 	>
 		<div class="fredoist-password-history pb-12 flex flex-col gap-5 overflow-y-auto max-h-64">
 			{#each $history as password}
