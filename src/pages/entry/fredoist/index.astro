@@ -11,7 +11,7 @@ import Slider from '@components/fredoist/Slider.svelte'
 
 <Layout title='Cyberpunk Password Generator'>
 	<div class='container mx-auto md:max-w-xl lg:max-w-screen-xl'>
-		<KeyboardShortcuts client:media='(min-width:80rem)' />
+		<KeyboardShortcuts client:media='(min-width: 80rem)' />
 		<main role='main' class='px-5 py-12'>
 			<h1
 				class='text-4xl font-bold leading-none tracking-widest max-w-sm uppercase text-[#f8ef00] mb-8 cursor-default'
@@ -31,7 +31,7 @@ import Slider from '@components/fredoist/Slider.svelte'
 			</div>
 		</main>
 		<footer class='px-5 py-5 uppercase flex items-center gap-5 text-xs'>
-			<AudioPlayer client:load />
+			<AudioPlayer client:media='(min-width: 80rem)' />
 			<span
 				aria-hidden='true'
 				class='w-px h-8 bg-gradient-to-b from-transparent via-white/50 to-transparent'></span>
