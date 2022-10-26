@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition'
 	import { useHistory } from '@hooks/fredoist/use-history'
 
 	const history = useHistory()
@@ -18,7 +19,7 @@
 	>
 		<div class="fredoist-password-history pb-12 flex flex-col gap-5 overflow-y-auto max-h-64">
 			{#each $history as password}
-				<div class="flex items-center justify-between gap-5">
+				<div transition:fade class="flex items-center justify-between gap-5">
 					<div class="flex-1 truncate">
 						<span class="block truncate">{password.value}</span>
 						<time

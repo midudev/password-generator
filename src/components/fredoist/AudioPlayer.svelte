@@ -1,24 +1,14 @@
 <script lang="ts">
-	let audio: HTMLAudioElement
-	let muted = true
+	import { useAudio } from '@hooks/fredoist/use-audio'
 
-	function toggleAudio() {
-		if (audio.paused || audio.muted) {
-			audio.play()
-			audio.muted = false
-		} else {
-			audio.pause()
-			audio.muted = true
-		}
-		muted = audio.muted
-	}
+	const audio = useAudio()
 </script>
 
 <button
-	class="text-[#00f0ff] inline-flex items-center gap-2 uppercase font-semibold"
-	on:click={toggleAudio}
+	class="text-[#00f0ff] inline-flex items-center gap-2 uppercase font-semibold focus:outline-none"
+	on:click={audio.toggle}
 >
-	{#if muted}
+	{#if $audio}
 		<svg
 			aria-hidden="true"
 			xmlns="http://www.w3.org/2000/svg"
@@ -59,24 +49,21 @@
 		</svg>
 	{/if}
 	<span>
-		{#if muted}Enable Audio{:else}Disable Audio{/if}
+		{#if $audio}Enable{:else}Disable{/if} Audio
 	</span>
 </button>
 
 <audio
-	bind:this={audio}
+	bind:muted={$audio}
+	bind:paused={$audio}
 	src="https://www.mboxdrive.com/on-the-run.mp3"
 	class="hidden"
-	on:change={() => alert('changed')}
 	controls
 	loop
-	muted
 	autoplay
 />
 
-<div
-	class="{muted ? 'hidden opacity-0' : 'block opacity-30'} fixed -z-10 inset-0 grid-bg ba-grid anim"
->
+<div class="fixed -z-10 inset-0 grid-bg ba-grid anim opacity-30" class:hidden={$audio}>
 	<div class="inner" />
 </div>
 

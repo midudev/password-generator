@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
 	import { usePassword } from '@hooks/fredoist/use-password'
 	import { useOptions } from '@hooks/fredoist/use-options'
 	import { useStrengthMeter } from '@hooks/fredoist/use-strengthmeter'
@@ -43,7 +42,7 @@
 		<svg
 			aria-hidden="true"
 			xmlns="http://www.w3.org/2000/svg"
-			class="w-6 h-6 fill-current hover:-rotate-12 transition-transform duration-200"
+			class="w-6 h-6 fill-current"
 			viewBox="0 0 512 512"
 		>
 			<path
