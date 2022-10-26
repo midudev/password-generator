@@ -27,15 +27,16 @@
 	box-shadow: none !important;
 }
 
-.remove-content {
+.juanpablo-is--remove-content {
 	background-color: #170f1e !important;
 }
-.remove-content::after {
+
+.juanpablo-is--remove-content::after {
 	content: none;
 }
 
 @media (max-width: 400px) {
-	button {
+	#juanpablo-is button {
 		width: auto !important;
 	}
 }

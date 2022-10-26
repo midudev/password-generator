@@ -73,7 +73,7 @@ const App = () => {
 
 	/** Remove this */
 	useEffect(() => {
-		document.querySelector('body').classList.add('remove-content')
+		document.querySelector('body').classList.add('juanpablo-is--remove-content')
 	}, [])
 
 	return (
