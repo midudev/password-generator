@@ -1,30 +1,16 @@
-import { useEffect, useState, useRef } from 'react'
+import { useRef } from 'react'
+import { usePassword } from '../../../hooks/JoaquinGiordano/usePassword'
 import CopyIcon from '@components/JoaquinGiordano/CopyIcon.jsx'
 import styles from '../Styles.module.css'
+
 const Form = () => {
-	const [password, setPassword] = useState()
-	const [passLength, setPassLength] = useState(16)
+	const { generatePassword, changeLength, password, length } = usePassword()
 	const passInput = useRef(null)
+
 	const handleLengthChange = (newLength) => {
-		setPassLength(newLength)
-	}
-
-	const generatePassword = (length) => {
-		const charSet = new Set('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%?')
-		const charArr = [...charSet]
-		let newPass = ''
-
-		for (let i = 0; i < length; i++) {
-			const randNum = Math.floor(Math.random() * (charArr.length - 5)) + 4
-			newPass += charArr[randNum]
-		}
-		return newPass
-	}
-
-	const handleNewPassword = () => {
-		setPassword(generatePassword(passLength))
+		changeLength(newLength)
 		document.querySelector('#JoaquinGiordano_main').style.filter = ` hue-rotate(${
-			(passLength - 16) * 12
+			(length - 16) * 12
 		}deg)`
 	}
 
@@ -32,10 +18,6 @@ const Form = () => {
 		navigator.clipboard.writeText(password)
 		alert('Password Copied')
 	}
-
-	useEffect(() => {
-		handleNewPassword()
-	}, [passLength])
 
 	return (
 		<div
@@ -67,14 +49,12 @@ const Form = () => {
 				defaultValue={16}
 				min={4}
 				max={28}
-				onChange={(e) => {
-					handleLengthChange(e.target.value)
-				}}
+				onChange={(e) => handleLengthChange(e.target.value)}
 			/>
 
 			<button
 				className='bg-blue-500 hover:bg-blue-600 font-bold duration-500 py-3 rounded outline-none'
-				onClick={handleNewPassword}
+				onClick={generatePassword}
 			>
 				Generate
 			</button>

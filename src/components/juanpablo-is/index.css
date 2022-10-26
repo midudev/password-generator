@@ -1,6 +1,11 @@
+#juanpablo-is {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 #juanpablo-is input[type='range']::-webkit-slider-thumb {
 	width: 15px;
-	-webkit-appearance: none;
+	appearance: none;
 	appearance: none;
 	height: 15px;
 	cursor: ew-resize;

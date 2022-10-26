@@ -1,0 +1,152 @@
+<script>
+	const alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+	const form: HTMLFormElement | null = document.querySelector('#form')
+
+	const generatePassword = () => {
+		const randomIndexes = new Uint8Array(10)
+		// Using crypto module, generate random values to get indexes of the
+		// alphabet
+		self.crypto.getRandomValues(randomIndexes)
+
+		return Array.from(randomIndexes)
+			.map((index) => {
+				return alpha[index % alpha.length]
+			})
+			.join('')
+	}
+
+	form?.addEventListener('submit', (evt) => {
+		evt.preventDefault()
+		const password = generatePassword()
+
+		const input: HTMLInputElement | null = document.querySelector('#password')
+
+		if (!input) return
+		input.value = password
+	})
+</script>
+
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<title>Generador de contraseñas | Halivert</title>
+<link rel='preconnect' href='https://fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link href='https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap' rel='stylesheet' />
+
+<body class='halivert'>
+	<header>Generador de contraseñas</header>
+	<main>
+		<form id='form'>
+			<input type='text' readonly id='password' />
+
+			<button>Generar</button>
+		</form>
+	</main>
+	<footer>
+		<a href='https://halivert.dev'> Halivert</a>
+	</footer>
+	<style>
+		*,
+		::after,
+		::before {
+			accent-color: var(--primary);
+		}
+
+		.halivert {
+			--primary: #008f8f;
+			--text: #542344;
+			--accent: #d65780;
+			--background: #efe9f4;
+
+			--primary-hover: #00b8b8;
+			--text-hover: #73305d;
+			--accent-hover: #cf3a69;
+			--background-hover: #fff;
+
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			min-height: 100vh;
+			width: 100%;
+			background-color: var(--background);
+			color: var(--text);
+			font-size: 18px;
+			font-family: 'Titillium Web', sans-serif;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			.halivert {
+				--primary: #00a3a3;
+				--text: #cf8cb9;
+				--accent: #d65780;
+				--background: #201529;
+
+				--primary-hover: #008f8f;
+				--text-hover: #bd619e;
+				--accent-hover: #cf3a69;
+				--background-hover: #15001b;
+			}
+		}
+
+		main {
+			display: flex;
+			flex: 1;
+			justify-content: center;
+		}
+
+		header {
+			font-size: 2em;
+			text-align: center;
+			padding: 0.25em 2em;
+		}
+
+		footer {
+			font-size: 0.875em;
+			text-align: center;
+			padding: 0.25em 1em;
+		}
+
+		a {
+			color: var(--primary);
+			text-decoration: underline;
+		}
+
+		a:hover {
+			color: var(--primary-hover);
+		}
+
+		form {
+			padding: 0.5em 1em;
+			display: flex;
+			flex-flow: column nowrap;
+			width: clamp(250px, 80ch, 100%);
+			gap: 0.5em;
+		}
+
+		input {
+			padding: 0.25em 0.5em;
+			border-radius: 0.25em;
+			background-color: var(--background-hover);
+			color: var(--text);
+			box-shadow: none;
+		}
+
+		input:focus-visible {
+			outline: 2px solid var(--primary);
+		}
+
+		button {
+			border: 2px var(--primary) solid;
+			background-color: var(--primary);
+			color: var(--background);
+			border-radius: 0.25em;
+			align-self: center;
+			padding: 0.25em 1em;
+		}
+
+		button:hover {
+			background-color: var(--primary-hover);
+		}
+	</style>
+</body>
