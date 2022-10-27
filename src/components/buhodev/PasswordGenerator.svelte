@@ -20,6 +20,7 @@
 
 	let isSidebarOpen = false
 	let isHistoryOpen = false
+	let hasEllipsis = false;
 
 	const INCLUDE_OPTIONS = [
 		{
@@ -63,6 +64,13 @@
 
 	$: password = generatePassword(length, DEFAULT_OPTIONS)
 	$: highlighted_password = highlight(generatePassword(length, DEFAULT_OPTIONS))
+	
+	$: {
+		hasEllipsis = false
+		length
+		password
+		setTimeout(() => hasEllipsis = true, 360)
+	}
 </script>
 
 <Toasts />
@@ -136,7 +144,10 @@
 			title="Copy password"
 			class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 h-12 py-1 px-4 bg-black/20 border border-white/20 rounded-md w-full"
 		>
-			<span class="overflow-hidden text-ellipsis text-left w-96 whitespace-nowrap">
+			<span
+				class:text-ellipsis={hasEllipsis}
+				class="overflow-hidden text-left w-96 whitespace-nowrap"
+			>
 				{#if !animate}
 					{password}
 				{:else if animation == 'fly'}
