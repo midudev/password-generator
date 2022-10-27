@@ -9,6 +9,11 @@
 	background-color: #bbb;
 }
 
+.disabled {
+	opacity: 0.5;
+	cursor: default !important;
+}
+
 .toggleContainer:hover {
 	cursor: pointer;
 }

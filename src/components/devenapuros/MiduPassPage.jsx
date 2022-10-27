@@ -51,22 +51,41 @@ const MiduPassPage = () => {
 					</div>
 					<div className='flex justify-between items-center'>
 						<ToggleLabel content='Include lowercase characters' active={lowercase} />
-						<ToggleSwitch active={lowercase} handleClick={() => setLowercase(!lowercase)} />
+						<ToggleSwitch
+							active={lowercase}
+							handleClick={() => setLowercase(!lowercase)}
+							disabled={!uppercase && !numbers && !symbols}
+						/>
 					</div>
 					<div className='flex justify-between items-center'>
 						<ToggleLabel content='Include uppercase characters' active={uppercase} />
-						<ToggleSwitch active={uppercase} handleClick={() => setUppercase(!uppercase)} />
+						<ToggleSwitch
+							active={uppercase}
+							handleClick={() => setUppercase(!uppercase)}
+							disabled={!lowercase && !numbers && !symbols}
+						/>
 					</div>
 					<div className='flex justify-between items-center'>
 						<ToggleLabel content='Include numbers' active={numbers} />
-						<ToggleSwitch active={numbers} handleClick={() => setNumbers(!numbers)} />
+						<ToggleSwitch
+							active={numbers}
+							handleClick={() => setNumbers(!numbers)}
+							disabled={!lowercase && !uppercase && !symbols}
+						/>
 					</div>
 					<div className='flex justify-between items-center'>
 						<ToggleLabel content='Include symbols' active={symbols} />
-						<ToggleSwitch active={symbols} handleClick={() => setSymbols(!symbols)} />
+						<ToggleSwitch
+							active={symbols}
+							handleClick={() => setSymbols(!symbols)}
+							disabled={!lowercase && !uppercase && !numbers}
+						/>
 					</div>
 				</div>
 			</Card>
+			<span className='text-slate-300 text-sm'>
+				Developed by <a className='text-orange-500 font-medium no-underline hover:underline' href='https://github.com/devenapuros'>@devenapuros</a>
+			</span>
 		</MainSection>
 	)
 }

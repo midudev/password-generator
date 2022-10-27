@@ -12,7 +12,9 @@ export const Brand = () => {
 				<h1>
 					Midu<span className={styles.blueSpan}>Pass</span>
 				</h1>
-				<small>Password Generator</small>
+				<small>
+					Password Generator
+				</small>
 			</div>
 		</header>
 	)
