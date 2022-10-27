@@ -5,7 +5,7 @@
 </script>
 
 <button
-	class="text-[#00f0ff] items-center gap-2 uppercase font-semibold focus:outline-none hidden md:inline-flex"
+	class="text-[#00f0ff] items-center gap-2 uppercase font-semibold focus:outline-none hidden lg:inline-flex"
 	on:click={audio.toggle}
 >
 	{#if $audio}
