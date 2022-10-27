@@ -10,7 +10,7 @@
 	import { highlight } from '@components/buhodev/helpers/highlight'
 	import Toasts from '@components/buhodev/Toast/Toasts.svelte'
 	import { addToast } from './stores/toast'
-	import { savedPasswords, addPassword, deletePassword } from '@components/buhodev/stores/history'
+	import { savedPasswords, addPassword } from '@components/buhodev/stores/history'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte'
 
 	let isCopied = false
@@ -20,8 +20,6 @@
 
 	let isSidebarOpen = false
 	let isHistoryOpen = false
-
-	let closeEye = false
 
 	const INCLUDE_OPTIONS = [
 		{
