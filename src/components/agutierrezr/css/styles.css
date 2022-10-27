@@ -150,6 +150,9 @@
 
 .agutierrezr__slider-field[type='range']:focus {
 	box-shadow: none;
+}
+
+.agutierrezr__slider-field[type='range']:focus-visible {
 	outline: -webkit-focus-ring-color auto 5px;
 }
 

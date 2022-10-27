@@ -55,7 +55,9 @@ const PasswordGenerator = () => {
 										</button>
 									</div>
 								</div>
-								{showMessage && <span className='copy-message'>Password copied!!!</span>}
+								{showMessage && (
+									<span className='agutierrezr__copy-message'>Password copied!!!</span>
+								)}
 							</section>
 							<section className='agutierrezr__section'>
 								<div className='agutierrezr__label'>Length: {config.length}</div>
