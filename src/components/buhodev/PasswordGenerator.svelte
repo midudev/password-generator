@@ -23,7 +23,6 @@
 	let isHistoryOpen = false
 	let view: 'generate' | 'check' = 'generate'
 	let hasEllipsis = false
-	let easterEggState = { lastPassword: password, count: 1 }
 	let showEasterEgg = false
 
 	const INCLUDE_OPTIONS = [
@@ -91,6 +90,8 @@
 		password
 		setTimeout(() => (hasEllipsis = true), 360)
 	}
+
+	let easterEggState = { lastPassword: view === 'generate' ? password : userPassword, count: 1 }
 </script>
 
 <Toasts />
@@ -315,6 +316,7 @@
 				<button
 					disabled={!userPassword}
 					class="absolute right-2 top-3 w-6 h-6 hover:-rotate-6 duration-75 transition-transform"
+					on:click={updateEasterEggCount}
 					use:copyToClipboard={{ text: userPassword }}
 					on:copied={handleSuccessfulCopy}
 					on:error={() =>
