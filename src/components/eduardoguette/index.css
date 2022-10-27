@@ -1,9 +1,9 @@
-.main-eg {
+.main-eduardoguette {
 	background: url(./assets/grain-dark.9d5983e6.png) center
 		center;
 }
 
-.main-eg::before {
+.main-eduardoguette::before {
 	content: '';
 	position: absolute;
 	height: 100%;
@@ -15,7 +15,7 @@
 	z-index: -1;
 	-webkit-mask-image: radial-gradient(70% 80% at 50% 50%, black 40%, transparent 70%);
 }
-.main-eg::after {
+.main-eduardoguette::after {
 	content: '';
 	position: absolute;
 	height: 100%;
@@ -25,7 +25,7 @@
 	z-index: -2;
 	-webkit-mask-image: radial-gradient(70% 80% at 50% 50%, black -40%, transparent 60%);
 }
-.header-eg::before {
+.header-eduardoguette::before {
 	font-family: Menlo, monospace;
 	animation: 1s linear 0s infinite normal none running numbers-eduardoguette;
 	content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
@@ -64,19 +64,19 @@
 		content: '01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100 01100101 01001111 01110000 01100101 01101110 00100000 01110100 01101000 01100101 00100000 01100011 01101111 01101110 01110011 01101111 01101100';
 	}
 }
-.header-logo-eg .shadow-eg {
+.header-logo-eduardoguette .shadow-eduardoguette {
 	opacity: 0.6;
 	transition: all 0.1s ease 0s;
 }
-.header-logo-eg:hover .shadow-eg {
+.header-logo-eduardoguette:hover .shadow-eduardoguette {
 	text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
 	opacity: 1;
 }
-.drop-shadow-eg {
+.drop-shadow-eduardoguette {
 	filter: drop-shadow(rgba(255, 215, 77, 0.6) -1px -1px 2px)
 		drop-shadow(rgba(124, 127, 255, 0.6) 1px 1px 2px);
 }
-.btn-clip-eg {
+.btn-clip-eduardoguette {
 	clip-path: polygon(12px 0px, 100% 0px, 100% 72%, calc(100% - 12px) 100%, 0px 100%, 0px 12px);
 	background: linear-gradient(
 			90deg,
@@ -87,7 +87,7 @@
 		0% 0% / 200% 100%;
 	animation: 1.5s ease 0s infinite alternate none running bg-move-eduardoguette;
 }
-.clip-btn-eg {
+.clip-btn-eduardoguette {
 	
 	clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }

@@ -43,16 +43,16 @@ export const Form = () => {
 	}
 
 	const handleColor = () =>
-		lengthPass < 10
+		lengthPass <= 6
 			? '-red-400'
-			: lengthPass >= 10 && lengthPass < 14
+			: lengthPass > 6 && lengthPass < 14
 				? '-orange-400'
 				: '-green-400'
 
 	return (
 		<section className='text-white font-mono w-[min(470px,100%)] mx-auto'>
 			<label htmlFor='pass' className='block w-full relative text-white mb-8'>
-				<div className='px-6 w-full font-mono py-4 rounded focus:outline-none text-lg md:text-2xl h-[64px] bg-[rgb(36,35,44)] text-[#8e7f9f] eg_input'>
+				<div className='px-6 w-full font-mono py-4 rounded focus:outline-none text-lg md:text-2xl h-[64px] bg-[rgb(36,35,44)] text-[#8e7f9f] input_eduardoguette'>
 					{password}
 				</div>
 				<div
@@ -89,7 +89,7 @@ export const Form = () => {
 				<label htmlFor='long' className='block'>
 					<div className='flex items-center justify-between mb-2'>
 						<span className='text-sm md:text-base'>Password Length</span>
-						<span className={`md:text-2xl rounded-md text${handleColor()}`}>{lengthPass}</span>
+						<span className={`md:text-2xl rounded-md text${handleColor()} `}>{lengthPass}</span>
 					</div>
 					<input
 						className='input_eduardoguette w-full h-1 appearance-none focus:outline-violet-500 '
@@ -105,10 +105,10 @@ export const Form = () => {
 				<button
 					onClick={handleClickNewPass}
 					role='button'
-					className='w-full rounded-md flex justify-center items-center btn-clip-eg text-md my-auto focus:outline-none bg-gradient-to-r from-[rgb(255,215,77)] via-[rgb(64,221,255)] to-[rgb(124,127,255)] md:hover:bg-gradient-to-r active:bg-gradient-to-r  tracking-widest drop-shadow-eg p-3 text-black mt-8 md:hover:rotate-3 active:rotate-3 transition-all relative group'
+					className='w-full rounded-md flex justify-center items-center btn-clip-eduardoguette text-md my-auto focus:outline-none bg-gradient-to-r from-[rgb(255,215,77)] via-[rgb(64,221,255)] to-[rgb(124,127,255)] md:hover:bg-gradient-to-r active:bg-gradient-to-r  tracking-widest drop-shadow-eduardoguette p-3 text-black mt-8 md:hover:rotate-3 active:rotate-3 transition-all relative group'
 				>
 					GENERATE
-					<div className='clip-btn-eg opacity-10 group-active:opacity-10 md:group-hover:opacity-100 left-0 md:group-hover:left-12 md:group-active:left-12 transition-all duration-700 h-16 w-20 absolute bg-gradient-to-l to-[rgb(255,215,77,.1)] from-[#ffffff5e] drop-shadow' />
+					<div className='clip-btn-eduardoguette opacity-10 group-active:opacity-10 md:group-hover:opacity-100 left-0 md:group-hover:left-12 md:group-active:left-12 transition-all duration-700 h-16 w-20 absolute bg-gradient-to-l to-[rgb(255,215,77,.1)] from-[#ffffff5e] drop-shadow' />
 				</button>
 			</div>
 		</section>

@@ -7,9 +7,9 @@
 	width: 1.5rem;
 	animation: 1.5s ease 0s infinite alternate none running bg-move-eduardoguette;
 }
-.eg_input {
+.input_eduardoguette {
 	accent-color: rgb(124, 127, 255);
 }
-.eg_input:focus {
+.input_eduardoguette:focus {
 	outline-color: rgb(124, 127, 255);
 }

@@ -9,15 +9,15 @@ function PGApp() {
 	})
 	return (
 		<AppContext.Provider value={{ state, setState }}>
-			<header className='header-eg'></header>
-			<main className='flex selection:bg-[#b4ff39] selection:text-[#170f1e] justify-center items-center flex-col min-h-screen main-eg mx-auto w-screen p-5'>
+			<header className='header-eduardoguette'></header>
+			<main className='flex selection:bg-[#b4ff39] selection:text-[#170f1e] justify-center items-center flex-col min-h-screen main-eduardoguette mx-auto w-screen p-5'>
 				<header className='mt-4 self-start '>
 					<a
 						href='/'
-						className='group header-logo-eg font-mono  saturate-50 flex items-center text-white gap-4 hover:saturate-100'
+						className='group header-logo-eduardoguette font-mono  saturate-50 flex items-center text-white gap-4 hover:saturate-100'
 					>
 						<img src={logoHack.src} alt='Logo hacktober fest' width={50} />
-						<h1 className='tracking-wide	text-lg shadow-eg'>HACKTOBERFEST</h1>
+						<h1 className='tracking-wide	text-lg shadow-eduardoguette'>HACKTOBERFEST</h1>
 					</a>
 				</header>
 				<section className='flex justify-center mt-10 items-center flex-col w-full'>
