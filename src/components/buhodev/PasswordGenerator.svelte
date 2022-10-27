@@ -403,7 +403,6 @@
 			<PasswordCard
 				password={view === 'generate' ? password : userPassword}
 				img={'/buhodev/gradient_purple.jpg'}
-				number={'190'}
 				showcase={true}
 			/>
 		</div>
