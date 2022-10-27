@@ -2,9 +2,10 @@ import { useState } from 'react'
 import '../styles/Slider.css'
 
 const Slider = ({ handleChange }) => {
-	const [value, setValue] = useState(6)
+	const [value, setValue] = useState(6) // default password length
 
 	const sliderHandleChange = (number) => {
+		// Set password length
 		handleChange(number)
 		setValue(() => number)
 	}
@@ -12,12 +13,12 @@ const Slider = ({ handleChange }) => {
 	return (
 		<section className='flex items-center justify-center'>
 			<div className='flex flex-col mr-4'>
-				<label htmlFor='range-password' className='text-white italic'>
+				<label htmlFor='range-password-slydragonn' className='text-white italic'>
 					Select password length:
 				</label>
 				<input
 					className='my-5'
-					id='range-password'
+					id='range-password-slydragonn'
 					type='range'
 					defaultValue='6'
 					min='6'

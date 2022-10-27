@@ -20,11 +20,13 @@ const PasswordGeneratorCard = () => {
 		navigator.clipboard.writeText(currentPassword).then(() => setIsCopied(true))
 	}
 	return (
-		<div className='p-6 m-2 bg-slate-200 rounded-xl text-center'>
+		<div className='p-6 m-2 bg-white rounded-xl text-center'>
 			<Title>Password Generator</Title>
 			<form onSubmit={(e) => handleGenerator(e)}>
-				<div className='flex items-center mb-5'>
-					<Label htmlFor='pwLength'>Password Length: {passwordLength}</Label>
+				<div className='flex items-center mb-7 mt-7'>
+					<Label htmlFor='pwLength'>
+						Password Length: {passwordLength < 10 ? `0${passwordLength}` : passwordLength}
+					</Label>
 					<InputRange
 						name='pwLength'
 						min='4'

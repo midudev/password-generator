@@ -10,23 +10,25 @@
 }
 
 .fedmg-generate-button {
-	background-color: rgb(0 0 0 / 30%);
+	width: 100%;
 	grid-column: 3;
-	border: 2px solid #fff;
 	padding: 0.23em 0.22em;
-	border-radius: 0.22em;
-	font-weight: 500;
+	border-radius: var(--fedmg-elements-bd-rad);
+	border: var(--fedmg-board-secundary-bd);
+	background-color: var(--fedmg-board-secundary-bg-color);
+	color: var(--fedmg-primary-color);
 }
 
 /* status */
 .fedmg-generate-button:hover {
-	background: linear-gradient(to right, rgb(55 65 81), rgb(17 24 39));
-	border: 2px solid rgb(255 255 255 / 70%);
-	color: #000;
+	/* background-color: rgb(202 214 216 / 50%); */
+	background-color: var(--fedmg-board-third-bg-color);
+	border: var(--fedmg-board-third-bd);
+	color: var(--fedmg-third-color);
 }
 
 .fedmg-generate-button:active {
-	background: transparent;
-	border: 2px solid #fff;
-	color: #fff;
+	background-color: var(--fedmg-board-primary-bg-color);
+	border: var(--fedmg-board-secundary-bd);
+	color: var(--fedmg-secundary-color);
 }

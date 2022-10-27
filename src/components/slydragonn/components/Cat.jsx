@@ -6,10 +6,13 @@ const Cat = ({ passwordValue, length }) => {
 	const rightEye = useRef()
 	const leftEye = useRef()
 
+	// Show password when generated
 	useEffect(() => {
 		if (!passwordValue) return
 
 		tongue.current.style.transform = 'translateY(150px)'
+
+		// Hide Generated password
 		const interval = setInterval(() => {
 			tongue.current.style.transform = 'translateY(0px)'
 		}, 5000)
@@ -19,6 +22,7 @@ const Cat = ({ passwordValue, length }) => {
 		}
 	}, [passwordValue])
 
+	// Change eye color by password length
 	useEffect(() => {
 		if (length < 8) {
 			leftEye.current.style.background =
@@ -39,19 +43,19 @@ const Cat = ({ passwordValue, length }) => {
 	}, [length])
 
 	return (
-		<section className='relative mt-5 md:mt-10'>
+		<section className='relative mt-5 md:mt-7'>
 			<img src={catImage.src} alt='dall-e cat slydragonn' className='z-20 relative w-[400px]' />
 			<div
 				ref={leftEye}
-				className='z-30 top-[140px] left-[100px] absolute w-14 h-14 bg-orange-400 rounded-full transition-all duration-300'
+				className='z-30 top-[43%] sm:top-[140px] left-[27%] sm:left-[100px] absolute w-10 sm:w-14 h-10 sm:h-14 bg-orange-400 rounded-full transition-all duration-300'
 			></div>
 			<div
 				ref={rightEye}
-				className='z-30 top-[140px] right-[100px] absolute w-14 h-14 bg-orange-400 rounded-full transition-all duration-300'
+				className='z-30  top-[43%] sm:top-[140px] right-[27%] sm:right-[100px] absolute w-10 sm:w-14 h-10 sm:h-14 bg-orange-400 rounded-full transition-all duration-300'
 			></div>
 			<div
 				ref={tongue}
-				className='z-10 absolute top-0 left-0 bottom-0 right-0 m-auto flex justify-center items-end pb-3 text-center w-[125px] h-[200px] bg-red-700 rounded-b-full transition-all duration-700 shadow-md shadow-gray-700'
+				className='z-10 absolute top-0 left-0 bottom-0 right-0 m-auto flex justify-center items-end pb-3 text-center w-[110px] sm:w-[125px] h-[170px] sm:h-[200px] bg-gradient-to-b from-red-900 to-red-500 rounded-b-full transition-all duration-700 shadow-md shadow-red-500'
 			>
 				<span className='relative w-full bottom-7 text-white font-medium italic text-xs break-words'>
 					{passwordValue}

@@ -1,32 +1,4 @@
-export const capitalLetters = [
-	'A',
-	'B',
-	'C',
-	'D',
-	'E',
-	'F',
-	'G',
-	'H',
-	'I',
-	'J',
-	'K',
-	'L',
-	'M',
-	'N',
-	'O',
-	'P',
-	'Q',
-	'R',
-	'S',
-	'T',
-	'U',
-	'V',
-	'W',
-	'X',
-	'Y',
-	'Z'
-]
-export const lowercaseLetters = [
+const characters = [
 	'a',
 	'b',
 	'c',
@@ -54,8 +26,38 @@ export const lowercaseLetters = [
 	'y',
 	'z'
 ]
-export const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-export const simbols = [
+
+const capitalcharacters = [
+	'A',
+	'B',
+	'C',
+	'D',
+	'E',
+	'F',
+	'G',
+	'H',
+	'I',
+	'J',
+	'K',
+	'L',
+	'M',
+	'N',
+	'O',
+	'P',
+	'Q',
+	'R',
+	'S',
+	'T',
+	'U',
+	'V',
+	'W',
+	'X',
+	'Y',
+	'Z'
+]
+
+const charactersNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+const charactersSimbols = [
 	'~',
 	'!',
 	'@',
@@ -83,3 +85,8 @@ export const simbols = [
 	'.',
 	'?'
 ]
+
+export const lowercaseLetters = [...characters, ...characters, ...characters]
+export const capitalLetters = [...capitalcharacters, ...capitalcharacters, ...capitalcharacters]
+export const numbers = [...charactersNumbers, ...charactersNumbers, ...charactersNumbers]
+export const simbols = [...charactersSimbols, ...charactersSimbols, ...charactersSimbols]
