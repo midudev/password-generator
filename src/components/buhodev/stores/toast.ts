@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store'
 
 type ToastOptions = {
-	id: number
+	id?: number
 	type: 'error' | 'success' | 'info'
 	dismissible?: boolean
 	timeout: number
