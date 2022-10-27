@@ -63,12 +63,12 @@
 	autoplay
 />
 
-<div class="fixed -z-10 inset-0 grid-bg ba-grid anim opacity-30" class:hidden={$audio}>
-	<div class="inner" />
+<div class="fredoist-audio fixed -z-10 inset-0 fredoist-audio-grid-bg fredoist-audio-ba-grid fredoist-audio-anim opacity-30" class:hidden={$audio}>
+	<div class="fredoist-audio-inner" />
 </div>
 
 <style>
-	:root {
+	.fredoist-audio {
 		--gird-width: 30px;
 		--gird-height: 30px;
 		--line-color: #ff003c;
@@ -78,20 +78,20 @@
 		--point-gap-height: calc(var(--gird-height) * 4);
 	}
 
-	.grid-bg {
+	.fredoist-audio-grid-bg {
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
 	}
 
-	.ba-grid {
+	.fredoist-audio-ba-grid {
 		background: linear-gradient(180deg, black, black, transparent);
 	}
 
-	.ba-grid:before,
-	.ba-grid:after,
-	.inner:before,
-	.inner:after {
+	.fredoist-audio-ba-grid:before,
+	.fredoist-audio-ba-grid:after,
+	.fredoist-audio-inner:before,
+	.fredoist-audio-inner:after {
 		content: '';
 		position: absolute;
 		z-index: 1;
@@ -102,20 +102,20 @@
 		mix-blend-mode: overlay;
 	}
 
-	.ba-grid:before {
+	.fredoist-audio-ba-grid:before {
 		background-image: linear-gradient(var(--line-color), transparent 1px),
 			linear-gradient(to right, var(--line-color), transparent 1px);
 		background-size: 100% var(--gird-height), var(--gird-width) 100%;
 	}
 
-	.ba-grid:after {
+	.fredoist-audio-ba-grid:after {
 		background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
 		background-size: var(--point-gap-width) var(--point-gap-height);
 		background-position: calc(var(--point-gap-width) / 2) calc(var(--point-gap-height) / 2);
 	}
 
-	.inner:before,
-	.inner:after {
+	.fredoist-audio-inner:before,
+	.fredoist-audio-inner:after {
 		background-image: radial-gradient(
 			var(--dot-color) var(--dot-size),
 			transparent var(--dot-size)
@@ -124,28 +124,28 @@
 		background-position: calc(var(--point-gap-width) / 2) calc(var(--point-gap-height) / 2);
 	}
 
-	.inner:after {
+	.fredoist-audio-inner:after {
 		transform: scale(1.1, 1.1);
 	}
 
-	.inner:before {
+	.fredoist-audio-inner:before {
 		/*   background-image: radial-gradient(var(--dot-color) calc(var(--dot-size) + 1px), transparent calc(var(--dot-size) + 1px)); */
 		transform: scale(1.2, 1.2);
 	}
 
-	.anim:after {
-		animation: 6.4s linear move infinite;
+	.fredoist-audio-anim:after {
+		animation: 6.4s linear fredoist-audio-move infinite;
 	}
 
-	.anim .inner:after {
-		animation: 3.2s linear move infinite;
+	.fredoist-audio-anim .fredoist-audio-inner:after {
+		animation: 3.2s linear fredoist-audio-move infinite;
 	}
 
-	.anim .inner:before {
-		animation: 1.6s linear move infinite;
+	.fredoist-audio-anim .fredoist-audio-inner:before {
+		animation: 1.6s linear fredoist-audio-move infinite;
 	}
 
-	@keyframes move {
+	@keyframes fredoist-audio-move {
 		0% {
 			background-position: calc(var(--point-gap-width) / 2) calc(var(--point-gap-height) / 2);
 		}
