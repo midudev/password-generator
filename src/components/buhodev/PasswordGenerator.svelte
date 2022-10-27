@@ -273,7 +273,7 @@
 			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 150 }}
 			class="fixed overflow-y-auto top-0 bottom-0 left-0 mt-12 flex w-72 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
 		>
-			Sidebar
+			<span class="text-center mt-auto">Made by <a class="font-medium" href="https://github.com/buhodev" target="_blank" rel="noreferrer">buhodev</a></span>
 		</aside>
 	{/if}
 
