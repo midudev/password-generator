@@ -34,19 +34,19 @@ const PasswordGenerator = () => {
 	}
 
 	return (
-		<div id='agutierrezr' className='site'>
-			<div className='app-container'>
-				<div className='app-main'>
+		<div className='agutierrezr__site'>
+			<div className='agutierrezr__app-container'>
+				<div className='agutierrezr__app-main'>
 					{!showHistory && (
 						<form onSubmit={handleSubmit}>
-							<section className='section section--password'>
-								<div className='label'>Generated Password</div>
-								<div className='box box--password'>
+							<section className='agutierrezr__section agutierrezr__section--password'>
+								<div className='agutierrezr__label'>Generated Password</div>
+								<div className='agutierrezr__box agutierrezr__box--password'>
 									<div
-										className='password'
+										className='agutierrezr__password'
 										dangerouslySetInnerHTML={{ __html: colorPassword(password) }}
 									/>
-									<div className='controls'>
+									<div className='agutierrezr__controls'>
 										<button type='submit'>
 											<RefreshIcon />
 										</button>
@@ -57,9 +57,9 @@ const PasswordGenerator = () => {
 								</div>
 								{showMessage && <span className='copy-message'>Password copied!!!</span>}
 							</section>
-							<section className='section'>
-								<div className='label'>Length: {config.length}</div>
-								<div className='box'>
+							<section className='agutierrezr__section'>
+								<div className='agutierrezr__label'>Length: {config.length}</div>
+								<div className='agutierrezr__box'>
 									<Slider
 										value={config.length}
 										onChange={({ target }) => dispatch({ type: 'length', payload: target.value })}
@@ -68,10 +68,10 @@ const PasswordGenerator = () => {
 									/>
 								</div>
 							</section>
-							<section className='section'>
-								<div className='label'>Settings</div>
+							<section className='agutierrezr__section'>
+								<div className='agutierrezr__label'>Settings</div>
 								<div className='generator-settings'>
-									<div className='box'>
+									<div className='agutierrezr__box'>
 										<Toggle
 											label='Include lowercase letters'
 											id='lower'
@@ -80,7 +80,7 @@ const PasswordGenerator = () => {
 											onChange={() => dispatch({ type: 'lower' })}
 										/>
 									</div>
-									<div className='box'>
+									<div className='agutierrezr__box'>
 										<Toggle
 											label='Include uppercase letters'
 											id='upper'
@@ -89,7 +89,7 @@ const PasswordGenerator = () => {
 											onChange={() => dispatch({ type: 'upper' })}
 										/>
 									</div>
-									<div className='box'>
+									<div className='agutierrezr__box'>
 										<Toggle
 											label='Include numbers'
 											id='numbers'
@@ -98,7 +98,7 @@ const PasswordGenerator = () => {
 											onChange={() => dispatch({ type: 'number' })}
 										/>
 									</div>
-									<div className='box'>
+									<div className='agutierrezr__box'>
 										<Toggle
 											label='Include symbols (!@#$%^&*)'
 											id='symbol'
@@ -115,12 +115,12 @@ const PasswordGenerator = () => {
 						<>
 							<div className='label'>History</div>
 							{history.map((pwd, index) => (
-								<div key={index} className='box box--history'>
+								<div key={index} className='agutierrezr__box agutierrezr__box--history'>
 									<div
-										className='password'
+										className='agutierrezr__password'
 										dangerouslySetInnerHTML={{ __html: colorPassword(pwd) }}
 									/>
-									<div className='controls'>
+									<div className='agutierrezr__controls'>
 										<button type='button' onClick={() => copyToClipboard(pwd)}>
 											<CopyIcon />
 										</button>
@@ -130,7 +130,7 @@ const PasswordGenerator = () => {
 						</>
 					)}
 				</div>
-				<nav className='app-navigation'>
+				<nav className='agutierrezr__app-navigation'>
 					<button
 						className={!showHistory ? 'active' : undefined}
 						type='button'

@@ -5,7 +5,7 @@ export const Toggle = ({ checked, onChange, label, id, name }) => {
 		<div className='flex items-center justify-between'>
 			<label htmlFor={id}>{label}</label>
 			<input
-				className='toggle'
+				className='agutierrezr__toggle'
 				type='checkbox'
 				id={id}
 				name={name}
