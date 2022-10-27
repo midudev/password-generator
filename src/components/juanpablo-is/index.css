@@ -13,3 +13,30 @@
 	box-shadow: -405px 10px 0 400px #1d4ed8;
 	border-radius: 50%;
 }
+
+/** Remove this */
+#juanpablo-is input[type='checkbox'] {
+	visibility: visible !important;
+}
+
+#juanpablo-is input[type='range'] {
+	border: none !important;
+}
+
+#juanpablo-is input[type='range']:focus {
+	box-shadow: none !important;
+}
+
+.juanpablo-is--remove-content {
+	background-color: #170f1e !important;
+}
+
+.juanpablo-is--remove-content::after {
+	content: none;
+}
+
+@media (max-width: 400px) {
+	#juanpablo-is button {
+		width: auto !important;
+	}
+}
