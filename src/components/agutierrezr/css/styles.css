@@ -14,7 +14,6 @@
 .agutierrezr__site {
 	display: flex;
 	align-items: center;
-	flex-direction: column;
 	justify-content: center;
 	height: 100vh;
 	color: #fff;
@@ -30,7 +29,6 @@
 	max-width: 460px;
 	background-color: #020728;
 	border-radius: 0.75rem;
-	min-height: 720px;
 	overflow: hidden;
 }
 
@@ -219,6 +217,10 @@
 .agutierrezr__controls {
 	display: flex;
 	gap: 8px;
+}
+
+.agutierrezr__controls button {
+	width: unset;
 }
 
 .agutierrezr__app-navigation {
