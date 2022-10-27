@@ -67,7 +67,7 @@
 	}
 
 	function delayUntilDimiss() {
-		setTimeout(() => (isOverlayDimissable = true), 1000)
+		setTimeout(() => (isOverlayDimissable = true), 500)
 	}
 
 	function updateEasterEggCount() {
