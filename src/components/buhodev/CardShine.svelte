@@ -1,6 +1,6 @@
 <!-- borrowed from <https://github.com/simeydotme/pokemon-cards-css> -->
 
-<div class="card__shine" />
+<div class="card__shine pointer-events-none" />
 
 <style>
 	.card__shine {

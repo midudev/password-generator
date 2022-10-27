@@ -11,6 +11,7 @@
 
 	export let cardBack = '/buhodev/card_back.jpg'
 	export let img = cardBack
+	export let password: string
 
 	export let showcase = false
 
@@ -289,9 +290,21 @@
 			on:blur={deactivate}
 			tabindex="0"
 		>
-			<img class="card__back" src={cardBack} alt="" />
+			<img class="card__back pointer-events-none" src={cardBack} alt="" />
 			<div class="card__front">
-				<img src={img} alt="" loading="lazy" />
+				<img src={img} alt="" loading="lazy" class="pointer-events-none" />
+				<div class="absolute inset-0 flex flex-col items-center">
+					<p
+						class="inline-block font-mono -translate-y-10 row h-16 px-4 text-center font-bold text-gray-200"
+					>
+						Whoa! It looks like you really like this password, here you go:
+					</p>
+					<div
+						class="max-w-[18rem] translate-y-5 overflow-auto bg-black/60 font-mono backdrop-blur-md text-ellipsis mx-auto inline-block text-center text-3xl font-bold text-neutral-200 px-2 py-1 rounded-none isolate"
+					>
+						<span class="inline-block">{password}</span>
+					</div>
+				</div>
 				<Shine />
 				<Glare />
 			</div>

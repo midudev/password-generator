@@ -1,6 +1,6 @@
 <!-- borrowed from <https://github.com/simeydotme/pokemon-cards-css> -->
 
-<div class="card__glare" />
+<div class="card__glare pointer-events-none" />
 
 <style>
 	.card__glare {

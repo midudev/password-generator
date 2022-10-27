@@ -400,7 +400,12 @@
 		class="absolute flex items-center justify-center bg-black/5 backdrop-blur-xl inset-0 z-[1000]"
 	>
 		<div class="holo-card m-auto z-[99]">
-			<PasswordCard img={'/buhodev/gradient_purple.jpg'} number={'190'} showcase={true} />
+			<PasswordCard
+				password={view === 'generate' ? password : userPassword}
+				img={'/buhodev/gradient_purple.jpg'}
+				number={'190'}
+				showcase={true}
+			/>
 		</div>
 	</div>
 {/if}
