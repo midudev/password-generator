@@ -6,8 +6,8 @@
 .main-eg::before {
 	content: '';
 	position: absolute;
-	height: inherit;
-	width: inherit;
+	height: 100%;
+	width: 100%;
 	background: url(./assets/grid-square.7c0cbc15.svg) center
 		center;
 	filter: brightness(0.4) sepia(1) hue-rotate(205deg) saturate(8);
@@ -18,8 +18,8 @@
 .main-eg::after {
 	content: '';
 	position: absolute;
-	height: inherit;
-	width: inherit;
+	height: 100%;
+	width: 100%;
 	background: linear-gradient(45deg, rgb(0, 73, 255) 0%, rgb(255, 105, 185) 100%);
 	opacity: 0.2;
 	z-index: -2;
@@ -34,7 +34,7 @@
 	color: rgb(229, 225, 230);
 	font-size: 12px;
 	pointer-events: none;
-	position: fixed;
+	position: absolute;
 	text-align: center;
 	width: 100%;
 	opacity: 0.3;

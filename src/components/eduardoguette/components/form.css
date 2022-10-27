@@ -1,20 +1,15 @@
 .input_eduardoguette[type='range']::-webkit-slider-thumb {
-	background: linear-gradient(
-			90deg,  
-			rgb(64, 221, 255) 20%,
-			rgb(124, 127, 255) 85%
-		)
-		0% 0% / 200% 100%;
+	background: linear-gradient(90deg, rgb(64, 221, 255) 20%, rgb(124, 127, 255) 85%) 0% 0% / 200%
+		100%;
 	-webkit-appearance: none;
 	border-radius: 100px;
 	height: 1.5rem;
 	width: 1.5rem;
 	animation: 1.5s ease 0s infinite alternate none running bg-move-eduardoguette;
-
 }
 .eg_input {
-	accent-color: rgb(164, 255, 175);
+	accent-color: rgb(124, 127, 255);
 }
 .eg_input:focus {
-	outline-color: rgb(164, 255, 175);
+	outline-color: rgb(124, 127, 255);
 }
