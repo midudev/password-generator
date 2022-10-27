@@ -72,50 +72,48 @@ const PasswordGenerator = () => {
 							</section>
 							<section className='agutierrezr__section'>
 								<div className='agutierrezr__label'>Settings</div>
-								<div className='generator-settings'>
-									<div className='agutierrezr__box'>
-										<Toggle
-											label='Include lowercase letters'
-											id='lower'
-											name='lower'
-											checked={config.lower}
-											onChange={() => dispatch({ type: 'lower' })}
-										/>
-									</div>
-									<div className='agutierrezr__box'>
-										<Toggle
-											label='Include uppercase letters'
-											id='upper'
-											name='upper'
-											checked={config.upper}
-											onChange={() => dispatch({ type: 'upper' })}
-										/>
-									</div>
-									<div className='agutierrezr__box'>
-										<Toggle
-											label='Include numbers'
-											id='numbers'
-											name='numbers'
-											checked={config.number}
-											onChange={() => dispatch({ type: 'number' })}
-										/>
-									</div>
-									<div className='agutierrezr__box'>
-										<Toggle
-											label='Include symbols (!@#$%^&*)'
-											id='symbol'
-											name='symbol'
-											checked={config.symbol}
-											onChange={() => dispatch({ type: 'symbol' })}
-										/>
-									</div>
+								<div className='agutierrezr__box'>
+									<Toggle
+										label='Include lowercase letters'
+										id='lower'
+										name='lower'
+										checked={config.lower}
+										onChange={() => dispatch({ type: 'lower' })}
+									/>
+								</div>
+								<div className='agutierrezr__box'>
+									<Toggle
+										label='Include uppercase letters'
+										id='upper'
+										name='upper'
+										checked={config.upper}
+										onChange={() => dispatch({ type: 'upper' })}
+									/>
+								</div>
+								<div className='agutierrezr__box'>
+									<Toggle
+										label='Include numbers'
+										id='numbers'
+										name='numbers'
+										checked={config.number}
+										onChange={() => dispatch({ type: 'number' })}
+									/>
+								</div>
+								<div className='agutierrezr__box'>
+									<Toggle
+										label='Include symbols (!@#$%^&*)'
+										id='symbol'
+										name='symbol'
+										checked={config.symbol}
+										onChange={() => dispatch({ type: 'symbol' })}
+									/>
 								</div>
 							</section>
 						</form>
 					)}
 					{showHistory && (
 						<>
-							<div className='label'>History</div>
+							<div className='agutierrezr__label'>History</div>
 							{history.map((pwd, index) => (
 								<div key={index} className='agutierrezr__box agutierrezr__box--history'>
 									<div
