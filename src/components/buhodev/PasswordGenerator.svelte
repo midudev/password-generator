@@ -91,6 +91,7 @@
 	let userPassword = ''
 
 	$: {
+		view
 		hasEllipsis = false
 		length
 		password
