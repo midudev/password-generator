@@ -136,56 +136,58 @@
 			on:error={() =>
 				addToast({ message: 'Error: Password not copied', type: 'error', timeout: 3000 })}
 			title="Copy password"
-			class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 h-12 py-1 pl-2 pr-10 bg-black/20 border border-white/20 rounded-md w-full"
+			class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 h-12 py-1 px-4 bg-black/20 border border-white/20 rounded-md w-full"
 		>
-			{#if !animate}
-				{password}
-			{:else if animation == 'fly'}
-				{#key password}
-					{#each password.split('') as char, i}
-						{#if !isNaN(Number(char))}
-							<span
-								class="block text-pink-400 leading-none"
-								in:fly={{
-									y: -5,
-									delay: 15 * i,
-									easing: backOut
-								}}
-							>
-								{char}
-							</span>
-						{:else if /[^a-zA-Z]/.test(char)}
-							<span
-								class="block text-blue-400 leading-none"
-								in:fly={{
-									y: -5,
-									delay: 15 * i,
-									easing: backOut
-								}}
-							>
-								{char}
-							</span>
-						{:else}
-							<span
-								class="block leading-none"
-								in:fly={{
-									y: -5,
-									delay: 15 * i,
-									easing: backOut
-								}}
-							>
-								{char}
-							</span>
-						{/if}
-					{/each}
-				{/key}
-			{:else if animation == 'flipboard'}
-				{#key highlighted_password}
-					<span class="leading-none" in:flipboard={{ duration: 300 }}>
-						{@html highlighted_password}
-					</span>
-				{/key}
-			{/if}
+			<span class="overflow-hidden text-ellipsis text-left w-96 whitespace-nowrap">
+				{#if !animate}
+					{password}
+				{:else if animation == 'fly'}
+					{#key password}
+						{#each password.split('') as char, i}
+							{#if !isNaN(Number(char))}
+								<span
+									class="inline-block text-pink-400 leading-none"
+									in:fly={{
+										y: -5,
+										delay: 15 * i,
+										easing: backOut
+									}}
+								>
+									{char}
+								</span>
+							{:else if /[^a-zA-Z]/.test(char)}
+								<span
+									class="inline-block text-blue-400 leading-none"
+									in:fly={{
+										y: -5,
+										delay: 15 * i,
+										easing: backOut
+									}}
+								>
+									{char}
+								</span>
+							{:else}
+								<span
+									class="inline-block leading-none"
+									in:fly={{
+										y: -5,
+										delay: 15 * i,
+										easing: backOut
+									}}
+								>
+									{char}
+								</span>
+							{/if}
+						{/each}
+					{/key}
+				{:else if animation == 'flipboard'}
+					{#key highlighted_password}
+						<span class="leading-none" in:flipboard={{ duration: 300 }}>
+							{@html highlighted_password}
+						</span>
+					{/key}
+				{/if}
+			</span>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -273,7 +275,14 @@
 			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 150 }}
 			class="fixed overflow-y-auto top-0 bottom-0 left-0 mt-12 flex w-72 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
 		>
-			<span class="text-center mt-auto">Made by <a class="font-medium" href="https://github.com/buhodev" target="_blank" rel="noreferrer">buhodev</a></span>
+			<span class="text-center mt-auto"
+				>Made by <a
+					class="font-medium"
+					href="https://github.com/buhodev"
+					target="_blank"
+					rel="noreferrer">buhodev</a
+				></span
+			>
 		</aside>
 	{/if}
 
