@@ -13,6 +13,7 @@ export const Slider = ({ value, onChange, min, max }) => {
 				max={max}
 				value={value}
 				onChange={onChange}
+				style={{ backgroundSize: `${((value - min) * 100) / (max - min)}% 100%` }}
 			/>
 			<div className='agutierrezr__slider__value--right'>{max}</div>
 		</div>

@@ -143,7 +143,9 @@
 .agutierrezr__slider-field[type='range'] {
 	height: 8px;
 	width: 100%;
-	background: hsl(219deg 68% 25%);
+	background-color: hsl(224deg 64% 20%);
+	background-image: linear-gradient(hsl(249deg 100% 65%), hsl(249deg 100% 65%));
+	background-repeat: no-repeat;
 	border-radius: 5px;
 	margin: 0;
 }
@@ -172,8 +174,7 @@
 }
 
 .agutierrezr__slider-field[type='range']::-webkit-slider-runnable-track {
-	height: 1px;
-	background: hsl(219deg 68% 25%);
+	height: 0;
 }
 
 .agutierrezr__slider-field[type='range']::-moz-range-progress {
