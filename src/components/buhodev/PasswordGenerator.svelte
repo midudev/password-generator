@@ -136,7 +136,7 @@
 			on:error={() =>
 				addToast({ message: 'Error: Password not copied', type: 'error', timeout: 3000 })}
 			title="Copy password"
-			class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 h-12 py-1 pl-2 pr-10 bg-gray-900/60 border border-white/30 rounded-md w-full"
+			class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 h-12 py-1 pl-2 pr-10 bg-black/20 border border-white/20 rounded-md w-full"
 		>
 			{#if !animate}
 				{password}
