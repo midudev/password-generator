@@ -12,6 +12,7 @@
 	import { addToast } from './stores/toast'
 	import { savedPasswords, addPassword } from '@components/buhodev/stores/history'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte'
+	import PasswordCard from '@components/buhodev/HoloCard.svelte'
 
 	let isCopied = false
 	let animate = true
@@ -20,7 +21,9 @@
 
 	let isSidebarOpen = false
 	let isHistoryOpen = false
-	let hasEllipsis = false;
+	let hasEllipsis = false
+	let easterEggState = { lastPassword: password, count: 1 }
+	let showEasterEgg = false
 
 	const INCLUDE_OPTIONS = [
 		{
@@ -62,14 +65,29 @@
 		setTimeout(() => (isCopied = false), 1000)
 	}
 
+	function updateEasterEggCount() {
+		setTimeout(() => (easterEggState.count = 1), 1000)
+
+		if (password === easterEggState.lastPassword) {
+			easterEggState.count++
+		} else {
+			easterEggState.count = 1
+		}
+		if (easterEggState.count >= 5) {
+			easterEggState.count = 1
+			showEasterEgg = true
+		}
+		easterEggState.lastPassword = password
+	}
+
 	$: password = generatePassword(length, DEFAULT_OPTIONS)
 	$: highlighted_password = highlight(generatePassword(length, DEFAULT_OPTIONS))
-	
+
 	$: {
 		hasEllipsis = false
 		length
 		password
-		setTimeout(() => hasEllipsis = true, 360)
+		setTimeout(() => (hasEllipsis = true), 360)
 	}
 </script>
 
@@ -141,6 +159,7 @@
 			on:copied={handleSuccessfulCopy}
 			on:error={() =>
 				addToast({ message: 'Error: Password not copied', type: 'error', timeout: 3000 })}
+			on:click={updateEasterEggCount}
 			title="Copy password"
 			class="relative flex items-center justify-start font-bold group font-mono text-3xl mt-8 h-12 py-1 px-4 bg-black/20 border border-white/20 rounded-md w-full"
 		>
@@ -318,6 +337,18 @@
 	{/if}
 </div>
 
+{#if showEasterEgg}
+	<div
+		on:click|self={() => (showEasterEgg = false)}
+		transition:fade={{ duration: 200 }}
+		class="absolute flex items-center justify-center bg-black/5 backdrop-blur-xl inset-0 z-[1000]"
+	>
+		<div class="holo-card m-auto z-[99]">
+			<PasswordCard img={'/buhodev/gradient_purple.jpg'} number={'190'} showcase={true} />
+		</div>
+	</div>
+{/if}
+
 <style>
 	:global(body) {
 		background: rgb(23 23 23);
@@ -386,5 +417,16 @@
 	.bg-texture {
 		background-color: #080808;
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23272727' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+	}
+
+	@media screen and (min-width: 600px) {
+		.holo-card {
+			grid-column: 2;
+			grid-row: 2/4;
+		}
+	}
+
+	.holo-card {
+		max-width: min(330px, 80vw);
 	}
 </style>
