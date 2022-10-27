@@ -5,6 +5,7 @@ type ToastOptions = {
 	type: 'error' | 'success' | 'info'
 	dismissible?: boolean
 	timeout: number
+	message: string
 }
 
 export const toasts = writable([])
@@ -16,7 +17,8 @@ export const addToast = (toast: ToastOptions) => {
 		id,
 		type: 'info',
 		dismissible: false,
-		timeout: 3000
+		timeout: 3000,
+		message: 'Hello!'
 	}
 
 	toasts.update((all) => [{ ...defaults, ...toast }, ...all])
