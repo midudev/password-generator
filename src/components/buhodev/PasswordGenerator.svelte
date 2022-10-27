@@ -47,7 +47,7 @@
 		},
 		{
 			title: 'Special',
-			id: 'special',
+			id: 'symbols',
 			characters: '@#$%^&*',
 			description: 'Include unicode characters from position 33 to 38, 42, 64, and 94.'
 		}
