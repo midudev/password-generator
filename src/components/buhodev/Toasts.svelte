@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Toast from '../Toast.svelte';
-	import { dismissToast, toasts } from '../stores/toast';
+	import Toast from '@components/buhodev/Toast.svelte';
+	import { dismissToast, toasts } from '@components/buhodev/stores/toast';
 </script>
 
 {#if $toasts}

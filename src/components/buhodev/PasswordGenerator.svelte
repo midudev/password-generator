@@ -8,7 +8,7 @@
 	} from '@components/buhodev/helpers/generate_password'
 	import { copyToClipboard } from '@components/buhodev/actions/copy_to_clipboard'
 	import { highlight } from '@components/buhodev/helpers/highlight'
-	import Toasts from '@components/buhodev/Toast/Toasts.svelte'
+	import Toasts from '@components/buhodev/Toasts.svelte'
 	import { addToast } from './stores/toast'
 	import { savedPasswords, addPassword } from '@components/buhodev/stores/history'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte'
