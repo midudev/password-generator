@@ -141,7 +141,7 @@
 }
 
 .agutierrezr__slider-field[type='range'] {
-	height: 3px;
+	height: 8px;
 	width: 100%;
 	background: hsl(219deg 68% 25%);
 	border-radius: 5px;
