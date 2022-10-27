@@ -20,3 +20,8 @@
 .primaryButton:hover {
 	background-color: #0096ff;
 }
+
+.disabled {
+	opacity: 0.5;
+	background-color: #0085ee !important;
+}

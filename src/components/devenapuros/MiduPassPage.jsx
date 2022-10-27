@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from '@components/devenapuros/Card'
 import { ToggleSwitch } from '@components/devenapuros/ToggleSwitch'
 import { MainSection } from '@components/devenapuros/MainSection'
@@ -10,14 +10,21 @@ import { Slider } from '@components/devenapuros/Slider'
 import { PrimaryButton } from '@components/devenapuros/PrimaryButton'
 import { ReloadIcon } from '@components/devenapuros/icons/ReloadIcon'
 import { ToggleLabel } from './ToggleLabel'
+import { generateMiduPass } from './modules/generatePass'
 
 const MiduPassPage = () => {
 	const [password, setPassword] = useState('')
 	const [passLength, setPassLength] = useState(23)
 	const [lowercase, setLowercase] = useState(true)
-	const [uppercase, setUppercase] = useState(false)
-	const [numbers, setNumbers] = useState(true)
-	const [symbols, setSymbols] = useState(false)
+	const [uppercase, setUppercase] = useState(true)
+	const [numbers, setNumbers] = useState(false)
+	const [symbols, setSymbols] = useState(true)
+	const [reload, setReload] = useState(false)
+
+	useEffect(() => {
+		const newPass = generateMiduPass(passLength, lowercase, uppercase, numbers, symbols)
+		setPassword(newPass)
+	}, [passLength, lowercase, uppercase, numbers, symbols, reload])
 
 	return (
 		<MainSection>
@@ -25,15 +32,15 @@ const MiduPassPage = () => {
 				<Brand />
 				<div className='flex flex-col gap-3'>
 					<div className='flex gap-2'>
-						<PassField value='nj23n42jn3kjn43k2j' />
-						<PrimaryButton>
+						<PassField value={password} setValue={setPassword} />
+						<PrimaryButton disabled={!password} handleClick={() => setReload(!reload)}>
 							<ReloadIcon />
 						</PrimaryButton>
 					</div>
 					<PasswordQuality length={passLength} min={6} max={66} />
 				</div>
-				<div className='flex flex-col gap-5'>
-					<div className='flex flex-col gap-2'>
+				<div className='flex flex-col gap-4'>
+					<div className='flex flex-col gap-3'>
 						<PassLengthLabel length={passLength} />
 						<Slider
 							value={passLength}
