@@ -24,6 +24,7 @@
 	let view: 'generate' | 'check' = 'generate'
 	let hasEllipsis = false
 	let showEasterEgg = false
+	let isOverlayDimissable = false
 
 	const INCLUDE_OPTIONS = [
 		{
@@ -65,6 +66,10 @@
 		setTimeout(() => (isCopied = false), 1000)
 	}
 
+	function delayUntilDimiss() {
+		setTimeout(() => (isOverlayDimissable = true), 1000)
+	}
+
 	function updateEasterEggCount() {
 		setTimeout(() => (easterEggState.count = 1), 1000)
 
@@ -76,6 +81,7 @@
 		if (easterEggState.count >= 5) {
 			easterEggState.count = 1
 			showEasterEgg = true
+			delayUntilDimiss()
 		}
 		easterEggState.lastPassword = password
 	}
@@ -385,8 +391,12 @@
 
 {#if showEasterEgg}
 	<div
-		on:click|self={() => (showEasterEgg = false)}
+		on:click|self={() => {
+			showEasterEgg = false
+			isOverlayDimissable = false
+		}}
 		transition:fade={{ duration: 200 }}
+		class:pointer-events-none={!isOverlayDimissable}
 		class="absolute flex items-center justify-center bg-black/5 backdrop-blur-xl inset-0 z-[1000]"
 	>
 		<div class="holo-card m-auto z-[99]">
