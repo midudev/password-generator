@@ -18,6 +18,7 @@
 	let animate = true
 	let animation = 'fly'
 	let length = 12
+	let seedType: 'pseudo' | 'date' | 'manual' | 'mouse' = 'pseudo'
 
 	let isSidebarOpen = false
 	let isHistoryOpen = false
@@ -51,6 +52,33 @@
 			id: 'symbols',
 			characters: '@#$%^&*',
 			description: 'Include unicode characters from position 33 to 38, 42, 64, and 94.'
+		}
+	]
+
+	const SEED_OPTIONS = [
+		{
+			title: 'Pseudo-random',
+			id: 'pseudo',
+			pill: '',
+			description: 'The randomizer function runs without any seed.'
+		},
+		{
+			title: 'Date seed',
+			id: 'date',
+			pill: '',
+			description: "Today's date is used as the randomizer seed."
+		},
+		{
+			title: 'Manual',
+			id: 'manual',
+			pill: '',
+			description: 'Write some random characters to use them as the seed.'
+		},
+		{
+			title: 'Matrix seed',
+			id: 'mouse',
+			pill: 'Pro',
+			description: 'Generate the seed with your mouse movements.'
 		}
 	]
 
@@ -414,6 +442,36 @@
 				{/if}
 
 				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SEED ALGORITHM</span>
+
+				<div class="px-4 flex flex-col gap-6 w-full mt-4">
+					{#each SEED_OPTIONS as { title, id, pill, description } (id)}
+						<label
+							for={id}
+							class="border-lg flex w-full cursor-pointer rounded border border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100"
+						>
+							<input
+								{id}
+								type="radio"
+								value={id}
+								name="seedType"
+								bind:group={seedType}
+								class="w-4 h-4 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
+							/>
+							<div class="flex flex-col">
+								<div>
+									<span class="font-semibold">{title}</span>
+									{#if pill}
+										<span
+											class="bg-green-200 text-green-900 text-sm px-2 font-semibold rounded-full"
+											>{pill}</span
+										>
+									{/if}
+								</div>
+								<span class="text-gray-200">{description}</span>
+							</div>
+						</label>
+					{/each}
+				</div>
 			{:else}
 				<div
 					in:fade={{ delay: 200 }}
