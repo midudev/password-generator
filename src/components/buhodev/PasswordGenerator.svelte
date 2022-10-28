@@ -404,6 +404,12 @@
 				</button>
 			</span>
 
+			{#if sidebarView === 'password'}
+				Password Advanced Options
+			{:else}
+				Passphrase Advanced Options
+			{/if}
+
 			<span class="text-center mt-auto"
 				>Made by <a
 					class="font-medium"
