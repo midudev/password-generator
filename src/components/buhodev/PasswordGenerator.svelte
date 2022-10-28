@@ -382,37 +382,47 @@
 			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 150 }}
 			class="fixed overflow-y-auto top-0 bottom-0 left-0 mt-12 flex w-72 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
 		>
-			<span
-				class="inline-flex space-x-px rounded-md border shadow-sm border-neutral-800 bg-neutral-900 mx-auto mt-6"
-			>
-				<button
-					on:click={() => (sidebarView = 'password')}
-					class="{sidebarView === 'password'
-						? 'bg-neutral-800 text-purple-500 border-neutral-700 transition-colors'
-						: 'text-neutral-200'} inline-block border border-transparent px-4 py-2 rounded-tl-md rounded-bl-md text-sm font-medium focus:relative hover:bg-neutral-700"
+			{#if view === 'generate'}
+				<span
+					class="inline-flex space-x-px rounded-md border shadow-sm border-neutral-800 bg-neutral-900 mx-auto mt-6"
 				>
-					Password
-				</button>
+					<button
+						on:click={() => (sidebarView = 'password')}
+						class="{sidebarView === 'password'
+							? 'bg-neutral-800 text-purple-500 border-neutral-700 transition-colors'
+							: 'text-neutral-200'} inline-block border border-transparent px-4 py-2 rounded-tl-md rounded-bl-md text-sm font-medium focus:relative hover:bg-neutral-700"
+					>
+						Password
+					</button>
 
-				<button
-					on:click={() => (sidebarView = 'passphrase')}
-					class="{sidebarView === 'passphrase'
-						? 'bg-neutral-800 text-purple-500 border-neutral-700 transition-colors'
-						: 'text-neutral-200'} inline-block border border-transparent px-4 py-2 rounded-tr-md rounded-br-md text-sm font-medium focus:relative hover:bg-neutral-700"
-				>
-					Passphrase
-				</button>
-			</span>
+					<button
+						on:click={() => (sidebarView = 'passphrase')}
+						class="{sidebarView === 'passphrase'
+							? 'bg-neutral-800 text-purple-500 border-neutral-700 transition-colors'
+							: 'text-neutral-200'} inline-block border border-transparent px-4 py-2 rounded-tr-md rounded-br-md text-sm font-medium focus:relative hover:bg-neutral-700"
+					>
+						Passphrase
+					</button>
+				</span>
 
-			{#if sidebarView === 'password'}
-				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
-				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+				{#if sidebarView === 'password'}
+					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
+					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+				{:else}
+					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
+					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+				{/if}
+
+				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SEED ALGORITHM</span>
 			{:else}
-				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
-				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+				<div
+					in:fade={{ delay: 200 }}
+					class="m-4 p-10 flex flex-col bg-neutral-600/10 text-gray-100 rounded-md items-center justify-center leading-none whitespace-nowrap"
+				>
+					<img class="w-10 h-10 mb-4" src="/buhodev/icons/lordicon/butt.webp" alt="" />
+					Nothing to show here
+				</div>
 			{/if}
-
-			<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SEED ALGORITHM</span>
 
 			<span class="text-center mt-auto"
 				>Made by <a
