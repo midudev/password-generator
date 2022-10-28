@@ -405,10 +405,14 @@
 			</span>
 
 			{#if sidebarView === 'password'}
-				Password Advanced Options
+				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
+				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
 			{:else}
-				Passphrase Advanced Options
+				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
+				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
 			{/if}
+
+			<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SEED ALGORITHM</span>
 
 			<span class="text-center mt-auto"
 				>Made by <a
