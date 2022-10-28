@@ -86,6 +86,15 @@
 		easterEggState.lastPassword = password
 	}
 
+	$: if (
+		DEFAULT_OPTIONS.lowercase === false &&
+		DEFAULT_OPTIONS.uppercase === false &&
+		DEFAULT_OPTIONS.numbers === false &&
+		DEFAULT_OPTIONS.symbols === false
+	) {
+		DEFAULT_OPTIONS.lowercase = true
+	}
+
 	$: password = generatePassword(length, DEFAULT_OPTIONS)
 	$: highlighted_password = highlight(generatePassword(length, DEFAULT_OPTIONS))
 	let userPassword = ''
