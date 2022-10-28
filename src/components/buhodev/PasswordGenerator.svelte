@@ -22,6 +22,7 @@
 	let isSidebarOpen = false
 	let isHistoryOpen = false
 	let view: 'generate' | 'check' = 'generate'
+	let sidebarView: 'password' | 'passphrase' = 'password'
 	let hasEllipsis = false
 	let showEasterEgg = false
 	let isOverlayDimissable = false
@@ -381,6 +382,28 @@
 			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 150 }}
 			class="fixed overflow-y-auto top-0 bottom-0 left-0 mt-12 flex w-72 flex-col bg-neutral-900 border-r border-r-gray-600 text-white"
 		>
+			<span
+				class="inline-flex space-x-px rounded-md border shadow-sm border-neutral-800 bg-neutral-900 mx-auto mt-6"
+			>
+				<button
+					on:click={() => (sidebarView = 'password')}
+					class="{sidebarView === 'password'
+						? 'bg-neutral-800 text-purple-500 border-neutral-700 transition-colors'
+						: 'text-neutral-200'} inline-block border border-transparent px-4 py-2 rounded-tl-md rounded-bl-md text-sm font-medium focus:relative hover:bg-neutral-700"
+				>
+					Password
+				</button>
+
+				<button
+					on:click={() => (sidebarView = 'passphrase')}
+					class="{sidebarView === 'passphrase'
+						? 'bg-neutral-800 text-purple-500 border-neutral-700 transition-colors'
+						: 'text-neutral-200'} inline-block border border-transparent px-4 py-2 rounded-tr-md rounded-br-md text-sm font-medium focus:relative hover:bg-neutral-700"
+				>
+					Passphrase
+				</button>
+			</span>
+
 			<span class="text-center mt-auto"
 				>Made by <a
 					class="font-medium"
