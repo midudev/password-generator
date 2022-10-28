@@ -384,7 +384,7 @@
 		>
 			{#if view === 'generate'}
 				<span
-					class="inline-flex space-x-px rounded-md border shadow-sm border-neutral-800 bg-neutral-900 mx-auto mt-6"
+					class="inline-flex rounded-md border shadow-sm border-neutral-800 bg-neutral-900 mx-auto mt-6"
 				>
 					<button
 						on:click={() => (sidebarView = 'password')}
