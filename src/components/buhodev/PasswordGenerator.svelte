@@ -86,6 +86,11 @@
 		easterEggState.lastPassword = password
 	}
 
+	function checkStrength(password: string) {
+		/* svelte-ignore missing-declaration */
+		console.log(zxcvbn(password))
+	}
+
 	$: if (
 		DEFAULT_OPTIONS.lowercase === false &&
 		DEFAULT_OPTIONS.uppercase === false &&
@@ -109,6 +114,10 @@
 
 	let easterEggState = { lastPassword: view === 'generate' ? password : userPassword, count: 1 }
 </script>
+
+<svelte:head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js" defer></script>
+</svelte:head>
 
 <Toasts />
 
@@ -356,6 +365,13 @@
 					</svg>
 				</button>
 			</div>
+
+			<button
+				disabled={!userPassword}
+				on:click={() => checkStrength(userPassword)}
+				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
+				>Check Password</button
+			>
 		{/if}
 	</main>
 
