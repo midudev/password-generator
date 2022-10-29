@@ -329,7 +329,7 @@
 				</svg>
 			</button> -->
 
-			<label for="length" class="mt-8 inline-block w-full">
+			<label for="length" class="mt-10 inline-block w-full">
 				<div class="flex items-center justify-between">
 					<span class="text-neutral-400 text-sm font-medium"
 						>LENGTH: <span class="text-neutral-100 text-base">{length}</span></span
@@ -346,7 +346,8 @@
 					<span>32</span>
 				</div>
 			</label>
-			<div class="flex flex-col gap-6 w-full mt-4">
+			<div class="flex flex-col gap-6 w-full mt-10">
+				<span class="text-neutral-400 text-sm font-medium">INCLUDE</span>
 				{#each INCLUDE_OPTIONS as { title, id, characters, description } (id)}
 					<label
 						for={id}
