@@ -112,32 +112,32 @@ export const GenerarPassword = () => {
 	}
 
 	return (
-		<div id='contenedor'>
-			<div id='screen'>
-				<div id='screen-resultado'>{resultado}</div>
+		<div id='kurotom-contenedor'>
+			<div id='kurotom-screen'>
+				<div id='kurotom-screen-resultado'>{resultado}</div>
 
-				<div id='screen-interact'>
-					<span id='screen-banner' style={estilo}>
+				<div id='kurotom-screen-interact'>
+					<span id='kurotom-screen-banner' style={estilo}>
 						{banner}
 					</span>
-					<div id='screen-icons'>
-						<span id='paperclip' className='iconApp' title='Copy' onClick={copiar}>
+					<div id='kurotom-screen-icons'>
+						<span id='kurotom-paperclip' className='kurotom-iconApp' title='Copy' onClick={copiar}>
 							&#128203;
 						</span>
-						<span id='trash' className='iconApp' title='Delete' onClick={borrar}>
+						<span id='kurotom-trash' className='kurotom-iconApp' title='Delete' onClick={borrar}>
 							&#128465;
 						</span>
 					</div>
 				</div>
 			</div>
 
-			<div id='control'>
-				<div id='control-div-span'>
-					<span id='control-span1'>Length</span>
-					<span id='control-span2'>{longitud}</span>
+			<div id='kurotom-control'>
+				<div id='kurotom-control-div-span'>
+					<span id='kurotom-control-span1'>Length</span>
+					<span id='kurotom-control-span2'>{longitud}</span>
 				</div>
 				<input
-					id='control-input'
+					id='kurotom-control-input'
 					type='range'
 					min='5'
 					max='128'
@@ -147,42 +147,42 @@ export const GenerarPassword = () => {
 				/>
 			</div>
 
-			<div id='opciones'>
-				<div className='opciones-div'>
-					<span className='opciones-span'>A-Z</span>
+			<div id='kurotom-opciones'>
+				<div className='kurotom-opciones-div'>
+					<span className='kurotom-opciones-span'>A-Z</span>
 					<input
 						id='upper'
-						className='opciones-check'
+						className='kurotom-opciones-check'
 						type='checkbox'
 						onChange={handleCheck}
 						checked={isupper}
 					/>
 				</div>
-				<div className='opciones-div'>
-					<span className='opciones-span'>a-z</span>
+				<div className='kurotom-opciones-div'>
+					<span className='kurotom-opciones-span'>a-z</span>
 					<input
 						id='lower'
-						className='opciones-check'
+						className='kurotom-opciones-check'
 						type='checkbox'
 						onChange={handleCheck}
 						checked={islower}
 					/>
 				</div>
-				<div className='opciones-div'>
-					<span className='opciones-span'>0-9</span>
+				<div className='kurotom-opciones-div'>
+					<span className='kurotom-opciones-span'>0-9</span>
 					<input
 						id='number'
-						className='opciones-check'
+						className='kurotom-opciones-check'
 						type='checkbox'
 						onChange={handleCheck}
 						checked={isnumber}
 					/>
 				</div>
-				<div className='opciones-div'>
-					<span className='opciones-span'>!@#$%^&*</span>
+				<div className='kurotom-opciones-div'>
+					<span className='kurotom-opciones-span'>!@#$%^&*</span>
 					<input
 						id='special'
-						className='opciones-check'
+						className='kurotom-opciones-check'
 						type='checkbox'
 						onChange={handleCheck}
 						checked={isspecial}
