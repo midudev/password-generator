@@ -16,6 +16,7 @@ export const addPassword = (passwordEntry: PasswordEntry) => {
 		return
 	}
 	savedPasswords.update((all) => [{ ...passwordEntry }, ...all])
+	addToast({ type: 'info', timeout: 3000, message: 'Saved' })
 }
 
 export const deletePassword = (password: PasswordEntry['password']) => {
