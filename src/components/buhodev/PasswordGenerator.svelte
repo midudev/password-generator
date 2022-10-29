@@ -13,6 +13,7 @@
 	import { savedPasswords, addPassword } from '@components/buhodev/stores/history'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte'
 	import PasswordCard from '@components/buhodev/HoloCard.svelte'
+	import { generateDate } from '@components/buhodev/helpers/generate_date'
 
 	let isCopied = false
 	let animate = true
@@ -185,7 +186,7 @@
 
 	<div class="flex items-center justify-center">
 		<button
-			on:click={() => addPassword({ password, generated: 'Nov 2, 14:00' })}
+			on:click={() => addPassword({ password, generated: generateDate() })}
 			class="rounded-lg inline-block bg-blue-500 text-white py-1 w-16 mr-6">Save</button
 		>
 
