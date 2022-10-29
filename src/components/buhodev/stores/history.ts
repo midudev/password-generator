@@ -21,3 +21,7 @@ export const addPassword = (passwordEntry: PasswordEntry) => {
 export const deletePassword = (password: PasswordEntry['password']) => {
 	savedPasswords.update((all) => all.filter((passwordEntry) => passwordEntry.password !== password))
 }
+
+export const clearAll = () => {
+	savedPasswords.update(() => [])
+}
