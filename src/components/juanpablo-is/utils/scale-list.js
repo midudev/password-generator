@@ -13,38 +13,24 @@ export default {
 	poor: {
 		scale: 2,
 		values: { width: '30%', color: '#fca927', icon: IconFaceAnguished, message: 'Poor' },
-		validates: [
-			{ length: 7, options: 2 },
-			{ length: 6, options: 4 },
-			{ length: 7 }
-		]
+		validates: [{ length: 7, options: 2 }, { length: 6, options: 4 }, { length: 7 }]
 	},
 	medium: {
 		scale: 3,
 		values: { width: '50%', color: '#ffca0a', icon: IconFaceUnamused, message: 'Medium' },
-		validates: [
-			{ length: 8, options: 3 },
-			{ length: 12 }
-		]
+		validates: [{ length: 8, options: 3 }, { length: 12 }]
 	},
 	good: {
 		scale: 4,
 		values: { width: '80%', color: '#8ad2d1', icon: IconFaceSmiling, message: 'Good' },
-		validates: [
-			{ length: 15, options: 3 },
-			{ length: 20 }
-		]
+		validates: [{ length: 15, options: 3 }, { length: 20 }]
 	},
 	excellent: {
 		scale: 5,
 		values: { width: '100%', color: '#7ec99e', icon: IconFaceParty, message: 'Excellent' },
-		validates: [
-			{ length: 20, options: 4 },
-			{ length: 30, options: 3 },
-			{ length: 30 }
-		]
+		validates: [{ length: 20, options: 4 }, { length: 30, options: 3 }, { length: 30 }]
 	},
 	undefined: {
-		values: { width: '100%', color: 'white' },
+		values: { width: '100%', color: 'white' }
 	}
 }
