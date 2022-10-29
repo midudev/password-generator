@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition'
 	import { useShortcuts } from '@hooks/fredoist/use-shortcuts'
-	import { onMount } from 'solid-js'
+	import { onMount } from 'svelte'
 
 	const shortcuts = useShortcuts()
 	const { modal } = shortcuts
