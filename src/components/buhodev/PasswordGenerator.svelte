@@ -96,6 +96,14 @@
 		setTimeout(() => (isCopied = false), 1000)
 	}
 
+	function handleClear() {
+		if ($savedPasswords[0] !== undefined) {
+			clearAll()
+		} else {
+			addToast({ message: 'There are no passwords to clear', type: 'info', timeout: 3000 })
+		}
+	}
+
 	function delayUntilDimiss() {
 		setTimeout(() => (isOverlayDimissable = true), 500)
 	}
@@ -505,8 +513,11 @@
 			<div class="px-4 mt-6 flex items-center justify-between">
 				<span class="text-neutral-400 text-xs font-medium">SAVED PASSWORDS</span>
 
-				<button class="hover:bg-neutral-800 rounded-md px-2 py-1" on:click={clearAll}
-					>Clear all</button
+				<button
+					class="{$savedPasswords[0] !== undefined
+						? 'hover:bg-neutral-800'
+						: 'cursor-default'} rounded-md px-2 py-1"
+					on:click={handleClear}>Clear all</button
 				>
 			</div>
 
