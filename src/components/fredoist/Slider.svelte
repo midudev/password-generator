@@ -21,7 +21,7 @@
 	</output>
 	<input
 		type="range"
-		name="length"
+		aria-label="Password length"
 		value={$options.length}
 		min="0"
 		max="100"
@@ -38,7 +38,7 @@
 		width: 1.25rem;
 		height: 1.25rem;
 		background: #f8ef00;
-		cursor: pointer;
+		cursor: ew-resize;
 		position: relative;
 	}
 </style>
