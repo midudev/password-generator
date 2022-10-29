@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Badge from './Badge.svelte'
+
 	import { fade, fly } from 'svelte/transition'
 	import { flipboard } from './transitions/flipboard'
 	import { backOut, quadOut, quadIn } from 'svelte/easing'
@@ -345,10 +347,7 @@
 					<span class="text-neutral-400 text-sm font-medium"
 						>LENGTH: <span class="text-neutral-100 text-base">{length}</span></span
 					>
-					<div class="flex items-center space-x-2 rounded-full py-0.5 px-3 bg-green-300">
-						<span class="bg-green-600 rounded-full h-2 w-2" />
-						<span class="text-green-800 text-sm">Highly secure</span>
-					</div>
+					<Badge />
 				</div>
 
 				<div class="flex items-center justify-center mt-2 gap-2">
