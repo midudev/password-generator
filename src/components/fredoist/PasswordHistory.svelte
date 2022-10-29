@@ -10,10 +10,10 @@
 </script>
 
 <div class="lg:max-w-sm">
-	<h3 class="uppercase text-xl font-semibold tracking-widest cursor-default">
+	<h2 class="uppercase text-xl font-semibold tracking-widest cursor-default">
 		Password History
 		<span class="text-xs font-normal font-[Barlow,sans-serif]">({$history.length})</span>
-	</h3>
+	</h2>
 	<div
 		class="relative my-8 overflow-hidden after:absolute after:inset-x-0 after:-bottom-px after:h-12 after:bg-gradient-to-t after:from-black"
 	>

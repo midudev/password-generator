@@ -11,7 +11,7 @@ const history = useHistory()
 const audio = useAudio()
 
 const SHORTCUTS = [
-	{ key: 'Enter', description: 'Generate a new password', action: password.generate },
+	{ key: ' ', description: 'Generate a new password', action: password.generate },
 	{ key: 'Backspace', description: 'Clear history', action: history.clear },
 	{
 		key: 'c',
@@ -46,7 +46,10 @@ const SHORTCUTS = [
 	{
 		key: 'k',
 		description: 'Toggle Keyboard Shortcuts Modal',
-		action: () => modal.update((value) => !value)
+		action: () =>
+			!localStorage.getItem('fredoist_modal')
+				? useShortcuts().hide()
+				: modal.update((value) => !value)
 	}
 ]
 
@@ -55,17 +58,20 @@ export function useShortcuts() {
 
 	const show = () => modal.set(true)
 	const hide = () => {
-		localStorage.setItem('modal', 'hidden')
+		localStorage.setItem('fredoist_modal', 'hidden')
 		modal.set(false)
 	}
 
 	const handler = (event: KeyboardEvent) => {
-		if (!event.ctrlKey) {
+		const focusedElement = document.activeElement as HTMLInputElement
+		const isSpaceKey = event.key === ' '
+		if (!event.ctrlKey && (focusedElement?.type !== 'checkbox' || !isSpaceKey)) {
 			const shortcut = SHORTCUTS.find((shortcut) => shortcut.key === event.key)
 			if (shortcut) {
 				event.preventDefault()
-				shortcut.action()
+				return shortcut.action()
 			}
+			if (event.key === 'Escape') return hide()
 		}
 	}
 

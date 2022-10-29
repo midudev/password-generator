@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition'
 	import { useShortcuts } from '@hooks/fredoist/use-shortcuts'
-	import { onMount } from 'solid-js'
+	import { onMount } from 'svelte'
 
 	const shortcuts = useShortcuts()
 	const { modal } = shortcuts
-	onMount(() => localStorage.getItem('modal') !== 'hidden' && shortcuts.show())
+	onMount(() => localStorage.getItem('fredoist_modal') !== 'hidden' && shortcuts.show())
 </script>
 
 <svelte:window on:keydown={shortcuts.handler} />
@@ -14,6 +14,7 @@
 	<div
 		in:fade={{ duration: 300 }}
 		out:fade={{ duration: 200 }}
+		on:click={e => e.target === e.currentTarget && shortcuts.hide()}
 		class="fixed inset-0 z-50 bg-gradient-to-t from-black via-black/80 to-black/50 flex items-center justify-center"
 	>
 		<div class="bg-black p-12 max-w-lg ring-1 ring-[#ff003c] ring-opacity-10">
@@ -22,17 +23,17 @@
 				{#each $shortcuts as shortcut}
 					<div class="font-[Barlow,sans-serif]">
 						<code
-							class="text-xs text-black py-px px-1 leading-none font-semibold bg-[#f8ef00] uppercase cursor-pointer"
+							class="text-xs text-black py-px px-1 leading-none font-semibold bg-[#f8ef00] uppercase cursor-pointer inline-block"
 							on:click={() => shortcut.action()}
 						>
-							{shortcut.key}
+							{shortcut.key === ' ' ? 'Space' : shortcut.key}
 						</code>
 						<span class="block text-xs mt-2">{shortcut.description}</span>
 					</div>
 				{/each}
 			</div>
 			<button
-				class="group relative border border-[#ff003c] text-[#ff003c] font-semibold uppercase py-5 px-10 w-full inline-flex items-center justify-between gap-x-16 [clip-path:polygon(100%_0,100%_25%,100%_100%,6%_100%,0%_70%,0_0)]"
+				class="group relative border border-[#ff003c] focus:outline-none text-[#ff003c] font-semibold uppercase py-5 px-10 w-full inline-flex items-center justify-between gap-x-16 [clip-path:polygon(100%_0,100%_25%,100%_100%,6%_100%,0%_70%,0_0)]"
 				on:click={shortcuts.hide}
 			>
 				<span>Dismiss_</span>
@@ -40,7 +41,7 @@
 				<span
 					class="absolute bg-black right-5 -bottom-px text-xs font-normal font-[Barlow,sans-serif] leading-none pl-2 pr-5 text-[#fafafa]"
 				>
-					95
+					4
 				</span>
 
 				<svg

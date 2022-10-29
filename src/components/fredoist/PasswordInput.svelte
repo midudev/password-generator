@@ -20,6 +20,7 @@
 <div class="relative">
 	<input
 		type="text"
+		aria-label="Generated password"
 		value={$password}
 		readonly
 		class="p-5 pr-24 w-full border-2 border-[#00f0ff] bg-[#00f0ff] bg-opacity-10 text-[#00f0ff] focus:outline-none font-[inherit] tracking-widest mb-5 cursor-copy"
