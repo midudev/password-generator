@@ -462,10 +462,79 @@
 						Passphrase
 					</button>
 				</span>
-
+				<!-- TODO: refactor classes of labels and inputs to make them consistent -->
 				{#if sidebarView === 'password'}
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
-					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+					<div class="flex flex-col px-4 mt-6 gap-4">
+						<span class="text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+
+						<label
+							for="quantityOfCharacters"
+							class="flex items-center justify-between text-sm font-medium text-neutral-100"
+						>
+							Using
+							<select
+								id="quantityOfCharacters"
+								class="border text-sm rounded-lg px-2 py-1 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
+							>
+								<option value="min" selected>Minimum</option>
+								<option value="max">Maximum</option>
+							</select>
+						</label>
+
+						<label
+							for="uppercaseLength"
+							class="flex items-center justify-between text-sm text-neutral-100"
+						>
+							Uppercase
+							<div class="flex items-center justify-center gap-2">
+								<input type="range" min="1" max="6" class="w-full" value="1" />
+								<span>6</span>
+							</div>
+						</label>
+						<label
+							for="uppercaseLength"
+							class="flex items-center justify-between text-sm text-neutral-100"
+						>
+							Numbers
+							<div class="flex items-center justify-center gap-2">
+								<input type="range" min="1" max="6" class="w-full" value="1" />
+								<span>6</span>
+							</div>
+						</label>
+						<label
+							for="uppercaseLength"
+							class="flex items-center justify-between text-sm text-neutral-100"
+						>
+							Symbols
+							<div class="flex items-center justify-center gap-2">
+								<input type="range" min="1" max="6" class="w-full" value="1" />
+								<span>6</span>
+							</div>
+						</label>
+
+						<div class="flex items-center justify-between space-x-2">
+							<label for="include-exclude" class="text-sm font-medium text-neutral-100">
+								<select
+									id="include-exclude"
+									class="border text-sm rounded-lg px-1.5 py-1 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
+								>
+									<option value="min" selected>Include</option>
+									<option value="max">Exclude</option>
+								</select>
+							</label>
+
+							<label for="input-include-exclude" class="text-sm text-neutral-100 w-full">
+								<input
+									type="text"
+									name=""
+									id="input-include-exclude"
+									placeholder="#$%&/("
+									class="border w-full text-sm rounded-lg px-1.5 py-1 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
+								/>
+							</label>
+						</div>
+					</div>
 				{:else}
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
