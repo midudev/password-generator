@@ -330,7 +330,14 @@
 			</button> -->
 
 			<label for="length" class="mt-8 inline-block w-full">
-				<span class="text-lg">Length: {length}</span>
+				<div class="flex items-center justify-between">
+					<span class="text-lg">Length: {length}</span>
+					<div class="flex items-center space-x-2 rounded-full py-0.5 px-3 bg-green-300">
+						<span class="bg-green-600 rounded-full h-2 w-2" />
+						<span class="text-green-800 text-sm">Highly secure</span>
+					</div>
+				</div>
+
 				<div class="flex items-center justify-center mt-2 gap-2">
 					<span>4</span>
 					<input type="range" min="4" max="32" class="w-full" bind:value={length} />
