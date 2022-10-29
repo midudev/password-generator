@@ -606,13 +606,13 @@
 			#3c4fe0 0 -3px 0 inset;
 	}
 
+	.generate-password:active {
+		box-shadow: #3c4fe0 0 3px 7px inset;
+	}
+
 	.generate-password:disabled {
 		box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
 			rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
-	}
-
-	.generate-password:active {
-		box-shadow: #3c4fe0 0 3px 7px inset;
 	}
 
 	.bg-noise {
