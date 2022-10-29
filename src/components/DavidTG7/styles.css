@@ -5,7 +5,13 @@
 /* stylelint-disable-next-line import-notation */
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 
-:root {
+#dtg-mainwrapper {
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	padding: 3rem;
+	height: 100vh;
+
 	--pink-bg-color: rgb(235 94 204);
 	--blue-bg-color: rgb(31 154 236);
 	--sky-blue: rgb(0 115 255);
@@ -14,14 +20,6 @@
 	--green-color: rgb(65 218 19);
 	--neon-lightoff-color: rgb(74 68 82);
 	--side-shadows-pink: 10px 0 50px var(--pink-bg-color), 101vw 0 50px var(--pink-bg-color);
-}
-
-#dtg-mainwrapper {
-	display: flex;
-	align-items: center;
-	flex-flow: column;
-	padding: 3rem;
-	height: 100vh;
 }
 
 #dtg-non-button {
@@ -40,12 +38,12 @@
 	height: 60vh;
 	background: rgba(31, 28, 31, 92.7%);
 	color: white;
-	animation: fadeinportal ease 0.4s;
+	animation: dtg-fadeinportal ease 0.4s;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
 
-@keyframes fadeinportal {
+@keyframes dtg-fadeinportal {
 	0% {
 		opacity: 0;
 	}
@@ -91,7 +89,7 @@
 	font-size: 12rem;
 	height: fit-content;
 	color: var(--neon-lightoff-color);
-	animation: titlelight ease 20s;
+	animation: dtg-titlelight ease 20s;
 	animation-iteration-count: infinite;
 	animation-fill-mode: forwards;
 }
@@ -120,12 +118,12 @@
 	top: 300px;
 	opacity: 0;
 	color: var(--sky-blue);
-	animation: copied ease 5s;
+	animation: dtg-copied ease 5s;
 	animation-iteration-count: infinite;
 	animation-fill-mode: forwards;
 }
 
-@keyframes copied {
+@keyframes dtg-copied {
 	0% {
 		opacity: 0;
 		top: 300px;
@@ -171,7 +169,7 @@
 	}
 }
 
-@keyframes titlelight {
+@keyframes dtg-titlelight {
 	0% {
 		color: var(--neon-lightoff-color);
 	}
@@ -316,12 +314,12 @@
 .dtg-password-text-active {
 	border: 5px solid var(--yellow-color);
 	box-shadow: 0 0 20px var(--yellow-color);
-	animation: textlight ease 3s;
+	animation: dtg-textlight ease 3s;
 	animation-iteration-count: infinite;
 	animation-fill-mode: forwards;
 }
 
-@keyframes textlight {
+@keyframes dtg-textlight {
 	0% {
 		opacity: 1;
 	}
@@ -357,7 +355,7 @@
 	left: -30px;
 	width: 30px;
 	height: 100%;
-	animation: leftlight ease 4s;
+	animation: dtg-leftlight ease 4s;
 	animation-iteration-count: infinite;
 	animation-fill-mode: forwards;
 }
@@ -374,7 +372,7 @@
 	animation-fill-mode: forwards;
 }
 
-@keyframes leftlight {
+@keyframes dtg-leftlight {
 	0% {
 		opacity: 0.1;
 		box-shadow: var(--side-shadows-pink);
