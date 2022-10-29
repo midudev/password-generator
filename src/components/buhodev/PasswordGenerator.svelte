@@ -334,13 +334,14 @@
 						for={id}
 						class="border-lg flex w-full cursor-pointer rounded border border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100"
 					>
+						<!-- TODO: find a better way to align the radio input with the title -->
 						<input
 							{id}
 							type="checkbox"
 							value=""
 							name="id"
 							bind:checked={DEFAULT_OPTIONS[id]}
-							class="w-4 h-4 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
+							class="w-4 h-4 mt-1 mr-2 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
 						/>
 						<div class="flex flex-col">
 							<div>
@@ -443,26 +444,27 @@
 
 				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SEED ALGORITHM</span>
 
-				<div class="px-4 flex flex-col gap-6 w-full mt-4">
+				<div class="px-4 flex flex-col gap-6 w-full mt-4 mb-4">
 					{#each SEED_OPTIONS as { title, id, pill, description } (id)}
 						<label
 							for={id}
 							class="border-lg flex w-full cursor-pointer rounded border border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100"
 						>
+							<!-- TODO: find a better way to align the radio input with the title -->
 							<input
 								{id}
 								type="radio"
 								value={id}
 								name="seedType"
 								bind:group={seedType}
-								class="w-4 h-4 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
+								class="w-4 h-4 mt-1 mr-2 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
 							/>
 							<div class="flex flex-col">
 								<div>
 									<span class="font-semibold">{title}</span>
 									{#if pill}
 										<span
-											class="bg-green-200 text-green-900 text-sm px-2 font-semibold rounded-full"
+											class="ml-1 bg-green-200 text-green-900 text-sm px-2 font-semibold rounded-full"
 											>{pill}</span
 										>
 									{/if}
@@ -482,7 +484,7 @@
 				</div>
 			{/if}
 
-			<span class="text-center mt-auto"
+			<span class="text-center mt-auto mb-2"
 				>Made by <a
 					class="font-medium"
 					href="https://github.com/buhodev"
