@@ -10,7 +10,7 @@
 	import { highlight } from '@components/buhodev/helpers/highlight'
 	import Toasts from '@components/buhodev/Toasts.svelte'
 	import { addToast } from './stores/toast'
-	import { savedPasswords, addPassword } from '@components/buhodev/stores/history'
+	import { savedPasswords, addPassword, clearAll } from '@components/buhodev/stores/history'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte'
 	import PasswordCard from '@components/buhodev/HoloCard.svelte'
 	import { generateDate } from '@components/buhodev/helpers/generate_date'
@@ -502,7 +502,13 @@
 			out:fly={{ x: 250, opacity: 1, easing: quadIn, duration: 150 }}
 			class="fixed overflow-y-auto top-0 right-0 bottom-0 mt-12 flex w-72 flex-col bg-neutral-900 border-l border-l-gray-600 text-white"
 		>
-			<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SAVED PASSWORDS</span>
+			<div class="px-4 mt-6 flex items-center justify-between">
+				<span class="text-neutral-400 text-xs font-medium">SAVED PASSWORDS</span>
+
+				<button class="hover:bg-neutral-800 rounded-md px-2 py-1" on:click={clearAll}
+					>Clear all</button
+				>
+			</div>
 
 			{#each $savedPasswords as { password, generated } (password)}
 				<PasswordEntry {password} {generated} />
