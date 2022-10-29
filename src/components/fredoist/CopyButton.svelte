@@ -11,7 +11,7 @@
 
 <button
 	type="button"
-	class="group motion-reduce:animate-none relative bg-[#f8ef00] text-black font-semibold uppercase py-5 px-10 border-r-[3px] border-[#ff003c] inline-flex items-center justify-between gap-x-16 [clip-path:polygon(100%_0,100%_25%,100%_100%,6%_100%,0%_70%,0_0)]"
+	class="group motion-reduce:animate-none focus:outline-[#fafafa] relative bg-[#f8ef00] text-black font-semibold uppercase py-5 px-10 border-r-[3px] border-[#ff003c] inline-flex items-center justify-between gap-x-16 [clip-path:polygon(100%_0,100%_25%,100%_100%,6%_100%,0%_70%,0_0)]"
 	on:click={copyPassword}
 >
 	<span>Copy Password_</span>

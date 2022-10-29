@@ -26,12 +26,17 @@
 		min="0"
 		max="100"
 		data-length={$options.length}
-		class="fredoist-slider appearance-none h-1 bg-[#00f0ff] w-full"
+		class="fredoist-slider appearance-none h-1 bg-[#00f0ff] w-full focus:outline-none"
 		on:input={updateLength}
 	/>
 </div>
 
 <style>
+	.fredoist-slider:focus::-webkit-slider-thumb {
+		outline: auto;
+		outline-color: #000;
+	}
+
 	.fredoist-slider::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
