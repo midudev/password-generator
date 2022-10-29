@@ -399,7 +399,7 @@
 			<button
 				disabled={!userPassword}
 				on:click={() => checkStrength(userPassword)}
-				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
+				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px] disabled:cursor-default disabled:translate-y-0"
 				>Check Password</button
 			>
 		{/if}
@@ -569,7 +569,6 @@
 		transition: box-shadow 0.05s, transform 0.05s;
 		will-change: box-shadow, transform;
 	}
-
 	.generate-password:focus {
 		box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
 			rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
@@ -578,6 +577,11 @@
 	.generate-password:hover {
 		box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
 			#3c4fe0 0 -3px 0 inset;
+	}
+
+	.generate-password:disabled {
+		box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+			rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
 	}
 
 	.generate-password:active {
