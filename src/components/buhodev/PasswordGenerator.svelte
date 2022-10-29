@@ -164,7 +164,7 @@
 >
 	<button
 		on:click={() => (isSidebarOpen = isSidebarOpen == true ? false : true)}
-		class="border-r p-3 border-gray-600 flex items-center justify-center"
+		class="border-r p-3 border-gray-600 flex items-center justify-center hover:bg-neutral-800 transition-colors"
 	>
 		<span class="sr-only">Open sidebar</span>
 		<!-- phosphoricons/sidebar-simple -->
@@ -200,7 +200,7 @@
 
 		<button
 			on:click={() => (isHistoryOpen = !isHistoryOpen)}
-			class="border-l p-3 border-gray-600 flex items-center justify-center"
+			class="border-l p-3 border-gray-600 flex items-center justify-center hover:bg-neutral-800 transition-colors"
 		>
 			<span class="sr-only">Open history</span>
 			<!-- phosphoricons/bookmark-simple -->
