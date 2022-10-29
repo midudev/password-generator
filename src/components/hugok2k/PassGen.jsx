@@ -10,10 +10,15 @@ export default function PassGen() {
 	const [input, setInput] = useState(12)
 	const [password, setPassword] = useState('')
 	const [option, setOption] = useState({ words: false, number: false, symbol: false })
+	const [copy, setCopy] = useState(false)
 
 	function copyClip() {
 		navigator.clipboard.writeText(password)
-		alert('Copied password: ' + password)
+		// alert('Copied password: ' + password)
+		setCopy(true)
+		setTimeout(() => {
+			setCopy(false)
+		}, 1500)
 	}
 	function handle(e) {
 		setInput(e)
@@ -29,9 +34,10 @@ export default function PassGen() {
 				</a>
 			</header>
 			<h1 className='title-hugok2k'>Password generator</h1>
+			<label className={copy ? 'labelcopy-hugok2k-show' : 'labelcopy-hugok2k'}>Copiado</label>
 			<div className='containerinput-hugok2k'>
 				<input className='inputcont-hugok2k' type='text' readOnly defaultValue={password} />
-				<button className='svgcopy-hugok2k' onClick={() => copyClip()}>
+				<button className='svgcopy-hugok2k' onClick={copyClip}>
 					<CopySVG />
 				</button>
 				<button
