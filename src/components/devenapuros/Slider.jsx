@@ -1,19 +1,27 @@
 import React, { useEffect, useRef } from 'react'
 import styles from '@components/devenapuros/styles/slider.module.css'
 
-export const Slider = ({ value, handleChange, min = 0, max = 100 }) => {
-	const barRef = useRef()
-	const buttonRef = useRef()
-
+export const Slider = ({ value = 0, handleChange, min = 0, max = 100 }) => {
+	const fillRef = useRef()
 	useEffect(() => {
-		barRef.current.style.width = `${value}%`
-		buttonRef.current.style.left = `calc(${value}% - 11px)`
+		const fillLength = ((value - min) * 100) / (max - min)
+		fillRef.current.style.width = `${fillLength}%`
 	}, [value])
 
 	return (
 		<div className={styles.container}>
-			<div ref={barRef} className={styles.bar}></div>
-			<div ref={buttonRef} className={styles.button}></div>
+			<span className={styles.bar}>
+				<span ref={fillRef} className={styles.fill} />
+			</span>
+			<input
+				id='slider'
+				className={styles.slider}
+				type='range'
+				min={min}
+				max={max}
+				value={value}
+				onChange={handleChange}
+			/>
 		</div>
 	)
 }
