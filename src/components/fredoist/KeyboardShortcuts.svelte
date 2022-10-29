@@ -5,7 +5,7 @@
 
 	const shortcuts = useShortcuts()
 	const { modal } = shortcuts
-	onMount(() => localStorage.getItem('modal') !== 'hidden' && shortcuts.show())
+	onMount(() => localStorage.getItem('fredoist_modal') !== 'hidden' && shortcuts.show())
 </script>
 
 <svelte:window on:keydown={shortcuts.handler} />

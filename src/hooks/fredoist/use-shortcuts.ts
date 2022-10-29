@@ -4,7 +4,7 @@ import { useOptions } from '@hooks/fredoist/use-options'
 import { useHistory } from '@hooks/fredoist/use-history'
 import { useAudio } from '@hooks/fredoist/use-audio'
 
-const modal = writable(!localStorage.getItem('fredoist_modal'))
+const modal = writable(false)
 const password = usePassword()
 const options = useOptions()
 const history = useHistory()
