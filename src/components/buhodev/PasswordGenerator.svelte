@@ -465,7 +465,8 @@
 				<!-- TODO: refactor classes of labels and inputs to make them consistent -->
 				{#if sidebarView === 'password'}
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
-					<div class="flex flex-col px-4 mt-6 gap-4">
+
+					<div class="flex flex-col px-4 mt-10 gap-4">
 						<span class="text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
 
 						<label
@@ -537,10 +538,10 @@
 					</div>
 				{:else}
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
-					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+					<span class="px-4 mt-10 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
 				{/if}
 
-				<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">SEED ALGORITHM</span>
+				<span class="px-4 mt-10 text-neutral-400 text-xs font-medium">SEED ALGORITHM</span>
 
 				<div class="px-4 flex flex-col gap-6 w-full mt-4 mb-4">
 					{#each SEED_OPTIONS as { title, id, pill, description } (id)}
