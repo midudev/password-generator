@@ -8,19 +8,19 @@
 	const FEATURE_CARDS = [
 		{
 			title: 'Truly random',
-			description: 'Use your mouse to create a real random seed.',
+			description: 'You can use your mouse to create real random seeds.',
 			svgSrc: '/buhodev/icons/lordicon/category.svg',
 			webpSrc: '/buhodev/icons/lordicon/category-long.webp'
 		},
 		{
 			title: 'Performant',
-			description: 'Get instant feedback when you interact with the app.',
+			description: 'Get instant feedback while interacting with a delightful UI.',
 			svgSrc: '/buhodev/icons/lordicon/speed.svg',
 			webpSrc: '/buhodev/icons/lordicon/speed-long.webp'
 		},
 		{
-			title: 'Minimal',
-			description: "Focus on what's important with a delightful UI.",
+			title: 'Feature complete',
+			description: 'Save-for-later, stats, custom-passwords, and more.',
 			svgSrc: '/buhodev/icons/lordicon/chat.svg',
 			webpSrc: '/buhodev/icons/lordicon/chat-long.webp'
 		},
