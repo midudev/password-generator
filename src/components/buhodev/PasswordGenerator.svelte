@@ -14,6 +14,7 @@
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte'
 	import PasswordCard from '@components/buhodev/HoloCard.svelte'
 	import { generateDate } from '@components/buhodev/helpers/generate_date'
+	import BarChart from './BarChart.svelte'
 
 	let isCopied = false
 	let animate = true
@@ -465,6 +466,9 @@
 				<!-- TODO: refactor classes of labels and inputs to make them consistent -->
 				{#if sidebarView === 'password'}
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
+					<div class="px-4 mt-4">
+						<BarChart />
+					</div>
 
 					<div class="flex flex-col px-4 mt-10 gap-4">
 						<span class="text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
