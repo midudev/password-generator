@@ -96,6 +96,16 @@
 		setTimeout(() => (isCopied = false), 1000)
 	}
 
+	function handleSave() {
+		if (view === 'generate') {
+			addPassword({ password: password, generated: generateDate() })
+		} else if (view === 'check' && userPassword) {
+			addPassword({ password: userPassword, generated: generateDate() })
+		} else {
+			addToast({ message: "You can't save an empty password", type: 'info', timeout: 3000 })
+		}
+	}
+
 	function handleClear() {
 		if ($savedPasswords[0] !== undefined) {
 			clearAll()
@@ -194,7 +204,7 @@
 
 	<div class="flex items-center justify-center">
 		<button
-			on:click={() => addPassword({ password, generated: generateDate() })}
+			on:click={handleSave}
 			class="rounded-lg inline-block bg-blue-500 text-white py-1 w-16 mr-6">Save</button
 		>
 
