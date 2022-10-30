@@ -6,8 +6,8 @@
 	import { backOut, quadOut, quadIn } from 'svelte/easing'
 	import {
 		generatePassword,
-		type DefaultOptions,
-		type AdvancedOptions
+		type PasswordDefaultOptions,
+		type PasswordAdvancedOptions
 	} from '@components/buhodev/helpers/generate_password'
 	import { copyToClipboard } from '@components/buhodev/actions/copy_to_clipboard'
 	import { highlight } from '@components/buhodev/helpers/highlight'
@@ -88,14 +88,14 @@
 		}
 	]
 
-	const DEFAULT_OPTIONS: DefaultOptions = {
+	const PASSWORD_DEFAULT_OPTIONS: PasswordDefaultOptions = {
 		uppercase: true,
 		lowercase: true,
 		numbers: true,
 		symbols: true
 	}
 
-	const ADVANCED_OPTIONS: AdvancedOptions = {
+	const PASSWORD_ADVANCED_OPTIONS: PasswordAdvancedOptions = {
 		using: 'minimum',
 		numberOfChars: { uppercase: 1, numbers: 1, symbols: 1 },
 		include: []
@@ -146,16 +146,16 @@
 	}
 
 	$: if (
-		DEFAULT_OPTIONS.lowercase === false &&
-		DEFAULT_OPTIONS.uppercase === false &&
-		DEFAULT_OPTIONS.numbers === false &&
-		DEFAULT_OPTIONS.symbols === false
+		PASSWORD_DEFAULT_OPTIONS.lowercase === false &&
+		PASSWORD_DEFAULT_OPTIONS.uppercase === false &&
+		PASSWORD_DEFAULT_OPTIONS.numbers === false &&
+		PASSWORD_DEFAULT_OPTIONS.symbols === false
 	) {
-		DEFAULT_OPTIONS.lowercase = true
+		PASSWORD_DEFAULT_OPTIONS.lowercase = true
 	}
 
-	$: password = generatePassword(length, DEFAULT_OPTIONS)
-	$: highlighted_password = highlight(generatePassword(length, DEFAULT_OPTIONS))
+	$: password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS)
+	$: highlighted_password = highlight(generatePassword(length, PASSWORD_DEFAULT_OPTIONS))
 	let userPassword = ''
 
 	$: {
@@ -371,7 +371,7 @@
 							type="checkbox"
 							value=""
 							name="id"
-							bind:checked={DEFAULT_OPTIONS[id]}
+							bind:checked={PASSWORD_DEFAULT_OPTIONS[id]}
 							class="w-4 h-4 mt-1 mr-2 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
 						/>
 						<div class="flex flex-col">
@@ -387,7 +387,7 @@
 
 			<!-- Generate Password Button -->
 			<button
-				on:click={() => (password = generatePassword(length, DEFAULT_OPTIONS))}
+				on:click={() => (password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS))}
 				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
 				>Generate Password</button
 			>

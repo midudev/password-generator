@@ -1,4 +1,4 @@
-export interface DefaultOptions {
+export interface PasswordDefaultOptions {
 	uppercase: boolean
 	lowercase: boolean
 	numbers: boolean
@@ -10,13 +10,13 @@ interface NumberOfChars {
 	numbers: number
 	symbols: number
 }
-export interface AdvancedOptions {
+export interface PasswordAdvancedOptions {
 	using: 'minimum'
 	numberOfChars: NumberOfChars
 	include: string[] | []
 }
 
-export function generatePassword(length: number, options: DefaultOptions) {
+export function generatePassword(length: number, options: PasswordDefaultOptions) {
 	const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
 	const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 	const NUMBERS = '0123456789'
