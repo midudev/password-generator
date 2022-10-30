@@ -19,7 +19,11 @@ export const ItemPassList = ({ id, url, username, password }) => {
 				alt={'Fav icon'}
 				height={30}
 				width={30}
-				className='text-xs whitespace-nowrap text-ellipsis block'
+				onError={(e) => {
+					e.target.src = 'https://i.imgur.com/C1eyYxI.png'
+					e.onerror = null
+				}}
+				className='text-xs whitespace-nowrap text-ellipsis rounded-md block bg-gray-100'
 			/>
 			<div className='flex-col flex gap-1'>
 				<p className='w-[200px] md:w-[300px] overflow-hidden whitespace-nowrap text-ellipsis'>
