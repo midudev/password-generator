@@ -160,7 +160,7 @@
 	}
 
 	$: passwordScore = generatePasswordScore(password)
-	let userPasswordScore;
+	let userPasswordScore
 
 	let easterEggState = { lastPassword: view === 'generate' ? password : userPassword, count: 1 }
 </script>
@@ -422,7 +422,7 @@
 
 			<button
 				disabled={!userPassword}
-				on:click={() => userPasswordScore = generatePasswordScore(userPassword)}
+				on:click={() => (userPasswordScore = generatePasswordScore(userPassword))}
 				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px] disabled:cursor-default disabled:translate-y-0"
 				>Check Password</button
 			>
@@ -433,13 +433,14 @@
 						<span>{userPasswordScore.password}</span>
 					</div>
 					<div class="flex items-center justify-between">
-						<span class="text-neutral-400 text-sm font-medium">SECURITY</span>
-						<span>{userPasswordScore.strength}</span>
+						<div class="flex items-center space-x-2">
+							<span class="text-neutral-400 text-sm font-medium">TIME TO CRACK</span>
+							<span>{userPasswordScore.timeToCrack}</span>
+						</div>
+						<Badge strength={userPasswordScore.strength} />
 					</div>
-					<div class="flex items-center justify-between">
-						<span class="text-neutral-400 text-sm font-medium">TIME TO CRACK</span>
-						<span>{userPasswordScore.timeToCrack}</span>
-					</div>
+					<BarChart password={userPasswordScore.password} />
+					<div class="w-full border-b border-b-neutral-600" />
 					<div class="flex items-center justify-between">
 						<span class="text-neutral-400 text-sm font-medium">SCORE</span>
 						<span>{userPasswordScore.score}/4</span>
