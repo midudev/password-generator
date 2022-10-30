@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import copyClipboard from '../services/copyClipboard'
 
 export const ButtonCopy = ({ valueCopy }) => {
@@ -11,14 +11,14 @@ export const ButtonCopy = ({ valueCopy }) => {
 		}, 500)
 	}
 	if (isCopied) {
-		return <span className='absolute right-3 top-6 text-xs block'>Copied!</span>
+		return <span className=' select-none  text-xs block'>Copied!</span>
 	}
 	return (
 		<button
 			onClick={handleCopy}
 			role='button'
 			title='Copy'
-			className='absolute right-3 block top-0 bottom-0 my-auto focus:outline-none hover:bg-[rgb(124,127,255,.3)] focus:text-black h-max w-max p-3 rounded-full '
+			className=' focus:outline-none hover:bg-[rgb(124,127,255,.3)] focus:text-black h-max w-max p-3 rounded-full '
 		>
 			<svg
 				width='22px'

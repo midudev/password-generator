@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const InputCheckbox = ({ labelText, name, value, valuesForm }) => {
 	const handleInputCheckboxChange = ({ target }) => {
