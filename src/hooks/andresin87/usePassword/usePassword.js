@@ -18,12 +18,12 @@ export default function usePassword({ length, memorable, prefix } = {}) {
 		const currentFlags = { hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber }
 		const hasSettings =
 			(settings) =>
-				(value, safe = false) =>
-					value.length > 0
-						? Boolean(
+			(value, safe = false) =>
+				value.length > 0
+					? Boolean(
 							value.split('').find((value) => value.match(Password.getRegexPattern(settings)))
 					  ) // eslint-disable-line no-mixed-spaces-and-tabs
-						: safe
+					: safe
 		const flags = {
 			hasLowerCase: hasSettings({ hasLowerCase: true })(value, true),
 			hasCapitalLetter: hasSettings({ hasCapitalLetter: true })(value),

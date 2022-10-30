@@ -12,14 +12,14 @@ const useTokens = (target, tokens, prefix = 'a87') => {
 	const Tokens = forwardRef(({ id, className }, forwardedRef) => {
 		return isReady
 			? createPortal(
-				<style
-					type='text/css'
-					id={id}
-					className={className}
-					ref={forwardedRef}
-					dangerouslySetInnerHTML={{ __html: getTokens(target, tokens, prefix) }}
-				/>,
-				document.head
+					<style
+						type='text/css'
+						id={id}
+						className={className}
+						ref={forwardedRef}
+						dangerouslySetInnerHTML={{ __html: getTokens(target, tokens, prefix) }}
+					/>,
+					document.head
 			  ) // eslint-disable-line no-mixed-spaces-and-tabs
 			: null
 	})
