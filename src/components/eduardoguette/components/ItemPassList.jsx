@@ -33,7 +33,7 @@ export const ItemPassList = ({ id, url, username, password }) => {
 				<p>Username: {username}</p>
 				<p>Password: {password}</p>
 			</div>
-			<ButtonTimes onClickEvent={onDeleteElement} params={id} classStyle='hidden group-hover:grid right-6 top-6 hover:bg-[rgb(36,35,44)]'/>
+			<ButtonTimes onClickEvent={onDeleteElement} params={id} classStyle='md:hidden grid group-hover:grid -right-4 -top-4 md:right-6 md:top-6 md:hover:bg-[rgb(36,35,44)] bg-[rgb(36,35,44)]'/>
 		</li>
 	)
 }
