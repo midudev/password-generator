@@ -159,7 +159,7 @@
 		setTimeout(() => (hasEllipsis = true), 360)
 	}
 
-	$: strength = checkStrength(password)
+	$: passwordStrength = checkStrength(password)
 
 	let easterEggState = { lastPassword: view === 'generate' ? password : userPassword, count: 1 }
 </script>
@@ -341,7 +341,7 @@
 					<span class="text-neutral-400 text-sm font-medium"
 						>LENGTH: <span class="text-neutral-100 text-base">{length}</span></span
 					>
-					<Badge strength={strength.strength} />
+					<Badge strength={passwordStrength.strength} />
 				</div>
 
 				<div class="flex items-center justify-center mt-2 gap-2">
