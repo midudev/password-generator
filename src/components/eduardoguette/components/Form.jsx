@@ -10,7 +10,7 @@ export const Form = () => {
 	const { state, setState } = useContext(AppContext)
 	const { password } = state
 	const [passValues, handleInputChanges] = useForm({
-		lengthPass: 14,
+		lengthPass: 8,
 		maxLength: 25,
 		uppercase: true,
 		lowercase: true,
