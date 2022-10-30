@@ -1,11 +1,10 @@
-<script lang='ts'>
+<script lang="ts">
 	import { onMount } from 'svelte'
 
-	export let width: number, height: number
+	export let width: number, height: number, seed: string
 
 	let canvas: HTMLCanvasElement
 	let currentMousePos
-	let seed: string = ''
 
 	onMount(() => {
 		const ctx = canvas.getContext('2d')
@@ -63,7 +62,3 @@
 </script>
 
 <canvas bind:this={canvas} />
-
-<br />
-
-<span>Seed: {seed}</span>
