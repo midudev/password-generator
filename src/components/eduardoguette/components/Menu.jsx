@@ -41,7 +41,7 @@ export const Menu = ({ state: stateMenu, setState: setStateMenu }) => {
 					<li>
 						<button
 							onClick={() => setShowSaveNewPass(true)}
-							className='text-left  py-2 px-3 hover:bg-[rgb(124,127,255,.3)] hover:text-[rgb(124,127,255)] rounded-md whitespace-nowrap w-full flex items-center gap-5'
+							className='text-left  py-2 px-3 hover:bg-[rgb(124,127,255,.3)] hover:text-[rgb(124,127,255)] rounded-md whitespace-nowrap w-full flex items-center gap-4'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
