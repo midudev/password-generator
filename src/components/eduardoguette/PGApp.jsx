@@ -1,29 +1,25 @@
 import React, { useState } from 'react'
-import logoHack from './assets/logo.jpg'
+
 import { Form } from './components/Form'
+import { HeaderMain } from './components/HeaderMain'
+import { TitleGradient } from './components/TitleGradient'
 import { AppContext } from './context'
 import './index.css'
+
+const initSavedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || []
+
 function PGApp() {
 	const [state, setState] = useState({
-		password: ''
+		password: '',
+		savedPasswords: initSavedPasswords
 	})
 	return (
 		<AppContext.Provider value={{ state, setState }}>
 			<header className='header-eduardoguette'></header>
-			<main className='flex selection:bg-[#b4ff39] selection:text-[#170f1e] justify-center items-center flex-col min-h-screen main-eduardoguette mx-auto w-screen p-5'>
-				<header className='mt-4 self-start '>
-					<a
-						href='/'
-						className='group header-logo-eduardoguette font-mono  saturate-50 flex items-center text-white gap-4 hover:saturate-100'
-					>
-						<img src={logoHack.src} alt='Logo hacktober fest' width={50} />
-						<h1 className='tracking-wide	text-lg shadow-eduardoguette'>HACKTOBERFEST</h1>
-					</a>
-				</header>
+			<main className='flex selection:bg-[#b4ff39] selection:text-[#170f1e] justify-start items-center flex-col min-h-screen main-eduardoguette mx-auto p-5'>
+				<HeaderMain />
 				<section className='flex justify-center mt-10 items-center flex-col w-full'>
-					<h1 className='text-white font-mono  text-center text-2xl md:text-4xl font-semibold  md:mb-16 mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[rgb(255,215,77)] via-[rgb(64,221,255)] to-[rgb(124,127,255)]'>
-						Password Generator
-					</h1>
+					<TitleGradient title='Password Generator' classStyle={'md:mb-16 mb-8 text-2xl md:text-4xl'}/>
 					<Form />
 				</section>
 				<footer className='text-center mt-4 text-white text-opacity-50'>

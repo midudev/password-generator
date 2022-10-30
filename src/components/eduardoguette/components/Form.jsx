@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../context'
 import { useForm } from '../hooks/useForm'
 import { getPass } from '../services/getPass'
-import { ButtonCopy } from './ButtonCopy'
-import './form.css'
+import { BtnHacktober } from './BtnHacktober'
+import { HeaderMenu } from './HeaderMenu'
 import { InputCheckbox } from './InputCheckbox'
 
 export const Form = () => {
@@ -12,7 +12,7 @@ export const Form = () => {
 	const [passValues, handleInputChanges] = useForm({
 		lengthPass: 14,
 		maxLength: 25,
-		uppercase: false,
+		uppercase: true,
 		lowercase: true,
 		numbers: true,
 		symbols: false
@@ -43,11 +43,7 @@ export const Form = () => {
 	}
 
 	const handleColor = () =>
-		lengthPass <= 6
-			? '-red-400'
-			: lengthPass > 6 && lengthPass < 14
-				? '-orange-400'
-				: '-green-400'
+		lengthPass <= 6 ? '-red-400' : lengthPass > 6 && lengthPass < 14 ? '-orange-400' : '-green-400'
 
 	return (
 		<section className='text-white font-mono w-[min(470px,100%)] mx-auto'>
@@ -58,7 +54,7 @@ export const Form = () => {
 				<div
 					className={`bg${handleColor()} h-1 w-full absolute -bottom-0 z-10 rounded-bl rounded-br`}
 				></div>
-				<ButtonCopy valueCopy={password} />
+				<HeaderMenu valueCopy={password} />
 			</label>
 			<div className='px-6 py-8 bg-[rgb(36,35,44)] flex gap-4 flex-col'>
 				<InputCheckbox
@@ -102,14 +98,9 @@ export const Form = () => {
 						max={maxLength}
 					/>
 				</label>
-				<button
-					onClick={handleClickNewPass}
-					role='button'
-					className='w-full rounded-md flex justify-center items-center btn-clip-eduardoguette text-md my-auto focus:outline-none bg-gradient-to-r from-[rgb(255,215,77)] via-[rgb(64,221,255)] to-[rgb(124,127,255)] md:hover:bg-gradient-to-r active:bg-gradient-to-r  tracking-widest drop-shadow-eduardoguette p-3 text-black mt-8 md:hover:rotate-3 active:rotate-3 transition-all relative group'
-				>
-					GENERATE
-					<div className='clip-btn-eduardoguette opacity-10 group-active:opacity-10 md:group-hover:opacity-100 left-0 md:group-hover:left-12 md:group-active:left-12 transition-all duration-700 h-16 w-20 absolute bg-gradient-to-l to-[rgb(255,215,77,.1)] from-[#ffffff5e] drop-shadow' />
-				</button>
+				<div className='mt-4'>
+					<BtnHacktober handleEnvent={handleClickNewPass} text={'GENERATE'} />
+				</div>
 			</div>
 		</section>
 	)

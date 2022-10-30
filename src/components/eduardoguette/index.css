@@ -15,6 +15,8 @@
 	z-index: -1;
 	-webkit-mask-image: radial-gradient(70% 80% at 50% 50%, black 40%, transparent 70%);
 }
+
+ 
 .main-eduardoguette::after {
 	content: '';
 	position: absolute;
@@ -48,6 +50,21 @@
 	white-space: nowrap;
 	overflow: hidden;
 	z-index: 200;
+}
+.input_eduardoguette[type='range']::-webkit-slider-thumb {
+	background: linear-gradient(90deg, rgb(64, 221, 255) 20%, rgb(124, 127, 255) 85%) 0% 0% / 200%
+		100%;
+	-webkit-appearance: none;
+	border-radius: 100px;
+	height: 1.5rem;
+	width: 1.5rem;
+	animation: 1.5s ease 0s infinite alternate none running bg-move-eduardoguette;
+}
+.input_eduardoguette {
+	accent-color: rgb(124, 127, 255);
+}
+.input_eduardoguette:focus {
+	outline-color: rgb(124, 127, 255);
 }
 
 @keyframes numbers-eduardoguette {
