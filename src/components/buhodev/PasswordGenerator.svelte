@@ -460,7 +460,7 @@
 				{#if sidebarView === 'password'}
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
 					<div class="px-4 mt-4">
-						<BarChart />
+						<BarChart {password} />
 					</div>
 
 					<div class="flex flex-col px-4 mt-10 gap-4">
