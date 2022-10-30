@@ -23,7 +23,7 @@ export const ItemPassList = ({ id, url, username, password }) => {
 			/>
 			<div className='flex-col flex gap-1'>
 				<p className='w-[200px] md:w-[300px] overflow-hidden whitespace-nowrap text-ellipsis'>
-					{url}
+					<a href={url} target='_blank' rel='noopener noreferrer'>{url}</a>
 				</p>
 				<p>Username: {username}</p>
 				<p>Password: {password}</p>
