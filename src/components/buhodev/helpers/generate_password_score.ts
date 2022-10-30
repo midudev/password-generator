@@ -15,7 +15,7 @@ export function generatePasswordScore(password) {
 	const hasNumbers = /\d/
 	const hasLower = /[a-z]/
 	const hasUpper = /[A-Z]/
-	const hasSymbols = /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/
+	const hasSymbols = /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/
 
 	// Numbers only
 	const numbers = (length: number): PasswordScore => {
