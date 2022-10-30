@@ -6,7 +6,8 @@
 	import { backOut, quadOut, quadIn } from 'svelte/easing'
 	import {
 		generatePassword,
-		type DefaultOptions
+		type DefaultOptions,
+		type AdvancedOptions
 	} from '@components/buhodev/helpers/generate_password'
 	import { copyToClipboard } from '@components/buhodev/actions/copy_to_clipboard'
 	import { highlight } from '@components/buhodev/helpers/highlight'
@@ -92,6 +93,12 @@
 		lowercase: true,
 		numbers: true,
 		symbols: true
+	}
+
+	const ADVANCED_OPTIONS: AdvancedOptions = {
+		using: 'minimum',
+		numberOfChars: { uppercase: 1, numbers: 1, symbols: 1 },
+		include: []
 	}
 
 	function handleSuccessfulCopy() {

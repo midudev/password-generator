@@ -5,6 +5,17 @@ export interface DefaultOptions {
 	symbols: boolean
 }
 
+interface NumberOfChars {
+	uppercase: number
+	numbers: number
+	symbols: number
+}
+export interface AdvancedOptions {
+	using: 'minimum'
+	numberOfChars: NumberOfChars
+	include: string[] | []
+}
+
 export function generatePassword(length: number, options: DefaultOptions) {
 	const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
 	const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
