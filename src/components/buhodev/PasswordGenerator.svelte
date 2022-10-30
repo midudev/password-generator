@@ -390,7 +390,7 @@
 					type="text"
 					placeholder="Enter a password to check its strength"
 					bind:value={userPassword}
-					class="h-12 py-1 px-4 bg-black/20 border border-white/20 w-full placeholder:text-lg rounded-md"
+					class="h-12 py-1 pl-4 pr-10 bg-black/20 border border-white/20 w-full placeholder:text-lg rounded-md"
 				/>
 				<button
 					disabled={!userPassword}
