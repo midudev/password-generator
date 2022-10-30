@@ -7,6 +7,8 @@ type Strength = {
 export function checkStrength(password) {
 	const hasOnlyNumbers = /^\d+$/
 	const hasOnlyLower = /^[a-z]+$/
+	const hasOnlyUpper = /^[A-Z]+$/
+	const hasOnlySymbols = /^[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]+$/
 	const hasNumbers = /\d/
 	const hasLower = /[a-z]/
 	const hasUpper = /[A-Z]/
@@ -70,14 +72,20 @@ export function checkStrength(password) {
 		if (length < 14) return { type: 'numLowerUpper', timeToCrack: '91k years', strength: 'medium' }
 		if (length < 15) return { type: 'numLowerUpper', timeToCrack: '6m years', strength: 'high' }
 		if (length < 16) return { type: 'numLowerUpper', timeToCrack: '251m years', strength: 'high' }
-		if (length < 17) { return { type: 'numLowerUpper', timeToCrack: '22bn years', strength: 'highest' } }
+		if (length < 17) {
+			return { type: 'numLowerUpper', timeToCrack: '22bn years', strength: 'highest' }
+		}
 		if (length < 18) return { type: 'numLowerUpper', timeToCrack: '1tn years', strength: 'highest' }
-		if (length < 19) { return { type: 'numLowerUpper', timeToCrack: '84tn years', strength: 'highest' } }
+		if (length < 19) {
+			return { type: 'numLowerUpper', timeToCrack: '84tn years', strength: 'highest' }
+		}
 		return { type: 'numLowerUpper', timeToCrack: '> 84tn years', strength: 'highest' }
 	}
 	// Numbers, upper and lowercase letters, symbols
 	const numLowerUpperSym = (length: number) => {
-		if (length < 6) { return { type: 'numLowerUpperSym', timeToCrack: 'instantly', strength: 'lowest' } }
+		if (length < 6) {
+			return { type: 'numLowerUpperSym', timeToCrack: 'instantly', strength: 'lowest' }
+		}
 		if (length < 7) return { type: 'numLowerUpperSym', timeToCrack: '3 sec', strength: 'low' }
 		if (length < 8) return { type: 'numLowerUpperSym', timeToCrack: '4 min', strength: 'low' }
 		if (length < 9) return { type: 'numLowerUpperSym', timeToCrack: '45 hours', strength: 'low' }
@@ -90,7 +98,9 @@ export function checkStrength(password) {
 			return { type: 'numLowerUpperSym', timeToCrack: '20k years', strength: 'medium' }
 		}
 		if (length < 14) return { type: 'numLowerUpperSym', timeToCrack: '2m years', strength: 'high' }
-		if (length < 15) { return { type: 'numLowerUpperSym', timeToCrack: '118m years', strength: 'high' } }
+		if (length < 15) {
+			return { type: 'numLowerUpperSym', timeToCrack: '118m years', strength: 'high' }
+		}
 		if (length < 16) return { type: 'numLowerUpperSym', timeToCrack: '9bn years', strength: 'high' }
 		if (length < 17) {
 			return { type: 'numLowerUpperSym', timeToCrack: '697bn years', strength: 'highest' }
@@ -104,12 +114,49 @@ export function checkStrength(password) {
 		return { type: 'numLowerUpperSym', timeToCrack: '> 4qd years', strength: 'highest' }
 	}
 
-	if (hasOnlyNumbers.test(password)) return numbers(String(password).length)
-	if (hasOnlyLower.test(password)) return lower(String(password).length)
-	if (hasLower.test(password) && hasUpper.test(password)) return lowerUpper(String(password).length)
-	if (hasLower.test(password) && hasUpper.test(password) && hasNumbers.test(password)) {
+	// ✅ only numbers 🔐 -1
+	if (hasOnlyNumbers.test(password)) {
+		return numbers(String(password).length)
+	}
+	// ✅ only lower 🔐 0
+	// ✅ only upper 🔐 0
+	// ✅ only symbols 🔐 0
+	if (hasOnlyLower.test(password) || hasOnlyUpper.test(password) || hasOnlySymbols.test(password)) {
+		return lower(String(password).length)
+	}
+	// ✅ lower + numbers 🔐 1
+	// ✅ upper + numbers 🔐 1
+	// ✅ symbols + numbers 🔐 1
+	if (
+		(hasLower.test(password) && hasNumbers.test(password)) ||
+		(hasUpper.test(password) && hasNumbers.test(password)) ||
+		(hasSymbols.test(password) && hasNumbers.test(password))
+	) {
+		return lowerUpper(String(password).length)
+	}
+	// ✅ lower + symbols 🔐 2
+	// ✅ upper + symbols 🔐 2
+	// ✅ lower + upper 🔐 2
+	if (
+		(hasLower.test(password) && hasSymbols.test(password)) ||
+		(hasUpper.test(password) && hasSymbols.test(password)) ||
+		(hasUpper.test(password) && hasLower.test(password))
+	) {
+		return lowerUpper(String(password).length)
+	}
+	// ✅ lower + upper + numbers 🔐 3
+	// ✅ lower + symbols + numbers 🔐 3
+	// ✅ upper + symbols + numbers 🔐 3
+	// ✅ lower + upper + symbols 🔐 3
+	if (
+		(hasLower.test(password) && hasUpper.test(password) && hasNumbers.test(password)) ||
+		(hasLower.test(password) && hasSymbols.test(password) && hasNumbers.test(password)) ||
+		(hasUpper.test(password) && hasSymbols.test(password) && hasNumbers.test(password)) ||
+		(hasLower.test(password) && hasUpper.test(password) && hasSymbols.test(password))
+	) {
 		return numLowerUpper(String(password).length)
 	}
+	// lower + upper + numbers + symbols 🔐 4
 	if (
 		hasLower.test(password) &&
 		hasUpper.test(password) &&
