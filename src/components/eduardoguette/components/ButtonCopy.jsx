@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import copyClipboard from '../services/copyClipboard'
 
 export const ButtonCopy = ({ valueCopy }) => {

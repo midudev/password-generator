@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { AppContext } from '../context'
 import { ButtonTimes } from './ButtonTimes'
 import { ItemPassList } from './ItemPassList'

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { AppContext } from '../context'
 import { useForm } from '../hooks/useForm'
 import { getPass } from '../services/getPass'
