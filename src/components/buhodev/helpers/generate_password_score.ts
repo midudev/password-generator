@@ -1,4 +1,4 @@
-type Strength = {
+type PasswordScore = {
 	password: string | number
 	warning: string
 	type: 'num' | 'lower' | 'lowerUpper' | 'numLowerUpper' | 'numLowerUpperSym'
@@ -7,7 +7,7 @@ type Strength = {
 	score: 0 | 1 | 2 | 3 | 4
 }
 
-export function checkStrength(password) {
+export function generatePasswordScore(password) {
 	const hasOnlyNumbers = /^\d+$/
 	const hasOnlyLower = /^[a-z]+$/
 	const hasOnlyUpper = /^[A-Z]+$/
@@ -18,7 +18,7 @@ export function checkStrength(password) {
 	const hasSymbols = /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/
 
 	// Numbers only
-	const numbers = (length: number): Strength => {
+	const numbers = (length: number): PasswordScore => {
 		if (length < 11) {
 			return {
 				password,
@@ -29,7 +29,9 @@ export function checkStrength(password) {
 				score: 0
 			}
 		}
-		if (length < 12) { return { password, warning: '', type: 'num', timeToCrack: '1 sec', strength: 'low', score: 1 } }
+		if (length < 12) {
+			return { password, warning: '', type: 'num', timeToCrack: '1 sec', strength: 'low', score: 1 }
+		}
 		if (length < 13) {
 			return {
 				password,

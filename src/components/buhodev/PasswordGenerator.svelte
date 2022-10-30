@@ -17,7 +17,7 @@
 	import PasswordCard from '@components/buhodev/HoloCard.svelte'
 	import { generateDate } from '@components/buhodev/helpers/generate_date'
 	import BarChart from '@components/buhodev/BarChart.svelte'
-	import { checkStrength } from '@components/buhodev/helpers/check_strength'
+	import { generatePasswordScore } from '@components/buhodev/helpers/generate_password_score'
 
 	let isCopied = false
 	let animate = true
@@ -159,7 +159,7 @@
 		setTimeout(() => (hasEllipsis = true), 360)
 	}
 
-	$: passwordStrength = checkStrength(password)
+	$: passwordScore = generatePasswordScore(password)
 
 	let easterEggState = { lastPassword: view === 'generate' ? password : userPassword, count: 1 }
 </script>
@@ -341,7 +341,7 @@
 					<span class="text-neutral-400 text-sm font-medium"
 						>LENGTH: <span class="text-neutral-100 text-base">{length}</span></span
 					>
-					<Badge strength={passwordStrength.strength} />
+					<Badge strength={passwordScore.strength} />
 				</div>
 
 				<div class="flex items-center justify-center mt-2 gap-2">
@@ -421,7 +421,7 @@
 
 			<button
 				disabled={!userPassword}
-				on:click={() => checkStrength(userPassword)}
+				on:click={() => generatePasswordScore(userPassword)}
 				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px] disabled:cursor-default disabled:translate-y-0"
 				>Check Password</button
 			>
