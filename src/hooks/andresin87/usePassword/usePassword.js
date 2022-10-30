@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { Password } from '../../model/index.js'
+import { Password } from '../../../components/andresin87/model/index.js'
 
 export default function usePassword({ length, memorable, prefix } = {}) {
 	const [password, setPassword] = useState('')
@@ -15,6 +15,28 @@ export default function usePassword({ length, memorable, prefix } = {}) {
 	const update = (value) => {
 		setPassword(value)
 		setStrength(Password.passwordStrength(value))
+		const currentFlags = { hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber }
+		const hasSettings =
+			(settings) =>
+				(value, safe = false) =>
+					value.length > 0
+						? Boolean(
+							value.split('').find((value) => value.match(Password.getRegexPattern(settings)))
+					  ) // eslint-disable-line no-mixed-spaces-and-tabs
+						: safe
+		const flags = {
+			hasLowerCase: hasSettings({ hasLowerCase: true })(value, true),
+			hasCapitalLetter: hasSettings({ hasCapitalLetter: true })(value),
+			hasSymbol: hasSettings({ hasSymbol: true })(value),
+			hasNumber: hasSettings({ hasNumber: true })(value)
+		}
+		const result = Object.entries(flags).find(
+			([flagKey, flagValue]) => flagValue === true && currentFlags[flagKey] === false
+		)
+		if (result) {
+			const [flagKey, flagValue] = result
+			setFlags({ ...currentFlags, [flagKey]: flagValue })
+		}
 	}
 
 	const generate = (settings = {}) => {
@@ -39,13 +61,9 @@ export default function usePassword({ length, memorable, prefix } = {}) {
 		generate({
 			length,
 			memorable,
-			prefix,
-			hasLowerCase,
-			hasCapitalLetter,
-			hasSymbol,
-			hasNumber
+			prefix
 		})
-	}, [length, memorable, prefix, hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber])
+	}, [length, memorable, prefix])
 
 	return Object.assign(
 		[

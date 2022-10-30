@@ -1,6 +1,8 @@
 import { useRef } from 'react'
+
 import { Icon } from '../index.js'
-import { icons } from '../../utils/index.js'
+import { handleFn, icons } from '../../utils/index.js'
+
 import './styles.css'
 
 const Password = ({
@@ -13,7 +15,7 @@ const Password = ({
 	...props
 }) => {
 	const inputRef = useRef()
-	const handleInputChange = (event) => onChange(event.target.value)
+	const handleInputChange = (event) => handleFn(onChange)(event.target.value)
 	const handleCopyToClipboard = () => onCopyToClipboard(password)
 	const handleFocus = () => {
 		inputRef.current?.select()

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useControlledState, useTokens } from '../../hooks/index.js'
+import { useControlledState, useTokens } from '../../../../hooks/andresin87/index.js'
 
 import modeDark from './mode-dark.json'
 import modeLight from './mode-light.json'

@@ -9,24 +9,30 @@ const Settings = ({
 	hasCapitalLetter,
 	hasSymbol,
 	hasNumber,
-	setFlags
+	setFlags,
+	generate
 }) => {
-	console.log({
-		hasLowerCase,
-		hasCapitalLetter,
-		hasSymbol,
-		hasNumber,
-		isDisabled: hasLowerCase && !hasCapitalLetter && !hasSymbol && !hasNumber
-	})
 	const handleChangeFlag =
 		(key) =>
-			(event, { value }) =>
-				setFlags((oldState) => {
-					if (!Object.values({ ...oldState, [key]: !value }).includes(true)) {
-						return { ...oldState, [key]: !value, hasLowerCase: true }
-					}
-					return { ...oldState, [key]: !value }
-				})
+			(event, { value }) => {
+				const currentFlags = {
+					hasLowerCase,
+					hasCapitalLetter,
+					hasSymbol,
+					hasNumber
+				}
+				let flags = { ...currentFlags, [key]: !value }
+				if (!Object.values(flags).includes(true)) {
+					flags = { ...currentFlags, [key]: !value, hasLowerCase: true }
+				}
+				setFlags(flags)
+				const result = Object.entries(flags).find(
+					([flagKey, flagValue]) => flagValue === false && currentFlags[flagKey] === true
+				)
+				if (result) {
+					generate({ length: password.length, ...flags })
+				}
+			}
 	return (
 		<div className='settings'>
 			<div className='settings-row'>

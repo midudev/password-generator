@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 
-import { usePassword, useTokens } from './hooks/index.js'
+import { usePassword, useTokens } from '../../hooks/andresin87/index.js'
 
 import { Fingerprint, Password, Mode, Navbar, Settings, Hacktoberfest } from './components/index.js'
 
@@ -58,6 +58,7 @@ const Main = () => {
 							hasSymbol={hasSymbol}
 							hasNumber={hasNumber}
 							setFlags={setFlags}
+							generate={generate}
 						/>
 					</div>
 				</div>

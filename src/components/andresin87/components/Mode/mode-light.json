@@ -6,7 +6,7 @@
   "c-tertiary:": "var(--a87-c-surf--inverted)",
   "ff-default": "orbitron, -apple-system, sans-serif",
   "ff-mono": "'JetBrains Mono', monospace",
-  "i-background": "url('/grain-dark.png')",
+  "i-background": "url('/andresin87/grain-light.png')",
   "c-hover": "var(--a87-c-spark--inverted)",
   "c-focus": "var(--a87-c-surf--inverted)",
   "mbm": "lighten"

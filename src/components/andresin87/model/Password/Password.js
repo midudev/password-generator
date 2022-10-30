@@ -48,18 +48,6 @@ class Password {
 
 	static #ALLOWED_SYMBOLS = '!"#$%&\'()*+,-./:;<=>?@[\\\\\\]^_`{|}~'
 
-	#getRegexPattern = ({ hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber }) => {
-		const regexString = [
-			hasLowerCase && 'a-z',
-			hasCapitalLetter && 'A-Z',
-			hasSymbol && Password.#ALLOWED_SYMBOLS,
-			hasNumber && '0-9'
-		]
-			.filter(Boolean)
-			.join('|')
-		return regexString ? new RegExp(`^[${regexString}]*$`) : /\w/
-	}
-
 	#password = function (
 		length = 10,
 		memorable = false,
@@ -76,7 +64,7 @@ class Password {
 
 		console.log({ hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber })
 
-		let pattern = this.#getRegexPattern({ hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber })
+		let pattern = Password.getRegexPattern({ hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber })
 
 		// Non memorable passwords will pick characters from a pre-generated
 		// list of characters
@@ -140,6 +128,18 @@ class Password {
 		} else {
 			throw new Error('No secure random number generator available.')
 		}
+	}
+
+	static getRegexPattern = ({ hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber }) => {
+		const regexString = [
+			hasLowerCase && 'a-z',
+			hasCapitalLetter && 'A-Z',
+			hasSymbol && Password.#ALLOWED_SYMBOLS,
+			hasNumber && '0-9'
+		]
+			.filter(Boolean)
+			.join('|')
+		return regexString ? new RegExp(`^[${regexString}]*$`) : /\w/
 	}
 
 	static passwordStrength = function (

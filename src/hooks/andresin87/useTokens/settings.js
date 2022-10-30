@@ -1,4 +1,4 @@
-import { generateSelector } from '../../utils/index.js'
+import { generateSelector } from '../../../components/andresin87/utils/index.js'
 
 export const getTokens = (targetElement, tokens = {}, prefix = '') => {
 	const selector = generateSelector(targetElement)
