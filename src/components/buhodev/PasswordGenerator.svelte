@@ -346,8 +346,8 @@
 
 				<div class="flex items-center justify-center mt-2 gap-2">
 					<span>4</span>
-					<input type="range" min="4" max="32" class="w-full" bind:value={length} />
-					<span>32</span>
+					<input type="range" min="4" max="30" class="w-full" bind:value={length} />
+					<span>30</span>
 				</div>
 			</label>
 			<div class="flex flex-col gap-6 w-full mt-10">
