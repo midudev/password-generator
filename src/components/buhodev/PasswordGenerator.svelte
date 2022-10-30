@@ -160,6 +160,7 @@
 	}
 
 	$: passwordScore = generatePasswordScore(password)
+	let userPasswordScore;
 
 	let easterEggState = { lastPassword: view === 'generate' ? password : userPassword, count: 1 }
 </script>
@@ -421,10 +422,44 @@
 
 			<button
 				disabled={!userPassword}
-				on:click={() => generatePasswordScore(userPassword)}
+				on:click={() => userPasswordScore = generatePasswordScore(userPassword)}
 				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px] disabled:cursor-default disabled:translate-y-0"
 				>Check Password</button
 			>
+			{#if userPasswordScore}
+				<div class="flex flex-col gap-6 w-full mt-10">
+					<div class="flex items-center justify-between">
+						<span class="text-neutral-400 text-sm font-medium">PASSWORD</span>
+						<span>{userPasswordScore.password}</span>
+					</div>
+					<div class="flex items-center justify-between">
+						<span class="text-neutral-400 text-sm font-medium">SECURITY</span>
+						<span>{userPasswordScore.strength}</span>
+					</div>
+					<div class="flex items-center justify-between">
+						<span class="text-neutral-400 text-sm font-medium">TIME TO CRACK</span>
+						<span>{userPasswordScore.timeToCrack}</span>
+					</div>
+					<div class="flex items-center justify-between">
+						<span class="text-neutral-400 text-sm font-medium">SCORE</span>
+						<span>{userPasswordScore.score}/4</span>
+					</div>
+					<!-- {#if userPasswordScore.contains}
+						<div class="flex items-center justify-between">
+							<span class="text-neutral-400 text-sm font-medium">CONTAINS</span>
+							{#each userPasswordScore.contains as contain}
+								<span>{contain}</span>
+							{/each}
+						</div>
+					{/if} -->
+					{#if userPasswordScore.warning}
+						<div class="flex items-center justify-between">
+							<span class="text-neutral-400 text-sm font-medium">WARNING</span>
+							<span>{userPasswordScore.warning}</span>
+						</div>
+					{/if}
+				</div>
+			{/if}
 		{/if}
 	</main>
 
