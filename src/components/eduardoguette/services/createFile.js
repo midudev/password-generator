@@ -1,4 +1,5 @@
 export const createFile = (savedPasswords) => {
+	if (savedPasswords.length < 1) return
 	let dataDownloaded = ''
 	savedPasswords.forEach((pass) => {
 		const elem = `

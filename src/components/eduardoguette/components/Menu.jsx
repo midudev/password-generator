@@ -87,8 +87,9 @@ export const Menu = ({ state: stateMenu, setState: setStateMenu }) => {
 					</li>
 					<li>
 						<button
+							disabled={savedPasswords.length < 1}
 							onClick={handleDownloadFile}
-							className='text-left whitespace-nowrap w-full py-2 px-3 hover:bg-[rgb(124,127,255,.3)] hover:text-[rgb(124,127,255)] rounded-md  flex items-start gap-5'
+							className='text-left whitespace-nowrap w-full py-2 px-3 hover:bg-[rgb(124,127,255,.3)] hover:text-[rgb(124,127,255)] rounded-md  flex items-start gap-5 disabled:opacity-90 disabled:cursor-not-allowed'
 						>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
