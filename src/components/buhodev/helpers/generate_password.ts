@@ -11,9 +11,10 @@ interface NumberOfChars {
 	symbols: number
 }
 export interface PasswordAdvancedOptions {
-	using: 'minimum'
+	using: 'minimum' | 'maximum'
 	numberOfChars: NumberOfChars
-	include: string[] | []
+	include: string[] | undefined
+	exclude: string[] | undefined
 }
 
 export function generatePassword(length: number, options: PasswordDefaultOptions) {

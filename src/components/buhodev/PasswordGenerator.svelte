@@ -98,7 +98,8 @@
 	const PASSWORD_ADVANCED_OPTIONS: PasswordAdvancedOptions = {
 		using: 'minimum',
 		numberOfChars: { uppercase: 1, numbers: 1, symbols: 1 },
-		include: []
+		include: [],
+		exclude: []
 	}
 
 	function handleSuccessfulCopy() {
