@@ -2,12 +2,12 @@
 <script lang="ts">
 	import { spring } from 'svelte/motion'
 	import { onMount } from 'svelte'
-	import { activeCard } from './stores/activeCard'
-	import { orientation, resetBaseOrientation } from './stores/orientation'
-	import { clamp, round } from './helpers/math'
+	import { activeCard } from '@components/buhodev/stores/activeCard'
+	import { orientation, resetBaseOrientation } from '@components/buhodev/stores/orientation'
+	import { clamp, round } from '@components/buhodev/helpers/math'
 
-	import Glare from './CardGlare.svelte'
-	import Shine from './CardShine.svelte'
+	import Glare from '@components/buhodev/CardGlare.svelte'
+	import Shine from '@components/buhodev/CardShine.svelte'
 
 	export let cardBack = '/buhodev/card_back.jpg'
 	export let img = cardBack

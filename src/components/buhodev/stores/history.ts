@@ -1,6 +1,6 @@
-import { writable } from './localStorage'
+import { writable } from '@components/buhodev/stores/localStorage'
 import { get } from 'svelte/store'
-import { addToast } from './toast'
+import { addToast } from '@components/buhodev/stores/toast'
 
 type PasswordEntry = {
 	password: string

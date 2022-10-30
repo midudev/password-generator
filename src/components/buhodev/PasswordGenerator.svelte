@@ -2,7 +2,7 @@
 	import Badge from './Badge.svelte'
 
 	import { fade, fly } from 'svelte/transition'
-	import { flipboard } from './transitions/flipboard'
+	import { flipboard } from '@components/buhodev/transitions/flipboard'
 	import { backOut, quadOut, quadIn } from 'svelte/easing'
 	import {
 		generatePassword,
@@ -11,12 +11,12 @@
 	import { copyToClipboard } from '@components/buhodev/actions/copy_to_clipboard'
 	import { highlight } from '@components/buhodev/helpers/highlight'
 	import Toasts from '@components/buhodev/Toasts.svelte'
-	import { addToast } from './stores/toast'
+	import { addToast } from '@components/buhodev/stores/toast'
 	import { savedPasswords, addPassword, clearAll } from '@components/buhodev/stores/history'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte'
 	import PasswordCard from '@components/buhodev/HoloCard.svelte'
 	import { generateDate } from '@components/buhodev/helpers/generate_date'
-	import BarChart from './BarChart.svelte'
+	import BarChart from '@components/buhodev/BarChart.svelte'
 	import { checkStrength } from '@components/buhodev/helpers/check_strength'
 
 	let isCopied = false
