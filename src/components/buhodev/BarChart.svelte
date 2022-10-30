@@ -43,7 +43,7 @@
 					<span class="text-center text-xs">{numberOfCharacters[char]}</span>
 				{/if}
 				<div
-					class="bg-purple-500/80 border rounded-tl-sm rounded-tr-sm border-b-0 flex"
+					class="bg-purple-500/80 border rounded-tl-sm rounded-tr-sm border-b-0 flex transition-all"
 					style="flex-basis: {calculateHeight(numberOfCharacters[char], 30)}%"
 				>
 					{#if numberOfCharacters[char] > 3}
