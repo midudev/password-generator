@@ -17,6 +17,7 @@
 	import PasswordCard from '@components/buhodev/HoloCard.svelte'
 	import { generateDate } from '@components/buhodev/helpers/generate_date'
 	import BarChart from './BarChart.svelte'
+	import { checkStrength } from '@components/buhodev/helpers/check_strength'
 
 	let isCopied = false
 	let animate = true
@@ -137,11 +138,6 @@
 		easterEggState.lastPassword = password
 	}
 
-	function checkStrength(password: string) {
-		/* svelte-ignore missing-declaration */
-		console.log(zxcvbn(password))
-	}
-
 	$: if (
 		DEFAULT_OPTIONS.lowercase === false &&
 		DEFAULT_OPTIONS.uppercase === false &&
@@ -163,12 +159,10 @@
 		setTimeout(() => (hasEllipsis = true), 360)
 	}
 
+	$: strength = checkStrength(password)
+
 	let easterEggState = { lastPassword: view === 'generate' ? password : userPassword, count: 1 }
 </script>
-
-<svelte:head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js" defer></script>
-</svelte:head>
 
 <Toasts />
 
@@ -347,7 +341,7 @@
 					<span class="text-neutral-400 text-sm font-medium"
 						>LENGTH: <span class="text-neutral-100 text-base">{length}</span></span
 					>
-					<Badge />
+					<Badge strength={strength.strength} />
 				</div>
 
 				<div class="flex items-center justify-center mt-2 gap-2">
