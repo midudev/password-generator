@@ -54,7 +54,7 @@ export const Form = () => {
 				<div
 					className={`bg${handleColor()} h-1 w-full absolute -bottom-0 z-10 rounded-bl rounded-br`}
 				></div>
-				<HeaderMenu valueCopy={password} />
+				<HeaderMenu />
 			</label>
 			<div className='px-6 py-8 bg-[rgb(36,35,44)] flex gap-4 flex-col'>
 				<InputCheckbox

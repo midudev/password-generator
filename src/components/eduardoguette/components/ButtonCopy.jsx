@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { AppContext } from '../context'
 import copyClipboard from '../services/copyClipboard'
 
-export const ButtonCopy = ({ valueCopy }) => {
+export const ButtonCopy = () => {
+	const { state } = useContext(AppContext)
+	const { password } = state
 	const [isCopied, setIsCopied] = useState(false)
 	const handleCopy = () => {
 		setIsCopied(true)
 		setTimeout(() => {
-			copyClipboard(valueCopy)
+			copyClipboard(password)
 			setIsCopied(false)
 		}, 500)
 	}
