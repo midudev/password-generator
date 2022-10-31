@@ -9,6 +9,10 @@
 		type PasswordDefaultOptions,
 		type PasswordAdvancedOptions
 	} from '@components/buhodev/helpers/generate_password'
+	import {
+		generatePassphrase,
+		type PassphraseOptions
+	} from '@components/buhodev/helpers/generate_passphrase'
 	import { copyToClipboard } from '@components/buhodev/actions/copy_to_clipboard'
 	import { highlight } from '@components/buhodev/helpers/highlight'
 	import Toasts from '@components/buhodev/Toasts.svelte'
@@ -108,6 +112,12 @@
 		exclude: []
 	}
 
+	const PASSPHRASE_OPTIONS: PassphraseOptions = {
+		wordsCount: 3,
+		wordList: 'short',
+		separator: '-'
+	}
+
 	function handleSuccessfulCopy() {
 		isCopied = true
 		addToast({ message: 'Copied', type: 'info', dismissible: false, timeout: 3000 })
@@ -116,7 +126,9 @@
 
 	function handleSave() {
 		if (view === 'generate') {
-			addPassword({ password: password, generated: generateDate() })
+			if (sidebarView === 'password') addPassword({ password: password, generated: generateDate() })
+			if (sidebarView === 'passphrase')
+				addPassword({ password: passphrase, generated: generateDate() })
 		} else if (view === 'check' && userPassword) {
 			addPassword({ password: userPassword, generated: generateDate() })
 		} else {
@@ -176,7 +188,11 @@
 	}
 
 	$: password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed)
-	$: highlighted_password = highlight(generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed))
+	$: highlighted_password = highlight(
+		generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed)
+	)
+	$: passphrase = generatePassphrase(PASSPHRASE_OPTIONS, currentSeed)
+	$: highlighted_passphrase = highlight(generatePassphrase(PASSPHRASE_OPTIONS, currentSeed))
 	let userPassword = ''
 
 	$: {
@@ -184,10 +200,12 @@
 		hasEllipsis = false
 		length
 		password
+		passphrase
 		setTimeout(() => (hasEllipsis = true), 360)
 	}
 
 	$: passwordScore = generatePasswordScore(password)
+	$: passphraseScore = generatePasswordScore(passphrase)
 	let userPasswordScore
 
 	let easterEggState = { lastPassword: view === 'generate' ? password : userPassword, count: 1 }
@@ -264,7 +282,7 @@
 		{#if view === 'generate'}
 			<!-- Password -->
 			<button
-				use:copyToClipboard={{ text: password }}
+				use:copyToClipboard={{ text: sidebarView === 'password' ? password : passphrase }}
 				on:copied={handleSuccessfulCopy}
 				on:error={() =>
 					addToast({ message: 'Error: Password not copied', type: 'error', timeout: 3000 })}
@@ -277,10 +295,10 @@
 					class="overflow-hidden text-left w-96 whitespace-nowrap"
 				>
 					{#if !animate}
-						{password}
+						{sidebarView === 'password' ? password : passphrase}
 					{:else if animation == 'fly'}
-						{#key password}
-							{#each password.split('') as char, i}
+						{#key sidebarView === 'password' ? password : passphrase}
+							{#each (sidebarView === 'password' ? password : passphrase).split('') as char, i}
 								{#if !isNaN(Number(char))}
 									<span
 										class="inline-block text-pink-400 leading-none"
@@ -318,9 +336,9 @@
 							{/each}
 						{/key}
 					{:else if animation == 'flipboard'}
-						{#key highlighted_password}
+						{#key sidebarView === 'password' ? highlighted_password : highlighted_passphrase}
 							<span class="leading-none" in:flipboard={{ duration: 300 }}>
-								{@html highlighted_password}
+								{@html sidebarView === 'password' ? highlighted_password : highlighted_passphrase}
 							</span>
 						{/key}
 					{/if}
@@ -364,54 +382,84 @@
 					/>
 				</svg>
 			</button> -->
+			{#if sidebarView === 'password'}
+				<label for="length" class="mt-10 inline-block w-full">
+					<div class="flex items-center justify-between">
+						<span class="text-neutral-400 text-sm font-medium"
+							>LENGTH: <span class="text-neutral-100 text-base">{length}</span></span
+						>
+						<Badge strength={passwordScore.strength} />
+					</div>
 
-			<label for="length" class="mt-10 inline-block w-full">
-				<div class="flex items-center justify-between">
-					<span class="text-neutral-400 text-sm font-medium"
-						>LENGTH: <span class="text-neutral-100 text-base">{length}</span></span
-					>
-					<Badge strength={passwordScore.strength} />
-				</div>
-
-				<div class="flex items-center justify-center mt-2 gap-2">
-					<span>4</span>
-					<input type="range" min="4" max="30" class="w-full" bind:value={length} />
-					<span>30</span>
-				</div>
-			</label>
-			<div class="flex flex-col gap-6 w-full mt-10">
-				<span class="text-neutral-400 text-sm font-medium">INCLUDE</span>
-				{#each INCLUDE_OPTIONS as { title, id, characters, description } (id)}
-					<label
-						for={id}
-						class="border-lg flex w-full cursor-pointer rounded border border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100"
-					>
-						<!-- TODO: find a better way to align the radio input with the title -->
-						<input
-							{id}
-							type="checkbox"
-							value=""
-							name="id"
-							bind:checked={PASSWORD_DEFAULT_OPTIONS[id]}
-							class="w-4 h-4 mt-1 mr-2 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
-						/>
-						<div class="flex flex-col">
-							<div>
-								<span class="font-semibold">{title}</span>
-								<span class="text-gray-200">{characters}</span>
+					<div class="flex items-center justify-center mt-2 gap-2">
+						<span>4</span>
+						<input type="range" min="4" max="30" class="w-full" bind:value={length} />
+						<span>30</span>
+					</div>
+				</label>
+				<div class="flex flex-col gap-6 w-full mt-10">
+					<span class="text-neutral-400 text-sm font-medium">INCLUDE</span>
+					{#each INCLUDE_OPTIONS as { title, id, characters, description } (id)}
+						<label
+							for={id}
+							class="border-lg flex w-full cursor-pointer rounded border border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100"
+						>
+							<!-- TODO: find a better way to align the radio input with the title -->
+							<input
+								{id}
+								type="checkbox"
+								value=""
+								name="id"
+								bind:checked={PASSWORD_DEFAULT_OPTIONS[id]}
+								class="w-4 h-4 mt-1 mr-2 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
+							/>
+							<div class="flex flex-col">
+								<div>
+									<span class="font-semibold">{title}</span>
+									<span class="text-gray-200">{characters}</span>
+								</div>
+								<span class="text-gray-200">{description}</span>
 							</div>
-							<span class="text-gray-200">{description}</span>
-						</div>
-					</label>
-				{/each}
-			</div>
+						</label>
+					{/each}
+				</div>
 
-			<!-- Generate Password Button -->
-			<button
-				on:click={() => (password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed))}
-				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
-				>Generate Password</button
-			>
+				<!-- Generate Password Button -->
+				<button
+					on:click={() =>
+						(password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed))}
+					class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
+					>Generate Password</button
+				>
+			{:else if sidebarView === 'passphrase'}
+				<label for="length" class="mt-10 inline-block w-full">
+					<div class="flex items-center justify-between">
+						<span class="text-neutral-400 text-sm font-medium"
+							>WORDS: <span class="text-neutral-100 text-base">{PASSPHRASE_OPTIONS.wordsCount}</span
+							></span
+						>
+						<Badge strength={passphraseScore.strength} />
+					</div>
+
+					<div class="flex items-center justify-center mt-2 gap-2">
+						<span>1</span>
+						<input
+							type="range"
+							min="1"
+							max="6"
+							class="w-full"
+							bind:value={PASSPHRASE_OPTIONS.wordsCount}
+						/>
+						<span>6</span>
+					</div>
+				</label>
+				<!-- Generate Passphrase Button -->
+				<button
+					on:click={() => (passphrase = generatePassphrase(PASSPHRASE_OPTIONS))}
+					class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
+					>Generate Passphrase</button
+				>
+			{/if}
 		{:else}
 			<div class="relative mt-8  flex items-center justify-start font-bold font-mono text-3xl">
 				<input

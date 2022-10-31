@@ -8,7 +8,7 @@ export interface PassphraseOptions {
 	separator: '-' | '_' | '.' | ',' | ' ' | '/'
 }
 
-export function generatePassphrase(options: PassphraseOptions) {
+export function generatePassphrase(options: PassphraseOptions, seed: string) {
 	const { wordsCount, wordList, separator } = options
 
 	let selectedWordList: Record<string, string>
