@@ -175,8 +175,8 @@
 		currentSeed = ''
 	}
 
-	$: password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS)
-	$: highlighted_password = highlight(generatePassword(length, PASSWORD_DEFAULT_OPTIONS))
+	$: password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed)
+	$: highlighted_password = highlight(generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed))
 	let userPassword = ''
 
 	$: {
@@ -345,7 +345,7 @@
 			</button>
 
 			<!-- <button
-				on:click={() => (password = generatePassword(length, DEFAULT_OPTIONS))}
+				on:click={() => (password = generatePassword(length, DEFAULT_OPTIONS, currentSeed))}
 				title="Refresh password"
 				class="rounded-md border border-white/30 hover:border-white/60 active:bg-gray-400/20 group flex items-center justify-center p-2.5"
 			>
@@ -408,7 +408,7 @@
 
 			<!-- Generate Password Button -->
 			<button
-				on:click={() => (password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS))}
+				on:click={() => (password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed))}
 				class="generate-password relative inline-flex w-full h-12 mt-8 bg-gradient-to-tr from-blue-700 to-sky-400 cursor-pointer touch-manipulation select-none items-center justify-center whitespace-nowrap rounded-md border-0 px-4 text-lg leading-none text-white active:translate-y-[1px]"
 				>Generate Password</button
 			>

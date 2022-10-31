@@ -15,9 +15,10 @@ export interface PasswordAdvancedOptions {
 	numberOfChars: NumberOfChars
 	include: string[] | undefined
 	exclude: string[] | undefined
+	seed: string
 }
 
-export function generatePassword(length: number, options: PasswordDefaultOptions) {
+export function generatePassword(length: number, options: PasswordDefaultOptions, seed) {
 	const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
 	const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 	const NUMBERS = '0123456789'
