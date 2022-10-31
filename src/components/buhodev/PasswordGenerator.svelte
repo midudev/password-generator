@@ -71,6 +71,33 @@
 		}
 	]
 
+	const SEPARATOR_OPTIONS = [
+		{
+			title: 'Hyphens',
+			id: '-'
+		},
+		{
+			title: 'Underscores',
+			id: '_'
+		},
+		{
+			title: 'Periods',
+			id: '.'
+		},
+		{
+			title: 'Commas',
+			id: ','
+		},
+		{
+			title: 'Spaces',
+			id: ' '
+		},
+		{
+			title: 'Slashes',
+			id: '/'
+		}
+	]
+
 	const SEED_OPTIONS = [
 		{
 			title: 'Pseudo-random',
@@ -651,13 +678,25 @@
 						<!-- TODO: needs refactor -->
 						<BarChart password={passphrase} />
 					</div>
-					<span class="px-4 mt-10 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
-					<div
-						in:fade={{ duration: 200 }}
-						class="m-4 p-10 flex flex-col bg-neutral-600/10 text-gray-100 rounded-md items-center justify-center leading-none whitespace-nowrap"
-					>
-						<img class="w-10 h-10 mb-4" src="/buhodev/icons/lordicon/butt.webp" alt="" />
-						Nothing to show here
+
+					<div class="flex flex-col px-4 mt-10 gap-4">
+						<span class="text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+
+						<label
+							for="quantityOfCharacters"
+							class="flex items-center justify-between text-sm font-medium text-neutral-100"
+						>
+							Separator
+							<select
+								bind:value={PASSPHRASE_OPTIONS.separator}
+								id="quantityOfCharacters"
+								class="border text-sm rounded-lg px-2 py-1 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
+							>
+								{#each SEPARATOR_OPTIONS as { title, id }}
+									<option value={id} selected>{title}</option>
+								{/each}
+							</select>
+						</label>
 					</div>
 				{/if}
 
@@ -721,9 +760,16 @@
 				</div>
 			{/if}
 
-			<div class="m-4 p-4 text-sm bg-neutral-600/10 space-x-1 flex text-neutral-300 rounded-md leading-none">
+			<div
+				class="m-4 p-4 text-sm bg-neutral-600/10 space-x-1 flex text-neutral-300 rounded-md leading-none"
+			>
 				<span class="w-5 h-5 flex justify-center">
-					<svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5" viewBox="0 0 24 24" fill="none">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="inline-block w-5 h-5"
+						viewBox="0 0 24 24"
+						fill="none"
+					>
 						<path
 							d="M16.125 9.75 10.622 15l-2.747-2.625"
 							stroke="#fff"
