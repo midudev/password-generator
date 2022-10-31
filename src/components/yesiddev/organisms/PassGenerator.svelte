@@ -6,10 +6,10 @@
 	import PassOptions from './PassOptions.svelte'
 
 	// strings
-	let numbers = '0123456789'
-	let lowerChars = 'abcdefghijklmnopqrstuvwxyz'
-	let upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-	let symbols = '!@#$%^&*_-+=[](){}'
+	const numbers = '0123456789'
+	const lowerChars = 'abcdefghijklmnopqrstuvwxyz'
+	const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	const symbols = '!@#$%^&*_-+=[](){}'
 	let newPass
 
 	// booleans
