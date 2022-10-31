@@ -19,6 +19,7 @@
 	import { generateDate } from '@components/buhodev/helpers/generate_date'
 	import BarChart from '@components/buhodev/BarChart.svelte'
 	import { generatePasswordScore } from '@components/buhodev/helpers/generate_password_score'
+  	import SeedGenerator from '@components/buhodev/SeedGenerator.svelte'
 
 	let isCopied = false
 	let animate = true
@@ -32,6 +33,7 @@
 	let sidebarView: 'password' | 'passphrase' = 'password'
 	let hasEllipsis = false
 	let showEasterEgg = false
+	let showSeedGenerator = false
 	let isOverlayDimissable = false
 
 	const INCLUDE_OPTIONS = [
@@ -666,6 +668,20 @@
 		</aside>
 	{/if}
 </div>
+
+{#if showSeedGenerator}
+	<div
+		on:click|self={() => {
+			showSeedGenerator = false
+		}}
+		transition:fade={{ duration: 200 }}
+		class="absolute flex items-center justify-center bg-black/5 backdrop-blur-xl inset-0 z-[1000]"
+	>
+		<div class="m-auto z-[99]">
+			<SeedGenerator />
+		</div>
+	</div>
+{/if}
 
 {#if showEasterEgg}
 	<div
