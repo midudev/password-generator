@@ -214,9 +214,14 @@
 		currentSeed = ''
 	}
 
-	$: password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed)
+	$: password = generatePassword(
+		length,
+		PASSWORD_DEFAULT_OPTIONS,
+		PASSWORD_ADVANCED_OPTIONS,
+		currentSeed
+	)
 	$: highlighted_password = highlight(
-		generatePassword(length, PASSWORD_DEFAULT_OPTIONS, currentSeed)
+		generatePassword(length, PASSWORD_DEFAULT_OPTIONS, PASSWORD_ADVANCED_OPTIONS, currentSeed)
 	)
 	$: passphrase = generatePassphrase(PASSPHRASE_OPTIONS, currentSeed)
 	$: highlighted_passphrase = highlight(generatePassphrase(PASSPHRASE_OPTIONS, currentSeed))
@@ -611,11 +616,12 @@
 						>
 							Using
 							<select
+								bind:value={PASSWORD_ADVANCED_OPTIONS.using}
 								id="quantityOfCharacters"
 								class="border text-sm rounded-lg px-2 py-1 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
 							>
-								<option value="min" selected>Minimum</option>
-								<option value="max">Maximum</option>
+								<option value="minimum" selected>Minimum</option>
+								<option value="maximum">Maximum</option>
 							</select>
 						</label>
 
@@ -625,8 +631,14 @@
 						>
 							Uppercase
 							<div class="flex items-center justify-center gap-2">
-								<input type="range" min="1" max="6" class="w-full" value="1" />
-								<span>6</span>
+								<input
+									bind:value={PASSWORD_ADVANCED_OPTIONS.numberOfChars.uppercase}
+									type="range"
+									min="1"
+									max="6"
+									class="w-full"
+								/>
+								<span>{PASSWORD_ADVANCED_OPTIONS.numberOfChars.uppercase}</span>
 							</div>
 						</label>
 						<label
@@ -635,8 +647,14 @@
 						>
 							Numbers
 							<div class="flex items-center justify-center gap-2">
-								<input type="range" min="1" max="6" class="w-full" value="1" />
-								<span>6</span>
+								<input
+									bind:value={PASSWORD_ADVANCED_OPTIONS.numberOfChars.numbers}
+									type="range"
+									min="1"
+									max="6"
+									class="w-full"
+								/>
+								<span>{PASSWORD_ADVANCED_OPTIONS.numberOfChars.numbers}</span>
 							</div>
 						</label>
 						<label
@@ -645,8 +663,14 @@
 						>
 							Symbols
 							<div class="flex items-center justify-center gap-2">
-								<input type="range" min="1" max="6" class="w-full" value="1" />
-								<span>6</span>
+								<input
+									bind:value={PASSWORD_ADVANCED_OPTIONS.numberOfChars.symbols}
+									type="range"
+									min="1"
+									max="6"
+									class="w-full"
+								/>
+								<span>{PASSWORD_ADVANCED_OPTIONS.numberOfChars.symbols}</span>
 							</div>
 						</label>
 
@@ -661,15 +685,29 @@
 								</select>
 							</label>
 
-							<label for="input-include-exclude" class="text-sm text-neutral-100 w-full">
-								<input
-									type="text"
-									name=""
-									id="input-include-exclude"
-									placeholder="#$%&/("
-									class="border w-full text-sm rounded-lg px-1.5 py-1 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
-								/>
-							</label>
+							{#if PASSWORD_ADVANCED_OPTIONS.sortOption === 'include'}
+								<label for="input-include" class="text-sm text-neutral-100 w-full">
+									<input
+										bind:value={PASSWORD_ADVANCED_OPTIONS.include}
+										type="text"
+										name=""
+										id="input-include"
+										placeholder="#$%&/("
+										class="border w-full text-sm rounded-lg px-1.5 py-1 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
+									/>
+								</label>
+							{:else}
+								<label for="input-exclude" class="text-sm text-neutral-100 w-full">
+									<input
+										bind:value={PASSWORD_ADVANCED_OPTIONS.exclude}
+										type="text"
+										name=""
+										id="input-exclude"
+										placeholder="#$%&/("
+										class="border w-full text-sm rounded-lg px-1.5 py-1 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
+									/>
+								</label>
+							{/if}
 						</div>
 					</div>
 				{:else}

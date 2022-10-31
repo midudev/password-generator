@@ -13,8 +13,9 @@ interface NumberOfChars {
 export interface PasswordAdvancedOptions {
 	using: 'minimum' | 'maximum'
 	numberOfChars: NumberOfChars
-	include: string[] | undefined
-	exclude: string[] | undefined
+	sortOption: 'include' | 'exclude'
+	include: string | undefined
+	exclude: string | undefined
 	seed: string
 }
 
