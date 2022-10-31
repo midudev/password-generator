@@ -134,8 +134,10 @@
 	const PASSWORD_ADVANCED_OPTIONS: PasswordAdvancedOptions = {
 		using: 'minimum',
 		numberOfChars: { uppercase: 1, numbers: 1, symbols: 1 },
-		include: [],
-		exclude: []
+		include: "",
+		exclude: "",
+		sortOption: 'include',
+		seed: currentSeed
 	}
 
 	const PASSPHRASE_OPTIONS: PassphraseOptions = {
