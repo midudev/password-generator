@@ -4,5 +4,6 @@ export default {
 	UPPER_CASE: 'upperCase',
 	NUMBERS: 'numbers',
 	SIMBOLS: 'simbols',
+	ESPACES: 'allowEspaces',
 	EMOJIS: 'emojis'
 }

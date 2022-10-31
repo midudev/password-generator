@@ -1,28 +1,75 @@
-.container {
+.lg-h-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+	height: 100%;
+	background-color: #24124b;
+	padding: 1.2% 20%;
+}
+
+.lg-h-content-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+	width: 100%;
+	justify-content: center;
+}
+
+.lg-h-settings {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 600px;
-	height: 100%;
-	background-color: rgb(225, 225, 225);
+	width: 100%;
+	font-size: 12px;
 }
 
-.separator {
-	height: 30px;
-}
-.horizontal-separator {
-	width: 16px;
+.lg-h-title-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-color: #f4649f;
+	border-width: 6px;
+	border-style: dashed;
+	padding: 30px 40px;
+	border-radius: 18px;
+	width: 666px;
 }
 
-.button {
-	border-color: cadetblue;
-	border-width: 1px;
-	padding: 10px;
+.lg-h-title {
+	font-size: 42px;
+	color: #f4649f;
+	font-weight: bold;
+	letter-spacing: 4px;
 }
 
-.row-container {
+.lg-h-subtitle {
+	font-size: 18px;
+	color: #b593cc;
+	font-weight: bold;
+}
+
+.lg-h-settings-label {
+	font-size: 14px;
+	color: #b593cc;
+}
+
+.lg-h-checkbox-container {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.lg-h-checkbox-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
 }

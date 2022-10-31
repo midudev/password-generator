@@ -1,9 +1,9 @@
 // @vendors
 import React, { useState, useEffect, useMemo } from 'react'
 // @components
-import { CheckBox, Range, CopyIcon } from '../../Components'
+import { CheckBox, Range, AboutMe, PasswordBox, Divider } from '../../Components'
 // @utils
-import randomPasswordGenerator from '../../Scripts/RPG'
+import randomPasswordGenerator, { getPasswordEntropy } from '../../Scripts/RPG'
 // @config
 import settingsKeys from '../../config/settingsKeys'
 // @styles
@@ -17,6 +17,7 @@ const defaultConfig = {
 	[settingsKeys.UPPER_CASE]: true,
 	[settingsKeys.NUMBERS]: true,
 	[settingsKeys.SIMBOLS]: true,
+	[settingsKeys.ESPACES]: false,
 	[settingsKeys.EMOJIS]: false
 }
 
@@ -33,91 +34,112 @@ export default function Page() {
 	}, [settings])
 
 	const handleInputChange = ({ target }) => {
-		const { type, checked, value, name } = target
+		const { type, value, name } = target
 
 		setSettings((prevState) => ({
 			...prevState,
-			[name]: type === 'checkbox' ? checked : value
+			[name]: type === 'button' ? !prevState[name] : value
 		}))
-	}
-
-	const copyToClipboard = () => {
-		navigator.clipboard.writeText(randomPassword)
 	}
 
 	const generatePassword = () => {
 		setRandomPassword(randomPasswordGenerator(settings))
 	}
 
-	useEffect(generatePassword, [])
+	useEffect(generatePassword, [settings])
 
 	return (
-		<div className='container'>
-			RANDOM PASSWORD GENERATOR
-			<div className='separator' />
-			<div className='row-container'>
-				<label>{randomPassword}</label>
-				<div className='horizontal-separator' />
-				<CopyIcon onClick={copyToClipboard} />
+		<main className='lg-h-container'>
+			<div className='lg-h-content-box'>
+				<div className='lg-h-title-box'>
+					<label className='lg-h-title'>RANDOM</label>
+					<label className='lg-h-title'>PASSWORD</label>
+					<label className='lg-h-title'>GENERATOR</label>
+				</div>
+				<Divider height={16} />
+				<label className='lg-h-subtitle'>
+					Create strong and secure passwords to keep your accounts safe
+				</label>
+				<Divider height={50} />
+				<PasswordBox
+					password={randomPassword}
+					entropy={getPasswordEntropy(settings)}
+					onCreate={generatePassword}
+				/>
+				<div className='lg-h-settings'>
+					<Divider height={50} />
+					<Range
+						name={settingsKeys.LENGTH}
+						label='Password Length'
+						min='4'
+						max='64'
+						value={settings[settingsKeys.LENGTH]}
+						onChange={handleInputChange}
+					/>
+
+					<Divider height={36} />
+					<div className='lg-h-checkbox-container'>
+						<div className='lg-h-checkbox-box'>
+							<CheckBox
+								name={settingsKeys.LOWER_CASE}
+								label='Allow Lowercase (abc)'
+								isChecked={settings[settingsKeys.LOWER_CASE]}
+								onChange={handleInputChange}
+								disabled={allowDisable && settings[settingsKeys.LOWER_CASE]}
+							/>
+							<Divider height={28} />
+							<CheckBox
+								name={settingsKeys.UPPER_CASE}
+								label='Allow Uppercase (ABC)'
+								isChecked={settings[settingsKeys.UPPER_CASE]}
+								onChange={handleInputChange}
+								disabled={allowDisable && settings[settingsKeys.UPPER_CASE]}
+							/>
+							<Divider height={28} />
+							<CheckBox
+								name={settingsKeys.NUMBERS}
+								label='Allow Numbers (0-9)'
+								isChecked={settings[settingsKeys.NUMBERS]}
+								onChange={handleInputChange}
+								disabled={allowDisable && settings[settingsKeys.NUMBERS]}
+							/>
+						</div>
+						<Divider width={28} />
+						<div className='lg-h-checkbox-box'>
+							<CheckBox
+								name={settingsKeys.SIMBOLS}
+								label='Allow Symbols (!@#$%^&*()+)'
+								isChecked={settings[settingsKeys.SIMBOLS]}
+								onChange={handleInputChange}
+								disabled={allowDisable && settings[settingsKeys.SIMBOLS]}
+							/>
+							<Divider height={28} />
+							<CheckBox
+								name={settingsKeys.ESPACES}
+								label='Allow Espaces (AbC 0Fd)'
+								isChecked={settings[settingsKeys.ESPACES]}
+								onChange={handleInputChange}
+								disabled={allowDisable && settings[settingsKeys.ESPACES]}
+							/>
+							<Divider height={28} />
+							<CheckBox
+								name={settingsKeys.EMOJIS}
+								label='Allow Alt Emojis (♫♥♦♣♠★)'
+								hint='EXPERIMENTAL, may not work on all platforms'
+								isChecked={settings[settingsKeys.EMOJIS]}
+								onChange={handleInputChange}
+								disabled={allowDisable && settings[settingsKeys.EMOJIS]}
+							/>
+						</div>
+					</div>
+					<Divider height={20} />
+					<label className='lg-h-settings-label'>
+						Use the settings to specify parameters to improve your password security
+					</label>
+				</div>
 			</div>
-			<div className='separator' />
-			<Range
-				name={settingsKeys.LENGTH}
-				label='Password Length'
-				min='4'
-				max='50'
-				value={settings[settingsKeys.LENGTH]}
-				onChange={handleInputChange}
-			/>
-			<div className='separator' />
-			<CheckBox
-				name={settingsKeys.LOWER_CASE}
-				label='Allow Lowercase (abc)'
-				isChecked={settings[settingsKeys.LOWER_CASE]}
-				onChange={handleInputChange}
-				disabled={allowDisable && settings[settingsKeys.LOWER_CASE]}
-			/>
-			<CheckBox
-				name={settingsKeys.UPPER_CASE}
-				label='Allow Uppercase (ABC)'
-				isChecked={settings[settingsKeys.UPPER_CASE]}
-				onChange={handleInputChange}
-				disabled={allowDisable && settings[settingsKeys.UPPER_CASE]}
-			/>
-			<CheckBox
-				name={settingsKeys.NUMBERS}
-				label='Allow Numbers (0-9)'
-				isChecked={settings[settingsKeys.NUMBERS]}
-				onChange={handleInputChange}
-				disabled={allowDisable && settings[settingsKeys.NUMBERS]}
-			/>
-			<CheckBox
-				name={settingsKeys.SIMBOLS}
-				label='Allow Symbols (!@#$%^&*()+)'
-				isChecked={settings[settingsKeys.SIMBOLS]}
-				onChange={handleInputChange}
-				disabled={allowDisable && settings[settingsKeys.SIMBOLS]}
-			/>
-			<CheckBox
-				name={settingsKeys.EMOJIS}
-				label='Allow Emojis (😎👌🏻👍🏻)'
-				isChecked={settings[settingsKeys.EMOJIS]}
-				onChange={handleInputChange}
-				disabled={allowDisable && settings[settingsKeys.EMOJIS]}
-			/>
-			<div className='separator' />
-			<button className='button' onClick={generatePassword}>
-				GENERATE RANDOM PASSWORD
-			</button>
-		</div>
+			<Divider height={20} />
+			<AboutMe />
+		</main>
 	)
 }
-
-/* <Text>RANDOM PASSWORD GENERATOR</Text>
-			<Text>Create strong and secure passwords to keep your accounts safe</Text>
-			<Text>fuerza de la contraseña</Text>
-			<Text>Use the settings to specify parameters to improve your password security</Text>
-			icono para ver tu contraseña
-
-			meter tooltip avisando que emojis y simbolos no pueden ser aceptados por todos los gestiores
-	*/

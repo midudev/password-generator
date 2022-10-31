@@ -1,15 +1,13 @@
-.ccontainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 20px;
-	width: 200px;
-	background-color: blue;
-}
-
-.icon-container {
+.lg-am-container {
 	display: flex;
 	flex-direction: row;
-	width: 100%;
-	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	border-radius: 16px;
+	color: #7b32d9;
+	border-width: 2px;
+	border-color: #7b32d9;
+	background-color: #7a32d912;
+	font-size: 32px;
+	font-weight: bold;
 }
