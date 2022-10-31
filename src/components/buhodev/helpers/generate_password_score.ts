@@ -1,3 +1,14 @@
+import {
+	ONLY_NUMBERS,
+	ONLY_LOWERCASE,
+	ONLY_UPPERCASE,
+	ONLY_SYMBOLS,
+	NUMBERS,
+	LOWERCASE,
+	UPPERCASE,
+	SYMBOLS
+} from '@components/buhodev/helpers/regexes'
+
 type PasswordScore = {
 	password: string | number
 	warning: string
@@ -8,15 +19,6 @@ type PasswordScore = {
 }
 
 export function generatePasswordScore(password) {
-	const hasOnlyNumbers = /^\d+$/
-	const hasOnlyLower = /^[a-z]+$/
-	const hasOnlyUpper = /^[A-Z]+$/
-	const hasOnlySymbols = /^[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]+$/
-	const hasNumbers = /\d/
-	const hasLower = /[a-z]/
-	const hasUpper = /[A-Z]/
-	const hasSymbols = /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/
-
 	// Numbers only
 	const numbers = (length: number): PasswordScore => {
 		if (length < 11) {
@@ -677,22 +679,26 @@ export function generatePasswordScore(password) {
 	}
 
 	// ✅ only numbers 🔐 -1
-	if (hasOnlyNumbers.test(password)) {
+	if (ONLY_NUMBERS.test(password)) {
 		return numbers(String(password).length)
 	}
 	// ✅ only lower 🔐 0
 	// ✅ only upper 🔐 0
 	// ✅ only symbols 🔐 0
-	if (hasOnlyLower.test(password) || hasOnlyUpper.test(password) || hasOnlySymbols.test(password)) {
+	if (
+		ONLY_LOWERCASE.test(password) ||
+		ONLY_UPPERCASE.test(password) ||
+		ONLY_SYMBOLS.test(password)
+	) {
 		return lower(String(password).length)
 	}
 	// ✅ lower + numbers 🔐 1
 	// ✅ upper + numbers 🔐 1
 	// ✅ symbols + numbers 🔐 1
 	if (
-		(hasLower.test(password) && hasNumbers.test(password)) ||
-		(hasUpper.test(password) && hasNumbers.test(password)) ||
-		(hasSymbols.test(password) && hasNumbers.test(password))
+		(LOWERCASE.test(password) && NUMBERS.test(password)) ||
+		(UPPERCASE.test(password) && NUMBERS.test(password)) ||
+		(SYMBOLS.test(password) && NUMBERS.test(password))
 	) {
 		return lowerUpper(String(password).length)
 	}
@@ -700,9 +706,9 @@ export function generatePasswordScore(password) {
 	// ✅ upper + symbols 🔐 2
 	// ✅ lower + upper 🔐 2
 	if (
-		(hasLower.test(password) && hasSymbols.test(password)) ||
-		(hasUpper.test(password) && hasSymbols.test(password)) ||
-		(hasUpper.test(password) && hasLower.test(password))
+		(LOWERCASE.test(password) && SYMBOLS.test(password)) ||
+		(UPPERCASE.test(password) && SYMBOLS.test(password)) ||
+		(UPPERCASE.test(password) && LOWERCASE.test(password))
 	) {
 		return lowerUpper(String(password).length)
 	}
@@ -711,19 +717,19 @@ export function generatePasswordScore(password) {
 	// ✅ upper + symbols + numbers 🔐 3
 	// ✅ lower + upper + symbols 🔐 3
 	if (
-		(hasLower.test(password) && hasUpper.test(password) && hasNumbers.test(password)) ||
-		(hasLower.test(password) && hasSymbols.test(password) && hasNumbers.test(password)) ||
-		(hasUpper.test(password) && hasSymbols.test(password) && hasNumbers.test(password)) ||
-		(hasLower.test(password) && hasUpper.test(password) && hasSymbols.test(password))
+		(LOWERCASE.test(password) && UPPERCASE.test(password) && NUMBERS.test(password)) ||
+		(LOWERCASE.test(password) && SYMBOLS.test(password) && NUMBERS.test(password)) ||
+		(UPPERCASE.test(password) && SYMBOLS.test(password) && NUMBERS.test(password)) ||
+		(LOWERCASE.test(password) && UPPERCASE.test(password) && SYMBOLS.test(password))
 	) {
 		return numLowerUpper(String(password).length)
 	}
 	// lower + upper + numbers + symbols 🔐 4
 	if (
-		hasLower.test(password) &&
-		hasUpper.test(password) &&
-		hasNumbers.test(password) &&
-		hasSymbols.test(password)
+		LOWERCASE.test(password) &&
+		UPPERCASE.test(password) &&
+		NUMBERS.test(password) &&
+		SYMBOLS.test(password)
 	) {
 		return numLowerUpperSym(String(password).length)
 	}
