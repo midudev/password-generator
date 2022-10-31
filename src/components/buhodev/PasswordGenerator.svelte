@@ -204,10 +204,13 @@
 		showSeedGenerator = true
 	} else if (seedType === 'mouse' && mouseSeed.length === 36) {
 		setTimeout(() => (showSeedGenerator = false), 1000)
-		setTimeout(
-			() => addToast({ message: 'Matrix seed generated', type: 'info', timeout: 3000 }),
-			1500
-		)
+		// this avoidsP sending the toast notification when deselecting and selecting again seedType = 'mouse' on the UI
+		if (showSeedGenerator === true) {
+			setTimeout(
+				() => addToast({ message: 'Matrix seed generated', type: 'info', timeout: 3000 }),
+				1500
+			)
+		}
 	}
 
 	$: if (seedType === 'date') {
