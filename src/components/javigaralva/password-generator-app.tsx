@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, CSSProperties } from 'react'
 
 interface GeneratePasswordOptions {
 	length: number
@@ -64,19 +64,59 @@ function sample<T>(arr: T[]) {
 function colorizePassword(password: string) {
 	return password.split('').map((letter, i) => {
 		let className = 'text-white'
+		const style: CSSProperties = {}
 		if (NUMBERS.includes(letter)) {
 			className = 'text-orange-600'
+			const width = 128 + random(-100, 100)
+			const offset = 154 + random(-100, 100)
+			const alpha = 2 + random(-1, 6)
+			style.outlineOffset = `${offset}px`
+			style.outlineColor = `rgb(234 88 12 / ${alpha}%)`
+			style.outlineWidth = `${width}px`
+			style.outlineStyle = 'dotted'
+			style.borderRadius = '50%'
 		} else if (SYMBOLS.includes(letter)) {
 			className = 'text-lime-600'
+			style.textShadow = 'rgb(116 255 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 0%) 1px 1px 6px'
+			const width = 8 + random(-4, 2)
+			const offset = 204 + random(-100, 100)
+			const alpha = 6 + random(-2, 2)
+			style.outlineOffset = `${offset}px`
+			style.outlineColor = `rgb(14 249 29 / ${alpha}%)`
+			style.outlineWidth = `${width}px`
+			style.outlineStyle = 'dotted'
+			style.borderRadius = '50%'
 		} else if (UPPER_CASE_LETTERS_LIST.includes(letter)) {
 			className = 'text-white/50'
+			const width = 28 + random(-10, 10)
+			const offset = 54 + random(-50, 50)
+			style.outlineOffset = `${offset}px`
+			style.outlineColor = 'rgb(219 219 219 / 2%)'
+			style.outlineWidth = `${width}px`
+			style.outlineStyle = 'dashed'
+			const thickness = 380 + random(-200, 100)
+			const alpha = 4 + random(-2, 2)
+			style.textDecorationLine = 'underline'
+			style.textDecorationColor = `rgb(219 219 219 / ${alpha}%)`
+			style.textDecorationThickness = `${thickness}px`
+		} else {
+			const thickness = 380 + random(-200, 100)
+			const alpha = 4 + random(-2, 2)
+			style.textDecorationLine = 'overline'
+			style.textDecorationColor = `rgb(219 219 219 / ${alpha}%)`
+			style.textDecorationThickness = `${thickness}px`
+			className = 'text-white p-4'
 		}
 		return (
-			<span key={letter + i} className={className}>
+			<span key={letter + i} className={className} style={style}>
 				{letter}
 			</span>
 		)
 	})
+}
+
+function random(min: number, max: number) {
+	return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 export default function Main() {
