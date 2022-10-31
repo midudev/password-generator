@@ -35,8 +35,8 @@
 	let manualSeed = ''
 	let mouseSeed = ''
 
-	let isSidebarOpen = false
-	let isHistoryOpen = false
+	let isSidebarOpen = true
+	let isHistoryOpen = true
 	let view: 'generate' | 'check' = 'generate'
 	let sidebarView: 'password' | 'passphrase' = 'password'
 	let hasEllipsis = false
