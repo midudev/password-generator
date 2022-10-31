@@ -26,7 +26,7 @@
 	let animation = 'fly'
 	let length = 12
 	let seedType: 'pseudo' | 'date' | 'manual' | 'mouse' = 'pseudo'
-
+	
 	let manualSeed = ''
 	let mouseSeed = ''
 
@@ -158,6 +158,10 @@
 		PASSWORD_DEFAULT_OPTIONS.symbols === false
 	) {
 		PASSWORD_DEFAULT_OPTIONS.lowercase = true
+	}
+
+	$: if (seedType === 'mouse' && !mouseSeed.length) {
+		showSeedGenerator = true
 	}
 
 	$: password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS)
@@ -589,7 +593,7 @@
 					</div>
 					<span class="px-4 mt-10 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
 					<div
-						in:fade={{ duration: 200 }}
+						in:fade={{duration: 200}}
 						class="m-4 p-10 flex flex-col bg-neutral-600/10 text-gray-100 rounded-md items-center justify-center leading-none whitespace-nowrap"
 					>
 						<img class="w-10 h-10 mb-4" src="/buhodev/icons/lordicon/butt.webp" alt="" />
@@ -637,11 +641,7 @@
 										/>
 									</label>
 								{:else if id === 'mouse' && seedType === 'mouse'}
-									<button
-										on:click={() => (showSeedGenerator = true)}
-										class="w-full bg-blue-600 rounded-md py-1.5 mt-2 text-sm font-medium"
-										>Add new seed</button
-									>
+									<button on:click={() => showSeedGenerator = true} class="w-full bg-blue-600 rounded-md py-1.5 mt-2 text-sm font-medium">Add new seed</button>
 								{/if}
 							</div>
 						</label>
