@@ -27,6 +27,7 @@
 	let length = 12
 	let seedType: 'pseudo' | 'date' | 'manual' | 'mouse' = 'pseudo'
 
+	let currentSeed = ''
 	let manualSeed = ''
 	let mouseSeed = ''
 
@@ -162,6 +163,16 @@
 
 	$: if (seedType === 'mouse' && !mouseSeed.length) {
 		showSeedGenerator = true
+	}
+
+	$: if (seedType === 'date') {
+		currentSeed = Date.now().toString()
+	} else if (seedType === 'manual') {
+		currentSeed = manualSeed
+	} else if (seedType === 'mouse') {
+		currentSeed = mouseSeed
+	} else {
+		currentSeed = ''
 	}
 
 	$: password = generatePassword(length, PASSWORD_DEFAULT_OPTIONS)
