@@ -85,7 +85,7 @@ export function memorablePassword({
 	wordCount = setMinMaxLength({ length: wordCount, min: 3, max: 15 })
 
 	if (fullWords) {
-		wordsArray = words.sort(() => 0.5 - Math.random()).splice(0, wordCount)
+		wordsArray = [...words].sort(() => 0.5 - Math.random()).splice(0, wordCount)
 	} else {
 		wordsArray = makeArrayOfRandomStrings({ arr: ABC_ARRAY, wordCount })
 	}
