@@ -6,10 +6,13 @@ const Cat = ({ passwordValue, length }) => {
 	const rightEye = useRef()
 	const leftEye = useRef()
 
+	// Show password when generated
 	useEffect(() => {
 		if (!passwordValue) return
 
 		tongue.current.style.transform = 'translateY(150px)'
+
+		// Hide Generated password
 		const interval = setInterval(() => {
 			tongue.current.style.transform = 'translateY(0px)'
 		}, 5000)
@@ -19,6 +22,7 @@ const Cat = ({ passwordValue, length }) => {
 		}
 	}, [passwordValue])
 
+	// Change eye color by password length
 	useEffect(() => {
 		if (length < 8) {
 			leftEye.current.style.background =

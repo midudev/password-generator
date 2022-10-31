@@ -1,5 +1,6 @@
+/* stylelint-disable selector-class-pattern */
 .primaryButton {
-	padding: 10px 12px;
+	padding: 10px 14px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -18,4 +19,9 @@
 
 .primaryButton:hover {
 	background-color: #0096ff;
+}
+
+.disabled {
+	opacity: 0.5;
+	background-color: #0085ee !important;
 }
