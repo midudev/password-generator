@@ -3,7 +3,7 @@
 	import Progress from '@components/buhodev/Progress.svelte'
 	import { progress } from '@components/buhodev/stores/progress'
 
-	let seed = ''
+	export let seed = ''
 
 	$: percentage = Math.floor((seed.length * 100) / 36)
 	$: {
