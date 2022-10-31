@@ -27,6 +27,9 @@
 	let length = 12
 	let seedType: 'pseudo' | 'date' | 'manual' | 'mouse' = 'pseudo'
 
+	let manualSeed = ''
+	let mouseSeed = ''
+
 	let isSidebarOpen = false
 	let isHistoryOpen = false
 	let view: 'generate' | 'check' = 'generate'
@@ -586,7 +589,7 @@
 					</div>
 					<span class="px-4 mt-10 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
 					<div
-						in:fade={{duration: 200}}
+						in:fade={{ duration: 200 }}
 						class="m-4 p-10 flex flex-col bg-neutral-600/10 text-gray-100 rounded-md items-center justify-center leading-none whitespace-nowrap"
 					>
 						<img class="w-10 h-10 mb-4" src="/buhodev/icons/lordicon/butt.webp" alt="" />
@@ -600,7 +603,7 @@
 					{#each SEED_OPTIONS as { title, id, pill, description } (id)}
 						<label
 							for={id}
-							class="border-lg flex w-full cursor-pointer rounded border border-gray-400/20 bg-gray-800/20 p-4 pl-4 text-white transition hover:bg-gray-500/20 hover:text-gray-100"
+							class="border-lg flex w-full cursor-pointer rounded border border-gray-400/20 bg-gray-800/20 p-3 text-white transition hover:bg-gray-500/20 hover:text-gray-100"
 						>
 							<!-- TODO: find a better way to align the radio input with the title -->
 							<input
@@ -622,6 +625,24 @@
 									{/if}
 								</div>
 								<span class="text-gray-200">{description}</span>
+								{#if id === 'manual' && seedType === 'manual'}
+									<label for="input-manual" class="text-sm text-neutral-100 w-full mt-2">
+										<input
+											type="text"
+											name=""
+											id="input-manual"
+											placeholder="Add your seed here"
+											bind:value={manualSeed}
+											class="border w-full text-sm rounded-lg px-1.5 py-1.5 font-normal bg-neutral-800 border-neutral-600 placeholder-neutral-400 text-white focus:ring-blue-500 focus:border-blue-500"
+										/>
+									</label>
+								{:else if id === 'mouse' && seedType === 'mouse'}
+									<button
+										on:click={() => (showSeedGenerator = true)}
+										class="w-full bg-blue-600 rounded-md py-1.5 mt-2 text-sm font-medium"
+										>Add new seed</button
+									>
+								{/if}
 							</div>
 						</label>
 					{/each}
