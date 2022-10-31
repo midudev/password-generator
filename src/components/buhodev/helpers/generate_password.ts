@@ -19,7 +19,12 @@ export interface PasswordAdvancedOptions {
 	seed: string
 }
 
-export function generatePassword(length: number, options: PasswordDefaultOptions, seed) {
+export function generatePassword(
+	length: number,
+	options: PasswordDefaultOptions,
+	advancedOptions: PasswordAdvancedOptions,
+	seed
+) {
 	const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz'
 	const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 	const NUMBERS = '0123456789'
