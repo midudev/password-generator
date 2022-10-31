@@ -18,6 +18,7 @@
 	import Toasts from '@components/buhodev/Toasts.svelte'
 	import { addToast } from '@components/buhodev/stores/toast'
 	import { savedPasswords, addPassword, clearAll } from '@components/buhodev/stores/history'
+	import { isSidebarOpen, isHistoryOpen, toggleSidebar, toggleHistory } from '@components/buhodev/stores/sidebars_state'
 	import PasswordEntry from '@components/buhodev/PasswordEntry.svelte'
 	import PasswordCard from '@components/buhodev/HoloCard.svelte'
 	import { generateDate } from '@components/buhodev/helpers/generate_date'
@@ -35,8 +36,6 @@
 	let manualSeed = ''
 	let mouseSeed = ''
 
-	let isSidebarOpen = true
-	let isHistoryOpen = true
 	let view: 'generate' | 'check' = 'generate'
 	let sidebarView: 'password' | 'passphrase' = 'password'
 	let hasEllipsis = false
@@ -258,7 +257,7 @@
 	class="text-white bg-neutral-900 sticky w-full z-20 top-0 left-0 flex justify-between border-b border-gray-600"
 >
 	<button
-		on:click={() => (isSidebarOpen = isSidebarOpen == true ? false : true)}
+		on:click={toggleSidebar}
 		class="border-r p-3 border-gray-600 flex items-center justify-center hover:bg-neutral-800 transition-colors"
 	>
 		<span class="sr-only">Open sidebar</span>
@@ -294,7 +293,7 @@
 		>
 
 		<button
-			on:click={() => (isHistoryOpen = !isHistoryOpen)}
+			on:click={toggleHistory}
 			class="border-l p-3 border-gray-600 flex items-center justify-center hover:bg-neutral-800 transition-colors"
 		>
 			<span class="sr-only">Open history</span>
@@ -581,7 +580,7 @@
 		{/if}
 	</main>
 
-	{#if isSidebarOpen}
+	{#if $isSidebarOpen}
 		<aside
 			in:fly={{ x: -250, opacity: 1, easing: quadOut, duration: 100 }}
 			out:fly={{ x: -250, opacity: 1, easing: quadIn, duration: 150 }}
@@ -869,7 +868,7 @@
 		</aside>
 	{/if}
 
-	{#if isHistoryOpen}
+	{#if $isHistoryOpen}
 		<aside
 			in:fly={{ x: 250, opacity: 1, easing: quadOut, duration: 100 }}
 			out:fly={{ x: 250, opacity: 1, easing: quadIn, duration: 150 }}
