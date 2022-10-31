@@ -648,7 +648,8 @@
 				{:else}
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
 					<div class="px-4 mt-4">
-						<BarChart {password} />
+						<!-- TODO: needs refactor -->
+						<BarChart password={passphrase} />
 					</div>
 					<span class="px-4 mt-10 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
 					<div
