@@ -1,4 +1,4 @@
-.maxwolts-panda-pass {
+.maxwolts-panda-pass-main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -9,7 +9,7 @@
 	font-size: 22px;
 }
 
-.panda-pass {
+.maxwolts-panda-pass {
 	position: relative;
 	width: 100vw;
 	min-width: 300px;
@@ -21,7 +21,7 @@
 	overflow: hidden;
 }
 
-.panda-pass-section-selector button {
+.maxwolts-panda-pass-section-selector button {
 	width: 50%;
 	font-size: 22px;
 	padding: 10px;
@@ -59,8 +59,6 @@
 	transform-style: preserve-3d;
 	transform-origin: bottom;
 	transition: transform 1s;
-
-	/* transform: rotateX(90deg); */
 }
 
 .maxwolts-result-content input {
@@ -168,7 +166,7 @@
 	color: #f9f9f9;
 }
 
-.maxwolts-panda-face {
+.maxwolts-panda {
 	position: absolute;
 	bottom: 0.7%;
 	height: 100%;
@@ -184,10 +182,10 @@
 }
 
 .maxwolts-panda-animation-face-front {
-	animation: panda-animation-face-front 2s linear;
+	animation: maxwolts-panda-animation-face-front 2s linear;
 }
 
-@keyframes panda-animation-face-front {
+@keyframes maxwolts-panda-animation-face-front {
 	40% {
 		transform: rotateX(-40deg);
 	}
@@ -201,7 +199,7 @@
 	}
 }
 
-.panda-face {
+.maxwolts-panda-face {
 	height: 180px;
 	width: 180px;
 	background-color: #f9f9f9;
@@ -210,8 +208,8 @@
 	transition: transform 0.5s;
 }
 
-.panda-face::before,
-.panda-face::after {
+.maxwolts-panda-face::before,
+.maxwolts-panda-face::after {
 	content: '';
 	position: absolute;
 	top: 5%;
@@ -221,15 +219,15 @@
 	border-radius: 50%;
 }
 
-.panda-face::after {
+.maxwolts-panda-face::after {
 	right: -50px;
 }
 
-.panda-face::before {
+.maxwolts-panda-face::before {
 	left: -50px;
 }
 
-.panda-eyes {
+.maxwolts-panda-eyes {
 	position: absolute;
 	display: flex;
 	justify-content: space-between;
@@ -239,8 +237,8 @@
 	transform: translate(-50%, 0);
 }
 
-.panda-eye-left,
-.panda-eye-right {
+.maxwolts-panda-eye-left,
+.maxwolts-panda-eye-right {
 	position: relative;
 	height: 49px;
 	width: 34px;
@@ -248,7 +246,7 @@
 	border-radius: 50%;
 }
 
-.panda-nose {
+.maxwolts-panda-nose {
 	position: absolute;
 	top: 60%;
 	left: 50%;
@@ -260,7 +258,7 @@
 	border-color: #161616 transparent transparent;
 }
 
-.panda-sign {
+.maxwolts-panda-sign {
 	z-index: 1;
 	position: absolute;
 	top: 50%;
@@ -277,11 +275,11 @@
 	text-align: center;
 }
 
-.panda-sign-activate-animation {
-	animation: animation-panda-sign 3s linear;
+.maxwolts-panda-sign-activate-animation {
+	animation: maxwolts-animation-panda-sign 3s linear;
 }
 
-.panda-sign::before {
+.maxwolts-panda-sign::before {
 	z-index: 0;
 	content: '';
 	position: absolute;
@@ -291,7 +289,7 @@
 	background-color: burlywood;
 }
 
-@keyframes animation-panda-sign {
+@keyframes maxwolts-animation-panda-sign {
 	20% {
 		transform: translate(0%, -50%) rotateX(0deg);
 	}
@@ -305,7 +303,7 @@
 	}
 }
 
-.panda-rotate-head-animation {
+.maxwolts-panda-rotate-head-animation {
 	transform: rotateZ(-10deg);
 	transition: transform 1s;
 }

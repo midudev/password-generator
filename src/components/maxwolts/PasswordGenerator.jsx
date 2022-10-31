@@ -67,9 +67,9 @@ export const PasswordGenerator = () => {
 	}, [classAnimation, classAnimationCopy])
 
 	return (
-		<main className='maxwolts-panda-pass'>
-			<div className='panda-pass'>
-				<div className='panda-pass-section-selector'>
+		<main className='maxwolts-panda-pass-main'>
+			<div className='maxwolts-panda-pass'>
+				<div className='maxwolts-panda-pass-section-selector'>
 					<button
 						onClick={() => {
 							changeSecction(false)
@@ -121,22 +121,22 @@ export const PasswordGenerator = () => {
 					</div>
 				</div>
 				<div className='maxwolts-result'>
-					<div className='maxwolts-panda-face'>
+					<div className='maxwolts-panda'>
 						<div className='maxwolts-panda-content'>
 							<div
-								className={`panda-face ${classAnimationCopy ? 'panda-rotate-head-animation' : ''} ${
-									classAnimation ? 'maxwolts-panda-animation-face-front' : ''
-								}`}
+								className={`maxwolts-panda-face ${
+									classAnimationCopy ? 'maxwolts-panda-rotate-head-animation' : ''
+								} ${classAnimation ? 'maxwolts-panda-animation-face-front' : ''}`}
 							>
-								<div className='panda-eyes'>
-									<div className='panda-eye-left'></div>
-									<div className='panda-eye-right'></div>
+								<div className='maxwolts-panda-eyes'>
+									<div className='maxwolts-panda-eye-left'></div>
+									<div className='maxwolts-panda-eye-right'></div>
 								</div>
-								<div className='panda-nose'></div>
+								<div className='maxwolts-panda-nose'></div>
 							</div>
 							<div
-								className={`panda-sign ${
-									classAnimationCopy ? 'panda-sign-activate-animation' : ''
+								className={`maxwolts-panda-sign ${
+									classAnimationCopy ? 'maxwolts-panda-sign-activate-animation' : ''
 								}`}
 							>
 								<p>{password ? 'Copied' : 'add word/s'}</p>
