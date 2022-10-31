@@ -279,9 +279,18 @@
 
 <svelte:window on:scroll={reposition} />
 
-<div class="card" class:active class:interacting class:loading style={styles} bind:this={thisCard}>
-	<div class="card__translater">
+<div
+	id="buhodev"
+	class="card"
+	class:active
+	class:interacting
+	class:loading
+	style={styles}
+	bind:this={thisCard}
+>
+	<div id="buhodev" class="card__translater">
 		<div
+			id="buhodev"
 			class="card__rotator"
 			bind:this={rotator}
 			on:pointerup={activate}
@@ -290,8 +299,8 @@
 			on:blur={deactivate}
 			tabindex="0"
 		>
-			<img class="card__back pointer-events-none" src={cardBack} alt="" />
-			<div class="card__front">
+			<img id="buhodev" class="card__back pointer-events-none" src={cardBack} alt="" />
+			<div id="buhodev" class="card__front">
 				<img src={img} alt="" loading="lazy" class="pointer-events-none" />
 				<div class="absolute inset-0 flex flex-col items-center">
 					<p
@@ -328,7 +337,7 @@
 		--hyp: 0;
 	}
 
-	.card {
+	#buhodev.card {
 		--radius: 4.55% / 3.5%;
 		z-index: calc(var(--s) * 100);
 		transform: translate3d(0, 0, 0.1px);
@@ -336,30 +345,30 @@
 		transform-style: preserve-3d;
 	}
 
-	.card.interacting {
+	#buhodev.card.interacting {
 		z-index: calc(var(--s) * 120);
 	}
 
-	.card.active .card__translater,
-	.card.active .card__rotator {
+	#buhodev.card.active .card__translater,
+	#buhodev.card.active .card__rotator {
 		touch-action: none;
 	}
 
-	.card__translater,
-	.card__rotator {
+	#buhodev.card__translater,
+	#buhodev.card__rotator {
 		display: grid;
 		perspective: 600px;
 		transform-origin: center;
 		will-change: transform;
 	}
 
-	.card__translater {
+	#buhodev.card__translater {
 		width: auto;
 		position: relative;
 		transform: translate3d(var(--tx), var(--ty), 0) scale(var(--s));
 	}
 
-	.card__rotator {
+	#buhodev.card__rotator {
 		--glow: #69d1e9;
 		transform: rotateY(var(--rx)) rotateX(var(--ry));
 		transform-style: preserve-3d;
@@ -369,19 +378,19 @@
 		transition: box-shadow 0.4s ease, outline 0.2s ease;
 	}
 
-	.card.active .card__rotator {
+	#buhodev.card.active .card__rotator {
 		box-shadow: 0 0 10px 0px var(--glow), 0 0 10px 0px var(--glow), 0 0 30px 0px var(--glow);
 	}
 
-	.card__rotator:focus {
+	#buhodev.card__rotator:focus {
 		box-shadow: 0 0 10px 0px var(--glow), 0 0 10px 0px var(--glow), 0 0 30px 0px var(--glow);
 	}
 
-	.card.active .card__rotator:focus {
+	#buhodev.card.active .card__rotator:focus {
 		box-shadow: 0px 10px 30px 3px black;
 	}
 
-	.card__rotator :global(*) {
+	#buhodev.card__rotator :global(*) {
 		width: 100%;
 		display: grid;
 		grid-area: 1/1;
@@ -390,30 +399,30 @@
 		transform-style: preserve-3d;
 	}
 
-	.card__back {
+	#buhodev.card__back {
 		transform: rotateY(180deg);
 		backface-visibility: visible;
 	}
 
-	.card__front,
-	.card__front * {
+	#buhodev.card__front,
+	#buhodev.card__front * {
 		backface-visibility: hidden;
 	}
 
-	.card__front {
+	#buhodev.card__front {
 		opacity: 1;
 		transition: opacity 0.2s ease-out;
 	}
 
-	.loading .card__front {
+	#buhodev.loading .card__front {
 		opacity: 0;
 	}
 
-	.loading .card__back {
+	#buhodev.loading .card__back {
 		transform: rotateY(0deg);
 	}
 
-	:global(.card__shine) {
+	:global(#buhodev.card__shine) {
 		--grain: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+CjxmaWx0ZXIgaWQ9Im4iPgo8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjEwIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIj48L2ZlVHVyYnVsZW5jZT4KPC9maWx0ZXI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWx0ZXI9InVybCgjbikiIG9wYWNpdHk9IjAuMyI+PC9yZWN0Pgo8L3N2Zz4=');
 		--space: 5%;
 		--angle: 133deg;
@@ -425,8 +434,8 @@
 		--vio: #c929f1;
 	}
 
-	:global(.card .card__shine),
-	:global(.card .card__shine::after) {
+	:global(#buhodev.card .card__shine),
+	:global(#buhodev.card .card__shine::after) {
 		--space: 5%;
 		--angle: 133deg;
 		--imgsize: 50%;
@@ -463,7 +472,7 @@
 		filter: brightness(calc((var(--hyp) * 0.3) + 0.5)) contrast(2) saturate(1.5);
 	}
 
-	:global(.card .card__shine::after) {
+	:global(#buhodev.card .card__shine::after) {
 		content: '';
 		background-size: var(--imgsize), 200% 400%, 195%, 200%;
 		background-position: center, 0% var(--posy), calc(var(--posx) * -1) calc(var(--posy) * -1),

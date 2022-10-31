@@ -37,7 +37,7 @@
 	class="max-w-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center mx-auto text-white"
 >
 	{#if ready}
-		<h1 transition:fly={{ y: -50, duration: 700 }} class="block text-6xl text-center font-bold">
+		<h1 id='buhodev' transition:fly={{ y: -50, duration: 700 }} class="block text-6xl text-center font-bold">
 			Unlock the power of world-class password generation
 		</h1>
 
@@ -59,6 +59,7 @@
 			on:click={() => (ready = false)}
 			transition:fly={{ y: -50, duration: 500, delay: 700 }}
 			href="/entry/buhodev/app"
+			id='buhodev'
 			class="primary-button relative mt-8 inline-flex h-12 cursor-pointer touch-manipulation select-none items-center justify-center self-center whitespace-nowrap rounded-lg border-0 bg-blue-600 bg-gradient-to-tr from-blue-700 to-sky-400 py-2 px-12 text-center text-lg leading-none text-white hover:-translate-y-[1px] active:translate-y-[1px]"
 			>Get started</a
 		>
@@ -71,29 +72,29 @@
 </div>
 
 <style>
-	h1 {
+	h1#buhodev {
 		text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.75);
 		font-family: Coanda, sans-serif;
 	}
 
-	.primary-button {
+	#buhodev.primary-button {
 		box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
 			rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
 		transition: box-shadow 0.05s, transform 0.05s;
 		will-change: box-shadow, transform;
 	}
 
-	.primary-button:focus {
+	#buhodev.primary-button:focus {
 		box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
 			rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 	}
 
-	.primary-button:hover {
+	#buhodev.primary-button:hover {
 		box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
 			#3c4fe0 0 -3px 0 inset;
 	}
 
-	.primary-button:active {
+	#buhodev.primary-button:active {
 		box-shadow: #3c4fe0 0 3px 7px inset;
 	}
 </style>
