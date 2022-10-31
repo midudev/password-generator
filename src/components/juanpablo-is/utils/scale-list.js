@@ -45,6 +45,6 @@ export default {
 		]
 	},
 	undefined: {
-		values: { width: '100%', color: 'white' },
+		values: { width: '100%', color: 'white' }
 	}
 }
