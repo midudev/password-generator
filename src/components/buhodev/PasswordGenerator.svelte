@@ -202,6 +202,12 @@
 
 	$: if (seedType === 'mouse' && !mouseSeed.length) {
 		showSeedGenerator = true
+	} else if (seedType === 'mouse' && mouseSeed.length === 36) {
+		setTimeout(() => (showSeedGenerator = false), 1000)
+		setTimeout(
+			() => addToast({ message: 'Matrix seed generated', type: 'info', timeout: 3000 }),
+			1500
+		)
 	}
 
 	$: if (seedType === 'date') {
@@ -778,8 +784,9 @@
 										/>
 									</label>
 								{:else if id === 'mouse' && seedType === 'mouse'}
+									<!--Setting the mouseSeed to '' triggers the showSeedGenerator condition to open the SeedGenerator modal  -->
 									<button
-										on:click={() => (showSeedGenerator = true)}
+										on:click={() => (mouseSeed = '')}
 										class="w-full bg-blue-600 rounded-md py-1.5 mt-2 text-sm font-medium"
 										>Add new seed</button
 									>
