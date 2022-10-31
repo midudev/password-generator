@@ -45,12 +45,17 @@ const useGeneratePassword = () => {
 		}
 
 		setPassword(text)
+		return text
 	}
 
 	const generateNewPassword = ({ length = 0, count = 0, options = {} }) => {
 		setLoading(true)
-		mainProcess(length, count, options)
+		const password = mainProcess(length, count, options)
 		setLoading(false)
+
+		const passwords = JSON.parse(window.sessionStorage.getItem('password-generated') || '[]')
+		passwords.push({ password, date: +new Date() })
+		window.sessionStorage.setItem('password-generated', JSON.stringify(passwords))
 	}
 
 	return { password, loading, generateNewPassword }
