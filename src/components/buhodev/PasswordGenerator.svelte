@@ -19,7 +19,7 @@
 	import { generateDate } from '@components/buhodev/helpers/generate_date'
 	import BarChart from '@components/buhodev/BarChart.svelte'
 	import { generatePasswordScore } from '@components/buhodev/helpers/generate_password_score'
-  	import SeedGenerator from '@components/buhodev/SeedGenerator.svelte'
+	import SeedGenerator from '@components/buhodev/SeedGenerator.svelte'
 
 	let isCopied = false
 	let animate = true
@@ -582,6 +582,13 @@
 				{:else}
 					<span class="px-4 mt-6 text-neutral-400 text-xs font-medium">STATS</span>
 					<span class="px-4 mt-10 text-neutral-400 text-xs font-medium">ADVANCED OPTIONS</span>
+					<div
+						in:fade={{ delay: 200 }}
+						class="m-4 p-10 flex flex-col bg-neutral-600/10 text-gray-100 rounded-md items-center justify-center leading-none whitespace-nowrap"
+					>
+						<img class="w-10 h-10 mb-4" src="/buhodev/icons/lordicon/butt.webp" alt="" />
+						Nothing to show here
+					</div>
 				{/if}
 
 				<span class="px-4 mt-10 text-neutral-400 text-xs font-medium">SEED ALGORITHM</span>
