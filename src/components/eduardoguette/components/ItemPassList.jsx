@@ -20,7 +20,6 @@ export const ItemPassList = ({ id, url, username, password }) => {
 				height={30}
 				width={30}
 				onError={(e) => {
-					console.log(e.onerror)
 					e.target.src = 'https://i.imgur.com/C1eyYxI.png'
 					e.onerror = null
 				}}
