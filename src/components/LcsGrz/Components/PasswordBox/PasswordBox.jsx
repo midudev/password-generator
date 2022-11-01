@@ -31,33 +31,33 @@ export default function PasswordBox({ password, entropy, onCreate }) {
 	const passLevel = convertToLevel(entropy)
 
 	return (
-		<div className='lg-pb-container'>
-			<div className='lg-pb-pass-container'>
-				<div className='lg-pb-passbox'>
+		<div className='lcsgrz-pb-container'>
+			<div className='lcsgrz-pb-pass-container'>
+				<div className='lcsgrz-pb-passbox'>
 					<input
-						className='lg-pb-input'
+						className='lcsgrz-pb-input'
 						type={showPass ? 'text' : 'password'}
 						value={password}
 						readOnly
 					/>
-					<div className='lg-pb-divider' />
+					<div className='lcsgrz-pb-divider' />
 					{showPass && <HiddenIcon color='white' size={32} onClick={changeVisibility} />}
 					{!showPass && <VisibleIcon color='white' size={32} onClick={changeVisibility} />}
 				</div>
-				<div className='lg-pb-passlevel-box'>
+				<div className='lcsgrz-pb-passlevel-box'>
 					PASSWORD LEVEL
 					<Divider width={30} />
-					<div className='lg-pb-level-container'>
-						<div className='lg-pb-level' style={{ width: `${passLevel.level * 10}%` }} />
+					<div className='lcsgrz-pb-level-container'>
+						<div className='lcsgrz-pb-level' style={{ width: `${passLevel.level * 10}%` }} />
 					</div>
 					<Divider width={30} />
 					{passLevel.label.toLocaleUpperCase()}
 				</div>
 			</div>
 			<Divider width={20} />
-			<div className='lg-pb-copy-box'>
+			<div className='lcsgrz-pb-copy-box'>
 				<CopyIcon color='white' size={28} onClick={copyToClipboard} />
-				{showCopiedLabel && <label className='lg-pb-copied-label'>COPIED</label>}
+				{showCopiedLabel && <label className='lcsgrz-pb-copied-label'>COPIED</label>}
 			</div>
 			<Divider width={20} />
 			<ReloadIcon color='white' size={28} onClick={onCreate} />

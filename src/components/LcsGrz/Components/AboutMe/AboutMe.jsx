@@ -29,7 +29,7 @@ export default function AboutMe() {
 	}
 
 	return (
-		<div className='lg-am-container'>
+		<div className='lcsgrz-am-container'>
 			<Email size={iconSize} color={iconColor} onClick={sendEmail} />
 			<Divider width={dividerWidth} />
 			<Linkedin
@@ -38,7 +38,7 @@ export default function AboutMe() {
 				onClick={openInNewTab('https://www.linkedin.com/in/lcsgrz/')}
 			/>
 			<Divider width={dividerWidth} />
-			<label className='lg-am-label'>LCSGRZ</label>
+			<label className='lcsgrz-am-label'>LCSGRZ</label>
 			<Divider width={dividerWidth} />
 			<Github
 				size={iconSize}

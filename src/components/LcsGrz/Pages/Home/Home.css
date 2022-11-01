@@ -1,4 +1,4 @@
-.lg-h-container {
+.lcsgrz-h-container {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -9,7 +9,7 @@
 	padding: 1.2% 20%;
 }
 
-.lg-h-content-box {
+.lcsgrz-h-content-box {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -18,7 +18,7 @@
 	justify-content: center;
 }
 
-.lg-h-settings {
+.lcsgrz-h-settings {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -27,7 +27,7 @@
 	font-size: 12px;
 }
 
-.lg-h-title-box {
+.lcsgrz-h-title-box {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -40,25 +40,25 @@
 	width: 666px;
 }
 
-.lg-h-title {
+.lcsgrz-h-title {
 	font-size: 42px;
 	color: #f4649f;
 	font-weight: bold;
 	letter-spacing: 4px;
 }
 
-.lg-h-subtitle {
+.lcsgrz-h-subtitle {
 	font-size: 18px;
 	color: #b593cc;
 	font-weight: bold;
 }
 
-.lg-h-settings-label {
+.lcsgrz-h-settings-label {
 	font-size: 14px;
 	color: #b593cc;
 }
 
-.lg-h-checkbox-container {
+.lcsgrz-h-checkbox-container {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -66,7 +66,7 @@
 	width: 100%;
 }
 
-.lg-h-checkbox-box {
+.lcsgrz-h-checkbox-box {
 	display: flex;
 	flex-direction: column;
 	align-items: center;

@@ -6,9 +6,9 @@ import './Media.css'
 // ─────────────── ∞ ───────────────
 
 export default ({ onClick, size, color }) => (
-	<div className='lg-pb-button' onClick={onClick}>
+	<div className='lcsgrz-pb-button' onClick={onClick}>
 		<svg
-			className='lg-pb-button-svg'
+			className='lcsgrz-pb-button-svg'
 			xmlns='http://www.w3.org/2000/svg'
 			viewBox='0 0 112.62 120.72'
 			width={size}

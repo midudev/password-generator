@@ -1,13 +1,13 @@
-.lg-pb-media {
+.lcsgrz-pb-media {
 	cursor: pointer;
 }
 
-.lg-pb-button-svg {
+.lcsgrz-pb-button-svg {
 	cursor: pointer;
 	pointer-events: none;
 }
 
-.lg-pb-button {
+.lcsgrz-pb-button {
 	background-color: #7b32d9;
 	cursor: pointer;
 	height: 64px;

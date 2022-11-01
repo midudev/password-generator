@@ -1,4 +1,4 @@
-.lg-cb-container-checked {
+.lcsgrz-cb-container-checked {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -12,7 +12,7 @@
 	border-color: #7b32d9;
 }
 
-.lg-cb-container-unchecked {
+.lcsgrz-cb-container-unchecked {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -26,14 +26,14 @@
 	background-color: #7a32d932;
 }
 
-.lg-cb-label-box {
+.lcsgrz-cb-label-box {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	pointer-events: none;
 }
 
-.lg-cb-hint {
+.lcsgrz-cb-hint {
 	font-size: 11px;
 	pointer-events: none;
 }

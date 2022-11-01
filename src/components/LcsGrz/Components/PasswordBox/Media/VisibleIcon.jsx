@@ -7,7 +7,7 @@ import './Media.css'
 
 export default ({ onClick, size, color }) => (
 	<svg
-		className='lg-pb-media'
+		className='lcsgrz-pb-media'
 		xmlns='http://www.w3.org/2000/svg'
 		viewBox='0 0 122.88 68.18'
 		width={size}

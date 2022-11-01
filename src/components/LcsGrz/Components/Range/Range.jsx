@@ -9,11 +9,11 @@ import './Range.css'
 
 export default function Range({ name, label, min, max, onChange, value }) {
 	return (
-		<div className='lg-r-container'>
+		<div className='lcsgrz-r-container'>
 			<label>{label}</label>
 			<Divider width={24} />
 			<input
-				className='lg-range'
+				className='lcsgrz-range'
 				name={name}
 				type='range'
 				min={min}

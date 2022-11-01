@@ -49,15 +49,15 @@ export default function Page() {
 	useEffect(generatePassword, [settings])
 
 	return (
-		<main className='lg-h-container'>
-			<div className='lg-h-content-box'>
-				<div className='lg-h-title-box'>
-					<label className='lg-h-title'>RANDOM</label>
-					<label className='lg-h-title'>PASSWORD</label>
-					<label className='lg-h-title'>GENERATOR</label>
+		<main className='lcsgrz-h-container'>
+			<div className='lcsgrz-h-content-box'>
+				<div className='lcsgrz-h-title-box'>
+					<label className='lcsgrz-h-title'>RANDOM</label>
+					<label className='lcsgrz-h-title'>PASSWORD</label>
+					<label className='lcsgrz-h-title'>GENERATOR</label>
 				</div>
 				<Divider height={16} />
-				<label className='lg-h-subtitle'>
+				<label className='lcsgrz-h-subtitle'>
 					Create strong and secure passwords to keep your accounts safe
 				</label>
 				<Divider height={50} />
@@ -66,7 +66,7 @@ export default function Page() {
 					entropy={getPasswordEntropy(settings)}
 					onCreate={generatePassword}
 				/>
-				<div className='lg-h-settings'>
+				<div className='lcsgrz-h-settings'>
 					<Divider height={50} />
 					<Range
 						name={settingsKeys.LENGTH}
@@ -78,8 +78,8 @@ export default function Page() {
 					/>
 
 					<Divider height={36} />
-					<div className='lg-h-checkbox-container'>
-						<div className='lg-h-checkbox-box'>
+					<div className='lcsgrz-h-checkbox-container'>
+						<div className='lcsgrz-h-checkbox-box'>
 							<CheckBox
 								name={settingsKeys.LOWER_CASE}
 								label='Allow Lowercase (abc)'
@@ -105,7 +105,7 @@ export default function Page() {
 							/>
 						</div>
 						<Divider width={28} />
-						<div className='lg-h-checkbox-box'>
+						<div className='lcsgrz-h-checkbox-box'>
 							<CheckBox
 								name={settingsKeys.SIMBOLS}
 								label='Allow Symbols (!@#$%^&*()+)'
@@ -133,7 +133,7 @@ export default function Page() {
 						</div>
 					</div>
 					<Divider height={20} />
-					<label className='lg-h-settings-label'>
+					<label className='lcsgrz-h-settings-label'>
 						Use the settings to specify parameters to improve your password security
 					</label>
 				</div>

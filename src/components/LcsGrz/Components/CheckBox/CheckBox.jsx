@@ -12,16 +12,16 @@ import './CheckBox.css'
 export default function CheckBox({ name, label, hint, onChange, isChecked, disabled }) {
 	return (
 		<button
-			className={isChecked ? 'lg-cb-container-checked' : 'lg-cb-container-unchecked'}
+			className={isChecked ? 'lcsgrz-cb-container-checked' : 'lcsgrz-cb-container-unchecked'}
 			type='button'
 			onClick={onChange}
 			disabled={disabled}
 			name={name}
 		>
-			<div className='lg-cb-label-box'>
+			<div className='lcsgrz-cb-label-box'>
 				<label>{label}</label>
 				<Divider width={10} />
-				<label className='lg-cb-hint'>{hint}</label>
+				<label className='lcsgrz-cb-hint'>{hint}</label>
 			</div>
 			{isChecked && <CheckMark size={15} color='white' />}
 		</button>
