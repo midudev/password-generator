@@ -67,10 +67,10 @@
 }
 
 .maxwolts-animation-panda-result {
-	animation: animation-rotate 2s ease-out;
+	animation: maxwolts-animation-rotate 2s ease-out;
 }
 
-@keyframes animation-rotate {
+@keyframes maxwolts-animation-rotate {
 	30% {
 		transform: rotateX(95deg);
 		transition: transform 1s;
