@@ -88,25 +88,29 @@ export default function Main() {
 	return (
 		<div className='w-screen h-screen bg-stone-800'>
 			<div className='flex place-content-center h-screen'>
-				<div className='flex flex-col min-w-100 place-items-center justify-evenly'>
+				<div className='grid min-w-100 place-items-center justify-evenly grid-rows-1'>
 					<div className='min-h-min mx-10 text-center mt-32'>
 						<ColorizedPassword password={password} />
 					</div>
-					<div className='flex flex-col place-items-center gap-10'>
-						<button
-							className='bg-yellow-600 rounded min-w-fit font-black uppercase py-2 w-60 text-lg text-black/75 tracking-wide duration-300 hover:shadow-yellow-400/25 scale-100 hover:bg-yellow-500 active:scale-95 shadow-2xl shadow-slate-900'
-							onClick={handleGeneratePassword}
-						>
-							Generate
-						</button>
-						<input
-							className='w-60 h-1 outline-2 rounded-lg outline-dotted outline-offset-8 outline-slate-50/25 appearance-none cursor-pointer bg-yellow-600/50 accent-yellow-600'
-							type='range'
-							min={MIN_PASSWORD_LENGTH}
-							max={MAX_PASSWORD_LENGTH}
-							value={passwordLength}
-							onChange={handleOnChangeSlider}
-						/>
+					<div className='flex justify-center items-end min-w-full min-h-full'>
+						<div className='mb-32 sm:mb-48'>
+							<div className='flex flex-col place-items-center gap-10'>
+								<button
+									className='bg-yellow-600 rounded min-w-fit font-black uppercase py-2 w-60 text-lg text-black/75 tracking-wide duration-300 hover:shadow-yellow-400/25 scale-100 hover:bg-yellow-500 active:scale-95 shadow-2xl shadow-slate-900'
+									onClick={handleGeneratePassword}
+								>
+									Generate
+								</button>
+								<input
+									className='w-60 h-1 outline-2 rounded-lg outline-dotted outline-offset-8 outline-slate-50/25 appearance-none cursor-pointer bg-yellow-600/50 accent-yellow-600'
+									type='range'
+									min={MIN_PASSWORD_LENGTH}
+									max={MAX_PASSWORD_LENGTH}
+									value={passwordLength}
+									onChange={handleOnChangeSlider}
+								/>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
