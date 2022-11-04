@@ -1,5 +1,3 @@
-import './password-generator-app.css'
-
 import { useState, useEffect, type ChangeEventHandler } from 'react'
 import { sample } from './utils/sample'
 import { ColorizedPassword } from './components/colorized-password'
@@ -88,7 +86,7 @@ export default function Main() {
 	}, [passwordLength])
 
 	return (
-		<div className='javigaralva-no-tap-highlight w-screen h-screen bg-stone-800 select-none'>
+		<div className='w-screen h-screen bg-stone-800'>
 			<div className='flex place-content-center h-screen'>
 				<div className='flex flex-col min-w-100 place-items-center justify-evenly'>
 					<div className='min-h-min mx-10 text-center mt-32'>
