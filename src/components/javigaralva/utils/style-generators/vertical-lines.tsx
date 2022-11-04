@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { random } from '../utils/random'
+import { random } from '../random'
 
 export function getVerticalLinesStyle() {
 	const style: CSSProperties = {}

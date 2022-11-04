@@ -1,12 +1,12 @@
 import { useState, useEffect, type ChangeEventHandler } from 'react'
 import { sample } from './utils/sample'
-import { ColorizedPassword } from './colorized-password'
+import { ColorizedPassword } from './components/colorized-password'
 import {
 	UPPER_CASE_LETTERS_LIST,
 	LOWER_CASE_LETTERS_LIST,
 	NUMBERS_LIST,
 	SYMBOLS_LIST
-} from './constants'
+} from './constants/constants'
 
 interface GeneratePasswordOptions {
 	length: number
