@@ -1,12 +1,12 @@
 import { CSSProperties } from 'react'
-import { sample } from './utils/sample'
-import { getVerticalLinesStyle } from './styles/getVerticalLinesStyle'
-import { getSquareAndVerticalLinesStyle } from './styles/getSquareAndVerticalLinesStyle'
-import { getBigCircleDottedStyle } from './styles/getBigCircleDottedStyle'
-import { getBigDotsStyle } from './styles/getBigDotsStyle'
-import { isUpperCaseLetter } from './utils/is-upper-case-letter'
-import { isSymbol } from './utils/is-symbol'
-import { isNumber } from './utils/is-number'
+import { sample } from '../utils/sample'
+import { getVerticalLinesStyle } from '../utils/style-generators/vertical-lines'
+import { getSquareAndVerticalLinesStyle } from '../utils/style-generators/square-and-vertical-lines'
+import { getBigCircleDottedStyle } from '../utils/style-generators/big-circle-doted'
+import { getBigDotsStyle } from '../utils/style-generators/big-dots'
+import { isUpperCaseLetter } from '../utils/is-upper-case-letter'
+import { isSymbol } from '../utils/is-symbol'
+import { isNumber } from '../utils/is-number'
 
 type ColorizedLetterStyles = {
 	classNames: string
