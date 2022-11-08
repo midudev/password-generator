@@ -62,8 +62,6 @@ class Password {
 		let i
 		const validChars = []
 
-		console.log({ hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber })
-
 		let pattern = Password.getRegexPattern({ hasLowerCase, hasCapitalLetter, hasSymbol, hasNumber })
 
 		// Non memorable passwords will pick characters from a pre-generated
@@ -138,7 +136,7 @@ class Password {
 			hasNumber && '0-9'
 		]
 			.filter(Boolean)
-			.join('|')
+			.join('')
 		return regexString ? new RegExp(`^[${regexString}]*$`) : /\w/
 	}
 
