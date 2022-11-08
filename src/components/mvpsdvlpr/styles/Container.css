@@ -1,0 +1,19 @@
+.password-settings {
+	border: 1px solid #eaeaea;
+	border-radius: 5px;
+	background-color: #fff;
+	max-width: 800px;
+	margin: -10px auto 15px;
+	padding: 25px;
+}
+
+.password-settings h3 {
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.password-btn {
+	background-color: #4aa1f3;
+	color: #fff !important;
+	font-weight: 600;
+}
