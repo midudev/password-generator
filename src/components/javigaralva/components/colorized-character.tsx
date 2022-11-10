@@ -8,34 +8,35 @@ import { isUpperCaseLetter } from '../utils/is-upper-case-letter'
 import { isSymbol } from '../utils/is-symbol'
 import { isNumber } from '../utils/is-number'
 
-type ColorizedLetterStyles = {
+type ColorizedCharacterStyles = {
 	classNames: string
 	style: CSSProperties
 }
 
-interface ColorizedLetterProps {
-	letter: string
+interface ColorizedCharacterProps {
+	character: string
+	onClick: () => void
 }
-export function ColorizedLetter({ letter }: ColorizedLetterProps) {
-	const { classNames, style } = getStyles(letter)
+export function ColorizedCharacter({ character, onClick }: ColorizedCharacterProps) {
+	const { classNames, style } = getStyles(character)
 	return (
-		<span className={classNames} style={style}>
-			{letter}
+		<span className={classNames} style={style} onClick={onClick}>
+			{character}
 		</span>
 	)
 }
 
-function getStyles(letter: string): ColorizedLetterStyles {
+function getStyles(character: string): ColorizedCharacterStyles {
 	let classNames = 'text-white'
 	let style: CSSProperties = {}
-	if (isNumber(letter)) {
+	if (isNumber(character)) {
 		classNames = 'text-orange-600'
 		style = getBigDotsStyle()
-	} else if (isSymbol(letter)) {
+	} else if (isSymbol(character)) {
 		classNames = 'text-lime-600'
 		style = getBigCircleDottedStyle()
 		style.textShadow = 'rgb(116 255 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 0%) 1px 1px 6px'
-	} else if (isUpperCaseLetter(letter)) {
+	} else if (isUpperCaseLetter(character)) {
 		classNames = 'text-white/50'
 		style = getSquareAndVerticalLinesStyle()
 	} else {

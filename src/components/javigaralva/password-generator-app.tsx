@@ -1,6 +1,6 @@
 import { useState, useEffect, type ChangeEventHandler } from 'react'
 import { sample } from './utils/sample'
-import { ColorizedPassword } from './components/colorized-password'
+import { ColorizedPassword, OnClickCharacterHandler } from './components/colorized-password'
 import {
 	UPPER_CASE_LETTERS_LIST,
 	LOWER_CASE_LETTERS_LIST,
@@ -30,6 +30,22 @@ function generatePassword(options: GeneratePasswordOptions) {
 		(acc: string) => acc + getRandomCharacter(options),
 		''
 	)
+}
+interface ReplacePasswordCharacterAtParams {
+	password: string
+	index: number
+	options: GeneratePasswordOptions
+}
+function replacePasswordCharacterAt({
+	password,
+	index,
+	options
+}: ReplacePasswordCharacterAtParams): string {
+	const areParamsValid = index >= 0 && index <= password.length - 1
+	if (!areParamsValid) return password
+
+	const character = getRandomCharacter(options)
+	return password.substring(0, index) + character + password.substring(index + character.length)
 }
 
 function getRandomCharacter(options: GeneratePasswordOptions) {
@@ -76,6 +92,10 @@ export default function Main() {
 		setPasswordLength(Number(e.target.value))
 	}
 
+	const handleOnClickCharacter: OnClickCharacterHandler = ({ index }) => {
+		setPassword(replacePasswordCharacterAt({ password, index, options: DEFAULT_PASSWORD_OPTIONS }))
+	}
+
 	useEffect(() => {
 		setPassword(
 			generatePassword({
@@ -86,11 +106,11 @@ export default function Main() {
 	}, [passwordLength])
 
 	return (
-		<div className='w-screen h-screen bg-stone-800'>
+		<div className='w-screen h-screen bg-stone-800 select-none'>
 			<div className='flex place-content-center h-screen'>
 				<div className='grid min-w-100 place-items-center justify-evenly grid-rows-1'>
 					<div className='min-h-min mx-10 text-center mt-32'>
-						<ColorizedPassword password={password} />
+						<ColorizedPassword password={password} onClickCharacter={handleOnClickCharacter} />
 					</div>
 					<div className='flex justify-center items-end min-w-full min-h-full'>
 						<div className='mb-32 sm:mb-48'>
