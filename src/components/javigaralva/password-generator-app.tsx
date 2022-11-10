@@ -1,123 +1,24 @@
-import { useState, useEffect, type ChangeEventHandler } from 'react'
-import { sample } from './utils/sample'
-import { ColorizedPassword, OnClickCharacterHandler } from './components/colorized-password'
-import {
-	UPPER_CASE_LETTERS_LIST,
-	LOWER_CASE_LETTERS_LIST,
-	NUMBERS_LIST,
-	SYMBOLS_LIST
-} from './constants/constants'
-
-interface GeneratePasswordOptions {
-	length: number
-	hasUpperCaseLetters: boolean
-	hasLowerCaseLetters: boolean
-	hasNumbers: boolean
-	hasSymbols: boolean
-}
-const MIN_PASSWORD_LENGTH = 1
-const MAX_PASSWORD_LENGTH = 30
-const DEFAULT_PASSWORD_OPTIONS: GeneratePasswordOptions = {
-	length: 10,
-	hasUpperCaseLetters: true,
-	hasLowerCaseLetters: true,
-	hasNumbers: true,
-	hasSymbols: true
-}
-
-function generatePassword(options: GeneratePasswordOptions) {
-	return Array.from<undefined>({ length: options.length }).reduce(
-		(acc: string) => acc + getRandomCharacter(options),
-		''
-	)
-}
-interface ReplacePasswordCharacterAtParams {
-	password: string
-	index: number
-	options: GeneratePasswordOptions
-}
-function replacePasswordCharacterAt({
-	password,
-	index,
-	options
-}: ReplacePasswordCharacterAtParams): string {
-	const areParamsValid = index >= 0 && index <= password.length - 1
-	if (!areParamsValid) return password
-
-	const character = getRandomCharacter(options)
-	return password.substring(0, index) + character + password.substring(index + character.length)
-}
-
-function getRandomCharacter(options: GeneratePasswordOptions) {
-	return getRandomCharacterPickerFunction(options)?.() ?? ''
-}
-
-function getRandomCharacterPickerFunction(options: GeneratePasswordOptions) {
-	const choosableStrategy = getChoosableStrategies(options)
-	return sample(choosableStrategy)
-}
-
-function getChoosableStrategies(options: GeneratePasswordOptions) {
-	return [
-		options.hasUpperCaseLetters ? sampleUpperCaseLetter : undefined,
-		options.hasLowerCaseLetters ? sampleLowerCaseLetter : undefined,
-		options.hasNumbers ? sampleNumber : undefined,
-		options.hasSymbols ? sampleSymbol : undefined
-	].filter(Boolean)
-}
-
-const sampleUpperCaseLetter = makeSampleCharacterFunction(UPPER_CASE_LETTERS_LIST)
-const sampleLowerCaseLetter = makeSampleCharacterFunction(LOWER_CASE_LETTERS_LIST)
-const sampleNumber = makeSampleCharacterFunction(NUMBERS_LIST)
-const sampleSymbol = makeSampleCharacterFunction(SYMBOLS_LIST)
-
-function makeSampleCharacterFunction(characters: string[]) {
-	return () => sample(characters)
-}
+import { ColorizedPassword } from './components/colorized-password'
+import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from './constants/constants'
+import { usePasswordGenerator } from './hooks/use-password-generator'
 
 export default function Main() {
-	const [passwordLength, setPasswordLength] = useState(DEFAULT_PASSWORD_OPTIONS.length)
-	const [password, setPassword] = useState('')
-
-	const handleGeneratePassword = () => {
-		setPassword(
-			generatePassword({
-				...DEFAULT_PASSWORD_OPTIONS,
-				length: passwordLength
-			})
-		)
-	}
-
-	const handleOnChangeSlider: ChangeEventHandler<HTMLInputElement> = (e) => {
-		setPasswordLength(Number(e.target.value))
-	}
-
-	const handleOnClickCharacter: OnClickCharacterHandler = ({ index }) => {
-		setPassword(replacePasswordCharacterAt({ password, index, options: DEFAULT_PASSWORD_OPTIONS }))
-	}
-
-	useEffect(() => {
-		setPassword(
-			generatePassword({
-				...DEFAULT_PASSWORD_OPTIONS,
-				length: passwordLength
-			})
-		)
-	}, [passwordLength])
+	const { passwordLength, setPasswordLength, password, generatePassword, replaceCharacterAt } =
+		usePasswordGenerator()
 
 	return (
 		<div className='w-screen h-screen bg-stone-800 select-none'>
 			<div className='flex place-content-center h-screen'>
 				<div className='grid min-w-100 place-items-center justify-evenly grid-rows-1'>
 					<div className='min-h-min mx-10 text-center mt-32'>
-						<ColorizedPassword password={password} onClickCharacter={handleOnClickCharacter} />
+						<ColorizedPassword password={password} onClickCharacter={replaceCharacterAt} />
 					</div>
 					<div className='flex justify-center items-end min-w-full min-h-full'>
 						<div className='mb-32 sm:mb-48'>
 							<div className='flex flex-col place-items-center gap-10'>
 								<button
 									className='bg-yellow-600 rounded min-w-fit font-black uppercase py-2 w-60 text-lg text-black/75 tracking-wide duration-300 hover:shadow-yellow-400/25 scale-100 hover:bg-yellow-500 active:scale-95 shadow-2xl shadow-slate-900'
-									onClick={handleGeneratePassword}
+									onClick={generatePassword}
 								>
 									Generate
 								</button>
@@ -127,7 +28,7 @@ export default function Main() {
 									min={MIN_PASSWORD_LENGTH}
 									max={MAX_PASSWORD_LENGTH}
 									value={passwordLength}
-									onChange={handleOnChangeSlider}
+									onChange={(e) => setPasswordLength(Number(e.target.value))}
 								/>
 							</div>
 						</div>

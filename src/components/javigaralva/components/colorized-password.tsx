@@ -10,11 +10,11 @@ export type OnClickCharacterHandler = (
 
 interface ColorizedPasswordProps {
 	password: string
-	onClickCharacter: OnClickCharacterHandler
+	onClickCharacter?: OnClickCharacterHandler
 }
 export function ColorizedPassword({ password, onClickCharacter }: ColorizedPasswordProps) {
 	const handleOnClickCharacter: OnClickCharacterHandler = ({ character, index }) => {
-		onClickCharacter({ character, index })
+		onClickCharacter?.({ character, index })
 	}
 	return (
 		<div className='font-mono font-black text-4xl min-h-min tracking-widest cursor-pointer'>
