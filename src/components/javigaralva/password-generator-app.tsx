@@ -25,12 +25,8 @@ export default function Main() {
 									<GenerateButton onClick={generatePassword} />
 									<CopyButton onClick={handleCopy} />
 								</div>
-								<input
-									className='w-60 h-1 outline-2 rounded-lg outline-dotted outline-offset-8 outline-slate-50/25 appearance-none cursor-pointer bg-yellow-600/50 accent-yellow-600'
-									type='range'
-									min={MIN_PASSWORD_LENGTH}
-									max={MAX_PASSWORD_LENGTH}
-									value={passwordLength}
+								<PasswordLengthSlider
+									passwordLength={passwordLength}
 									onChange={(e) => setPasswordLength(Number(e.target.value))}
 								/>
 							</div>
@@ -42,6 +38,18 @@ export default function Main() {
 	)
 }
 
+function PasswordLengthSlider({ passwordLength, onChange }) {
+	return (
+		<input
+			className='w-60 h-1 outline-2 rounded-lg outline-dotted outline-offset-8 outline-slate-50/25 appearance-none cursor-pointer bg-yellow-600/50 accent-yellow-600'
+			type='range'
+			min={MIN_PASSWORD_LENGTH}
+			max={MAX_PASSWORD_LENGTH}
+			value={passwordLength}
+			onChange={onChange}
+		/>
+	)
+}
 function GenerateButton({ onClick }) {
 	return (
 		<Button
