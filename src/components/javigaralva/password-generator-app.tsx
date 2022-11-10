@@ -1,4 +1,4 @@
-import { Button } from './components/Button'
+import { Button } from './components/button'
 import { ColorizedPassword } from './components/colorized-password'
 import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from './constants/constants'
 import { usePasswordGenerator } from './hooks/use-password-generator'
