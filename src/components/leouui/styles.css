@@ -1,0 +1,55 @@
+#leouui .wid-100 {
+	width: 100%;
+}
+#leouui .flex-x-between{
+	justify-content: space-between;
+}
+#leouui .btn {
+	padding: 10px 13px;
+}
+#leouui .diff-btn {
+	font-size: 13px;
+	flex-grow: 1;
+	flex-shrink: 0;
+	border-radius: 5px;
+	border: 2px solid transparent;
+	transition:.3s;
+	font-weight: 600;
+}
+#leouui .generate-password-btn {
+	font-size: 14px;
+	border-radius: 5px;
+	background-color: #1f1f1f;
+	padding: 13px;
+	transition: .3s;
+}
+#leouui .generate-password-btn:hover {
+	background-color: #2c2c2c;
+}
+
+#leouui .password-box {
+	width: 400px;
+	max-width: 100%;
+	padding: 20px;
+}
+#leouui .password-input input {
+	color: #000;
+	padding: 10px 20px;
+	border-radius: 5px;
+	height:50px;
+}
+
+#leouui .password-config,.password-box{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+#leouui .password-config__diff{
+	display: flex;
+	gap: 20px;
+	justify-content: space-between;
+}
+#leouui .password-config__item-label {
+	font-size: 14px;
+	margin-bottom: 5px;
+}

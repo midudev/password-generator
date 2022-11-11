@@ -1,0 +1,33 @@
+---
+import Layout from '@layout'
+import App from './../../../components/leouui/App'
+---
+
+<link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;500;700&display=swap' rel='stylesheet'>
+<script src='https://kit.fontawesome.com/72662fb630.js' crossorigin='anonymous'></script>
+
+<style>
+	* {
+		box-sizing:border-box;
+		list-style: none;
+		padding: 0;
+		outline: none;
+	}
+	.main-container {
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		color: #fff;
+		background-color: #000;
+		align-items: center;
+		font-family: 'JetBrains Mono', monospace;
+	}
+</style>
+
+<Layout title='Password Generator'>
+	<main class='main-container' id='leouui'>
+		<App client:visible/>
+	</main>
+</Layout>
